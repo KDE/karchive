@@ -50,41 +50,41 @@ void KFilterTest::initTestCase()
     testData = "hello world\n";
 }
 
-void KFilterTest::test_block_write(const QString & fileName, const QByteArray& data)
+void KFilterTest::test_block_write(const QString &fileName, const QByteArray &data)
 {
     KFilterDev dev(fileName);
-    bool ok = dev.open( QIODevice::WriteOnly );
-    QVERIFY( ok );
+    bool ok = dev.open(QIODevice::WriteOnly);
+    QVERIFY(ok);
 
     const int ret = dev.write(data);
     QCOMPARE(ret, data.size());
 
     dev.close();
 
-    QVERIFY( QFile::exists( fileName ) );
+    QVERIFY(QFile::exists(fileName));
 }
 
 void KFilterTest::test_block_write()
 {
     qDebug() << " -- test_block_write gzip -- ";
     test_block_write(pathgz, testData);
-    QCOMPARE( QFileInfo( pathgz ).size(), 33LL ); // size of test.gz
+    QCOMPARE(QFileInfo(pathgz).size(), 33LL);     // size of test.gz
 
 #if HAVE_BZIP2_SUPPORT
     qDebug() << " -- test_block_write bzip2 -- ";
     test_block_write(pathbz2, testData);
-    QCOMPARE( QFileInfo( pathbz2 ).size(), 52LL ); // size of test.bz2
+    QCOMPARE(QFileInfo(pathbz2).size(), 52LL);     // size of test.bz2
 #endif
 
 #if HAVE_XZ_SUPPORT
     qDebug() << " -- test_block_write xz -- ";
     test_block_write(pathxz, testData);
-    QCOMPARE( QFileInfo( pathxz ).size(), 64LL ); // size of test.lzma
+    QCOMPARE(QFileInfo(pathxz).size(), 64LL);     // size of test.lzma
 #endif
 
     qDebug() << " -- test_block_write none -- ";
     test_block_write(pathnone, testData);
-    QCOMPARE( QFileInfo( pathnone ).size(), 12LL ); // size of test.txt
+    QCOMPARE(QFileInfo(pathnone).size(), 12LL);     // size of test.txt
 }
 
 void KFilterTest::test_biggerWrites()
@@ -95,8 +95,9 @@ void KFilterTest::test_biggerWrites()
     QByteArray data;
     data.reserve(10000);
     // Prepare test data
-    for (int i = 0; i < 8170; ++i)
+    for (int i = 0; i < 8170; ++i) {
         data.append((char)(qrand() % 256));
+    }
     QCOMPARE(data.size(), 8170);
     // 8170 random bytes compress to 8194 bytes due to the gzip header/footer.
     // Now we can go one by one until we pass 8192.
@@ -109,41 +110,39 @@ void KFilterTest::test_biggerWrites()
         // Test data is valid
         test_readall(outFile, QString::fromLatin1("application/x-gzip"), data);
 
-
         data.append((char)(qrand() % 256));
     }
 }
 
-void KFilterTest::test_block_read( const QString & fileName )
+void KFilterTest::test_block_read(const QString &fileName)
 {
     KFilterDev dev(fileName);
-    bool ok = dev.open( QIODevice::ReadOnly );
-    QVERIFY( ok );
+    bool ok = dev.open(QIODevice::ReadOnly);
+    QVERIFY(ok);
 
-    QByteArray array(1024,'\0');
+    QByteArray array(1024, '\0');
     QByteArray read;
     int n;
-    while ( ( n = dev.read( array.data(), array.size() ) ) )
-    {
-        QVERIFY( n > 0 );
-        read += QByteArray( array.constData(), n );
+    while ((n = dev.read(array.data(), array.size()))) {
+        QVERIFY(n > 0);
+        read += QByteArray(array.constData(), n);
         //qDebug() << "read returned " << n;
         //qDebug() << "read='" << read << "'";
 
         // pos() has no real meaning on sequential devices
         // Ah, but kzip uses kfilterdev as a non-sequential device...
 
-        QCOMPARE( (int)dev.pos(), (int)read.size() );
+        QCOMPARE((int)dev.pos(), (int)read.size());
         //qDebug() << "dev.at = " << dev->at();
     }
-    QCOMPARE( read, testData );
+    QCOMPARE(read, testData);
 
     // Test seeking back
     ok = dev.seek(0);
     // test readAll
     read = dev.readAll();
-    QCOMPARE( read.size(), testData.size() );
-    QCOMPARE( read, testData );
+    QCOMPARE(read.size(), testData.size());
+    QCOMPARE(read, testData);
 
     dev.close();
 }
@@ -164,19 +163,19 @@ void KFilterTest::test_block_read()
     test_block_read(pathnone);
 }
 
-void KFilterTest::test_getch( const QString & fileName )
+void KFilterTest::test_getch(const QString &fileName)
 {
     KFilterDev dev(fileName);
-    bool ok = dev.open( QIODevice::ReadOnly );
-    QVERIFY( ok );
+    bool ok = dev.open(QIODevice::ReadOnly);
+    QVERIFY(ok);
     QByteArray read;
     char ch;
-    while ( dev.getChar(&ch) ) {
+    while (dev.getChar(&ch)) {
         //printf("%c",ch);
         read += ch;
     }
     dev.close();
-    QCOMPARE( read, testData );
+    QCOMPARE(read, testData);
 }
 
 void KFilterTest::test_getch()
@@ -195,17 +194,17 @@ void KFilterTest::test_getch()
     test_getch(pathnone);
 }
 
-void KFilterTest::test_textstream(  const QString & fileName )
+void KFilterTest::test_textstream(const QString &fileName)
 {
     KFilterDev dev(fileName);
-    bool ok = dev.open( QIODevice::ReadOnly );
-    QVERIFY( ok );
-    QTextStream ts( &dev );
+    bool ok = dev.open(QIODevice::ReadOnly);
+    QVERIFY(ok);
+    QTextStream ts(&dev);
     QString readStr = ts.readAll();
     dev.close();
 
     QByteArray read = readStr.toLatin1();
-    QCOMPARE( read, testData );
+    QCOMPARE(read, testData);
 }
 
 void KFilterTest::test_textstream()
@@ -224,12 +223,12 @@ void KFilterTest::test_textstream()
     test_textstream(pathnone);
 }
 
-void KFilterTest::test_readall(const QString & fileName, const QString& mimeType, const QByteArray& expectedData)
+void KFilterTest::test_readall(const QString &fileName, const QString &mimeType, const QByteArray &expectedData)
 {
     QFile file(fileName);
     KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(mimeType);
     KCompressionDevice flt(&file, false, type);
-    bool ok = flt.open( QIODevice::ReadOnly );
+    bool ok = flt.open(QIODevice::ReadOnly);
     QVERIFY(ok);
     const QByteArray read = flt.readAll();
     QCOMPARE(read.size(), expectedData.size());
@@ -263,11 +262,11 @@ void KFilterTest::test_uncompressed()
     buffer.open(QIODevice::ReadOnly);
     KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
     KCompressionDevice flt(&buffer, false, type);
-    bool ok = flt.open( QIODevice::ReadOnly );
+    bool ok = flt.open(QIODevice::ReadOnly);
     QVERIFY(ok);
     QByteArray read = flt.readAll();
-    QCOMPARE( read.size(), testData.size() );
-    QCOMPARE( read, testData );
+    QCOMPARE(read.size(), testData.size());
+    QCOMPARE(read, testData);
 }
 
 void KFilterTest::test_findFilterByMimeType_data()
@@ -301,12 +300,12 @@ void KFilterTest::test_findFilterByMimeType()
     QCOMPARE(compressionType, type);
 }
 
-static void getCompressedData(QByteArray& data, QByteArray& compressedData)
+static void getCompressedData(QByteArray &data, QByteArray &compressedData)
 {
     data = "Hello world, this is a test for deflate, from bug 114830 / 117683";
-    compressedData.resize(long(data.size()*1.1f) + 12L); // requirements of zlib::compress2
+    compressedData.resize(long(data.size() * 1.1f) + 12L); // requirements of zlib::compress2
     unsigned long out_bufferlen = compressedData.size();
-    const int ret = compress2((Bytef*)compressedData.data(), &out_bufferlen, (const Bytef*)data.constData(), data.size(), 1);
+    const int ret = compress2((Bytef *)compressedData.data(), &out_bufferlen, (const Bytef *)data.constData(), data.size(), 1);
     QCOMPARE(ret, Z_OK);
     compressedData.resize(out_bufferlen);
 }
@@ -320,12 +319,12 @@ void KFilterTest::test_deflateWithZlibHeader()
     QBuffer buffer(&deflatedData);
     QIODevice *flt = KFilterDev::device(&buffer, "application/x-gzip", false);
     static_cast<KFilterDev *>(flt)->setSkipHeaders();
-    bool ok = flt->open( QIODevice::ReadOnly );
+    bool ok = flt->open(QIODevice::ReadOnly);
     QVERIFY(ok);
     const QByteArray read = flt->readAll();
 #else
     // Copied from HTTPFilter (which isn't linked into any kdelibs library)
-    KFilterBase* mFilterDevice = KCompressionDevice::filterForCompressionType(KCompressionDevice::GZip);
+    KFilterBase *mFilterDevice = KCompressionDevice::filterForCompressionType(KCompressionDevice::GZip);
     mFilterDevice->setFilterFlags(KFilterBase::ZlibHeaders);
     mFilterDevice->init(QIODevice::ReadOnly);
 

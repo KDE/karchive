@@ -43,7 +43,6 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     }
 }
 
-
 void recursive_transfer(const KArchiveDirectory *dir,
                         const QString &path, KZip *zip)
 {
@@ -56,7 +55,7 @@ void recursive_transfer(const KArchiveDirectory *dir,
             printf("FILE=%s\n", qPrintable(e->name()));
 
             QByteArray arr(f->data());
-            printf("SIZE=%i\n",arr.size());
+            printf("SIZE=%i\n", arr.size());
             QString str(arr);
             printf("DATA=%s\n", qPrintable(str));
 
@@ -167,7 +166,7 @@ static int doPrint(const QString &fileName, const QString &entryName)
     const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
 
     const QByteArray arr(f->data());
-    printf("SIZE=%i\n",arr.size());
+    printf("SIZE=%i\n", arr.size());
     QString str = QString::fromUtf8(arr);
     printf("%s", qPrintable(str));
     return zip.close() ? 0 : 1 /*error*/;
@@ -252,7 +251,7 @@ static int doUncompress(const QString &fileName)
     return load(&device);
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     if (argc < 3) {
         // ###### Note: please consider adding new tests to karchivetest (so that they can be automated)
@@ -267,7 +266,7 @@ int main(int argc, char** argv)
                " ./kziptest load file.zip                         load file.\n"
                " ./kziptest write file.bz2                        write compressed file.\n"
                " ./kziptest read file.bz2                         read uncompressed file.\n"
-        );
+              );
         return 1;
     }
     QCoreApplication app(argc, argv);

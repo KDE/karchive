@@ -43,8 +43,8 @@ public:
      * specify the compression layer !  If the mimetype is omitted, it
      * will be determined from the filename.
      */
-    explicit KTar( const QString& filename,
-                   const QString& mimetype = QString() );
+    explicit KTar(const QString &filename,
+                  const QString &mimetype = QString());
 
     /**
      * Creates an instance that operates on the given device.
@@ -54,7 +54,7 @@ public:
      * @param dev the device to read from. If the source is compressed, the
      * QIODevice must take care of decompression
      */
-    explicit KTar( QIODevice * dev );
+    explicit KTar(QIODevice *dev);
 
     /**
      * If the tar ball is still opened, then it will be
@@ -68,7 +68,7 @@ public:
      * for instance. Should only be called if the underlying device is a KFilterDev!
      * @param fileName the original file name
      */
-    void setOrigFileName( const QByteArray & fileName );
+    void setOrigFileName(const QByteArray &fileName);
 
 protected:
 
@@ -100,10 +100,10 @@ protected:
 private:
 
 protected:
-    void virtual_hook(int id, void* data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
 private:
     class KTarPrivate;
-    KTarPrivate* const d;
+    KTarPrivate *const d;
 };
 
 #endif

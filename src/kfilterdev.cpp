@@ -22,27 +22,22 @@
 
 #include <QDebug>
 
-
-static KCompressionDevice::CompressionType findCompressionByFileName( const QString & fileName )
+static KCompressionDevice::CompressionType findCompressionByFileName(const QString &fileName)
 {
-    if ( fileName.endsWith( QLatin1String(".gz"), Qt::CaseInsensitive ) )
-    {
+    if (fileName.endsWith(QLatin1String(".gz"), Qt::CaseInsensitive)) {
         return KCompressionDevice::GZip;
     }
 #if HAVE_BZIP2_SUPPORT
-    if ( fileName.endsWith( QLatin1String(".bz2"), Qt::CaseInsensitive ) )
-    {
+    if (fileName.endsWith(QLatin1String(".bz2"), Qt::CaseInsensitive)) {
         return KCompressionDevice::BZip2;
     }
 #endif
 #if HAVE_XZ_SUPPORT
-    if ( fileName.endsWith( QLatin1String(".lzma"), Qt::CaseInsensitive ) || fileName.endsWith( QLatin1String(".xz"), Qt::CaseInsensitive ) )
-    {
+    if (fileName.endsWith(QLatin1String(".lzma"), Qt::CaseInsensitive) || fileName.endsWith(QLatin1String(".xz"), Qt::CaseInsensitive)) {
         return KCompressionDevice::Xz;
     }
 #endif
-    else
-    {
+    else {
         // not a warning, since this is called often with other mimetypes (see #88574)...
         // maybe we can avoid that though?
         //qDebug() << "findCompressionByFileName : no compression found for " << fileName;
@@ -51,21 +46,21 @@ static KCompressionDevice::CompressionType findCompressionByFileName( const QStr
     return KCompressionDevice::None;
 }
 
-static KCompressionDevice::CompressionType findCompressionTypeByMimeType( const QString & mimeType )
+static KCompressionDevice::CompressionType findCompressionTypeByMimeType(const QString &mimeType)
 {
     if (mimeType == QLatin1String("application/x-gzip")) {
         return KCompressionDevice::GZip;
     }
 #if HAVE_BZIP2_SUPPORT
     if (mimeType == QLatin1String("application/x-bzip")
-        || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
+            || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
        ) {
         return KCompressionDevice::BZip2;
     }
 #endif
 #if HAVE_XZ_SUPPORT
-    if ( mimeType == QLatin1String( "application/x-lzma" ) // legacy name, still used
-        || mimeType == QLatin1String( "application/x-xz" ) // current naming
+    if (mimeType == QLatin1String("application/x-lzma")    // legacy name, still used
+            || mimeType == QLatin1String("application/x-xz")   // current naming
        ) {
         return KCompressionDevice::Xz;
     }
@@ -98,29 +93,29 @@ static KCompressionDevice::CompressionType findCompressionTypeByMimeType( const 
     return KCompressionDevice::None;
 }
 
-KFilterDev::KFilterDev(const QString& fileName)
-    :KCompressionDevice(fileName, findCompressionByFileName(fileName))
+KFilterDev::KFilterDev(const QString &fileName)
+    : KCompressionDevice(fileName, findCompressionByFileName(fileName))
 {
 }
 
-KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const QString& mimetype)
+KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const QString &mimetype)
 {
     return findCompressionTypeByMimeType(mimetype);
 }
 
 #ifndef KDE_NO_DEPRECATED
 //static
-KCompressionDevice* KFilterDev::deviceForFile( const QString & fileName, const QString & mimetype,
-                                       bool forceFilter )
+KCompressionDevice *KFilterDev::deviceForFile(const QString &fileName, const QString &mimetype,
+        bool forceFilter)
 {
     CompressionType type = mimetype.isEmpty() ? findCompressionByFileName(fileName)
                            : findCompressionTypeByMimeType(mimetype);
 
     //qDebug() << "KFilterDev::deviceForFile" << "fileName" << fileName << "mimetype" << mimetype << "CompressionType" << type;
 
-    KCompressionDevice* device = new KCompressionDevice(fileName, type);
+    KCompressionDevice *device = new KCompressionDevice(fileName, type);
     if (device->compressionType() == KCompressionDevice::None
-     && forceFilter) {
+            && forceFilter) {
         delete device;
         return 0;
     } else {
@@ -128,13 +123,14 @@ KCompressionDevice* KFilterDev::deviceForFile( const QString & fileName, const Q
     }
 }
 
-KCompressionDevice * KFilterDev::device( QIODevice* inDevice, const QString & mimetype, bool autoDeleteInDevice )
+KCompressionDevice *KFilterDev::device(QIODevice *inDevice, const QString &mimetype, bool autoDeleteInDevice)
 {
-    if (inDevice==0)
+    if (inDevice == 0) {
         return 0;
+    }
     CompressionType type = findCompressionTypeByMimeType(mimetype);
     qDebug() << "KFilterDev::deviceForFile" << "mimetype" << mimetype << "CompressionType" << type;
-    KCompressionDevice* device = new KCompressionDevice(inDevice, autoDeleteInDevice, type);
+    KCompressionDevice *device = new KCompressionDevice(inDevice, autoDeleteInDevice, type);
     return device;
 }
 #endif

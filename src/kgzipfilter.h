@@ -35,7 +35,6 @@ public:
     KGzipFilter();
     virtual ~KGzipFilter();
 
-
     virtual bool init(int mode);
 
     // The top of zlib.h explains it: there are three cases.
@@ -55,19 +54,19 @@ public:
     virtual bool terminate();
     virtual void reset();
     virtual bool readHeader(); // this is about the GZIP header
-    virtual bool writeHeader( const QByteArray & fileName );
+    virtual bool writeHeader(const QByteArray &fileName);
     void writeFooter();
-    virtual void setOutBuffer( char * data, uint maxlen );
-    virtual void setInBuffer( const char * data, uint size );
+    virtual void setOutBuffer(char *data, uint maxlen);
+    virtual void setInBuffer(const char *data, uint size);
     virtual int  inBufferAvailable() const;
     virtual int  outBufferAvailable() const;
     virtual Result uncompress();
-    virtual Result compress( bool finish );
+    virtual Result compress(bool finish);
 
 private:
     Result uncompress_noop();
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #endif

@@ -9,12 +9,12 @@ class KArchivePrivate
 {
 public:
     KArchivePrivate()
-        : rootDir( 0 ),
-          saveFile( 0 ),
-          dev ( 0 ),
+        : rootDir(0),
+          saveFile(0),
+          dev(0),
           fileName(),
-          mode( QIODevice::NotOpen ),
-          deviceOwned( false )
+          mode(QIODevice::NotOpen),
+          deviceOwned(false)
     {}
     ~KArchivePrivate()
     {
@@ -25,9 +25,9 @@ public:
 
     static QDateTime time_tToDateTime(uint time_t);
 
-    KArchiveDirectory* rootDir;
-    QSaveFile* saveFile;
-    QIODevice * dev;
+    KArchiveDirectory *rootDir;
+    QSaveFile *saveFile;
+    QIODevice *dev;
     QString fileName;
     QIODevice::OpenMode mode;
     bool deviceOwned; // if true, we (KArchive) own dev and must delete it

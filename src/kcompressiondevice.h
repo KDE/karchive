@@ -43,14 +43,14 @@ public:
      * @param autoDeleteInputDevice if true, @p inputDevice will be deleted automatically
      * @param type the CompressionType to use.
      */
-    KCompressionDevice(QIODevice* inputDevice, bool autoDeleteInputDevice, CompressionType type);
+    KCompressionDevice(QIODevice *inputDevice, bool autoDeleteInputDevice, CompressionType type);
 
     /**
      * Constructs a KCompressionDevice for a given CompressionType (e.g. GZip, BZip2 etc.).
      * @param fileName the name of the file to filter.
      * @param type the CompressionType to use.
      */
-    KCompressionDevice(const QString& fileName, CompressionType type);
+    KCompressionDevice(const QString &fileName, CompressionType type);
 
     /**
      * Destructs the KCompressionDevice.
@@ -68,7 +68,7 @@ public:
     /**
      * Open for reading or writing.
      */
-    virtual bool open( QIODevice::OpenMode mode );
+    virtual bool open(QIODevice::OpenMode mode);
 
     /**
      * Close after reading or writing.
@@ -80,7 +80,7 @@ public:
      * set the name of the original file, to be used in the gzip header.
      * @param fileName the name of the original file
      */
-    void setOrigFileName( const QByteArray & fileName );
+    void setOrigFileName(const QByteArray &fileName);
 
     /**
      * Call this let this device skip the gzip headers when reading/writing.
@@ -92,7 +92,7 @@ public:
     /**
      * That one can be quite slow, when going back. Use with care.
      */
-    virtual bool seek( qint64 );
+    virtual bool seek(qint64);
 
     virtual bool atEnd() const;
 
@@ -102,18 +102,18 @@ public:
      * @param type the type of the compression filter
      * @return the filter for the @p type, or 0 if not found
      */
-    static KFilterBase* filterForCompressionType(CompressionType type);
+    static KFilterBase *filterForCompressionType(CompressionType type);
 
 protected:
     friend class K7Zip;
 
-    virtual qint64 readData( char *data, qint64 maxlen );
-    virtual qint64 writeData( const char *data, qint64 len );
+    virtual qint64 readData(char *data, qint64 maxlen);
+    virtual qint64 writeData(const char *data, qint64 len);
 
-    KFilterBase* filterBase();
+    KFilterBase *filterBase();
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #include <QtCore/QMetaType>

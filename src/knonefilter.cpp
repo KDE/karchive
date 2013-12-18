@@ -44,7 +44,6 @@ KNoneFilter::KNoneFilter()
 {
 }
 
-
 KNoneFilter::~KNoneFilter()
 {
     delete d;
@@ -75,18 +74,18 @@ bool KNoneFilter::readHeader()
     return true;
 }
 
-bool KNoneFilter::writeHeader( const QByteArray & /*fileName*/ )
+bool KNoneFilter::writeHeader(const QByteArray & /*fileName*/)
 {
     return true;
 }
 
-void KNoneFilter::setOutBuffer( char * data, uint maxlen )
+void KNoneFilter::setOutBuffer(char *data, uint maxlen)
 {
     d->avail_out = maxlen;
     d->next_out = data;
 }
 
-void KNoneFilter::setInBuffer( const char * data, uint size )
+void KNoneFilter::setInBuffer(const char *data, uint size)
 {
     d->next_in = data;
     d->avail_in = size;
@@ -112,7 +111,7 @@ KNoneFilter::Result KNoneFilter::uncompress()
     return copyData();
 }
 
-KNoneFilter::Result KNoneFilter::compress( bool finish )
+KNoneFilter::Result KNoneFilter::compress(bool finish)
 {
     Q_ASSERT(d->mode == QIODevice::WriteOnly);
     Q_UNUSED(finish);
@@ -124,7 +123,7 @@ KNoneFilter::Result KNoneFilter::copyData()
 {
     if (d->avail_in > 0) {
         const int n = qMin(d->avail_in, d->avail_out);
-        memcpy( d->next_out, d->next_in, n );
+        memcpy(d->next_out, d->next_in, n);
         d->avail_out -= n;
         d->next_in += n;
         d->avail_in -= n;

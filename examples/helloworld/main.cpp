@@ -49,11 +49,11 @@ int main()
     if (archive.open(QIODevice::WriteOnly)) {
 
         // The archive is open, we can now write data
-        archive.writeFile(QStringLiteral ("world"),                      // File name
-                           QByteArray("The whole world inside a hello."), // Data
-                           0100644,                                       // Permissions
-                           QStringLiteral("owner"),                       // Owner
-                           QStringLiteral ("users"));                     // Group
+        archive.writeFile(QStringLiteral("world"),                       // File name
+                          QByteArray("The whole world inside a hello."), // Data
+                          0100644,                                       // Permissions
+                          QStringLiteral("owner"),                       // Owner
+                          QStringLiteral("users"));                      // Group
 
         // Don't forget to close!
         archive.close();

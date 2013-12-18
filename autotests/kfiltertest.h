@@ -20,7 +20,6 @@
 
 #include <QtCore/QObject>
 
-
 class KFilterTest : public QObject
 {
     Q_OBJECT
@@ -42,11 +41,11 @@ private Q_SLOTS:
     void test_saveFile();
 
 private:
-    void test_block_write(const QString & fileName, const QByteArray& data);
-    void test_block_read( const QString & fileName );
-    void test_getch( const QString & fileName );
-    void test_textstream( const QString & fileName );
-    void test_readall(const QString & fileName, const QString& mimeType, const QByteArray& expectedData);
+    void test_block_write(const QString &fileName, const QByteArray &data);
+    void test_block_read(const QString &fileName);
+    void test_getch(const QString &fileName);
+    void test_textstream(const QString &fileName);
+    void test_readall(const QString &fileName, const QString &mimeType, const QByteArray &expectedData);
 
 private:
     QString pathgz;
@@ -55,6 +54,5 @@ private:
     QString pathnone;
     QByteArray testData;
 };
-
 
 #endif

@@ -34,14 +34,14 @@ public:
      *
      * @param filename is a local path (e.g. "/home/holger/myfile.ar")
      */
-    KAr( const QString& filename );
+    KAr(const QString &filename);
 
     /**
      * Creates an instance that operates on the given device.
      * The device can be compressed (KFilterDev) or not (QFile, etc.).
      * @param dev the device to read from
      */
-    KAr( QIODevice * dev );
+    KAr(QIODevice *dev);
 
     /**
      * If the ar file is still opened, then it will be
@@ -85,10 +85,10 @@ protected:
     bool closeArchive() Q_DECL_OVERRIDE;
 
 protected:
-    void virtual_hook(int id, void* data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
 private:
     class KArPrivate;
-    KArPrivate* const d;
+    KArPrivate *const d;
 };
 
 #endif

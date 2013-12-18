@@ -53,7 +53,7 @@ protected:
      * from which the archive will be read from, or into which the archive
      * will be written, depending on the mode given to open().
      */
-    KArchive( const QString& fileName );
+    KArchive(const QString &fileName);
 
     /**
      * Base constructor (protected since this is a pure virtual class).
@@ -62,7 +62,7 @@ protected:
      * For a file in writing mode it is better to use the other constructor
      * though, to benefit from the use of QSaveFile when saving.
      */
-    KArchive( QIODevice * dev );
+    KArchive(QIODevice *dev);
 
 public:
     virtual ~KArchive();
@@ -73,7 +73,7 @@ public:
      * @param mode may be QIODevice::ReadOnly or QIODevice::WriteOnly
      * @see close
      */
-    virtual bool open( QIODevice::OpenMode mode );
+    virtual bool open(QIODevice::OpenMode mode);
 
     /**
      * Closes the archive.
@@ -101,7 +101,7 @@ public:
      * The underlying device.
      * @return the underlying device.
      */
-    QIODevice * device() const;
+    QIODevice *device() const;
 
     /**
      * The name of the archive file, as passed to the constructor that takes a
@@ -115,7 +115,7 @@ public:
      * of the archive can be accessed via this function.
      * @return the directory of the archive
      */
-    const KArchiveDirectory* directory() const;
+    const KArchiveDirectory *directory() const;
 
     /**
      * Writes a local file into the archive. The main difference with writeFile,
@@ -127,7 +127,7 @@ public:
      * @param fileName full path to an existing local file, to be added to the archive.
      * @param destName the resulting name (or relative path) of the file in the archive.
      */
-    bool addLocalFile( const QString& fileName, const QString& destName );
+    bool addLocalFile(const QString &fileName, const QString &destName);
 
     /**
      * Writes a local directory into the archive, including all its contents, recursively.
@@ -140,7 +140,7 @@ public:
      * @param path full path to an existing local directory, to be added to the archive.
      * @param destName the resulting name (or relative path) of the file in the archive.
      */
-    bool addLocalDirectory( const QString& path, const QString& destName );
+    bool addLocalDirectory(const QString &path, const QString &destName);
 
     /**
      * If an archive is opened for writing then you can add new directories
@@ -201,9 +201,9 @@ public:
      */
 #ifndef KDE_NO_DEPRECATED
     KARCHIVE_DEPRECATED bool writeFile(const QString &name, const QString &user, const QString &group,
-                   const char *data, qint64 size,
-                   mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
-                   const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+                                       const char *data, qint64 size,
+                                       mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
+                                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
     // The above can lead to ambiguous calls when using "..." for the first 4 arguments,
     // but that's good, better than unexpected behavior due to the signature change.
 #endif
@@ -230,7 +230,7 @@ public:
      * @param mtime modification time of the file
      * @param ctime time of last status change
      */
-    bool writeFile(const QString &name, const QByteArray& data,
+    bool writeFile(const QString &name, const QByteArray &data,
                    mode_t perm = 0100644,
                    const QString &user = QString(), const QString &group = QString(),
                    const QDateTime &atime = QDateTime(),
@@ -263,7 +263,7 @@ public:
     /**
      * Write data into the current file - to be called after calling prepareWriting
      */
-    virtual bool writeData( const char* data, qint64 size );
+    virtual bool writeData(const char *data, qint64 size);
 
     /**
      * Call finishWriting after writing the data.
@@ -278,7 +278,7 @@ protected:
      * Called by open.
      * @param mode may be QIODevice::ReadOnly or QIODevice::WriteOnly
      */
-    virtual bool openArchive( QIODevice::OpenMode mode ) = 0;
+    virtual bool openArchive(QIODevice::OpenMode mode) = 0;
 
     /**
      * Closes the archive.
@@ -293,7 +293,7 @@ protected:
      * Reimplement this to provide parsing/listing on demand.
      * @return the root directory
      */
-    virtual KArchiveDirectory* rootDir();
+    virtual KArchiveDirectory *rootDir();
 
     /**
      * Write a directory to the archive.
@@ -310,8 +310,8 @@ protected:
      * @param ctime time of last status change
      * @see writeDir
      */
-    virtual bool doWriteDir( const QString& name, const QString& user, const QString& group,
-                             mode_t perm, const QDateTime& atime, const QDateTime& mtime, const QDateTime& ctime ) = 0;
+    virtual bool doWriteDir(const QString &name, const QString &user, const QString &group,
+                            mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
 
     /**
      * Writes a symbolic link to the archive.
@@ -329,7 +329,7 @@ protected:
      */
     virtual bool doWriteSymLink(const QString &name, const QString &target,
                                 const QString &user, const QString &group,
-                                mode_t perm, const QDateTime& atime, const QDateTime& mtime, const QDateTime& ctime) = 0;
+                                mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
 
     /**
      * This virtual method must be implemented by subclasses.
@@ -346,9 +346,9 @@ protected:
      * @param ctime time of last status change
      * @see prepareWriting
      */
-    virtual bool doPrepareWriting( const QString& name, const QString& user,
-                                   const QString& group, qint64 size, mode_t perm,
-                                   const QDateTime& atime, const QDateTime& mtime, const QDateTime& ctime ) = 0;
+    virtual bool doPrepareWriting(const QString &name, const QString &user,
+                                  const QString &group, qint64 size, mode_t perm,
+                                  const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
 
     /**
      * Called after writing the data.
@@ -357,7 +357,7 @@ protected:
      * @param size the size of the file
      * @see finishWriting()
      */
-    virtual bool doFinishWriting( qint64 size ) = 0;
+    virtual bool doFinishWriting(qint64 size) = 0;
 
     /**
      * Ensures that @p path exists, create otherwise.
@@ -365,7 +365,7 @@ protected:
      * @param path the path of the directory
      * @return the directory with the given @p path
      */
-    KArchiveDirectory * findOrCreate( const QString & path );
+    KArchiveDirectory *findOrCreate(const QString &path);
 
     /**
      * Can be reimplemented in order to change the creation of the device
@@ -373,24 +373,24 @@ protected:
      * QSaveFile when saving, and a simple QFile on reading.
      * This method is called by open().
      */
-    virtual bool createDevice( QIODevice::OpenMode mode );
+    virtual bool createDevice(QIODevice::OpenMode mode);
 
     /**
      * Can be called by derived classes in order to set the underlying device.
      * Note that KArchive will -not- own the device, it must be deleted by the derived class.
      */
-    void setDevice( QIODevice *dev );
+    void setDevice(QIODevice *dev);
 
     /**
      * Derived classes call setRootDir from openArchive,
      * to set the root directory after parsing an existing archive.
      */
-    void setRootDir( KArchiveDirectory *rootDir );
+    void setRootDir(KArchiveDirectory *rootDir);
 
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 private:
-    KArchivePrivate* const d;
+    KArchivePrivate *const d;
 };
 
 class KArchiveEntryPrivate;
@@ -414,9 +414,9 @@ public:
      * @param group the group that owns the entry
      * @param symlink the symlink, or QString()
      */
-    KArchiveEntry(KArchive* archive, const QString& name, int access, const QDateTime &date,
-                   const QString& user, const QString& group,
-                   const QString& symlink );
+    KArchiveEntry(KArchive *archive, const QString &name, int access, const QDateTime &date,
+                  const QString &user, const QString &group,
+                  const QString &symlink);
 
     virtual ~KArchiveEntry();
 
@@ -467,12 +467,12 @@ public:
     virtual bool isDirectory() const;
 
 protected:
-    KArchive* archive() const;
+    KArchive *archive() const;
 
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 private:
-    KArchiveEntryPrivate* const d;
+    KArchiveEntryPrivate *const d;
 };
 
 class KArchiveFilePrivate;
@@ -498,9 +498,9 @@ public:
      * @param pos the position of the file in the directory
      * @param size the size of the file
      */
-    KArchiveFile( KArchive* archive, const QString& name, int access, const QDateTime& date,
-                  const QString& user, const QString& group, const QString &symlink,
-                  qint64 pos, qint64 size );
+    KArchiveFile(KArchive *archive, const QString &name, int access, const QDateTime &date,
+                 const QString &user, const QString &group, const QString &symlink,
+                 qint64 pos, qint64 size);
 
     /**
      * Destructor. Do not call this, KArchive takes care of it.
@@ -521,7 +521,7 @@ public:
      * Set size of data, usually after writing the file.
      * @param s the new size of the file
      */
-    void setSize( qint64 s );
+    void setSize(qint64 s);
 
     /**
      * Returns the data of the file.
@@ -553,12 +553,12 @@ public:
      * @param dest the directory to extract to
      * @return true on success, false if the file (dest + '/' + name()) couldn't be created
      */
-    bool copyTo(const QString& dest) const;
+    bool copyTo(const QString &dest) const;
 
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 private:
-    KArchiveFilePrivate* const d;
+    KArchiveFilePrivate *const d;
 };
 
 class KArchiveDirectoryPrivate;
@@ -582,9 +582,9 @@ public:
      * @param group the group that owns the entry
      * @param symlink the symlink, or QString()
      */
-    KArchiveDirectory( KArchive* archive, const QString& name, int access, const QDateTime& date,
-                   const QString& user, const QString& group,
-                   const QString& symlink);
+    KArchiveDirectory(KArchive *archive, const QString &name, int access, const QDateTime &date,
+                      const QString &user, const QString &group,
+                      const QString &symlink);
 
     virtual ~KArchiveDirectory();
 
@@ -601,19 +601,19 @@ public:
      * @param name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
      * @return a pointer to the entry in the directory.
      */
-    const KArchiveEntry* entry( const QString& name ) const;
+    const KArchiveEntry *entry(const QString &name) const;
 
     /**
      * @internal
      * Adds a new entry to the directory.
      */
-    void addEntry( KArchiveEntry* );
+    void addEntry(KArchiveEntry *);
 
     /**
      * @internal
      * Adds a new entry to the directory.
      */
-    void removeEntry( KArchiveEntry* );
+    void removeEntry(KArchiveEntry *);
 
     /**
      * Checks whether this entry is a directory.
@@ -628,12 +628,12 @@ public:
      * @param recursive if set to true, subdirectories are extracted as well
      * @return true on success, false if the directory (dest + '/' + name()) couldn't be created
      */
-     bool copyTo(const QString& dest, bool recursive = true) const;
+    bool copyTo(const QString &dest, bool recursive = true) const;
 
 protected:
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 private:
-    KArchiveDirectoryPrivate* const d;
+    KArchiveDirectoryPrivate *const d;
 };
 
 #endif

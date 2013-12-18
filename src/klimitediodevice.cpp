@@ -18,28 +18,28 @@
 
 #include "klimitediodevice_p.h"
 
-KLimitedIODevice::KLimitedIODevice( QIODevice *dev, qint64 start, qint64 length )
-    : m_dev( dev ), m_start( start ), m_length( length )
+KLimitedIODevice::KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length)
+    : m_dev(dev), m_start(start), m_length(length)
 {
     //qDebug() << "start=" << start << "length=" << length;
-    open( QIODevice::ReadOnly ); //krazy:exclude=syscalls
+    open(QIODevice::ReadOnly);   //krazy:exclude=syscalls
 }
 
-bool KLimitedIODevice::open( QIODevice::OpenMode m )
+bool KLimitedIODevice::open(QIODevice::OpenMode m)
 {
     //qDebug() << "m=" << m;
-    if ( m & QIODevice::ReadOnly ) {
+    if (m & QIODevice::ReadOnly) {
         /*bool ok = false;
           if ( m_dev->isOpen() )
           ok = ( m_dev->mode() == QIODevice::ReadOnly );
           else
           ok = m_dev->open( m );
           if ( ok )*/
-        m_dev->seek( m_start ); // No concurrent access !
+        m_dev->seek(m_start);   // No concurrent access !
     } else {
         //qWarning() << "KLimitedIODevice::open only supports QIODevice::ReadOnly!";
     }
-    setOpenMode( QIODevice::ReadOnly );
+    setOpenMode(QIODevice::ReadOnly);
     return true;
 }
 
@@ -52,26 +52,26 @@ qint64 KLimitedIODevice::size() const
     return m_length;
 }
 
-qint64 KLimitedIODevice::readData( char * data, qint64 maxlen )
+qint64 KLimitedIODevice::readData(char *data, qint64 maxlen)
 {
-    maxlen = qMin( maxlen, m_length - pos() ); // Apply upper limit
-    return m_dev->read( data, maxlen );
+    maxlen = qMin(maxlen, m_length - pos());   // Apply upper limit
+    return m_dev->read(data, maxlen);
 }
 
-bool KLimitedIODevice::seek( qint64 pos )
+bool KLimitedIODevice::seek(qint64 pos)
 {
-    Q_ASSERT( pos <= m_length );
-    pos = qMin( pos, m_length ); // Apply upper limit
-    bool ret = m_dev->seek( m_start + pos );
-    if ( ret ) {
-        QIODevice::seek( pos );
+    Q_ASSERT(pos <= m_length);
+    pos = qMin(pos, m_length);   // Apply upper limit
+    bool ret = m_dev->seek(m_start + pos);
+    if (ret) {
+        QIODevice::seek(pos);
     }
     return ret;
 }
 
 qint64 KLimitedIODevice::bytesAvailable() const
 {
-     return QIODevice::bytesAvailable();
+    return QIODevice::bytesAvailable();
 }
 
 bool KLimitedIODevice::isSequential() const

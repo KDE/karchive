@@ -44,13 +44,13 @@ public:
      * Constructs a KFilterDev for a given FileName.
      * @param fileName the name of the file to filter.
      */
-    KFilterDev(const QString& fileName);
+    KFilterDev(const QString &fileName);
 
     /**
      * Returns the compression type for the given mimetype, if possible. Otherwise returns None.
      * This handles simple cases like application/x-gzip, but also application/x-compressed-tar, and inheritance.
      */
-    static CompressionType compressionTypeForMimeType(const QString& mimetype);
+    static CompressionType compressionTypeForMimeType(const QString &mimetype);
 
     /**
      * @deprecated Use the constructor instead (if mimetype is empty), or KCompressionDevice (if
@@ -92,9 +92,9 @@ public:
      *         The returned KCompressionDevice has to be deleted after using.
      */
 #ifndef KDE_NO_DEPRECATED
-    KARCHIVE_DEPRECATED static KCompressionDevice* deviceForFile( const QString & fileName,
-                                                                  const QString & mimetype = QString(),
-                                                                  bool forceFilter = false );
+    KARCHIVE_DEPRECATED static KCompressionDevice *deviceForFile(const QString &fileName,
+            const QString &mimetype = QString(),
+            bool forceFilter = false);
 #endif
 
     /**
@@ -124,10 +124,9 @@ public:
      * @return a KCompressionDevice that filters the original stream. Must be deleted after using
      */
 #ifndef KDE_NO_DEPRECATED
-    KARCHIVE_DEPRECATED static KCompressionDevice* device( QIODevice* inDevice, const QString & mimetype,
-                                                           bool autoDeleteInDevice = true );
+    KARCHIVE_DEPRECATED static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
+            bool autoDeleteInDevice = true);
 #endif
 };
-
 
 #endif

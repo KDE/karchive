@@ -39,7 +39,7 @@ public:
     KXzFilter();
     virtual ~KXzFilter();
 
-    virtual bool init( int);
+    virtual bool init(int);
 
     enum Flag {
         AUTO = 0,
@@ -53,21 +53,27 @@ public:
         SPARC = 8
     };
 
-    virtual bool init( int, Flag flag, const QVector<unsigned char>& props);
+    virtual bool init(int, Flag flag, const QVector<unsigned char> &props);
     virtual int mode() const;
     virtual bool terminate();
     virtual void reset();
-    virtual bool readHeader() { return true; } // lzma handles it by itself ! Cool !
-    virtual bool writeHeader( const QByteArray & ) { return true; }
-    virtual void setOutBuffer( char * data, uint maxlen );
-    virtual void setInBuffer( const char * data, uint size );
+    virtual bool readHeader()
+    {
+        return true;    // lzma handles it by itself ! Cool !
+    }
+    virtual bool writeHeader(const QByteArray &)
+    {
+        return true;
+    }
+    virtual void setOutBuffer(char *data, uint maxlen);
+    virtual void setInBuffer(const char *data, uint size);
     virtual int  inBufferAvailable() const;
     virtual int  outBufferAvailable() const;
     virtual Result uncompress();
-    virtual Result compress( bool finish );
+    virtual Result compress(bool finish);
 private:
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #endif

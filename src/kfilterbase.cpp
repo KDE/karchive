@@ -26,11 +26,11 @@ class KFilterBase::Private
 public:
     Private()
         : m_flags(WithHeaders)
-        ,  m_dev( 0L )
-        , m_bAutoDel( false )
+        ,  m_dev(0L)
+        , m_bAutoDel(false)
     {}
     FilterFlags m_flags;
-    QIODevice * m_dev;
+    QIODevice *m_dev;
     bool m_bAutoDel;
 };
 
@@ -41,18 +41,19 @@ KFilterBase::KFilterBase()
 
 KFilterBase::~KFilterBase()
 {
-    if ( d->m_bAutoDel )
+    if (d->m_bAutoDel) {
         delete d->m_dev;
+    }
     delete d;
 }
 
-void KFilterBase::setDevice( QIODevice * dev, bool autodelete )
+void KFilterBase::setDevice(QIODevice *dev, bool autodelete)
 {
     d->m_dev = dev;
     d->m_bAutoDel = autodelete;
 }
 
-QIODevice * KFilterBase::device()
+QIODevice *KFilterBase::device()
 {
     return d->m_dev;
 }
@@ -86,5 +87,7 @@ KFilterBase::FilterFlags KFilterBase::filterFlags() const
     return d->m_flags;
 }
 
-void KFilterBase::virtual_hook( int, void* )
-{ /*BASE::virtual_hook( id, data );*/ }
+void KFilterBase::virtual_hook(int, void *)
+{
+    /*BASE::virtual_hook( id, data );*/
+}

@@ -38,25 +38,24 @@ public:
     KNoneFilter();
     virtual ~KNoneFilter();
 
-
     virtual bool init(int mode);
     virtual int mode() const;
     virtual bool terminate();
     virtual void reset();
     virtual bool readHeader(); // this is about the GZIP header
-    virtual bool writeHeader( const QByteArray & fileName );
-    virtual void setOutBuffer( char * data, uint maxlen );
-    virtual void setInBuffer( const char * data, uint size );
+    virtual bool writeHeader(const QByteArray &fileName);
+    virtual void setOutBuffer(char *data, uint maxlen);
+    virtual void setInBuffer(const char *data, uint size);
     virtual int  inBufferAvailable() const;
     virtual int  outBufferAvailable() const;
     virtual Result uncompress();
-    virtual Result compress( bool finish );
+    virtual Result compress(bool finish);
 
 private:
     Result copyData();
 
     class Private;
-    Private* const d;
+    Private *const d;
 };
 
 #endif

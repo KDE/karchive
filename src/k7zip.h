@@ -34,7 +34,7 @@ public:
      *
      * @param filename is a local path (e.g. "/home/user/myfile.7z")
      */
-    explicit K7Zip( const QString& filename );
+    explicit K7Zip(const QString &filename);
 
     /**
      * Creates an instance that operates on the given device.
@@ -44,7 +44,7 @@ public:
      * @param dev the device to read from. If the source is compressed, the
      * QIODevice must take care of decompression
      */
-    explicit K7Zip( QIODevice * dev );
+    explicit K7Zip(QIODevice *dev);
 
     /**
      * If the archive is still opened, then it will be
@@ -69,7 +69,7 @@ protected:
     bool doFinishWriting(qint64 size) Q_DECL_OVERRIDE;
 
     /// Reimplemented from KArchive
-    bool writeData(const char* data, qint64 size) Q_DECL_OVERRIDE;
+    bool writeData(const char *data, qint64 size) Q_DECL_OVERRIDE;
 
     /**
      * Opens the archive for reading.
@@ -81,10 +81,10 @@ protected:
     bool closeArchive() Q_DECL_OVERRIDE;
 
 protected:
-    void virtual_hook(int id, void* data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
 private:
     class K7ZipPrivate;
-    K7ZipPrivate* const d;
+    K7ZipPrivate *const d;
 };
 
 #endif

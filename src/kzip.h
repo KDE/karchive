@@ -51,7 +51,7 @@ public:
      *
      * @param filename is a local path (e.g. "/home/holger/myfile.zip")
      */
-    KZip( const QString& filename );
+    KZip(const QString &filename);
 
     /**
      * Creates an instance that operates on the given device.
@@ -60,7 +60,7 @@ public:
      * in case it's compressed!
      * @param dev the device to access
      */
-    KZip( QIODevice * dev );
+    KZip(QIODevice *dev);
 
     /**
      * If the zip file is still opened, then it will be
@@ -74,7 +74,7 @@ public:
     enum ExtraField { NoExtraField = 0,      ///< No extra field
                       ModificationTime = 1,  ///< Modification time ("extended timestamp" header)
                       DefaultExtraField = 1
-    };
+                    };
 
     /**
      * Call this before writeFile or prepareWriting, to define what the next
@@ -82,7 +82,7 @@ public:
      * @param ef the type of "extra field"
      * @see extraField()
      */
-    void setExtraField( ExtraField ef );
+    void setExtraField(ExtraField ef);
 
     /**
      * The current type of "extra field" that will be used for new files.
@@ -95,9 +95,8 @@ public:
      * Describes the compression type for a given file in the Zip archive.
      */
     enum Compression { NoCompression = 0,     ///< Uncompressed.
-               DeflateCompression = 1 ///< Deflate compression method.
-    };
-
+                       DeflateCompression = 1 ///< Deflate compression method.
+                     };
 
     /**
      * Call this before writeFile or prepareWriting, to define whether the next
@@ -105,7 +104,7 @@ public:
      * @param c the new compression mode
      * @see compression()
      */
-    void setCompression( Compression c );
+    void setCompression(Compression c);
 
     /**
      * The current compression mode that will be used for new files.
@@ -155,13 +154,12 @@ protected:
                     const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) Q_DECL_OVERRIDE;
 
 protected:
-    void virtual_hook(int id, void* data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
 
 private:
     class KZipPrivate;
-    KZipPrivate * const d;
+    KZipPrivate *const d;
 };
-
 
 /**
  * A KZipFileEntry represents an file in a zip archive.
@@ -172,10 +170,10 @@ public:
     /**
      * Creates a new zip file entry. Do not call this, KZip takes care of it.
      */
-    KZipFileEntry( KZip* zip, const QString& name, int access, const QDateTime& date,
-                   const QString& user, const QString& group, const QString& symlink,
-                   const QString& path, qint64 start, qint64 uncompressedSize,
-                   int encoding, qint64 compressedSize);
+    KZipFileEntry(KZip *zip, const QString &name, int access, const QDateTime &date,
+                  const QString &user, const QString &group, const QString &symlink,
+                  const QString &path, qint64 start, qint64 uncompressedSize,
+                  int encoding, qint64 compressedSize);
 
     /**
      * Destructor. Do not call this.
@@ -212,11 +210,11 @@ public:
      * who will have to delete it.
      * The returned device auto-opens (in readonly mode), no need to open it.
      */
-    QIODevice* createDevice() const Q_DECL_OVERRIDE;
+    QIODevice *createDevice() const Q_DECL_OVERRIDE;
 
 private:
     class KZipFileEntryPrivate;
-    KZipFileEntryPrivate * const d;
+    KZipFileEntryPrivate *const d;
 };
 
 #endif

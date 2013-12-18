@@ -26,19 +26,18 @@
 
 #if HAVE_XZ_SUPPORT
 extern "C" {
-	#include <lzma.h>
+#include <lzma.h>
 }
 
 #include <QDebug>
 
 #include <qiodevice.h>
 
-
 class KXzFilter::Private
 {
 public:
     Private()
-    : isInitialized(false)
+        : isInitialized(false)
     {
         memset(&zStream, 0, sizeof(zStream));
         mode = 0;
@@ -53,23 +52,22 @@ public:
 };
 
 KXzFilter::KXzFilter()
-    :d(new Private)
+    : d(new Private)
 {
 }
-
 
 KXzFilter::~KXzFilter()
 {
     delete d;
 }
 
-bool KXzFilter::init( int mode)
+bool KXzFilter::init(int mode)
 {
     QVector<unsigned char> props;
     return init(mode, AUTO, props);
 }
 
-bool KXzFilter::init( int mode, Flag flag, const QVector<unsigned char>& properties )
+bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properties)
 {
     if (d->isInitialized) {
         terminate();
@@ -79,20 +77,19 @@ bool KXzFilter::init( int mode, Flag flag, const QVector<unsigned char>& propert
     lzma_ret result;
     d->zStream.next_in = 0;
     d->zStream.avail_in = 0;
-    if ( mode == QIODevice::ReadOnly ) {
+    if (mode == QIODevice::ReadOnly) {
         switch (flag) {
         case AUTO:
             /* We set the memlimit for decompression to 100MiB which should be
             * more than enough to be sufficient for level 9 which requires 65 MiB.
             */
-            result = lzma_auto_decoder(&d->zStream, 100<<20, 0);
+            result = lzma_auto_decoder(&d->zStream, 100 << 20, 0);
             if (result != LZMA_OK) {
                 qWarning() << "lzma_auto_decoder returned" << result;
                 return false;
             }
             break;
-        case LZMA:
-        {
+        case LZMA: {
             d->filters[0].id = LZMA_FILTER_LZMA1;
             d->filters[0].options = NULL;
             d->filters[1].id = LZMA_VLI_UNKNOWN;
@@ -111,8 +108,7 @@ bool KXzFilter::init( int mode, Flag flag, const QVector<unsigned char>& propert
             }
             break;
         }
-        case LZMA2:
-        {
+        case LZMA2: {
             d->filters[0].id = LZMA_FILTER_LZMA2;
             d->filters[0].options = NULL;
             d->filters[1].id = LZMA_VLI_UNKNOWN;
@@ -129,8 +125,7 @@ bool KXzFilter::init( int mode, Flag flag, const QVector<unsigned char>& propert
             }
             break;
         }
-        case BCJ:
-        {
+        case BCJ: {
             d->filters[0].id = LZMA_FILTER_X86;
             d->filters[0].options = NULL;
 
@@ -165,7 +160,7 @@ bool KXzFilter::init( int mode, Flag flag, const QVector<unsigned char>& propert
             }
         }
 
-    } else if ( mode == QIODevice::WriteOnly ) {
+    } else if (mode == QIODevice::WriteOnly) {
         if (flag == AUTO) {
             result = lzma_easy_encoder(&d->zStream, LZMA_PRESET_DEFAULT, LZMA_CHECK_CRC32);
         } else {
@@ -215,16 +210,16 @@ void KXzFilter::reset()
     //qDebug() << "KXzFilter::reset";
     // liblzma doesn't have a reset call...
     terminate();
-    init( d->mode );
+    init(d->mode);
 }
 
-void KXzFilter::setOutBuffer( char * data, uint maxlen )
+void KXzFilter::setOutBuffer(char *data, uint maxlen)
 {
     d->zStream.avail_out = maxlen;
     d->zStream.next_out = (uint8_t *)data;
 }
 
-void KXzFilter::setInBuffer( const char *data, unsigned int size )
+void KXzFilter::setInBuffer(const char *data, unsigned int size)
 {
     d->zStream.avail_in = size;
     d->zStream.next_in = (uint8_t *)const_cast<char *>(data);
@@ -252,31 +247,31 @@ KXzFilter::Result KXzFilter::uncompress()
     }*/
 
     switch (result) {
-        case LZMA_OK:
-                return KFilterBase::Ok;
-        case LZMA_STREAM_END:
-                return KFilterBase::End;
-        default:
-                return KFilterBase::Error;
+    case LZMA_OK:
+        return KFilterBase::Ok;
+    case LZMA_STREAM_END:
+        return KFilterBase::End;
+    default:
+        return KFilterBase::Error;
     }
 }
 
-KXzFilter::Result KXzFilter::compress( bool finish )
+KXzFilter::Result KXzFilter::compress(bool finish)
 {
     //qDebug() << "Calling lzma_code with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
-    lzma_ret result = lzma_code(&d->zStream, finish ? LZMA_FINISH : LZMA_RUN );
+    lzma_ret result = lzma_code(&d->zStream, finish ? LZMA_FINISH : LZMA_RUN);
     switch (result) {
-        case LZMA_OK:
-                return KFilterBase::Ok;
-                break;
-        case LZMA_STREAM_END:
-                //qDebug() << "  lzma_code returned " << result;
-                return KFilterBase::End;
-		break;
-        default:
-                //qDebug() << "  lzma_code returned " << result;
-                return KFilterBase::Error;
-                break;
+    case LZMA_OK:
+        return KFilterBase::Ok;
+        break;
+    case LZMA_STREAM_END:
+        //qDebug() << "  lzma_code returned " << result;
+        return KFilterBase::End;
+        break;
+    default:
+        //qDebug() << "  lzma_code returned " << result;
+        return KFilterBase::Error;
+        break;
     }
 }
 

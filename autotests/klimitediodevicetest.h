@@ -25,15 +25,14 @@
 #include <QList>
 #include <QObject>
 
-struct ChunkData
-{
+struct ChunkData {
     QByteArray data;
     int offset;
 };
 
 class KLimitedIODeviceTest : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 private Q_SLOTS:
     void initTestCase();
 

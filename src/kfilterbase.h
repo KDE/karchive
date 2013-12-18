@@ -44,7 +44,7 @@ public:
      * @param dev the device on which the filter will work
      * @param autodelete if true, @p dev is deleted when the filter is deleted
      */
-    void setDevice( QIODevice * dev, bool autodelete = false );
+    void setDevice(QIODevice *dev, bool autodelete = false);
     // Note that this isn't in the constructor, because of KLibFactory::create,
     // but it should be called before using the filterbase !
 
@@ -52,9 +52,9 @@ public:
      * Returns the device on which the filter will work.
      * @returns the device on which the filter will work
      */
-    QIODevice * device();
+    QIODevice *device();
     /** \internal */
-    virtual bool init( int mode ) = 0;
+    virtual bool init(int mode) = 0;
     /** \internal */
     virtual int mode() const = 0;
     /** \internal */
@@ -64,11 +64,11 @@ public:
     /** \internal */
     virtual bool readHeader() = 0;
     /** \internal */
-    virtual bool writeHeader( const QByteArray & filename ) = 0;
+    virtual bool writeHeader(const QByteArray &filename) = 0;
     /** \internal */
-    virtual void setOutBuffer( char * data, uint maxlen ) = 0;
+    virtual void setOutBuffer(char *data, uint maxlen) = 0;
     /** \internal */
-    virtual void setInBuffer( const char * data, uint size ) = 0;
+    virtual void setInBuffer(const char *data, uint size) = 0;
     /** \internal */
     virtual bool inBufferEmpty() const;
     /** \internal */
@@ -83,7 +83,7 @@ public:
     /** \internal */
     virtual Result uncompress() = 0;
     /** \internal */
-    virtual Result compress( bool finish ) = 0;
+    virtual Result compress(bool finish) = 0;
 
     /**
      * \internal
@@ -105,11 +105,11 @@ protected:
     /** Virtual hook, used to add new "virtual" functions while maintaining
         binary compatibility. Unused in this class.
     */
-    virtual void virtual_hook( int id, void* data );
+    virtual void virtual_hook(int id, void *data);
 private:
-    Q_DISABLE_COPY( KFilterBase )
+    Q_DISABLE_COPY(KFilterBase)
     class Private;
-    Private * const d;
+    Private *const d;
 };
 
 #endif
