@@ -384,19 +384,32 @@ void KFilterTest::test_saveFile()
     QFETCH(QString, fileName);
     QFETCH(KCompressionDevice::CompressionType, compressionType);
 
+    int numLines = 1000;
+    const QString lineTemplate = QStringLiteral("Hello world, this is the text for line %1");
     const QString currentdir = QDir::currentPath();
     const QString outFile = QDir::currentPath() + '/' + fileName;
     {
         QSaveFile file(outFile);
+        file.setDirectWriteFallback(true);
         QVERIFY(file.open(QIODevice::WriteOnly));
         KCompressionDevice device(&file, false, compressionType);
         QVERIFY(device.open(QIODevice::WriteOnly));
-        device.write("The data to be compressed");
+        QTextStream stream(&device);
+        stream.setCodec (QTextCodec::codecForName("UTF-8"));
+        for( int i = 0 ; i < numLines ; ++i ) {
+            stream << lineTemplate.arg(i);
+            stream << QString("\n");
+        }
+        stream.flush();
+        QCOMPARE(stream.status(), QTextStream::Ok);
+        //device.write("The data to be compressed");
         device.close();
         QVERIFY(file.commit());
     }
     QVERIFY(QFile::exists(outFile));
     KCompressionDevice reader(outFile, compressionType);
     QVERIFY(reader.open(QIODevice::ReadOnly));
-    QCOMPARE(reader.readAll(), QByteArray("The data to be compressed"));
+    for( int i = 0 ; i < numLines ; ++i ) {
+        QCOMPARE(QString::fromUtf8(reader.readLine()), QString(lineTemplate.arg(i) + '\n'));
+    }
 }

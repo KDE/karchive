@@ -126,6 +126,7 @@ KNoneFilter::Result KNoneFilter::copyData()
         memcpy(d->next_out, d->next_in, n);
         d->avail_out -= n;
         d->next_in += n;
+        d->next_out += n;
         d->avail_in -= n;
         return KFilterBase::Ok;
     } else {
