@@ -38,6 +38,8 @@ add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
 generate_export_header(KF5Archive BASE_NAME KArchive)
 add_library(KF5::Archive ALIAS KF5Archive)
 
+target_include_directories(KF5Archive INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/karchive>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KArchive>")
+
 target_link_libraries(KF5Archive PUBLIC Qt5::Core)
 target_link_libraries(KF5Archive PRIVATE ${karchive_OPTIONAL_LIBS} ${ZLIB_LIBRARY} )
 
@@ -46,19 +48,26 @@ set_target_properties(KF5Archive PROPERTIES VERSION   ${KARCHIVE_VERSION_STRING}
                                             EXPORT_NAME "Archive"
 )
 
+ecm_generate_headers(
+  KArchive
+  KAr
+  KCompressionDevice
+  KFilterBase
+  KFilterDev
+  KTar
+  KZip
+
+  MODULE_NAME KArchive
+  REQUIRED_HEADERS KArchive_HEADERS
+)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KArchive DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+
 install(TARGETS KF5Archive EXPORT KF5ArchiveTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-install( FILES
-  karchive.h
-  kar.h
-  kcompressiondevice.h
-  kfilterbase.h
-  kfilterdev.h
-  ktar.h
-  kzip.h
-
+install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/karchive_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel
+  ${KArchive_HEADERS}
+  DESTINATION ${INCLUDE_INSTALL_DIR}/karchive COMPONENT Devel
 )
 
 
