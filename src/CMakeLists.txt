@@ -68,15 +68,17 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KArchive DESTINATION ${INCLUDE_INS
 
 install(TARGETS KF5Archive EXPORT KF5ArchiveTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
+if(LIBLZMA_FOUND)
+   ecm_generate_headers(
+     K7Zip
+     MODULE_NAME KArchive
+     REQUIRED_HEADERS KArchive_HEADERS
+   )
+endif()
+
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/karchive_export.h
   ${KArchive_HEADERS}
   DESTINATION ${INCLUDE_INSTALL_DIR}/karchive COMPONENT Devel
 )
 
-
-if(LIBLZMA_FOUND)
-   install( FILES k7zip.h
-            DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel
-   )
-endif()
