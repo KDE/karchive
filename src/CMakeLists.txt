@@ -50,12 +50,16 @@ set_target_properties(KF5Archive PROPERTIES VERSION   ${KARCHIVE_VERSION_STRING}
 
 ecm_generate_headers(
   KArchive
+  KArchiveEntry
+  KArchiveFile
+  KArchiveDirectory
   KAr
   KCompressionDevice
   KFilterBase
   KFilterDev
   KTar
   KZip
+  KZipFileEntry
 
   MODULE_NAME KArchive
   REQUIRED_HEADERS KArchive_HEADERS
