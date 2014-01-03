@@ -38,7 +38,7 @@ add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
 generate_export_header(KF5Archive BASE_NAME KArchive)
 add_library(KF5::Archive ALIAS KF5Archive)
 
-target_include_directories(KF5Archive INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/karchive>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KArchive>")
+target_include_directories(KF5Archive INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KArchive>")
 
 target_link_libraries(KF5Archive PUBLIC Qt5::Core)
 target_link_libraries(KF5Archive PRIVATE ${karchive_OPTIONAL_LIBS} ${ZLIB_LIBRARY} )
@@ -79,6 +79,6 @@ endif()
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/karchive_export.h
   ${KArchive_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/karchive COMPONENT Devel
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KArchive COMPONENT Devel
 )
 
