@@ -61,7 +61,7 @@ public:
      * instead of:
      * QIODevice * dev = KFilterDev::deviceForFile(fileName);
      *
-     * If the mimetype was specified explicitely, use:
+     * If the mimetype was specified explicitly, use:
      * KCompressionDevice dev(fileName, KCompressionDevice::GZip);
      * instead of:
      * QIODevice * dev = KFilterDev::deviceForFile(fileName, "application/gzip");

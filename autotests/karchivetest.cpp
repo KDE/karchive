@@ -348,7 +348,7 @@ void KArchiveTest::testNullDevice()
 
 void KArchiveTest::testNonExistentFile()
 {
-    KTar tar(QLatin1String("nonexistant.tar.gz"));
+    KTar tar(QLatin1String("nonexistent.tar.gz"));
     QVERIFY(!tar.open(QIODevice::ReadOnly));
 }
 
