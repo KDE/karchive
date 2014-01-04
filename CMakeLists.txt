@@ -79,6 +79,23 @@ install(FILES
 
 install(EXPORT KF5ArchiveTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5ArchiveTargets.cmake NAMESPACE KF5:: )
 
+### qmake support - TODO, make a ecm macro for this
+set(FRAMEWORK_NAME KArchive)
+set(FRAMEWORK_LIBNAME KF5Archive)
+set(FRAMEWORK_QTDEPS core)
+set(ECM_VERSION_STRING "${KARCHIVE_VERSION_STRING}")
+set(ECM_VERSION_MAJOR "${KARCHIVE_VERSION_MAJOR}")
+set(ECM_VERSION_MINOR "${KARCHIVE_VERSION_MINOR}")
+set(ECM_VERSION_PATCH "${KARCHIVE_VERSION_PATCH}")
+
+# This default value makes "installing qt and kf5 into the same prefix" work out of the box.
+# Packagers who use -DCMAKE_INSTALL_PREFIX=/usr will certainly want to set ECM_MKSPECS_INSTALL_DIR to something like share/qt5/mkspecs/modules
+set(ECM_MKSPECS_INSTALL_DIR mkspecs/modules CACHE PATH "The directory where mkspecs will be installed to.")
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${FRAMEWORK_NAME}.pri.in ${CMAKE_CURRENT_BINARY_DIR}/qt_${FRAMEWORK_NAME}.pri @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qt_${FRAMEWORK_NAME}.pri DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+#### end of qmake support
+
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
   feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 endif()
