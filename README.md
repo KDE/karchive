@@ -1,5 +1,7 @@
 # KArchive
 
+Reading, creating, and manipulating file archives
+
 ## Introduction
 
 KArchive provides classes for easy reading, creation and manipulation of
@@ -27,6 +29,7 @@ relevant KArchive subclass for details).
 
 ## Links
 
+- Home page: <https://projects.kde.org/projects/frameworks/karchive>
 - Mailing list: <https://mail.kde.org/mailman/listinfo/kde-frameworks-devel>
 - IRC channel: #kde-devel on Freenode
 - Git repository: <https://projects.kde.org/projects/frameworks/karchive/repository>
