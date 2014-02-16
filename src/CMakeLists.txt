@@ -56,7 +56,8 @@ set_target_properties(KF5Archive PROPERTIES
     EXPORT_NAME "Archive"
 )
 
-ecm_generate_headers(
+ecm_generate_headers(KArchive_HEADERS
+    HEADER_NAMES
     KArchive
     KArchiveEntry
     KArchiveFile
@@ -69,21 +70,17 @@ ecm_generate_headers(
     KZip
     KZipFileEntry
 
-    MODULE_NAME KArchive
     REQUIRED_HEADERS KArchive_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KArchive
-        DESTINATION ${INCLUDE_INSTALL_DIR}
-        COMPONENT Devel)
 
 install(TARGETS KF5Archive
         EXPORT KF5ArchiveTargets
         ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(LIBLZMA_FOUND)
-    ecm_generate_headers(
+    ecm_generate_headers(KArchive_HEADERS
+        HEADER_NAMES
         K7Zip
-        MODULE_NAME KArchive
         REQUIRED_HEADERS KArchive_HEADERS
     )
 endif()
