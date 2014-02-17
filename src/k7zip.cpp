@@ -702,8 +702,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
     quint64 numInStreamsTotal = 0;
     quint64 numOutStreamsTotal = 0;
-    for (int i = 0; i < numCoders; i++) {
-        Folder::FolderInfo *info = new Folder::FolderInfo();
+    for (int i = 0; i < numCoders; ++i) {
         //BYTE
         //    {
         //      0:3 CodecIdSize
@@ -720,6 +719,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
             delete folder;
             return 0;
         }
+        Folder::FolderInfo *info = new Folder::FolderInfo();
         unsigned char codecID[codecIdSize];
         for (int i = 0; i < codecIdSize; ++i) {
             codecID[i] = readByte();
@@ -750,6 +750,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
         if ((coderInfo & 0x80) != 0) {
             qDebug() << "unsupported";
+            delete info;
             delete folder;
             return 0;
         }
