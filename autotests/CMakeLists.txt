@@ -20,7 +20,10 @@ endmacro(KARCHIVE_UNIT_TESTS)
 
 karchive_unit_tests(
     karchivetest
+    deprecatedtest
 )
+
+target_compile_definitions(deprecatedtest PRIVATE KARCHIVE_DEPRECATED=)
 
 ########### klimitediodevicetest ###############
 

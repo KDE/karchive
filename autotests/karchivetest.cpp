@@ -955,11 +955,11 @@ void KArchiveTest::testZipWithOverwrittenFileName()
 
     const QByteArray fileData1("There could be a fire, if there is smoke.");
     const QString fileName = QLatin1String("wisdom");
-    QVERIFY(zip.writeFile(fileName, "konqi", "dragons", fileData1.constData(), fileData1.size()));
+    QVERIFY(zip.writeFile(fileName, fileData1, 0100644, "konqi", "dragons"));
 
     // now overwrite it
     const QByteArray fileData2("If there is smoke, there could be a fire.");
-    QVERIFY(zip.writeFile(fileName, "konqi", "dragons", fileData2.constData(), fileData2.size()));
+    QVERIFY(zip.writeFile(fileName, fileData2, 0100644, "konqi", "dragons"));
 
     QVERIFY(zip.close());
 
