@@ -199,7 +199,7 @@ public:
      * @param ctime time of last status change
      * @overload
      */
-#ifndef KDE_NO_DEPRECATED
+#ifndef KARCHIVE_NO_DEPRECATED
     KARCHIVE_DEPRECATED bool writeFile(const QString &name, const QString &user, const QString &group,
                                        const char *data, qint64 size,
                                        mode_t perm = 0100644, const QDateTime &atime = QDateTime(),

@@ -303,7 +303,7 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
     return true;
 }
 
-#ifndef KDE_NO_DEPRECATED
+#ifndef KARCHIVE_NO_DEPRECATED
 bool KArchive::writeFile(const QString &name, const QString &user,
                          const QString &group, const char *data, qint64 size,
                          mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime)
