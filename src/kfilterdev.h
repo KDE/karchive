@@ -94,7 +94,21 @@ public:
 #ifndef KARCHIVE_NO_DEPRECATED
     KARCHIVE_DEPRECATED static KCompressionDevice *deviceForFile(const QString &fileName,
             const QString &mimetype = QString(),
-            bool forceFilter = false);
+            bool forceFilter = false)
+    {
+        KCompressionDevice *device;
+        if (mimetype.isEmpty()) {
+            device = new KFilterDev(fileName);
+        } else {
+            device = new KCompressionDevice(fileName, compressionTypeForMimeType(mimetype));
+        }
+        if (device->compressionType() == KCompressionDevice::None && forceFilter) {
+            delete device;
+            return 0;
+        } else {
+            return device;
+        }
+    }
 #endif
 
     /**
@@ -125,7 +139,15 @@ public:
      */
 #ifndef KARCHIVE_NO_DEPRECATED
     KARCHIVE_DEPRECATED static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
-            bool autoDeleteInDevice = true);
+            bool autoDeleteInDevice = true)
+    {
+        if (inDevice == 0) {
+            return 0;
+        }
+        CompressionType type = compressionTypeForMimeType(mimetype);
+        KCompressionDevice *device = new KCompressionDevice(inDevice, autoDeleteInDevice, type);
+        return device;
+    }
 #endif
 };
 

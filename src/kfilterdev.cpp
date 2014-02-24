@@ -46,7 +46,12 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
     return KCompressionDevice::None;
 }
 
-static KCompressionDevice::CompressionType findCompressionTypeByMimeType(const QString &mimeType)
+KFilterDev::KFilterDev(const QString &fileName)
+    : KCompressionDevice(fileName, findCompressionByFileName(fileName))
+{
+}
+
+KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const QString &mimeType)
 {
     if (mimeType == QLatin1String("application/x-gzip")) {
         return KCompressionDevice::GZip;
@@ -92,46 +97,4 @@ static KCompressionDevice::CompressionType findCompressionTypeByMimeType(const Q
     //qDebug() << "no compression found for" << mimeType;
     return KCompressionDevice::None;
 }
-
-KFilterDev::KFilterDev(const QString &fileName)
-    : KCompressionDevice(fileName, findCompressionByFileName(fileName))
-{
-}
-
-KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const QString &mimetype)
-{
-    return findCompressionTypeByMimeType(mimetype);
-}
-
-#ifndef KARCHIVE_NO_DEPRECATED
-//static
-KCompressionDevice *KFilterDev::deviceForFile(const QString &fileName, const QString &mimetype,
-        bool forceFilter)
-{
-    CompressionType type = mimetype.isEmpty() ? findCompressionByFileName(fileName)
-                           : findCompressionTypeByMimeType(mimetype);
-
-    //qDebug() << "KFilterDev::deviceForFile" << "fileName" << fileName << "mimetype" << mimetype << "CompressionType" << type;
-
-    KCompressionDevice *device = new KCompressionDevice(fileName, type);
-    if (device->compressionType() == KCompressionDevice::None
-            && forceFilter) {
-        delete device;
-        return 0;
-    } else {
-        return device;
-    }
-}
-
-KCompressionDevice *KFilterDev::device(QIODevice *inDevice, const QString &mimetype, bool autoDeleteInDevice)
-{
-    if (inDevice == 0) {
-        return 0;
-    }
-    CompressionType type = findCompressionTypeByMimeType(mimetype);
-    qDebug() << "KFilterDev::deviceForFile" << "mimetype" << mimetype << "CompressionType" << type;
-    KCompressionDevice *device = new KCompressionDevice(inDevice, autoDeleteInDevice, type);
-    return device;
-}
-#endif
 

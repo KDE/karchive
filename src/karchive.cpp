@@ -303,16 +303,6 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
     return true;
 }
 
-#ifndef KARCHIVE_NO_DEPRECATED
-bool KArchive::writeFile(const QString &name, const QString &user,
-                         const QString &group, const char *data, qint64 size,
-                         mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime)
-{
-    QByteArray array(data, size);
-    return writeFile(name, array, perm, user, group, atime, mtime, ctime);
-}
-#endif
-
 bool KArchive::writeFile(const QString &name, const QByteArray &data,
                          mode_t perm,
                          const QString &user, const QString &group, const QDateTime &atime,

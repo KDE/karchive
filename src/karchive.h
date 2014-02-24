@@ -180,30 +180,17 @@ public:
                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
 
     /**
-     * If an archive is opened for writing then you can add a new file
-     * using this function. If the file name is for example "mydir/test1" then
-     * the directory "mydir" is automatically appended first if that did not
-     * happen yet.
-     *
-     * This method also allows some file metadata to be
-     * set. However, depending on the archive type not all metadata might be
-     * regarded.
-     * @param name the name of the file
-     * @param user the user that owns the file
-     * @param group the group that owns the file
-     * @param data the data to write (@p size bytes)
-     * @param size the size of the file
-     * @param perm permissions of the file
-     * @param atime time the file was last accessed
-     * @param mtime modification time of the file
-     * @param ctime time of last status change
-     * @overload
+     * @deprecated use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)
      */
 #ifndef KARCHIVE_NO_DEPRECATED
     KARCHIVE_DEPRECATED bool writeFile(const QString &name, const QString &user, const QString &group,
                                        const char *data, qint64 size,
                                        mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
-                                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+                                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime())
+    {
+        QByteArray array(data, size);
+        return writeFile(name, array, perm, user, group, atime, mtime, ctime);
+    }
     // The above can lead to ambiguous calls when using "..." for the first 4 arguments,
     // but that's good, better than unexpected behavior due to the signature change.
 #endif
