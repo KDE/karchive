@@ -51,7 +51,7 @@ ecm_setup_version(${KF5_VERSION}
     VARIABLE_PREFIX KARCHIVE
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfigVersion.cmake"
-)
+    SOVERSION 5)
 
 add_subdirectory(src)
 add_subdirectory(autotests)
