@@ -180,7 +180,7 @@ public:
                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
 
     /**
-     * @deprecated use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)
+     * @deprecated since 5.0, use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)
      */
 #ifndef KARCHIVE_NO_DEPRECATED
     KARCHIVE_DEPRECATED bool writeFile(const QString &name, const QString &user, const QString &group,
