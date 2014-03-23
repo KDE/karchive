@@ -133,7 +133,7 @@ public:
      * Writes a local directory into the archive, including all its contents, recursively.
      * Calls addLocalFile for each file to be added.
      *
-     * Since KDE 3.2 it will also add a @p path that is a symbolic link to a
+     * It will also add a @p path that is a symbolic link to a
      * directory. The symbolic link will be dereferenced and the content of the
      * directory it is pointing to added recursively. However, symbolic links
      * *under* @p path will be stored as is.
