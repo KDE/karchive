@@ -27,7 +27,7 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     QStringList::ConstIterator it = l.constBegin();
     for (; it != l.constEnd(); ++it) {
         const KArchiveEntry *entry = dir->entry((*it));
-        printf("mode=%07o %s %s %s %s%s %lld isdir=%d\n", entry->permissions(), entry->datetime().toString("yyyy-MM-dd hh:mm:ss").toLatin1().constData(),
+        printf("mode=%07o %s %s %s %s%s %lld isdir=%d\n", entry->permissions(), entry->date().toString("yyyy-MM-dd hh:mm:ss").toLatin1().constData(),
                entry->user().toLatin1().constData(), entry->group().toLatin1().constData(), path.toLatin1().constData(), (*it).toLatin1().constData(),
                entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0,
                entry->isDirectory());

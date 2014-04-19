@@ -15,7 +15,7 @@ karchive_executable_tests(
     kziptest
 )
 
-if(liblzma_found)
+if(LIBLZMA_FOUND)
     karchive_executable_tests(
         k7ziptest
     )
