@@ -70,7 +70,7 @@ ecm_configure_package_config_file(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h
-        DESTINATION ${INCLUDE_INSTALL_DIR}
+        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}
         COMPONENT Devel)
 
 install(FILES

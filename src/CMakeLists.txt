@@ -39,7 +39,7 @@ generate_export_header(KF5Archive BASE_NAME KArchive)
 add_library(KF5::Archive ALIAS KF5Archive)
 
 target_include_directories(KF5Archive
-    INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KArchive>"
+    INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KArchive>"
 )
 
 target_link_libraries(KF5Archive
@@ -75,7 +75,7 @@ ecm_generate_headers(KArchive_HEADERS
 
 install(TARGETS KF5Archive
         EXPORT KF5ArchiveTargets
-        ${INSTALL_TARGETS_DEFAULT_ARGS})
+        ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(LIBLZMA_FOUND)
     ecm_generate_headers(KArchive_HEADERS
@@ -88,7 +88,7 @@ endif()
 install(FILES
             ${CMAKE_CURRENT_BINARY_DIR}/karchive_export.h
             ${KArchive_HEADERS}
-        DESTINATION ${INCLUDE_INSTALL_DIR}/KArchive
+        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KArchive
         COMPONENT Devel)
 
 include(ECMGeneratePriFile)
