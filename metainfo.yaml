@@ -1,1 +1,9 @@
+maintainer: dfaure
+description: File compression
 tier: 1
+type: functional
+platforms:
+    - name: All
+portingAid: false
+deprecated: false
+release: true
