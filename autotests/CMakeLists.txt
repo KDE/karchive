@@ -13,20 +13,19 @@ ecm_add_tests(
     karchivetest.cpp
     kfiltertest.cpp
     deprecatedtest.cpp
-    NAME_PREFIX "karchive-"
     LINK_LIBRARIES KF5::Archive Qt5::Test
 )
 
-target_compile_definitions(karchive-deprecatedtest PRIVATE KARCHIVE_DEPRECATED=)
-target_link_libraries(karchive-kfiltertest ${ZLIB_LIBRARIES})
+target_compile_definitions(deprecatedtest PRIVATE KARCHIVE_DEPRECATED=)
+target_link_libraries(kfiltertest ${ZLIB_LIBRARIES})
 
 ########### klimitediodevicetest ###############
 
 ecm_add_test(
     klimitediodevicetest.cpp
     ../src/klimitediodevice.cpp
-    TEST_NAME karchive-klimitediodevicetest
+    TEST_NAME klimitediodevicetest
     LINK_LIBRARIES Qt5::Test
 )
-target_include_directories(karchive-klimitediodevicetest
+target_include_directories(klimitediodevicetest
     PRIVATE $<TARGET_PROPERTY:KF5Archive,INTERFACE_INCLUDE_DIRECTORIES>)
