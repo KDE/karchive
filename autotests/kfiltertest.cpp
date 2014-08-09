@@ -409,7 +409,12 @@ void KFilterTest::test_saveFile()
     QVERIFY(QFile::exists(outFile));
     KCompressionDevice reader(outFile, compressionType);
     QVERIFY(reader.open(QIODevice::ReadOnly));
+    QString expectedFullData;
     for( int i = 0 ; i < numLines ; ++i ) {
         QCOMPARE(QString::fromUtf8(reader.readLine()), QString(lineTemplate.arg(i) + '\n'));
+        expectedFullData += QString(lineTemplate.arg(i) + '\n');
     }
+    KFilterDev otherReader(outFile);
+    QVERIFY(otherReader.open(QIODevice::ReadOnly));
+    QCOMPARE(QString::fromLatin1(otherReader.readAll()), expectedFullData);
 }
