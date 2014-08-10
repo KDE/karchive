@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    //@@snippet(kcompressiondevice_example)
     // Open the input archive
     KCompressionDevice input(&file, false, KCompressionDevice::BZip2);
     input.open(QIODevice::ReadOnly);
@@ -86,6 +87,7 @@ int main(int argc, char *argv[])
 
     input.close();
     output.close();
+    //@@end(kcompressiondevice_example)
 
     return 0;
 }

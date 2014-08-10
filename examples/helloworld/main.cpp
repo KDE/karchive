@@ -42,6 +42,7 @@
 
 int main()
 {
+    //@@snippet(helloworld)
     // Create a zip archive
     KZip archive(QStringLiteral("hello.zip"));
 
@@ -58,6 +59,7 @@ int main()
         // Don't forget to close!
         archive.close();
     }
+    //@@end(helloworld)
 
     return 0;
 }
