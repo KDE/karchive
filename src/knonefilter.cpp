@@ -121,6 +121,7 @@ KNoneFilter::Result KNoneFilter::compress(bool finish)
 
 KNoneFilter::Result KNoneFilter::copyData()
 {
+    Q_ASSERT(d->avail_out > 0);
     if (d->avail_in > 0) {
         const int n = qMin(d->avail_in, d->avail_out);
         memcpy(d->next_out, d->next_in, n);

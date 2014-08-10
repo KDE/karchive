@@ -417,4 +417,5 @@ void KFilterTest::test_saveFile()
     KFilterDev otherReader(outFile);
     QVERIFY(otherReader.open(QIODevice::ReadOnly));
     QCOMPARE(QString::fromLatin1(otherReader.readAll()), expectedFullData);
+    QVERIFY(otherReader.atEnd());
 }

@@ -213,7 +213,7 @@ bool KCompressionDevice::seek(qint64 pos)
 
 bool KCompressionDevice::atEnd() const
 {
-    return (d->result == KFilterBase::End)
+    return (d->type == KCompressionDevice::None || d->result == KFilterBase::End)
            && QIODevice::atEnd() // take QIODevice's internal buffer into account
            && d->filter->device()->atEnd();
 }
