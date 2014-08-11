@@ -42,7 +42,7 @@
 
 int main()
 {
-    //@@snippet(helloworld)
+    //@@snippet_begin(helloworld)
     // Create a zip archive
     KZip archive(QStringLiteral("hello.zip"));
 
