@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 
     input.close();
     output.close();
-    //@@end(kcompressiondevice_example)
+    //@@snippet_end
 
     return 0;
 }

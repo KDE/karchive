@@ -59,7 +59,7 @@ int main()
         // Don't forget to close!
         archive.close();
     }
-    //@@end(helloworld)
+   //@@snippet_end
 
     return 0;
 }
