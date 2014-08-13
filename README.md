@@ -27,9 +27,3 @@ appropriate subclass of KArchive (eg: K7Zip for 7-Zip files).  You may need to
 combine this with usage of KCompressionDevice (see the API documentation for the
 relevant KArchive subclass for details).
 
-## Links
-
-- Home page: <https://projects.kde.org/projects/frameworks/karchive>
-- Mailing list: <https://mail.kde.org/mailman/listinfo/kde-frameworks-devel>
-- IRC channel: #kde-devel on Freenode
-- Git repository: <https://projects.kde.org/projects/frameworks/karchive/repository>
