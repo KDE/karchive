@@ -38,6 +38,7 @@
  *      ./helloworld
 */
 
+#include <QDebug>
 #include <kzip.h>
 
 int main()
@@ -58,6 +59,26 @@ int main()
 
         // Don't forget to close!
         archive.close();
+    }
+
+    if (archive.open(QIODevice::ReadOnly)) {
+        const KArchiveDirectory *dir = archive.directory();
+
+        const KArchiveEntry *e = dir->entry("world");
+    if (!e) {
+      qDebug() << "File not found!";
+      return -1;
+    }
+    const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
+    QByteArray arr(f->data());
+    qDebug() << arr; // the file contents
+
+    // To avoid reading everything into memory in one go, we can use createDevice() instead
+    QIODevice *dev = f->createDevice();
+    while (!dev->atEnd()) {
+        qDebug() << dev->readLine();
+    }
+    delete dev;
     }
    //@@snippet_end
 
