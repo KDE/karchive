@@ -7,17 +7,10 @@ Reading, creating, and manipulating file archives
 KArchive provides classes for easy reading, creation and manipulation of
 "archive" formats like ZIP and TAR.
 
-If also provides transparent compression and decompression of data, like the
+It also provides transparent compression and decompression of data, like the
 GZip format, via a subclass of QIODevice.
 
 ## Usage
-
-If you are using CMake, you need to have
-
-    find_package(KF5Archive NO_MODULE)
-
-(or similar) in your CMakeLists.txt file, and you need to link any target that
-uses KArchive against KF5::Archive.
 
 If you want to read and write compressed data, just create an instance of
 KCompressionDevice and write to or read from that.
