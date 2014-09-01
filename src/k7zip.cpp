@@ -559,7 +559,7 @@ quint64 K7Zip::K7ZipPrivate::readUInt64()
 
 quint64 K7Zip::K7ZipPrivate::readNumber()
 {
-    if (!buffer) {
+    if (!buffer || (quint64)(pos + 8) > end) {
         return 0;
     }
 
