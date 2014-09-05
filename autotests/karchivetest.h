@@ -88,6 +88,8 @@ private Q_SLOTS:
     void testZipWithOverwrittenFileName();
     void testZipAddLocalDirectory();
 
+    void testRcc();
+
 #if HAVE_XZ_SUPPORT
     void testCreate7Zip_data()
     {

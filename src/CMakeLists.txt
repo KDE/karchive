@@ -32,6 +32,7 @@ set(karchive_SRCS
     knonefilter.cpp
     ktar.cpp
     kzip.cpp
+    krcc.cpp
 )
 
 add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})

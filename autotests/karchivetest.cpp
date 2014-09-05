@@ -22,6 +22,7 @@
 #include <ktar.h>
 #include <kzip.h>
 #include <k7zip.h>
+#include <krcc.h>
 
 #include <QtTest/QtTest>
 #include <QtCore/QFileInfo>
@@ -1017,6 +1018,24 @@ void KArchiveTest::testZipAddLocalDirectory()
         const KArchiveFile *f = (KArchiveFile *)e;
         QCOMPARE(f->data(), file1Data);
     }
+}
+
+void KArchiveTest::testRcc()
+{
+    const QString rccFile = QFINDTESTDATA("runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
+    QVERIFY(!rccFile.isEmpty());
+    KRcc rcc(rccFile);
+    QVERIFY(rcc.open(QIODevice::ReadOnly));
+    const KArchiveDirectory *rootDir = rcc.directory();
+    QVERIFY(rootDir != 0);
+    const KArchiveEntry *rrEntry = rootDir->entry("runtime_resource");
+    QVERIFY(rrEntry && rrEntry->isDirectory());
+    const KArchiveDirectory *rrDir = static_cast<const KArchiveDirectory *>(rrEntry);
+    const KArchiveEntry *fileEntry = rrDir->entry("search_file.txt");
+    QVERIFY(fileEntry && fileEntry->isFile());
+    const KArchiveFile *searchFile = static_cast<const KArchiveFile *>(fileEntry);
+    const QByteArray fileData = searchFile->data();
+    QCOMPARE(QString::fromLatin1(fileData), QString::fromLatin1("root\n"));
 }
 
 /**
