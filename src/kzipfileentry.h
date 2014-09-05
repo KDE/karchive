@@ -23,7 +23,7 @@
 
 class KZip;
 /**
- * A KZipFileEntry represents an file in a zip archive.
+ * A KZipFileEntry represents a file in a zip archive.
  */
 class KARCHIVE_EXPORT KZipFileEntry : public KArchiveFile
 {

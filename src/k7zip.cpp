@@ -160,7 +160,7 @@ static const quint64 k_Bzip2NSIS = 0x040902;
 static const quint64 k_AES = 0x06F10701;
 
 /**
- * A K7ZipFileEntry represents an file in a 7zip archive.
+ * A K7ZipFileEntry represents a file in a 7zip archive.
  */
 class KARCHIVE_EXPORT K7ZipFileEntry : public KArchiveFile
 {
