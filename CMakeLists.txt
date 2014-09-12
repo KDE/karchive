@@ -45,7 +45,7 @@ include_directories(
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
-set(KF5_VERSION "5.2.0") # handled by release scripts
+set(KF5_VERSION "5.3.0") # handled by release scripts
 
 ecm_setup_version(${KF5_VERSION}
     VARIABLE_PREFIX KARCHIVE
