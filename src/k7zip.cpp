@@ -1661,7 +1661,6 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
 ///////////////// Write ////////////////////
 
-static int sizeItems = 0;
 void K7Zip::K7ZipPrivate::createItemsFromEntities(const KArchiveDirectory *dir, const QString &path, QByteArray &data)
 {
     QStringList l = dir->entries();
@@ -1682,7 +1681,6 @@ void K7Zip::K7ZipPrivate::createItemsFromEntities(const KArchiveDirectory *dir, 
             fileInfo->attributes = FILE_ATTRIBUTE_ARCHIVE;
             fileInfo->attributes |= FILE_ATTRIBUTE_UNIX_EXTENSION + ((entry->permissions() & 0xFFFF) << 16);
             fileInfo->size = fileEntry->size();
-            sizeItems += fileInfo->size;
             QString symLink = fileEntry->symLinkTarget();
             if (fileInfo->size > 0) {
                 fileInfo->hasStream = true;
