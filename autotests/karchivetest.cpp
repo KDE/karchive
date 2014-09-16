@@ -785,6 +785,9 @@ void KArchiveTest::testCreateZipError()
     // Otherwise we just lose data.
     KZip zip(QDir::currentPath());
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 4, 0) // 523440a15f in QSaveFile makes it fail for existing directories, as one would expect.
+    QVERIFY(!zip.open(QIODevice::WriteOnly));
+#else
     QVERIFY(zip.open(QIODevice::WriteOnly));
 
     writeTestFilesToArchive(&zip);
@@ -793,6 +796,7 @@ void KArchiveTest::testCreateZipError()
     QVERIFY(!zip.addLocalFile(QDir::currentPath(), "bogusdir"));
 
     QVERIFY(!zip.close());
+#endif
 }
 
 void KArchiveTest::testReadZipError()
