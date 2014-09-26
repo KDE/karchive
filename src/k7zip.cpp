@@ -43,8 +43,8 @@
 
 #define BUFFER_SIZE 8*1024
 
-unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1C};
-unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
+static const unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1C};
+static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
 
 #define GetUi16(p, offset) (((unsigned char)p[offset+0]) | (((unsigned char)p[1]) << 8))
 
