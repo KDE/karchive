@@ -31,6 +31,7 @@
 #include "klimitediodevice_p.h"
 
 #include <time.h> // time()
+#include <memory>
 #include "zlib.h"
 
 #ifndef QT_STAT_LNK
@@ -724,7 +725,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
             return 0;
         }
         Folder::FolderInfo *info = new Folder::FolderInfo();
-        unsigned char codecID[codecIdSize];
+        std::unique_ptr<unsigned char[]> codecID(new unsigned char[codecIdSize]);
         for (int i = 0; i < codecIdSize; ++i) {
             codecID[i] = readByte();
         }
@@ -1505,10 +1506,10 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         QVector<QByteArray> datas;
         for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
             int size = packSizes[j + i];
-            char encodedBuffer[size];
+            std::unique_ptr<char[]> encodedBuffer(new char[size]);
             QIODevice *dev = q->device();
             dev->seek(startPos);
-            quint64 n = dev->read(encodedBuffer, size);
+            quint64 n = dev->read(encodedBuffer.get(), size);
             if (n != (quint64)size) {
                 qDebug() << "Failed read next size, should read " << size << ", read " << n;
                 return inflatedData;
