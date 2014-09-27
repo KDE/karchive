@@ -1514,7 +1514,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 qDebug() << "Failed read next size, should read " << size << ", read " << n;
                 return inflatedData;
             }
-            QByteArray deflatedData(encodedBuffer, size);
+            QByteArray deflatedData(encodedBuffer.get(), size);
             datas.append(deflatedData);
             startPos += size;
             pos += size;
