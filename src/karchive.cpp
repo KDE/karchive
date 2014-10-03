@@ -766,6 +766,15 @@ const KArchiveEntry *KArchiveDirectory::entry(const QString &_name) const
     return d->entries.value(name);
 }
 
+const KArchiveFile *KArchiveDirectory::file(const QString &name) const
+{
+    const KArchiveEntry *e = entry(name);
+    if (e && e->isFile()) {
+        return static_cast<const KArchiveFile *>(e);
+    }
+    return 0;
+}
+
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
     if (entry->name().isEmpty()) {

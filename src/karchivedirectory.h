@@ -31,6 +31,7 @@
 #include <karchiveentry.h>
 
 class KArchiveDirectoryPrivate;
+class KArchiveFile;
 /**
  * Represents a directory entry in a KArchive.
  * @short A directory in an archive.
@@ -65,12 +66,26 @@ public:
      * @return the names of all entries in this directory (filenames, no path).
      */
     QStringList entries() const;
+
     /**
-     * Returns the entry with the given name.
+     * Returns the entry in the archive with the given name.
+     * The entry could be a file or a directory, use isFile() to find out which one it is.
      * @param name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
-     * @return a pointer to the entry in the directory.
+     * @return a pointer to the entry in the directory, or a null pointer if there is no such entry.
      */
     const KArchiveEntry *entry(const QString &name) const;
+
+    /**
+     * Returns the file entry in the archive with the given name.
+     * If the entry exists and is a file, a KArchiveFile is returned.
+     * Otherwise, a null pointer is returned.
+     * This is a convenience method for entry(), when we know the entry is expected to be a file.
+     *
+     * @param name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
+     * @return a pointer to the file entry in the directory, or a null pointer if there is no such file entry.
+     * @since 5.3
+     */
+    const KArchiveFile *file(const QString &name) const;
 
     /**
      * @internal

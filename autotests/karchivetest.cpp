@@ -168,10 +168,7 @@ static void testFileData(KArchive *archive)
 {
     const KArchiveDirectory *dir = archive->directory();
 
-    const KArchiveEntry *e = dir->entry("z/test3");
-    QVERIFY(e);
-    QVERIFY(e->isFile());
-    const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
+    const KArchiveFile *f = dir->file("z/test3");
     QByteArray arr(f->data());
     QCOMPARE(arr.size(), 13);
     QCOMPARE(arr, QByteArray("Noch so einer"));
@@ -190,18 +187,17 @@ static void testFileData(KArchive *archive)
     QCOMPARE(QString::fromLatin1(contents.constData()), QString::fromLatin1(arr.constData()));
     delete dev;
 
-    e = dir->entry("mediumfile");
+    const KArchiveEntry *e = dir->entry("mediumfile");
     QVERIFY(e && e->isFile());
     f = (KArchiveFile *)e;
     QCOMPARE(f->data().size(), SIZE1);
 
-    e = dir->entry("hugefile");
-    QVERIFY(e && e->isFile());
-    f = (KArchiveFile *)e;
+    f = dir->file("hugefile");
     QCOMPARE(f->data().size(), 20000);
 
     e = dir->entry("aaaemptydir");
     QVERIFY(e && e->isDirectory());
+    QVERIFY(!dir->file("aaaemptydir"));
 
     e = dir->entry("my/dir/test3");
     QVERIFY(e && e->isFile());
