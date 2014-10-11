@@ -52,20 +52,20 @@ public:
 protected:
 
     /*
-     * Writing not supported by this class, will always fail.
+     * Writing is not supported by this class, will always fail.
      * @return always false
      */
     bool doPrepareWriting(const QString &name, const QString &user, const QString &group, qint64 size,
                           mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) Q_DECL_OVERRIDE;
 
     /*
-     * Writing not supported by this class, will always fail.
+     * Writing is not supported by this class, will always fail.
      * @return always false
      */
     bool doFinishWriting(qint64 size) Q_DECL_OVERRIDE;
 
     /*
-     * Writing not supported by this class, will always fail.
+     * Writing is not supported by this class, will always fail.
      * @return always false
      */
     bool doWriteDir(const QString &name, const QString &user, const QString &group,
