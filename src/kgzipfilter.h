@@ -35,7 +35,7 @@ public:
     KGzipFilter();
     virtual ~KGzipFilter();
 
-    virtual bool init(int mode);
+    bool init(int mode) Q_DECL_OVERRIDE;
 
     // The top of zlib.h explains it: there are three cases.
     // - Raw deflate, no header (e.g. inside a ZIP file)
@@ -50,18 +50,18 @@ public:
         GZipHeader = 2
     };
     bool init(int mode, Flag flag); // for direct users of KGzipFilter
-    virtual int mode() const;
-    virtual bool terminate();
-    virtual void reset();
-    virtual bool readHeader(); // this is about the GZIP header
-    virtual bool writeHeader(const QByteArray &fileName);
+    int mode() const Q_DECL_OVERRIDE;
+    bool terminate() Q_DECL_OVERRIDE;
+    void reset() Q_DECL_OVERRIDE;
+    bool readHeader() Q_DECL_OVERRIDE; // this is about the GZIP header
+    bool writeHeader(const QByteArray &fileName) Q_DECL_OVERRIDE;
     void writeFooter();
-    virtual void setOutBuffer(char *data, uint maxlen);
-    virtual void setInBuffer(const char *data, uint size);
-    virtual int  inBufferAvailable() const;
-    virtual int  outBufferAvailable() const;
-    virtual Result uncompress();
-    virtual Result compress(bool finish);
+    void setOutBuffer(char *data, uint maxlen) Q_DECL_OVERRIDE;
+    void setInBuffer(const char *data, uint size) Q_DECL_OVERRIDE;
+    int  inBufferAvailable() const Q_DECL_OVERRIDE;
+    int  outBufferAvailable() const Q_DECL_OVERRIDE;
+    Result uncompress() Q_DECL_OVERRIDE;
+    Result compress(bool finish) Q_DECL_OVERRIDE;
 
 private:
     Result uncompress_noop();

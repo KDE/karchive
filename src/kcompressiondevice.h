@@ -68,12 +68,12 @@ public:
     /**
      * Open for reading or writing.
      */
-    virtual bool open(QIODevice::OpenMode mode);
+    bool open(QIODevice::OpenMode mode) Q_DECL_OVERRIDE;
 
     /**
      * Close after reading or writing.
      */
-    virtual void close();
+    void close() Q_DECL_OVERRIDE;
 
     /**
      * For writing gzip compressed files only:
@@ -92,9 +92,9 @@ public:
     /**
      * That one can be quite slow, when going back. Use with care.
      */
-    virtual bool seek(qint64);
+    bool seek(qint64) Q_DECL_OVERRIDE;
 
-    virtual bool atEnd() const;
+    bool atEnd() const Q_DECL_OVERRIDE;
 
     /**
      * Call this to create the appropriate filter for the CompressionType
@@ -107,8 +107,8 @@ public:
 protected:
     friend class K7Zip;
 
-    virtual qint64 readData(char *data, qint64 maxlen);
-    virtual qint64 writeData(const char *data, qint64 len);
+    qint64 readData(char *data, qint64 maxlen) Q_DECL_OVERRIDE;
+    qint64 writeData(const char *data, qint64 len) Q_DECL_OVERRIDE;
 
     KFilterBase *filterBase();
 private:

@@ -103,7 +103,7 @@ public:
      * Checks whether this entry is a directory.
      * @return true, since this entry is a directory
      */
-    virtual bool isDirectory() const;
+    bool isDirectory() const Q_DECL_OVERRIDE;
 
     /**
      * Extracts all entries in this archive directory to the directory

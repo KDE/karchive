@@ -41,26 +41,22 @@ public:
     KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length);
     virtual ~KLimitedIODevice() {}
 
-    virtual bool isSequential() const;
+    bool isSequential() const Q_DECL_OVERRIDE;
 
-    virtual bool open(QIODevice::OpenMode m);
-    virtual void close();
+    bool open(QIODevice::OpenMode m) Q_DECL_OVERRIDE;
+    void close() Q_DECL_OVERRIDE;
 
-    virtual qint64 size() const;
+    qint64 size() const Q_DECL_OVERRIDE;
 
-    virtual qint64 readData(char *data, qint64 maxlen);
-    virtual qint64 writeData(const char *, qint64)
-    {
-        return -1;    // unsupported
-    }
-    virtual int putChar(int)
+    qint64 readData(char *data, qint64 maxlen) Q_DECL_OVERRIDE;
+    qint64 writeData(const char *, qint64) Q_DECL_OVERRIDE
     {
         return -1;    // unsupported
     }
 
     //virtual qint64 pos() const { return m_dev->pos() - m_start; }
-    virtual bool seek(qint64 pos);
-    virtual qint64 bytesAvailable() const;
+    bool seek(qint64 pos) Q_DECL_OVERRIDE;
+    qint64 bytesAvailable() const Q_DECL_OVERRIDE;
 private:
     QIODevice *m_dev;
     qint64 m_start;

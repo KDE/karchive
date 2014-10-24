@@ -94,7 +94,7 @@ public:
      * Checks whether this entry is a file.
      * @return true, since this entry is a file
      */
-    virtual bool isFile() const;
+    bool isFile() const Q_DECL_OVERRIDE;
 
     /**
      * Extracts the file to the directory @p dest
