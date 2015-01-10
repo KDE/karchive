@@ -59,7 +59,7 @@ add_subdirectory(tests)
 
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Archive")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Archive")
 
 include(ECMPackageConfigHelpers)
 
@@ -70,7 +70,7 @@ ecm_configure_package_config_file(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h
-        DESTINATION ${KF5_INCLUDE_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}
         COMPONENT Devel)
 
 install(FILES
