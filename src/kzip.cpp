@@ -492,6 +492,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             } else {
                 // here we skip the compressed data and jump to the next header
                 //qDebug() << "general purpose bit flag indicates, that local file header contains valid size";
+                bool foundSignature = false;
                 // check if this could be a symbolic link
                 if (compression_mode == NoCompression
                         && uncomp_size <= max_path_len
@@ -507,7 +508,6 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     if (compr_size > dev->size()) {
                         // here we cannot trust the compressed size, so scan through the compressed
                         // data to find the next header
-                        bool foundSignature = false;
 
                         while (!foundSignature) {
                             n = dev->read(buffer, 1);
@@ -556,6 +556,28 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                                                 qDebug() << "dev->at failed... ";*/
                     }
 
+                }
+                // test for optional data descriptor
+                if (!foundSignature) {
+//                     qDebug() << "Testing for optional data descriptor";
+                    // read static data descriptor
+                    n = dev->read(buffer, 4);
+                    if (n < 4) {
+//                         qWarning() << "Invalid ZIP file. Unexpected end of file. (#1)";
+                        return false;
+                    }
+
+                    if (!memcmp(buffer, "PK\x7\x8", 4)) {
+                        // data descriptor token found
+                        dev->seek(dev->pos() + 12); // skip the 'data_descriptor'
+                    } else if (!memcmp(buffer, "PK\1\2", 4) ||
+                               !memcmp(buffer, "PK\3\4", 4)) {
+                        // central/local header token found
+                        dev->seek(dev->pos() - 4); // go back 4 bytes, so that the magic bytes can be found...
+                    } else {
+                        // assume data descriptor without signature
+                        dev->seek(dev->pos() + 8); // skip rest of the 'data_descriptor'
+                    }
                 }
 
 // not needed any more
