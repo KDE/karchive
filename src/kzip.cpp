@@ -861,8 +861,8 @@ bool KZip::closeArchive()
 
         QByteArray path = QFile::encodeName(it.value()->path());
 
-        const int extra_field_len = 9;
-        int bufferSize = extra_field_len + path.length() + 46;
+        const int extra_field_len = (d->m_extraField == ModificationTime) ? 9 : 0;
+        const int bufferSize = extra_field_len + path.length() + 46;
         char *buffer = new char[ bufferSize ];
 
         memset(buffer, 0, 46); // zero is a nice default for most header fields
@@ -920,19 +920,22 @@ bool KZip::closeArchive()
         //qDebug() << "closearchive length to write: " << bufferSize;
 
         // extra field
-        char *extfield = buffer + 46 + path.length();
-        extfield[0] = 'U';
-        extfield[1] = 'T';
-        extfield[2] = 5;
-        extfield[3] = 0;
-        extfield[4] = 1 | 2 | 4;    // specify flags from local field
-        // (unless I misread the spec)
-        // provide only modification time
-        unsigned long time = (unsigned long)it.value()->date().toTime_t();
-        extfield[5] = char(time);
-        extfield[6] = char(time >> 8);
-        extfield[7] = char(time >> 16);
-        extfield[8] = char(time >> 24);
+        if (d->m_extraField == ModificationTime) {
+            char *extfield = buffer + 46 + path.length();
+            // "Extended timestamp" header (0x5455)
+            extfield[0] = 'U';
+            extfield[1] = 'T';
+            extfield[2] = 5; // data size
+            extfield[3] = 0;
+            extfield[4] = 1 | 2 | 4;    // specify flags from local field
+            // (unless I misread the spec)
+            // provide only modification time
+            unsigned long time = (unsigned long)it.value()->date().toTime_t();
+            extfield[5] = char(time);
+            extfield[6] = char(time >> 8);
+            extfield[7] = char(time >> 16);
+            extfield[8] = char(time >> 24);
+        }
 
         crc = crc32(crc, (Bytef *)buffer, bufferSize);
         bool ok = (device()->write(buffer, bufferSize) == bufferSize);
