@@ -1021,7 +1021,10 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
         return false;
     }
 
-    Q_ASSERT(device());
+    if (!device()) {
+        //qWarning("doPrepareWriting: cannot create a device. Disk full?")
+        return false;
+    }
 
     // set right offset in zip.
     if (!device()->seek(d->m_offset)) {
@@ -1156,8 +1159,8 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     d->m_crc = 0;
     delete[] buffer;
 
-    Q_ASSERT(b);
     if (!b) {
+        // qWarning("doPrepareWriting: Could not write to the archive. Disk full?");
         return false;
     }
 
