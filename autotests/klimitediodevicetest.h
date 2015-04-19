@@ -25,7 +25,8 @@
 #include <QList>
 #include <QObject>
 
-struct ChunkData {
+struct ChunkData
+{
     QByteArray data;
     int offset;
 };

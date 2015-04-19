@@ -330,10 +330,10 @@ void KFilterTest::test_deflateWithZlibHeader()
 
     mFilterDevice->setInBuffer(deflatedData.constData(), deflatedData.size());
     char buf[8192];
-    mFilterDevice->setOutBuffer(buf, sizeof(buf));
+    mFilterDevice->setOutBuffer(buf, sizeof (buf));
     KFilterBase::Result result = mFilterDevice->uncompress();
     QCOMPARE(result, KFilterBase::End);
-    const int bytesOut = sizeof(buf) - mFilterDevice->outBufferAvailable();
+    const int bytesOut = sizeof (buf) - mFilterDevice->outBufferAvailable();
     QVERIFY(bytesOut);
     QByteArray read(buf, bytesOut);
     mFilterDevice->terminate();
@@ -395,8 +395,8 @@ void KFilterTest::test_saveFile()
         KCompressionDevice device(&file, false, compressionType);
         QVERIFY(device.open(QIODevice::WriteOnly));
         QTextStream stream(&device);
-        stream.setCodec (QTextCodec::codecForName("UTF-8"));
-        for( int i = 0 ; i < numLines ; ++i ) {
+        stream.setCodec(QTextCodec::codecForName("UTF-8"));
+        for (int i = 0 ; i < numLines ; ++i) {
             stream << lineTemplate.arg(i);
             stream << QString("\n");
         }
@@ -410,7 +410,7 @@ void KFilterTest::test_saveFile()
     KCompressionDevice reader(outFile, compressionType);
     QVERIFY(reader.open(QIODevice::ReadOnly));
     QString expectedFullData;
-    for( int i = 0 ; i < numLines ; ++i ) {
+    for (int i = 0 ; i < numLines ; ++i) {
         QCOMPARE(QString::fromUtf8(reader.readLine()), QString(lineTemplate.arg(i) + '\n'));
         expectedFullData += QString(lineTemplate.arg(i) + '\n');
     }

@@ -70,7 +70,7 @@ static void writeTestFilesToArchive(KArchive *archive)
     QVERIFY(archive->writeFile("my/dir/test3", "I do not speak German\nDavid.", 0100644, "dfaure", "hackers"));
 
     // Now a medium file : 100 null bytes
-    char medium[ SIZE1 ];
+    char medium[SIZE1];
     memset(medium, 0, SIZE1);
     QVERIFY(archive->writeFile("mediumfile", QByteArray(medium, SIZE1)));
     // Another one, with an absolute path
@@ -78,7 +78,7 @@ static void writeTestFilesToArchive(KArchive *archive)
 
     // Now a huge file : 20000 null bytes
     int n = 20000;
-    char *huge = new char[ n ];
+    char *huge = new char[n];
     memset(huge, 0, n);
     QVERIFY(archive->writeFile("hugefile", QByteArray(huge, n)));
     delete [] huge;
@@ -122,7 +122,10 @@ static QString getCurrentGroupName()
 #endif
 }
 
-enum { WithUserGroup = 1, WithTime = 0x02 }; // ListingFlags
+enum ListingFlags {
+    WithUserGroup = 1,
+    WithTime = 0x02
+}; // ListingFlags
 
 static QStringList recursiveListEntries(const KArchiveDirectory *dir, const QString &path, int listingFlags)
 {
@@ -463,14 +466,14 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
 
         compareEntryWithTimestamp(listing[0], QString("mode=40755 user= group= path=aaaemptydir type=dir"), creationTime);
 
-        QCOMPARE(listing[ 1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
-        QCOMPARE(listing[ 2], QString("mode=40777 user=%1 group=%2 path=dir/subdir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
+        QCOMPARE(listing[1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
+        QCOMPARE(listing[2], QString("mode=40777 user=%1 group=%2 path=dir/subdir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
         compareEntryWithTimestamp(listing[3], QString("mode=100644 user= group= path=dir/subdir/mediumfile2 type=file size=100"), creationTime);
         compareEntryWithTimestamp(listing[4], QString("mode=100644 user=weis group=users path=empty type=file size=0"), creationTime);
         compareEntryWithTimestamp(listing[5], QString("mode=100644 user= group= path=hugefile type=file size=20000"), creationTime);
         compareEntryWithTimestamp(listing[6], QString("mode=100644 user= group= path=mediumfile type=file size=100"), creationTime);
-        QCOMPARE(listing[ 7], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(owner).arg(group));
-        QCOMPARE(listing[ 8], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(owner).arg(group));
+        QCOMPARE(listing[7], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(owner).arg(group));
+        QCOMPARE(listing[8], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(owner).arg(group));
         compareEntryWithTimestamp(listing[9], QString("mode=100644 user=dfaure group=hackers path=my/dir/test3 type=file size=28"), creationTime);
         compareEntryWithTimestamp(listing[10], QString("mode=100440 user=weis group=users path=test1 type=file size=5"), creationTime);
         compareEntryWithTimestamp(listing[11], QString("mode=100644 user=weis group=users path=test2 type=file size=8"), creationTime);
@@ -626,9 +629,9 @@ void KArchiveTest::testTarMaxLength()
     QVERIFY(dir != 0);
     const QStringList listing = recursiveListEntries(dir, "", WithUserGroup);
 
-    QCOMPARE(listing[  0], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
-    QCOMPARE(listing[  3], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
-    QCOMPARE(listing[  4], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
+    QCOMPARE(listing[0], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
+    QCOMPARE(listing[3], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
+    QCOMPARE(listing[4], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
 
     QCOMPARE(listing.count(), 416);
 
@@ -650,8 +653,8 @@ void KArchiveTest::testTarGlobalHeader()
 
     QCOMPARE(listing.count(), 2);
 
-    QCOMPARE(listing[  0], QString("mode=40775 user=root group=root path=Test type=dir"));
-    QCOMPARE(listing[  1], QString("mode=664 user=root group=root path=Test/test.txt type=file size=0"));
+    QCOMPARE(listing[0], QString("mode=40775 user=root group=root path=Test type=dir"));
+    QCOMPARE(listing[1], QString("mode=664 user=root group=root path=Test/test.txt type=file size=0"));
 
     QVERIFY(tar.close());
 }
@@ -666,16 +669,16 @@ void KArchiveTest::testTarPrefix()
 
     const QStringList listing = recursiveListEntries(dir, "", WithUserGroup);
 
-    QCOMPARE(listing[  0], QString("mode=40775 user=root group=root path=Test type=dir"));
-    QCOMPARE(listing[  1], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7 type=dir"));
-    QCOMPARE(listing[  2], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples type=dir"));
-    QCOMPARE(listing[  3], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator type=dir"));
-    QCOMPARE(listing[  4], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original type=dir"));
-    QCOMPARE(listing[  5], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java type=dir"));
-    QCOMPARE(listing[  6], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com type=dir"));
-    QCOMPARE(listing[  7], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech type=dir"));
-    QCOMPARE(listing[  8], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech/examples type=dir"));
-    QCOMPARE(listing[  9], QString("mode=664 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech/examples/GeneratorExample.html type=file size=43086"));
+    QCOMPARE(listing[0], QString("mode=40775 user=root group=root path=Test type=dir"));
+    QCOMPARE(listing[1], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7 type=dir"));
+    QCOMPARE(listing[2], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples type=dir"));
+    QCOMPARE(listing[3], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator type=dir"));
+    QCOMPARE(listing[4], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original type=dir"));
+    QCOMPARE(listing[5], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java type=dir"));
+    QCOMPARE(listing[6], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com type=dir"));
+    QCOMPARE(listing[7], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech type=dir"));
+    QCOMPARE(listing[8], QString("mode=40775 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech/examples type=dir"));
+    QCOMPARE(listing[9], QString("mode=664 user=root group=root path=Test/qt-jambi-qtjambi-4_7/examples/generator/trolltech_original/java/com/trolltech/examples/GeneratorExample.html type=file size=43086"));
 
     QCOMPARE(listing.count(), 10);
 
@@ -841,16 +844,16 @@ void KArchiveTest::testReadZip()
 #else
     QCOMPARE(listing.count(), 15);
 #endif
-    QCOMPARE(listing[ 0], QString("mode=40755 path=aaaemptydir type=dir"));
-    QCOMPARE(listing[ 1], QString("mode=40777 path=dir type=dir"));
-    QCOMPARE(listing[ 2], QString("mode=40777 path=dir/subdir type=dir"));
-    QCOMPARE(listing[ 3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
-    QCOMPARE(listing[ 4], QString("mode=100644 path=empty type=file size=0"));
-    QCOMPARE(listing[ 5], QString("mode=100644 path=hugefile type=file size=20000"));
-    QCOMPARE(listing[ 6], QString("mode=100644 path=mediumfile type=file size=100"));
-    QCOMPARE(listing[ 7], QString("mode=100644 path=mimetype type=file size=%1").arg(strlen(s_zipMimeType)));
-    QCOMPARE(listing[ 8], QString("mode=40777 path=my type=dir"));
-    QCOMPARE(listing[ 9], QString("mode=40777 path=my/dir type=dir"));
+    QCOMPARE(listing[0], QString("mode=40755 path=aaaemptydir type=dir"));
+    QCOMPARE(listing[1], QString("mode=40777 path=dir type=dir"));
+    QCOMPARE(listing[2], QString("mode=40777 path=dir/subdir type=dir"));
+    QCOMPARE(listing[3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
+    QCOMPARE(listing[4], QString("mode=100644 path=empty type=file size=0"));
+    QCOMPARE(listing[5], QString("mode=100644 path=hugefile type=file size=20000"));
+    QCOMPARE(listing[6], QString("mode=100644 path=mediumfile type=file size=100"));
+    QCOMPARE(listing[7], QString("mode=100644 path=mimetype type=file size=%1").arg(strlen(s_zipMimeType)));
+    QCOMPARE(listing[8], QString("mode=40777 path=my type=dir"));
+    QCOMPARE(listing[9], QString("mode=40777 path=my/dir type=dir"));
     QCOMPARE(listing[10], QString("mode=100644 path=my/dir/test3 type=file size=28"));
     QCOMPARE(listing[11], QString("mode=100440 path=test1 type=file size=5"));
     QCOMPARE(listing[12], QString("mode=100644 path=test2 type=file size=8"));
@@ -913,9 +916,9 @@ void KArchiveTest::testZipMaxLength()
     QVERIFY(dir != 0);
     const QStringList listing = recursiveListEntries(dir, "", 0);
 
-    QCOMPARE(listing[  0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
-    QCOMPARE(listing[  3], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
-    QCOMPARE(listing[  4], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
+    QCOMPARE(listing[0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
+    QCOMPARE(listing[3], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
+    QCOMPARE(listing[4], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
 
     QCOMPARE(listing.count(), 514 - 98);
 
@@ -944,7 +947,7 @@ void KArchiveTest::testZipWithNonLatinFileNames()
     QCOMPARE(listing.count(), 1);
     QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=%1 type=file size=%2").arg(recodedFileName).arg(fileData.size()));
 
-    const KArchiveFile *fileEntry = static_cast< const KArchiveFile * >(dir->entry(dir->entries()[0]));
+    const KArchiveFile *fileEntry = static_cast< const KArchiveFile *>(dir->entry(dir->entries()[0]));
     QCOMPARE(fileEntry->data(), fileData);
 }
 
@@ -973,7 +976,7 @@ void KArchiveTest::testZipWithOverwrittenFileName()
     QCOMPARE(listing.count(), 1);
     QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=%1 type=file size=%2").arg(fileName).arg(fileData2.size()));
 
-    const KArchiveFile *fileEntry = static_cast< const KArchiveFile * >(dir->entry(dir->entries()[0]));
+    const KArchiveFile *fileEntry = static_cast< const KArchiveFile *>(dir->entry(dir->entries()[0]));
     QCOMPARE(fileEntry->data(), fileData2);
 }
 
@@ -1053,9 +1056,9 @@ void KArchiveTest::testZipReadRedundantDataDescriptor()
     QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=compressed type=file size=%2").arg(fileData.size()));
     QCOMPARE(listing[1], QString::fromUtf8("mode=100644 path=uncompressed type=file size=%2").arg(fileData.size()));
 
-    const KArchiveFile *fileEntry = static_cast< const KArchiveFile * >(dir->entry(dir->entries()[0]));
+    const KArchiveFile *fileEntry = static_cast< const KArchiveFile *>(dir->entry(dir->entries()[0]));
     QCOMPARE(fileEntry->data(), fileData);
-    fileEntry = static_cast< const KArchiveFile * >(dir->entry(dir->entries()[1]));
+    fileEntry = static_cast< const KArchiveFile *>(dir->entry(dir->entries()[1]));
     QCOMPARE(fileEntry->data(), fileData);
 }
 
@@ -1152,16 +1155,16 @@ void KArchiveTest::testRead7Zip() // testCreate7Zip must have been run first.
 #else
         QCOMPARE(listing.count(), 14);
 #endif
-        QCOMPARE(listing[ 0], QString("mode=40755 path=aaaemptydir type=dir"));
-        QCOMPARE(listing[ 1], QString("mode=40777 path=dir type=dir"));
-        QCOMPARE(listing[ 2], QString("mode=40777 path=dir/subdir type=dir"));
-        QCOMPARE(listing[ 3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
-        QCOMPARE(listing[ 4], QString("mode=100644 path=empty type=file size=0"));
-        QCOMPARE(listing[ 5], QString("mode=100644 path=hugefile type=file size=20000"));
-        QCOMPARE(listing[ 6], QString("mode=100644 path=mediumfile type=file size=100"));
-        QCOMPARE(listing[ 7], QString("mode=40777 path=my type=dir"));
-        QCOMPARE(listing[ 8], QString("mode=40777 path=my/dir type=dir"));
-        QCOMPARE(listing[ 9], QString("mode=100644 path=my/dir/test3 type=file size=28"));
+        QCOMPARE(listing[0], QString("mode=40755 path=aaaemptydir type=dir"));
+        QCOMPARE(listing[1], QString("mode=40777 path=dir type=dir"));
+        QCOMPARE(listing[2], QString("mode=40777 path=dir/subdir type=dir"));
+        QCOMPARE(listing[3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
+        QCOMPARE(listing[4], QString("mode=100644 path=empty type=file size=0"));
+        QCOMPARE(listing[5], QString("mode=100644 path=hugefile type=file size=20000"));
+        QCOMPARE(listing[6], QString("mode=100644 path=mediumfile type=file size=100"));
+        QCOMPARE(listing[7], QString("mode=40777 path=my type=dir"));
+        QCOMPARE(listing[8], QString("mode=40777 path=my/dir type=dir"));
+        QCOMPARE(listing[9], QString("mode=100644 path=my/dir/test3 type=file size=28"));
         QCOMPARE(listing[10], QString("mode=100440 path=test1 type=file size=5"));
         QCOMPARE(listing[11], QString("mode=100644 path=test2 type=file size=8"));
         QCOMPARE(listing[12], QString("mode=40777 path=z type=dir"));
@@ -1271,9 +1274,9 @@ void KArchiveTest::test7ZipMaxLength()
     QVERIFY(dir != 0);
     const QStringList listing = recursiveListEntries(dir, "", 0);
 
-    QCOMPARE(listing[  0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
-    QCOMPARE(listing[  3], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
-    QCOMPARE(listing[  4], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
+    QCOMPARE(listing[0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
+    QCOMPARE(listing[3], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000101 type=file size=3"));
+    QCOMPARE(listing[4], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000102 type=file size=3"));
 
     QCOMPARE(listing.count(), 416);
 
