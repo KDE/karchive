@@ -35,7 +35,12 @@ class KFilterBase;
 class KARCHIVE_EXPORT KCompressionDevice : public QIODevice
 {
 public:
-    enum CompressionType { GZip, BZip2, Xz, None };
+    enum CompressionType {
+        GZip,
+        BZip2,
+        Xz,
+        None
+    };
 
     /**
      * Constructs a KCompressionDevice for a given CompressionType (e.g. GZip, BZip2 etc.).

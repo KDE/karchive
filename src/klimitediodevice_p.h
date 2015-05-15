@@ -39,7 +39,9 @@ public:
      * @param length the length of the data to read (in bytes)
      */
     KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length);
-    virtual ~KLimitedIODevice() {}
+    virtual ~KLimitedIODevice()
+    {
+    }
 
     bool isSequential() const Q_DECL_OVERRIDE;
 
@@ -49,8 +51,7 @@ public:
     qint64 size() const Q_DECL_OVERRIDE;
 
     qint64 readData(char *data, qint64 maxlen) Q_DECL_OVERRIDE;
-    qint64 writeData(const char *, qint64) Q_DECL_OVERRIDE
-    {
+    qint64 writeData(const char *, qint64) Q_DECL_OVERRIDE {
         return -1;    // unsupported
     }
 

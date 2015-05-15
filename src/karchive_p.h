@@ -28,13 +28,14 @@ class KArchivePrivate
 {
 public:
     KArchivePrivate()
-        : rootDir(0),
-          saveFile(0),
-          dev(0),
-          fileName(),
-          mode(QIODevice::NotOpen),
-          deviceOwned(false)
-    {}
+        : rootDir(0)
+        , saveFile(0)
+        , dev(0)
+        , fileName()
+        , mode(QIODevice::NotOpen)
+        , deviceOwned(false)
+    {
+    }
     ~KArchivePrivate()
     {
         delete saveFile;

@@ -79,7 +79,11 @@ public:
     virtual int  outBufferAvailable() const = 0;
 
     /** \internal */
-    enum Result { Ok, End, Error };
+    enum Result {
+        Ok,
+        End,
+        Error
+    };
     /** \internal */
     virtual Result uncompress() = 0;
     /** \internal */
