@@ -437,6 +437,13 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
 {
     QFETCH(QString, fileName);
 
+    QFileInfo localFileData("test3");
+
+    const QString owner = localFileData.owner().isEmpty() ? getCurrentUserName() : localFileData.owner();
+    const QString group = localFileData.group().isEmpty() ? getCurrentGroupName() : localFileData.group();
+    const QString emptyTime = QDateTime().toString("dd.MM.yyyy hh:mm:ss");
+    const QDateTime creationTime = QFileInfo(fileName).created();
+
     // 1.6-1.7 ms per interaction, 2908428 instruction loads
     // After the "no tempfile when writing fix" this went down
     // to 0.9-1.0 ms, 1689059 instruction loads.
@@ -452,18 +459,11 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         QVERIFY(dir != 0);
         const QStringList listing = recursiveListEntries(dir, "", WithUserGroup | WithTime);
 
-        QFileInfo localFileData("test3");
-
 #ifndef Q_OS_WIN
         QCOMPARE(listing.count(), 15);
 #else
         QCOMPARE(listing.count(), 14);
 #endif
-        QString owner = localFileData.owner().isEmpty() ? getCurrentUserName() : localFileData.owner();
-        QString group = localFileData.group().isEmpty() ? getCurrentGroupName() : localFileData.group();
-        QString emptyTime = QDateTime().toString("dd.MM.yyyy hh:mm:ss");
-        const QDateTime creationTime = QFileInfo(fileName).created();
-
         compareEntryWithTimestamp(listing[0], QString("mode=40755 user= group= path=aaaemptydir type=dir"), creationTime);
 
         QCOMPARE(listing[1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
@@ -1147,8 +1147,6 @@ void KArchiveTest::testRead7Zip() // testCreate7Zip must have been run first.
         const KArchiveDirectory *dir = k7zip.directory();
         QVERIFY(dir != 0);
         const QStringList listing = recursiveListEntries(dir, "", 0);
-
-        QFileInfo localFileData("test3");
 
 #ifndef Q_OS_WIN
         QCOMPARE(listing.count(), 15);
