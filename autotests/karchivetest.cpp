@@ -479,11 +479,11 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         compareEntryWithTimestamp(listing[11], QString("mode=100644 user=weis group=users path=test2 type=file size=8"), creationTime);
         QCOMPARE(listing[12], QString("mode=40777 user=%1 group=%2 path=z type=dir time=").arg(owner).arg(group));
 
-        // This one was added with addLocalFile, so ignore mode/user/group.
+        // This one was added with addLocalFile, so ignore mode.
         QString str = listing[13];
-        str.replace(QRegExp("mode.*path"), "path");
+        str.replace(QRegExp("mode.*user"), "user");
 
-        compareEntryWithTimestamp(str, QString("path=z/test3 type=file size=13"), creationTime);
+        compareEntryWithTimestamp(str, QString("user=%1 group=%2 path=z/test3 type=file size=13").arg(owner).arg(group), creationTime);
 
 #ifndef Q_OS_WIN
         str = listing[14];
