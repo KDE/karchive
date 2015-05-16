@@ -439,8 +439,10 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
 
     QFileInfo localFileData("test3");
 
-    const QString owner = localFileData.owner().isEmpty() ? getCurrentUserName() : localFileData.owner();
-    const QString group = localFileData.group().isEmpty() ? getCurrentGroupName() : localFileData.group();
+    const QString systemUserName = getCurrentUserName();
+    const QString systemGroupName = getCurrentGroupName();
+    const QString owner = localFileData.owner();
+    const QString group = localFileData.group();
     const QString emptyTime = QDateTime().toString("dd.MM.yyyy hh:mm:ss");
     const QDateTime creationTime = QFileInfo(fileName).created();
 
@@ -466,18 +468,18 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
 #endif
         compareEntryWithTimestamp(listing[0], QString("mode=40755 user= group= path=aaaemptydir type=dir"), creationTime);
 
-        QCOMPARE(listing[1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
-        QCOMPARE(listing[2], QString("mode=40777 user=%1 group=%2 path=dir/subdir type=dir time=%3").arg(owner).arg(group).arg(emptyTime));
+        QCOMPARE(listing[1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(systemUserName).arg(systemGroupName).arg(emptyTime));
+        QCOMPARE(listing[2], QString("mode=40777 user=%1 group=%2 path=dir/subdir type=dir time=%3").arg(systemUserName).arg(systemGroupName).arg(emptyTime));
         compareEntryWithTimestamp(listing[3], QString("mode=100644 user= group= path=dir/subdir/mediumfile2 type=file size=100"), creationTime);
         compareEntryWithTimestamp(listing[4], QString("mode=100644 user=weis group=users path=empty type=file size=0"), creationTime);
         compareEntryWithTimestamp(listing[5], QString("mode=100644 user= group= path=hugefile type=file size=20000"), creationTime);
         compareEntryWithTimestamp(listing[6], QString("mode=100644 user= group= path=mediumfile type=file size=100"), creationTime);
-        QCOMPARE(listing[7], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(owner).arg(group));
-        QCOMPARE(listing[8], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(owner).arg(group));
+        QCOMPARE(listing[7], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(systemUserName).arg(systemGroupName));
+        QCOMPARE(listing[8], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(systemUserName).arg(systemGroupName));
         compareEntryWithTimestamp(listing[9], QString("mode=100644 user=dfaure group=hackers path=my/dir/test3 type=file size=28"), creationTime);
         compareEntryWithTimestamp(listing[10], QString("mode=100440 user=weis group=users path=test1 type=file size=5"), creationTime);
         compareEntryWithTimestamp(listing[11], QString("mode=100644 user=weis group=users path=test2 type=file size=8"), creationTime);
-        QCOMPARE(listing[12], QString("mode=40777 user=%1 group=%2 path=z type=dir time=").arg(owner).arg(group));
+        QCOMPARE(listing[12], QString("mode=40777 user=%1 group=%2 path=z type=dir time=").arg(systemUserName).arg(systemGroupName));
 
         // This one was added with addLocalFile, so ignore mode.
         QString str = listing[13];
