@@ -47,9 +47,9 @@ class KTar::KTarPrivate
 {
 public:
     KTarPrivate(KTar *parent)
-        : q(parent),
-          tarEnd(0),
-          tmpFile(0)
+        : q(parent)
+        , tarEnd(0)
+        , tmpFile(0)
     {
     }
 
@@ -72,13 +72,15 @@ public:
 };
 
 KTar::KTar(const QString &fileName, const QString &_mimetype)
-    : KArchive(fileName), d(new KTarPrivate(this))
+    : KArchive(fileName)
+    , d(new KTarPrivate(this))
 {
     d->mimetype = _mimetype;
 }
 
 KTar::KTar(QIODevice *dev)
-    : KArchive(dev), d(new KTarPrivate(this))
+    : KArchive(dev)
+    , d(new KTarPrivate(this))
 {
 }
 
@@ -206,8 +208,8 @@ qint64 KTar::KTarPrivate::readRawHeader(char *buffer)
             // because the other digits are filled with all sorts of different chars by different tars ...
             // Some tars right-justify the checksum so it could start in one of three places - we have to check each.
             if (strncmp(buffer + 148 + 6 - s.length(), s.data(), s.length())
-                    && strncmp(buffer + 148 + 7 - s.length(), s.data(), s.length())
-                    && strncmp(buffer + 148 + 8 - s.length(), s.data(), s.length())) {
+                && strncmp(buffer + 148 + 7 - s.length(), s.data(), s.length())
+                && strncmp(buffer + 148 + 8 - s.length(), s.data(), s.length())) {
                 /*qWarning() << "KTar: invalid TAR file. Header is:" << QByteArray( buffer+257, 5 )
                                << "instead of ustar. Reading from wrong pos in file?"
                                << "checksum=" << QByteArray( buffer + 148 + 6 - s.length(), s.length() );*/
@@ -270,8 +272,12 @@ qint64 KTar::KTarPrivate::readHeader(char *buffer, QString &name, QString &symli
             QByteArray longlink;
             readLonglink(buffer, longlink);
             switch (typeflag) {
-            case 'L': name = QFile::decodeName(longlink); break;
-            case 'K': symlink = QFile::decodeName(longlink); break;
+            case 'L':
+                name = QFile::decodeName(longlink);
+                break;
+            case 'K':
+                symlink = QFile::decodeName(longlink);
+                break;
             }/*end switch*/
         } else {
             break;
@@ -362,7 +368,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
     }
 
     // read dir information
-    char buffer[ 0x200 ];
+    char buffer[0x200];
     bool ende = false;
     do {
         QString name;
@@ -390,7 +396,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             QString nm = (pos == -1) ? name : name.mid(pos + 1);
 
             // read access
-            buffer[ 0x6b ] = 0;
+            buffer[0x6b] = 0;
             char *dummy;
             const char *p = buffer + 0x64;
             while (*p == ' ') {
@@ -403,7 +409,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             QString group = QString::fromLocal8Bit(buffer + 0x129);
 
             // read time
-            buffer[ 0x93 ] = 0;
+            buffer[0x93] = 0;
             p = buffer + 0x88;
             while (*p == ' ') {
                 ++p;
@@ -411,7 +417,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             uint time = (int)strtol(p, &dummy, 8);
 
             // read type flag
-            char typeflag = buffer[ 0x9c ];
+            char typeflag = buffer[0x9c];
             // '0' for files, '1' hard link, '2' symlink, '5' for directory
             // (and 'L' for longlink fileNames, 'K' for longlink symlink targets)
             // 'D' for GNU tar extension DUMPDIR, 'x' for Extended header referring
@@ -514,7 +520,7 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
 
     bool forced = false;
     if (QLatin1String(application_gzip) == mimetype || QLatin1String(application_bzip) == mimetype ||
-            QLatin1String(application_lzma) == mimetype || QLatin1String(application_xz) == mimetype) {
+        QLatin1String(application_lzma) == mimetype || QLatin1String(application_xz) == mimetype) {
         forced = true;
     }
 
@@ -573,7 +579,7 @@ bool KTar::doFinishWriting(qint64 size)
         d->tarEnd = device()->pos() + (rest ? 0x200 - rest : 0);    // Record our new end of archive
     }
     if (rest) {
-        char buffer[ 0x201 ];
+        char buffer[0x201];
         for (uint i = 0; i < 0x200; ++i) {
             buffer[i] = 0;
         }
@@ -613,8 +619,8 @@ void KTar::KTarPrivate::fillBuffer(char *buffer,
     // mode (as in stpos())
     assert(strlen(mode) == 6);
     memcpy(buffer + 0x64, mode, 6);
-    buffer[ 0x6a ] = ' ';
-    buffer[ 0x6b ] = '\0';
+    buffer[0x6a] = ' ';
+    buffer[0x6b] = '\0';
 
     // dummy uid
     strcpy(buffer + 0x6c, "   765 ");  // 501 in decimal
@@ -625,33 +631,33 @@ void KTar::KTarPrivate::fillBuffer(char *buffer,
     QByteArray s = QByteArray::number(size, 8);   // octal
     s = s.rightJustified(11, '0');
     memcpy(buffer + 0x7c, s.data(), 11);
-    buffer[ 0x87 ] = ' '; // space-terminate (no null after)
+    buffer[0x87] = ' '; // space-terminate (no null after)
 
     // modification time
     const QDateTime modificationTime = mtime.isValid() ? mtime : QDateTime::currentDateTime();
     s = QByteArray::number(static_cast<qulonglong>(modificationTime.toMSecsSinceEpoch() / 1000), 8);   // octal
     s = s.rightJustified(11, '0');
     memcpy(buffer + 0x88, s.data(), 11);
-    buffer[ 0x93 ] = ' '; // space-terminate (no null after) -- well current tar writes a null byte
+    buffer[0x93] = ' '; // space-terminate (no null after) -- well current tar writes a null byte
 
     // spaces, replaced by the check sum later
-    buffer[ 0x94 ] = 0x20;
-    buffer[ 0x95 ] = 0x20;
-    buffer[ 0x96 ] = 0x20;
-    buffer[ 0x97 ] = 0x20;
-    buffer[ 0x98 ] = 0x20;
-    buffer[ 0x99 ] = 0x20;
+    buffer[0x94] = 0x20;
+    buffer[0x95] = 0x20;
+    buffer[0x96] = 0x20;
+    buffer[0x97] = 0x20;
+    buffer[0x98] = 0x20;
+    buffer[0x99] = 0x20;
 
     /* From the tar sources :
        Fill in the checksum field.  It's formatted differently from the
        other fields: it has [6] digits, a null, then a space -- rather than
        digits, a space, then a null. */
 
-    buffer[ 0x9a ] = '\0';
-    buffer[ 0x9b ] = ' ';
+    buffer[0x9a] = '\0';
+    buffer[0x9b] = ' ';
 
     // type flag (dir, file, link)
-    buffer[ 0x9c ] = typeflag;
+    buffer[0x9c] = typeflag;
 
     // magic + version
     strcpy(buffer + 0x101, "ustar");
@@ -727,7 +733,7 @@ bool KTar::doPrepareWriting(const QString &name, const QString &user,
       }
     */
 
-    char buffer[ 0x201 ];
+    char buffer[0x201];
     memset(buffer, 0, 0x200);
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd);    // Go to end of archive as might have moved with a read
@@ -783,7 +789,7 @@ bool KTar::doWriteDir(const QString &name, const QString &user,
         return true;    // already there
     }
 
-    char buffer[ 0x201 ];
+    char buffer[0x201];
     memset(buffer, 0, 0x200);
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd);    // Go to end of archive as might have moved with a read
@@ -836,7 +842,7 @@ bool KTar::doWriteSymLink(const QString &name, const QString &target,
     // In some tar files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
 
-    char buffer[ 0x201 ];
+    char buffer[0x201];
     memset(buffer, 0, 0x200);
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd);    // Go to end of archive as might have moved with a read

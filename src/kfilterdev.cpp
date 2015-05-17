@@ -58,14 +58,14 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
     }
 #if HAVE_BZIP2_SUPPORT
     if (mimeType == QLatin1String("application/x-bzip")
-            || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
+        || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
        ) {
         return KCompressionDevice::BZip2;
     }
 #endif
 #if HAVE_XZ_SUPPORT
     if (mimeType == QLatin1String("application/x-lzma")    // legacy name, still used
-            || mimeType == QLatin1String("application/x-xz")   // current naming
+        || mimeType == QLatin1String("application/x-xz")   // current naming
        ) {
         return KCompressionDevice::Xz;
     }
@@ -97,4 +97,3 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
     //qDebug() << "no compression found for" << mimeType;
     return KCompressionDevice::None;
 }
-

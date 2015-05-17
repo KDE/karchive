@@ -225,7 +225,8 @@ public:
         , size(0)
         , crc(0)
         , crcDefined(false)
-    {}
+    {
+    }
 
     QString path;
     bool attribDefined;
@@ -264,7 +265,8 @@ public:
     Folder()
         : unpackCRCDefined(false)
         , unpackCRC(0)
-    {}
+    {
+    }
 
     quint64 getUnpackSize() const
     {
@@ -385,15 +387,15 @@ class K7Zip::K7ZipPrivate
 {
 public:
     K7ZipPrivate(K7Zip *parent)
-        : q(parent),
-          packPos(0),
-          numPackStreams(0),
-          buffer(0),
-          pos(0),
-          end(0),
-          headerSize(0),
-          countSize(0),
-          m_currentFile(0)
+        : q(parent)
+        , packPos(0)
+        , numPackStreams(0)
+        , buffer(0)
+        , pos(0)
+        , end(0)
+        , headerSize(0)
+        , countSize(0)
+        , m_currentFile(0)
     {
     }
 
@@ -507,12 +509,14 @@ public:
 };
 
 K7Zip::K7Zip(const QString &fileName)
-    : KArchive(fileName), d(new K7ZipPrivate(this))
+    : KArchive(fileName)
+    , d(new K7ZipPrivate(this))
 {
 }
 
 K7Zip::K7Zip(QIODevice *dev)
-    : KArchive(dev), d(new K7ZipPrivate(this))
+    : KArchive(dev)
+    , d(new K7ZipPrivate(this))
 {
     Q_ASSERT(dev);
 }
@@ -678,8 +682,8 @@ void K7Zip::K7ZipPrivate::readBoolVector2(int numItems, QVector<bool> &v)
 }
 
 void K7Zip::K7ZipPrivate::readHashDigests(int numItems,
-        QVector<bool> &digestsDefined,
-        QVector<quint32> &digests)
+                                          QVector<bool> &digestsDefined,
+                                          QVector<quint32> &digests)
 {
     if (!buffer) {
         return;
@@ -1229,7 +1233,10 @@ public:
     quint32 range;
     quint32 code;
 
-    RangeDecoder() : pos(0) {}
+    RangeDecoder()
+        : pos(0)
+    {
+    }
 
     unsigned char readByte()
     {
@@ -1332,7 +1339,7 @@ public:
 };
 
 template <int numMoveBits>
-class CBitDecoder: public CBitModel<numMoveBits>
+class CBitDecoder : public CBitModel<numMoveBits>
 {
 public:
     quint32 decode(RangeDecoder *decoder)
@@ -1868,7 +1875,7 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
 
             quint64 id = info->methodID;
             size_t idSize;
-            for (idSize = 1; idSize < sizeof(id); idSize++) {
+            for (idSize = 1; idSize < sizeof (id); idSize++) {
                 if ((id >> (8 * idSize)) == 0) {
                     break;
                 }

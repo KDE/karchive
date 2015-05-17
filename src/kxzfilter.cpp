@@ -39,7 +39,7 @@ public:
     Private()
         : isInitialized(false)
     {
-        memset(&zStream, 0, sizeof(zStream));
+        memset(&zStream, 0, sizeof (zStream));
         mode = 0;
     }
 
@@ -101,7 +101,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
                 props[i] = properties[i];
             }
 
-            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof(props));
+            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode returned" << result;
                 return false;
@@ -118,7 +118,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             unsigned char props[1];
             props[0] = properties[0];
 
-            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof(props));
+            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode returned" << result;
                 return false;
@@ -129,10 +129,11 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             d->filters[0].id = LZMA_FILTER_X86;
             d->filters[0].options = NULL;
 
-            unsigned char props[5] = {0x5d, 0x00, 0x00, 0x08, 0x00};
+            unsigned char props[5] = { 0x5d, 0x00, 0x00, 0x08, 0x00 }
+            ;
             d->filters[1].id = LZMA_FILTER_LZMA1;
             d->filters[1].options = NULL;
-            result = lzma_properties_decode(&d->filters[1], NULL, props, sizeof(props));
+            result = lzma_properties_decode(&d->filters[1], NULL, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode1 returned" << result;
                 return false;

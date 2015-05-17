@@ -50,7 +50,7 @@ public:
     Private()
         : isInitialized(false)
     {
-        memset(&zStream, 0, sizeof(zStream));
+        memset(&zStream, 0, sizeof (zStream));
         mode = 0;
     }
 

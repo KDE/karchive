@@ -172,7 +172,8 @@ bool KArchive::close()
         closeSucceeded = d->saveFile->commit();
         delete d->saveFile;
         d->saveFile = 0;
-    } if (d->deviceOwned) {
+    }
+    if (d->deviceOwned) {
         delete d->dev; // we created it ourselves in open()
     }
 
@@ -458,8 +459,8 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     //qDebug() << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
     // Found -> add the missing piece
     KArchiveDirectory *e = new KArchiveDirectory(this, dirname, d->rootDir->permissions(),
-            d->rootDir->date(), d->rootDir->user(),
-            d->rootDir->group(), QString());
+                                                 d->rootDir->date(), d->rootDir->user(),
+                                                 d->rootDir->group(), QString());
     parent->addEntry(e);
     return e; // now a directory to <path> exists
 }
@@ -527,15 +528,16 @@ class KArchiveEntryPrivate
 public:
     KArchiveEntryPrivate(KArchive *_archive, const QString &_name, int _access,
                          const QDateTime &_date, const QString &_user, const QString &_group,
-                         const QString &_symlink) :
-        name(_name),
-        date(_date),
-        access(_access),
-        user(_user),
-        group(_group),
-        symlink(_symlink),
-        archive(_archive)
-    {}
+                         const QString &_symlink)
+        : name(_name)
+        , date(_date)
+        , access(_access)
+        , user(_user)
+        , group(_group)
+        , symlink(_symlink)
+        , archive(_archive)
+    {
+    }
     QString name;
     QDateTime date;
     mode_t access;
@@ -547,8 +549,8 @@ public:
 
 KArchiveEntry::KArchiveEntry(KArchive *t, const QString &name, int access, const QDateTime &date,
                              const QString &user, const QString &group, const
-                             QString &symlink) :
-    d(new KArchiveEntryPrivate(t, name, access, date, user, group, symlink))
+                             QString &symlink)
+    : d(new KArchiveEntryPrivate(t, name, access, date, user, group, symlink))
 {
 }
 
@@ -609,10 +611,11 @@ KArchive *KArchiveEntry::archive() const
 class KArchiveFilePrivate
 {
 public:
-    KArchiveFilePrivate(qint64 _pos, qint64 _size) :
-        pos(_pos),
-        size(_size)
-    {}
+    KArchiveFilePrivate(qint64 _pos, qint64 _size)
+        : pos(_pos)
+        , size(_size)
+    {
+    }
     qint64 pos;
     qint64 size;
 };
@@ -621,8 +624,8 @@ KArchiveFile::KArchiveFile(KArchive *t, const QString &name, int access, const Q
                            const QString &user, const QString &group,
                            const QString &symlink,
                            qint64 pos, qint64 size)
-    : KArchiveEntry(t, name, access, date, user, group, symlink),
-      d(new KArchiveFilePrivate(pos, size))
+    : KArchiveEntry(t, name, access, date, user, group, symlink)
+    , d(new KArchiveFilePrivate(pos, size))
 {
 }
 
@@ -718,8 +721,8 @@ KArchiveDirectory::KArchiveDirectory(KArchive *t, const QString &name, int acces
                                      const QDateTime &date,
                                      const QString &user, const QString &group,
                                      const QString &symlink)
-    : KArchiveEntry(t, name, access, date, user, group, symlink),
-      d(new KArchiveDirectoryPrivate)
+    : KArchiveEntry(t, name, access, date, user, group, symlink)
+    , d(new KArchiveDirectoryPrivate)
 {
 }
 
@@ -878,7 +881,7 @@ bool KArchiveDirectory::copyTo(const QString &dest, bool recursiveCopy) const
     qSort(fileList.begin(), fileList.end(), sortByPosition);    // sort on d->pos, so we have a linear access
 
     for (QList<const KArchiveFile *>::const_iterator it = fileList.constBegin(), end = fileList.constEnd();
-            it != end; ++it) {
+         it != end; ++it) {
         const KArchiveFile *f = *it;
         qint64 pos = f->position();
         if (!f->copyTo(fileToDir[pos])) {

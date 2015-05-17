@@ -38,7 +38,12 @@ class KGzipFilter::Private
 {
 public:
     Private()
-        : headerWritten(false), footerWritten(false), compressed(false), mode(0), crc(0), isInitialized(false)
+        : headerWritten(false)
+        , footerWritten(false)
+        , compressed(false)
+        , mode(0)
+        , crc(0)
+        , isInitialized(false)
     {
         zStream.zalloc = (alloc_func)0;
         zStream.zfree = (free_func)0;
@@ -210,7 +215,8 @@ bool KGzipFilter::readHeader()
         qDebug() << "ORIG_NAME=" << (char *)p;
 #endif
         while ((i > 0) && (*p)) {
-            i--; p++;
+            i--;
+            p++;
         }
         if (--i <= 0) {
             return false;
@@ -219,7 +225,8 @@ bool KGzipFilter::readHeader()
     }
     if ((flags & COMMENT) != 0) { // skip comment
         while ((i > 0) && (*p)) {
-            i--; p++;
+            i--;
+            p++;
         }
         if (--i <= 0) {
             return false;

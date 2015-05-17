@@ -82,7 +82,8 @@ static uint transformFromMsDos(const char *buffer)
 // == parsing routines for zip headers
 
 /** all relevant information about parsing file information */
-struct ParseFileInfo {
+struct ParseFileInfo
+{
     // file related info
     mode_t perm;            // permissions of this file
     // TODO: use quint32 instead of a uint?
@@ -100,8 +101,13 @@ struct ParseFileInfo {
     bool newinfounix_seen;  // true if Info-ZIP Unix New extra field has
     // been parsed
 
-    ParseFileInfo() : perm(0100644), uid(-1), gid(-1), extralen(0),
-        exttimestamp_seen(false), newinfounix_seen(false)
+    ParseFileInfo()
+        : perm(0100644)
+        , uid(-1)
+        , gid(-1)
+        , extralen(0)
+        , exttimestamp_seen(false)
+        , newinfounix_seen(false)
     {
         ctime = mtime = atime = time(0);
     }
@@ -285,7 +291,8 @@ static bool parseExtraField(const char *buffer, int size, bool islocal,
             break;
 #endif
         default:
-            /* ignore everything else */;
+            /* ignore everything else */
+            ;
         }/*end switch*/
 
         buffer += fieldsize;
@@ -305,7 +312,7 @@ static bool parseExtraField(const char *buffer, int size, bool islocal,
  * @param dev device that is read from
  * @return true if a local or central header begin is or could be reached
  */
-static bool handlePossibleHeaderBegin(const char* buffer, QIODevice *dev)
+static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev)
 {
     // we have to detect three magic tokens here:
     // PK34 for the next local header in case there is no data descriptor
@@ -384,13 +391,14 @@ class KZip::KZipPrivate
 {
 public:
     KZipPrivate()
-        : m_crc(0),
-          m_currentFile(0),
-          m_currentDev(0),
-          m_compression(8),
-          m_extraField(KZip::NoExtraField),
-          m_offset(0)
-    {}
+        : m_crc(0)
+        , m_currentFile(0)
+        , m_currentDev(0)
+        , m_compression(8)
+        , m_extraField(KZip::NoExtraField)
+        , m_offset(0)
+    {
+    }
 
     unsigned long           m_crc;         // checksum
     KZipFileEntry          *m_currentFile; // file currently being written
@@ -406,12 +414,14 @@ public:
 };
 
 KZip::KZip(const QString &fileName)
-    : KArchive(fileName), d(new KZipPrivate)
+    : KArchive(fileName)
+    , d(new KZipPrivate)
 {
 }
 
 KZip::KZip(QIODevice *dev)
-    : KArchive(dev), d(new KZipPrivate)
+    : KArchive(dev)
+    , d(new KZipPrivate)
 {
 }
 
@@ -543,8 +553,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 bool foundSignature = false;
                 // check if this could be a symbolic link
                 if (compression_mode == NoCompression
-                        && uncomp_size <= max_path_len
-                        && uncomp_size > 0) {
+                    && uncomp_size <= max_path_len
+                    && uncomp_size > 0) {
                     // read content and store it
                     // If it's not a symlink, then we'll just discard the data for now.
                     pfi.guessed_symlink = dev->read(uncomp_size);
@@ -583,7 +593,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         return false;
                     }
 
-                    if (buffer[0] != 'P' || !handlePossibleHeaderBegin(buffer+1, dev)) {
+                    if (buffer[0] != 'P' || !handlePossibleHeaderBegin(buffer + 1, dev)) {
                         // assume data descriptor without signature
                         dev->seek(dev->pos() + 8); // skip rest of the 'data_descriptor'
                     }
@@ -811,7 +821,7 @@ bool KZip::closeArchive()
     //write all central dir file entries
 
     // to be written at the end of the file...
-    char buffer[ 22 ]; // first used for 12, then for 22 at the end
+    char buffer[22]; // first used for 12, then for 22 at the end
     uLong crc = crc32(0L, Z_NULL, 0);
 
     qint64 centraldiroffset = device()->pos();
@@ -863,7 +873,7 @@ bool KZip::closeArchive()
 
         const int extra_field_len = (d->m_extraField == ModificationTime) ? 9 : 0;
         const int bufferSize = extra_field_len + path.length() + 46;
-        char *buffer = new char[ bufferSize ];
+        char *buffer = new char[bufferSize];
 
         memset(buffer, 0, 46); // zero is a nice default for most header fields
 
@@ -875,45 +885,45 @@ bool KZip::closeArchive()
 
         // I do not know why memcpy is not working here
         //memcpy(buffer, head, sizeof(head));
-        memmove(buffer, head, sizeof(head));
+        memmove(buffer, head, sizeof (head));
 
-        buffer[ 10 ] = char(it.value()->encoding()); // compression method
-        buffer[ 11 ] = char(it.value()->encoding() >> 8);
+        buffer[10] = char(it.value()->encoding()); // compression method
+        buffer[11] = char(it.value()->encoding() >> 8);
 
-        transformToMsDos(it.value()->date(), &buffer[ 12 ]);
+        transformToMsDos(it.value()->date(), &buffer[12]);
 
         uLong mycrc = it.value()->crc32();
-        buffer[ 16 ] = char(mycrc); // crc checksum
-        buffer[ 17 ] = char(mycrc >> 8);
-        buffer[ 18 ] = char(mycrc >> 16);
-        buffer[ 19 ] = char(mycrc >> 24);
+        buffer[16] = char(mycrc); // crc checksum
+        buffer[17] = char(mycrc >> 8);
+        buffer[18] = char(mycrc >> 16);
+        buffer[19] = char(mycrc >> 24);
 
         int mysize1 = it.value()->compressedSize();
-        buffer[ 20 ] = char(mysize1); // compressed file size
-        buffer[ 21 ] = char(mysize1 >> 8);
-        buffer[ 22 ] = char(mysize1 >> 16);
-        buffer[ 23 ] = char(mysize1 >> 24);
+        buffer[20] = char(mysize1); // compressed file size
+        buffer[21] = char(mysize1 >> 8);
+        buffer[22] = char(mysize1 >> 16);
+        buffer[23] = char(mysize1 >> 24);
 
         int mysize = it.value()->size();
-        buffer[ 24 ] = char(mysize); // uncompressed file size
-        buffer[ 25 ] = char(mysize >> 8);
-        buffer[ 26 ] = char(mysize >> 16);
-        buffer[ 27 ] = char(mysize >> 24);
+        buffer[24] = char(mysize); // uncompressed file size
+        buffer[25] = char(mysize >> 8);
+        buffer[26] = char(mysize >> 16);
+        buffer[27] = char(mysize >> 24);
 
-        buffer[ 28 ] = char(path.length()); // fileName length
-        buffer[ 29 ] = char(path.length() >> 8);
+        buffer[28] = char(path.length()); // fileName length
+        buffer[29] = char(path.length() >> 8);
 
-        buffer[ 30 ] = char(extra_field_len);
-        buffer[ 31 ] = char(extra_field_len >> 8);
+        buffer[30] = char(extra_field_len);
+        buffer[31] = char(extra_field_len >> 8);
 
-        buffer[ 40 ] = char(it.value()->permissions());
-        buffer[ 41 ] = char(it.value()->permissions() >> 8);
+        buffer[40] = char(it.value()->permissions());
+        buffer[41] = char(it.value()->permissions() >> 8);
 
         int myhst = it.value()->headerStart();
-        buffer[ 42 ] = char(myhst); //relative offset of local header
-        buffer[ 43 ] = char(myhst >> 8);
-        buffer[ 44 ] = char(myhst >> 16);
-        buffer[ 45 ] = char(myhst >> 24);
+        buffer[42] = char(myhst); //relative offset of local header
+        buffer[43] = char(myhst >> 8);
+        buffer[44] = char(myhst >> 16);
+        buffer[45] = char(myhst >> 24);
 
         // file name
         strncpy(buffer + 46, path.constData(), path.length());
@@ -949,42 +959,42 @@ bool KZip::closeArchive()
     //qDebug() << "closearchive: device()->pos(): " << device()->pos();
 
     //write end of central dir record.
-    buffer[ 0 ] = 'P'; //end of central dir signature
-    buffer[ 1 ] = 'K';
-    buffer[ 2 ] = 5;
-    buffer[ 3 ] = 6;
+    buffer[0] = 'P'; //end of central dir signature
+    buffer[1] = 'K';
+    buffer[2] = 5;
+    buffer[3] = 6;
 
-    buffer[ 4 ] = 0; // number of this disk
-    buffer[ 5 ] = 0;
+    buffer[4] = 0; // number of this disk
+    buffer[5] = 0;
 
-    buffer[ 6 ] = 0; // number of disk with start of central dir
-    buffer[ 7 ] = 0;
+    buffer[6] = 0; // number of disk with start of central dir
+    buffer[7] = 0;
 
     int count = d->m_fileList.count();
     //qDebug() << "number of files (count): " << count;
 
-    buffer[ 8 ] = char(count); // total number of entries in central dir of
-    buffer[ 9 ] = char(count >> 8); // this disk
+    buffer[8] = char(count); // total number of entries in central dir of
+    buffer[9] = char(count >> 8); // this disk
 
-    buffer[ 10 ] = buffer[ 8 ]; // total number of entries in the central dir
-    buffer[ 11 ] = buffer[ 9 ];
+    buffer[10] = buffer[8]; // total number of entries in the central dir
+    buffer[11] = buffer[9];
 
     int cdsize = centraldirendoffset - centraldiroffset;
-    buffer[ 12 ] = char(cdsize); // size of the central dir
-    buffer[ 13 ] = char(cdsize >> 8);
-    buffer[ 14 ] = char(cdsize >> 16);
-    buffer[ 15 ] = char(cdsize >> 24);
+    buffer[12] = char(cdsize); // size of the central dir
+    buffer[13] = char(cdsize >> 8);
+    buffer[14] = char(cdsize >> 16);
+    buffer[15] = char(cdsize >> 24);
 
     //qDebug() << "end : centraldiroffset: " << centraldiroffset;
     //qDebug() << "end : centraldirsize: " << cdsize;
 
-    buffer[ 16 ] = char(centraldiroffset); // central dir offset
-    buffer[ 17 ] = char(centraldiroffset >> 8);
-    buffer[ 18 ] = char(centraldiroffset >> 16);
-    buffer[ 19 ] = char(centraldiroffset >> 24);
+    buffer[16] = char(centraldiroffset); // central dir offset
+    buffer[17] = char(centraldiroffset >> 8);
+    buffer[18] = char(centraldiroffset >> 16);
+    buffer[19] = char(centraldiroffset >> 24);
 
-    buffer[ 20 ] = 0; //zipfile comment length
-    buffer[ 21 ] = 0;
+    buffer[20] = 0; //zipfile comment length
+    buffer[21] = 0;
 
     if (device()->write(buffer, 22) != 22) {
         return false;
@@ -1086,44 +1096,44 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     QByteArray encodedName = QFile::encodeName(name);
     int bufferSize = extra_field_len + encodedName.length() + 30;
     //qDebug() << "bufferSize=" << bufferSize;
-    char *buffer = new char[ bufferSize ];
+    char *buffer = new char[bufferSize];
 
-    buffer[ 0 ] = 'P'; //local file header signature
-    buffer[ 1 ] = 'K';
-    buffer[ 2 ] = 3;
-    buffer[ 3 ] = 4;
+    buffer[0] = 'P'; //local file header signature
+    buffer[1] = 'K';
+    buffer[2] = 3;
+    buffer[3] = 4;
 
-    buffer[ 4 ] = 0x14; // version needed to extract
-    buffer[ 5 ] = 0;
+    buffer[4] = 0x14; // version needed to extract
+    buffer[5] = 0;
 
-    buffer[ 6 ] = 0; // general purpose bit flag
-    buffer[ 7 ] = 0;
+    buffer[6] = 0; // general purpose bit flag
+    buffer[7] = 0;
 
-    buffer[ 8 ] = char(e->encoding()); // compression method
-    buffer[ 9 ] = char(e->encoding() >> 8);
+    buffer[8] = char(e->encoding()); // compression method
+    buffer[9] = char(e->encoding() >> 8);
 
-    transformToMsDos(e->date(), &buffer[ 10 ]);
+    transformToMsDos(e->date(), &buffer[10]);
 
-    buffer[ 14 ] = 'C'; //dummy crc
-    buffer[ 15 ] = 'R';
-    buffer[ 16 ] = 'C';
-    buffer[ 17 ] = 'q';
+    buffer[14] = 'C'; //dummy crc
+    buffer[15] = 'R';
+    buffer[16] = 'C';
+    buffer[17] = 'q';
 
-    buffer[ 18 ] = 'C'; //compressed file size
-    buffer[ 19 ] = 'S';
-    buffer[ 20 ] = 'I';
-    buffer[ 21 ] = 'Z';
+    buffer[18] = 'C'; //compressed file size
+    buffer[19] = 'S';
+    buffer[20] = 'I';
+    buffer[21] = 'Z';
 
-    buffer[ 22 ] = 'U'; //uncompressed file size
-    buffer[ 23 ] = 'S';
-    buffer[ 24 ] = 'I';
-    buffer[ 25 ] = 'Z';
+    buffer[22] = 'U'; //uncompressed file size
+    buffer[23] = 'S';
+    buffer[24] = 'I';
+    buffer[25] = 'Z';
 
-    buffer[ 26 ] = (uchar)(encodedName.length()); //fileName length
-    buffer[ 27 ] = (uchar)(encodedName.length() >> 8);
+    buffer[26] = (uchar)(encodedName.length()); //fileName length
+    buffer[27] = (uchar)(encodedName.length() >> 8);
 
-    buffer[ 28 ] = (uchar)(extra_field_len); // extra field length
-    buffer[ 29 ] = (uchar)(extra_field_len >> 8);
+    buffer[28] = (uchar)(extra_field_len); // extra field length
+    buffer[29] = (uchar)(extra_field_len >> 8);
 
     // file name
     strncpy(buffer + 30, encodedName.constData(), encodedName.length());
@@ -1304,11 +1314,12 @@ class KZipFileEntry::KZipFileEntryPrivate
 {
 public:
     KZipFileEntryPrivate()
-        : crc(0),
-          compressedSize(0),
-          headerStart(0),
-          encoding(0)
-    {}
+        : crc(0)
+        , compressedSize(0)
+        , headerStart(0)
+        , encoding(0)
+    {
+    }
     unsigned long crc;
     qint64        compressedSize;
     qint64        headerStart;
@@ -1320,8 +1331,8 @@ KZipFileEntry::KZipFileEntry(KZip *zip, const QString &name, int access, const Q
                              const QString &user, const QString &group, const QString &symlink,
                              const QString &path, qint64 start, qint64 uncompressedSize,
                              int encoding, qint64 compressedSize)
-    : KArchiveFile(zip, name, access, date, user, group, symlink, start, uncompressedSize),
-      d(new KZipFileEntryPrivate)
+    : KArchiveFile(zip, name, access, date, user, group, symlink, start, uncompressedSize)
+    , d(new KZipFileEntryPrivate)
 {
     d->path = path;
     d->encoding = encoding;

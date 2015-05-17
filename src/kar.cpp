@@ -1,4 +1,3 @@
-
 /* This file is part of the KDE libraries
    Copyright (C) 2002 Laurence Anderson <l.d.anderson@warwick.ac.uk>
 
@@ -33,16 +32,20 @@
 class KAr::KArPrivate
 {
 public:
-    KArPrivate() {}
+    KArPrivate()
+    {
+    }
 };
 
 KAr::KAr(const QString &filename)
-    : KArchive(filename), d(new KArPrivate)
+    : KArchive(filename)
+    , d(new KArPrivate)
 {
 }
 
 KAr::KAr(QIODevice *dev)
-    : KArchive(dev), d(new KArPrivate)
+    : KArchive(dev)
+    , d(new KArPrivate)
 {
 }
 

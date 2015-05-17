@@ -32,8 +32,10 @@
 class KRcc::KRccPrivate
 {
 public:
-    KRccPrivate() {}
-    void createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc* q);
+    KRccPrivate()
+    {
+    }
+    void createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc *q);
 
     QString m_prefix;  // '/' + uuid
 };
@@ -45,19 +47,20 @@ class KARCHIVE_EXPORT KRccFileEntry : public KArchiveFile
 {
 public:
     KRccFileEntry(KArchive *archive, const QString &name, int access, const QDateTime &date,
-            const QString &user, const QString &group, qint64 size, const QString &resourcePath)
-        : KArchiveFile(archive, name, access, date, user, group, QString(), 0, size),
-          m_resourcePath(resourcePath)
-    {}
+                  const QString &user, const QString &group, qint64 size, const QString &resourcePath)
+        : KArchiveFile(archive, name, access, date, user, group, QString(), 0, size)
+        , m_resourcePath(resourcePath)
+    {
+    }
 
     QByteArray data() const Q_DECL_OVERRIDE
     {
-         QFile f(m_resourcePath);
-         if (f.open(QIODevice::ReadOnly)) {
-             return f.readAll();
-         }
-         qWarning() << "Couldn't open" << m_resourcePath;
-         return QByteArray();
+        QFile f(m_resourcePath);
+        if (f.open(QIODevice::ReadOnly)) {
+            return f.readAll();
+        }
+        qWarning() << "Couldn't open" << m_resourcePath;
+        return QByteArray();
     }
     QIODevice *createDevice() const Q_DECL_OVERRIDE
     {
@@ -67,9 +70,9 @@ private:
     QString m_resourcePath;
 };
 
-
 KRcc::KRcc(const QString &filename)
-    : KArchive(filename), d(new KRccPrivate)
+    : KArchive(filename)
+    , d(new KRccPrivate)
 {
 }
 
@@ -82,7 +85,7 @@ KRcc::~KRcc()
 }
 
 bool KRcc::doPrepareWriting(const QString &, const QString &, const QString &,
-                           qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+                            qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     return false;
 }
@@ -93,13 +96,13 @@ bool KRcc::doFinishWriting(qint64)
 }
 
 bool KRcc::doWriteDir(const QString &, const QString &, const QString &,
-                     mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+                      mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     return false;
 }
 
 bool KRcc::doWriteSymLink(const QString &, const QString &, const QString &,
-                         const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+                          const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     return false;
 }
@@ -127,18 +130,18 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
     return true;
 }
 
-void KRcc::KRccPrivate::createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc* q)
+void KRcc::KRccPrivate::createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc *q)
 {
-    Q_FOREACH(const QString &fileName, dir.entryList()) {
+    Q_FOREACH (const QString &fileName, dir.entryList()) {
         const QString entryPath = dir.path() + QLatin1Char('/') + fileName;
         const QFileInfo info(entryPath);
         if (info.isFile()) {
             KArchiveEntry *entry = new KRccFileEntry(q, fileName, 0444, info.lastModified(),
-                    parentDir->user(), parentDir->group(), info.size(), entryPath);
+                                                     parentDir->user(), parentDir->group(), info.size(), entryPath);
             parentDir->addEntry(entry);
         } else {
             KArchiveDirectory *entry = new KArchiveDirectory(q, fileName, 0555, info.lastModified(),
-                    parentDir->user(), parentDir->group(), /*symlink*/ QString());
+                                                             parentDir->user(), parentDir->group(), /*symlink*/ QString());
             parentDir->addEntry(entry);
             createEntries(QDir(entryPath), entry, q);
         }

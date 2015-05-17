@@ -19,7 +19,9 @@
 #include "klimitediodevice_p.h"
 
 KLimitedIODevice::KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length)
-    : m_dev(dev), m_start(start), m_length(length)
+    : m_dev(dev)
+    , m_start(start)
+    , m_length(length)
 {
     //qDebug() << "start=" << start << "length=" << length;
     open(QIODevice::ReadOnly);   //krazy:exclude=syscalls
