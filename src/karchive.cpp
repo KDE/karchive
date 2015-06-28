@@ -75,10 +75,7 @@ KArchive::KArchive(QIODevice *dev)
 
 KArchive::~KArchive()
 {
-    if (isOpen()) {
-        close();    // WARNING: won't call the virtual method close in the derived class!!!
-    }
-
+    Q_ASSERT(!isOpen()); // the derived class destructor must have closed already
     delete d;
 }
 
