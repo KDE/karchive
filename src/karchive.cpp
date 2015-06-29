@@ -672,6 +672,22 @@ bool KArchiveFile::isFile() const
     return true;
 }
 
+static QFileDevice::Permissions withExecutablePerms(
+    QFileDevice::Permissions filePerms,
+    mode_t perms)
+{
+    if (perms & 01)
+      filePerms |= QFileDevice::ExeOther;
+
+    if (perms & 010)
+      filePerms |= QFileDevice::ExeGroup;
+
+    if (perms & 0100)
+      filePerms |= QFileDevice::ExeOwner;
+
+    return filePerms;
+}
+
 bool KArchiveFile::copyTo(const QString &dest) const
 {
     QFile f(dest + QLatin1Char('/')  + name());
@@ -692,6 +708,7 @@ bool KArchiveFile::copyTo(const QString &dest) const
             f.write(array.data(), currentChunkSize);
             remainingSize -= currentChunkSize;
         }
+        f.setPermissions(withExecutablePerms(f.permissions(), permissions()));
         f.close();
 
         delete inputDev;

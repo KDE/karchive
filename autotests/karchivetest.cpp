@@ -90,6 +90,9 @@ static void writeTestFilesToArchive(KArchive *archive)
     // Add local symlink
     QVERIFY(archive->addLocalFile("test3_symlink", "z/test3_symlink"));
 #endif
+
+    // Add executable
+    QVERIFY(archive->writeFile("executableAll", "#!/bin/sh\necho hi", 0100755));
 }
 
 static QString getCurrentUserName()
@@ -296,6 +299,8 @@ static void testCopyTo(KArchive *archive)
     }
     QCOMPARE(symLinkTarget, QString("test3"));
 #endif
+
+    QVERIFY(QFileInfo(dirName + "executableAll").permissions() & (QFileDevice::ExeOwner | QFileDevice::ExeGroup | QFileDevice::ExeOther));
 }
 
 /**
@@ -462,9 +467,9 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         const QStringList listing = recursiveListEntries(dir, "", WithUserGroup | WithTime);
 
 #ifndef Q_OS_WIN
-        QCOMPARE(listing.count(), 15);
+        QCOMPARE(listing.count(), 16);
 #else
-        QCOMPARE(listing.count(), 14);
+        QCOMPARE(listing.count(), 15);
 #endif
         compareEntryWithTimestamp(listing[0], QString("mode=40755 user= group= path=aaaemptydir type=dir"), creationTime);
 
@@ -472,23 +477,24 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         QCOMPARE(listing[2], QString("mode=40777 user=%1 group=%2 path=dir/subdir type=dir time=%3").arg(systemUserName).arg(systemGroupName).arg(emptyTime));
         compareEntryWithTimestamp(listing[3], QString("mode=100644 user= group= path=dir/subdir/mediumfile2 type=file size=100"), creationTime);
         compareEntryWithTimestamp(listing[4], QString("mode=100644 user=weis group=users path=empty type=file size=0"), creationTime);
-        compareEntryWithTimestamp(listing[5], QString("mode=100644 user= group= path=hugefile type=file size=20000"), creationTime);
-        compareEntryWithTimestamp(listing[6], QString("mode=100644 user= group= path=mediumfile type=file size=100"), creationTime);
-        QCOMPARE(listing[7], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(systemUserName).arg(systemGroupName));
-        QCOMPARE(listing[8], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(systemUserName).arg(systemGroupName));
-        compareEntryWithTimestamp(listing[9], QString("mode=100644 user=dfaure group=hackers path=my/dir/test3 type=file size=28"), creationTime);
-        compareEntryWithTimestamp(listing[10], QString("mode=100440 user=weis group=users path=test1 type=file size=5"), creationTime);
-        compareEntryWithTimestamp(listing[11], QString("mode=100644 user=weis group=users path=test2 type=file size=8"), creationTime);
-        QCOMPARE(listing[12], QString("mode=40777 user=%1 group=%2 path=z type=dir time=").arg(systemUserName).arg(systemGroupName));
+        compareEntryWithTimestamp(listing[5], QString("mode=100755 user= group= path=executableAll type=file size=17"), creationTime);
+        compareEntryWithTimestamp(listing[6], QString("mode=100644 user= group= path=hugefile type=file size=20000"), creationTime);
+        compareEntryWithTimestamp(listing[7], QString("mode=100644 user= group= path=mediumfile type=file size=100"), creationTime);
+        QCOMPARE(listing[8], QString("mode=40777 user=%1 group=%2 path=my type=dir time=").arg(systemUserName).arg(systemGroupName));
+        QCOMPARE(listing[9], QString("mode=40777 user=%1 group=%2 path=my/dir type=dir time=").arg(systemUserName).arg(systemGroupName));
+        compareEntryWithTimestamp(listing[10], QString("mode=100644 user=dfaure group=hackers path=my/dir/test3 type=file size=28"), creationTime);
+        compareEntryWithTimestamp(listing[11], QString("mode=100440 user=weis group=users path=test1 type=file size=5"), creationTime);
+        compareEntryWithTimestamp(listing[12], QString("mode=100644 user=weis group=users path=test2 type=file size=8"), creationTime);
+        QCOMPARE(listing[13], QString("mode=40777 user=%1 group=%2 path=z type=dir time=").arg(systemUserName).arg(systemGroupName));
 
         // This one was added with addLocalFile, so ignore mode.
-        QString str = listing[13];
+        QString str = listing[14];
         str.replace(QRegExp("mode.*user"), "user");
 
         compareEntryWithTimestamp(str, QString("user=%1 group=%2 path=z/test3 type=file size=13").arg(owner).arg(group), creationTime);
 
 #ifndef Q_OS_WIN
-        str = listing[14];
+        str = listing[15];
         str.replace(QRegExp("mode.*path"), "path");
 
         compareEntryWithTimestamp(str, QString("path=z/test3_symlink type=file size=0 symlink=test3"), creationTime);
@@ -842,30 +848,31 @@ void KArchiveTest::testReadZip()
     const QStringList listing = recursiveListEntries(dir, "", 0);
 
 #ifndef Q_OS_WIN
-    QCOMPARE(listing.count(), 16);
+    QCOMPARE(listing.count(), 17);
 #else
-    QCOMPARE(listing.count(), 15);
+    QCOMPARE(listing.count(), 16);
 #endif
     QCOMPARE(listing[0], QString("mode=40755 path=aaaemptydir type=dir"));
     QCOMPARE(listing[1], QString("mode=40777 path=dir type=dir"));
     QCOMPARE(listing[2], QString("mode=40777 path=dir/subdir type=dir"));
     QCOMPARE(listing[3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
     QCOMPARE(listing[4], QString("mode=100644 path=empty type=file size=0"));
-    QCOMPARE(listing[5], QString("mode=100644 path=hugefile type=file size=20000"));
-    QCOMPARE(listing[6], QString("mode=100644 path=mediumfile type=file size=100"));
-    QCOMPARE(listing[7], QString("mode=100644 path=mimetype type=file size=%1").arg(strlen(s_zipMimeType)));
-    QCOMPARE(listing[8], QString("mode=40777 path=my type=dir"));
-    QCOMPARE(listing[9], QString("mode=40777 path=my/dir type=dir"));
-    QCOMPARE(listing[10], QString("mode=100644 path=my/dir/test3 type=file size=28"));
-    QCOMPARE(listing[11], QString("mode=100440 path=test1 type=file size=5"));
-    QCOMPARE(listing[12], QString("mode=100644 path=test2 type=file size=8"));
-    QCOMPARE(listing[13], QString("mode=40777 path=z type=dir"));
+    QCOMPARE(listing[5], QString("mode=100755 path=executableAll type=file size=17"));
+    QCOMPARE(listing[6], QString("mode=100644 path=hugefile type=file size=20000"));
+    QCOMPARE(listing[7], QString("mode=100644 path=mediumfile type=file size=100"));
+    QCOMPARE(listing[8], QString("mode=100644 path=mimetype type=file size=%1").arg(strlen(s_zipMimeType)));
+    QCOMPARE(listing[9], QString("mode=40777 path=my type=dir"));
+    QCOMPARE(listing[10], QString("mode=40777 path=my/dir type=dir"));
+    QCOMPARE(listing[11], QString("mode=100644 path=my/dir/test3 type=file size=28"));
+    QCOMPARE(listing[12], QString("mode=100440 path=test1 type=file size=5"));
+    QCOMPARE(listing[13], QString("mode=100644 path=test2 type=file size=8"));
+    QCOMPARE(listing[14], QString("mode=40777 path=z type=dir"));
     // This one was added with addLocalFile, so ignore mode
-    QString str = listing[14];
+    QString str = listing[15];
     str.replace(QRegExp("mode.*path"), "path");
     QCOMPARE(str, QString("path=z/test3 type=file size=13"));
 #ifndef Q_OS_WIN
-    str = listing[15];
+    str = listing[16];
     str.replace(QRegExp("mode.*path"), "path");
     QCOMPARE(str, QString("path=z/test3_symlink type=file size=5 symlink=test3"));
 #endif
@@ -1151,29 +1158,30 @@ void KArchiveTest::testRead7Zip() // testCreate7Zip must have been run first.
         const QStringList listing = recursiveListEntries(dir, "", 0);
 
 #ifndef Q_OS_WIN
-        QCOMPARE(listing.count(), 15);
+        QCOMPARE(listing.count(), 16);
 #else
-        QCOMPARE(listing.count(), 14);
+        QCOMPARE(listing.count(), 15);
 #endif
         QCOMPARE(listing[0], QString("mode=40755 path=aaaemptydir type=dir"));
         QCOMPARE(listing[1], QString("mode=40777 path=dir type=dir"));
         QCOMPARE(listing[2], QString("mode=40777 path=dir/subdir type=dir"));
         QCOMPARE(listing[3], QString("mode=100644 path=dir/subdir/mediumfile2 type=file size=100"));
         QCOMPARE(listing[4], QString("mode=100644 path=empty type=file size=0"));
-        QCOMPARE(listing[5], QString("mode=100644 path=hugefile type=file size=20000"));
-        QCOMPARE(listing[6], QString("mode=100644 path=mediumfile type=file size=100"));
-        QCOMPARE(listing[7], QString("mode=40777 path=my type=dir"));
-        QCOMPARE(listing[8], QString("mode=40777 path=my/dir type=dir"));
-        QCOMPARE(listing[9], QString("mode=100644 path=my/dir/test3 type=file size=28"));
-        QCOMPARE(listing[10], QString("mode=100440 path=test1 type=file size=5"));
-        QCOMPARE(listing[11], QString("mode=100644 path=test2 type=file size=8"));
-        QCOMPARE(listing[12], QString("mode=40777 path=z type=dir"));
+        QCOMPARE(listing[5], QString("mode=100755 path=executableAll type=file size=17"));
+        QCOMPARE(listing[6], QString("mode=100644 path=hugefile type=file size=20000"));
+        QCOMPARE(listing[7], QString("mode=100644 path=mediumfile type=file size=100"));
+        QCOMPARE(listing[8], QString("mode=40777 path=my type=dir"));
+        QCOMPARE(listing[9], QString("mode=40777 path=my/dir type=dir"));
+        QCOMPARE(listing[10], QString("mode=100644 path=my/dir/test3 type=file size=28"));
+        QCOMPARE(listing[11], QString("mode=100440 path=test1 type=file size=5"));
+        QCOMPARE(listing[12], QString("mode=100644 path=test2 type=file size=8"));
+        QCOMPARE(listing[13], QString("mode=40777 path=z type=dir"));
         // This one was added with addLocalFile, so ignore mode/user/group.
-        QString str = listing[13];
+        QString str = listing[14];
         str.replace(QRegExp("mode.*path"), "path");
         QCOMPARE(str, QString("path=z/test3 type=file size=13"));
 #ifndef Q_OS_WIN
-        str = listing[14];
+        str = listing[15];
         str.replace(QRegExp("mode.*path"), "path");
         QCOMPARE(str, QString("path=z/test3_symlink type=file size=0 symlink=test3"));
 #endif
