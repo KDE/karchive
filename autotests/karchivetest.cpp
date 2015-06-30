@@ -489,13 +489,13 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
 
         // This one was added with addLocalFile, so ignore mode.
         QString str = listing[14];
-        str.replace(QRegExp("mode.*user"), "user");
+        str.replace(QRegExp("mode.*user="), "user=");
 
         compareEntryWithTimestamp(str, QString("user=%1 group=%2 path=z/test3 type=file size=13").arg(owner).arg(group), creationTime);
 
 #ifndef Q_OS_WIN
         str = listing[15];
-        str.replace(QRegExp("mode.*path"), "path");
+        str.replace(QRegExp("mode.*path="), "path=");
 
         compareEntryWithTimestamp(str, QString("path=z/test3_symlink type=file size=0 symlink=test3"), creationTime);
 #endif
@@ -869,11 +869,11 @@ void KArchiveTest::testReadZip()
     QCOMPARE(listing[14], QString("mode=40777 path=z type=dir"));
     // This one was added with addLocalFile, so ignore mode
     QString str = listing[15];
-    str.replace(QRegExp("mode.*path"), "path");
+    str.replace(QRegExp("mode.*path="), "path=");
     QCOMPARE(str, QString("path=z/test3 type=file size=13"));
 #ifndef Q_OS_WIN
     str = listing[16];
-    str.replace(QRegExp("mode.*path"), "path");
+    str.replace(QRegExp("mode.*path="), "path=");
     QCOMPARE(str, QString("path=z/test3_symlink type=file size=5 symlink=test3"));
 #endif
 
@@ -1178,11 +1178,11 @@ void KArchiveTest::testRead7Zip() // testCreate7Zip must have been run first.
         QCOMPARE(listing[13], QString("mode=40777 path=z type=dir"));
         // This one was added with addLocalFile, so ignore mode/user/group.
         QString str = listing[14];
-        str.replace(QRegExp("mode.*path"), "path");
+        str.replace(QRegExp("mode.*path="), "path=");
         QCOMPARE(str, QString("path=z/test3 type=file size=13"));
 #ifndef Q_OS_WIN
         str = listing[15];
-        str.replace(QRegExp("mode.*path"), "path");
+        str.replace(QRegExp("mode.*path="), "path=");
         QCOMPARE(str, QString("path=z/test3_symlink type=file size=0 symlink=test3"));
 #endif
 
