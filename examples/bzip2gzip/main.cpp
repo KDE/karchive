@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
     KCompressionDevice output(outputFile, KCompressionDevice::GZip);
     output.open(QIODevice::WriteOnly);
 
-    while(!input.atEnd()) {
+    while (!input.atEnd()) {
         // Read and uncompress the data
         QByteArray data = input.read(512);
 
