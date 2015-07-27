@@ -1,5 +1,7 @@
 # KArchive
 
+Reading, creating, and manipulating file archives
+
 ## Introduction
 
 KArchive provides classes for easy reading, creation and manipulation of
