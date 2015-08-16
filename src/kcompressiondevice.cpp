@@ -39,10 +39,10 @@
 
 #include <QDebug>
 
-class KCompressionDevice::Private
+class KCompressionDevicePrivate
 {
 public:
-    Private()
+    KCompressionDevicePrivate()
         : bNeedHeader(true)
         , bSkipHeaders(false)
         , bOpenedUnderlyingDevice(false)
@@ -88,7 +88,7 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
 }
 
 KCompressionDevice::KCompressionDevice(QIODevice *inputDevice, bool autoDeleteInputDevice, CompressionType type)
-    : d(new Private)
+    : d(new KCompressionDevicePrivate)
 {
     assert(inputDevice);
     d->filter = filterForCompressionType(type);
@@ -99,7 +99,7 @@ KCompressionDevice::KCompressionDevice(QIODevice *inputDevice, bool autoDeleteIn
 }
 
 KCompressionDevice::KCompressionDevice(const QString &fileName, CompressionType type)
-    : d(new Private)
+    : d(new KCompressionDevicePrivate)
 {
     QFile *f = new QFile(fileName);
     d->filter = filterForCompressionType(type);

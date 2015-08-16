@@ -24,6 +24,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
+class KFilterBasePrivate;
 
 class QIODevice;
 
@@ -112,8 +113,7 @@ protected:
     virtual void virtual_hook(int id, void *data);
 private:
     Q_DISABLE_COPY(KFilterBase)
-    class Private;
-    Private *const d;
+    KFilterBasePrivate *const d;
 };
 
 #endif

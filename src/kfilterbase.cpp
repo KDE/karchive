@@ -21,21 +21,21 @@
 
 #include <QtCore/QIODevice>
 
-class KFilterBase::Private
+class KFilterBasePrivate
 {
 public:
-    Private()
-        : m_flags(WithHeaders)
+    KFilterBasePrivate()
+        : m_flags(KFilterBase::WithHeaders)
         ,  m_dev(0L)
         , m_bAutoDel(false)
     {}
-    FilterFlags m_flags;
+    KFilterBase::FilterFlags m_flags;
     QIODevice *m_dev;
     bool m_bAutoDel;
 };
 
 KFilterBase::KFilterBase()
-    : d(new Private)
+    : d(new KFilterBasePrivate)
 {
 }
 

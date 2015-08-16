@@ -22,6 +22,8 @@
 #include <karchive_export.h>
 #include <QtCore/QIODevice>
 #include <QtCore/QString>
+#include <QtCore/QMetaType>
+class KCompressionDevicePrivate;
 
 class KFilterBase;
 
@@ -117,11 +119,8 @@ protected:
 
     KFilterBase *filterBase();
 private:
-    class Private;
-    Private *const d;
+    KCompressionDevicePrivate *const d;
 };
-
-#include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(KCompressionDevice::CompressionType)
 
