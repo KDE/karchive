@@ -410,7 +410,7 @@ KArchiveDirectory *KArchive::rootDir()
         QString username = ::getCurrentUserName();
         QString groupname = ::getCurrentGroupName();
 
-        d->rootDir = new KArchiveDirectory(this, QLatin1String("/"), (int)(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
+        d->rootDir = new KArchiveDirectory(this, QStringLiteral("/"), (int)(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
     }
     return d->rootDir;
 }

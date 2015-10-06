@@ -73,20 +73,20 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForName(mimeType);
     if (mime.isValid()) {
-        if (mime.inherits(QString::fromLatin1("application/x-gzip"))) {
+        if (mime.inherits(QStringLiteral("application/x-gzip"))) {
             return KCompressionDevice::GZip;
         }
 #if HAVE_BZIP2_SUPPORT
-        if (mime.inherits(QString::fromLatin1("application/x-bzip"))) {
+        if (mime.inherits(QStringLiteral("application/x-bzip"))) {
             return KCompressionDevice::BZip2;
         }
 #endif
 #if HAVE_XZ_SUPPORT
-        if (mime.inherits(QString::fromLatin1("application/x-lzma"))) {
+        if (mime.inherits(QStringLiteral("application/x-lzma"))) {
             return KCompressionDevice::Xz;
         }
 
-        if (mime.inherits(QString::fromLatin1("application/x-xz"))) {
+        if (mime.inherits(QStringLiteral("application/x-xz"))) {
             return KCompressionDevice::Xz;
         }
 #endif
