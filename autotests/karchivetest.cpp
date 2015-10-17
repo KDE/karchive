@@ -36,6 +36,7 @@
 
 #ifdef Q_OS_WIN
 #include <Windows.h>
+#include <QScopedValueRollback>
 #else
 #include <grp.h>
 #include <pwd.h>
@@ -242,6 +243,10 @@ static void testReadWrite(KArchive *archive)
     QVERIFY(archive->writeFile("newfile", "New File", 0100440, "dfaure", "users"));
 }
 
+#ifdef Q_OS_WIN
+extern Q_CORE_EXPORT int qt_ntfs_permission_lookup;
+#endif
+
 static void testCopyTo(KArchive *archive)
 {
     const KArchiveDirectory *dir = archive->directory();
@@ -300,6 +305,10 @@ static void testCopyTo(KArchive *archive)
     QCOMPARE(symLinkTarget, QString("test3"));
 #endif
 
+#ifdef Q_OS_WIN
+    QScopedValueRollback<int> ntfsMode(qt_ntfs_permission_lookup);
+    qt_ntfs_permission_lookup++;
+#endif
     QVERIFY(QFileInfo(dirName + "executableAll").permissions() & (QFileDevice::ExeOwner | QFileDevice::ExeGroup | QFileDevice::ExeOther));
 }
 
