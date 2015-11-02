@@ -112,7 +112,7 @@ public:
 #endif
 
     /**
-     * @deprecated Use KCompressionDevicea
+     * @deprecated Use KCompressionDevice
      *
      * Use:
      * KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(mimeType);
