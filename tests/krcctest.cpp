@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     const KArchiveDirectory *dir = rcc.directory();
 
     //printf("calling recursive_print\n");
-    recursive_print(dir, "");
+    recursive_print(dir, QLatin1String(""));
     //printf("recursive_print called\n");
 
     rcc.close();

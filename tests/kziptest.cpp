@@ -33,7 +33,7 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
                entry->isDirectory() ? 0 : (static_cast<const KArchiveFile *>(entry))->size(),
                entry->isDirectory() ? 0 : (static_cast<const KArchiveFile *>(entry))->position(),
                entry->isDirectory(),
-               entry->symLinkTarget().isEmpty() ? "" : QString(" symlink: %1").arg(entry->symLinkTarget()).toLatin1().constData());
+               entry->symLinkTarget().isEmpty() ? "" : QStringLiteral(" symlink: %1").arg(entry->symLinkTarget()).toLatin1().constData());
 
         //    if (!entry->isDirectory()) printf("%d", (static_cast<const KArchiveFile *>(entry))->size());
         printf("\n");
@@ -119,13 +119,13 @@ static int doSave(const QString &fileName)
     }
 
     const QByteArray data = "This is the data for the main file";
-    bool writeOk = zip.writeFile("maindoc.txt", data);
+    bool writeOk = zip.writeFile(QStringLiteral("maindoc.txt"), data);
     if (!writeOk) {
         qWarning() << "Write error (main file)";
         return 1;
     }
     const QByteArray data2 = "This is the data for the other file";
-    writeOk = zip.writeFile("subdir/other.txt", data2);
+    writeOk = zip.writeFile(QStringLiteral("subdir/other.txt"), data2);
     if (!writeOk) {
         qWarning() << "Write error (other file)";
         return 1;
@@ -146,7 +146,7 @@ static int doLoad(const QString &fileName)
         return 1;
     }
     const KArchiveDirectory *dir = zip.directory();
-    const KArchiveEntry *mainEntry = dir->entry("maindoc.txt");
+    const KArchiveEntry *mainEntry = dir->entry(QStringLiteral("maindoc.txt"));
     Q_ASSERT(mainEntry && mainEntry->isFile());
     const KArchiveFile *mainFile = static_cast<const KArchiveFile *>(mainEntry);
     qDebug() << "maindoc.txt:" << mainFile->data();
@@ -204,7 +204,7 @@ static int doTransfer(const QString &sourceFile, const QString &destFile)
     }
     const KArchiveDirectory *dir1 = zip1.directory();
 
-    recursive_transfer(dir1, "", &zip2);
+    recursive_transfer(dir1, QLatin1String(""), &zip2);
 
     zip1.close();
     zip2.close();
@@ -271,31 +271,31 @@ int main(int argc, char **argv)
     }
     QCoreApplication app(argc, argv);
     QString command = argv[1];
-    if (command == "list") {
+    if (command == QLatin1String("list")) {
         return doList(QFile::decodeName(argv[2]));
-    } else if (command == "print-all") {
+    } else if (command == QLatin1String("print-all")) {
         return doPrintAll(QFile::decodeName(argv[2]));
-    } else if (command == "print") {
+    } else if (command == QLatin1String("print")) {
         if (argc != 4) {
             printf("usage: kziptest print archivename filename");
             return 1;
         }
         return doPrint(QFile::decodeName(argv[2]), argv[3]);
-    } else if (command == "save") {
+    } else if (command == QLatin1String("save")) {
         return doSave(QFile::decodeName(argv[2]));
-    } else if (command == "load") {
+    } else if (command == QLatin1String("load")) {
         return doLoad(QFile::decodeName(argv[2]));
-    } else if (command == "write") {
+    } else if (command == QLatin1String("write")) {
         return doCompress(QFile::decodeName(argv[2]));
-    } else if (command == "read") {
+    } else if (command == QLatin1String("read")) {
         return doUncompress(QFile::decodeName(argv[2]));
-    } else if (command == "update") {
+    } else if (command == QLatin1String("update")) {
         if (argc != 4) {
             printf("usage: kziptest update archivename filename");
             return 1;
         }
         return doUpdate(QFile::decodeName(argv[2]), QFile::decodeName(argv[3]));
-    } else if (command == "transfer") {
+    } else if (command == QLatin1String("transfer")) {
         if (argc != 4) {
             printf("usage: kziptest transfer sourcefile destfile");
             return 1;

@@ -37,7 +37,7 @@ private Q_SLOTS:
         QVERIFY(zip.open(QIODevice::WriteOnly));
 
         const QByteArray fileData("There could be a fire, if there is smoke.");
-        const QString fileName = QLatin1String("wisdom");
+        const QString fileName = QStringLiteral("wisdom");
         QVERIFY(zip.writeFile(fileName, "konqi", "dragons", fileData.constData(), fileData.size()));
 
         QVERIFY(zip.close());
