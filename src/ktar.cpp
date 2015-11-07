@@ -41,7 +41,6 @@ static const char application_gzip[] = "application/x-gzip";
 static const char application_bzip[] = "application/x-bzip";
 static const char application_lzma[] = "application/x-lzma";
 static const char application_xz[] = "application/x-xz";
-static const char application_zip[] = "application/zip";
 
 class KTar::KTarPrivate
 {
