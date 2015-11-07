@@ -475,11 +475,16 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         QVERIFY(dir != 0);
         const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup | WithTime);
 
+
 #ifndef Q_OS_WIN
-        QCOMPARE(listing.count(), 16);
+        const int expectedCount = 16;
 #else
-        QCOMPARE(listing.count(), 15);
+        const int expectedCount = 15;
 #endif
+        if (listing.count() != expectedCount) {
+            qWarning() << listing;
+        }
+        QCOMPARE(listing.count(), expectedCount);
         compareEntryWithTimestamp(listing[0], QString("mode=40755 user= group= path=aaaemptydir type=dir"), creationTime);
 
         QCOMPARE(listing[1], QString("mode=40777 user=%1 group=%2 path=dir type=dir time=%3").arg(systemUserName).arg(systemGroupName).arg(emptyTime));
