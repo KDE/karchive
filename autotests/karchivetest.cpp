@@ -300,7 +300,7 @@ static void testCopyTo(KArchive *archive)
     int len = readlink(encodedFileName.data(), s.data(), s.size() - 1);
     if (len >= 0) {
         s[len] = '\0';
-        symLinkTarget = QFile::decodeName(s);
+        symLinkTarget = QFile::decodeName(s.constData());
     }
     QCOMPARE(symLinkTarget, QString("test3"));
 #endif

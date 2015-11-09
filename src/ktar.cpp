@@ -252,6 +252,7 @@ bool KTar::KTarPrivate::readLonglink(char *buffer, QByteArray &longlink)
             return false;
         }
     }
+    longlink.truncate(qstrlen(longlink.constData()));
     return true;
 }
 
@@ -272,10 +273,10 @@ qint64 KTar::KTarPrivate::readHeader(char *buffer, QString &name, QString &symli
             readLonglink(buffer, longlink);
             switch (typeflag) {
             case 'L':
-                name = QFile::decodeName(longlink);
+                name = QFile::decodeName(longlink.constData());
                 break;
             case 'K':
-                symlink = QFile::decodeName(longlink);
+                symlink = QFile::decodeName(longlink.constData());
                 break;
             }/*end switch*/
         } else {
@@ -288,10 +289,11 @@ qint64 KTar::KTarPrivate::readHeader(char *buffer, QString &name, QString &symli
         // there are names that are exactly 100 bytes long
         // and neither longlink nor \0 terminated (bug:101472)
     {
-        name = QFile::decodeName(QByteArray(buffer, 100));
+        name = QFile::decodeName(QByteArray(buffer, qstrnlen(buffer, 100)));
     }
     if (symlink.isEmpty()) {
-        symlink = QFile::decodeName(QByteArray(buffer + 0x9d /*?*/, 100));
+        char *symlinkBuffer = buffer + 0x9d /*?*/;
+        symlink = QFile::decodeName(QByteArray(symlinkBuffer, qstrnlen(symlinkBuffer, 100)));
     }
 
     return 0x200;
