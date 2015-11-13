@@ -25,7 +25,7 @@ set_package_properties(ZLIB PROPERTIES
     URL "http://www.zlib.net"
     DESCRIPTION "Support for gzip compressed files and data streams"
     TYPE REQUIRED
-    PURPOSE "Required by the core KDE libraries and some criti cal kioslaves"
+    PURPOSE "Required by the core KDE libraries and some critical kioslaves"
 )
 
 find_package(BZip2)
