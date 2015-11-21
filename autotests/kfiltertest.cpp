@@ -233,6 +233,15 @@ void KFilterTest::test_readall(const QString &fileName, const QString &mimeType,
     const QByteArray read = flt.readAll();
     QCOMPARE(read.size(), expectedData.size());
     QCOMPARE(read, expectedData);
+
+    // Now using QBuffer
+    file.seek(0);
+    QByteArray compressedData = file.readAll();
+    QVERIFY(!compressedData.isEmpty());
+    QBuffer buffer(&compressedData);
+    KCompressionDevice device(&buffer, false, type);
+    QVERIFY(device.open(QIODevice::ReadOnly));
+    QCOMPARE(device.readAll(), expectedData);
 }
 
 void KFilterTest::test_readall()
