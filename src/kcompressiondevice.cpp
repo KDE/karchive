@@ -196,20 +196,22 @@ bool KCompressionDevice::seek(qint64 pos)
         return d->filter->device()->reset();
     }
 
-    if (ioIndex > pos) { // we can start from here
-        pos = pos - ioIndex;
+    qint64 bytesToRead;
+    if (ioIndex < pos) { // we can start from here
+        bytesToRead = pos - ioIndex;
     } else {
         // we have to start from 0 ! Ugly and slow, but better than the previous
         // solution (KTarGz was allocating everything into memory)
         if (!seek(0)) { // recursive
             return false;
         }
+        bytesToRead = pos;
     }
 
-    //qDebug() << "reading " << pos << " dummy bytes";
-    QByteArray dummy(qMin(pos, (qint64)3 * BUFFER_SIZE), 0);
+    //qDebug() << "reading " << bytesToRead << " dummy bytes";
+    QByteArray dummy(qMin(bytesToRead, qint64(3 * BUFFER_SIZE)), 0);
     d->bIgnoreData = true;
-    bool result = (read(dummy.data(), pos) == pos);
+    const bool result = (read(dummy.data(), bytesToRead) == bytesToRead);
     d->bIgnoreData = false;
     QIODevice::seek(pos);
     return result;
