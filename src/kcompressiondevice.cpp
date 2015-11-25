@@ -66,21 +66,18 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
     switch (type) {
     case KCompressionDevice::GZip:
         return new KGzipFilter;
-        break;
     case KCompressionDevice::BZip2:
 #if HAVE_BZIP2_SUPPORT
         return new KBzip2Filter;
 #else
         return 0;
 #endif
-        break;
     case KCompressionDevice::Xz:
 #if HAVE_XZ_SUPPORT
         return new KXzFilter;
 #else
         return 0;
 #endif
-        break;
     case KCompressionDevice::None:
         return new KNoneFilter;
     }
@@ -182,7 +179,7 @@ bool KCompressionDevice::seek(qint64 pos)
         return true;
     }
 
-    //qDebug() << "seek(" << pos << ") called";
+    //qDebug() << "seek(" << pos << ") called, current pos=" << ioIndex;
 
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
 
@@ -244,7 +241,7 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
 
     qint64 outBufferSize;
     if (d->bIgnoreData) {
-        outBufferSize = qMin(maxlen, (qint64)3 * BUFFER_SIZE);
+        outBufferSize = qMin(maxlen, static_cast<qint64>(3 * BUFFER_SIZE));
     } else {
         outBufferSize = maxlen;
     }
@@ -283,7 +280,7 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
         // We got that much data since the last time we went here
         uint outReceived = availOut - filter->outBufferAvailable();
         //qDebug() << "avail_out = " << filter->outBufferAvailable() << " result=" << d->result << " outReceived=" << outReceived;
-        if (availOut < (uint)filter->outBufferAvailable()) {
+        if (availOut < uint(filter->outBufferAvailable())) {
             //qWarning() << " last availOut " << availOut << " smaller than new avail_out=" << filter->outBufferAvailable() << " !";
         }
 
@@ -362,7 +359,6 @@ qint64 KCompressionDevice::writeData(const char *data /*0 to finish*/, qint64 le
                     //qWarning() << "KCompressionDevice::write. Could only write " << size << " out of " << towrite << " bytes";
                     return 0; // indicate an error (happens on disk full)
                 }
-                //else
                 //qDebug() << " wrote " << size << " bytes";
             }
             if (d->result == KFilterBase::End) {

@@ -403,7 +403,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             while (*p == ' ') {
                 ++p;
             }
-            int access = (int)strtol(p, &dummy, 8);
+            int access = strtol(p, &dummy, 8);
 
             // read user and group
             QString user = QString::fromLocal8Bit(buffer + 0x109);
@@ -415,7 +415,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             while (*p == ' ') {
                 ++p;
             }
-            uint time = (int)strtol(p, &dummy, 8);
+            uint time = strtol(p, &dummy, 8);
 
             // read type flag
             char typeflag = buffer[0x9c];
@@ -756,7 +756,7 @@ bool KTar::doPrepareWriting(const QString &name, const QString &user,
     // zero out the rest (except for what gets filled anyways)
     memset(buffer + 0x9d, 0, 0x200 - 0x9d);
 
-    QByteArray permstr = QByteArray::number((unsigned int)perm, 8);
+    QByteArray permstr = QByteArray::number(static_cast<unsigned int>(perm), 8);
     permstr = permstr.rightJustified(6, '0');
     d->fillBuffer(buffer, permstr.constData(), size, mtime, 0x30, uname.constData(), gname.constData());
 
@@ -812,7 +812,7 @@ bool KTar::doWriteDir(const QString &name, const QString &user,
     // zero out the rest (except for what gets filled anyways)
     memset(buffer + 0x9d, 0, 0x200 - 0x9d);
 
-    QByteArray permstr = QByteArray::number((unsigned int)perm, 8);
+    QByteArray permstr = QByteArray::number(static_cast<unsigned int>(perm), 8);
     permstr = permstr.rightJustified(6, ' ');
     d->fillBuffer(buffer, permstr.constData(), 0, mtime, 0x35, uname.constData(), gname.constData());
 
@@ -872,7 +872,7 @@ bool KTar::doWriteSymLink(const QString &name, const QString &target,
     // zero out the rest
     memset(buffer + 0x9d + 100, 0, 0x200 - 100 - 0x9d);
 
-    QByteArray permstr = QByteArray::number((unsigned int)perm, 8);
+    QByteArray permstr = QByteArray::number(static_cast<unsigned int>(perm), 8);
     permstr = permstr.rightJustified(6, ' ');
     d->fillBuffer(buffer, permstr.constData(), 0, mtime, 0x32, uname.constData(), gname.constData());
 

@@ -20,17 +20,14 @@
 #include "kgzipfilter.h"
 
 #include <time.h>
+
+#define ZLIB_CONST
 #include <zlib.h>
 #include <QDebug>
 #include <QtCore/QIODevice>
 
 /* gzip flag byte */
-#define ASCII_FLAG   0x01 /* bit 0 set: file probably ascii text */
-#define HEAD_CRC     0x02 /* bit 1 set: header CRC present */
-#define EXTRA_FIELD  0x04 /* bit 2 set: extra field present */
 #define ORIG_NAME    0x08 /* bit 3 set: original file name present */
-#define COMMENT      0x10 /* bit 4 set: file comment present */
-#define RESERVED     0xE0 /* bits 5..7: reserved */
 
 // #define DEBUG_GZIP
 
@@ -45,9 +42,9 @@ public:
         , crc(0)
         , isInitialized(false)
     {
-        zStream.zalloc = (alloc_func)0;
-        zStream.zfree = (free_func)0;
-        zStream.opaque = (voidpf)0;
+        zStream.zalloc = static_cast<alloc_func>(0);
+        zStream.zfree = static_cast<free_func>(0);
+        zStream.opaque = static_cast<voidpf>(0);
     }
 
     z_stream zStream;
@@ -74,13 +71,10 @@ bool KGzipFilter::init(int mode)
     switch (filterFlags()) {
     case NoHeaders:
         return init(mode, RawDeflate);
-        break;
     case WithHeaders:
         return init(mode, GZipHeader);
-        break;
     case ZlibHeaders:
         return init(mode, ZlibHeader);
-        break;
     }
     return false;
 }
@@ -174,7 +168,7 @@ bool KGzipFilter::readHeader()
 #endif
     // Assume not compressed until we see a gzip header
     d->compressed = false;
-    Bytef *p = d->zStream.next_in;
+    const Bytef *p = d->zStream.next_in;
     int i = d->zStream.avail_in;
     if ((i -= 10)  < 0) {
         return false;    // Need at least 10 bytes
@@ -192,58 +186,6 @@ bool KGzipFilter::readHeader()
         return false;
     }
 
-#if 0
-    int method = *p++;
-    int flags = *p++;
-    if ((method != Z_DEFLATED) || (flags & RESERVED) != 0) {
-        return false;
-    }
-    p += 6;
-    if ((flags & EXTRA_FIELD) != 0) { // skip extra field
-        if ((i -= 2) < 0) {
-            return false;    // Need at least 2 bytes
-        }
-        int len = *p++;
-        len += (*p++) << 8;
-        if ((i -= len) < 0) {
-            return false;    // Need at least len bytes
-        }
-        p += len;
-    }
-    if ((flags & ORIG_NAME) != 0) { // skip original file name
-#ifdef DEBUG_GZIP
-        qDebug() << "ORIG_NAME=" << (char *)p;
-#endif
-        while ((i > 0) && (*p)) {
-            i--;
-            p++;
-        }
-        if (--i <= 0) {
-            return false;
-        }
-        p++;
-    }
-    if ((flags & COMMENT) != 0) { // skip comment
-        while ((i > 0) && (*p)) {
-            i--;
-            p++;
-        }
-        if (--i <= 0) {
-            return false;
-        }
-        p++;
-    }
-    if ((flags & HEAD_CRC) != 0) { // skip the header crc
-        if ((i -= 2) < 0) {
-            return false;
-        }
-        p += 2;
-    }
-
-    d->zStream.avail_in = i;
-    d->zStream.next_in = p;
-#endif
-
     d->compressed = true;
 #ifdef DEBUG_GZIP
     qDebug() << "header OK";
@@ -253,13 +195,13 @@ bool KGzipFilter::readHeader()
 
 /* Output a 16 bit value, lsb first */
 #define put_short(w) \
-    *p++ = (uchar) ((w) & 0xff); \
-    *p++ = (uchar) ((ushort)(w) >> 8);
+    *p++ = uchar((w) & 0xff); \
+    *p++ = uchar(ushort(w) >> 8);
 
 /* Output a 32 bit value to the bit stream, lsb first */
 #define put_long(n) \
     put_short((n) & 0xffff); \
-    put_short(((ulong)(n)) >> 16);
+    put_short((ulong(n)) >> 16);
 
 bool KGzipFilter::writeHeader(const QByteArray &fileName)
 {
@@ -307,7 +249,7 @@ void KGzipFilter::writeFooter()
 void KGzipFilter::setOutBuffer(char *data, uint maxlen)
 {
     d->zStream.avail_out = maxlen;
-    d->zStream.next_out = (Bytef *) data;
+    d->zStream.next_out = reinterpret_cast<Bytef *>(data);
 }
 void KGzipFilter::setInBuffer(const char *data, uint size)
 {
@@ -315,7 +257,7 @@ void KGzipFilter::setInBuffer(const char *data, uint size)
     qDebug() << "avail_in=" << size;
 #endif
     d->zStream.avail_in = size;
-    d->zStream.next_in = (Bytef *) data;
+    d->zStream.next_in = reinterpret_cast<const Bytef *>(data);
 }
 int KGzipFilter::inBufferAvailable() const
 {
@@ -382,7 +324,7 @@ KGzipFilter::Result KGzipFilter::compress(bool finish)
     Q_ASSERT(d->compressed);
     Q_ASSERT(d->mode == QIODevice::WriteOnly);
 
-    Bytef *p = d->zStream.next_in;
+    const Bytef *p = d->zStream.next_in;
     ulong len = d->zStream.avail_in;
 #ifdef DEBUG_GZIP
     qDebug() << "  calling deflate with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();

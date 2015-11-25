@@ -410,7 +410,7 @@ KArchiveDirectory *KArchive::rootDir()
         QString username = ::getCurrentUserName();
         QString groupname = ::getCurrentGroupName();
 
-        d->rootDir = new KArchiveDirectory(this, QStringLiteral("/"), (int)(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
+        d->rootDir = new KArchiveDirectory(this, QStringLiteral("/"), int(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
     }
     return d->rootDir;
 }
@@ -434,7 +434,8 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
         if (ent->isDirectory())
             //qDebug() << "found it";
         {
-            return (KArchiveDirectory *) ent;
+            const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(ent);
+            return const_cast<KArchiveDirectory *>(dir);
         } else {
             //qWarning() << "Found" << path << "but it's not a directory";
         }
