@@ -21,7 +21,6 @@
 
 #include <time.h>
 
-#define ZLIB_CONST
 #include <zlib.h>
 #include <QDebug>
 #include <QtCore/QIODevice>
@@ -257,7 +256,7 @@ void KGzipFilter::setInBuffer(const char *data, uint size)
     qDebug() << "avail_in=" << size;
 #endif
     d->zStream.avail_in = size;
-    d->zStream.next_in = reinterpret_cast<const Bytef *>(data);
+    d->zStream.next_in = reinterpret_cast<Bytef *>(const_cast<char *>(data));
 }
 int KGzipFilter::inBufferAvailable() const
 {
