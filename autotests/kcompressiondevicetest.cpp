@@ -73,6 +73,7 @@ void KCompressionDeviceTest::testBufferedDevice(KCompressionDevice::CompressionT
 {
     QNetworkReply *r = getArchive(formatExtension(type));
     const QByteArray data = r->readAll();
+    QVERIFY(!data.isEmpty());
     QBuffer *b = new QBuffer;
     b->setData(data);
 
