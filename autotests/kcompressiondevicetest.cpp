@@ -19,6 +19,8 @@
 
 #include "kcompressiondevicetest.h"
 
+#include <config-compression.h>
+
 #include <QBuffer>
 #include <QDir>
 #include <QDirIterator>
@@ -127,10 +129,18 @@ void KCompressionDeviceTest::testGZipBufferedDevice()
 
 void KCompressionDeviceTest::testBZip2BufferedDevice()
 {
+#if HAVE_BZIP2_SUPPORT
     testBufferedDevice(KCompressionDevice::BZip2);
+#else
+    QSKIP("This test needs bzip2 support");
+#endif
 }
 
 void KCompressionDeviceTest::testXzBufferedDevice()
 {
+#if HAVE_XZ_SUPPORT
     testBufferedDevice(KCompressionDevice::Xz);
+#else
+    QSKIP("This test needs xz support");
+#endif
 }

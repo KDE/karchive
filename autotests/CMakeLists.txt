@@ -48,8 +48,11 @@ if (Qt5Network_FOUND)
         COMMAND ${CMAKE_COMMAND} -E tar cjf
         ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.bz2 examples
         WORKING_DIRECTORY ${topdir})
-    execute_process(
-        COMMAND ${CMAKE_COMMAND} -E tar cJf
-        ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.xz examples
-        WORKING_DIRECTORY ${topdir})
+
+    if (LIBLZMA_FOUND)
+        execute_process(
+            COMMAND ${CMAKE_COMMAND} -E tar cJf
+            ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.xz examples
+            WORKING_DIRECTORY ${topdir})
+    endif()
 endif()
