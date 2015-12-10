@@ -28,6 +28,7 @@
 #include <QTest>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QVector>
 
 QTEST_MAIN(KCompressionDeviceTest)
 
@@ -96,15 +97,15 @@ void KCompressionDeviceTest::testExtraction()
 
     QVector<QString> fileList;
     fileList
-            << "examples/bzip2gzip/CMakeLists.txt"
-            << "examples/bzip2gzip/main.cpp"
-            << "examples/helloworld/CMakeLists.txt"
-            << "examples/helloworld/helloworld.pro"
-            << "examples/helloworld/main.cpp"
-            << "examples/tarlocalfiles/CMakeLists.txt"
-            << "examples/tarlocalfiles/main.cpp"
-            << "examples/unzipper/CMakeLists.txt"
-            << "examples/unzipper/main.cpp";
+            << QLatin1String("examples/bzip2gzip/CMakeLists.txt")
+            << QLatin1String("examples/bzip2gzip/main.cpp")
+            << QLatin1String("examples/helloworld/CMakeLists.txt")
+            << QLatin1String("examples/helloworld/helloworld.pro")
+            << QLatin1String("examples/helloworld/main.cpp")
+            << QLatin1String("examples/tarlocalfiles/CMakeLists.txt")
+            << QLatin1String("examples/tarlocalfiles/main.cpp")
+            << QLatin1String("examples/unzipper/CMakeLists.txt")
+            << QLatin1String("examples/unzipper/main.cpp");
 
     foreach (const QString s, fileList) {
         QFileInfo extractedFile(s);
