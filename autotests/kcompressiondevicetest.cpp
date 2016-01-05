@@ -32,13 +32,15 @@
 
 QTEST_MAIN(KCompressionDeviceTest)
 
+static QString archiveFileName(const QString &extension)
+{
+    return QFINDTESTDATA(QString("kcompressiondevice_test.%1").arg(extension));
+}
+
 QNetworkReply *KCompressionDeviceTest::getArchive(const QString &extension)
 {
-    const QString kcompressionTest = QString("kcompressiondevice_test.%1").arg(extension);
-    QNetworkReply *r = qnam.get(
-                QNetworkRequest(
-                    QUrl::fromLocalFile(
-                        QFINDTESTDATA(kcompressionTest))));
+    const QString kcompressionTest = archiveFileName(extension);
+    QNetworkReply *r = qnam.get(QNetworkRequest(QUrl::fromLocalFile(kcompressionTest)));
 
     QEventLoop l;
     connect(&qnam, &QNetworkAccessManager::finished, &l, &QEventLoop::quit);
@@ -56,7 +58,7 @@ QString KCompressionDeviceTest::formatExtension(KCompressionDevice::CompressionT
         return "tar.bz2";
     case KCompressionDevice::Xz:
         return "tar.xz";
-    default:
+    case KCompressionDevice::None:
         return QString();
     }
 }
@@ -75,6 +77,9 @@ void KCompressionDeviceTest::testBufferedDevice(KCompressionDevice::CompressionT
     QNetworkReply *r = getArchive(formatExtension(type));
     const QByteArray data = r->readAll();
     QVERIFY(!data.isEmpty());
+    const int expectedSize = QFileInfo(archiveFileName(formatExtension(type))).size();
+    QVERIFY(expectedSize > 0);
+    QCOMPARE(data.size(), expectedSize);
     QBuffer *b = new QBuffer;
     b->setData(data);
 
