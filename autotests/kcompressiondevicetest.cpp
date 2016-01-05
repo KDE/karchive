@@ -61,6 +61,7 @@ QString KCompressionDeviceTest::formatExtension(KCompressionDevice::CompressionT
     case KCompressionDevice::None:
         return QString();
     }
+    return QString(); // silence compiler warning
 }
 
 void KCompressionDeviceTest::setDeviceToArchive(
