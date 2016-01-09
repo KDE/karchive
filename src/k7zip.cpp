@@ -45,7 +45,7 @@
 #define BUFFER_SIZE 8*1024
 
 static const unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1C};
-static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
+//static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
 
 #define GetUi16(p, offset) (((unsigned char)p[offset+0]) | (((unsigned char)p[1]) << 8))
 
@@ -115,49 +115,49 @@ enum HeaderType {
 };
 
 // Method ID
-static const quint64 k_Copy = 0x00;
-static const quint64 k_Delta = 0x03;
-static const quint64 k_x86 = 0x04; //BCJ
-static const quint64 k_PPC = 0x05; // BIG Endian
-static const quint64 k_IA64 = 0x06;
-static const quint64 k_ARM = 0x07; // little Endian
-static const quint64 k_ARM_Thumb = 0x08; // little Endian
-static const quint64 k_SPARC = 0x09;
+// static const quint64 k_Copy = 0x00;
+// static const quint64 k_Delta = 0x03;
+// static const quint64 k_x86 = 0x04; //BCJ
+// static const quint64 k_PPC = 0x05; // BIG Endian
+// static const quint64 k_IA64 = 0x06;
+// static const quint64 k_ARM = 0x07; // little Endian
+// static const quint64 k_ARM_Thumb = 0x08; // little Endian
+// static const quint64 k_SPARC = 0x09;
 static const quint64 k_LZMA2 = 0x21;
-static const quint64 k_Swap2 = 0x020302;
-static const quint64 k_Swap4 = 0x020304;
+// static const quint64 k_Swap2 = 0x020302;
+// static const quint64 k_Swap4 = 0x020304;
 static const quint64 k_LZMA = 0x030101;
 static const quint64 k_BCJ = 0x03030103;
 static const quint64 k_BCJ2 = 0x0303011B;
-static const quint64 k_7zPPC = 0x03030205;
-static const quint64 k_Alpha = 0x03030301;
-static const quint64 k_7zIA64 = 0x03030401;
-static const quint64 k_7zARM = 0x03030501;
-static const quint64 k_M68 = 0x03030605; //Big Endian
-static const quint64 k_ARMT = 0x03030701;
-static const quint64 k_7zSPARC = 0x03030805;
+// static const quint64 k_7zPPC = 0x03030205;
+// static const quint64 k_Alpha = 0x03030301;
+// static const quint64 k_7zIA64 = 0x03030401;
+// static const quint64 k_7zARM = 0x03030501;
+// static const quint64 k_M68 = 0x03030605; //Big Endian
+// static const quint64 k_ARMT = 0x03030701;
+// static const quint64 k_7zSPARC = 0x03030805;
 static const quint64 k_PPMD = 0x030401;
-static const quint64 k_Experimental = 0x037F01;
-static const quint64 k_Shrink = 0x040101;
-static const quint64 k_Implode = 0x040106;
-static const quint64 k_Deflate = 0x040108;
-static const quint64 k_Deflate64 = 0x040109;
-static const quint64 k_Imploding = 0x040110;
-static const quint64 k_Jpeg = 0x040160;
-static const quint64 k_WavPack = 0x040161;
-static const quint64 k_PPMd = 0x040162;
-static const quint64 k_wzAES = 0x040163;
+// static const quint64 k_Experimental = 0x037F01;
+// static const quint64 k_Shrink = 0x040101;
+// static const quint64 k_Implode = 0x040106;
+// static const quint64 k_Deflate = 0x040108;
+// static const quint64 k_Deflate64 = 0x040109;
+// static const quint64 k_Imploding = 0x040110;
+// static const quint64 k_Jpeg = 0x040160;
+// static const quint64 k_WavPack = 0x040161;
+// static const quint64 k_PPMd = 0x040162;
+// static const quint64 k_wzAES = 0x040163;
 static const quint64 k_BZip2 = 0x040202;
-static const quint64 k_Rar15 = 0x040301;
-static const quint64 k_Rar20 = 0x040302;
-static const quint64 k_Rar29 = 0x040303;
-static const quint64 k_Arj = 0x040401; //1 2 3
-static const quint64 k_Arj4 = 0x040402;
-static const quint64 k_Z = 0x0405;
-static const quint64 k_Lzh = 0x0406;
-static const quint64 k_Cab = 0x0408;
-static const quint64 k_DeflateNSIS = 0x040901;
-static const quint64 k_Bzip2NSIS = 0x040902;
+// static const quint64 k_Rar15 = 0x040301;
+// static const quint64 k_Rar20 = 0x040302;
+// static const quint64 k_Rar29 = 0x040303;
+// static const quint64 k_Arj = 0x040401; //1 2 3
+// static const quint64 k_Arj4 = 0x040402;
+// static const quint64 k_Z = 0x0405;
+// static const quint64 k_Lzh = 0x0406;
+// static const quint64 k_Cab = 0x0408;
+// static const quint64 k_DeflateNSIS = 0x040901;
+// static const quint64 k_Bzip2NSIS = 0x040902;
 static const quint64 k_AES = 0x06F10701;
 
 /**
@@ -279,6 +279,8 @@ public:
     {
         qDeleteAll(folderInfos);
     }
+
+    Q_DISABLE_COPY(Folder)
 
     quint64 getUnpackSize() const
     {
