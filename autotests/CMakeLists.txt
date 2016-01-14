@@ -38,21 +38,22 @@ if (Qt5Network_FOUND)
         LINK_LIBRARIES KF5::Archive Qt5::Test Qt5::Network
     )
 
+    set(testDir $<TARGET_FILE_DIR:kcompressiondevicetest>)
     get_filename_component(topdir ${CMAKE_CURRENT_SOURCE_DIR}/.. ABSOLUTE)
 
-    execute_process(
+    add_custom_command(TARGET kcompressiondevicetest POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E tar czf
-        ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.gz examples
+        ${testDir}/kcompressiondevice_test.tar.gz examples
         WORKING_DIRECTORY ${topdir})
-    execute_process(
+    add_custom_command(TARGET kcompressiondevicetest POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E tar cjf
-        ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.bz2 examples
+        ${testDir}/kcompressiondevice_test.tar.bz2 examples
         WORKING_DIRECTORY ${topdir})
 
     if (LIBLZMA_FOUND)
-        execute_process(
+        add_custom_command(TARGET kcompressiondevicetest POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E tar cJf
-            ${CMAKE_CURRENT_BINARY_DIR}/kcompressiondevice_test.tar.xz examples
+            ${testDir}/kcompressiondevice_test.tar.xz examples
             WORKING_DIRECTORY ${topdir})
     endif()
 endif()
