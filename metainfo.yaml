@@ -11,3 +11,7 @@ libraries:
  - qmake: KArchive
    cmake: "KF5::Archive"
 cmakename: KF5Archive
+
+public_lib: true
+group: Frameworks
+subgroup: Tier 1
