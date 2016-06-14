@@ -760,6 +760,24 @@ void KArchiveTest::testTarDirectoryTwice() // bug 206994
 
     QCOMPARE(listing.count(), 3);
 }
+
+void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
+{
+    // This test extracts a Tar archive that contains a relative path "../foo" pointing
+    // outside of the archive directory. For security reasons extractions should only
+    // be allowed within the extracted directory as long as not specifically asked.
+
+    KTar tar(QFINDTESTDATA(QLatin1String("tar_relative_path_outside_archive.tar.bz2")));
+    QVERIFY(tar.open(QIODevice::ReadOnly));
+
+    const KArchiveDirectory *dir = tar.directory();
+    QTemporaryDir tmpDir;
+    const QString dirName = tmpDir.path() + '/';
+
+    QVERIFY(dir->copyTo(dirName));
+    QVERIFY(!QFile::exists(dirName + "../foo"));
+    QVERIFY(QFile::exists(dirName + "/foo"));
+}
 ///
 
 static const char s_zipFileName[] = "karchivetest.zip";
