@@ -6,6 +6,7 @@ platforms:
     - name: Linux
     - name: Windows
     - name: MacOSX
+    - name: Android
 portingAid: false
 deprecated: false
 release: true
