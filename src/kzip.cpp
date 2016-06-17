@@ -699,7 +699,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 if (os_madeby != 3) {
                     access = S_IFDIR | 0755;
                 } else {
-                    Q_ASSERT(access & S_IFDIR);
+                    access |= S_IFDIR | 0700;
                 }
             }
 

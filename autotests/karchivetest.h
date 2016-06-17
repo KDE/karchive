@@ -91,6 +91,7 @@ private Q_SLOTS:
     void testZipReadRedundantDataDescriptor_data();
     void testZipReadRedundantDataDescriptor();
     void testZipDirectoryPermissions();
+    void testZipUnusualButValid();
 
     void testRcc();
 
