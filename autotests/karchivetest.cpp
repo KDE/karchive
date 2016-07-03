@@ -763,6 +763,7 @@ void KArchiveTest::testTarDirectoryTwice() // bug 206994
 
 void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
 {
+#if HAVE_BZIP2_SUPPORT
     // This test extracts a Tar archive that contains a relative path "../foo" pointing
     // outside of the archive directory. For security reasons extractions should only
     // be allowed within the extracted directory as long as not specifically asked.
@@ -777,6 +778,9 @@ void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
     QVERIFY(dir->copyTo(dirName));
     QVERIFY(!QFile::exists(dirName + "../foo"));
     QVERIFY(QFile::exists(dirName + "/foo"));
+#else
+    QSKIP("Test data is in bz2 format and karchive is built without bzip2 format");
+#endif
 }
 ///
 
