@@ -39,6 +39,7 @@ private Q_SLOTS:
     void test_pushData();
     void test_saveFile_data();
     void test_saveFile();
+    void test_twofilesgztogether();
 
 private:
     void test_block_write(const QString &fileName, const QByteArray &data);

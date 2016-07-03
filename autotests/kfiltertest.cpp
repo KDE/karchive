@@ -428,3 +428,18 @@ void KFilterTest::test_saveFile()
     QCOMPARE(QString::fromLatin1(otherReader.readAll()), expectedFullData);
     QVERIFY(otherReader.atEnd());
 }
+
+void KFilterTest::test_twofilesgztogether()
+{
+    // Reported as 232843
+    // twofiles generated with
+    // echo foo > foo; echo bar > bar ; gzip -c foo > twofiles.gz; gzip -c bar >> twofiles.gz
+    // as documented in the gzip manpage
+    QString data = QFINDTESTDATA("data/twofiles.gz");
+    KFilterDev dev(data);
+    QVERIFY(dev.open(QIODevice::ReadOnly));
+    QByteArray extractedData = dev.readAll();
+    QByteArray expectedData{"foo\nbar\n"};
+    QEXPECT_FAIL("","bug 232843 not yet fixed", Continue);
+    QCOMPARE(extractedData, expectedData);
+}
