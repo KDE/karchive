@@ -442,3 +442,15 @@ void KFilterTest::test_twofilesgztogether()
     QByteArray expectedData{"foo\nbar\n"};
     QCOMPARE(extractedData, expectedData);
 }
+
+void KFilterTest::test_threefilesgztogether()
+{
+    // Generated similarly to the one above
+    // This catches the case where there's more than two streams available in the same buffer fed to KGzipFilter
+    QString data = QFINDTESTDATA("data/threefiles.gz");
+    KFilterDev dev(data);
+    QVERIFY(dev.open(QIODevice::ReadOnly));
+    QByteArray extractedData = dev.readAll();
+    QByteArray expectedData{"foo\nbar\nbaz\n"};
+    QCOMPARE(extractedData, expectedData);
+}
