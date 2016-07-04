@@ -1107,6 +1107,19 @@ void KArchiveTest::testZipReadRedundantDataDescriptor()
     QCOMPARE(fileEntry->data(), fileData);
 }
 
+void KArchiveTest::testZipDirectoryPermissions()
+{
+    QString fileName = QFINDTESTDATA("data/dirpermissions.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+    const KArchiveDirectory *dir = zip.directory();
+    const QStringList listing = recursiveListEntries(dir, QString(), 0);
+    QCOMPARE(listing.join(' '), QString::fromUtf8("mode=40700 path=700 type=dir mode=40750 path=750 type=dir mode=40755 path=755 type=dir"));
+}
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
