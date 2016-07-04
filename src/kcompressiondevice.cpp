@@ -292,8 +292,13 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
             availOut = maxlen - dataReceived;
         }
         if (d->result == KFilterBase::End) {
-            //qDebug() << "got END. dataReceived=" << dataReceived;
-            break; // Finished.
+            // We're actually at the end, no more data to check
+            if (filter->device()->atEnd()) {
+                break;
+            }
+
+            // Still not done, re-init and try again
+            filter->init(filter->mode());
         }
         filter->setOutBuffer(data, availOut);
     }

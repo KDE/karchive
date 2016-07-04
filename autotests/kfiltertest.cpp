@@ -440,6 +440,5 @@ void KFilterTest::test_twofilesgztogether()
     QVERIFY(dev.open(QIODevice::ReadOnly));
     QByteArray extractedData = dev.readAll();
     QByteArray expectedData{"foo\nbar\n"};
-    QEXPECT_FAIL("","bug 232843 not yet fixed", Continue);
     QCOMPARE(extractedData, expectedData);
 }
