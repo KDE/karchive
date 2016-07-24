@@ -17,7 +17,7 @@ include(KDECMakeSettings)
 
 include(GenerateExportHeader)
 
-set(REQUIRED_QT_VERSION 5.4.0)
+set(REQUIRED_QT_VERSION 5.5.0)
 find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 find_package(ZLIB)
