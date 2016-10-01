@@ -128,6 +128,7 @@ bool KCompressionDevice::open(QIODevice::OpenMode mode)
         //qWarning() << "KCompressionDevice::open: device is already open";
         return true; // QFile returns false, but well, the device -is- open...
     }
+    d->bOpenedUnderlyingDevice = false;
     //qDebug() << mode;
     if (mode == QIODevice::ReadOnly) {
         d->buffer.resize(0);
@@ -135,22 +136,21 @@ bool KCompressionDevice::open(QIODevice::OpenMode mode)
         d->buffer.resize(BUFFER_SIZE);
         d->filter->setOutBuffer(d->buffer.data(), d->buffer.size());
     }
+    if (!d->filter->device()->isOpen()) {
+        if (!d->filter->device()->open(mode)) {
+            //qWarning() << "KCompressionDevice::open: Couldn't open underlying device";
+            return false;
+        }
+        d->bOpenedUnderlyingDevice = true;
+    }
     d->bNeedHeader = !d->bSkipHeaders;
     d->filter->setFilterFlags(d->bSkipHeaders ? KFilterBase::NoHeaders : KFilterBase::WithHeaders);
     if (!d->filter->init(mode)) {
         return false;
     }
-    d->bOpenedUnderlyingDevice = !d->filter->device()->isOpen();
-    bool ret = d->bOpenedUnderlyingDevice ? d->filter->device()->open(mode) : true;
     d->result = KFilterBase::Ok;
-
-    if (!ret) {
-        //qWarning() << "KCompressionDevice::open: Couldn't open underlying device";
-    } else {
-        setOpenMode(mode);
-    }
-
-    return ret;
+    setOpenMode(mode);
+    return true;
 }
 
 void KCompressionDevice::close()
