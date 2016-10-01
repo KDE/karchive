@@ -1182,12 +1182,13 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     }
 
     KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
-    d->m_currentDev = new KCompressionDevice(device(), false, type);
+    auto compressionDevice = new KCompressionDevice(device(), false, type);
+    d->m_currentDev = compressionDevice;
     Q_ASSERT(d->m_currentDev);
     if (!d->m_currentDev) {
         return false; // ouch
     }
-    static_cast<KFilterDev *>(d->m_currentDev)->setSkipHeaders(); // Just zlib, not gzip
+    compressionDevice->setSkipHeaders(); // Just zlib, not gzip
 
     b = d->m_currentDev->open(QIODevice::WriteOnly);
     Q_ASSERT(b);
