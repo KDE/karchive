@@ -798,6 +798,7 @@ void KArchiveDirectory::addEntry(KArchiveEntry *entry)
     if (d->entries.value(entry->name())) {
         /*qWarning() << "directory " << name()
                     << "has entry" << entry->name() << "already";*/
+        delete entry;
         return;
     }
     d->entries.insert(entry->name(), entry);

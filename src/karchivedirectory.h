@@ -90,8 +90,9 @@ public:
     /**
      * @internal
      * Adds a new entry to the directory.
+     * Note: this can delete the entry if another one with the same name is already present
      */
-    void addEntry(KArchiveEntry *);
+    void addEntry(KArchiveEntry *); // KF6 TODO: return bool
 
     /**
      * @internal
