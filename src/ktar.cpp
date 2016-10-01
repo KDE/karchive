@@ -383,6 +383,9 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
         if (n == 0x200) {
             bool isdir = false;
 
+            if (name.isEmpty()) {
+                continue;
+            }
             if (name.endsWith(QLatin1Char('/'))) {
                 isdir = true;
                 name.truncate(name.length() - 1);

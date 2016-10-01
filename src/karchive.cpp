@@ -795,10 +795,6 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
-    if (entry->name().isEmpty()) {
-        return;
-    }
-
     if (d->entries.value(entry->name())) {
         /*qWarning() << "directory " << name()
                     << "has entry" << entry->name() << "already";*/
