@@ -773,7 +773,8 @@ void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
 
     const KArchiveDirectory *dir = tar.directory();
     QTemporaryDir tmpDir;
-    const QString dirName = tmpDir.path() + '/';
+    const QString dirName = tmpDir.path() + "/subdir"; // use a subdir so /tmp/foo doesn't break the test :)
+    QDir().mkdir(dirName);
 
     QVERIFY(dir->copyTo(dirName));
     QVERIFY(!QFile::exists(dirName + "../foo"));
