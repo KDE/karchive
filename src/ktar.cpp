@@ -49,6 +49,7 @@ public:
         : q(parent)
         , tarEnd(0)
         , tmpFile(0)
+        , compressionDevice(Q_NULLPTR)
     {
     }
 
@@ -58,6 +59,7 @@ public:
     QTemporaryFile *tmpFile;
     QString mimetype;
     QByteArray origFileName;
+    KCompressionDevice *compressionDevice;
 
     bool fillTempFile(const QString &fileName);
     bool writeBackTempFile(const QString &fileName);
@@ -133,8 +135,8 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
             // Create a compression filter on top of the QSaveFile device that KArchive created.
             //qDebug() << "creating KFilterDev for" << d->mimetype;
             KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(d->mimetype);
-            KCompressionDevice *compressionDevice = new KCompressionDevice(device(), true, type);
-            setDevice(compressionDevice);
+            d->compressionDevice = new KCompressionDevice(device(), false, type);
+            setDevice(d->compressionDevice);
         }
         return true;
     } else {
@@ -167,6 +169,7 @@ KTar::~KTar()
     }
 
     delete d->tmpFile;
+    delete d->compressionDevice;
     delete d;
 }
 
