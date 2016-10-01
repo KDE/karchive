@@ -1647,6 +1647,8 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 result = filter->uncompress();
                 if (result == KFilterBase::Error) {
                     qDebug() << " decode error";
+                    filter->terminate();
+                    delete filter;
                     return QByteArray();
                 }
                 int uncompressedBytes = outBuffer.size() - filter->outBufferAvailable();
@@ -1662,6 +1664,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
             if (result != KFilterBase::End && !filter->inBufferEmpty()) {
                 qDebug() << "decode failed result" << result;
+                filter->terminate();
                 delete filter;
                 return QByteArray();
             }
