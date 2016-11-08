@@ -32,6 +32,8 @@
  */
 class KARCHIVE_EXPORT KRcc : public KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(KRcc)
+
 public:
     /**
      * Creates an instance that operates on the given filename.

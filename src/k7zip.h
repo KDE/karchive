@@ -27,6 +27,8 @@
  */
 class KARCHIVE_EXPORT K7Zip : public KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(K7Zip)
+
 public:
     /**
      * Creates an instance that operates on the given filename

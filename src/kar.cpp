@@ -60,23 +60,31 @@ KAr::~KAr()
 bool KAr::doPrepareWriting(const QString &, const QString &, const QString &,
                            qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to AR file"));
+    qWarning() << "doPrepareWriting not implemented for KAr";
     return false;
 }
 
 bool KAr::doFinishWriting(qint64)
 {
+    setErrorString(tr("Cannot write to AR file"));
+    qWarning() << "doFinishWriting not implemented for KAr";
     return false;
 }
 
 bool KAr::doWriteDir(const QString &, const QString &, const QString &,
                      mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to AR file"));
+    qWarning() << "doWriteDir not implemented for KAr";
     return false;
 }
 
 bool KAr::doWriteSymLink(const QString &, const QString &, const QString &,
                          const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to AR file"));
+    qWarning() << "doWriteSymLink not implemented for KAr";
     return false;
 }
 
@@ -88,7 +96,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         return true;
     }
     if (mode != QIODevice::ReadOnly && mode != QIODevice::ReadWrite) {
-        //qWarning() << "Unsupported mode " << mode;
+        setErrorString(tr("Unsupported mode %1").arg(mode));
         return false;
     }
 
@@ -99,7 +107,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
 
     QByteArray magic = dev->read(7);
     if (magic != "!<arch>") {
-        //qWarning() << "Invalid main magic";
+        setErrorString(tr("Invalid main magic"));
         return false;
     }
 
@@ -118,7 +126,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         }
 
         if (!ar_header.endsWith("`\n")) { // Check header magic // krazy:exclude=strings
-            //qWarning() << "Invalid magic";
+            setErrorString(tr("Invalid magic"));
             delete[] ar_longnames;
             return false;
         }
@@ -146,7 +154,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
             } else { // Longfilename
                 //qDebug() << "Longfilename #" << name.mid(1, 15).toInt();
                 if (! ar_longnames) {
-                    //qWarning() << "Invalid longfilename reference";
+                    setErrorString(tr("Invalid longfilename reference"));
                     delete[] ar_longnames;
                     return false;
                 }

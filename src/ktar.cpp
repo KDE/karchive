@@ -325,15 +325,20 @@ bool KTar::KTarPrivate::fillTempFile(const QString &fileName)
     QByteArray buffer;
     buffer.resize(8 * 1024);
     if (! filterDev.open(QIODevice::ReadOnly)) {
+        q->setErrorString(
+            tr("File %1 does not exist")
+            .arg(fileName));
         return false;
     }
     qint64 len = -1;
     while (!filterDev.atEnd() && len != 0) {
         len = filterDev.read(buffer.data(), buffer.size());
         if (len < 0) {   // corrupted archive
+            q->setErrorString(tr("Archive %1 is corrupt").arg(fileName));
             return false;
         }
         if (file->write(buffer.data(), len) != len) {   // disk full
+            q->setErrorString(tr("Disk full"));
             return false;
         }
     }
@@ -368,6 +373,8 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
     QIODevice *dev = device();
 
     if (!dev) {
+        setErrorString(tr("Could not get underlying device"));
+        qWarning() << "Could not get underlying device";
         return false;
     }
 
@@ -381,6 +388,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
         // Read header
         qint64 n = d->readHeader(buffer, name, symlink);
         if (n < 0) {
+            setErrorString(tr("Could not read tar header"));
             return false;
         }
         if (n == 0x200) {
@@ -539,6 +547,7 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     QFile *file = tmpFile;
     if (!dev.open(QIODevice::WriteOnly)) {
         file->close();
+        q->setErrorString(tr("Failed to write back temp file: %1").arg(dev.errorString()));
         return false;
     }
     if (forced) {
@@ -591,7 +600,15 @@ bool KTar::doFinishWriting(qint64 size)
             buffer[i] = 0;
         }
         qint64 nwritten = device()->write(buffer, 0x200 - rest);
-        return nwritten == 0x200 - rest;
+        const bool ok = nwritten == 0x200 - rest;
+
+        if (!ok) {
+            setErrorString(
+                tr("Couldn't write alignment: %1")
+                .arg(device()->errorString()));
+        }
+
+        return ok;
     }
     return true;
 }
@@ -709,12 +726,14 @@ bool KTar::doPrepareWriting(const QString &name, const QString &user,
                             const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: TAR file must be open before being written into"));
+        qWarning() << "doPrepareWriting failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        setErrorString(tr("Application error: attempted to write into non-writable 7-Zip file"));
+        qWarning() << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
@@ -767,7 +786,14 @@ bool KTar::doPrepareWriting(const QString &name, const QString &user,
     d->fillBuffer(buffer, permstr.constData(), size, mtime, 0x30, uname.constData(), gname.constData());
 
     // Write header
-    return device()->write(buffer, 0x200) == 0x200;
+    if (device()->write(buffer, 0x200) != 0x200) {
+        setErrorString(
+            tr("Failed to write header: %1")
+            .arg(device()->errorString()));
+        return false;
+    } else {
+        return true;
+    }
 }
 
 bool KTar::doWriteDir(const QString &name, const QString &user,
@@ -775,12 +801,14 @@ bool KTar::doWriteDir(const QString &name, const QString &user,
                       const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: TAR file must be open before being written into"));
+        qWarning() << "doWriteDir failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        setErrorString(tr("Application error: attempted to write into non-writable TAR file"));
+        qWarning() << "doWriteDir failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
@@ -837,12 +865,14 @@ bool KTar::doWriteSymLink(const QString &name, const QString &target,
                           mode_t perm, const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: TAR file must be open before being written into"));
+        qWarning() << "doWriteSymLink failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        setErrorString(tr("Application error: attempted to write into non-writable TAR file"));
+        qWarning() << "doWriteSymLink failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 

@@ -28,6 +28,8 @@
  */
 class KARCHIVE_EXPORT KAr : public KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(KAr)
+
 public:
     /**
      * Creates an instance that operates on the given filename.

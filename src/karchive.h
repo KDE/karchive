@@ -24,6 +24,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#include <QtCore/QCoreApplication>
 #include <QtCore/QDate>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -47,6 +48,8 @@ class KArchivePrivate;
  */
 class KARCHIVE_EXPORT KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(KArchive)
+
 protected:
     /**
      * Base constructor (protected since this is a pure virtual class).
@@ -84,6 +87,12 @@ public:
      * @see open
      */
     virtual bool close();
+
+    /**
+     * Returns a description of the last error
+     * @since 5.29
+     */
+    QString errorString() const;
 
     /**
      * Checks whether the archive is open.
@@ -273,6 +282,13 @@ protected:
      * Called by close.
      */
     virtual bool closeArchive() = 0;
+
+    /**
+     * Sets error description
+     * @param errorStr error description
+     * @since 5.29
+     */
+    void setErrorString(const QString &errorStr);
 
     /**
      * Retrieves or create the root directory.

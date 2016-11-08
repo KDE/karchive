@@ -26,6 +26,8 @@
 
 class KArchivePrivate
 {
+    Q_DECLARE_TR_FUNCTIONS(KArchivePrivate)
+
 public:
     KArchivePrivate()
         : rootDir(0)
@@ -51,6 +53,7 @@ public:
     QString fileName;
     QIODevice::OpenMode mode;
     bool deviceOwned; // if true, we (KArchive) own dev and must delete it
+    QString errorStr{tr("Unknown error")};
 };
 
 #endif // KARCHIVE_P_H

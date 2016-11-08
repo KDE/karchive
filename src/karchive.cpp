@@ -95,10 +95,12 @@ bool KArchive::open(QIODevice::OpenMode mode)
     }
 
     if (!d->dev) {
+        setErrorString(tr("No filename or device was specified"));
         return false;
     }
 
     if (!d->dev->isOpen() && !d->dev->open(mode)) {
+        setErrorString(tr("Could not set device mode to %1").arg(mode));
         return false;
     }
 
@@ -119,7 +121,11 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
             //qDebug() << "Writing to a file using QSaveFile";
             d->saveFile = new QSaveFile(d->fileName);
             if (!d->saveFile->open(QIODevice::WriteOnly)) {
-                //qWarning() << "QSaveFile creation for " << d->fileName << " failed, " << d->saveFile->errorString();
+                setErrorString(
+                    tr("QSaveFile creation for %1 failed: %2")
+                        .arg(d->fileName)
+                        .arg(d->saveFile->errorString()));
+
                 delete d->saveFile;
                 d->saveFile = 0;
                 return false;
@@ -137,7 +143,7 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
         }
         break; // continued below
     default:
-        //qWarning() << "Unsupported mode " << d->mode;
+        setErrorString(tr("Unsupported mode %1").arg(d->mode));
         return false;
     }
     return true;
@@ -146,6 +152,7 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
 bool KArchive::close()
 {
     if (!isOpen()) {
+        setErrorString(tr("Archive already closed"));
         return false;    // already closed (return false or true? arguable...)
     }
 
@@ -181,6 +188,11 @@ bool KArchive::close()
     return closeSucceeded;
 }
 
+QString KArchive::errorString() const
+{
+    return d->errorStr;
+}
+
 const KArchiveDirectory *KArchive::directory() const
 {
     // rootDir isn't const so that parsing-on-demand is possible
@@ -191,7 +203,9 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
 {
     QFileInfo fileInfo(fileName);
     if (!fileInfo.isFile() && !fileInfo.isSymLink()) {
-        //qWarning() << fileName << "doesn't exist or is not a regular file.";
+        setErrorString(
+            tr("%1 doesn't exist or is not a regular file.")
+            .arg(fileName));
         return false;
     }
 
@@ -202,8 +216,10 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
 #endif
     QT_STATBUF fi;
     if (STAT_METHOD(QFile::encodeName(fileName).constData(), &fi) == -1) {
-        /*qWarning() << "stat'ing" << fileName
-            << "failed:" << strerror(errno);*/
+        setErrorString(
+            tr("Failed accessing the file %1 for adding to the archive. The error was: %2")
+            .arg(fileName)
+            .arg(QLatin1Literal{strerror(errno)}));
         return false;
     }
 
@@ -244,7 +260,10 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
     // header and the tar file is effectively f*cked up
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
-        //qWarning() << "couldn't open file " << fileName;
+        setErrorString(
+            tr("Couldn't open file %1: %2")
+            .arg(fileName)
+            .arg(file.errorString()));
         return false;
     }
 
@@ -279,6 +298,9 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
 {
     QDir dir(path);
     if (!dir.exists()) {
+        setErrorString(
+            tr("Directory %1 does not exist")
+            .arg(path));
         return false;
     }
     dir.setFilter(dir.filter() | QDir::Hidden);
@@ -330,6 +352,9 @@ bool KArchive::writeData(const char *data, qint64 size)
 {
     bool ok = device()->write(data, size) == size;
     if (!ok) {
+        setErrorString(
+            tr("Writing failed: %1")
+            .arg(device()->errorString()));
         d->abortWriting();
     }
     return ok;
@@ -371,6 +396,11 @@ bool KArchive::prepareWriting(const QString &name, const QString &user,
 bool KArchive::finishWriting(qint64 size)
 {
     return doFinishWriting(size);
+}
+
+void KArchive::setErrorString(const QString &errorStr)
+{
+    d->errorStr = errorStr;
 }
 
 static QString getCurrentUserName()

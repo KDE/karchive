@@ -31,6 +31,8 @@
  */
 class KARCHIVE_EXPORT KTar : public KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(KTar)
+
 public:
     /**
      * Creates an instance that operates on the given filename

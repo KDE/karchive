@@ -465,7 +465,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         n = dev->read(buffer, 4);
 
         if (n < 4) {
-            //qWarning() << "Invalid ZIP file. Unexpected end of file. (#1)";
+            setErrorString(tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(1));
             return false;
         }
 
@@ -484,7 +484,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // read static header stuff
             n = dev->read(buffer, 24);
             if (n < 24) {
-                //qWarning() << "Invalid ZIP file. Unexpected end of file. (#4)";
+                setErrorString(tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(4));
                 return false;
             }
 
@@ -512,7 +512,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             Q_ASSERT(namelen > 0);
             QByteArray fileName = dev->read(namelen);
             if (fileName.size() < namelen) {
-                //qWarning() << "Invalid ZIP file. Name not completely read (#2)";
+                setErrorString(tr("Invalid ZIP file. Name not completely read (#2)"));
                 return false;
             }
 
@@ -531,7 +531,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             n = dev->read(buffer, handledextralen);
             // no error msg necessary as we deliberately truncate the extra field
             if (!parseExtraField(buffer, handledextralen, true, pfi)) {
-                //qWarning() << "Invalid ZIP File. Broken ExtraField.";
+                setErrorString(tr("Invalid ZIP File. Broken ExtraField."));
                 return false;
             }
 
@@ -545,6 +545,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 // here we have to read through the compressed data to find
                 // the next PKxx
                 if (!seekToNextHeaderToken(dev)) {
+                    setErrorString(tr("Could not seek to next header token"));
                     return false;
                 }
             } else {
@@ -559,7 +560,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     // If it's not a symlink, then we'll just discard the data for now.
                     pfi.guessed_symlink = dev->read(uncomp_size);
                     if (pfi.guessed_symlink.size() < uncomp_size) {
-                        //qWarning() << "Invalid ZIP file. Unexpected end of file. (#5)";
+                        setErrorString(tr("Invalid ZIP file. Unexpected end of file. (#5)"));
                         return false;
                     }
                 } else {
@@ -567,6 +568,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         // here we cannot trust the compressed size, so scan through the compressed
                         // data to find the next header
                         if (!seekToNextHeaderToken(dev)) {
+                            setErrorString(tr("Could not seek to next header token"));
                             return false;
                         }
                         foundSignature = true;
@@ -589,7 +591,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     // read static data descriptor
                     n = dev->read(buffer, 4);
                     if (n < 4) {
-//                         qWarning() << "Invalid ZIP file. Unexpected end of file. (#1)";
+                        setErrorString(tr("Invalid ZIP file. Unexpected end of file. (#1)"));
                         return false;
                     }
 
@@ -622,7 +624,9 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             n = dev->read(buffer + 4, 42);
             if (n < 42) {
-                //qWarning() << "Invalid ZIP file, central entry too short"; // not long enough for valid entry
+                setErrorString(tr(
+                    "Invalid ZIP file, central entry too short "
+                    "(not long enough for valid entry)"));
                 return false;
             }
 
@@ -756,6 +760,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             bool b = dev->seek(offset);
             Q_ASSERT(b);
             if (!b) {
+                setErrorString(tr("Could not seek to next entry"));
                 return false;
             }
         } else if (startOfFile) {
@@ -768,7 +773,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             while (!foundSignature) {
                 n = dev->read(buffer, 1);
                 if (n < 1) {
-                    //qWarning() << "Invalid ZIP file. Unexpected end of file. " ;
+                    setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
                     return false;
                 }
 
@@ -778,7 +783,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
                 n = dev->read(buffer, 3);
                 if (n < 3) {
-                    //qWarning() << "Invalid ZIP file. Unexpected end of file. " ;
+                    setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
                     return false;
                 }
 
@@ -801,8 +806,9 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 }
             }
         } else {
-            //qWarning() << "Invalid ZIP file. Unrecognized header at offset " << offset;
-
+            setErrorString(
+                tr("Invalid ZIP file. Unrecognized header at offset %1")
+                .arg(offset));
             return false;
         }
     }
@@ -833,6 +839,9 @@ bool KZip::closeArchive()
         //set crc and compressed size in each local file header
         it.next();
         if (!device()->seek(it.value()->headerStart() + 14)) {
+            setErrorString(
+                tr("Could not seek to next file header: %1")
+                .arg(device()->errorString()));
             return false;
         }
         //qDebug() << "closearchive setcrcandcsize: fileName:"
@@ -858,6 +867,9 @@ bool KZip::closeArchive()
         buffer[11] = char(myusize >> 24);
 
         if (device()->write(buffer, 12) != 12) {
+            setErrorString(
+                tr("Could not write file header: %1")
+                .arg(device()->errorString()));
             return false;
         }
     }
@@ -951,6 +963,9 @@ bool KZip::closeArchive()
         bool ok = (device()->write(buffer, bufferSize) == bufferSize);
         delete[] buffer;
         if (!ok) {
+            setErrorString(
+                tr("Could not write file header: %1")
+                .arg(device()->errorString()));
             return false;
         }
     }
@@ -997,6 +1012,9 @@ bool KZip::closeArchive()
     buffer[21] = 0;
 
     if (device()->write(buffer, 22) != 22) {
+        setErrorString(
+            tr("Could not write central dir record: %1")
+            .arg(device()->errorString()));
         return false;
     }
 
@@ -1022,23 +1040,25 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
 {
     //qDebug();
     if (!isOpen()) {
-        //qWarning("KZip::writeFile: You must open the zip file before writing to it\n");
+        setErrorString(tr("Application error: ZIP file must be open before being written into"));
+        qWarning() << "doPrepareWriting failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) { // accept WriteOnly and ReadWrite
-        //qWarning("KZip::writeFile: You must open the zip file for writing\n");
+        setErrorString(tr("Application error: attempted to write into non-writable ZIP file"));
+        qWarning() << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
     if (!device()) {
-        //qWarning("doPrepareWriting: cannot create a device. Disk full?")
+        setErrorString(tr("Cannot create a device. Disk full?"));
         return false;
     }
 
     // set right offset in zip.
     if (!device()->seek(d->m_offset)) {
-        //qWarning() << "doPrepareWriting: cannot seek in ZIP file. Disk full?";
+        setErrorString(tr("Cannot seek in ZIP file. Disk full?"));
         return false;
     }
 
@@ -1170,7 +1190,7 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     delete[] buffer;
 
     if (!b) {
-        // qWarning("doPrepareWriting: Could not write to the archive. Disk full?");
+        setErrorString(tr("Could not write to the archive. Disk full?"));
         return false;
     }
 
@@ -1184,14 +1204,17 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
     auto compressionDevice = new KCompressionDevice(device(), false, type);
     d->m_currentDev = compressionDevice;
-    Q_ASSERT(d->m_currentDev);
-    if (!d->m_currentDev) {
-        return false; // ouch
-    }
     compressionDevice->setSkipHeaders(); // Just zlib, not gzip
 
     b = d->m_currentDev->open(QIODevice::WriteOnly);
     Q_ASSERT(b);
+
+    if (!b) {
+        setErrorString(
+            tr("Could not open compression device: %1")
+            .arg(d->m_currentDev->errorString()));
+    }
+
     return b;
 }
 
@@ -1244,20 +1267,17 @@ bool KZip::doWriteSymLink(const QString &name, const QString &target,
     setCompression(NoCompression);  // link targets are never compressed
 
     if (!doPrepareWriting(name, user, group, 0, perm, atime, mtime, ctime)) {
-        //qWarning() << "prepareWriting failed";
         setCompression(c);
         return false;
     }
 
     QByteArray symlink_target = QFile::encodeName(target);
     if (!writeData(symlink_target.constData(), symlink_target.length())) {
-        //qWarning() << "writeData failed";
         setCompression(c);
         return false;
     }
 
     if (!finishWriting(symlink_target.length())) {
-        //qWarning() << "finishWriting failed";
         setCompression(c);
         return false;
     }
@@ -1276,6 +1296,7 @@ bool KZip::writeData(const char *data, qint64 size)
     Q_ASSERT(d->m_currentFile);
     Q_ASSERT(d->m_currentDev);
     if (!d->m_currentFile || !d->m_currentDev) {
+        setErrorString(tr("No file or device"));
         return false;
     }
 
@@ -1285,7 +1306,15 @@ bool KZip::writeData(const char *data, qint64 size)
 
     qint64 written = d->m_currentDev->write(data, size);
     //qDebug() << "wrote" << size << "bytes.";
-    return written == size;
+    const bool ok = written == size;
+
+    if (!ok) {
+        setErrorString(
+            tr("Error writing data: %1")
+            .arg(d->m_currentDev->errorString()));
+    }
+
+    return ok;
 }
 
 void KZip::setCompression(Compression c)

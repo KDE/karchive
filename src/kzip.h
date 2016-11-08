@@ -46,6 +46,8 @@ class KZipFileEntry;
  */
 class KARCHIVE_EXPORT KZip : public KArchive
 {
+    Q_DECLARE_TR_FUNCTIONS(KZip)
+
 public:
     /**
      * Creates an instance that operates on the given filename.

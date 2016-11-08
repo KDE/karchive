@@ -87,23 +87,31 @@ KRcc::~KRcc()
 bool KRcc::doPrepareWriting(const QString &, const QString &, const QString &,
                             qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to RCC file"));
+    qWarning() << "doPrepareWriting not implemented for KRcc";
     return false;
 }
 
 bool KRcc::doFinishWriting(qint64)
 {
+    setErrorString(tr("Cannot write to RCC file"));
+    qWarning() << "doFinishWriting not implemented for KRcc";
     return false;
 }
 
 bool KRcc::doWriteDir(const QString &, const QString &, const QString &,
                       mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to RCC file"));
+    qWarning() << "doWriteDir not implemented for KRcc";
     return false;
 }
 
 bool KRcc::doWriteSymLink(const QString &, const QString &, const QString &,
                           const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
+    setErrorString(tr("Cannot write to RCC file"));
+    qWarning() << "doWriteSymLink not implemented for KRcc";
     return false;
 }
 
@@ -115,13 +123,17 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
         return true;
     }
     if (mode != QIODevice::ReadOnly && mode != QIODevice::ReadWrite) {
-        //qWarning() << "Unsupported mode " << mode;
+        setErrorString(tr("Unsupported mode %1").arg(mode));
         return false;
     }
 
     QUuid uuid = QUuid::createUuid();
     d->m_prefix = QLatin1Char('/') + uuid.toString();
     if (!QResource::registerResource(fileName(), d->m_prefix)) {
+        setErrorString(
+            tr("Failed to register resource %1 under prefix %2")
+                .arg(fileName())
+                .arg(d->m_prefix));
         return false;
     }
 

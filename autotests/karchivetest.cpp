@@ -350,6 +350,7 @@ void KArchiveTest::testEmptyFilename()
     QTest::ignoreMessage(QtWarningMsg, "KArchive: No file name specified");
     KTar tar(QLatin1String(""));
     QVERIFY(!tar.open(QIODevice::ReadOnly));
+    QCOMPARE(tar.errorString(), tr("No filename or device was specified"));
 }
 
 void KArchiveTest::testNullDevice()
@@ -358,12 +359,14 @@ void KArchiveTest::testNullDevice()
     QTest::ignoreMessage(QtWarningMsg, "KArchive: Null device specified");
     KTar tar(nil);
     QVERIFY(!tar.open(QIODevice::ReadOnly));
+    QCOMPARE(tar.errorString(), tr("No filename or device was specified"));
 }
 
 void KArchiveTest::testNonExistentFile()
 {
     KTar tar(QStringLiteral("nonexistent.tar.gz"));
     QVERIFY(!tar.open(QIODevice::ReadOnly));
+    QCOMPARE(tar.errorString(), tr("File %1 does not exist").arg("nonexistent.tar.gz"));
 }
 
 void KArchiveTest::testCreateTar_data()
@@ -831,6 +834,10 @@ void KArchiveTest::testCreateZipError()
     KZip zip(QDir::currentPath());
 
     QVERIFY(!zip.open(QIODevice::WriteOnly));
+    QCOMPARE(
+        zip.errorString(),
+        tr("QSaveFile creation for %1 failed: Filename refers to a directory")
+            .arg(QDir::currentPath()));
 }
 
 void KArchiveTest::testReadZipError()
@@ -846,6 +853,9 @@ void KArchiveTest::testReadZipError()
         KZip zip(QStringLiteral("broken.zip"));
 
         QVERIFY(!zip.open(QIODevice::ReadOnly));
+        QCOMPARE(
+            zip.errorString(),
+            tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(1));
 
         QVERIFY(brokenZip.open(QIODevice::WriteOnly | QIODevice::Append));
 
@@ -855,6 +865,9 @@ void KArchiveTest::testReadZipError()
         brokenZip.close();
 
         QVERIFY(!zip.open(QIODevice::ReadOnly));
+        QCOMPARE(
+            zip.errorString(),
+            tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(4));
     }
 
     QVERIFY(brokenZip.remove());

@@ -2303,6 +2303,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     QIODevice *dev = device();
 
     if (!dev) {
+        setErrorString(tr("Could not get underlying device"));
         return false;
     }
 
@@ -2310,13 +2311,13 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     // check signature
     qint64 n = dev->read(header, 32);
     if (n != 32) {
-        qDebug() << "read header failed";
+        setErrorString(tr("Read header failed"));
         return false;
     }
 
     for (int i = 0; i < 6; ++i) {
         if ((unsigned char)header[i] != k7zip_signature[i]) {
-            qDebug() << "check signature failed";
+            setErrorString(tr("Check signature failed"));
             return false;
         }
     }
@@ -2339,7 +2340,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     quint32 crc = crc32(0, (Bytef *)(header + 0xC), 20);
 
     if (crc != startHeaderCRC) {
-        qDebug() << "bad crc";
+        setErrorString(tr("Bad CRC"));
         return false;
     }
 
@@ -2348,10 +2349,12 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     }
 
     if (nextHeaderSize > (quint64)0xFFFFFFFF) {
+        setErrorString(tr("Next header size is too big"));
         return false;
     }
 
     if ((qint64)nextHeaderOffset < 0) {
+        setErrorString(tr("Next header size is less than zero"));
         return false;
     }
 
@@ -2362,7 +2365,9 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
     n = dev->read(inBuffer.data(), inBuffer.size());
     if (n != (qint64)nextHeaderSize) {
-        qDebug() << "Failed read next header size, should read " << nextHeaderSize << ", read " << n;
+        setErrorString(
+              tr("Failed read next header size; should read %1, read %2")
+              .arg(nextHeaderSize).arg(n));
         return false;
     }
     d->buffer = inBuffer.data();
@@ -2374,7 +2379,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     crc = crc32(0, (Bytef *)(d->buffer), (quint32)nextHeaderSize);
 
     if (crc != nextHeaderCRC) {
-        qDebug() << "bad next header crc";
+        setErrorString(tr("Bad next header CRC"));
         return false;
     }
 
@@ -2382,7 +2387,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     QByteArray decodedData;
     if (type != kHeader) {
         if (type != kEncodedHeader) {
-            qDebug() << "error in header";
+            setErrorString(tr("Error in header"));
             return false;
         }
 
@@ -2401,7 +2406,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
         type = d->readByte();
         if (type != kHeader) {
-            qDebug() << "error type should be kHeader";
+            setErrorString(tr("Wrong header type"));
             return false;
         }
     }
@@ -2411,19 +2416,19 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
     if (type == kArchiveProperties) {
         // TODO : implement this part
-        qDebug() << "not implemented";
+        setErrorString(tr("Not implemented"));
         return false;
     }
 
     if (type == kAdditionalStreamsInfo) {
         // TODO : implement this part
-        qDebug() << "not implemented";
+        setErrorString(tr("Not implemented"));
         return false;
     }
 
     if (type == kMainStreamsInfo) {
         if (!d->readMainStreamsInfo()) {
-            qDebug() << "error during read main streams information";
+            setErrorString(tr("Error while reading main streams information"));
             return false;
         }
         type = d->readByte();
@@ -2441,7 +2446,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     }
 
     if (type != kFilesInfo) {
-        qDebug() << "read header error";
+        setErrorString(tr("Error while reading header"));
         return false;
     }
 
@@ -2491,19 +2496,17 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                 break;
             case kCTime:
                 if (!d->readUInt64DefVector(numFiles, d->cTimes, d->cTimesDefined)) {
-                    qDebug() << "error read CTime";
                     return false;
                 }
                 break;
             case kATime:
                 if (!d->readUInt64DefVector(numFiles, d->aTimes, d->aTimesDefined)) {
-                    qDebug() << "error read ATime";
                     return false;
                 }
                 break;
             case kMTime:
                 if (!d->readUInt64DefVector(numFiles, d->mTimes, d->mTimesDefined)) {
-                    qDebug() << "error read MTime";
+                    setErrorString(tr("Error reading modification time"));
                     return false;
                 }
                 break;
@@ -2549,14 +2552,14 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             }
             case kStartPos:
                 if (!d->readUInt64DefVector(numFiles, d->startPositions, d->startPositionsDefined)) {
-                    qDebug() << "error read MTime";
+                    setErrorString(tr("Error reading MTime"));
                     return false;
                 }
                 break;
             case kDummy: {
                 for (quint64 i = 0; i < size; i++) {
                     if (d->readByte() != 0) {
-                        qDebug() << "invalid";
+                        setErrorString(tr("Invalid"));
                         return false;
                     }
                 }
@@ -2579,7 +2582,11 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         bool checkRecordsSize = (major > 0 ||
                                  minor > 2);
         if (checkRecordsSize && d->pos - ppp != size) {
-            qDebug() << "error read size failed checkRecordsSize:" << checkRecordsSize << "d->pos - ppp" << d->pos - ppp << "size" << size;
+            setErrorString(
+                tr(
+                    "Read size failed "
+                    "(checkRecordsSize: %1, d->pos - ppp: %2, size: %3)")
+                .arg(checkRecordsSize).arg(d->pos - ppp).arg(size));
             return false;
         }
     }
@@ -2702,6 +2709,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
 bool K7Zip::closeArchive()
 {
+    // Unnecessary check (already checked by KArchive::close())
     if (!isOpen()) {
         //qWarning() << "You must open the file before close it\n";
         return false;
@@ -2766,7 +2774,7 @@ bool K7Zip::closeArchive()
 
         const int ret = flt.write(d->outData);
         if (ret != d->outData.size()) {
-            qDebug() << "write error";
+            setErrorString(tr("Write error"));
             return false;
         }
 
@@ -2795,6 +2803,8 @@ bool K7Zip::closeArchive()
         encodedStream = d->encodeStream(packSizes, folders);
 
         if (folders.isEmpty()) {
+            // FIXME Not sure why this is an error. Come up with a better message
+            setErrorString(tr("Failed while encoding header"));
             return false;
         }
 
@@ -2839,6 +2849,7 @@ bool K7Zip::doFinishWriting(qint64 size)
 bool K7Zip::writeData(const char *data, qint64 size)
 {
     if (!d->m_currentFile) {
+        setErrorString(tr("No file currently selected"));
         return false;
     }
 
@@ -2857,12 +2868,14 @@ bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
                              const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
+        qWarning() << "doPrepareWriting failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        setErrorString(tr("Application error: attempted to write into non-writable 7-Zip file"));
+        qWarning() << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
@@ -2898,7 +2911,8 @@ bool K7Zip::doWriteDir(const QString &name, const QString &user,
                        const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
+        qWarning() << "doWriteDir failed: !isOpen()";
         return false;
     }
 
@@ -2934,12 +2948,14 @@ bool K7Zip::doWriteSymLink(const QString &name, const QString &target,
                            mode_t perm, const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
-        //qWarning() << "You must open the tar file before writing to it\n";
+        setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
+        qWarning() << "doWriteSymLink failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        setErrorString(tr("Application error: attempted to write into non-writable 7-Zip file"));
+        qWarning() << "doWriteSymLink failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
