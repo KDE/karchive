@@ -99,6 +99,27 @@ install(FILES
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive
         COMPONENT Devel)
 
+if(BUILD_QCH)
+    ecm_add_qch(
+        KF5Archive_QCH
+        NAME KArchive
+        BASE_NAME KF5Archive
+        VERSION ${KF5_VERSION}
+        ORG_DOMAIN org.kde
+        SOURCES # using only public headers, to cover only public API
+            ${KArchive_HEADERS}
+        MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
+        LINK_QCHS
+            Qt5Core_QCH
+        BLANK_MACROS
+            KARCHIVE_EXPORT
+            KARCHIVE_DEPRECATED
+        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        COMPONENT Devel
+    )
+endif()
+
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KArchive LIB_NAME KF5Archive DEPS "core" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive)
 install(FILES ${PRI_FILENAME}
