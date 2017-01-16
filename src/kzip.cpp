@@ -109,7 +109,7 @@ struct ParseFileInfo
         , exttimestamp_seen(false)
         , newinfounix_seen(false)
     {
-        ctime = mtime = atime = time(0);
+        ctime = mtime = atime = time(nullptr);
     }
 };
 
@@ -392,8 +392,8 @@ class KZip::KZipPrivate
 public:
     KZipPrivate()
         : m_crc(0)
-        , m_currentFile(0)
-        , m_currentDev(0)
+        , m_currentFile(nullptr)
+        , m_currentDev(nullptr)
         , m_compression(8)
         , m_extraField(KZip::NoExtraField)
         , m_offset(0)
@@ -721,7 +721,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 const KArchiveEntry *ent = rootDir()->entry(path);
                 if (ent && ent->isDirectory()) {
                     //qDebug() << "Directory already exists, NOT going to add it again";
-                    entry = 0;
+                    entry = nullptr;
                 } else {
                     QDateTime mtime = KArchivePrivate::time_tToDateTime(pfi.mtime);
                     entry = new KArchiveDirectory(this, entryName, access, mtime, rootDir()->user(), rootDir()->group(), QString());
@@ -1222,11 +1222,11 @@ bool KZip::doFinishWriting(qint64 size)
 {
     if (d->m_currentFile->encoding() == 8) {
         // Finish
-        (void)d->m_currentDev->write(0, 0);
+        (void)d->m_currentDev->write(nullptr, 0);
         delete d->m_currentDev;
     }
     // If 0, d->m_currentDev was device() - don't delete ;)
-    d->m_currentDev = 0;
+    d->m_currentDev = nullptr;
 
     Q_ASSERT(d->m_currentFile);
     //qDebug() << "fileName: " << d->m_currentFile->path();
@@ -1249,7 +1249,7 @@ bool KZip::doFinishWriting(qint64 size)
     //qDebug() << "crc: " << d->m_crc;
     d->m_currentFile->setCRC32(d->m_crc);
 
-    d->m_currentFile = 0;
+    d->m_currentFile = nullptr;
 
     // update saved offset for appending new files
     d->m_offset = device()->pos();
@@ -1440,7 +1440,7 @@ QIODevice *KZipFileEntry::createDevice() const
         KCompressionDevice *filterDev = new KCompressionDevice(limitedDev, true, type);
 
         if (!filterDev) {
-            return 0;    // ouch
+            return nullptr;    // ouch
         }
         filterDev->setSkipHeaders(); // Just zlib, not gzip
         bool b = filterDev->open(QIODevice::ReadOnly);
@@ -1452,5 +1452,5 @@ QIODevice *KZipFileEntry::createDevice() const
     qCritical() << "This zip file contains files compressed with method"
                 << encoding() << ", this method is currently not supported by KZip,"
                 << "please use a command-line tool to handle this file.";
-    return 0;
+    return nullptr;
 }

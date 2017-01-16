@@ -31,8 +31,8 @@ public:
         : mode(0)
         , avail_out(0)
         , avail_in(0)
-        , next_in(NULL)
-        , next_out(NULL)
+        , next_in(nullptr)
+        , next_out(nullptr)
     {
     }
 

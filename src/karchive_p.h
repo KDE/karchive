@@ -30,9 +30,9 @@ class KArchivePrivate
 
 public:
     KArchivePrivate()
-        : rootDir(0)
-        , saveFile(0)
-        , dev(0)
+        : rootDir(nullptr)
+        , saveFile(nullptr)
+        , dev(nullptr)
         , fileName()
         , mode(QIODevice::NotOpen)
         , deviceOwned(false)

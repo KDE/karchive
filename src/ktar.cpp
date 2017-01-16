@@ -48,7 +48,7 @@ public:
     KTarPrivate(KTar *parent)
         : q(parent)
         , tarEnd(0)
-        , tmpFile(0)
+        , tmpFile(nullptr)
         , compressionDevice(Q_NULLPTR)
     {
     }
@@ -234,7 +234,7 @@ bool KTar::KTarPrivate::readLonglink(char *buffer, QByteArray &longlink)
     QIODevice *dev = q->device();
     // read size of longlink from size field in header
     // size is in bytes including the trailing null (which we ignore)
-    qint64 size = QByteArray(buffer + 0x7c, 12).trimmed().toLongLong(0, 8 /*octal*/);
+    qint64 size = QByteArray(buffer + 0x7c, 12).trimmed().toLongLong(nullptr, 8 /*octal*/);
 
     size--;    // ignore trailing null
     longlink.resize(size);
@@ -466,7 +466,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             } else {
                 // read size
                 QByteArray sizeBuffer(buffer + 0x7c, 12);
-                qint64 size = sizeBuffer.trimmed().toLongLong(0, 8 /*octal*/);
+                qint64 size = sizeBuffer.trimmed().toLongLong(nullptr, 8 /*octal*/);
                 //qDebug() << "sizeBuffer='" << sizeBuffer << "' -> size=" << size;
 
                 // for isDumpDir we will skip the additional info about that dirs contents
@@ -580,8 +580,8 @@ bool KTar::closeArchive()
     if (d->tmpFile && (mode() & QIODevice::WriteOnly)) {
         ok = d->writeBackTempFile(fileName());
         delete d->tmpFile;
-        d->tmpFile = 0;
-        setDevice(0);
+        d->tmpFile = nullptr;
+        setDevice(nullptr);
     }
 
     return ok;

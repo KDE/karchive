@@ -107,7 +107,7 @@ bool KArchive::open(QIODevice::OpenMode mode)
     d->mode = mode;
 
     Q_ASSERT(!d->rootDir);
-    d->rootDir = 0;
+    d->rootDir = nullptr;
 
     return openArchive(mode);
 }
@@ -127,7 +127,7 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
                         .arg(d->saveFile->errorString()));
 
                 delete d->saveFile;
-                d->saveFile = 0;
+                d->saveFile = nullptr;
                 return false;
             }
             d->dev = d->saveFile;
@@ -175,16 +175,16 @@ bool KArchive::close()
     if (d->saveFile) {
         closeSucceeded = d->saveFile->commit();
         delete d->saveFile;
-        d->saveFile = 0;
+        d->saveFile = nullptr;
     }
     if (d->deviceOwned) {
         delete d->dev; // we created it ourselves in open()
     }
 
     delete d->rootDir;
-    d->rootDir = 0;
+    d->rootDir = nullptr;
     d->mode = QIODevice::NotOpen;
-    d->dev = 0;
+    d->dev = nullptr;
     return closeSucceeded;
 }
 
@@ -533,8 +533,8 @@ void KArchivePrivate::abortWriting()
     if (saveFile) {
         saveFile->cancelWriting();
         delete saveFile;
-        saveFile = 0;
-        dev = 0;
+        saveFile = nullptr;
+        dev = nullptr;
     }
 }
 
@@ -806,7 +806,7 @@ const KArchiveEntry *KArchiveDirectory::entry(const QString &_name) const
 
         const KArchiveEntry *e = d->entries.value(left);
         if (!e || !e->isDirectory()) {
-            return 0;
+            return nullptr;
         }
         return static_cast<const KArchiveDirectory *>(e)->entry(right);
     }
@@ -820,7 +820,7 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
     if (e && e->isFile()) {
         return static_cast<const KArchiveFile *>(e);
     }
-    return 0;
+    return nullptr;
 }
 
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)

@@ -104,7 +104,7 @@ public:
         }
         if (device->compressionType() == KCompressionDevice::None && forceFilter) {
             delete device;
-            return 0;
+            return nullptr;
         } else {
             return device;
         }
@@ -141,8 +141,8 @@ public:
     KARCHIVE_DEPRECATED static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
             bool autoDeleteInDevice = true)
     {
-        if (inDevice == 0) {
-            return 0;
+        if (inDevice == nullptr) {
+            return nullptr;
         }
         CompressionType type = compressionTypeForMimeType(mimetype);
         KCompressionDevice *device = new KCompressionDevice(inDevice, autoDeleteInDevice, type);

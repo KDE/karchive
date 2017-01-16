@@ -41,9 +41,9 @@ public:
         , crc(0)
         , isInitialized(false)
     {
-        zStream.zalloc = static_cast<alloc_func>(0);
-        zStream.zfree = static_cast<free_func>(0);
-        zStream.opaque = static_cast<voidpf>(0);
+        zStream.zalloc = static_cast<alloc_func>(nullptr);
+        zStream.zfree = static_cast<free_func>(nullptr);
+        zStream.opaque = static_cast<voidpf>(nullptr);
     }
 
     z_stream zStream;
@@ -210,7 +210,7 @@ bool KGzipFilter::writeHeader(const QByteArray &fileName)
     *p++ = 0x8b;
     *p++ = Z_DEFLATED;
     *p++ = ORIG_NAME;
-    put_long(time(0L));     // Modification time (in unix format)
+    put_long(time(nullptr));     // Modification time (in unix format)
     *p++ = 0; // Extra flags (2=max compress, 4=fastest compress)
     *p++ = 3; // Unix
 

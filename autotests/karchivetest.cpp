@@ -355,7 +355,7 @@ void KArchiveTest::testEmptyFilename()
 
 void KArchiveTest::testNullDevice()
 {
-    QIODevice *nil = 0;
+    QIODevice *nil = nullptr;
     QTest::ignoreMessage(QtWarningMsg, "KArchive: Null device specified");
     KTar tar(nil);
     QVERIFY(!tar.open(QIODevice::ReadOnly));
@@ -475,7 +475,7 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
         QVERIFY(tar.open(QIODevice::ReadOnly));
 
         const KArchiveDirectory *dir = tar.directory();
-        QVERIFY(dir != 0);
+        QVERIFY(dir != nullptr);
         const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup | WithTime);
 
 
@@ -651,7 +651,7 @@ void KArchiveTest::testTarMaxLength()
     QVERIFY(tar.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
 
     QCOMPARE(listing[0], QString("mode=100644 user= group= path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
@@ -672,7 +672,7 @@ void KArchiveTest::testTarGlobalHeader()
     QVERIFY2(tar.open(QIODevice::ReadOnly), "global_header_test.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
 
@@ -690,7 +690,7 @@ void KArchiveTest::testTarPrefix()
     QVERIFY2(tar.open(QIODevice::ReadOnly), "tar_prefix_test.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
 
@@ -716,7 +716,7 @@ void KArchiveTest::testTarDirectoryForgotten()
     QVERIFY2(tar.open(QIODevice::ReadOnly), "tar_directory_forgotten.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
 
@@ -734,7 +734,7 @@ void KArchiveTest::testTarRootDir() // bug 309463
     QVERIFY2(tar.open(QIODevice::ReadOnly), qPrintable(tar.fileName()));
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
     //qDebug() << listing.join("\n");
@@ -752,7 +752,7 @@ void KArchiveTest::testTarDirectoryTwice() // bug 206994
     QVERIFY(tar.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = tar.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), WithUserGroup);
     //qDebug() << listing.join("\n");
@@ -881,7 +881,7 @@ void KArchiveTest::testReadZip()
     QVERIFY(zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     // ZIP has no support for per-file user/group, so omit them from the listing
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
@@ -961,7 +961,7 @@ void KArchiveTest::testZipMaxLength()
     QVERIFY(zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
     QCOMPARE(listing[0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));
@@ -989,7 +989,7 @@ void KArchiveTest::testZipWithNonLatinFileNames()
     QVERIFY(zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
     QCOMPARE(listing.count(), 1);
@@ -1018,7 +1018,7 @@ void KArchiveTest::testZipWithOverwrittenFileName()
     QVERIFY(zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
     QCOMPARE(listing.count(), 1);
@@ -1062,7 +1062,7 @@ void KArchiveTest::testZipAddLocalDirectory()
         QVERIFY(zip.open(QIODevice::ReadOnly));
 
         const KArchiveDirectory *dir = zip.directory();
-        QVERIFY(dir != 0);
+        QVERIFY(dir != nullptr);
 
         const KArchiveEntry *e = dir->entry(file1);
         QVERIFY(e && e->isFile());
@@ -1093,7 +1093,7 @@ void KArchiveTest::testZipReadRedundantDataDescriptor()
     QVERIFY(zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
 
     const QByteArray fileData("aaaaaaaaaaaaaaa");
 
@@ -1143,7 +1143,7 @@ void KArchiveTest::testRcc()
     KRcc rcc(rccFile);
     QVERIFY(rcc.open(QIODevice::ReadOnly));
     const KArchiveDirectory *rootDir = rcc.directory();
-    QVERIFY(rootDir != 0);
+    QVERIFY(rootDir != nullptr);
     const KArchiveEntry *rrEntry = rootDir->entry(QStringLiteral("runtime_resource"));
     QVERIFY(rrEntry && rrEntry->isDirectory());
     const KArchiveDirectory *rrDir = static_cast<const KArchiveDirectory *>(rrEntry);
@@ -1219,7 +1219,7 @@ void KArchiveTest::testRead7Zip() // testCreate7Zip must have been run first.
         QVERIFY(k7zip.open(QIODevice::ReadOnly));
 
         const KArchiveDirectory *dir = k7zip.directory();
-        QVERIFY(dir != 0);
+        QVERIFY(dir != nullptr);
         const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
 #ifndef Q_OS_WIN
@@ -1344,7 +1344,7 @@ void KArchiveTest::test7ZipMaxLength()
     QVERIFY(k7zip.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = k7zip.directory();
-    QVERIFY(dir != 0);
+    QVERIFY(dir != nullptr);
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
     QCOMPARE(listing[0], QString("mode=100644 path=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000098 type=file size=3"));

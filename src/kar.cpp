@@ -111,7 +111,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         return false;
     }
 
-    char *ar_longnames = 0;
+    char *ar_longnames = nullptr;
     while (! dev->atEnd()) {
         QByteArray ar_header;
         ar_header.resize(61);

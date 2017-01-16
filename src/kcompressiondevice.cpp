@@ -81,7 +81,7 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
     case KCompressionDevice::None:
         return new KNoneFilter;
     }
-    return 0;
+    return nullptr;
 }
 
 KCompressionDevice::KCompressionDevice(QIODevice *inputDevice, bool autoDeleteInputDevice, CompressionType type)
@@ -159,7 +159,7 @@ void KCompressionDevice::close()
         return;
     }
     if (d->filter->mode() == QIODevice::WriteOnly) {
-        write(0L, 0);    // finish writing
+        write(nullptr, 0);    // finish writing
     }
     //qDebug() << "Calling terminate().";
 
@@ -187,7 +187,7 @@ bool KCompressionDevice::seek(qint64 pos)
         // We can forget about the cached data
         d->bNeedHeader = !d->bSkipHeaders;
         d->result = KFilterBase::Ok;
-        d->filter->setInBuffer(0L, 0);
+        d->filter->setInBuffer(nullptr, 0);
         d->filter->reset();
         QIODevice::seek(pos);
         return d->filter->device()->reset();
@@ -315,7 +315,7 @@ qint64 KCompressionDevice::writeData(const char *data /*0 to finish*/, qint64 le
         return 0;
     }
 
-    bool finish = (data == 0L);
+    bool finish = (data == nullptr);
     if (!finish) {
         filter->setInBuffer(data, len);
         if (d->bNeedHeader) {

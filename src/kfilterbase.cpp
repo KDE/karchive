@@ -26,7 +26,7 @@ class KFilterBasePrivate
 public:
     KFilterBasePrivate()
         : m_flags(KFilterBase::WithHeaders)
-        ,  m_dev(0L)
+        ,  m_dev(nullptr)
         , m_bAutoDel(false)
     {}
     KFilterBase::FilterFlags m_flags;

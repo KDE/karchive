@@ -45,7 +45,7 @@ private Q_SLOTS:
         QVERIFY(zip.open(QIODevice::ReadOnly));
 
         const KArchiveDirectory *dir = zip.directory();
-        QVERIFY(dir != 0);
+        QVERIFY(dir != nullptr);
         const QStringList listing = dir->entries();
         QCOMPARE(listing.count(), 1);
         QCOMPARE(listing.at(0), fileName);

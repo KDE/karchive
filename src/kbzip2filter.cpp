@@ -75,7 +75,7 @@ bool KBzip2Filter::init(int mode)
         terminate();
     }
 
-    d->zStream.next_in = 0;
+    d->zStream.next_in = nullptr;
     d->zStream.avail_in = 0;
     if (mode == QIODevice::ReadOnly) {
         const int result = bzDecompressInit(&d->zStream, 0, 0);

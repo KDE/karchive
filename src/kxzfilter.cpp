@@ -75,7 +75,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
 
     d->flag = flag;
     lzma_ret result;
-    d->zStream.next_in = 0;
+    d->zStream.next_in = nullptr;
     d->zStream.avail_in = 0;
     if (mode == QIODevice::ReadOnly) {
         switch (flag) {
@@ -91,9 +91,9 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             break;
         case LZMA: {
             d->filters[0].id = LZMA_FILTER_LZMA1;
-            d->filters[0].options = NULL;
+            d->filters[0].options = nullptr;
             d->filters[1].id = LZMA_VLI_UNKNOWN;
-            d->filters[1].options = NULL;
+            d->filters[1].options = nullptr;
 
             Q_ASSERT(properties.size() == 5);
             unsigned char props[5];
@@ -101,7 +101,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
                 props[i] = properties[i];
             }
 
-            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof (props));
+            result = lzma_properties_decode(&d->filters[0], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode returned" << result;
                 return false;
@@ -110,15 +110,15 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
         }
         case LZMA2: {
             d->filters[0].id = LZMA_FILTER_LZMA2;
-            d->filters[0].options = NULL;
+            d->filters[0].options = nullptr;
             d->filters[1].id = LZMA_VLI_UNKNOWN;
-            d->filters[1].options = NULL;
+            d->filters[1].options = nullptr;
 
             Q_ASSERT(properties.size() == 1);
             unsigned char props[1];
             props[0] = properties[0];
 
-            result = lzma_properties_decode(&d->filters[0], NULL, props, sizeof (props));
+            result = lzma_properties_decode(&d->filters[0], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode returned" << result;
                 return false;
@@ -127,20 +127,20 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
         }
         case BCJ: {
             d->filters[0].id = LZMA_FILTER_X86;
-            d->filters[0].options = NULL;
+            d->filters[0].options = nullptr;
 
             unsigned char props[5] = { 0x5d, 0x00, 0x00, 0x08, 0x00 }
             ;
             d->filters[1].id = LZMA_FILTER_LZMA1;
-            d->filters[1].options = NULL;
-            result = lzma_properties_decode(&d->filters[1], NULL, props, sizeof (props));
+            d->filters[1].options = nullptr;
+            result = lzma_properties_decode(&d->filters[1], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
                 qWarning() << "lzma_properties_decode1 returned" << result;
                 return false;
             }
 
             d->filters[2].id = LZMA_VLI_UNKNOWN;
-            d->filters[2].options = NULL;
+            d->filters[2].options = nullptr;
 
             break;
         }
@@ -172,7 +172,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
                 d->filters[0].id = LZMA_FILTER_LZMA2;
                 d->filters[0].options = &lzma_opt;
                 d->filters[1].id = LZMA_VLI_UNKNOWN;
-                d->filters[1].options = NULL;
+                d->filters[1].options = nullptr;
             }
             result = lzma_raw_encoder(&d->zStream, d->filters);
         }
