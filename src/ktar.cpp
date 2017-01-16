@@ -49,7 +49,7 @@ public:
         : q(parent)
         , tarEnd(0)
         , tmpFile(nullptr)
-        , compressionDevice(Q_NULLPTR)
+        , compressionDevice(nullptr)
     {
     }
 
