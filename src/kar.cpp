@@ -18,6 +18,7 @@
 
 #include "kar.h"
 #include "karchive_p.h"
+#include "loggingcategory.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QDebug>
@@ -61,14 +62,14 @@ bool KAr::doPrepareWriting(const QString &, const QString &, const QString &,
                            qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
-    qWarning() << "doPrepareWriting not implemented for KAr";
+    qCWarning(KArchiveLog) << "doPrepareWriting not implemented for KAr";
     return false;
 }
 
 bool KAr::doFinishWriting(qint64)
 {
     setErrorString(tr("Cannot write to AR file"));
-    qWarning() << "doFinishWriting not implemented for KAr";
+    qCWarning(KArchiveLog) << "doFinishWriting not implemented for KAr";
     return false;
 }
 
@@ -76,7 +77,7 @@ bool KAr::doWriteDir(const QString &, const QString &, const QString &,
                      mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
-    qWarning() << "doWriteDir not implemented for KAr";
+    qCWarning(KArchiveLog) << "doWriteDir not implemented for KAr";
     return false;
 }
 
@@ -84,7 +85,7 @@ bool KAr::doWriteSymLink(const QString &, const QString &, const QString &,
                          const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
-    qWarning() << "doWriteSymLink not implemented for KAr";
+    qCWarning(KArchiveLog) << "doWriteSymLink not implemented for KAr";
     return false;
 }
 
@@ -119,7 +120,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         dev->seek(dev->pos() + (2 - (dev->pos() % 2)) % 2);   // Ar headers are padded to byte boundary
 
         if (dev->read(ar_header.data(), 60) != 60) {   // Read ar header
-            //qWarning() << "Couldn't read header";
+            //qCWarning(KArchiveLog) << "Couldn't read header";
             delete[] ar_longnames;
             //return false;
             return true; // Probably EOF / trailing junk
@@ -146,13 +147,13 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                 ar_longnames[size] = '\0';
                 dev->read(ar_longnames, size);
                 skip_entry = true;
-                //qDebug() << "Read in longnames entry";
+                //qCDebug(KArchiveLog) << "Read in longnames entry";
             } else if (name.mid(1, 1) == " ") { // Symbol table entry
-                //qDebug() << "Skipped symbol entry";
+                //qCDebug(KArchiveLog) << "Skipped symbol entry";
                 dev->seek(dev->pos() + size);
                 skip_entry = true;
             } else { // Longfilename
-                //qDebug() << "Longfilename #" << name.mid(1, 15).toInt();
+                //qCDebug(KArchiveLog) << "Longfilename #" << name.mid(1, 15).toInt();
                 if (! ar_longnames) {
                     setErrorString(tr("Invalid longfilename reference"));
                     delete[] ar_longnames;
@@ -168,7 +169,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
 
         name = name.trimmed(); // Process filename
         name.replace('/', QByteArray());
-        //qDebug() << "Filename: " << name << " Size: " << size;
+        //qCDebug(KArchiveLog) << "Filename: " << name << " Size: " << size;
 
         KArchiveEntry *entry = new KArchiveFile(this, QString::fromLocal8Bit(name.constData()), mode, KArchivePrivate::time_tToDateTime(date),
                                                 rootDir()->user(), rootDir()->group(), /*symlink*/ QString(),

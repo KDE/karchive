@@ -17,19 +17,20 @@
 */
 
 #include "klimitediodevice_p.h"
+#include "loggingcategory.h"
 
 KLimitedIODevice::KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length)
     : m_dev(dev)
     , m_start(start)
     , m_length(length)
 {
-    //qDebug() << "start=" << start << "length=" << length;
+    //qCDebug(KArchiveLog) << "start=" << start << "length=" << length;
     open(QIODevice::ReadOnly);   //krazy:exclude=syscalls
 }
 
 bool KLimitedIODevice::open(QIODevice::OpenMode m)
 {
-    //qDebug() << "m=" << m;
+    //qCDebug(KArchiveLog) << "m=" << m;
     if (m & QIODevice::ReadOnly) {
         /*bool ok = false;
           if ( m_dev->isOpen() )
@@ -39,7 +40,7 @@ bool KLimitedIODevice::open(QIODevice::OpenMode m)
           if ( ok )*/
         m_dev->seek(m_start);   // No concurrent access !
     } else {
-        //qWarning() << "KLimitedIODevice::open only supports QIODevice::ReadOnly!";
+        //qCWarning(KArchiveLog) << "KLimitedIODevice::open only supports QIODevice::ReadOnly!";
     }
     setOpenMode(QIODevice::ReadOnly);
     return true;

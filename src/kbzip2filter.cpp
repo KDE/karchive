@@ -18,6 +18,7 @@
 */
 
 #include "kbzip2filter.h"
+#include "loggingcategory.h"
 
 #include <config-compression.h>
 
@@ -80,17 +81,17 @@ bool KBzip2Filter::init(int mode)
     if (mode == QIODevice::ReadOnly) {
         const int result = bzDecompressInit(&d->zStream, 0, 0);
         if (result != BZ_OK) {
-            //qDebug() << "bzDecompressInit returned " << result;
+            //qCDebug(KArchiveLog) << "bzDecompressInit returned " << result;
             return false;
         }
     } else if (mode == QIODevice::WriteOnly) {
         const int result = bzCompressInit(&d->zStream, 5, 0, 0);
         if (result != BZ_OK) {
-            //qDebug() << "bzDecompressInit returned " << result;
+            //qCDebug(KArchiveLog) << "bzDecompressInit returned " << result;
             return false;
         }
     } else {
-        //qWarning() << "Unsupported mode " << mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
+        //qCWarning(KArchiveLog) << "Unsupported mode " << mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
         return false;
     }
     d->mode = mode;
@@ -108,17 +109,17 @@ bool KBzip2Filter::terminate()
     if (d->mode == QIODevice::ReadOnly) {
         const int result = bzDecompressEnd(&d->zStream);
         if (result != BZ_OK) {
-            //qDebug() << "bzDecompressEnd returned " << result;
+            //qCDebug(KArchiveLog) << "bzDecompressEnd returned " << result;
             return false;
         }
     } else if (d->mode == QIODevice::WriteOnly) {
         const int result = bzCompressEnd(&d->zStream);
         if (result != BZ_OK) {
-            //qDebug() << "bzCompressEnd returned " << result;
+            //qCDebug(KArchiveLog) << "bzCompressEnd returned " << result;
             return false;
         }
     } else {
-        //qWarning() << "Unsupported mode " << d->mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
+        //qCWarning(KArchiveLog) << "Unsupported mode " << d->mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
         return false;
     }
     d->isInitialized = false;
@@ -156,10 +157,10 @@ int KBzip2Filter::outBufferAvailable() const
 
 KBzip2Filter::Result KBzip2Filter::uncompress()
 {
-    //qDebug() << "Calling bzDecompress with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
+    //qCDebug(KArchiveLog) << "Calling bzDecompress with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
     int result = bzDecompress(&d->zStream);
     if (result < BZ_OK) {
-        qWarning() << "bzDecompress returned" << result;
+        qCWarning(KArchiveLog) << "bzDecompress returned" << result;
     }
 
     switch (result) {
@@ -174,7 +175,7 @@ KBzip2Filter::Result KBzip2Filter::uncompress()
 
 KBzip2Filter::Result KBzip2Filter::compress(bool finish)
 {
-    //qDebug() << "Calling bzCompress with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
+    //qCDebug(KArchiveLog) << "Calling bzCompress with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
     int result = bzCompress(&d->zStream, finish ? BZ_FINISH : BZ_RUN);
 
     switch (result) {
@@ -185,11 +186,11 @@ KBzip2Filter::Result KBzip2Filter::compress(bool finish)
         return KFilterBase::Ok;
         break;
     case BZ_STREAM_END:
-        //qDebug() << "  bzCompress returned " << result;
+        //qCDebug(KArchiveLog) << "  bzCompress returned " << result;
         return KFilterBase::End;
         break;
     default:
-        //qDebug() << "  bzCompress returned " << result;
+        //qCDebug(KArchiveLog) << "  bzCompress returned " << result;
         return KFilterBase::Error;
         break;
     }

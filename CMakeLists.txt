@@ -49,6 +49,7 @@ include_directories(
 
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
+include(ECMQtDeclareLoggingCategory)
 
 ecm_setup_version(PROJECT
     VARIABLE_PREFIX KARCHIVE

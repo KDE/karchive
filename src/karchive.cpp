@@ -22,6 +22,7 @@
 #include "karchive.h"
 #include "karchive_p.h"
 #include "klimitediodevice_p.h"
+#include "loggingcategory.h"
 
 #include <qplatformdefs.h> // QT_STATBUF, QT_LSTAT
 
@@ -57,7 +58,7 @@ KArchive::KArchive(const QString &fileName)
     : d(new KArchivePrivate)
 {
     if (fileName.isEmpty()) {
-        qWarning("KArchive: No file name specified");
+        qCWarning(KArchiveLog) << "KArchive: No file name specified";
     }
     d->fileName = fileName;
     // This constructor leaves the device set to 0.
@@ -68,7 +69,7 @@ KArchive::KArchive(QIODevice *dev)
     : d(new KArchivePrivate)
 {
     if (!dev) {
-        qWarning("KArchive: Null device specified");
+        qCWarning(KArchiveLog) << "KArchive: Null device specified";
     }
     d->dev = dev;
 }
@@ -118,7 +119,7 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
     case QIODevice::WriteOnly:
         if (!d->fileName.isEmpty()) {
             // The use of QSaveFile can't be done in the ctor (no mode known yet)
-            //qDebug() << "Writing to a file using QSaveFile";
+            //qCDebug(KArchiveLog) << "Writing to a file using QSaveFile";
             d->saveFile = new QSaveFile(d->fileName);
             if (!d->saveFile->open(QIODevice::WriteOnly)) {
                 setErrorString(
@@ -269,7 +270,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
 
     if (!prepareWriting(destName, fileInfo.owner(), fileInfo.group(), size,
                         fi.st_mode, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.created())) {
-        //qWarning() << " prepareWriting" << destName << "failed";
+        //qCWarning(KArchiveLog) << " prepareWriting" << destName << "failed";
         return false;
     }
 
@@ -280,7 +281,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
     qint64 total = 0;
     while ((n = file.read(array.data(), array.size())) > 0) {
         if (!writeData(array.data(), n)) {
-            //qWarning() << "writeData failed";
+            //qCWarning(KArchiveLog) << "writeData failed";
             return false;
         }
         total += n;
@@ -288,7 +289,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
     Q_ASSERT(total == size);
 
     if (!finishWriting(size)) {
-        //qWarning() << "finishWriting failed";
+        //qCWarning(KArchiveLog) << "finishWriting failed";
         return false;
     }
     return true;
@@ -308,7 +309,7 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
     for (QStringList::ConstIterator it = files.begin(); it != files.end(); ++it) {
         if (*it != QLatin1String(".") && *it != QLatin1String("..")) {
             QString fileName = path + QLatin1Char('/') + *it;
-//            qDebug() << "storing " << fileName;
+//            qCDebug(KArchiveLog) << "storing " << fileName;
             QString dest = destName.isEmpty() ? *it : (destName + QLatin1Char('/') + *it);
             QFileInfo fileInfo(fileName);
 
@@ -330,19 +331,19 @@ bool KArchive::writeFile(const QString &name, const QByteArray &data,
 {
     const qint64 size = data.size();
     if (!prepareWriting(name, user, group, size, perm, atime, mtime, ctime)) {
-        //qWarning() << "prepareWriting failed";
+        //qCWarning(KArchiveLog) << "prepareWriting failed";
         return false;
     }
 
     // Write data
     // Note: if data is null, don't call write, it would terminate the KCompressionDevice
     if (data.constData() && size && !writeData(data.constData(), size)) {
-        //qWarning() << "writeData failed";
+        //qCWarning(KArchiveLog) << "writeData failed";
         return false;
     }
 
     if (!finishWriting(size)) {
-        //qWarning() << "finishWriting failed";
+        //qCWarning(KArchiveLog) << "finishWriting failed";
         return false;
     }
     return true;
@@ -436,7 +437,7 @@ static QString getCurrentGroupName()
 KArchiveDirectory *KArchive::rootDir()
 {
     if (!d->rootDir) {
-        //qDebug() << "Making root dir ";
+        //qCDebug(KArchiveLog) << "Making root dir ";
         QString username = ::getCurrentUserName();
         QString groupname = ::getCurrentGroupName();
 
@@ -447,9 +448,9 @@ KArchiveDirectory *KArchive::rootDir()
 
 KArchiveDirectory *KArchive::findOrCreate(const QString &path)
 {
-    //qDebug() << path;
+    //qCDebug(KArchiveLog) << path;
     if (path.isEmpty() || path == QLatin1String("/") || path == QLatin1String(".")) { // root dir => found
-        //qDebug() << "returning rootdir";
+        //qCDebug(KArchiveLog) << "returning rootdir";
         return rootDir();
     }
     // Important note : for tar files containing absolute paths
@@ -462,12 +463,12 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     const KArchiveEntry *ent = rootDir()->entry(path);
     if (ent) {
         if (ent->isDirectory())
-            //qDebug() << "found it";
+            //qCDebug(KArchiveLog) << "found it";
         {
             const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(ent);
             return const_cast<KArchiveDirectory *>(dir);
         } else {
-            //qWarning() << "Found" << path << "but it's not a directory";
+            //qCWarning(KArchiveLog) << "Found" << path << "but it's not a directory";
         }
     }
 
@@ -484,7 +485,7 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
         parent = findOrCreate(left);   // recursive call... until we find an existing dir.
     }
 
-    //qDebug() << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
+    //qCDebug(KArchiveLog) << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
     // Found -> add the missing piece
     KArchiveDirectory *e = new KArchiveDirectory(this, dirname, d->rootDir->permissions(),
                                                  d->rootDir->date(), d->rootDir->user(),
@@ -681,7 +682,7 @@ QByteArray KArchiveFile::data() const
 {
     bool ok = archive()->device()->seek(d->pos);
     if (!ok) {
-        //qWarning() << "Failed to sync to" << d->pos << "to read" << name();
+        //qCWarning(KArchiveLog) << "Failed to sync to" << d->pos << "to read" << name();
     }
 
     // Read content
@@ -802,7 +803,7 @@ const KArchiveEntry *KArchiveDirectory::entry(const QString &_name) const
         const QString left = name.left(pos);
         const QString right = name.mid(pos + 1);
 
-        //qDebug() << "left=" << left << "right=" << right;
+        //qCDebug(KArchiveLog) << "left=" << left << "right=" << right;
 
         const KArchiveEntry *e = d->entries.value(left);
         if (!e || !e->isDirectory()) {
@@ -826,7 +827,7 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
     if (d->entries.value(entry->name())) {
-        /*qWarning() << "directory " << name()
+        /*qCWarning(KArchiveLog) << "directory " << name()
                     << "has entry" << entry->name() << "already";*/
         delete entry;
         return;
@@ -843,12 +844,12 @@ void KArchiveDirectory::removeEntry(KArchiveEntry *entry)
     QHash<QString, KArchiveEntry *>::Iterator it = d->entries.find(entry->name());
     // nothing removed?
     if (it == d->entries.end()) {
-        qWarning() << "directory " << name()
+        qCWarning(KArchiveLog) << "directory " << name()
                    << "has no entry with name " << entry->name();
         return;
     }
     if (it.value() != entry) {
-        qWarning() << "directory " << name()
+        qCWarning(KArchiveLog) << "directory " << name()
                    << "has another entry for name " << entry->name();
         return;
     }
@@ -886,7 +887,7 @@ bool KArchiveDirectory::copyTo(const QString &dest, bool recursiveCopy) const
         // otherwise put file under root position in extraction folder
         QString curDirName = dirNameStack.pop();
         if (!QDir(curDirName).absolutePath().startsWith(destDir)) {
-            qWarning() << "Attempted export into folder" << curDirName
+            qCWarning(KArchiveLog) << "Attempted export into folder" << curDirName
                 << "which is outside of the extraction root folder" << destDir << "."
                 << "Changing export of contained files to extraction root folder.";
             curDirName = destDir;
@@ -909,7 +910,7 @@ bool KArchiveDirectory::copyTo(const QString &dest, bool recursiveCopy) const
 #endif
                 QFile symLinkTarget(curEntry->symLinkTarget());
                 if (!symLinkTarget.link(linkName)) {
-                    //qDebug() << "symlink(" << curEntry->symLinkTarget() << ',' << linkName << ") failed:" << strerror(errno);
+                    //qCDebug(KArchiveLog) << "symlink(" << curEntry->symLinkTarget() << ',' << linkName << ") failed:" << strerror(errno);
                 }
             } else {
                 if (curEntry->isFile()) {

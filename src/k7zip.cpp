@@ -18,6 +18,7 @@
 
 #include "k7zip.h"
 #include "karchive_p.h"
+#include "loggingcategory.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
@@ -563,7 +564,7 @@ int K7Zip::K7ZipPrivate::readByte()
 quint32 K7Zip::K7ZipPrivate::readUInt32()
 {
     if (!buffer || (quint64)(pos + 4) > end) {
-        qDebug() << "error size";
+        qCDebug(KArchiveLog) << "error size";
         return 0;
     }
 
@@ -575,7 +576,7 @@ quint32 K7Zip::K7ZipPrivate::readUInt32()
 quint64 K7Zip::K7ZipPrivate::readUInt64()
 {
     if (!buffer || (quint64)(pos + 8) > end) {
-        qDebug() << "error size";
+        qCDebug(KArchiveLog) << "error size";
         return 0;
     }
 
@@ -621,7 +622,7 @@ QString K7Zip::K7ZipPrivate::readString()
             }
         }
         if (i == rem) {
-            qDebug() << "read string error";
+            qCDebug(KArchiveLog) << "read string error";
             return QString();
         }
         rem = i;
@@ -629,7 +630,7 @@ QString K7Zip::K7ZipPrivate::readString()
 
     int len = (int)(rem / 2);
     if (len < 0 || (size_t)len * 2 != rem) {
-        qDebug() << "read string unsupported";
+        qCDebug(KArchiveLog) << "read string unsupported";
         return QString();
     }
 
@@ -746,7 +747,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         unsigned char coderInfo = readByte();
         int codecIdSize = (coderInfo & 0xF);
         if (codecIdSize > 8) {
-            qDebug() << "unsupported codec id size";
+            qCDebug(KArchiveLog) << "unsupported codec id size";
             delete folder;
             return nullptr;
         }
@@ -780,7 +781,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         }
 
         if ((coderInfo & 0x80) != 0) {
-            qDebug() << "unsupported";
+            qCDebug(KArchiveLog) << "unsupported";
             delete info;
             delete folder;
             return nullptr;
@@ -831,7 +832,7 @@ bool K7Zip::K7ZipPrivate::readUInt64DefVector(int numFiles, QVector<quint64> &va
     if (external != 0) {
         int dataIndex = readNumber();
         if (dataIndex < 0 /*|| dataIndex >= dataVector->Size()*/) {
-            qDebug() << "wrong data index";
+            qCDebug(KArchiveLog) << "wrong data index";
             return false;
         }
 
@@ -862,7 +863,7 @@ bool K7Zip::K7ZipPrivate::readPackInfo()
     packCRCs.clear();
 
     if (!findAttribute(kSize)) {
-        qDebug() << "kSize not found";
+        qCDebug(KArchiveLog) << "kSize not found";
         return false;
     }
 
@@ -899,7 +900,7 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
     }
 
     if (!findAttribute(kFolder)) {
-        qDebug() << "kFolder not found";
+        qCDebug(KArchiveLog) << "kFolder not found";
         return false;
     }
 
@@ -917,18 +918,18 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
     case 1: {
         int dataIndex = readNumber();
         if (dataIndex < 0 /*|| dataIndex >= dataVector->Size()*/) {
-            qDebug() << "wrong data index";
+            qCDebug(KArchiveLog) << "wrong data index";
         }
         // TODO : go to the new index
         break;
     }
     default:
-        qDebug() << "external error";
+        qCDebug(KArchiveLog) << "external error";
         return false;
     }
 
     if (!findAttribute(kCodersUnpackSize)) {
-        qDebug() << "kCodersUnpackSize not found";
+        qCDebug(KArchiveLog) << "kCodersUnpackSize not found";
         return false;
     }
 
@@ -1133,7 +1134,7 @@ bool K7Zip::K7ZipPrivate::readMainStreamsInfo()
     for (;;) {
         type = readByte();
         if (type > ((quint32)1 << 30)) {
-            qDebug() << "type error";
+            qCDebug(KArchiveLog) << "type error";
             return false;
         }
         switch (type) {
@@ -1141,32 +1142,32 @@ bool K7Zip::K7ZipPrivate::readMainStreamsInfo()
             return true;
         case kPackInfo: {
             if (!readPackInfo()) {
-                qDebug() << "error during read pack information";
+                qCDebug(KArchiveLog) << "error during read pack information";
                 return false;
             }
             break;
         }
         case kUnpackInfo: {
             if (!readUnpackInfo()) {
-                qDebug() << "error during read pack information";
+                qCDebug(KArchiveLog) << "error during read pack information";
                 return false;
             }
             break;
         }
         case kSubStreamsInfo: {
             if (!readSubStreamsInfo()) {
-                qDebug() << "error during read substreams information";
+                qCDebug(KArchiveLog) << "error during read substreams information";
                 return false;
             }
             break;
         }
         default:
-            qDebug() << "Wrong type";
+            qCDebug(KArchiveLog) << "Wrong type";
             return false;
         }
     }
 
-    qDebug() << "should not reach";
+    qCDebug(KArchiveLog) << "should not reach";
     return false;
 }
 
@@ -1488,7 +1489,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         quint64 unpackSize64 = folder->getUnpackSize();;
         size_t unpackSize = (size_t)unpackSize64;
         if (unpackSize != unpackSize64) {
-            qDebug() << "unsupported";
+            qCDebug(KArchiveLog) << "unsupported";
             return inflatedData;
         }
 
@@ -1544,7 +1545,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             dev->seek(startPos);
             quint64 n = dev->read(encodedBuffer.get(), size);
             if (n != (quint64)size) {
-                qDebug() << "Failed read next size, should read " << size << ", read " << n;
+                qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << n;
                 return inflatedData;
             }
             QByteArray deflatedData(encodedBuffer.get(), size);
@@ -1572,7 +1573,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             case k_LZMA:
                 filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
                 if (!filter) {
-                    qDebug() << "filter not found";
+                    qCDebug(KArchiveLog) << "filter not found";
                     return QByteArray();
                 }
                 static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA, coder->properties);
@@ -1580,7 +1581,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             case k_LZMA2:
                 filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
                 if (!filter) {
-                    qDebug() << "filter not found";
+                    qCDebug(KArchiveLog) << "filter not found";
                     return QByteArray();
                 }
                 static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA2, coder->properties);
@@ -1605,7 +1606,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             case k_BCJ:
                 filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
                 if (!filter) {
-                    qDebug() << "filter not found";
+                    qCDebug(KArchiveLog) << "filter not found";
                     return QByteArray();
                 }
                 static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::BCJ, coder->properties);
@@ -1619,7 +1620,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             case k_BZip2:
                 filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::BZip2);
                 if (!filter) {
-                    qDebug() << "filter not found";
+                    qCDebug(KArchiveLog) << "filter not found";
                     return QByteArray();
                 }
                 filter->init(QIODevice::ReadOnly);
@@ -1646,7 +1647,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 filter->setOutBuffer(outBuffer.data(), outBuffer.size());
                 result = filter->uncompress();
                 if (result == KFilterBase::Error) {
-                    qDebug() << " decode error";
+                    qCDebug(KArchiveLog) << " decode error";
                     filter->terminate();
                     delete filter;
                     return QByteArray();
@@ -1657,13 +1658,13 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 inflatedDataTmp.append(outBuffer.data(), uncompressedBytes);
 
                 if (result == KFilterBase::End) {
-                    //qDebug() << "Finished unpacking";
+                    //qCDebug(KArchiveLog) << "Finished unpacking";
                     break; // Finished.
                 }
             }
 
             if (result != KFilterBase::End && !filter->inBufferEmpty()) {
-                qDebug() << "decode failed result" << result;
+                qCDebug(KArchiveLog) << "decode failed result" << result;
                 filter->terminate();
                 delete filter;
                 return QByteArray();
@@ -1685,7 +1686,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         if (folder->unpackCRCDefined) {
             quint32 crc = crc32(0, (Bytef *)(inflated.data()), unpackSize);
             if (crc != folder->unpackCRC) {
-                qDebug() << "wrong crc";
+                qCDebug(KArchiveLog) << "wrong crc";
                 return QByteArray();
             }
         }
@@ -2090,7 +2091,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QVector<quint64> &packSizes, QVecto
 
         const int ret = flt.write(header);
         if (ret != header.size()) {
-            qDebug() << "write error write " << ret << "expected" << header.size();
+            qCDebug(KArchiveLog) << "write error write " << ret << "expected" << header.size();
             return encodedData;
         }
 
@@ -2327,7 +2328,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     int minor = header[7];
 
     /*if (major > 0 || minor > 2) {
-        qDebug() << "wrong archive version";
+        qCDebug(KArchiveLog) << "wrong archive version";
         return false;
     }*/
 
@@ -2397,7 +2398,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         if (external != 0) {
             int dataIndex = (int)d->readNumber();
             if (dataIndex < 0) {
-                //qDebug() << "dataIndex error";
+                //qCDebug(KArchiveLog) << "dataIndex error";
             }
             d->buffer = decodedData.constData();
             d->pos = 0;
@@ -2515,7 +2516,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                 if (external != 0) {
                     int dataIndex = d->readNumber();
                     if (dataIndex < 0 /*|| dataIndex >= dataVector->Size()*/) {
-                        qDebug() << "wrong data index";
+                        qCDebug(KArchiveLog) << "wrong data index";
                     }
 
                     // TODO : go to the new index
@@ -2535,7 +2536,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                 if (external != 0) {
                     int dataIndex = d->readNumber();
                     if (dataIndex < 0) {
-                        qDebug() << "wrong data index";
+                        qCDebug(KArchiveLog) << "wrong data index";
                     }
 
                     // TODO : go to the new index
@@ -2711,7 +2712,7 @@ bool K7Zip::closeArchive()
 {
     // Unnecessary check (already checked by KArchive::close())
     if (!isOpen()) {
-        //qWarning() << "You must open the file before close it\n";
+        //qCWarning(KArchiveLog) << "You must open the file before close it\n";
         return false;
     }
 
@@ -2869,13 +2870,13 @@ bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
-        qWarning() << "doPrepareWriting failed: !isOpen()";
+        qCWarning(KArchiveLog) << "doPrepareWriting failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
         setErrorString(tr("Application error: attempted to write into non-writable 7-Zip file"));
-        qWarning() << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
+        qCWarning(KArchiveLog) << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
@@ -2912,12 +2913,12 @@ bool K7Zip::doWriteDir(const QString &name, const QString &user,
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
-        qWarning() << "doWriteDir failed: !isOpen()";
+        qCWarning(KArchiveLog) << "doWriteDir failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qWarning() << "You must open the tar file for writing\n";
+        //qCWarning(KArchiveLog) << "You must open the tar file for writing\n";
         return false;
     }
 
@@ -2949,13 +2950,13 @@ bool K7Zip::doWriteSymLink(const QString &name, const QString &target,
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
-        qWarning() << "doWriteSymLink failed: !isOpen()";
+        qCWarning(KArchiveLog) << "doWriteSymLink failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
         setErrorString(tr("Application error: attempted to write into non-writable 7-Zip file"));
-        qWarning() << "doWriteSymLink failed: !(mode() & QIODevice::WriteOnly)";
+        qCWarning(KArchiveLog) << "doWriteSymLink failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 

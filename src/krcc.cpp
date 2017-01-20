@@ -20,6 +20,7 @@
 
 #include "krcc.h"
 #include "karchive_p.h"
+#include "loggingcategory.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QDebug>
@@ -59,7 +60,7 @@ public:
         if (f.open(QIODevice::ReadOnly)) {
             return f.readAll();
         }
-        qWarning() << "Couldn't open" << m_resourcePath;
+        qCWarning(KArchiveLog) << "Couldn't open" << m_resourcePath;
         return QByteArray();
     }
     QIODevice *createDevice() const Q_DECL_OVERRIDE
@@ -88,14 +89,14 @@ bool KRcc::doPrepareWriting(const QString &, const QString &, const QString &,
                             qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
-    qWarning() << "doPrepareWriting not implemented for KRcc";
+    qCWarning(KArchiveLog) << "doPrepareWriting not implemented for KRcc";
     return false;
 }
 
 bool KRcc::doFinishWriting(qint64)
 {
     setErrorString(tr("Cannot write to RCC file"));
-    qWarning() << "doFinishWriting not implemented for KRcc";
+    qCWarning(KArchiveLog) << "doFinishWriting not implemented for KRcc";
     return false;
 }
 
@@ -103,7 +104,7 @@ bool KRcc::doWriteDir(const QString &, const QString &, const QString &,
                       mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
-    qWarning() << "doWriteDir not implemented for KRcc";
+    qCWarning(KArchiveLog) << "doWriteDir not implemented for KRcc";
     return false;
 }
 
@@ -111,7 +112,7 @@ bool KRcc::doWriteSymLink(const QString &, const QString &, const QString &,
                           const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
-    qWarning() << "doWriteSymLink not implemented for KRcc";
+    qCWarning(KArchiveLog) << "doWriteSymLink not implemented for KRcc";
     return false;
 }
 

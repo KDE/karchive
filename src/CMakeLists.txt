@@ -35,6 +35,13 @@ set(karchive_SRCS
     krcc.cpp
 )
 
+ecm_qt_declare_logging_category(karchive_SRCS
+    HEADER loggingcategory.h
+    IDENTIFIER KArchiveLog
+    CATEGORY_NAME kf5.karchive
+    DEFAULT_SEVERITY Warning
+)
+
 add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
 generate_export_header(KF5Archive BASE_NAME KArchive)
 add_library(KF5::Archive ALIAS KF5Archive)

@@ -21,6 +21,7 @@
 */
 
 #include "kxzfilter.h"
+#include "loggingcategory.h"
 
 #include <config-compression.h>
 
@@ -85,7 +86,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             */
             result = lzma_auto_decoder(&d->zStream, 100 << 20, 0);
             if (result != LZMA_OK) {
-                qWarning() << "lzma_auto_decoder returned" << result;
+                qCWarning(KArchiveLog) << "lzma_auto_decoder returned" << result;
                 return false;
             }
             break;
@@ -103,7 +104,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
 
             result = lzma_properties_decode(&d->filters[0], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
-                qWarning() << "lzma_properties_decode returned" << result;
+                qCWarning(KArchiveLog) << "lzma_properties_decode returned" << result;
                 return false;
             }
             break;
@@ -120,7 +121,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
 
             result = lzma_properties_decode(&d->filters[0], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
-                qWarning() << "lzma_properties_decode returned" << result;
+                qCWarning(KArchiveLog) << "lzma_properties_decode returned" << result;
                 return false;
             }
             break;
@@ -135,7 +136,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             d->filters[1].options = nullptr;
             result = lzma_properties_decode(&d->filters[1], nullptr, props, sizeof (props));
             if (result != LZMA_OK) {
-                qWarning() << "lzma_properties_decode1 returned" << result;
+                qCWarning(KArchiveLog) << "lzma_properties_decode1 returned" << result;
                 return false;
             }
 
@@ -149,14 +150,14 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
         case ARM:
         case ARMTHUMB:
         case SPARC:
-            //qDebug() << "flag" << flag << "props size" << properties.size();
+            //qCDebug(KArchiveLog) << "flag" << flag << "props size" << properties.size();
             break;
         }
 
         if (flag != AUTO) {
             result = lzma_raw_decoder(&d->zStream, d->filters);
             if (result != LZMA_OK) {
-                qWarning() << "lzma_raw_decoder returned" << result;
+                qCWarning(KArchiveLog) << "lzma_raw_decoder returned" << result;
                 return false;
             }
         }
@@ -177,11 +178,11 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
             result = lzma_raw_encoder(&d->zStream, d->filters);
         }
         if (result != LZMA_OK) {
-            qWarning() << "lzma_easy_encoder returned" << result;
+            qCWarning(KArchiveLog) << "lzma_easy_encoder returned" << result;
             return false;
         }
     } else {
-        //qWarning() << "Unsupported mode " << mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
+        //qCWarning(KArchiveLog) << "Unsupported mode " << mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
         return false;
     }
     d->mode = mode;
@@ -199,7 +200,7 @@ bool KXzFilter::terminate()
     if (d->mode == QIODevice::ReadOnly || d->mode == QIODevice::WriteOnly) {
         lzma_end(&d->zStream);
     } else {
-        //qWarning() << "Unsupported mode " << d->mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
+        //qCWarning(KArchiveLog) << "Unsupported mode " << d->mode << ". Only QIODevice::ReadOnly and QIODevice::WriteOnly supported";
         return false;
     }
     d->isInitialized = false;
@@ -208,7 +209,7 @@ bool KXzFilter::terminate()
 
 void KXzFilter::reset()
 {
-    //qDebug() << "KXzFilter::reset";
+    //qCDebug(KArchiveLog) << "KXzFilter::reset";
     // liblzma doesn't have a reset call...
     terminate();
     init(d->mode);
@@ -238,13 +239,13 @@ int KXzFilter::outBufferAvailable() const
 
 KXzFilter::Result KXzFilter::uncompress()
 {
-    //qDebug() << "Calling lzma_code with avail_in=" << inBufferAvailable() << " avail_out =" << outBufferAvailable();
+    //qCDebug(KArchiveLog) << "Calling lzma_code with avail_in=" << inBufferAvailable() << " avail_out =" << outBufferAvailable();
     lzma_ret result;
     result = lzma_code(&d->zStream, LZMA_RUN);
 
     /*if (result != LZMA_OK) {
-        qDebug() << "lzma_code returned " << result;
-        //qDebug() << "KXzFilter::uncompress " << ( result == LZMA_STREAM_END ? KFilterBase::End : KFilterBase::Error );
+        qCDebug(KArchiveLog) << "lzma_code returned " << result;
+        //qCDebug(KArchiveLog) << "KXzFilter::uncompress " << ( result == LZMA_STREAM_END ? KFilterBase::End : KFilterBase::Error );
     }*/
 
     switch (result) {
@@ -259,18 +260,18 @@ KXzFilter::Result KXzFilter::uncompress()
 
 KXzFilter::Result KXzFilter::compress(bool finish)
 {
-    //qDebug() << "Calling lzma_code with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
+    //qCDebug(KArchiveLog) << "Calling lzma_code with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
     lzma_ret result = lzma_code(&d->zStream, finish ? LZMA_FINISH : LZMA_RUN);
     switch (result) {
     case LZMA_OK:
         return KFilterBase::Ok;
         break;
     case LZMA_STREAM_END:
-        //qDebug() << "  lzma_code returned " << result;
+        //qCDebug(KArchiveLog) << "  lzma_code returned " << result;
         return KFilterBase::End;
         break;
     default:
-        //qDebug() << "  lzma_code returned " << result;
+        //qCDebug(KArchiveLog) << "  lzma_code returned " << result;
         return KFilterBase::Error;
         break;
     }

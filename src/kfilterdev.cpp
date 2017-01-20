@@ -17,6 +17,7 @@
 */
 
 #include "kfilterdev.h"
+#include "loggingcategory.h"
 #include <config-compression.h>
 #include <qmimedatabase.h>
 
@@ -40,7 +41,7 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
     else {
         // not a warning, since this is called often with other mimetypes (see #88574)...
         // maybe we can avoid that though?
-        //qDebug() << "findCompressionByFileName : no compression found for " << fileName;
+        //qCDebug(KArchiveLog) << "findCompressionByFileName : no compression found for " << fileName;
     }
 
     return KCompressionDevice::None;
@@ -94,6 +95,6 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
 
     // not a warning, since this is called often with other mimetypes (see #88574)...
     // maybe we can avoid that though?
-    //qDebug() << "no compression found for" << mimeType;
+    //qCDebug(KArchiveLog) << "no compression found for" << mimeType;
     return KCompressionDevice::None;
 }

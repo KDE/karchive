@@ -21,6 +21,7 @@
 #include "karchive_p.h"
 #include "kfilterdev.h"
 #include "klimitediodevice_p.h"
+#include "loggingcategory.h"
 
 #include <QtCore/QHash>
 #include <QtCore/QByteArray>
@@ -125,7 +126,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal,
                               ParseFileInfo &pfi)
 {
     if (size < 1) {
-        //qDebug() << "premature end of extended timestamp (#1)";
+        //qCDebug(KArchiveLog) << "premature end of extended timestamp (#1)";
         return false;
     }/*end if*/
     int flags = *buffer;        // read flags
@@ -134,7 +135,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal,
 
     if (flags & 1) {        // contains modification time
         if (size < 4) {
-            //qDebug() << "premature end of extended timestamp (#2)";
+            //qCDebug(KArchiveLog) << "premature end of extended timestamp (#2)";
             return false;
         }/*end if*/
         pfi.mtime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8
@@ -151,7 +152,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal,
 
     if (flags & 2) {        // contains last access time
         if (size < 4) {
-            //qDebug() << "premature end of extended timestamp (#3)";
+            //qCDebug(KArchiveLog) << "premature end of extended timestamp (#3)";
             return true;
         }/*end if*/
         pfi.atime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8
@@ -162,7 +163,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal,
 
     if (flags & 4) {        // contains creation time
         if (size < 4) {
-            //qDebug() << "premature end of extended timestamp (#4)";
+            //qCDebug(KArchiveLog) << "premature end of extended timestamp (#4)";
             return true;
         }/*end if*/
         pfi.ctime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8
@@ -191,7 +192,7 @@ static bool parseInfoZipUnixOld(const char *buffer, int size, bool islocal,
     }
 
     if (size < 8) {
-        //qDebug() << "premature end of Info-ZIP unix extra field old";
+        //qCDebug(KArchiveLog) << "premature end of Info-ZIP unix extra field old";
         return false;
     }
 
@@ -228,7 +229,7 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
     }
 
     if (size < 4) {
-        qDebug() << "premature end of Info-ZIP unix extra field new";
+        qCDebug(KArchiveLog) << "premature end of Info-ZIP unix extra field new";
         return false;
     }
 
@@ -267,8 +268,8 @@ static bool parseExtraField(const char *buffer, int size, bool islocal,
         size -= 4;
 
         if (fieldsize > size) {
-            //qDebug() << "fieldsize: " << fieldsize << " size: " << size;
-            //qDebug() << "premature end of extra fields reached";
+            //qCDebug(KArchiveLog) << "fieldsize: " << fieldsize << " size: " << size;
+            //qCDebug(KArchiveLog) << "premature end of extra fields reached";
             break;
         }
 
@@ -354,7 +355,7 @@ static bool seekToNextHeaderToken(QIODevice *dev)
     while (!headerTokenFound) {
         int n = dev->read(buffer, 1);
         if (n < 1) {
-            //qWarning() << "Invalid ZIP file. Unexpected end of file. (#2)";
+            //qCWarning(KArchiveLog) << "Invalid ZIP file. Unexpected end of file. (#2)";
             return false;
         }
 
@@ -364,7 +365,7 @@ static bool seekToNextHeaderToken(QIODevice *dev)
 
         n = dev->read(buffer, 3);
         if (n < 3) {
-            //qWarning() << "Invalid ZIP file. Unexpected end of file. (#3)";
+            //qCWarning(KArchiveLog) << "Invalid ZIP file. Unexpected end of file. (#3)";
             return false;
         }
 
@@ -427,7 +428,7 @@ KZip::KZip(QIODevice *dev)
 
 KZip::~KZip()
 {
-    //qDebug() << this;
+    //qCDebug(KArchiveLog) << this;
     if (isOpen()) {
         close();
     }
@@ -436,7 +437,7 @@ KZip::~KZip()
 
 bool KZip::openArchive(QIODevice::OpenMode mode)
 {
-    //qDebug();
+    //qCDebug(KArchiveLog);
     d->m_fileList.clear();
 
     if (mode == QIODevice::WriteOnly) {
@@ -460,8 +461,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
     bool startOfFile = true;
 
     for (;;) { // repeat until 'end of entries' signature is reached
-        //qDebug() << "loop starts";
-        //qDebug() << "dev->pos() now : " << dev->pos();
+        //qCDebug(KArchiveLog) << "loop starts";
+        //qCDebug(KArchiveLog) << "dev->pos() now : " << dev->pos();
         n = dev->read(buffer, 4);
 
         if (n < 4) {
@@ -470,13 +471,13 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         }
 
         if (!memcmp(buffer, "PK\5\6", 4)) { // 'end of entries'
-            //qDebug() << "PK56 found end of archive";
+            //qCDebug(KArchiveLog) << "PK56 found end of archive";
             startOfFile = false;
             break;
         }
 
         if (!memcmp(buffer, "PK\3\4", 4)) { // local file header
-            //qDebug() << "PK34 found local file header";
+            //qCDebug(KArchiveLog) << "PK34 found local file header";
             startOfFile = false;
             // can this fail ???
             dev->seek(dev->pos() + 2); // skip 'version needed to extract'
@@ -500,12 +501,12 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             const int extralen = uint(uchar(buffer[22])) | uint(uchar(buffer[23])) << 8;
 
             /*
-              qDebug() << "general purpose bit flag: " << gpf;
-              qDebug() << "compressed size: " << compr_size;
-              qDebug() << "uncompressed size: " << uncomp_size;
-              qDebug() << "namelen: " << namelen;
-              qDebug() << "extralen: " << extralen;
-              qDebug() << "archive size: " << dev->size();
+              qCDebug(KArchiveLog) << "general purpose bit flag: " << gpf;
+              qCDebug(KArchiveLog) << "compressed size: " << compr_size;
+              qCDebug(KArchiveLog) << "uncompressed size: " << uncomp_size;
+              qCDebug(KArchiveLog) << "namelen: " << namelen;
+              qCDebug(KArchiveLog) << "extralen: " << extralen;
+              qCDebug(KArchiveLog) << "archive size: " << dev->size();
             */
 
             // read fileName
@@ -526,7 +527,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             int handledextralen = qMin(extralen, (int)sizeof buffer);
 
             //if (handledextralen)
-            //    qDebug() << "handledextralen: " << handledextralen;
+            //    qCDebug(KArchiveLog) << "handledextralen: " << handledextralen;
 
             n = dev->read(buffer, handledextralen);
             // no error msg necessary as we deliberately truncate the extra field
@@ -550,7 +551,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 }
             } else {
                 // here we skip the compressed data and jump to the next header
-                //qDebug() << "general purpose bit flag indicates, that local file header contains valid size";
+                //qCDebug(KArchiveLog) << "general purpose bit flag indicates, that local file header contains valid size";
                 bool foundSignature = false;
                 // check if this could be a symbolic link
                 if (compression_mode == NoCompression
@@ -573,21 +574,21 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         }
                         foundSignature = true;
                     } else {
-//          qDebug() << "before interesting dev->pos(): " << dev->pos();
+//          qCDebug(KArchiveLog) << "before interesting dev->pos(): " << dev->pos();
                         bool success = dev->seek(dev->pos() + compr_size); // can this fail ???
                         Q_UNUSED(success); // prevent warning in release builds.
                         Q_ASSERT(success); // let's see...
-                        /*          qDebug() << "after interesting dev->pos(): " << dev->pos();
+                        /*          qCDebug(KArchiveLog) << "after interesting dev->pos(): " << dev->pos();
                                                 if (success)
-                                                qDebug() << "dev->at was successful... ";
+                                                qCDebug(KArchiveLog) << "dev->at was successful... ";
                                                 else
-                                                qDebug() << "dev->at failed... ";*/
+                                                qCDebug(KArchiveLog) << "dev->at failed... ";*/
                     }
 
                 }
                 // test for optional data descriptor
                 if (!foundSignature) {
-//                     qDebug() << "Testing for optional data descriptor";
+//                     qCDebug(KArchiveLog) << "Testing for optional data descriptor";
                     // read static data descriptor
                     n = dev->read(buffer, 4);
                     if (n < 4) {
@@ -609,7 +610,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             }
             pfi_map.insert(fileName, pfi);
         } else if (!memcmp(buffer, "PK\1\2", 4)) { // central block
-            //qDebug() << "PK12 found central block";
+            //qCDebug(KArchiveLog) << "PK12 found central block";
             startOfFile = false;
 
             // so we reached the central header at the end of the zip file
@@ -631,20 +632,20 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             }
 
             //int gpf = (uchar)buffer[9] << 8 | (uchar)buffer[10];
-            //qDebug() << "general purpose flag=" << gpf;
+            //qCDebug(KArchiveLog) << "general purpose flag=" << gpf;
             // length of the fileName (well, pathname indeed)
             int namelen = (uchar)buffer[29] << 8 | (uchar)buffer[28];
             Q_ASSERT(namelen > 0);
             QByteArray bufferName = dev->read(namelen);
             if (bufferName.size() < namelen) {
-                //qWarning() << "Invalid ZIP file. Name not completely read";
+                //qCWarning(KArchiveLog) << "Invalid ZIP file. Name not completely read";
             }
 
             ParseFileInfo pfi = pfi_map.value(bufferName, ParseFileInfo());
 
             QString name(QFile::decodeName(bufferName));
 
-            //qDebug() << "name: " << name;
+            //qCDebug(KArchiveLog) << "name: " << name;
             // only in central header ! see below.
             // length of extra attributes
             int extralen = (uchar)buffer[31] << 8 | (uchar)buffer[30];
@@ -653,8 +654,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // compression method of this file
             int cmethod = (uchar)buffer[11] << 8 | (uchar)buffer[10];
 
-            //qDebug() << "cmethod: " << cmethod;
-            //qDebug() << "extralen: " << extralen;
+            //qCDebug(KArchiveLog) << "cmethod: " << cmethod;
+            //qCDebug(KArchiveLog) << "extralen: " << extralen;
 
             // crc32 of the file
             uint crc32 = (uchar)buffer[19] << 24 | (uchar)buffer[18] << 16 |
@@ -678,14 +679,14 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             int localextralen = pfi.extralen; // FIXME: this will not work if
             // no local header exists
 
-            //qDebug() << "localextralen: " << localextralen;
+            //qCDebug(KArchiveLog) << "localextralen: " << localextralen;
 
             // offset, where the real data for uncompression starts
             uint dataoffset = localheaderoffset + 30 + localextralen + namelen; //comment only in central header
 
-            //qDebug() << "esize: " << esize;
-            //qDebug() << "eoffset: " << eoffset;
-            //qDebug() << "csize: " << csize;
+            //qCDebug(KArchiveLog) << "esize: " << esize;
+            //qCDebug(KArchiveLog) << "eoffset: " << eoffset;
+            //qCDebug(KArchiveLog) << "csize: " << csize;
 
             int os_madeby = (uchar)buffer[5];
             bool isdir = false;
@@ -720,12 +721,12 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 QString path = QDir::cleanPath(name);
                 const KArchiveEntry *ent = rootDir()->entry(path);
                 if (ent && ent->isDirectory()) {
-                    //qDebug() << "Directory already exists, NOT going to add it again";
+                    //qCDebug(KArchiveLog) << "Directory already exists, NOT going to add it again";
                     entry = nullptr;
                 } else {
                     QDateTime mtime = KArchivePrivate::time_tToDateTime(pfi.mtime);
                     entry = new KArchiveDirectory(this, entryName, access, mtime, rootDir()->user(), rootDir()->group(), QString());
-                    //qDebug() << "KArchiveDirectory created, entryName= " << entryName << ", name=" << name;
+                    //qCDebug(KArchiveLog) << "KArchiveDirectory created, entryName= " << entryName << ", name=" << name;
                 }
             } else {
                 QString symlink;
@@ -739,7 +740,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                                           ucsize, cmethod, csize);
                 static_cast<KZipFileEntry *>(entry)->setHeaderStart(localheaderoffset);
                 static_cast<KZipFileEntry *>(entry)->setCRC32(crc32);
-                //qDebug() << "KZipFileEntry created, entryName= " << entryName << ", name=" << name;
+                //qCDebug(KArchiveLog) << "KZipFileEntry created, entryName= " << entryName << ", name=" << name;
                 d->m_fileList.append(static_cast<KZipFileEntry *>(entry));
             }
 
@@ -766,7 +767,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         } else if (startOfFile) {
             // The file does not start with any ZIP header (e.g. self-extractable ZIP files)
             // Therefore we need to find the first PK\003\004 (local header)
-            //qDebug() << "Try to skip start of file";
+            //qCDebug(KArchiveLog) << "Try to skip start of file";
             startOfFile = false;
             bool foundSignature = false;
 
@@ -812,14 +813,14 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             return false;
         }
     }
-    //qDebug() << "*** done *** ";
+    //qCDebug(KArchiveLog) << "*** done *** ";
     return true;
 }
 
 bool KZip::closeArchive()
 {
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qDebug() << "readonly";
+        //qCDebug(KArchiveLog) << "readonly";
         return true;
     }
 
@@ -831,7 +832,7 @@ bool KZip::closeArchive()
     uLong crc = crc32(0L, Z_NULL, 0);
 
     qint64 centraldiroffset = device()->pos();
-    //qDebug() << "closearchive: centraldiroffset: " << centraldiroffset;
+    //qCDebug(KArchiveLog) << "closearchive: centraldiroffset: " << centraldiroffset;
     qint64 atbackup = centraldiroffset;
     QMutableListIterator<KZipFileEntry *> it(d->m_fileList);
 
@@ -844,7 +845,7 @@ bool KZip::closeArchive()
                 .arg(device()->errorString()));
             return false;
         }
-        //qDebug() << "closearchive setcrcandcsize: fileName:"
+        //qCDebug(KArchiveLog) << "closearchive setcrcandcsize: fileName:"
         //    << it.current()->path()
         //    << "encoding:" << it.current()->encoding();
 
@@ -878,7 +879,7 @@ bool KZip::closeArchive()
     it.toFront();
     while (it.hasNext()) {
         it.next();
-        //qDebug() << "fileName:" << it.current()->path()
+        //qCDebug(KArchiveLog) << "fileName:" << it.current()->path()
         //              << "encoding:" << it.current()->encoding();
 
         QByteArray path = QFile::encodeName(it.value()->path());
@@ -939,7 +940,7 @@ bool KZip::closeArchive()
 
         // file name
         strncpy(buffer + 46, path.constData(), path.length());
-        //qDebug() << "closearchive length to write: " << bufferSize;
+        //qCDebug(KArchiveLog) << "closearchive length to write: " << bufferSize;
 
         // extra field
         if (d->m_extraField == ModificationTime) {
@@ -970,8 +971,8 @@ bool KZip::closeArchive()
         }
     }
     qint64 centraldirendoffset = device()->pos();
-    //qDebug() << "closearchive: centraldirendoffset: " << centraldirendoffset;
-    //qDebug() << "closearchive: device()->pos(): " << device()->pos();
+    //qCDebug(KArchiveLog) << "closearchive: centraldirendoffset: " << centraldirendoffset;
+    //qCDebug(KArchiveLog) << "closearchive: device()->pos(): " << device()->pos();
 
     //write end of central dir record.
     buffer[0] = 'P'; //end of central dir signature
@@ -986,7 +987,7 @@ bool KZip::closeArchive()
     buffer[7] = 0;
 
     int count = d->m_fileList.count();
-    //qDebug() << "number of files (count): " << count;
+    //qCDebug(KArchiveLog) << "number of files (count): " << count;
 
     buffer[8] = char(count); // total number of entries in central dir of
     buffer[9] = char(count >> 8); // this disk
@@ -1000,8 +1001,8 @@ bool KZip::closeArchive()
     buffer[14] = char(cdsize >> 16);
     buffer[15] = char(cdsize >> 24);
 
-    //qDebug() << "end : centraldiroffset: " << centraldiroffset;
-    //qDebug() << "end : centraldirsize: " << cdsize;
+    //qCDebug(KArchiveLog) << "end : centraldiroffset: " << centraldiroffset;
+    //qCDebug(KArchiveLog) << "end : centraldirsize: " << cdsize;
 
     buffer[16] = char(centraldiroffset); // central dir offset
     buffer[17] = char(centraldiroffset >> 8);
@@ -1038,16 +1039,16 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
                             const QString &group, qint64 /*size*/, mode_t perm,
                             const QDateTime &accessTime, const QDateTime &modificationTime, const QDateTime &creationTime)
 {
-    //qDebug();
+    //qCDebug(KArchiveLog);
     if (!isOpen()) {
         setErrorString(tr("Application error: ZIP file must be open before being written into"));
-        qWarning() << "doPrepareWriting failed: !isOpen()";
+        qCWarning(KArchiveLog) << "doPrepareWriting failed: !isOpen()";
         return false;
     }
 
     if (!(mode() & QIODevice::WriteOnly)) { // accept WriteOnly and ReadWrite
         setErrorString(tr("Application error: attempted to write into non-writable ZIP file"));
-        qWarning() << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
+        qCWarning(KArchiveLog) << "doPrepareWriting failed: !(mode() & QIODevice::WriteOnly)";
         return false;
     }
 
@@ -1073,7 +1074,7 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     if (i != -1) {
         QString dir = name.left(i);
         fileName = name.mid(i + 1);
-        //qDebug() << "ensuring" << dir << "exists. fileName=" << fileName;
+        //qCDebug(KArchiveLog) << "ensuring" << dir << "exists. fileName=" << fileName;
         parentDir = findOrCreate(dir);
     }
 
@@ -1082,14 +1083,14 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     // with konqi...
     // CAUTION: the old file itself is still in the zip and won't be removed !!!
     QMutableListIterator<KZipFileEntry *> it(d->m_fileList);
-    //qDebug() << "fileName to write: " << name;
+    //qCDebug(KArchiveLog) << "fileName to write: " << name;
     while (it.hasNext()) {
         it.next();
-        //qDebug() << "prepfileName: " << it.current()->path();
+        //qCDebug(KArchiveLog) << "prepfileName: " << it.current()->path();
         if (name == it.value()->path()) {
             // also remove from the parentDir
             parentDir->removeEntry(it.value());
-            //qDebug() << "removing following entry: " << it.current()->path();
+            //qCDebug(KArchiveLog) << "removing following entry: " << it.current()->path();
             delete it.value();
             it.remove();
         }
@@ -1101,7 +1102,7 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
                                          name, device()->pos() + 30 + name.length(), // start
                                          0 /*size unknown yet*/, d->m_compression, 0 /*csize unknown yet*/);
     e->setHeaderStart(device()->pos());
-    //qDebug() << "wrote file start: " << e->position() << " name: " << name;
+    //qCDebug(KArchiveLog) << "wrote file start: " << e->position() << " name: " << name;
     parentDir->addEntry(e);
 
     d->m_currentFile = e;
@@ -1115,7 +1116,7 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
     // write out zip header
     QByteArray encodedName = QFile::encodeName(name);
     int bufferSize = extra_field_len + encodedName.length() + 30;
-    //qDebug() << "bufferSize=" << bufferSize;
+    //qCDebug(KArchiveLog) << "bufferSize=" << bufferSize;
     char *buffer = new char[bufferSize];
 
     buffer[0] = 'P'; //local file header signature
@@ -1229,8 +1230,8 @@ bool KZip::doFinishWriting(qint64 size)
     d->m_currentDev = nullptr;
 
     Q_ASSERT(d->m_currentFile);
-    //qDebug() << "fileName: " << d->m_currentFile->path();
-    //qDebug() << "getpos (at): " << device()->pos();
+    //qCDebug(KArchiveLog) << "fileName: " << d->m_currentFile->path();
+    //qCDebug(KArchiveLog) << "getpos (at): " << device()->pos();
     d->m_currentFile->setSize(size);
     int extra_field_len = 0;
     if (d->m_extraField == ModificationTime) {
@@ -1242,11 +1243,11 @@ bool KZip::doFinishWriting(qint64 size)
                 d->m_currentFile->headerStart() - 30 -
                 encodedName.length() - extra_field_len;
     d->m_currentFile->setCompressedSize(csize);
-    //qDebug() << "usize: " << d->m_currentFile->size();
-    //qDebug() << "csize: " << d->m_currentFile->compressedSize();
-    //qDebug() << "headerstart: " << d->m_currentFile->headerStart();
+    //qCDebug(KArchiveLog) << "usize: " << d->m_currentFile->size();
+    //qCDebug(KArchiveLog) << "csize: " << d->m_currentFile->compressedSize();
+    //qCDebug(KArchiveLog) << "headerstart: " << d->m_currentFile->headerStart();
 
-    //qDebug() << "crc: " << d->m_crc;
+    //qCDebug(KArchiveLog) << "crc: " << d->m_crc;
     d->m_currentFile->setCRC32(d->m_crc);
 
     d->m_currentFile = nullptr;
@@ -1305,7 +1306,7 @@ bool KZip::writeData(const char *data, qint64 size)
     d->m_crc = crc32(d->m_crc, (const Bytef *) data, size);
 
     qint64 written = d->m_currentDev->write(data, size);
-    //qDebug() << "wrote" << size << "bytes.";
+    //qCDebug(KArchiveLog) << "wrote" << size << "bytes.";
     const bool ok = written == size;
 
     if (!ok) {
@@ -1427,7 +1428,7 @@ QByteArray KZipFileEntry::data() const
 
 QIODevice *KZipFileEntry::createDevice() const
 {
-    //qDebug() << "creating iodevice limited to pos=" << position() << ", csize=" << compressedSize();
+    //qCDebug(KArchiveLog) << "creating iodevice limited to pos=" << position() << ", csize=" << compressedSize();
     // Limit the reading to the appropriate part of the underlying device (e.g. file)
     KLimitedIODevice *limitedDev = new KLimitedIODevice(archive()->device(), position(), compressedSize());
     if (encoding() == 0 || compressedSize() == 0) { // no compression (or even no data)
@@ -1449,7 +1450,7 @@ QIODevice *KZipFileEntry::createDevice() const
         return filterDev;
     }
 
-    qCritical() << "This zip file contains files compressed with method"
+    qCCritical(KArchiveLog) << "This zip file contains files compressed with method"
                 << encoding() << ", this method is currently not supported by KZip,"
                 << "please use a command-line tool to handle this file.";
     return nullptr;
