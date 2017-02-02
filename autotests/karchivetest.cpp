@@ -195,6 +195,28 @@ static void testFileData(KArchive *archive)
     QCOMPARE(QString::fromLatin1(contents.constData()), QString::fromLatin1(arr.constData()));
     delete dev;
 
+    // test read/seek/peek work fine
+    f = dir->file(QStringLiteral("test1"));
+    dev = f->createDevice();
+    contents = dev->peek(4);
+    QCOMPARE(contents, QByteArray("Hall"));
+    contents = dev->peek(2);
+    QCOMPARE(contents, QByteArray("Ha"));
+    dev->seek(2);
+    contents = dev->peek(2);
+    QCOMPARE(contents, QByteArray("ll"));
+    dev->seek(0);
+    contents = dev->read(2);
+    QCOMPARE(contents, QByteArray("Ha"));
+    contents = dev->peek(2);
+    QCOMPARE(contents, QByteArray("ll"));
+    dev->seek(1);
+    contents = dev->read(1);
+    QCOMPARE(contents, QByteArray("a"));
+    dev->seek(4);
+    contents = dev->read(1);
+    QCOMPARE(contents, QByteArray("o"));
+
     const KArchiveEntry *e = dir->entry(QStringLiteral("mediumfile"));
     QVERIFY(e && e->isFile());
     f = (KArchiveFile *)e;
