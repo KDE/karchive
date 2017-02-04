@@ -49,6 +49,7 @@ public:
         , bOpenedUnderlyingDevice(false)
         , bIgnoreData(false)
         , type(KCompressionDevice::None)
+        , deviceReadPos(0)
     {
     }
     bool bNeedHeader;
@@ -60,6 +61,7 @@ public:
     KFilterBase::Result result;
     KFilterBase *filter;
     KCompressionDevice::CompressionType type;
+    qint64 deviceReadPos;
 };
 
 KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::CompressionType type)
@@ -175,8 +177,10 @@ void KCompressionDevice::close()
 
 bool KCompressionDevice::seek(qint64 pos)
 {
-    qint64 ioIndex = this->pos(); // current position
-    if (ioIndex == pos) {
+    if (!QIODevice::seek(pos))
+        return false;
+
+    if (d->deviceReadPos == pos) {
         return true;
     }
 
@@ -190,13 +194,13 @@ bool KCompressionDevice::seek(qint64 pos)
         d->result = KFilterBase::Ok;
         d->filter->setInBuffer(nullptr, 0);
         d->filter->reset();
-        QIODevice::seek(pos);
+        d->deviceReadPos = 0;
         return d->filter->device()->reset();
     }
 
     qint64 bytesToRead;
-    if (ioIndex < pos) { // we can start from here
-        bytesToRead = pos - ioIndex;
+    if (d->deviceReadPos < pos) { // we can start from here
+        bytesToRead = pos - d->deviceReadPos;
     } else {
         // we have to start from 0 ! Ugly and slow, but better than the previous
         // solution (KTarGz was allocating everything into memory)
@@ -211,7 +215,6 @@ bool KCompressionDevice::seek(qint64 pos)
     d->bIgnoreData = true;
     const bool result = (read(dummy.data(), bytesToRead) == bytesToRead);
     d->bIgnoreData = false;
-    QIODevice::seek(pos);
     return result;
 }
 
@@ -304,6 +307,7 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
         filter->setOutBuffer(data, availOut);
     }
 
+    d->deviceReadPos += dataReceived;
     return dataReceived;
 }
 
