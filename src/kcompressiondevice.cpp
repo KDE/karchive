@@ -177,11 +177,8 @@ void KCompressionDevice::close()
 
 bool KCompressionDevice::seek(qint64 pos)
 {
-    if (!QIODevice::seek(pos))
-        return false;
-
     if (d->deviceReadPos == pos) {
-        return true;
+        return QIODevice::seek(pos);
     }
 
     //qCDebug(KArchiveLog) << "seek(" << pos << ") called, current pos=" << ioIndex;
@@ -189,6 +186,9 @@ bool KCompressionDevice::seek(qint64 pos)
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
 
     if (pos == 0) {
+        if (!QIODevice::seek(pos))
+            return false;
+
         // We can forget about the cached data
         d->bNeedHeader = !d->bSkipHeaders;
         d->result = KFilterBase::Ok;
@@ -201,6 +201,13 @@ bool KCompressionDevice::seek(qint64 pos)
     qint64 bytesToRead;
     if (d->deviceReadPos < pos) { // we can start from here
         bytesToRead = pos - d->deviceReadPos;
+        // Since we're going to do a read() below
+        // we need to reset the internal QIODevice pos to the real position we are
+        // so that after read() we are indeed pointing to the pos seek
+        // asked us to be in
+        if (!QIODevice::seek(d->deviceReadPos)) {
+            return false;
+        }
     } else {
         // we have to start from 0 ! Ugly and slow, but better than the previous
         // solution (KTarGz was allocating everything into memory)
