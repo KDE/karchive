@@ -1453,5 +1453,6 @@ QIODevice *KZipFileEntry::createDevice() const
     qCCritical(KArchiveLog) << "This zip file contains files compressed with method"
                 << encoding() << ", this method is currently not supported by KZip,"
                 << "please use a command-line tool to handle this file.";
+    delete limitedDev;
     return nullptr;
 }
