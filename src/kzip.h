@@ -24,6 +24,8 @@
 
 class KZipFileEntry;
 /**
+ *   @class KZip zip.h KZip
+ *
  *   A class for reading / writing zip archives.
  *
  *   You can use it in QIODevice::ReadOnly or in QIODevice::WriteOnly mode, and it

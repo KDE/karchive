@@ -22,6 +22,8 @@
 #include <karchive.h>
 
 /**
+ * @class KTar ktar.h KTar
+ *
  * A class for reading / writing (optionally compressed) tar archives.
  *
  * KTar allows you to read and write tar archives, including those

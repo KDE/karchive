@@ -25,6 +25,8 @@
 
 class KArchiveFilePrivate;
 /**
+ * @class KArchiveFile karchivefile.h KArchiveFile
+ *
  * Represents a file entry in a KArchive.
  * @short A file in an archive.
  *

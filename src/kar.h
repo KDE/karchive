@@ -21,6 +21,8 @@
 #include <karchive.h>
 
 /**
+ * @class KAr kar.h KAr
+ *
  * KAr is a class for reading archives in ar format. Writing
  * is not supported.
  * @short A class for reading ar archives.

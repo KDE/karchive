@@ -33,6 +33,8 @@
 class KArchiveDirectoryPrivate;
 class KArchiveFile;
 /**
+ * @class KArchiveDirectory karchivedirectory.h KArchiveDirectory
+ *
  * Represents a directory entry in a KArchive.
  * @short A directory in an archive.
  *

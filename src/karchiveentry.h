@@ -35,6 +35,8 @@ class KArchiveFile;
 
 class KArchiveEntryPrivate;
 /**
+ * @class KArchiveEntry karchiveentry.h KArchiveEntry
+ *
  * A base class for entries in an KArchive.
  * @short Base class for the archive-file's directory structure.
  *

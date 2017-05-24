@@ -26,6 +26,8 @@ class QFile;
 class KFilterBase;
 
 /**
+ * @class KFilterDev kfilterdev.h KFilterDev
+ *
  * A class for reading and writing compressed data onto a device
  * (e.g. file, but other usages are possible, like a buffer or a socket).
  *

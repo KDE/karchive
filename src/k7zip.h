@@ -21,6 +21,8 @@
 #include <karchive.h>
 
 /**
+ * @class K7Zip k7zip.h K7Zip
+ *
  * A class for reading / writing p7zip archives.
  *
  * @author Mario Bensi

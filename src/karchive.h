@@ -42,6 +42,8 @@ class KArchiveFile;
 
 class KArchivePrivate;
 /**
+ * @class KArchive karchive.h KArchive
+ *
  * KArchive is a base class for reading and writing archives.
  * @short generic class for reading/writing archives
  * @author David Faure <faure@kde.org>
