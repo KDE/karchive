@@ -466,6 +466,7 @@ void KArchiveTest::testCreateTarXXX()
         QCOMPARE(_str, expectedDateString); \
         \
         /* Compare the times separately with allowed 2 sec diversion */ \
+        if (dt.secsTo(expectedDateTime) > 2) { qWarning() << dt << "is too different from" << expectedDateTime; } \
         QVERIFY(dt.secsTo(expectedDateTime) <= 2); \
     }
 
