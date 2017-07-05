@@ -166,7 +166,7 @@ bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properti
         if (flag == AUTO) {
             result = lzma_easy_encoder(&d->zStream, LZMA_PRESET_DEFAULT, LZMA_CHECK_CRC32);
         } else {
-            if (LZMA2) {
+            if (flag == LZMA2) {
                 lzma_options_lzma lzma_opt;
                 lzma_lzma_preset(&lzma_opt, LZMA_PRESET_DEFAULT);
 
