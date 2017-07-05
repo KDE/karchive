@@ -102,4 +102,6 @@ install(EXPORT KF5ArchiveTargets
         FILE KF5ArchiveTargets.cmake
         NAMESPACE KF5::)
 
+install(FILES karchive.categories DESTINATION ${KDE_INSTALL_CONFDIR})
+
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
