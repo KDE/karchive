@@ -31,7 +31,7 @@
 
 // #define DEBUG_GZIP
 
-class KGzipFilter::Private
+class Q_DECL_HIDDEN KGzipFilter::Private
 {
 public:
     Private()

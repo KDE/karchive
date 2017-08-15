@@ -34,7 +34,7 @@ extern "C" {
 
 #include <qiodevice.h>
 
-class KXzFilter::Private
+class Q_DECL_HIDDEN KXzFilter::Private
 {
 public:
     Private()

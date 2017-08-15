@@ -45,7 +45,7 @@ extern "C" {
 
 // For docu on this, see /usr/doc/bzip2-0.9.5d/bzip2-0.9.5d/manual_3.html
 
-class KBzip2Filter::Private
+class Q_DECL_HIDDEN KBzip2Filter::Private
 {
 public:
     Private()

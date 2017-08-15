@@ -398,7 +398,7 @@ public:
     QVector<quint64> unpackSizes;
 };
 
-class K7Zip::K7ZipPrivate
+class Q_DECL_HIDDEN K7Zip::K7ZipPrivate
 {
 public:
     K7ZipPrivate(K7Zip *parent)

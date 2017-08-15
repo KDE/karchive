@@ -24,7 +24,7 @@
 
 #include <QtCore/QFile>
 
-class KNoneFilter::Private
+class Q_DECL_HIDDEN KNoneFilter::Private
 {
 public:
     Private()

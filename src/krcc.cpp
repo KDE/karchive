@@ -30,7 +30,7 @@
 #include <QResource>
 #include <QDir>
 
-class KRcc::KRccPrivate
+class Q_DECL_HIDDEN KRcc::KRccPrivate
 {
 public:
     KRccPrivate()

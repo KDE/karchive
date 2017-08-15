@@ -43,7 +43,7 @@ static const char application_bzip[] = "application/x-bzip";
 static const char application_lzma[] = "application/x-lzma";
 static const char application_xz[] = "application/x-xz";
 
-class KTar::KTarPrivate
+class Q_DECL_HIDDEN KTar::KTarPrivate
 {
 public:
     KTarPrivate(KTar *parent)
