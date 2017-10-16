@@ -871,9 +871,8 @@ bool K7Zip::K7ZipPrivate::readPackInfo()
         packSizes.append(readNumber());
     }
 
-    int type;
     for (;;) {
-        type = readByte();
+        int type = readByte();
         if (type == kEnd) {
             break;
         }

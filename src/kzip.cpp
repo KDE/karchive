@@ -450,8 +450,6 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
     // KArchive::open() opened the underlying device already.
 
     quint64 offset = 0; // holds offset, where we read
-    int n;
-
     // contains information gathered from the local file headers
     QHash<QByteArray, ParseFileInfo> pfi_map;
 
@@ -463,7 +461,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
     for (;;) { // repeat until 'end of entries' signature is reached
         //qCDebug(KArchiveLog) << "loop starts";
         //qCDebug(KArchiveLog) << "dev->pos() now : " << dev->pos();
-        n = dev->read(buffer, 4);
+        int n = dev->read(buffer, 4);
 
         if (n < 4) {
             setErrorString(tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(1));
