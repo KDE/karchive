@@ -1729,9 +1729,7 @@ void K7Zip::K7ZipPrivate::createItemsFromEntities(const KArchiveDirectory *dir, 
                 unpackSizes.append(symLink.size());
             }
             fileInfos.append(fileInfo);
-        }
-
-        if (entry->isDirectory()) {
+        } else if (entry->isDirectory()) {
             fileInfo->attributes = FILE_ATTRIBUTE_DIRECTORY;
             fileInfo->attributes |= FILE_ATTRIBUTE_UNIX_EXTENSION + ((entry->permissions() & 0xFFFF) << 16);
             fileInfo->isDir = true;

@@ -501,6 +501,8 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                     Q_ASSERT(isdir);
                     if (isdir) {
                         setRootDir(static_cast<KArchiveDirectory *>(e));
+                    } else {
+                        delete e;
                     }
                 } else {
                     rootDir()->addEntry(e);
