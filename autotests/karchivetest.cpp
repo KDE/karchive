@@ -1159,6 +1159,26 @@ void KArchiveTest::testZipUnusualButValid()
     QCOMPARE(listing.join(' '), QLatin1String("mode=40744 path=test type=dir mode=744 path=test/os-release type=file size=199"));
 }
 
+void KArchiveTest::testZipDuplicateNames()
+{
+    QString fileName = QFINDTESTDATA("data/out.epub");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+
+    int metaInfCount = 0;
+    for (const QString &entryName : zip.directory()->entries()) {
+        if (entryName.startsWith("META-INF")) {
+            metaInfCount++;
+        }
+    }
+
+    QVERIFY2(metaInfCount == 1, "Archive root directory contains duplicates");
+}
+
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
