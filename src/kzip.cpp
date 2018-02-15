@@ -750,7 +750,13 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     QString path = QDir::cleanPath(name.left(pos));
                     // Ensure container directory exists, create otherwise
                     KArchiveDirectory *tdir = findOrCreate(path);
-                    tdir->addEntry(entry);
+                    if (tdir) {
+                        tdir->addEntry(entry);
+                    } else {
+                        setErrorString(tr("File %1 is in folder %2, but %3 is actually a file.").arg(entryName, path, path));
+                        delete entry;
+                        return false;
+                    }
                 }
             }
 

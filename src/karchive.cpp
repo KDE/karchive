@@ -468,7 +468,16 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
             const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(ent);
             return const_cast<KArchiveDirectory *>(dir);
         } else {
-            //qCWarning(KArchiveLog) << "Found" << path << "but it's not a directory";
+            const KArchiveFile *file = static_cast<const KArchiveFile *>(ent);
+            if (file->size() > 0) {
+                qCWarning(KArchiveLog) << path << "is normal file, but there are file paths in the archive assuming it is a directory, bailing out";
+                return nullptr;
+            }
+
+            qCDebug(KArchiveLog) << path << " is an empty file, assuming it is actually a directory and replacing";
+            KArchiveEntry *myEntry = const_cast<KArchiveEntry*>(ent);
+            rootDir()->removeEntry(myEntry);
+            delete myEntry;
         }
     }
 
@@ -827,8 +836,8 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
     if (d->entries.value(entry->name())) {
-        /*qCWarning(KArchiveLog) << "directory " << name()
-                    << "has entry" << entry->name() << "already";*/
+        qCWarning(KArchiveLog) << "directory " << name()
+                    << "has entry" << entry->name() << "already";
         delete entry;
         return;
     }
