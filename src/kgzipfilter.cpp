@@ -223,7 +223,7 @@ bool KGzipFilter::writeHeader(const QByteArray &fileName)
     int headerSize = p - d->zStream.next_out;
     i -= headerSize;
     Q_ASSERT(i > 0);
-    d->crc = crc32(0L, Z_NULL, 0);
+    d->crc = crc32(0L, nullptr, 0);
     d->zStream.next_out = p;
     d->zStream.avail_out = i;
     d->headerWritten = true;

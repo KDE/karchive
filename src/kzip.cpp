@@ -827,7 +827,7 @@ bool KZip::closeArchive()
 
     // to be written at the end of the file...
     char buffer[22]; // first used for 12, then for 22 at the end
-    uLong crc = crc32(0L, Z_NULL, 0);
+    uLong crc = crc32(0L, nullptr, 0);
 
     qint64 centraldiroffset = device()->pos();
     //qCDebug(KArchiveLog) << "closearchive: centraldiroffset: " << centraldiroffset;
