@@ -1211,6 +1211,21 @@ void KArchiveTest::testZipDirectoryPermissions()
     QCOMPARE(listing.join(' '), QString::fromUtf8("mode=40700 path=700 type=dir mode=40750 path=750 type=dir mode=40755 path=755 type=dir"));
 }
 
+void KArchiveTest::testZipWithinZip()
+{
+    QString fileName = QFINDTESTDATA("data/zip_within_zip.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+    const KArchiveDirectory *dir = zip.directory();
+    const QStringList listing = recursiveListEntries(dir, QString(), 0);
+    QCOMPARE(listing.count(), 2);
+    QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=foo type=file size=7"));
+    QCOMPARE(listing[1], QString::fromUtf8("mode=100644 path=test.epub type=file size=525154"));
+}
+
 void KArchiveTest::testZipUnusualButValid()
 {
     QString fileName = QFINDTESTDATA("data/unusual_but_valid_364071.zip");

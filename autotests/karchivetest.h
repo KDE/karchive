@@ -83,6 +83,7 @@ private Q_SLOTS:
     void testZipDirectoryPermissions();
     void testZipUnusualButValid();
     void testZipDuplicateNames();
+    void testZipWithinZip();
 
     void testRcc();
 
