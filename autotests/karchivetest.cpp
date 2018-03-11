@@ -24,8 +24,8 @@
 #include <k7zip.h>
 #include <krcc.h>
 
-#include <QtTest/QtTest>
-#include <QtCore/QFileInfo>
+#include <QtTest>
+#include <QFileInfo>
 #include <kfilterdev.h>
 #include <qtemporarydir.h>
 

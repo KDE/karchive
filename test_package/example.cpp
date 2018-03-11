@@ -1,4 +1,4 @@
-#include <QtCore/QIODevice>
+#include <QIODevice>
 #include "kzip.h"
 
 int main() {

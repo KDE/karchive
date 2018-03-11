@@ -20,7 +20,7 @@
 #ifndef KCOMPRESSIONDEVICETEST_H
 #define KCOMPRESSIONDEVICETEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <QNetworkAccessManager>
 #include <QScopedPointer>

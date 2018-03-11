@@ -20,10 +20,10 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QBuffer>
-#include <QtCore/QFile>
+#include <QDebug>
+#include <QDir>
+#include <QBuffer>
+#include <QFile>
 #include <qplatformdefs.h>
 
 #include "kcompressiondevice.h"

@@ -18,16 +18,16 @@
 
 #include "kfiltertest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include <config-compression.h>
 #include "kfilterdev.h"
 #include "kfilterbase.h"
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
+#include <QDir>
+#include <QFileInfo>
 #include <zlib.h>
 
 #ifdef Q_OS_UNIX

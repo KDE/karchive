@@ -18,7 +18,7 @@
 #ifndef KFILTERTEST_H
 #define KFILTERTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class KFilterTest : public QObject
 {

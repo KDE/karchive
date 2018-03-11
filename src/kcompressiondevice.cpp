@@ -21,7 +21,7 @@
 #include "loggingcategory.h"
 #include <config-compression.h>
 #include "kfilterbase.h"
-#include <QtCore/QFile>
+#include <QFile>
 #include <stdio.h> // for EOF
 #include <stdlib.h>
 #include <assert.h>

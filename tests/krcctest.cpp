@@ -18,7 +18,7 @@
 
 #include "krcc.h"
 #include <stdio.h>
-#include <QtCore/QDebug>
+#include <QDebug>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {

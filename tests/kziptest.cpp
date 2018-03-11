@@ -19,8 +19,8 @@
 #include "kzip.h"
 #include "kcompressiondevice.h"
 #include <stdio.h>
-#include <QtCore/QDebug>
-#include <QtCore/QFile>
+#include <QDebug>
+#include <QFile>
 #include <QCoreApplication>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)

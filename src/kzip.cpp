@@ -23,13 +23,13 @@
 #include "klimitediodevice_p.h"
 #include "loggingcategory.h"
 
-#include <QtCore/QHash>
-#include <QtCore/QByteArray>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QDate>
-#include <QtCore/QList>
+#include <QHash>
+#include <QByteArray>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QDate>
+#include <QList>
 #include <qplatformdefs.h>
 
 #include <time.h>

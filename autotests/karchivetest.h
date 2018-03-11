@@ -21,7 +21,7 @@
 #ifndef KARCHIVETEST_H
 #define KARCHIVETEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include <config-compression.h>
 
 class KArchiveTest : public QObject

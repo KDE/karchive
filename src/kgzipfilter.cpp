@@ -24,7 +24,7 @@
 
 #include <zlib.h>
 #include <QDebug>
-#include <QtCore/QIODevice>
+#include <QIODevice>
 
 /* gzip flag byte */
 #define ORIG_NAME    0x08 /* bit 3 set: original file name present */

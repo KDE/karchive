@@ -20,7 +20,7 @@
 
 #include <karchive_export.h>
 #include <kcompressiondevice.h>
-#include <QtCore/QString>
+#include <QString>
 
 class QFile;
 class KFilterBase;

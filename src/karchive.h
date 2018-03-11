@@ -24,12 +24,12 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDate>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QHash>
-#include <QtCore/QIODevice>
+#include <QCoreApplication>
+#include <QDate>
+#include <QString>
+#include <QStringList>
+#include <QHash>
+#include <QIODevice>
 
 #include <karchive_export.h>
 

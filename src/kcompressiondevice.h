@@ -20,9 +20,9 @@
 #define __kcompressiondevice_h
 
 #include <karchive_export.h>
-#include <QtCore/QIODevice>
-#include <QtCore/QString>
-#include <QtCore/QMetaType>
+#include <QIODevice>
+#include <QString>
+#include <QMetaType>
 class KCompressionDevicePrivate;
 
 class KFilterBase;

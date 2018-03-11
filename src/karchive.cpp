@@ -27,10 +27,10 @@
 #include <qplatformdefs.h> // QT_STATBUF, QT_LSTAT
 
 #include <QStack>
-#include <QtCore/QMap>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
+#include <QMap>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
 
 #include <stdio.h>
 #include <stdlib.h>

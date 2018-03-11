@@ -24,11 +24,11 @@
 #include <stdlib.h> // strtol
 #include <assert.h>
 
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <qmimedatabase.h>
-#include <QtCore/QTemporaryFile>
+#include <QTemporaryFile>
 
 #include <kfilterdev.h>
 #include <kfilterbase.h>

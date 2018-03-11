@@ -22,7 +22,7 @@
 
 #include "knonefilter.h"
 
-#include <QtCore/QFile>
+#include <QFile>
 
 class Q_DECL_HIDDEN KNoneFilter::Private
 {

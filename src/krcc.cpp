@@ -22,8 +22,8 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
-#include <QtCore/QFile>
-#include <QtCore/QDebug>
+#include <QFile>
+#include <QDebug>
 #include <QUuid>
 #include <QDateTime>
 #include <QFileInfo>
