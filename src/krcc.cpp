@@ -54,7 +54,7 @@ public:
     {
     }
 
-    QByteArray data() const Q_DECL_OVERRIDE
+    QByteArray data() const override
     {
         QFile f(m_resourcePath);
         if (f.open(QIODevice::ReadOnly)) {
@@ -63,7 +63,7 @@ public:
         qCWarning(KArchiveLog) << "Couldn't open" << m_resourcePath;
         return QByteArray();
     }
-    QIODevice *createDevice() const Q_DECL_OVERRIDE
+    QIODevice *createDevice() const override
     {
         return new QFile(m_resourcePath);
     }

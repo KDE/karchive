@@ -177,7 +177,7 @@ public:
      * @return the content of this file.
      * Call data() with care (only once per file), this data isn't cached.
      */
-    QByteArray data() const Q_DECL_OVERRIDE;
+    QByteArray data() const override;
 
     /**
      * This method returns QIODevice (internal class: KLimitedIODevice)
@@ -189,7 +189,7 @@ public:
      * The returned device auto-opens (in readonly mode), no need to open it.
      * @return the QIODevice of the file
      */
-    QIODevice *createDevice() const Q_DECL_OVERRIDE;
+    QIODevice *createDevice() const override;
 
 private:
     const QByteArray m_data;

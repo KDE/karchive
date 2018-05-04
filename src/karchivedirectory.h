@@ -106,7 +106,7 @@ public:
      * Checks whether this entry is a directory.
      * @return true, since this entry is a directory
      */
-    bool isDirectory() const Q_DECL_OVERRIDE;
+    bool isDirectory() const override;
 
     /**
      * Extracts all entries in this archive directory to the directory
@@ -118,7 +118,7 @@ public:
     bool copyTo(const QString &dest, bool recursive = true) const;
 
 protected:
-    void virtual_hook(int id, void *data) Q_DECL_OVERRIDE;
+    void virtual_hook(int id, void *data) override;
 private:
     KArchiveDirectoryPrivate *const d;
 };
