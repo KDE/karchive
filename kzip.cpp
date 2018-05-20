@@ -311,9 +311,10 @@ static bool parseExtraField(const char *buffer, int size, bool islocal,
  * To be called when a 'P' has been found.
  * @param buffer start of buffer with the 3 bytes behind 'P'
  * @param dev device that is read from
+ * @param dataDescriptor only search for data descriptor
  * @return true if a local or central header begin is or could be reached
  */
-static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev)
+static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev, bool dataDescriptor)
 {
     // we have to detect three magic tokens here:
     // PK34 for the next local header in case there is no data descriptor
@@ -329,8 +330,8 @@ static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev)
             return true;
         }
 
-        if ((buffer[1] == 1 && buffer[2] == 2)
-            || (buffer[1] == 3 && buffer[2] == 4)) {
+        if (!dataDescriptor && ((buffer[1] == 1 && buffer[2] == 2)
+            || (buffer[1] == 3 && buffer[2] == 4))) {
             // central/local header token found
             dev->seek(dev->pos() - 4);
             // go back 4 bytes, so that the magic bytes can be found
@@ -347,7 +348,7 @@ static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev)
  * @param dev device that is read from
  * @return true if a local or central header token could be reached, false on error
  */
-static bool seekToNextHeaderToken(QIODevice *dev)
+static bool seekToNextHeaderToken(QIODevice *dev, bool dataDescriptor)
 {
     bool headerTokenFound = false;
     char buffer[3];
@@ -369,7 +370,7 @@ static bool seekToNextHeaderToken(QIODevice *dev)
             return false;
         }
 
-        if (handlePossibleHeaderBegin(buffer, dev)) {
+        if (handlePossibleHeaderBegin(buffer, dev, dataDescriptor)) {
             headerTokenFound = true;
         } else {
             for (int i = 0; i < 3; ++i) {
@@ -543,7 +544,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             if (gpf & 8) {
                 // here we have to read through the compressed data to find
                 // the next PKxx
-                if (!seekToNextHeaderToken(dev)) {
+                if (!seekToNextHeaderToken(dev, true)) {
                     setErrorString(tr("Could not seek to next header token"));
                     return false;
                 }
@@ -566,7 +567,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     if (compr_size > dev->size()) {
                         // here we cannot trust the compressed size, so scan through the compressed
                         // data to find the next header
-                        if (!seekToNextHeaderToken(dev)) {
+                        if (!seekToNextHeaderToken(dev, false)) {
                             setErrorString(tr("Could not seek to next header token"));
                             return false;
                         }
@@ -594,7 +595,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         return false;
                     }
 
-                    if (buffer[0] != 'P' || !handlePossibleHeaderBegin(buffer + 1, dev)) {
+                    if (buffer[0] != 'P' || !handlePossibleHeaderBegin(buffer + 1, dev, false)) {
                         // assume data descriptor without signature
                         dev->seek(dev->pos() + 8); // skip rest of the 'data_descriptor'
                     }
@@ -813,7 +814,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         } else {
             setErrorString(
                 tr("Invalid ZIP file. Unrecognized header at offset %1")
-                .arg(offset));
+                .arg(dev->pos() - 4));
             return false;
         }
     }
