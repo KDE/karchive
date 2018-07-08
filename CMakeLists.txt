@@ -62,9 +62,10 @@ ecm_setup_version(PROJECT
     SOVERSION 5)
 
 add_subdirectory(src)
-add_subdirectory(autotests)
-add_subdirectory(tests)
-
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+    add_subdirectory(tests)
+endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Archive")
