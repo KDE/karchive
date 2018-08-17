@@ -91,6 +91,7 @@ void KCompressionDeviceTest::testBufferedDevice(KCompressionDevice::CompressionT
 void KCompressionDeviceTest::testExtraction()
 {
     QTemporaryDir temp;
+    QString oldCurrentDir = QDir::currentPath();
     QDir::setCurrent(temp.path());
 
     QVERIFY(archive->open(QIODevice::ReadOnly));
@@ -113,13 +114,14 @@ void KCompressionDeviceTest::testExtraction()
             << QLatin1String("examples/unzipper/CMakeLists.txt")
             << QLatin1String("examples/unzipper/main.cpp");
 
-    foreach (const QString s, fileList) {
+    foreach (const QString& s, fileList) {
         QFileInfo extractedFile(s);
         QFileInfo sourceFile(QFINDTESTDATA("../" + s));
 
         QVERIFY(extractedFile.exists());
         QCOMPARE(extractedFile.size(), sourceFile.size());
     }
+    QDir::setCurrent(oldCurrentDir);
 }
 
 void KCompressionDeviceTest::regularKTarUsage()
@@ -151,4 +153,36 @@ void KCompressionDeviceTest::testXzBufferedDevice()
 #else
     QSKIP("This test needs xz support");
 #endif
+}
+
+void KCompressionDeviceTest::testWriteErrorOnOpen()
+{
+    // GIVEN
+    QString fileName("/I/dont/exist/kcompressiondevicetest-write.gz");
+    KCompressionDevice dev(fileName, KCompressionDevice::GZip);
+    // WHEN
+    QVERIFY(!dev.open(QIODevice::WriteOnly));
+    // THEN
+    QCOMPARE(dev.error(), QFileDevice::OpenError);
+    QCOMPARE(dev.errorString(), QStringLiteral("No such file or directory"));
+}
+
+void KCompressionDeviceTest::testWriteErrorOnClose()
+{
+    // GIVEN
+    QFile file("kcompressiondevicetest-write.gz");
+    KCompressionDevice dev(&file, false, KCompressionDevice::GZip);
+    QVERIFY(dev.open(QIODevice::WriteOnly));
+    const QByteArray data = "Hello world";
+    QCOMPARE(dev.write(data), data.size());
+    // This is nasty, it's just a way to try and trigger an error on flush, without filling up a partition first ;)
+    file.close();
+    QVERIFY(file.open(QIODevice::ReadOnly));
+    QTest::ignoreMessage(QtWarningMsg, "QIODevice::write (QFile, \"kcompressiondevicetest-write.gz\"): ReadOnly device");
+
+    // WHEN
+    dev.close(); // I want a QVERIFY here... https://bugreports.qt.io/browse/QTBUG-70033
+
+    // THEN
+    QCOMPARE(int(dev.error()), int(QFileDevice::WriteError));
 }

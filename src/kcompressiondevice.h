@@ -21,6 +21,7 @@
 
 #include <karchive_export.h>
 #include <QIODevice>
+#include <QFileDevice>
 #include <QString>
 #include <QMetaType>
 class KCompressionDevicePrivate;
@@ -36,7 +37,7 @@ class KFilterBase;
  * Use this class to read/write compressed files.
  */
 
-class KARCHIVE_EXPORT KCompressionDevice : public QIODevice
+class KARCHIVE_EXPORT KCompressionDevice : public QIODevice // KF6 TODO: consider inheriting from QFileDevice, so apps can use error() generically ?
 {
 public:
     enum CompressionType {
@@ -113,6 +114,14 @@ public:
      */
     static KFilterBase *filterForCompressionType(CompressionType type);
 
+    /**
+     * Returns the error code from the last failing operation.
+     * This is especially useful after calling close(), which unfortunately returns void
+     * (see https://bugreports.qt.io/browse/QTBUG-70033), to see if the flushing done by close
+     * was able to write all the data to disk.
+     */
+    QFileDevice::FileError error() const;
+
 protected:
     friend class K7Zip;
 
@@ -121,6 +130,7 @@ protected:
 
     KFilterBase *filterBase();
 private:
+    friend KCompressionDevicePrivate;
     KCompressionDevicePrivate *const d;
 };
 

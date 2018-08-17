@@ -54,6 +54,9 @@ private Q_SLOTS:
     void testGZipBufferedDevice();
     void testBZip2BufferedDevice();
     void testXzBufferedDevice();
+
+    void testWriteErrorOnOpen();
+    void testWriteErrorOnClose();
 };
 
 #endif
