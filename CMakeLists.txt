@@ -31,7 +31,7 @@ set_package_properties(ZLIB PROPERTIES
 
 find_package(BZip2)
 set_package_properties(BZip2 PROPERTIES
-    URL "http://www.bzip.org"
+    URL "https://sourceware.org/bzip2/"
     DESCRIPTION "Support for BZip2 compressed files and data streams"
     TYPE RECOMMENDED
     PURPOSE "Support for BZip2 compressed files and data streams"
