@@ -164,7 +164,11 @@ void KCompressionDeviceTest::testWriteErrorOnOpen()
     QVERIFY(!dev.open(QIODevice::WriteOnly));
     // THEN
     QCOMPARE(dev.error(), QFileDevice::OpenError);
+#ifdef Q_OS_WIN
+    QCOMPARE(dev.errorString(), QStringLiteral("The system cannot find the path specified."));
+#else
     QCOMPARE(dev.errorString(), QStringLiteral("No such file or directory"));
+#endif
 }
 
 void KCompressionDeviceTest::testWriteErrorOnClose()
