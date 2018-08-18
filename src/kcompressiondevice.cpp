@@ -181,8 +181,7 @@ void KCompressionDevice::close()
     if (!isOpen()) {
         return;
     }
-    d->errorCode = QFileDevice::NoError;
-    if (d->filter->mode() == QIODevice::WriteOnly) {
+    if (d->filter->mode() == QIODevice::WriteOnly && d->errorCode == QFileDevice::NoError) {
         write(nullptr, 0);    // finish writing
     }
     //qCDebug(KArchiveLog) << "Calling terminate().";
