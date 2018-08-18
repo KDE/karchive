@@ -210,7 +210,7 @@ bool KCompressionDevice::seek(qint64 pos)
         return QIODevice::seek(pos);
     }
 
-    //qCDebug(KArchiveLog) << "seek(" << pos << ") called, current pos=" << ioIndex;
+    //qCDebug(KArchiveLog) << "seek(" << pos << ") called, current pos=" << QIODevice::pos();
 
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
 
