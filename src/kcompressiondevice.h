@@ -39,6 +39,7 @@ class KFilterBase;
 
 class KARCHIVE_EXPORT KCompressionDevice : public QIODevice // KF6 TODO: consider inheriting from QFileDevice, so apps can use error() generically ?
 {
+    Q_OBJECT
 public:
     enum CompressionType {
         GZip,

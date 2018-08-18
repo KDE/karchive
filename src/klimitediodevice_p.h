@@ -30,6 +30,7 @@
  */
 class KLimitedIODevice : public QIODevice
 {
+    Q_OBJECT
 public:
     /**
      * Creates a new KLimitedIODevice.
