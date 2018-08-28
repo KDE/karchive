@@ -196,12 +196,12 @@ qint64 KTar::KTarPrivate::readRawHeader(char *buffer)
 
             int check = 0;
             for (uint j = 0; j < 0x200; ++j) {
-                check += buffer[j];
+                check += static_cast<unsigned char>(buffer[j]);
             }
 
             // adjust checksum to count the checksum fields as blanks
             for (uint j = 0; j < 8 /*size of the checksum field including the \0 and the space*/; j++) {
-                check -= buffer[148 + j];
+                check -= static_cast<unsigned char>(buffer[148 + j]);
             }
             check += 8 * ' ';
 
@@ -698,7 +698,7 @@ void KTar::KTarPrivate::fillBuffer(char *buffer,
     // Header check sum
     int check = 32;
     for (uint j = 0; j < 0x200; ++j) {
-        check += buffer[j];
+        check += static_cast<unsigned char>(buffer[j]);
     }
     s = QByteArray::number(check, 8);   // octal
     s = s.rightJustified(6, '0');
@@ -773,8 +773,8 @@ bool KTar::doPrepareWriting(const QString &name, const QString &user,
     const QByteArray uname = user.toLocal8Bit();
     const QByteArray gname = group.toLocal8Bit();
 
-    // If more than 100 chars, we need to use the LongLink trick
-    if (fileName.length() > 99) {
+    // If more than 100 bytes, we need to use the LongLink trick
+    if (encodedFileName.length() > 99) {
         d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData());
     }
 
@@ -838,8 +838,8 @@ bool KTar::doWriteDir(const QString &name, const QString &user,
     QByteArray uname = user.toLocal8Bit();
     QByteArray gname = group.toLocal8Bit();
 
-    // If more than 100 chars, we need to use the LongLink trick
-    if (dirName.length() > 99) {
+    // If more than 100 bytes, we need to use the LongLink trick
+    if (encodedDirname.length() > 99) {
         d->writeLonglink(buffer, encodedDirname, 'L', uname.constData(), gname.constData());
     }
 
@@ -894,11 +894,11 @@ bool KTar::doWriteSymLink(const QString &name, const QString &target,
     QByteArray uname = user.toLocal8Bit();
     QByteArray gname = group.toLocal8Bit();
 
-    // If more than 100 chars, we need to use the LongLink trick
-    if (target.length() > 99) {
+    // If more than 100 bytes, we need to use the LongLink trick
+    if (encodedTarget.length() > 99) {
         d->writeLonglink(buffer, encodedTarget, 'K', uname.constData(), gname.constData());
     }
-    if (fileName.length() > 99) {
+    if (encodedFileName.length() > 99) {
         d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData());
     }
 

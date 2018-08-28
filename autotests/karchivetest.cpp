@@ -769,6 +769,55 @@ void KArchiveTest::testTarRootDir() // bug 309463
     QCOMPARE(listing.count(), 10);
 }
 
+void KArchiveTest::testTarLongNonASCIINames() // bug 266141
+{
+    const QString tarName = QString("karchive-long-non-ascii-names.tar");
+    const QString longName =
+        QString("раз-два-три-четыре-пять-вышел-зайчик-погулять-вдруг-охотник-"
+                "выбегает-прямо-в-зайчика.txt");
+
+    {
+        KTar tar(tarName);
+        QVERIFY(tar.open(QIODevice::WriteOnly));
+        QVERIFY(tar.writeFile(longName, "", 0644, "user", "users"));
+        QVERIFY(tar.close());
+    }
+
+    {
+        KTar tar(tarName);
+
+        QVERIFY(tar.open(QIODevice::ReadOnly));
+        const KArchiveDirectory *dir = tar.directory();
+        QVERIFY(dir != nullptr);
+
+        const QStringList listing = recursiveListEntries(dir, QString(""), 0);
+
+        const QString expectedListingEntry =
+            QString("mode=644 path=") + longName + QString(" type=file size=0");
+
+        QCOMPARE(listing.count(), 1);
+
+        QCOMPARE(listing[0], expectedListingEntry);
+        QVERIFY(tar.close());
+    }
+}
+
+void KArchiveTest::testTarShortNonASCIINames() // bug 266141
+{
+    KTar tar(QFINDTESTDATA(QString("tar_non_ascii_file_name.tar.gz")));
+
+    QVERIFY(tar.open(QIODevice::ReadOnly));
+    const KArchiveDirectory *dir = tar.directory();
+    QVERIFY(dir != nullptr);
+
+    const QStringList listing = recursiveListEntries(dir, QString(""), 0);
+
+    QCOMPARE(listing.count(), 1);
+    QCOMPARE(listing[0], QString("mode=644 path=абвгдеёжзийклмнопрстуфхцчшщъыьэюя.txt"
+                                 " type=file size=0"));
+    QVERIFY(tar.close());
+}
+
 void KArchiveTest::testTarDirectoryTwice() // bug 206994
 {
     KTar tar(QFINDTESTDATA(QLatin1String("tar_directory_twice.tar.gz")));
