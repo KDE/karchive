@@ -61,6 +61,12 @@ ecm_setup_version(PROJECT
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfigVersion.cmake"
     SOVERSION 5)
 
+add_definitions(-DQT_NO_CAST_FROM_ASCII)
+add_definitions(-DQT_NO_CAST_TO_ASCII)
+add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+add_definitions(-DQT_USE_QSTRINGBUILDER)
+
 add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
