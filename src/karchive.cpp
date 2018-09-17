@@ -124,8 +124,7 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
             if (!d->saveFile->open(QIODevice::WriteOnly)) {
                 setErrorString(
                     tr("QSaveFile creation for %1 failed: %2")
-                        .arg(d->fileName)
-                        .arg(d->saveFile->errorString()));
+                        .arg(d->fileName, d->saveFile->errorString()));
 
                 delete d->saveFile;
                 d->saveFile = nullptr;
@@ -263,8 +262,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
     if (!file.open(QIODevice::ReadOnly)) {
         setErrorString(
             tr("Couldn't open file %1: %2")
-            .arg(fileName)
-            .arg(file.errorString()));
+            .arg(fileName, file.errorString()));
         return false;
     }
 

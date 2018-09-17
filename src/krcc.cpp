@@ -133,8 +133,7 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
     if (!QResource::registerResource(fileName(), d->m_prefix)) {
         setErrorString(
             tr("Failed to register resource %1 under prefix %2")
-                .arg(fileName())
-                .arg(d->m_prefix));
+                .arg(fileName(), d->m_prefix));
         return false;
     }
 
