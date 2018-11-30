@@ -2075,7 +2075,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QVector<quint64> &packSizes, QVecto
 
     //compress data
     QByteArray encodedData;
-    if (header.size() > 0) {
+    if (!header.isEmpty()) {
         QByteArray enc;
         QBuffer inBuffer(&enc);
 
@@ -2113,7 +2113,7 @@ void K7Zip::K7ZipPrivate::writeHeader(quint64 &headerOffset)
 
     // Archive Properties
 
-    if (folders.size() > 0) {
+    if (!folders.isEmpty()) {
         writeByte(kMainStreamsInfo);
         writePackInfo(0, packSizes, packCRCsDefined, packCRCs);
 
@@ -2759,7 +2759,7 @@ bool K7Zip::closeArchive()
 
     //compress data
     QByteArray encodedData;
-    if (d->outData.size() > 0) {
+    if (!d->outData.isEmpty()) {
         QByteArray enc;
         QBuffer inBuffer(&enc);
 
