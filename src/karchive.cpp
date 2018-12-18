@@ -915,6 +915,12 @@ bool KArchiveDirectory::copyTo(const QString &dest, bool recursiveCopy) const
                     linkName += QLatin1String(".lnk");
                 }
 #endif
+                // remove the link name in case it exists, might have changed
+                // link target, or replace a fat file with a link
+                if (QFile::exists(linkName)) {
+                    QFile::remove(linkName);
+                }
+
                 QFile symLinkTarget(curEntry->symLinkTarget());
                 if (!symLinkTarget.link(linkName)) {
                     //qCDebug(KArchiveLog) << "symlink(" << curEntry->symLinkTarget() << ',' << linkName << ") failed:" << strerror(errno);
