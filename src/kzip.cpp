@@ -1207,8 +1207,7 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
         return true;
     }
 
-    KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
-    auto compressionDevice = new KCompressionDevice(device(), false, type);
+    auto compressionDevice = new KCompressionDevice(device(), false, KCompressionDevice::GZip);
     d->m_currentDev = compressionDevice;
     compressionDevice->setSkipHeaders(); // Just zlib, not gzip
 
@@ -1442,8 +1441,7 @@ QIODevice *KZipFileEntry::createDevice() const
 
     if (encoding() == 8) {
         // On top of that, create a device that uncompresses the zlib data
-        KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
-        KCompressionDevice *filterDev = new KCompressionDevice(limitedDev, true, type);
+        KCompressionDevice *filterDev = new KCompressionDevice(limitedDev, true, KCompressionDevice::GZip);
 
         if (!filterDev) {
             return nullptr;    // ouch
