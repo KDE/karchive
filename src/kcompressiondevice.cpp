@@ -150,6 +150,9 @@ bool KCompressionDevice::open(QIODevice::OpenMode mode)
         //qCWarning(KArchiveLog) << "KCompressionDevice::open: device is already open";
         return true; // QFile returns false, but well, the device -is- open...
     }
+    if (!d->filter) {
+        return false;
+    }
     d->bOpenedUnderlyingDevice = false;
     //qCDebug(KArchiveLog) << mode;
     if (mode == QIODevice::ReadOnly) {
