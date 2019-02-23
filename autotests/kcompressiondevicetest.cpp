@@ -114,7 +114,7 @@ void KCompressionDeviceTest::testExtraction()
             << QLatin1String("examples/unzipper/CMakeLists.txt")
             << QLatin1String("examples/unzipper/main.cpp");
 
-    foreach (const QString& s, fileList) {
+    for (const QString& s : qAsConst(fileList)) {
         QFileInfo extractedFile(s);
         QFileInfo sourceFile(QFINDTESTDATA("../" + s));
 

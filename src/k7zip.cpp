@@ -1676,7 +1676,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         }
 
         QByteArray inflated;
-        Q_FOREACH (const QByteArray& data, inflatedDatas) {
+        for (const QByteArray& data : qAsConst(inflatedDatas)) {
             inflated.append(data);
         }
 

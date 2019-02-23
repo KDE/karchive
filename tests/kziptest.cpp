@@ -25,7 +25,8 @@
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {
-    foreach (const QString &it, dir->entries()) {
+    const QStringList lst = dir->entries();
+    for (const QString &it : lst) {
         const KArchiveEntry *entry = dir->entry(it);
         printf("mode=%07o %s %s \"%s%s\" size: %lld pos: %lld isdir=%d%s", entry->permissions(),
                entry->user().toLatin1().constData(), entry->group().toLatin1().constData(),
@@ -46,7 +47,8 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
 void recursive_transfer(const KArchiveDirectory *dir,
                         const QString &path, KZip *zip)
 {
-    foreach (const QString &it, dir->entries()) {
+    const QStringList lst = dir->entries();
+    for (const QString &it : lst) {
         const KArchiveEntry *e = dir->entry(it);
         qDebug() << "actual file: " << e->name();
         if (e->isFile()) {
@@ -94,7 +96,8 @@ static int doPrintAll(const QString &fileName)
     }
     const KArchiveDirectory *dir = zip.directory();
     qDebug() << "Listing toplevel of zip file";
-    foreach (const QString &it, dir->entries()) {
+    const QStringList lst = dir->entries();
+    for (const QString &it : lst) {
         const KArchiveEntry *e = dir->entry(it);
         qDebug() << "Printing" << it;
         if (e->isFile()) {

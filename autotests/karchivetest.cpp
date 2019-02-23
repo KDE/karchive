@@ -142,7 +142,7 @@ static QStringList recursiveListEntries(const KArchiveDirectory *dir, const QStr
     QStringList ret;
     QStringList l = dir->entries();
     l.sort();
-    Q_FOREACH (const QString &it, l) {
+    for (const QString &it : qAsConst(l)) {
         const KArchiveEntry *entry = dir->entry(it);
 
         QString descr;

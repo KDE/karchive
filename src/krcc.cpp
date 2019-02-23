@@ -144,7 +144,7 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
 
 void KRcc::KRccPrivate::createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc *q)
 {
-    Q_FOREACH (const QString &fileName, dir.entryList()) {
+    for (const QString &fileName : dir.entryList()) {
         const QString entryPath = dir.path() + QLatin1Char('/') + fileName;
         const QFileInfo info(entryPath);
         if (info.isFile()) {
