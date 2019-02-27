@@ -279,7 +279,7 @@ KGzipFilter::Result KGzipFilter::uncompress_noop()
         d->zStream.avail_out -= n;
         d->zStream.next_in += n;
         d->zStream.avail_in -= n;
-        return KFilterBase::Ok;
+        return d->zStream.avail_in > 0 ? KFilterBase::Ok : KFilterBase::End;
     } else {
         return KFilterBase::End;
     }
