@@ -92,13 +92,13 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
 #if HAVE_BZIP2_SUPPORT
         return new KBzip2Filter;
 #else
-        return 0;
+        return nullptr;
 #endif
     case KCompressionDevice::Xz:
 #if HAVE_XZ_SUPPORT
         return new KXzFilter;
 #else
-        return 0;
+        return nullptr;
 #endif
     case KCompressionDevice::None:
         return new KNoneFilter;
