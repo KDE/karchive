@@ -530,7 +530,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             n = dev->read(buffer, handledextralen);
             // no error msg necessary as we deliberately truncate the extra field
-            if (!parseExtraField(buffer, handledextralen, true, pfi)) {
+            if (!parseExtraField(buffer, n, true, pfi)) {
                 setErrorString(tr("Invalid ZIP File. Broken ExtraField."));
                 return false;
             }
