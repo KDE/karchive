@@ -492,6 +492,10 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
         parent = findOrCreate(left);   // recursive call... until we find an existing dir.
     }
 
+    if (!parent) {
+        return nullptr;
+    }
+
     //qCDebug(KArchiveLog) << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
     // Found -> add the missing piece
     KArchiveDirectory *e = new KArchiveDirectory(this, dirname, d->rootDir->permissions(),
