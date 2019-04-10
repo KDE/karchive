@@ -714,6 +714,10 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 entryName = name.mid(pos + 1);
             }
             Q_ASSERT(!entryName.isEmpty());
+            if (entryName.isEmpty()) {
+                setErrorString(tr("Invalid ZIP file, found empty entry name"));
+                return false;
+            }
 
             KArchiveEntry *entry;
             if (isdir) {
