@@ -100,7 +100,7 @@ public:
      * @internal
      * Removes an entry from the directory.
      */
-    void removeEntry(KArchiveEntry *);
+    void removeEntry(KArchiveEntry *); // KF6 TODO: return bool since it can fail
 
     /**
      * Checks whether this entry is a directory.
