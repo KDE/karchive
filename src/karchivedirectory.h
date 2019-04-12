@@ -98,7 +98,7 @@ public:
 
     /**
      * @internal
-     * Adds a new entry to the directory.
+     * Removes an entry from the directory.
      */
     void removeEntry(KArchiveEntry *);
 
