@@ -783,10 +783,18 @@ bool KArchiveFile::copyTo(const QString &dest) const
 class KArchiveDirectoryPrivate
 {
 public:
+    KArchiveDirectoryPrivate()
+    {
+    }
+
     ~KArchiveDirectoryPrivate()
     {
         qDeleteAll(entries);
     }
+
+    KArchiveDirectoryPrivate(const KArchiveDirectoryPrivate &) = delete;
+    KArchiveDirectoryPrivate &operator=(const KArchiveDirectoryPrivate &) = delete;
+
     QHash<QString, KArchiveEntry *> entries;
 };
 

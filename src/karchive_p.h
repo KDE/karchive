@@ -44,6 +44,10 @@ public:
         delete saveFile;
         delete rootDir;
     }
+
+    KArchivePrivate(const KArchivePrivate &) = delete;
+    KArchivePrivate &operator=(const KArchivePrivate &) = delete;
+
     void abortWriting();
 
     static QDateTime time_tToDateTime(uint time_t);
