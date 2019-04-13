@@ -29,8 +29,9 @@ class KArchivePrivate
     Q_DECLARE_TR_FUNCTIONS(KArchivePrivate)
 
 public:
-    KArchivePrivate()
-        : rootDir(nullptr)
+    KArchivePrivate(KArchive *parent)
+        : q(parent)
+        , rootDir(nullptr)
         , saveFile(nullptr)
         , dev(nullptr)
         , fileName()
@@ -47,6 +48,9 @@ public:
 
     static QDateTime time_tToDateTime(uint time_t);
 
+    KArchiveDirectory *findOrCreate(const QString &path, int recursionCounter);
+
+    KArchive *q;
     KArchiveDirectory *rootDir;
     QSaveFile *saveFile;
     QIODevice *dev;

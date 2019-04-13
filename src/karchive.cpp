@@ -55,7 +55,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 KArchive::KArchive(const QString &fileName)
-    : d(new KArchivePrivate)
+    : d(new KArchivePrivate(this))
 {
     if (fileName.isEmpty()) {
         qCWarning(KArchiveLog) << "KArchive: No file name specified";
@@ -66,7 +66,7 @@ KArchive::KArchive(const QString &fileName)
 }
 
 KArchive::KArchive(QIODevice *dev)
-    : d(new KArchivePrivate)
+    : d(new KArchivePrivate(this))
 {
     if (!dev) {
         qCWarning(KArchiveLog) << "KArchive: Null device specified";
@@ -446,10 +446,23 @@ KArchiveDirectory *KArchive::rootDir()
 
 KArchiveDirectory *KArchive::findOrCreate(const QString &path)
 {
+    return d->findOrCreate(path, 0 /*recursionCounter*/);
+}
+
+KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recursionCounter)
+{
+    // Check we're not in a path that is ultra deep, this is most probably fine since PATH_MAX on Linux
+    // is defined as 4096, so even on /a/a/a/a/a/a 2500 recursions puts us over that limit
+    // an ultra deep recursion will makes us crash due to not enough stack. Tests show that 1MB stack
+    // (default on Linux seems to be 8MB) gives us up to around 4000 recursions
+    if (recursionCounter > 2500) {
+        qCWarning(KArchiveLog) << "path recursion limit exceeded, bailing out";
+        return nullptr;
+    }
     //qCDebug(KArchiveLog) << path;
     if (path.isEmpty() || path == QLatin1String("/") || path == QLatin1String(".")) { // root dir => found
         //qCDebug(KArchiveLog) << "returning rootdir";
-        return rootDir();
+        return q->rootDir();
     }
     // Important note : for tar files containing absolute paths
     // (i.e. beginning with "/"), this means the leading "/" will
@@ -458,7 +471,7 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     // See also KArchiveDirectory::entry().
 
     // Already created ? => found
-    const KArchiveEntry *ent = rootDir()->entry(path);
+    const KArchiveEntry *ent = q->rootDir()->entry(path);
     if (ent) {
         if (ent->isDirectory())
             //qCDebug(KArchiveLog) << "found it";
@@ -474,7 +487,7 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
 
             qCDebug(KArchiveLog) << path << " is an empty file, assuming it is actually a directory and replacing";
             KArchiveEntry *myEntry = const_cast<KArchiveEntry*>(ent);
-            rootDir()->removeEntry(myEntry);
+            q->rootDir()->removeEntry(myEntry);
             delete myEntry;
         }
     }
@@ -484,12 +497,12 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     KArchiveDirectory *parent;
     QString dirname;
     if (pos == -1) { // no more slash => create in root dir
-        parent =  rootDir();
+        parent =  q->rootDir();
         dirname = path;
     } else {
         QString left = path.left(pos);
         dirname = path.mid(pos + 1);
-        parent = findOrCreate(left);   // recursive call... until we find an existing dir.
+        parent = findOrCreate(left, recursionCounter + 1);   // recursive call... until we find an existing dir.
     }
 
     if (!parent) {
@@ -498,9 +511,9 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
 
     //qCDebug(KArchiveLog) << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
     // Found -> add the missing piece
-    KArchiveDirectory *e = new KArchiveDirectory(this, dirname, d->rootDir->permissions(),
-                                                 d->rootDir->date(), d->rootDir->user(),
-                                                 d->rootDir->group(), QString());
+    KArchiveDirectory *e = new KArchiveDirectory(q, dirname, rootDir->permissions(),
+                                                 rootDir->date(), rootDir->user(),
+                                                 rootDir->group(), QString());
     if (parent->addEntryV2(e)) {
         return e; // now a directory to <path> exists
     } else {

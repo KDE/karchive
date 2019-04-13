@@ -396,6 +396,7 @@ protected:
 protected:
     virtual void virtual_hook(int id, void *data);
 private:
+    friend class KArchivePrivate;
     KArchivePrivate *const d;
 };
 
