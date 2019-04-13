@@ -154,8 +154,9 @@ void KRcc::KRccPrivate::createEntries(const QDir &dir, KArchiveDirectory *parent
         } else {
             KArchiveDirectory *entry = new KArchiveDirectory(q, fileName, 0555, info.lastModified(),
                                                              parentDir->user(), parentDir->group(), /*symlink*/ QString());
-            parentDir->addEntry(entry);
-            createEntries(QDir(entryPath), entry, q);
+            if (parentDir->addEntryV2(entry)) {
+                createEntries(QDir(entryPath), entry, q);
+            }
         }
     }
 }

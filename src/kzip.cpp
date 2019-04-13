@@ -1112,7 +1112,9 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
                                          0 /*size unknown yet*/, d->m_compression, 0 /*csize unknown yet*/);
     e->setHeaderStart(device()->pos());
     //qCDebug(KArchiveLog) << "wrote file start: " << e->position() << " name: " << name;
-    parentDir->addEntry(e);
+    if (!parentDir->addEntryV2(e)) {
+        return false;
+    }
 
     d->m_currentFile = e;
     d->m_fileList.append(e);

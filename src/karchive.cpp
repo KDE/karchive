@@ -501,8 +501,11 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     KArchiveDirectory *e = new KArchiveDirectory(this, dirname, d->rootDir->permissions(),
                                                  d->rootDir->date(), d->rootDir->user(),
                                                  d->rootDir->group(), QString());
-    parent->addEntry(e);
-    return e; // now a directory to <path> exists
+    if (parent->addEntryV2(e)) {
+        return e; // now a directory to <path> exists
+    } else {
+        return nullptr;
+    }
 }
 
 void KArchive::setDevice(QIODevice *dev)
@@ -837,13 +840,19 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
+    addEntryV2(entry);
+}
+
+bool KArchiveDirectory::addEntryV2(KArchiveEntry *entry)
+{
     if (d->entries.value(entry->name())) {
         qCWarning(KArchiveLog) << "directory " << name()
                     << "has entry" << entry->name() << "already";
         delete entry;
-        return;
+        return false;
     }
     d->entries.insert(entry->name(), entry);
+    return true;
 }
 
 void KArchiveDirectory::removeEntry(KArchiveEntry *entry)

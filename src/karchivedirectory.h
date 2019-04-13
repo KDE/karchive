@@ -98,6 +98,13 @@ public:
 
     /**
      * @internal
+     * Adds a new entry to the directory.
+     * @return whether the entry was added or not. Non added entries are deleted
+     */
+    bool addEntryV2(KArchiveEntry *); // KF6 TODO: merge with the one above
+
+    /**
+     * @internal
      * Removes an entry from the directory.
      */
     void removeEntry(KArchiveEntry *); // KF6 TODO: return bool since it can fail

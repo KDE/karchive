@@ -2893,7 +2893,8 @@ bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
     const KArchiveEntry *entry = parentDir->entry(fileName);
     if (!entry) {
         K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString()/*symlink*/, d->outData.size(), 0 /*unknown yet*/, d->outData);
-        parentDir->addEntry(e);
+        if (!parentDir->addEntryV2(e))
+            return false;
         d->m_entryList << e;
         d->m_currentFile = e;
     } else {
@@ -2972,7 +2973,9 @@ bool K7Zip::doWriteSymLink(const QString &name, const QString &target,
     K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, target, 0, 0, nullptr);
     d->outData.append(encodedTarget);
 
-    parentDir->addEntry(e);
+    if (!parentDir->addEntryV2(e))
+        return false;
+
     d->m_entryList << e;
 
     return true;
