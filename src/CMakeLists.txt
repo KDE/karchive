@@ -74,6 +74,7 @@ ecm_generate_headers(KArchive_HEADERS
     KCompressionDevice
     KFilterBase
     KFilterDev
+    KRcc
     KTar
     KZip
     KZipFileEntry
