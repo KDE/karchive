@@ -74,6 +74,7 @@ private Q_SLOTS:
     void testTarGlobalHeader();
     void testTarPrefix();
     void testTarDirectoryForgotten();
+    void testTarEmptyFileMissingDir();
     void testTarRootDir();
     void testTarDirectoryTwice();
     void testTarIgnoreRelativePathOutsideArchive();

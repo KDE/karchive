@@ -757,6 +757,24 @@ void KArchiveTest::testTarDirectoryForgotten()
     QVERIFY(tar.close());
 }
 
+void KArchiveTest::testTarEmptyFileMissingDir()
+{
+    KTar tar(QFINDTESTDATA(QLatin1String("tar_emptyfile_missingdir.tar.gz")));
+    QVERIFY(tar.open(QIODevice::ReadOnly));
+
+    const KArchiveDirectory *dir = tar.directory();
+    QVERIFY(dir != nullptr);
+
+    const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
+
+    QCOMPARE(listing[0], QString("mode=40777 path=dir type=dir"));
+    QCOMPARE(listing[1], QString("mode=40777 path=dir/foo type=dir"));
+    QCOMPARE(listing[2], QString("mode=644 path=dir/foo/file type=file size=0"));
+    QCOMPARE(listing.count(), 3);
+
+    QVERIFY(tar.close());
+}
+
 void KArchiveTest::testTarRootDir() // bug 309463
 {
     KTar tar(QFINDTESTDATA(QLatin1String("tar_rootdir.tar.gz")));

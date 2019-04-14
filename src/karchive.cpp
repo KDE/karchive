@@ -51,6 +51,71 @@
 #endif // Q_OS_WIN
 
 ////////////////////////////////////////////////////////////////////////
+/////////////////// KArchiveDirectoryPrivate ///////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+class KArchiveDirectoryPrivate
+{
+public:
+    KArchiveDirectoryPrivate(KArchiveDirectory *parent) : q(parent)
+    {
+    }
+
+    ~KArchiveDirectoryPrivate()
+    {
+        qDeleteAll(entries);
+    }
+
+    KArchiveDirectoryPrivate(const KArchiveDirectoryPrivate &) = delete;
+    KArchiveDirectoryPrivate &operator=(const KArchiveDirectoryPrivate &) = delete;
+
+    static KArchiveDirectoryPrivate *get(KArchiveDirectory *directory)
+    {
+        return directory->d;
+    }
+
+    // Returns in containingDirectory the directory that actually contains the returned entry
+    const KArchiveEntry *entry(const QString &_name, KArchiveDirectory **containingDirectory) const
+    {
+        *containingDirectory = q;
+
+        QString name = QDir::cleanPath(_name);
+        int pos = name.indexOf(QLatin1Char('/'));
+        if (pos == 0) { // ouch absolute path (see also KArchive::findOrCreate)
+            if (name.length() > 1) {
+                name = name.mid(1);   // remove leading slash
+                pos = name.indexOf(QLatin1Char('/'));   // look again
+            } else { // "/"
+                return q;
+            }
+        }
+        // trailing slash ? -> remove
+        if (pos != -1 && pos == name.length() - 1) {
+            name = name.left(pos);
+            pos = name.indexOf(QLatin1Char('/'));   // look again
+        }
+        if (pos != -1) {
+            const QString left = name.left(pos);
+            const QString right = name.mid(pos + 1);
+
+            //qCDebug(KArchiveLog) << "left=" << left << "right=" << right;
+
+            KArchiveEntry *e = entries.value(left);
+            if (!e || !e->isDirectory()) {
+                return nullptr;
+            }
+            *containingDirectory = static_cast<KArchiveDirectory *>(e);
+            return (*containingDirectory)->d->entry(right, containingDirectory);
+        }
+
+        return entries.value(name);
+    }
+
+    KArchiveDirectory *q;
+    QHash<QString, KArchiveEntry *> entries;
+};
+
+////////////////////////////////////////////////////////////////////////
 /////////////////////////// KArchive ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -471,23 +536,24 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
     // See also KArchiveDirectory::entry().
 
     // Already created ? => found
-    const KArchiveEntry *ent = q->rootDir()->entry(path);
-    if (ent) {
-        if (ent->isDirectory())
+    KArchiveDirectory *existingEntryParentDirectory;
+    const KArchiveEntry *existingEntry = KArchiveDirectoryPrivate::get(q->rootDir())->entry(path, &existingEntryParentDirectory);
+    if (existingEntry) {
+        if (existingEntry->isDirectory())
             //qCDebug(KArchiveLog) << "found it";
         {
-            const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(ent);
+            const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(existingEntry);
             return const_cast<KArchiveDirectory *>(dir);
         } else {
-            const KArchiveFile *file = static_cast<const KArchiveFile *>(ent);
+            const KArchiveFile *file = static_cast<const KArchiveFile *>(existingEntry);
             if (file->size() > 0) {
                 qCWarning(KArchiveLog) << path << "is normal file, but there are file paths in the archive assuming it is a directory, bailing out";
                 return nullptr;
             }
 
             qCDebug(KArchiveLog) << path << " is an empty file, assuming it is actually a directory and replacing";
-            KArchiveEntry *myEntry = const_cast<KArchiveEntry*>(ent);
-            q->rootDir()->removeEntry(myEntry);
+            KArchiveEntry *myEntry = const_cast<KArchiveEntry*>(existingEntry);
+            existingEntryParentDirectory->removeEntry(myEntry);
             delete myEntry;
         }
     }
@@ -780,30 +846,12 @@ bool KArchiveFile::copyTo(const QString &dest) const
 //////////////////////// KArchiveDirectory /////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-class KArchiveDirectoryPrivate
-{
-public:
-    KArchiveDirectoryPrivate()
-    {
-    }
-
-    ~KArchiveDirectoryPrivate()
-    {
-        qDeleteAll(entries);
-    }
-
-    KArchiveDirectoryPrivate(const KArchiveDirectoryPrivate &) = delete;
-    KArchiveDirectoryPrivate &operator=(const KArchiveDirectoryPrivate &) = delete;
-
-    QHash<QString, KArchiveEntry *> entries;
-};
-
 KArchiveDirectory::KArchiveDirectory(KArchive *t, const QString &name, int access,
                                      const QDateTime &date,
                                      const QString &user, const QString &group,
                                      const QString &symlink)
     : KArchiveEntry(t, name, access, date, user, group, symlink)
-    , d(new KArchiveDirectoryPrivate)
+    , d(new KArchiveDirectoryPrivate(this))
 {
 }
 
@@ -819,35 +867,8 @@ QStringList KArchiveDirectory::entries() const
 
 const KArchiveEntry *KArchiveDirectory::entry(const QString &_name) const
 {
-    QString name = QDir::cleanPath(_name);
-    int pos = name.indexOf(QLatin1Char('/'));
-    if (pos == 0) { // ouch absolute path (see also KArchive::findOrCreate)
-        if (name.length() > 1) {
-            name = name.mid(1);   // remove leading slash
-            pos = name.indexOf(QLatin1Char('/'));   // look again
-        } else { // "/"
-            return this;
-        }
-    }
-    // trailing slash ? -> remove
-    if (pos != -1 && pos == name.length() - 1) {
-        name = name.left(pos);
-        pos = name.indexOf(QLatin1Char('/'));   // look again
-    }
-    if (pos != -1) {
-        const QString left = name.left(pos);
-        const QString right = name.mid(pos + 1);
-
-        //qCDebug(KArchiveLog) << "left=" << left << "right=" << right;
-
-        const KArchiveEntry *e = d->entries.value(left);
-        if (!e || !e->isDirectory()) {
-            return nullptr;
-        }
-        return static_cast<const KArchiveDirectory *>(e)->entry(right);
-    }
-
-    return d->entries.value(name);
+    KArchiveDirectory *dummy;
+    return d->entry(_name, &dummy);
 }
 
 const KArchiveFile *KArchiveDirectory::file(const QString &name) const

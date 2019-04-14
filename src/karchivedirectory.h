@@ -127,6 +127,7 @@ public:
 protected:
     void virtual_hook(int id, void *data) override;
 private:
+    friend class KArchiveDirectoryPrivate;
     KArchiveDirectoryPrivate *const d;
 };
 
