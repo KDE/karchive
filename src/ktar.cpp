@@ -421,8 +421,13 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             int access = strtol(p, &dummy, 8);
 
             // read user and group
-            QString user = QString::fromLocal8Bit(buffer + 0x109);
-            QString group = QString::fromLocal8Bit(buffer + 0x129);
+            const int maxUserGroupLength = 32;
+            const char *userStart = buffer + 0x109;
+            const int userLen = qstrnlen(userStart, maxUserGroupLength);
+            const QString user = QString::fromLocal8Bit(userStart, userLen);
+            const char *groupStart = buffer + 0x129;
+            const int groupLen = qstrnlen(groupStart, maxUserGroupLength);
+            const QString group = QString::fromLocal8Bit(groupStart, groupLen);
 
             // read time
             buffer[0x93] = 0;
