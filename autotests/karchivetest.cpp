@@ -222,6 +222,7 @@ static void testFileData(KArchive *archive)
     dev->seek(4);
     contents = dev->read(1);
     QCOMPARE(contents, QByteArray("o"));
+    delete dev;
 
     const KArchiveEntry *e = dir->entry(QStringLiteral("mediumfile"));
     QVERIFY(e && e->isFile());
