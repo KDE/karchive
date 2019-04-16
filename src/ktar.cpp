@@ -512,7 +512,12 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 QString path = QDir::cleanPath(name.left(pos));
                 // Ensure container directory exists, create otherwise
                 KArchiveDirectory *d = findOrCreate(path);
-                d->addEntry(e);
+                if (d) {
+                    d->addEntry(e);
+                } else {
+                    delete e;
+                    return false;
+                }
             }
         } else {
             //qCDebug(KArchiveLog) << "Terminating. Read " << n << " bytes, first one is " << buffer[0];
