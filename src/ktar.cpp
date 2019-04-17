@@ -274,15 +274,16 @@ qint64 KTar::KTarPrivate::readHeader(char *buffer, QString &name, QString &symli
         if (strcmp(buffer, "././@LongLink") == 0) {
             char typeflag = buffer[0x9c];
             QByteArray longlink;
-            readLonglink(buffer, longlink);
-            switch (typeflag) {
-            case 'L':
-                name = QFile::decodeName(longlink.constData());
-                break;
-            case 'K':
-                symlink = QFile::decodeName(longlink.constData());
-                break;
-            }/*end switch*/
+            if (readLonglink(buffer, longlink)) {
+                switch (typeflag) {
+                case 'L':
+                    name = QFile::decodeName(longlink.constData());
+                    break;
+                case 'K':
+                    symlink = QFile::decodeName(longlink.constData());
+                    break;
+                }/*end switch*/
+            }
         } else {
             break;
         }/*end if*/
