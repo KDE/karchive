@@ -599,6 +599,7 @@ void KArchive::setDevice(QIODevice *dev)
 void KArchive::setRootDir(KArchiveDirectory *rootDir)
 {
     Q_ASSERT(!d->rootDir);   // Call setRootDir only once during parsing please ;)
+    delete d->rootDir;       // but if it happens, don't leak
     d->rootDir = rootDir;
 }
 
