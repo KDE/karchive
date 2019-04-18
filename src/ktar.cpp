@@ -238,6 +238,10 @@ bool KTar::KTarPrivate::readLonglink(char *buffer, QByteArray &longlink)
     qint64 size = QByteArray(buffer + 0x7c, 12).trimmed().toLongLong(nullptr, 8 /*octal*/);
 
     size--;    // ignore trailing null
+    if (size > std::numeric_limits<int>::max()) {
+        qCWarning(KArchiveLog) << "Failed to allocate memory for longlink of size" << size;
+        return false;
+    }
     longlink.resize(size);
     qint64 offset = 0;
     while (size > 0) {
