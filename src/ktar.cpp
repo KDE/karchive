@@ -242,6 +242,10 @@ bool KTar::KTarPrivate::readLonglink(char *buffer, QByteArray &longlink)
         qCWarning(KArchiveLog) << "Failed to allocate memory for longlink of size" << size;
         return false;
     }
+    if (size < 0) {
+        qCWarning(KArchiveLog) << "Invalid longlink size" << size;
+        return false;
+    }
     longlink.resize(size);
     qint64 offset = 0;
     while (size > 0) {
