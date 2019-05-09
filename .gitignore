@@ -1,6 +1,5 @@
 # Ignore the following files
 *~
-*.[oa]
 *.diff
 *.kate-swp
 *.kdev4

@@ -19,6 +19,7 @@
 */
 
 #include "karchivetest.h"
+#include <kar.h>
 #include <ktar.h>
 #include <kzip.h>
 #include <k7zip.h>
@@ -1269,6 +1270,25 @@ void KArchiveTest::testRcc()
     const KArchiveFile *searchFile = static_cast<const KArchiveFile *>(fileEntry);
     const QByteArray fileData = searchFile->data();
     QCOMPARE(QString::fromLatin1(fileData), QString::fromLatin1("root\n"));
+}
+
+void KArchiveTest::testAr()
+{
+    const QString artestFile = QFINDTESTDATA("data/artest.a");
+    KAr ar(artestFile);
+
+    QVERIFY(ar.open(QIODevice::ReadOnly));
+
+    const KArchiveDirectory *dir = ar.directory();
+    QVERIFY(dir != nullptr);
+
+    const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
+
+    QCOMPARE(listing.count(), 2);
+    QCOMPARE(listing[0], QString("mode=1204 path=CMakeLists.txt type=file size=3569"));
+    QCOMPARE(listing[1], QString("mode=1204 path=conanfile.py type=file size=1164"));
+
+    QVERIFY(ar.close());
 }
 
 /**

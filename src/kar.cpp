@@ -115,7 +115,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
     char *ar_longnames = nullptr;
     while (! dev->atEnd()) {
         QByteArray ar_header;
-        ar_header.resize(61);
+        ar_header.resize(60);
 
         dev->seek(dev->pos() + (2 - (dev->pos() % 2)) % 2);   // Ar headers are padded to byte boundary
 

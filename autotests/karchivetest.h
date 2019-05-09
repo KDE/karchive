@@ -99,6 +99,8 @@ private Q_SLOTS:
 
     void testRcc();
 
+    void testAr();
+
 #if HAVE_XZ_SUPPORT
     void testCreate7Zip_data()
     {
