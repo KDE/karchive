@@ -133,11 +133,11 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         }
 
         QByteArray name = ar_header.mid(0, 16);   // Process header
-        const int date = ar_header.mid(16, 12).toInt();
-        //const int uid = ar_header.mid( 28, 6 ).toInt();
-        //const int gid = ar_header.mid( 34, 6 ).toInt();
-        const int mode = ar_header.mid(40, 8).toInt();
-        const qint64 size = ar_header.mid(48, 10).toInt();
+        const int date = ar_header.mid(16, 12).trimmed().toInt();
+        //const int uid = ar_header.mid( 28, 6 ).trimmed().toInt();
+        //const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
+        const int mode = ar_header.mid(40, 8).trimmed().toInt();
+        const qint64 size = ar_header.mid(48, 10).trimmed().toInt();
 
         bool skip_entry = false; // Deal with special entries
         if (name.mid(0, 1) == "/") {
