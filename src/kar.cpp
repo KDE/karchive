@@ -138,6 +138,11 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         //const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
         const int mode = ar_header.mid(40, 8).trimmed().toInt();
         const qint64 size = ar_header.mid(48, 10).trimmed().toInt();
+        if (size < 0) {
+            setErrorString(tr("Invalid size"));
+            delete[] ar_longnames;
+            return false;
+        }
 
         bool skip_entry = false; // Deal with special entries
         if (name.mid(0, 1) == "/") {
