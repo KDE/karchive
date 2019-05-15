@@ -164,7 +164,13 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                     delete[] ar_longnames;
                     return false;
                 }
-                name = &ar_longnames[name.mid(1, 15).toInt()];
+                const int ar_longnamesIndex = name.mid(1, 15).toInt();
+                if (ar_longnamesIndex >= size) {
+                    setErrorString(tr("Invalid longfilename position reference"));
+                    delete[] ar_longnames;
+                    return false;
+                }
+                name = &ar_longnames[ar_longnamesIndex];
                 name = name.left(name.indexOf("/"));
             }
         }
