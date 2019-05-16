@@ -165,7 +165,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                     return false;
                 }
                 const int ar_longnamesIndex = name.mid(1, 15).toInt();
-                if (ar_longnamesIndex >= size) {
+                if (ar_longnamesIndex < 0 || ar_longnamesIndex >= size) {
                     setErrorString(tr("Invalid longfilename position reference"));
                     delete[] ar_longnames;
                     return false;
