@@ -799,8 +799,7 @@ void KArchiveTest::testTarLongNonASCIINames() // bug 266141
 {
     const QString tarName = QString("karchive-long-non-ascii-names.tar");
     const QString longName =
-        QString("раз-два-три-четыре-пять-вышел-зайчик-погулять-вдруг-охотник-"
-                "выбегает-прямо-в-зайчика.txt");
+        QString::fromUtf8("раз-два-три-четыре-пять-вышел-зайчик-погулять-вдруг-охотник-выбегает-прямо-в-зайчика.txt");
 
     {
         KTar tar(tarName);
@@ -1078,7 +1077,7 @@ void KArchiveTest::testZipWithNonLatinFileNames()
     QVERIFY(zip.open(QIODevice::WriteOnly));
 
     const QByteArray fileData("Test of data with a russian file name");
-    const QString fileName = QStringLiteral("Архитектура.okular");
+    const QString fileName = QString::fromUtf8("Архитектура.okular");
     const QString recodedFileName = QFile::decodeName(QFile::encodeName(fileName));
     QVERIFY(zip.writeFile(fileName, fileData));
 
