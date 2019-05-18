@@ -171,14 +171,15 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                     return false;
                 }
                 name = &ar_longnames[ar_longnamesIndex];
-                name = name.left(name.indexOf("/"));
+                name.truncate(name.indexOf('/'));
             }
         }
         if (skip_entry) {
             continue;
         }
 
-        name = name.trimmed(); // Process filename
+        // Process filename
+        name = name.trimmed();
         name.replace('/', QByteArray());
         qCDebug(KArchiveLog) << "Filename: " << name << " Size: " << size;
 
