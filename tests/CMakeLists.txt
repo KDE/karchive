@@ -11,6 +11,7 @@ macro(KARCHIVE_EXECUTABLE_TESTS)
 endmacro(KARCHIVE_EXECUTABLE_TESTS)
 
 karchive_executable_tests(
+    kartest
     ktartest
     krcctest
     kziptest
