@@ -28,9 +28,9 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     QStringList::ConstIterator it = l.constBegin();
     for (; it != l.constEnd(); ++it) {
         const KArchiveEntry *entry = dir->entry((*it));
-        printf("mode=%07o %s %s %s%s %lld isdir=%d\n", entry->permissions(), entry->user().toLatin1().constData(), entry->group().toLatin1().constData(), path.toLatin1().constData(), (*it).toLatin1().constData(),
-               entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0,
-               entry->isDirectory());
+        printf("mode=%7o path=%s type=%s size=%lld\n", entry->permissions(), qPrintable(path + (*it)),
+                entry->isFile() ? "file" : "dir",
+                entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0);
         if (!entry->symLinkTarget().isEmpty()) {
             printf("  (symlink to %s)\n", qPrintable(entry->symLinkTarget()));
         }

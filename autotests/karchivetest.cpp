@@ -1284,9 +1284,26 @@ void KArchiveTest::testAr()
 
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
-    QCOMPARE(listing.count(), 2);
-    QCOMPARE(listing[0], QString("mode=1204 path=CMakeLists.txt type=file size=3569"));
-    QCOMPARE(listing[1], QString("mode=1204 path=conanfile.py type=file size=1164"));
+    const QStringList expected = {
+            "mode=304444 path=at_quick_exit.oS type=file size=3456",
+            "mode=304444 path=atexit.oS type=file size=3436",
+            "mode=304444 path=elf-init.oS type=file size=3288",
+            "mode=304444 path=fstat.oS type=file size=3296",
+            "mode=304444 path=fstat64.oS type=file size=3304",
+            "mode=304444 path=fstatat.oS type=file size=3352",
+            "mode=304444 path=fstatat64.oS type=file size=3380",
+            "mode=304444 path=lstat.oS type=file size=3320",
+            "mode=304444 path=lstat64.oS type=file size=3332",
+            "mode=304444 path=mknod.oS type=file size=2840",
+            "mode=304444 path=mknodat.oS type=file size=2848",
+            "mode=304444 path=stack_chk_fail_local.oS type=file size=2288",
+            "mode=304444 path=stat.oS type=file size=3316",
+            "mode=304444 path=stat64.oS type=file size=3312",
+            "mode=304444 path=warning-nop.oS type=file size=1976"
+    };
+
+    QCOMPARE(listing.count(), expected.count());
+    QCOMPARE(listing, expected);
 
     QVERIFY(ar.close());
 }
