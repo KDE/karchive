@@ -136,7 +136,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         const int date = ar_header.mid(16, 12).trimmed().toInt();
         //const int uid = ar_header.mid( 28, 6 ).trimmed().toInt();
         //const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
-        const int mode = ar_header.mid(40, 8).trimmed().toInt();
+        const int mode = ar_header.mid(40, 8).trimmed().toInt(nullptr, 8);
         const qint64 size = ar_header.mid(48, 10).trimmed().toInt();
         if (size < 0) {
             setErrorString(tr("Invalid size"));
