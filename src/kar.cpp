@@ -152,19 +152,19 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                 ar_longnames[size] = '\0';
                 dev->read(ar_longnames, size);
                 skip_entry = true;
-                //qCDebug(KArchiveLog) << "Read in longnames entry";
+                qCDebug(KArchiveLog) << "Read in longnames entry";
             } else if (name.mid(1, 1) == " ") { // Symbol table entry
-                //qCDebug(KArchiveLog) << "Skipped symbol entry";
+                qCDebug(KArchiveLog) << "Skipped symbol entry";
                 dev->seek(dev->pos() + size);
                 skip_entry = true;
             } else { // Longfilename
-                //qCDebug(KArchiveLog) << "Longfilename #" << name.mid(1, 15).toInt();
+                const int ar_longnamesIndex = name.mid(1, 15).trimmed().toInt();
+                qCDebug(KArchiveLog) << "Longfilename #" << ar_longnamesIndex;
                 if (! ar_longnames) {
                     setErrorString(tr("Invalid longfilename reference"));
                     delete[] ar_longnames;
                     return false;
                 }
-                const int ar_longnamesIndex = name.mid(1, 15).toInt();
                 if (ar_longnamesIndex < 0 || ar_longnamesIndex >= size) {
                     setErrorString(tr("Invalid longfilename position reference"));
                     delete[] ar_longnames;
@@ -180,7 +180,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
 
         name = name.trimmed(); // Process filename
         name.replace('/', QByteArray());
-        //qCDebug(KArchiveLog) << "Filename: " << name << " Size: " << size;
+        qCDebug(KArchiveLog) << "Filename: " << name << " Size: " << size;
 
         KArchiveEntry *entry = new KArchiveFile(this, QString::fromLocal8Bit(name.constData()), mode, KArchivePrivate::time_tToDateTime(date),
                                                 rootDir()->user(), rootDir()->group(), /*symlink*/ QString(),
