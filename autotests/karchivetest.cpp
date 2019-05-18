@@ -47,7 +47,8 @@ QTEST_MAIN(KArchiveTest)
 
 void initLocale()
 {
-    qputenv("LC_ALL", "en_US.UTF-8"); // KArchive uses QFile::decodeName, and our tests use utf8 encoding for filenames
+    // KArchive uses QFile::decodeName, and our tests use utf8 encoding for filenames
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf-8"));
 }
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 
