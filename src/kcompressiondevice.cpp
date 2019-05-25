@@ -47,7 +47,6 @@ public:
         : bNeedHeader(true)
         , bSkipHeaders(false)
         , bOpenedUnderlyingDevice(false)
-        , bIgnoreData(false)
         , type(KCompressionDevice::None)
         , errorCode(QFileDevice::NoError)
         , deviceReadPos(0)
@@ -60,7 +59,6 @@ public:
     bool bNeedHeader;
     bool bSkipHeaders;
     bool bOpenedUnderlyingDevice;
-    bool bIgnoreData;
     QByteArray buffer; // Used as 'input buffer' when reading, as 'output buffer' when writing
     QByteArray origFileName;
     KFilterBase::Result result;
@@ -250,9 +248,7 @@ bool KCompressionDevice::seek(qint64 pos)
 
     //qCDebug(KArchiveLog) << "reading " << bytesToRead << " dummy bytes";
     QByteArray dummy(qMin(bytesToRead, qint64(3 * BUFFER_SIZE)), 0);
-    d->bIgnoreData = true;
     const bool result = (read(dummy.data(), bytesToRead) == bytesToRead);
-    d->bIgnoreData = false;
     return result;
 }
 
@@ -281,15 +277,8 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
         return -1;
     }
 
-    qint64 outBufferSize;
-    if (d->bIgnoreData) {
-        outBufferSize = qMin(maxlen, static_cast<qint64>(3 * BUFFER_SIZE));
-    } else {
-        outBufferSize = maxlen;
-    }
-    outBufferSize -= dataReceived;
-    qint64 availOut = outBufferSize;
-    filter->setOutBuffer(data, outBufferSize);
+    qint64 availOut = maxlen;
+    filter->setOutBuffer(data, maxlen);
 
     while (dataReceived < maxlen) {
         if (filter->inBufferEmpty()) {
@@ -327,12 +316,8 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
         }
 
         dataReceived += outReceived;
-        if (!d->bIgnoreData) {  // Move on in the output buffer
-            data += outReceived;
-            availOut = maxlen - dataReceived;
-        } else if (maxlen - dataReceived < outBufferSize) {
-            availOut = maxlen - dataReceived;
-        }
+        data += outReceived;
+        availOut = maxlen - dataReceived;
         if (d->result == KFilterBase::End) {
             // We're actually at the end, no more data to check
             if (filter->device()->atEnd()) {
