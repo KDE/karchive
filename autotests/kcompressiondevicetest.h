@@ -57,6 +57,8 @@ private Q_SLOTS:
 
     void testWriteErrorOnOpen();
     void testWriteErrorOnClose();
+
+    void testSeekReadUncompressedBuffer();
 };
 
 #endif

@@ -18,6 +18,7 @@
 */
 
 #include "kcompressiondevicetest.h"
+#include "kcompressiondevice_p.h"
 
 #include <config-compression.h>
 
@@ -189,4 +190,30 @@ void KCompressionDeviceTest::testWriteErrorOnClose()
 
     // THEN
     QCOMPARE(int(dev.error()), int(QFileDevice::WriteError));
+}
+
+void KCompressionDeviceTest::testSeekReadUncompressedBuffer()
+{
+    const int dataSize = BUFFER_SIZE + BUFFER_SIZE / 2;
+    QByteArray ba(dataSize, 0);
+
+    // all data is zero except after BUFFER_SIZE that it's 0 to 9
+    for (int i = 0; i < 10; ++i) {
+        ba[BUFFER_SIZE + i] = i;
+    }
+
+    QBuffer b;
+    b.setData(ba);
+    QVERIFY(b.open(QIODevice::ReadOnly));
+
+    KCompressionDevice kcd(&b, false, KCompressionDevice::GZip);
+    QVERIFY(kcd.open(QIODevice::ReadOnly));
+    QVERIFY(kcd.seek(BUFFER_SIZE));
+
+    // the 10 bytes after BUFFER_SIZE should be 0 to 9
+    const QByteArray kcdData = kcd.read(10);
+    QCOMPARE(kcdData.size(), 10);
+    for (int i = 0; i < kcdData.size(); ++i) {
+        QCOMPARE(kcdData[i], i);
+    }
 }

@@ -18,6 +18,7 @@
 */
 
 #include "kcompressiondevice.h"
+#include "kcompressiondevice_p.h"
 #include "loggingcategory.h"
 #include <config-compression.h>
 #include "kfilterbase.h"
@@ -35,8 +36,6 @@
 #if HAVE_XZ_SUPPORT
 #include "kxzfilter.h"
 #endif
-
-#define BUFFER_SIZE 8*1024
 
 #include <QDebug>
 
