@@ -192,14 +192,24 @@ void KCompressionDeviceTest::testWriteErrorOnClose()
     QCOMPARE(int(dev.error()), int(QFileDevice::WriteError));
 }
 
+void KCompressionDeviceTest::testSeekReadUncompressedBuffer_data()
+{
+    QTest::addColumn<int>("dataSize");
+    QTest::addColumn<int>("realDataPos");
+    QTest::newRow("1.5buffer") << BUFFER_SIZE + BUFFER_SIZE / 2 << BUFFER_SIZE;
+    QTest::newRow("5seekbuffer") << 5 * SEEK_BUFFER_SIZE << 4 * SEEK_BUFFER_SIZE;
+}
+
 void KCompressionDeviceTest::testSeekReadUncompressedBuffer()
 {
-    const int dataSize = BUFFER_SIZE + BUFFER_SIZE / 2;
+    QFETCH(int, dataSize);
+    QFETCH(int, realDataPos);
+
     QByteArray ba(dataSize, 0);
 
-    // all data is zero except after BUFFER_SIZE that it's 0 to 9
+    // all data is zero except after realDataPos that it's 0 to 9
     for (int i = 0; i < 10; ++i) {
-        ba[BUFFER_SIZE + i] = i;
+        ba[realDataPos + i] = i;
     }
 
     QBuffer b;
@@ -208,9 +218,9 @@ void KCompressionDeviceTest::testSeekReadUncompressedBuffer()
 
     KCompressionDevice kcd(&b, false, KCompressionDevice::GZip);
     QVERIFY(kcd.open(QIODevice::ReadOnly));
-    QVERIFY(kcd.seek(BUFFER_SIZE));
+    QVERIFY(kcd.seek(realDataPos));
 
-    // the 10 bytes after BUFFER_SIZE should be 0 to 9
+    // the 10 bytes after realDataPos should be 0 to 9
     const QByteArray kcdData = kcd.read(10);
     QCOMPARE(kcdData.size(), 10);
     for (int i = 0; i < kcdData.size(); ++i) {

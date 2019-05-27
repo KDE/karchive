@@ -246,9 +246,16 @@ bool KCompressionDevice::seek(qint64 pos)
     }
 
     //qCDebug(KArchiveLog) << "reading " << bytesToRead << " dummy bytes";
-    QByteArray dummy(qMin(bytesToRead, qint64(3 * BUFFER_SIZE)), 0);
-    const bool result = (read(dummy.data(), bytesToRead) == bytesToRead);
-    return result;
+    QByteArray dummy(qMin(bytesToRead, qint64(SEEK_BUFFER_SIZE)), 0);
+    while (bytesToRead > 0) {
+        const qint64 bytesToReadThisTime = qMin(bytesToRead, qint64(dummy.size()));
+        const bool result = (read(dummy.data(), bytesToReadThisTime) == bytesToReadThisTime);
+        if (!result) {
+            return false;
+        }
+        bytesToRead -= bytesToReadThisTime;
+    }
+    return true;
 }
 
 bool KCompressionDevice::atEnd() const

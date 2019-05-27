@@ -20,5 +20,6 @@
 #define __kcompressiondevice_p_h
 
 #define BUFFER_SIZE 8*1024
+#define SEEK_BUFFER_SIZE 3*BUFFER_SIZE
 
 #endif
