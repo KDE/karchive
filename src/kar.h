@@ -24,7 +24,8 @@
  * @class KAr kar.h KAr
  *
  * KAr is a class for reading archives in ar format. Writing
- * is not supported.
+ * is not supported. Reading archives that contain files bigger than
+ * INT_MAX - 32 bytes is not supported.
  * @short A class for reading ar archives.
  * @author Laurence Anderson <l.d.anderson@warwick.ac.uk>
  */

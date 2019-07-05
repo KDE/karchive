@@ -23,8 +23,13 @@
 #include <QFile>
 #include <QDebug>
 
+#include <limits>
+
 #include "kfilterdev.h"
 //#include "klimitediodevice_p.h"
+
+// As documented in QByteArray
+static constexpr int kMaxQByteArraySize = std::numeric_limits<int>::max() - 32;
 
 ////////////////////////////////////////////////////////////////////////
 /////////////////////////// KAr ///////////////////////////////////////
@@ -135,7 +140,7 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         //const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
         const int mode = ar_header.mid(40, 8).trimmed().toInt(nullptr, 8);
         const qint64 size = ar_header.mid(48, 10).trimmed().toInt();
-        if (size < 0) {
+        if (size < 0 || size > kMaxQByteArraySize) {
             setErrorString(tr("Invalid size"));
             return false;
         }
