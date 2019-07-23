@@ -3,6 +3,11 @@ cmake_minimum_required(VERSION 3.5)
 set(KF5_VERSION "5.61.0") # handled by release scripts
 project(KArchive VERSION ${KF5_VERSION})
 
+if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup(TARGETS)
+endif()
+
 include(FeatureSummary)
 find_package(ECM 5.60.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
