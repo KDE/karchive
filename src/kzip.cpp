@@ -509,7 +509,10 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             */
 
             // read fileName
-            Q_ASSERT(namelen > 0);
+            if (namelen <= 0) {
+                setErrorString(tr("Invalid ZIP file. Negative name length"));
+                return false;
+            }
             QByteArray fileName = dev->read(namelen);
             if (fileName.size() < namelen) {
                 setErrorString(tr("Invalid ZIP file. Name not completely read (#2)"));
