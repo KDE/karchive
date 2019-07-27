@@ -637,7 +637,10 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             //qCDebug(KArchiveLog) << "general purpose flag=" << gpf;
             // length of the fileName (well, pathname indeed)
             int namelen = (uchar)buffer[29] << 8 | (uchar)buffer[28];
-            Q_ASSERT(namelen > 0);
+            if (namelen <= 0) {
+                setErrorString(tr("Invalid ZIP file, file path name length smaller or equal to zero"));
+                return false;
+            }
             QByteArray bufferName = dev->read(namelen);
             if (bufferName.size() < namelen) {
                 //qCWarning(KArchiveLog) << "Invalid ZIP file. Name not completely read";
