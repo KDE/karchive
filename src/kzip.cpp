@@ -577,9 +577,11 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         foundSignature = true;
                     } else {
 //          qCDebug(KArchiveLog) << "before interesting dev->pos(): " << dev->pos();
-                        bool success = dev->seek(dev->pos() + compr_size); // can this fail ???
-                        Q_UNUSED(success); // prevent warning in release builds.
-                        Q_ASSERT(success); // let's see...
+                        const bool success = dev->seek(dev->pos() + compr_size);
+                        if (!success) {
+                            setErrorString(tr("Could not seek to file compressed size"));
+                            return false;
+                        }
                         /*          qCDebug(KArchiveLog) << "after interesting dev->pos(): " << dev->pos();
                                                 if (success)
                                                 qCDebug(KArchiveLog) << "dev->at was successful... ";
