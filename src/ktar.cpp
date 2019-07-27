@@ -512,7 +512,6 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
 
             if (pos == -1) {
                 if (nm == QLatin1String(".")) { // special case
-                    Q_ASSERT(isdir);
                     if (isdir) {
                         setRootDir(static_cast<KArchiveDirectory *>(e));
                     } else {
