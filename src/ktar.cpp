@@ -513,7 +513,12 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             if (pos == -1) {
                 if (nm == QLatin1String(".")) { // special case
                     if (isdir) {
-                        setRootDir(static_cast<KArchiveDirectory *>(e));
+                        if (KArchivePrivate::hasRootDir(this)) {
+                            qWarning() << "Broken tar file has two root dir entries";
+                            delete e;
+                        } else {
+                            setRootDir(static_cast<KArchiveDirectory *>(e));
+                        }
                     } else {
                         delete e;
                     }

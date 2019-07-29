@@ -48,6 +48,11 @@ public:
     KArchivePrivate(const KArchivePrivate &) = delete;
     KArchivePrivate &operator=(const KArchivePrivate &) = delete;
 
+    static bool hasRootDir(KArchive *archive)
+    {
+        return archive->d->rootDir;
+    }
+
     void abortWriting();
 
     static QDateTime time_tToDateTime(uint time_t);
