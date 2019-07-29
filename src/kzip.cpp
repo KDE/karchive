@@ -774,8 +774,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             //calculate offset to next entry
             offset += 46 + commlen + extralen + namelen;
-            bool b = dev->seek(offset);
-            Q_ASSERT(b);
+            const bool b = dev->seek(offset);
             if (!b) {
                 setErrorString(tr("Could not seek to next entry"));
                 return false;
