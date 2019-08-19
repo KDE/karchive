@@ -186,6 +186,12 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
             // The use of QSaveFile can't be done in the ctor (no mode known yet)
             //qCDebug(KArchiveLog) << "Writing to a file using QSaveFile";
             d->saveFile = new QSaveFile(d->fileName);
+#ifdef Q_OS_ANDROID
+            // we cannot rename on to Android content: URLs
+            if (d->fileName.startsWith(QLatin1String("content://"))) {
+                d->saveFile->setDirectWriteFallback(true);
+            }
+#endif
             if (!d->saveFile->open(QIODevice::WriteOnly)) {
                 setErrorString(
                     tr("QSaveFile creation for %1 failed: %2")
