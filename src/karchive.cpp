@@ -290,7 +290,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
         setErrorString(
             tr("Failed accessing the file %1 for adding to the archive. The error was: %2")
             .arg(fileName)
-            .arg(QLatin1Literal{strerror(errno)}));
+            .arg(QLatin1String{strerror(errno)}));
         return false;
     }
 
