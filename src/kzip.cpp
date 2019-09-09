@@ -77,7 +77,7 @@ static uint transformFromMsDos(const char *buffer)
     QDate qd(y, o, d);
 
     QDateTime dt(qd, qt);
-    return dt.toTime_t();
+    return dt.toSecsSinceEpoch();
 }
 
 // == parsing routines for zip headers
@@ -968,7 +968,7 @@ bool KZip::closeArchive()
             extfield[4] = 1 | 2 | 4;    // specify flags from local field
             // (unless I misread the spec)
             // provide only modification time
-            unsigned long time = (unsigned long)it.value()->date().toTime_t();
+            unsigned long time = (unsigned long)it.value()->date().toSecsSinceEpoch();
             extfield[5] = char(time);
             extfield[6] = char(time >> 8);
             extfield[7] = char(time >> 16);
@@ -1078,9 +1078,9 @@ bool KZip::doPrepareWriting(const QString &name, const QString &user,
         return false;
     }
 
-    uint atime = accessTime.toTime_t();
-    uint mtime = modificationTime.toTime_t();
-    uint ctime = creationTime.toTime_t();
+    uint atime = accessTime.toSecsSinceEpoch();
+    uint mtime = modificationTime.toSecsSinceEpoch();
+    uint ctime = creationTime.toSecsSinceEpoch();
 
     // Find or create parent dir
     KArchiveDirectory *parentDir = rootDir();

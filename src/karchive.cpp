@@ -296,7 +296,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
 
     if (fileInfo.isSymLink()) {
         QString symLinkTarget;
-        // Do NOT use fileInfo.readLink() for unix symlinks!
+        // Do NOT use fileInfo.symLinkTarget() for unix symlinks!
         // It returns the -full- path to the target, while we want the target string "as is".
 #if defined(Q_OS_UNIX) && !defined(Q_OS_OS2EMX)
         const QByteArray encodedFileName = QFile::encodeName(fileName);
@@ -321,7 +321,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
         }
         return writeSymLink(destName, symLinkTarget, fileInfo.owner(),
                             fileInfo.group(), fi.st_mode, fileInfo.lastRead(), fileInfo.lastModified(),
-                            fileInfo.created());
+                            fileInfo.birthTime());
     }/*end if*/
 
     qint64 size = fileInfo.size();
@@ -338,7 +338,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
     }
 
     if (!prepareWriting(destName, fileInfo.owner(), fileInfo.group(), size,
-                        fi.st_mode, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.created())) {
+                        fi.st_mode, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.birthTime())) {
         //qCWarning(KArchiveLog) << " prepareWriting" << destName << "failed";
         return false;
     }
@@ -645,7 +645,7 @@ QDateTime KArchivePrivate::time_tToDateTime(uint time_t)
     if (time_t == uint(-1)) {
         return QDateTime();
     }
-    return QDateTime::fromTime_t(time_t);
+    return QDateTime::fromSecsSinceEpoch(time_t);
 }
 
 ////////////////////////////////////////////////////////////////////////

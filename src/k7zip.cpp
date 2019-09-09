@@ -1114,7 +1114,7 @@ static uint toTimeT(const long long liTime)
 
     QDateTime t(QDate(year, month, day), QTime(hour, minute, second));
     t.setTimeSpec(Qt::UTC);
-    return t.toTime_t();
+    return t.toSecsSinceEpoch();
 }
 
 long long rtlSecondsSince1970ToSpecTime(quint32 seconds)
@@ -1710,7 +1710,7 @@ void K7Zip::K7ZipPrivate::createItemsFromEntities(const KArchiveDirectory *dir, 
 
         fileInfo->path = path + entry->name();
         mTimesDefined.append(true);
-        mTimes.append(rtlSecondsSince1970ToSpecTime(entry->date().toTime_t()));
+        mTimes.append(rtlSecondsSince1970ToSpecTime(entry->date().toSecsSinceEpoch()));
 
         if (entry->isFile()) {
             const K7ZipFileEntry *fileEntry = static_cast<const K7ZipFileEntry *>(entry);

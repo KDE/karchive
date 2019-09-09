@@ -314,7 +314,7 @@ static void testCopyTo(KArchive *archive)
     const QFileInfo fileInfo5(fileName);
     QVERIFY(fileInfo5.exists());
     QVERIFY(fileInfo5.isFile());
-    // Do not use fileInfo.readLink() for unix symlinks
+    // Do not use fileInfo.symLinkTarget() for unix symlinks
     // It returns the -full- path to the target, while we want the target string "as is".
     QString symLinkTarget;
     const QByteArray encodedFileName = QFile::encodeName(fileName);
@@ -493,7 +493,7 @@ void KArchiveTest::testReadTar() // testCreateTarGz must have been run first.
     const QString owner = localFileData.owner();
     const QString group = localFileData.group();
     const QString emptyTime = QDateTime().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
-    const QDateTime creationTime = QFileInfo(fileName).created();
+    const QDateTime creationTime = QFileInfo(fileName).birthTime();
 
     // 1.6-1.7 ms per interaction, 2908428 instruction loads
     // After the "no tempfile when writing fix" this went down
