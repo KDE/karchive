@@ -17,7 +17,6 @@ ecm_add_tests(
     LINK_LIBRARIES KF5::Archive Qt5::Test
 )
 
-target_compile_definitions(deprecatedtest PRIVATE KARCHIVE_DEPRECATED=)
 target_link_libraries(kfiltertest ${ZLIB_LIBRARIES})
 
 ########### klimitediodevicetest ###############

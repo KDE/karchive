@@ -28,7 +28,7 @@ class DeprecatedTest : public QObject
 {
     Q_OBJECT
 
-#ifndef KARCHIVE_NO_DEPRECATED
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
 private Q_SLOTS:
     void testKArchiveWriteFile()
     {

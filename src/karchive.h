@@ -191,14 +191,15 @@ public:
                       mode_t perm = 0120755, const QDateTime &atime = QDateTime(),
                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * @deprecated since 5.0, use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)
      */
-#ifndef KARCHIVE_NO_DEPRECATED
-    KARCHIVE_DEPRECATED bool writeFile(const QString &name, const QString &user, const QString &group,
-                                       const char *data, qint64 size,
-                                       mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
-                                       const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime())
+    KARCHIVE_DEPRECATED_VERSION(5, 0, "Use KArchive::writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)")
+    bool writeFile(const QString &name, const QString &user, const QString &group,
+                   const char *data, qint64 size,
+                   mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
+                   const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime())
     {
         QByteArray array(data, size);
         return writeFile(name, array, perm, user, group, atime, mtime, ctime);

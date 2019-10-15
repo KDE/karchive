@@ -43,8 +43,15 @@ ecm_qt_declare_logging_category(karchive_SRCS
 )
 
 add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
-generate_export_header(KF5Archive BASE_NAME KArchive)
 add_library(KF5::Archive ALIAS KF5Archive)
+ecm_generate_export_header(KF5Archive
+    BASE_NAME KArchive
+    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    VERSION ${KF5_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.0
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
 
 target_include_directories(KF5Archive
     INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive>"

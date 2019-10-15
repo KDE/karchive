@@ -55,8 +55,9 @@ public:
      */
     static CompressionType compressionTypeForMimeType(const QString &mimetype);
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated Use the constructor instead (if mimetype is empty), or KCompressionDevice (if
+     * @deprecated Since 5.0, use the constructor instead (if mimetype is empty), or KCompressionDevice (if
      * the mimetype is known).
      *
      * Use:
@@ -94,8 +95,8 @@ public:
      *         filter does not exist, the return value depends on @p forceFilter.
      *         The returned KCompressionDevice has to be deleted after using.
      */
-#ifndef KARCHIVE_NO_DEPRECATED
-    KARCHIVE_DEPRECATED static KCompressionDevice *deviceForFile(const QString &fileName,
+    KARCHIVE_DEPRECATED_VERSION(5, 0, "See API docs")
+    static KCompressionDevice *deviceForFile(const QString &fileName,
             const QString &mimetype = QString(),
             bool forceFilter = false)
     {
@@ -114,8 +115,9 @@ public:
     }
 #endif
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated Use KCompressionDevice
+     * @deprecated Since 5.0, use KCompressionDevice
      *
      * Use:
      * KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(mimeType);
@@ -140,8 +142,8 @@ public:
      * @param autoDeleteInDevice if true, @p inDevice will be deleted automatically
      * @return a KCompressionDevice that filters the original stream. Must be deleted after using
      */
-#ifndef KARCHIVE_NO_DEPRECATED
-    KARCHIVE_DEPRECATED static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
+    KARCHIVE_DEPRECATED_VERSION(5, 0, "See API docs")
+    static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
             bool autoDeleteInDevice = true)
     {
         if (inDevice == nullptr) {
