@@ -46,7 +46,7 @@ add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
 add_library(KF5::Archive ALIAS KF5Archive)
 ecm_generate_export_header(KF5Archive
     BASE_NAME KArchive
-    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    GROUP_BASE_NAME KF
     VERSION ${KF5_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 5.0
