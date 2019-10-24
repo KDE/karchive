@@ -46,7 +46,6 @@ public:
 
     lzma_stream zStream;
     lzma_filter filters[5];
-    unsigned char props[5];
     int mode;
     bool isInitialized;
     KXzFilter::Flag flag;
