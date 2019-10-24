@@ -1683,6 +1683,10 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         inflatedDatas.clear();
 
         if (folder->unpackCRCDefined) {
+            if ((size_t)inflated.size() < unpackSize) {
+                qCDebug(KArchiveLog) << "wrong crc size data";
+                return QByteArray();
+            }
             quint32 crc = crc32(0, (Bytef *)(inflated.data()), unpackSize);
             if (crc != folder->unpackCRC) {
                 qCDebug(KArchiveLog) << "wrong crc";
