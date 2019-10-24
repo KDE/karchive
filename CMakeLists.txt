@@ -62,6 +62,8 @@ ecm_setup_version(PROJECT
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfigVersion.cmake"
     SOVERSION 5)
 add_definitions(-DQT_NO_FOREACH)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
+add_definitions(-DQT_DEPRECATED_WARNINGS_SINCE=0x060000)
 
 add_subdirectory(src)
 if (BUILD_TESTING)
