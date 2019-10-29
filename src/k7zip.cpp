@@ -1446,6 +1446,15 @@ static QByteArray decodeBCJ2(const QByteArray &mainStream, const QByteArray &cal
 
         unsigned index = getIndex(prevByte, b);
         if (statusDecoder[index].decode(&rangeDecoder) == 1) {
+            if (b == 0xE8) {
+                if (callStreamPos + 4 > callStream.size()) {
+                    return QByteArray();
+                }
+            } else {
+                if (jumpStreamPos + 4 > jumpStream.size()) {
+                    return QByteArray();
+                }
+            }
             quint32 src = 0;
             for (int i = 0; i < 4; i++) {
                 unsigned char b0;
