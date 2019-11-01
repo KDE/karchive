@@ -825,6 +825,10 @@ bool KArchiveFile::copyTo(const QString &dest) const
     QFile f(dest + QLatin1Char('/')  + name());
     if (f.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
         QIODevice *inputDev = createDevice();
+        if (!inputDev) {
+            f.remove();
+            return false;
+        }
 
         // Read and write data in chunks to minimize memory usage
         const qint64 chunkSize = 1024 * 1024;
