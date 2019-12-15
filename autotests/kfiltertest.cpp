@@ -18,7 +18,10 @@
 
 #include "kfiltertest.h"
 
-#include <QtTest>
+#include <QTest>
+#include <QBuffer>
+#include <QTextCodec>
+#include <QSaveFile>
 
 #include <config-compression.h>
 #include "kfilterdev.h"

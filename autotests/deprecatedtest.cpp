@@ -20,7 +20,7 @@
 
 #include <kzip.h>
 
-#include <QtTest>
+#include <QTest>
 
 static const char s_zipFileName[] = "deprecatedtest.zip";
 

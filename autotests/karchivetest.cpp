@@ -25,7 +25,9 @@
 #include <k7zip.h>
 #include <krcc.h>
 
-#include <QtTest>
+#include <QTest>
+#include <QTextCodec>
+#include <QSaveFile>
 #include <QFileInfo>
 #include <kfilterdev.h>
 #include <qtemporarydir.h>

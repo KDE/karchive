@@ -21,7 +21,7 @@
 
 #include "klimitediodevice_p.h"
 
-#include <QtTest>
+#include <QTest>
 
 QTEST_MAIN(KLimitedIODeviceTest)
 
