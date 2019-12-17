@@ -22,6 +22,7 @@
 #include <QBuffer>
 #include <QTextCodec>
 #include <QSaveFile>
+#include <QRandomGenerator>
 
 #include <config-compression.h>
 #include "kfilterdev.h"
@@ -97,9 +98,10 @@ void KFilterTest::test_biggerWrites()
     // Find the out-of-bounds from #157706/#188415
     QByteArray data;
     data.reserve(10000);
+    auto *generator = QRandomGenerator::global();
     // Prepare test data
     for (int i = 0; i < 8170; ++i) {
-        data.append((char)(qrand() % 256));
+        data.append((char)(generator->bounded(256)));
     }
     QCOMPARE(data.size(), 8170);
     // 8170 random bytes compress to 8194 bytes due to the gzip header/footer.
@@ -113,7 +115,7 @@ void KFilterTest::test_biggerWrites()
         // Test data is valid
         test_readall(outFile, QString::fromLatin1("application/x-gzip"), data);
 
-        data.append((char)(qrand() % 256));
+        data.append((char)(generator->bounded(256)));
     }
 }
 
