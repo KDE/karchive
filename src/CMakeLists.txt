@@ -40,6 +40,8 @@ ecm_qt_declare_logging_category(karchive_SRCS
     IDENTIFIER KArchiveLog
     CATEGORY_NAME kf5.karchive
     DEFAULT_SEVERITY Warning
+    DESCRIPTION "KArchive"
+    EXPORT KARCHIVE
 )
 
 add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
@@ -106,6 +108,12 @@ install(FILES
             ${KArchive_HEADERS}
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive
         COMPONENT Devel)
+
+ecm_qt_install_logging_categories(
+    EXPORT KARCHIVE
+    FILE karchive.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 if(BUILD_QCH)
     ecm_add_qch(
