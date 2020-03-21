@@ -15,6 +15,7 @@
 #include <QTest>
 #include <QTextCodec>
 #include <QSaveFile>
+#include <QStandardPaths>
 #include <QFileInfo>
 #include <kfilterdev.h>
 #include <qtemporarydir.h>
@@ -364,6 +365,8 @@ void KArchiveTest::initTestCase()
         QVERIFY(false);
     }
 #endif
+    // avoid interference from kdebugsettings on qCWarning
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void KArchiveTest::testEmptyFilename()
