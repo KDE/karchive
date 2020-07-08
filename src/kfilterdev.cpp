@@ -7,7 +7,7 @@
 #include "kfilterdev.h"
 #include "loggingcategory.h"
 #include <config-compression.h>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 
 #include <QDebug>
 

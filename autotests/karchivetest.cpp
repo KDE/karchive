@@ -18,7 +18,7 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <kfilterdev.h>
-#include <qtemporarydir.h>
+#include <QTemporaryDir>
 #include <QRegularExpression>
 
 #ifndef Q_OS_WIN

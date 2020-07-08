@@ -19,7 +19,7 @@ extern "C" {
 
 #include <QDebug>
 
-#include <qiodevice.h>
+#include <QIODevice>
 
 class Q_DECL_HIDDEN KXzFilter::Private
 {

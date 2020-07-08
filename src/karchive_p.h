@@ -10,7 +10,7 @@
 
 #include "karchive.h"
 
-#include <qsavefile.h>
+#include <QSaveFile>
 
 class KArchivePrivate
 {

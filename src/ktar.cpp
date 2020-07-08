@@ -15,7 +15,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
-#include <qmimedatabase.h>
+#include <QMimeDatabase>
 #include <QTemporaryFile>
 
 #include <kfilterdev.h>
