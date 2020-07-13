@@ -38,7 +38,8 @@ set(karchive_SRCS
 ecm_qt_declare_logging_category(karchive_SRCS
     HEADER loggingcategory.h
     IDENTIFIER KArchiveLog
-    CATEGORY_NAME kf5.karchive
+    CATEGORY_NAME kf.archive
+    OLD_CATEGORY_NAMES kf5.karchive
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KArchive"
     EXPORT KARCHIVE
