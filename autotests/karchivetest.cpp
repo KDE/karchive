@@ -12,6 +12,7 @@
 #include <k7zip.h>
 #include <krcc.h>
 
+#include <QDebug>
 #include <QTest>
 #include <QTextCodec>
 #include <QSaveFile>
