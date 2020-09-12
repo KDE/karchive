@@ -1,7 +1,7 @@
 /*
- *  Copyright (C) 2002 - 2005 David Faure   <faure@kde.org>
+ *  SPDX-FileCopyrightText: 2002-2005 David Faure <faure@kde.org>
  *
- *  SPDX-License-Identifier: LGPL-2.0-only
+ *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include "ktar.h"

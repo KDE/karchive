@@ -1,7 +1,7 @@
 /*
  *  SPDX-FileCopyrightText: 2011 Mario Bensi <mbensi@ipsquad.net>
  *
- *  SPDX-License-Identifier: LGPL-2.0-only
+ *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
 #include "k7zip.h"

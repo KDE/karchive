@@ -2,7 +2,7 @@
    SPDX-FileCopyrightText: 2000-2005 David Faure <faure@kde.org>
    SPDX-FileCopyrightText: 2003 Leo Savernik <l.savernik@aon.at>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #ifndef KARCHIVE_P_H

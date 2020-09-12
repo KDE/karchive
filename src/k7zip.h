@@ -1,7 +1,7 @@
 /* This file is part of the KDE libraries
    SPDX-FileCopyrightText: 2011 Mario Bensi <mbensi@ipsquad.net>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #ifndef K7ZIP_H
 #define K7ZIP_H

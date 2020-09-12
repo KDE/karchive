@@ -4,7 +4,7 @@
 
    Moved from ktar.h by Roberto Teixeira <maragato@kde.org>
 
-   SPDX-License-Identifier: LGPL-2.0-only OR LGPL-3.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #ifndef KARCHIVE_H
 #define KARCHIVE_H

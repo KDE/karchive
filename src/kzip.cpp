@@ -2,7 +2,7 @@
    SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
    SPDX-FileCopyrightText: 2002 Holger Schroeder <holger-kde@holgis.net>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "kzip.h"

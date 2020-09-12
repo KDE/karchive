@@ -2,7 +2,7 @@
    SPDX-FileCopyrightText: 2000 David Faure <faure@kde.org>
    SPDX-FileCopyrightText: 2011 Mario Bensi <mbensi@ipsquad.net>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #ifndef __kcompressiondevice_p_h
 #define __kcompressiondevice_p_h

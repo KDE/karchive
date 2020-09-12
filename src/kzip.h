@@ -1,7 +1,7 @@
 /* This file is part of the KDE libraries
    SPDX-FileCopyrightText: 2002 Holger Schroeder <holger-kde@holgis.net>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #ifndef KZIP_H
 #define KZIP_H
