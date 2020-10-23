@@ -7,7 +7,6 @@
 #include "kbzip2filter.h"
 #include "loggingcategory.h"
 
-#include <config-compression.h>
 
 #if HAVE_BZIP2_SUPPORT
 

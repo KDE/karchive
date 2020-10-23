@@ -25,8 +25,6 @@
 #include <errno.h>
 
 #include <assert.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 
 #ifdef Q_OS_UNIX
 #include <grp.h>

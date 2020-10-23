@@ -10,7 +10,6 @@
 #include "kxzfilter.h"
 #include "loggingcategory.h"
 
-#include <config-compression.h>
 
 #if HAVE_XZ_SUPPORT
 extern "C" {
