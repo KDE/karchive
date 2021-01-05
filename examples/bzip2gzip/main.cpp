@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     QFile file(inputFile);
     QFileInfo info(inputFile);
 
-    if (info.suffix() != QStringLiteral("bz2")) {
+    if (info.suffix() != QLatin1String("bz2")) {
         qCritical("Error: not a valid BZip2 file!");
         return 1;
     }
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     KCompressionDevice input(&file, false, KCompressionDevice::BZip2);
     input.open(QIODevice::ReadOnly);
 
-    QString outputFile = (info.completeBaseName() + QStringLiteral(".gz"));
+    QString outputFile = (info.completeBaseName() + QLatin1String(".gz"));
 
     // Open the new output file
     KCompressionDevice output(outputFile, KCompressionDevice::GZip);
