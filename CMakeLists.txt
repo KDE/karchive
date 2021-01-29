@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.79.0") # handled by release scripts
-project(KArchive VERSION ${KF5_VERSION})
+set(KF_VERSION "5.79.0") # handled by release scripts
+project(KArchive VERSION ${KF_VERSION})
 
 include(FeatureSummary)
 find_package(ECM 5.79.0  NO_MODULE)

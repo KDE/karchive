@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(HelloWorld)
 
 # Look for the KArchive module
-find_package(KF5Archive ${KF5_VERSION} REQUIRED)
+find_package(KF5Archive ${KF_VERSION} REQUIRED)
 
 find_package(Qt5Core REQUIRED)
 

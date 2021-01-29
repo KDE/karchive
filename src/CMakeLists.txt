@@ -50,7 +50,7 @@ add_library(KF5::Archive ALIAS KF5Archive)
 ecm_generate_export_header(KF5Archive
     BASE_NAME KArchive
     GROUP_BASE_NAME KF
-    VERSION ${KF5_VERSION}
+    VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 5.0
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
@@ -121,7 +121,7 @@ if(BUILD_QCH)
         KF5Archive_QCH
         NAME KArchive
         BASE_NAME KF5Archive
-        VERSION ${KF5_VERSION}
+        VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
             ${KArchive_HEADERS}
