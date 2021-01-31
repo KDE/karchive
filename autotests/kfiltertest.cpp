@@ -8,7 +8,9 @@
 
 #include <QTest>
 #include <QBuffer>
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
 #include <QTextCodec>
+#endif
 #include <QSaveFile>
 #include <QRandomGenerator>
 
@@ -397,7 +399,9 @@ void KFilterTest::test_saveFile()
         KCompressionDevice device(&file, false, compressionType);
         QVERIFY(device.open(QIODevice::WriteOnly));
         QTextStream stream(&device);
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
         stream.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
         for (int i = 0 ; i < numLines ; ++i) {
             stream << lineTemplate.arg(i);
             stream << QString("\n");

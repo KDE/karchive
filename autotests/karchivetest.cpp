@@ -14,7 +14,9 @@
 
 #include <QDebug>
 #include <QTest>
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
 #include <QTextCodec>
+#endif
 #include <QSaveFile>
 #include <QStandardPaths>
 #include <QFileInfo>
@@ -39,8 +41,10 @@ QTEST_MAIN(KArchiveTest)
 
 void initLocale()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     // KArchive uses QFile::decodeName, and our tests use utf8 encoding for filenames
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf-8"));
+#endif
 }
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 
