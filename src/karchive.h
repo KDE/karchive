@@ -189,13 +189,13 @@ public:
 
 #if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated since 5.0, use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const
+     * @deprecated since 5.0, use writeFile(const QString&, const QByteArray&, mode_t, const QString&, const QString&, const QDateTime&, const QDateTime&, const
      * QDateTime&)
      */
-    KARCHIVE_DEPRECATED_VERSION(
-        5,
-        0,
-        "Use KArchive::writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)")
+    KARCHIVE_DEPRECATED_VERSION(5,
+                                0,
+                                "Use KArchive::writeFile(const QString&, const QByteArray&, mode_t, const QString&, const QString&, const QDateTime&, const "
+                                "QDateTime&, const QDateTime&)")
     bool writeFile(const QString &name,
                    const QString &user,
                    const QString &group,

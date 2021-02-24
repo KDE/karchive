@@ -33,16 +33,20 @@ static const int max_path_len = 4095; // maximum number of character a path may 
 static void transformToMsDos(const QDateTime &_dt, char *buffer)
 {
     const QDateTime dt = _dt.isValid() ? _dt : QDateTime::currentDateTime();
+    /* clang-format off */
     const quint16 time = (dt.time().hour() << 11) // 5 bit hour
-        | (dt.time().minute() << 5) // 6 bit minute
-        | (dt.time().second() >> 1); // 5 bit double seconds
+                         | (dt.time().minute() << 5) // 6 bit minute
+                         | (dt.time().second() >> 1); // 5 bit double seconds
+    /* clang-format on */
 
     buffer[0] = char(time);
     buffer[1] = char(time >> 8);
 
+    /* clang-format off */
     const quint16 date = ((dt.date().year() - 1980) << 9) // 7 bit year 1980-based
-        | (dt.date().month() << 5) // 4 bit month
-        | (dt.date().day()); // 5 bit day
+                         | (dt.date().month() << 5) // 4 bit month
+                         | (dt.date().day()); // 5 bit day
+    /* clang-format on */
 
     buffer[2] = char(date);
     buffer[3] = char(date >> 8);
@@ -307,7 +311,9 @@ static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev, bool d
             return true;
         }
 
-        if (!dataDescriptor && ((buffer[1] == 1 && buffer[2] == 2) || (buffer[1] == 3 && buffer[2] == 4))) {
+        if (!dataDescriptor
+            && ((buffer[1] == 1 && buffer[2] == 2) //
+                || (buffer[1] == 3 && buffer[2] == 4))) {
             // central/local header token found
             dev->seek(dev->pos() - 4);
             // go back 4 bytes, so that the magic bytes can be found
@@ -530,7 +536,9 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 // qCDebug(KArchiveLog) << "general purpose bit flag indicates, that local file header contains valid size";
                 bool foundSignature = false;
                 // check if this could be a symbolic link
-                if (compression_mode == NoCompression && uncomp_size <= max_path_len && uncomp_size > 0) {
+                if (compression_mode == NoCompression //
+                    && uncomp_size <= max_path_len //
+                    && uncomp_size > 0) {
                     // read content and store it
                     // If it's not a symlink, then we'll just discard the data for now.
                     pfi.guessed_symlink = dev->read(uncomp_size);
@@ -600,9 +608,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             n = dev->read(buffer + 4, 42);
             if (n < 42) {
-                setErrorString(
-                    tr("Invalid ZIP file, central entry too short "
-                       "(not long enough for valid entry)"));
+                setErrorString(tr("Invalid ZIP file, central entry too short (not long enough for valid entry)"));
                 return false;
             }
 
@@ -864,16 +870,13 @@ bool KZip::closeArchive()
 
         memset(buffer, 0, 46); // zero is a nice default for most header fields
 
+        /* clang-format off */
         const char head[] = {
-            'P',
-            'K',
-            1,
-            2, // central file header signature
-            0x14,
-            3, // version made by (3 == UNIX)
-            0x14,
-            0 // version needed to extract
+            'P', 'K', 1, 2, // central file header signature
+            0x14, 3, // version made by (3 == UNIX)
+            0x14, 0 // version needed to extract
         };
+        /* clang-format on */
 
         // I do not know why memcpy is not working here
         // memcpy(buffer, head, sizeof(head));

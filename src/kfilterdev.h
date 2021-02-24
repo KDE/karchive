@@ -6,9 +6,10 @@
 #ifndef __kfilterdev_h
 #define __kfilterdev_h
 
-#include <QString>
 #include <karchive_export.h>
 #include <kcompressiondevice.h>
+
+#include <QString>
 
 class QFile;
 class KFilterBase;

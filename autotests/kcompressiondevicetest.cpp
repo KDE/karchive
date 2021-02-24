@@ -88,14 +88,17 @@ void KCompressionDeviceTest::testExtraction()
     QVERIFY(QDir("examples/tarlocalfiles").exists());
     QVERIFY(QDir("examples/unzipper").exists());
 
-    QVector<QString> fileList;
-    fileList << QLatin1String("examples/bzip2gzip/CMakeLists.txt") << QLatin1String("examples/bzip2gzip/main.cpp")
-             << QLatin1String("examples/helloworld/CMakeLists.txt") << QLatin1String("examples/helloworld/helloworld.pro")
-             << QLatin1String("examples/helloworld/main.cpp") << QLatin1String("examples/tarlocalfiles/CMakeLists.txt")
-             << QLatin1String("examples/tarlocalfiles/main.cpp") << QLatin1String("examples/unzipper/CMakeLists.txt")
-             << QLatin1String("examples/unzipper/main.cpp");
+    const QStringList fileList = {QStringLiteral("examples/bzip2gzip/CMakeLists.txt"),
+                                  QStringLiteral("examples/bzip2gzip/main.cpp"),
+                                  QStringLiteral("examples/helloworld/CMakeLists.txt"),
+                                  QStringLiteral("examples/helloworld/helloworld.pro"),
+                                  QStringLiteral("examples/helloworld/main.cpp"),
+                                  QStringLiteral("examples/tarlocalfiles/CMakeLists.txt"),
+                                  QStringLiteral("examples/tarlocalfiles/main.cpp"),
+                                  QStringLiteral("examples/unzipper/CMakeLists.txt"),
+                                  QStringLiteral("examples/unzipper/main.cpp")};
 
-    for (const QString &s : qAsConst(fileList)) {
+    for (const QString &s : fileList) {
         QFileInfo extractedFile(s);
         QFileInfo sourceFile(QFINDTESTDATA("../" + s));
 

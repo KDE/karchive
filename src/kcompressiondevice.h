@@ -7,11 +7,13 @@
 #ifndef __kcompressiondevice_h
 #define __kcompressiondevice_h
 
+#include <karchive_export.h>
+
 #include <QFileDevice>
 #include <QIODevice>
 #include <QMetaType>
 #include <QString>
-#include <karchive_export.h>
+
 class KCompressionDevicePrivate;
 
 class KFilterBase;

@@ -7,10 +7,9 @@
 
 #include "ktar.h"
 #include "karchive_p.h"
+#include "kfilterbase.h"
+#include "kfilterdev.h"
 #include "loggingcategory.h"
-
-#include <assert.h>
-#include <stdlib.h> // strtol
 
 #include <QDebug>
 #include <QDir>
@@ -18,8 +17,8 @@
 #include <QMimeDatabase>
 #include <QTemporaryFile>
 
-#include <kfilterbase.h>
-#include <kfilterdev.h>
+#include <assert.h>
+#include <stdlib.h> // strtol
 
 ////////////////////////////////////////////////////////////////////////
 /////////////////////////// KTar ///////////////////////////////////
@@ -196,7 +195,8 @@ qint64 KTar::KTarPrivate::readRawHeader(char *buffer)
             // only compare those of the 6 checksum digits that mean something,
             // because the other digits are filled with all sorts of different chars by different tars ...
             // Some tars right-justify the checksum so it could start in one of three places - we have to check each.
-            if (strncmp(buffer + 148 + 6 - s.length(), s.data(), s.length()) && strncmp(buffer + 148 + 7 - s.length(), s.data(), s.length())
+            if (strncmp(buffer + 148 + 6 - s.length(), s.data(), s.length()) //
+                && strncmp(buffer + 148 + 7 - s.length(), s.data(), s.length()) //
                 && strncmp(buffer + 148 + 8 - s.length(), s.data(), s.length())) {
                 /*qCWarning(KArchiveLog) << "KTar: invalid TAR file. Header is:" << QByteArray( buffer+257, 5 )
                                << "instead of ustar. Reading from wrong pos in file?"
@@ -455,7 +455,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             }
 
             if (isdir) {
-                access |= S_IFDIR; // f*cking broken tar files
+                access |= S_IFDIR; // broken tar files...
             }
 
             KArchiveEntry *e;

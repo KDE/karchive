@@ -5,7 +5,9 @@
  */
 
 #include "krcc.h"
+
 #include <QDebug>
+
 #include <stdio.h>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)

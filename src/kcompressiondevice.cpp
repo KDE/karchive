@@ -9,14 +9,10 @@
 #include "kcompressiondevice_p.h"
 #include "kfilterbase.h"
 #include "loggingcategory.h"
-#include <QFile>
-#include <assert.h>
-#include <config-compression.h>
-#include <stdio.h> // for EOF
-#include <stdlib.h>
-
 #include "kgzipfilter.h"
 #include "knonefilter.h"
+
+#include "config-compression.h"
 
 #if HAVE_BZIP2_SUPPORT
 #include "kbzip2filter.h"
@@ -26,6 +22,11 @@
 #endif
 
 #include <QDebug>
+#include <QFile>
+
+#include <assert.h>
+#include <stdio.h> // for EOF
+#include <stdlib.h>
 
 class KCompressionDevicePrivate
 {
@@ -248,7 +249,8 @@ bool KCompressionDevice::seek(qint64 pos)
 
 bool KCompressionDevice::atEnd() const
 {
-    return (d->type == KCompressionDevice::None || d->result == KFilterBase::End) && QIODevice::atEnd() // take QIODevice's internal buffer into account
+    return (d->type == KCompressionDevice::None || d->result == KFilterBase::End) //
+        && QIODevice::atEnd() // take QIODevice's internal buffer into account
         && d->filter->device()->atEnd();
 }
 

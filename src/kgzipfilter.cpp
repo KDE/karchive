@@ -7,10 +7,10 @@
 #include "kgzipfilter.h"
 #include "loggingcategory.h"
 
-#include <time.h>
-
 #include <QDebug>
 #include <QIODevice>
+
+#include <time.h>
 #include <zlib.h>
 
 /* gzip flag byte */

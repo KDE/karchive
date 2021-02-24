@@ -6,10 +6,11 @@
 
 #include "kfilterdev.h"
 #include "loggingcategory.h"
-#include <QMimeDatabase>
+
 #include <config-compression.h>
 
 #include <QDebug>
+#include <QMimeDatabase>
 
 static KCompressionDevice::CompressionType findCompressionByFileName(const QString &fileName)
 {
@@ -46,7 +47,8 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
         return KCompressionDevice::GZip;
     }
 #if HAVE_BZIP2_SUPPORT
-    if (mimeType == QLatin1String("application/x-bzip") || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
+    if (mimeType == QLatin1String("application/x-bzip") //
+        || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
     ) {
         return KCompressionDevice::BZip2;
     }
