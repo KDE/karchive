@@ -132,7 +132,7 @@ static QString getCurrentGroupName()
 
 enum ListingFlags {
     WithUserGroup = 1,
-    WithTime = 0x02
+    WithTime = 0x02,
 }; // ListingFlags
 
 static QStringList recursiveListEntries(const KArchiveDirectory *dir, const QString &path, int listingFlags)

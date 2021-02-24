@@ -37,7 +37,7 @@ public:
         IA64 = 5,
         ARM = 6,
         ARMTHUMB = 7,
-        SPARC = 8
+        SPARC = 8,
     };
 
     virtual bool init(int, Flag flag, const QVector<unsigned char> &props);

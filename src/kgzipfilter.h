@@ -34,7 +34,7 @@ public:
     enum Flag {
         RawDeflate = 0, // raw deflate data
         ZlibHeader = 1, // zlib headers (HTTP deflate)
-        GZipHeader = 2
+        GZipHeader = 2,
     };
     bool init(int mode, Flag flag); // for direct users of KGzipFilter
     int mode() const override;

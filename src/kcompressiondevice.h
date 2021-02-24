@@ -33,7 +33,7 @@ public:
         GZip,
         BZip2,
         Xz,
-        None
+        None,
     };
 
     /**

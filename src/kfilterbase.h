@@ -72,7 +72,7 @@ public:
     enum Result {
         Ok,
         End,
-        Error
+        Error,
     };
     /** \internal */
     virtual Result uncompress() = 0;
@@ -86,7 +86,7 @@ public:
     enum FilterFlags {
         NoHeaders = 0,
         WithHeaders = 1,
-        ZlibHeaders = 2 // only use for gzip compression
+        ZlibHeaders = 2, // only use for gzip compression
     };
     /**
      * \internal

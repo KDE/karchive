@@ -100,7 +100,7 @@ enum HeaderType {
     kEncodedHeader,
 
     kStartPos,
-    kDummy
+    kDummy,
 };
 
 // Method ID

@@ -68,7 +68,7 @@ public:
     enum ExtraField {
         NoExtraField = 0,      ///< No extra field
         ModificationTime = 1,  ///< Modification time ("extended timestamp" header)
-        DefaultExtraField = 1  // alias of ModificationTime
+        DefaultExtraField = 1,  // alias of ModificationTime
     };
 
     /**
@@ -91,7 +91,7 @@ public:
      */
     enum Compression {
         NoCompression = 0,     ///< Uncompressed.
-        DeflateCompression = 1 ///< Deflate compression method.
+        DeflateCompression = 1, ///< Deflate compression method.
     };
 
     /**
