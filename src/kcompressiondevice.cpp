@@ -7,13 +7,13 @@
 
 #include "kcompressiondevice.h"
 #include "kcompressiondevice_p.h"
-#include "loggingcategory.h"
-#include <config-compression.h>
 #include "kfilterbase.h"
+#include "loggingcategory.h"
 #include <QFile>
+#include <assert.h>
+#include <config-compression.h>
 #include <stdio.h> // for EOF
 #include <stdlib.h>
-#include <assert.h>
 
 #include "kgzipfilter.h"
 #include "knonefilter.h"
@@ -132,14 +132,14 @@ KCompressionDevice::CompressionType KCompressionDevice::compressionType() const
 bool KCompressionDevice::open(QIODevice::OpenMode mode)
 {
     if (isOpen()) {
-        //qCWarning(KArchiveLog) << "KCompressionDevice::open: device is already open";
+        // qCWarning(KArchiveLog) << "KCompressionDevice::open: device is already open";
         return true; // QFile returns false, but well, the device -is- open...
     }
     if (!d->filter) {
         return false;
     }
     d->bOpenedUnderlyingDevice = false;
-    //qCDebug(KArchiveLog) << mode;
+    // qCDebug(KArchiveLog) << mode;
     if (mode == QIODevice::ReadOnly) {
         d->buffer.resize(0);
     } else {
@@ -148,7 +148,7 @@ bool KCompressionDevice::open(QIODevice::OpenMode mode)
     }
     if (!d->filter->device()->isOpen()) {
         if (!d->filter->device()->open(mode)) {
-            //qCWarning(KArchiveLog) << "KCompressionDevice::open: Couldn't open underlying device";
+            // qCWarning(KArchiveLog) << "KCompressionDevice::open: Couldn't open underlying device";
             d->propagateErrorCode();
             return false;
         }
@@ -170,12 +170,12 @@ void KCompressionDevice::close()
         return;
     }
     if (d->filter->mode() == QIODevice::WriteOnly && d->errorCode == QFileDevice::NoError) {
-        write(nullptr, 0);    // finish writing
+        write(nullptr, 0); // finish writing
     }
-    //qCDebug(KArchiveLog) << "Calling terminate().";
+    // qCDebug(KArchiveLog) << "Calling terminate().";
 
     if (!d->filter->terminate()) {
-        //qCWarning(KArchiveLog) << "KCompressionDevice::close: terminate returned an error";
+        // qCWarning(KArchiveLog) << "KCompressionDevice::close: terminate returned an error";
         d->errorCode = QFileDevice::UnspecifiedError;
     }
     if (d->bOpenedUnderlyingDevice) {
@@ -197,7 +197,7 @@ bool KCompressionDevice::seek(qint64 pos)
         return QIODevice::seek(pos);
     }
 
-    //qCDebug(KArchiveLog) << "seek(" << pos << ") called, current pos=" << QIODevice::pos();
+    // qCDebug(KArchiveLog) << "seek(" << pos << ") called, current pos=" << QIODevice::pos();
 
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
 
@@ -233,7 +233,7 @@ bool KCompressionDevice::seek(qint64 pos)
         bytesToRead = pos;
     }
 
-    //qCDebug(KArchiveLog) << "reading " << bytesToRead << " dummy bytes";
+    // qCDebug(KArchiveLog) << "reading " << bytesToRead << " dummy bytes";
     QByteArray dummy(qMin(bytesToRead, qint64(SEEK_BUFFER_SIZE)), 0);
     while (bytesToRead > 0) {
         const qint64 bytesToReadThisTime = qMin(bytesToRead, qint64(dummy.size()));
@@ -248,15 +248,14 @@ bool KCompressionDevice::seek(qint64 pos)
 
 bool KCompressionDevice::atEnd() const
 {
-    return (d->type == KCompressionDevice::None || d->result == KFilterBase::End)
-           && QIODevice::atEnd() // take QIODevice's internal buffer into account
-           && d->filter->device()->atEnd();
+    return (d->type == KCompressionDevice::None || d->result == KFilterBase::End) && QIODevice::atEnd() // take QIODevice's internal buffer into account
+        && d->filter->device()->atEnd();
 }
 
 qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
 {
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
-    //qCDebug(KArchiveLog) << "maxlen=" << maxlen;
+    // qCDebug(KArchiveLog) << "maxlen=" << maxlen;
     KFilterBase *filter = d->filter;
 
     uint dataReceived = 0;
@@ -280,9 +279,8 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
             // For sure, it should be bigger than the header size (see comment in readHeader)
             d->buffer.resize(BUFFER_SIZE);
             // Request data from underlying device
-            int size = filter->device()->read(d->buffer.data(),
-                                              d->buffer.size());
-            //qCDebug(KArchiveLog) << "got" << size << "bytes from device";
+            int size = filter->device()->read(d->buffer.data(), d->buffer.size());
+            // qCDebug(KArchiveLog) << "got" << size << "bytes from device";
             if (size) {
                 filter->setInBuffer(d->buffer.data(), size);
             } else {
@@ -291,22 +289,22 @@ qint64 KCompressionDevice::readData(char *data, qint64 maxlen)
             }
         }
         if (d->bNeedHeader) {
-            (void) filter->readHeader();
+            (void)filter->readHeader();
             d->bNeedHeader = false;
         }
 
         d->result = filter->uncompress();
 
         if (d->result == KFilterBase::Error) {
-            //qCWarning(KArchiveLog) << "KCompressionDevice: Error when uncompressing data";
+            // qCWarning(KArchiveLog) << "KCompressionDevice: Error when uncompressing data";
             break;
         }
 
         // We got that much data since the last time we went here
         uint outReceived = availOut - filter->outBufferAvailable();
-        //qCDebug(KArchiveLog) << "avail_out = " << filter->outBufferAvailable() << " result=" << d->result << " outReceived=" << outReceived;
+        // qCDebug(KArchiveLog) << "avail_out = " << filter->outBufferAvailable() << " result=" << d->result << " outReceived=" << outReceived;
         if (availOut < uint(filter->outBufferAvailable())) {
-            //qCWarning(KArchiveLog) << " last availOut " << availOut << " smaller than new avail_out=" << filter->outBufferAvailable() << " !";
+            // qCWarning(KArchiveLog) << " last availOut " << availOut << " smaller than new avail_out=" << filter->outBufferAvailable() << " !";
         }
 
         dataReceived += outReceived;
@@ -349,11 +347,10 @@ qint64 KCompressionDevice::writeData(const char *data /*0 to finish*/, qint64 le
     uint dataWritten = 0;
     uint availIn = len;
     while (dataWritten < len || finish) {
-
         d->result = filter->compress(finish);
 
         if (d->result == KFilterBase::Error) {
-            //qCWarning(KArchiveLog) << "KCompressionDevice: Error when compressing data";
+            // qCWarning(KArchiveLog) << "KCompressionDevice: Error when compressing data";
             // What to do ?
             break;
         }
@@ -363,32 +360,32 @@ qint64 KCompressionDevice::writeData(const char *data /*0 to finish*/, qint64 le
             // We got that much data since the last time we went here
             uint wrote = availIn - filter->inBufferAvailable();
 
-            //qCDebug(KArchiveLog) << " Wrote everything for now. avail_in=" << filter->inBufferAvailable() << "result=" << d->result << "wrote=" << wrote;
+            // qCDebug(KArchiveLog) << " Wrote everything for now. avail_in=" << filter->inBufferAvailable() << "result=" << d->result << "wrote=" << wrote;
 
             // Move on in the input buffer
             data += wrote;
             dataWritten += wrote;
 
             availIn = len - dataWritten;
-            //qCDebug(KArchiveLog) << " availIn=" << availIn << "dataWritten=" << dataWritten << "pos=" << pos();
+            // qCDebug(KArchiveLog) << " availIn=" << availIn << "dataWritten=" << dataWritten << "pos=" << pos();
             if (availIn > 0) {
                 filter->setInBuffer(data, availIn);
             }
         }
 
         if (filter->outBufferFull() || (d->result == KFilterBase::End) || finish) {
-            //qCDebug(KArchiveLog) << " writing to underlying. avail_out=" << filter->outBufferAvailable();
+            // qCDebug(KArchiveLog) << " writing to underlying. avail_out=" << filter->outBufferAvailable();
             int towrite = d->buffer.size() - filter->outBufferAvailable();
             if (towrite > 0) {
                 // Write compressed data to underlying device
                 int size = filter->device()->write(d->buffer.data(), towrite);
                 if (size != towrite) {
-                    //qCWarning(KArchiveLog) << "KCompressionDevice::write. Could only write " << size << " out of " << towrite << " bytes";
+                    // qCWarning(KArchiveLog) << "KCompressionDevice::write. Could only write " << size << " out of " << towrite << " bytes";
                     d->errorCode = QFileDevice::WriteError;
                     setErrorString(tr("Could not write. Partition full?"));
                     return 0; // indicate an error
                 }
-                //qCDebug(KArchiveLog) << " wrote " << size << " bytes";
+                // qCDebug(KArchiveLog) << " wrote " << size << " bytes";
             }
             if (d->result == KFilterBase::End) {
                 Q_ASSERT(finish); // hopefully we don't get end before finishing

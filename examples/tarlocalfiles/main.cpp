@@ -13,7 +13,7 @@
  * api: addLocalDirectory(dirName, destName)
  *
  * Usage: ./tarlocalfiles <file-1> <file-n>
-*/
+ */
 
 #include <QCoreApplication>
 #include <QDir>

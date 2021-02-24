@@ -8,8 +8,8 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
-#include <QFile>
 #include <QDebug>
+#include <QFile>
 
 #include <limits>
 
@@ -51,8 +51,7 @@ KAr::~KAr()
     delete d;
 }
 
-bool KAr::doPrepareWriting(const QString &, const QString &, const QString &,
-                           qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KAr::doPrepareWriting(const QString &, const QString &, const QString &, qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
     qCWarning(KArchiveLog) << "doPrepareWriting not implemented for KAr";
@@ -66,16 +65,14 @@ bool KAr::doFinishWriting(qint64)
     return false;
 }
 
-bool KAr::doWriteDir(const QString &, const QString &, const QString &,
-                     mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KAr::doWriteDir(const QString &, const QString &, const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
     qCWarning(KArchiveLog) << "doWriteDir not implemented for KAr";
     return false;
 }
 
-bool KAr::doWriteSymLink(const QString &, const QString &, const QString &,
-                         const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KAr::doWriteSymLink(const QString &, const QString &, const QString &, const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to AR file"));
     qCWarning(KArchiveLog) << "doWriteSymLink not implemented for KAr";
@@ -106,13 +103,13 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
     }
 
     QByteArray ar_longnames;
-    while (! dev->atEnd()) {
+    while (!dev->atEnd()) {
         QByteArray ar_header;
         ar_header.resize(60);
 
-        dev->seek(dev->pos() + (2 - (dev->pos() % 2)) % 2);   // Ar headers are padded to byte boundary
+        dev->seek(dev->pos() + (2 - (dev->pos() % 2)) % 2); // Ar headers are padded to byte boundary
 
-        if (dev->read(ar_header.data(), 60) != 60) {   // Read ar header
+        if (dev->read(ar_header.data(), 60) != 60) { // Read ar header
             qCWarning(KArchiveLog) << "Couldn't read header";
             return true; // Probably EOF / trailing junk
         }
@@ -122,10 +119,10 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
             return false;
         }
 
-        QByteArray name = ar_header.mid(0, 16);   // Process header
+        QByteArray name = ar_header.mid(0, 16); // Process header
         const int date = ar_header.mid(16, 12).trimmed().toInt();
-        //const int uid = ar_header.mid( 28, 6 ).trimmed().toInt();
-        //const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
+        // const int uid = ar_header.mid( 28, 6 ).trimmed().toInt();
+        // const int gid = ar_header.mid( 34, 6 ).trimmed().toInt();
         const int mode = ar_header.mid(40, 8).trimmed().toInt(nullptr, 8);
         const qint64 size = ar_header.mid(48, 10).trimmed().toInt();
         if (size < 0 || size > kMaxQByteArraySize) {
@@ -169,12 +166,18 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
         name.replace('/', QByteArray());
         qCDebug(KArchiveLog) << "Filename: " << name << " Size: " << size;
 
-        KArchiveEntry *entry = new KArchiveFile(this, QString::fromLocal8Bit(name.constData()), mode, KArchivePrivate::time_tToDateTime(date),
-                                                rootDir()->user(), rootDir()->group(), /*symlink*/ QString(),
-                                                dev->pos(), size);
+        KArchiveEntry *entry = new KArchiveFile(this,
+                                                QString::fromLocal8Bit(name.constData()),
+                                                mode,
+                                                KArchivePrivate::time_tToDateTime(date),
+                                                rootDir()->user(),
+                                                rootDir()->group(),
+                                                /*symlink*/ QString(),
+                                                dev->pos(),
+                                                size);
         rootDir()->addEntry(entry); // Ar files don't support directories, so everything in root
 
-        dev->seek(dev->pos() + size);   // Skip contents
+        dev->seek(dev->pos() + size); // Skip contents
     }
 
     return true;

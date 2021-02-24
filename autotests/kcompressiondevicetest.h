@@ -12,8 +12,8 @@
 #include <QNetworkAccessManager>
 #include <QScopedPointer>
 
-#include <KTar>
 #include <KCompressionDevice>
+#include <KTar>
 
 class QNetworkReply;
 
@@ -25,9 +25,7 @@ private:
     QNetworkReply *getArchive(const QString &extension);
     QString formatExtension(KCompressionDevice::CompressionType type) const;
 
-    void setDeviceToArchive(
-            QIODevice *d,
-            KCompressionDevice::CompressionType type);
+    void setDeviceToArchive(QIODevice *d, KCompressionDevice::CompressionType type);
 
     void testBufferedDevice(KCompressionDevice::CompressionType type);
     void testExtraction();

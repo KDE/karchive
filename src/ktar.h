@@ -35,8 +35,7 @@ public:
      * specify the compression layer !  If the mimetype is omitted, it
      * will be determined from the filename.
      */
-    explicit KTar(const QString &filename,
-                  const QString &mimetype = QString());
+    explicit KTar(const QString &filename, const QString &mimetype = QString());
 
     /**
      * Creates an instance that operates on the given device.
@@ -63,18 +62,32 @@ public:
     void setOrigFileName(const QByteArray &fileName);
 
 protected:
-
     /// Reimplemented from KArchive
-    bool doWriteSymLink(const QString &name, const QString &target,
-                        const QString &user, const QString &group,
-                        mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteSymLink(const QString &name,
+                        const QString &target,
+                        const QString &user,
+                        const QString &group,
+                        mode_t perm,
+                        const QDateTime &atime,
+                        const QDateTime &mtime,
+                        const QDateTime &ctime) override;
     /// Reimplemented from KArchive
-    bool doWriteDir(const QString &name, const QString &user, const QString &group,
-                    mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteDir(const QString &name,
+                    const QString &user,
+                    const QString &group,
+                    mode_t perm,
+                    const QDateTime &atime,
+                    const QDateTime &mtime,
+                    const QDateTime &ctime) override;
     /// Reimplemented from KArchive
-    bool doPrepareWriting(const QString &name, const QString &user,
-                          const QString &group, qint64 size, mode_t perm,
-                          const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doPrepareWriting(const QString &name,
+                          const QString &user,
+                          const QString &group,
+                          qint64 size,
+                          mode_t perm,
+                          const QDateTime &atime,
+                          const QDateTime &mtime,
+                          const QDateTime &ctime) override;
     /// Reimplemented from KArchive
     bool doFinishWriting(qint64 size) override;
 
@@ -90,9 +103,9 @@ protected:
     bool createDevice(QIODevice::OpenMode mode) override;
 
 private:
-
 protected:
     void virtual_hook(int id, void *data) override;
+
 private:
     class KTarPrivate;
     KTarPrivate *const d;

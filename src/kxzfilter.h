@@ -32,7 +32,7 @@ public:
         AUTO = 0,
         LZMA = 1,
         LZMA2 = 2,
-        BCJ = 3, //X86
+        BCJ = 3, // X86
         POWERPC = 4,
         IA64 = 5,
         ARM = 6,
@@ -46,7 +46,7 @@ public:
     void reset() override;
     bool readHeader() override
     {
-        return true;    // lzma handles it by itself ! Cool !
+        return true; // lzma handles it by itself ! Cool !
     }
     bool writeHeader(const QByteArray &) override
     {
@@ -54,10 +54,11 @@ public:
     }
     void setOutBuffer(char *data, uint maxlen) override;
     void setInBuffer(const char *data, uint size) override;
-    int  inBufferAvailable() const override;
-    int  outBufferAvailable() const override;
+    int inBufferAvailable() const override;
+    int outBufferAvailable() const override;
     Result uncompress() override;
     Result compress(bool finish) override;
+
 private:
     class Private;
     Private *const d;

@@ -8,60 +8,57 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
+#include <QBuffer>
 #include <QDebug>
 #include <QDir>
-#include <QBuffer>
 #include <QFile>
 #include <qplatformdefs.h>
 
 #include "kcompressiondevice.h"
+#include "klimitediodevice_p.h"
 #include <kfilterbase.h>
 #include <kxzfilter.h>
-#include "klimitediodevice_p.h"
 
-#include <time.h> // time()
-#include <memory>
 #include "zlib.h"
+#include <memory>
+#include <time.h> // time()
 
 #ifndef QT_STAT_LNK
-#       define QT_STAT_LNK 0120000
+#define QT_STAT_LNK 0120000
 #endif // QT_STAT_LNK
 
 ////////////////////////////////////////////////////////////////////////
 /////////////////////////// K7Zip //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-#define BUFFER_SIZE 8*1024
+#define BUFFER_SIZE 8 * 1024
 
 static const unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1C};
-//static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
+// static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
 
-#define GetUi16(p, offset) (((unsigned char)p[offset+0]) | (((unsigned char)p[1]) << 8))
+#define GetUi16(p, offset) (((unsigned char)p[offset + 0]) | (((unsigned char)p[1]) << 8))
 
-#define GetUi32(p, offset) ( \
-                             ((unsigned char)p[offset+0])        | \
-                             (((unsigned char)p[offset+1]) <<  8) | \
-                             (((unsigned char)p[offset+2]) << 16) | \
-                             (((unsigned char)p[offset+3]) << 24))
+#define GetUi32(p, offset)                                                                                                                                     \
+    (((unsigned char)p[offset + 0]) | (((unsigned char)p[offset + 1]) << 8) | (((unsigned char)p[offset + 2]) << 16) | (((unsigned char)p[offset + 3]) << 24))
 
 #define GetUi64(p, offset) ((quint32)GetUi32(p, offset) | (((quint64)GetUi32(p, offset + 4)) << 32))
 
-#define LZMA2_DIC_SIZE_FROM_PROP(p) (((quint32)2 | ((p) & 1)) << ((p) / 2 + 11))
+#define LZMA2_DIC_SIZE_FROM_PROP(p) (((quint32)2 | ((p)&1)) << ((p) / 2 + 11))
 
-#define FILE_ATTRIBUTE_READONLY             1
-#define FILE_ATTRIBUTE_HIDDEN               2
-#define FILE_ATTRIBUTE_SYSTEM               4
-#define FILE_ATTRIBUTE_DIRECTORY           16
-#define FILE_ATTRIBUTE_ARCHIVE             32
-#define FILE_ATTRIBUTE_DEVICE              64
-#define FILE_ATTRIBUTE_NORMAL             128
-#define FILE_ATTRIBUTE_TEMPORARY          256
-#define FILE_ATTRIBUTE_SPARSE_FILE        512
-#define FILE_ATTRIBUTE_REPARSE_POINT     1024
-#define FILE_ATTRIBUTE_COMPRESSED        2048
-#define FILE_ATTRIBUTE_OFFLINE          0x1000
-#define FILE_ATTRIBUTE_ENCRYPTED        0x4000
-#define FILE_ATTRIBUTE_UNIX_EXTENSION   0x8000   /* trick for Unix */
+#define FILE_ATTRIBUTE_READONLY 1
+#define FILE_ATTRIBUTE_HIDDEN 2
+#define FILE_ATTRIBUTE_SYSTEM 4
+#define FILE_ATTRIBUTE_DIRECTORY 16
+#define FILE_ATTRIBUTE_ARCHIVE 32
+#define FILE_ATTRIBUTE_DEVICE 64
+#define FILE_ATTRIBUTE_NORMAL 128
+#define FILE_ATTRIBUTE_TEMPORARY 256
+#define FILE_ATTRIBUTE_SPARSE_FILE 512
+#define FILE_ATTRIBUTE_REPARSE_POINT 1024
+#define FILE_ATTRIBUTE_COMPRESSED 2048
+#define FILE_ATTRIBUTE_OFFLINE 0x1000
+#define FILE_ATTRIBUTE_ENCRYPTED 0x4000
+#define FILE_ATTRIBUTE_UNIX_EXTENSION 0x8000 /* trick for Unix */
 
 enum HeaderType {
     kEnd,
@@ -155,9 +152,16 @@ static const quint64 k_AES = 0x06F10701;
 class KARCHIVE_EXPORT K7ZipFileEntry : public KArchiveFile
 {
 public:
-    K7ZipFileEntry(K7Zip *zip, const QString &name, int access, const QDateTime &date,
-                   const QString &user, const QString &group, const QString &symlink,
-                   qint64 pos, qint64 size, const QByteArray &data);
+    K7ZipFileEntry(K7Zip *zip,
+                   const QString &name,
+                   int access,
+                   const QDateTime &date,
+                   const QString &user,
+                   const QString &group,
+                   const QString &symlink,
+                   qint64 pos,
+                   qint64 size,
+                   const QByteArray &data);
 
     ~K7ZipFileEntry();
 
@@ -184,9 +188,16 @@ private:
     QBuffer *m_buffer;
 };
 
-K7ZipFileEntry::K7ZipFileEntry(K7Zip *zip, const QString &name, int access, const QDateTime &date,
-                               const QString &user, const QString &group, const QString &symlink,
-                               qint64 pos, qint64 size, const QByteArray &data)
+K7ZipFileEntry::K7ZipFileEntry(K7Zip *zip,
+                               const QString &name,
+                               int access,
+                               const QDateTime &date,
+                               const QString &user,
+                               const QString &group,
+                               const QString &symlink,
+                               qint64 pos,
+                               qint64 size,
+                               const QByteArray &data)
     : KArchiveFile(zip, name, access, date, user, group, symlink, pos, size)
     , m_data(data)
     , m_buffer(new QBuffer)
@@ -375,7 +386,7 @@ public:
         return false;
     }
 
-    //bool CheckStructure() const;
+    // bool CheckStructure() const;
 
     bool unpackCRCDefined;
     quint32 unpackCRC;
@@ -442,7 +453,7 @@ public:
     quint64 headerSize;
     quint64 countSize;
 
-    //Write
+    // Write
     QByteArray header;
     QByteArray outData; // Store data in this buffer before compress and write in archive.
     K7ZipFileEntry *m_currentFile;
@@ -499,7 +510,7 @@ public:
     bool readSubStreamsInfo();
     QByteArray readAndDecodePackedStreams(bool readMainStreamInfo = true);
 
-    //Write
+    // Write
     void createItemsFromEntities(const KArchiveDirectory *, const QString &, QByteArray &);
     void writeByte(unsigned char b);
     void writeNumber(quint64 value);
@@ -692,9 +703,7 @@ void K7Zip::K7ZipPrivate::readBoolVector2(int numItems, QVector<bool> &v)
     }
 }
 
-void K7Zip::K7ZipPrivate::readHashDigests(int numItems,
-                                          QVector<bool> &digestsDefined,
-                                          QVector<quint32> &digests)
+void K7Zip::K7ZipPrivate::readHashDigests(int numItems, QVector<bool> &digestsDefined, QVector<quint32> &digests)
 {
     if (!buffer) {
         return;
@@ -723,7 +732,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
     quint64 numInStreamsTotal = 0;
     quint64 numOutStreamsTotal = 0;
     for (int i = 0; i < numCoders; ++i) {
-        //BYTE
+        // BYTE
         //    {
         //      0:3 CodecIdSize
         //      4:  Is Complex Coder
@@ -751,7 +760,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         }
         info->methodID = id;
 
-        //if (Is Complex Coder)
+        // if (Is Complex Coder)
         if ((coderInfo & 0x10) != 0) {
             info->numInStreams = readNumber();
             info->numOutStreams = readNumber();
@@ -760,7 +769,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
             info->numOutStreams = 1;
         }
 
-        //if (There Are Attributes)
+        // if (There Are Attributes)
         if ((coderInfo & 0x20) != 0) {
             int propertiesSize = readNumber();
             for (int i = 0; i < propertiesSize; ++i) {
@@ -1048,17 +1057,17 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
     return true;
 }
 
-#define TICKSPERSEC        10000000
-#define TICKSPERMSEC       10000
-#define SECSPERDAY         86400
-#define SECSPERHOUR        3600
-#define SECSPERMIN         60
-#define EPOCHWEEKDAY       1  /* Jan 1, 1601 was Monday */
-#define DAYSPERWEEK        7
+#define TICKSPERSEC 10000000
+#define TICKSPERMSEC 10000
+#define SECSPERDAY 86400
+#define SECSPERHOUR 3600
+#define SECSPERMIN 60
+#define EPOCHWEEKDAY 1 /* Jan 1, 1601 was Monday */
+#define DAYSPERWEEK 7
 #define DAYSPERQUADRICENTENNIUM (365 * 400 + 97)
 #define DAYSPERNORMALQUADRENNIUM (365 * 4 + 1)
 #define TICKS_1601_TO_1970 (SECS_1601_TO_1970 * TICKSPERSEC)
-#define SECS_1601_TO_1970  ((369 * 365 + 89) * (unsigned long long)SECSPERDAY)
+#define SECS_1601_TO_1970 ((369 * 365 + 89) * (unsigned long long)SECSPERDAY)
 
 static uint toTimeT(const long long liTime)
 {
@@ -1163,7 +1172,7 @@ static bool getInStream(const Folder *folder, quint32 streamIndex, int &seqInStr
     for (int i = 0; i < folder->packedStreams.size(); i++) {
         if (folder->packedStreams[i] == streamIndex) {
             seqInStream = i;
-            return  true;
+            return true;
         }
     }
 
@@ -1173,8 +1182,7 @@ static bool getInStream(const Folder *folder, quint32 streamIndex, int &seqInStr
     }
 
     quint32 coderStreamIndex;
-    folder->findOutStream(folder->outIndexes[binderIndex],
-                          coderIndex, coderStreamIndex);
+    folder->findOutStream(folder->outIndexes[binderIndex], coderIndex, coderStreamIndex);
 
     quint32 startIndex = folder->getCoderInStreamIndex(coderIndex);
 
@@ -1216,8 +1224,7 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
     }
 
     quint32 coderIndex, coderStreamIndex;
-    folder->findInStream(folder->inIndexes[binderIndex],
-                         coderIndex, coderStreamIndex);
+    folder->findInStream(folder->inIndexes[binderIndex], coderIndex, coderStreamIndex);
 
     quint32 startIndex = folder->getCoderOutStreamIndex(coderIndex);
 
@@ -1326,10 +1333,10 @@ public:
     }
 };
 
-const int kNumBitModelTotalBits  = 11;
+const int kNumBitModelTotalBits = 11;
 const quint32 kBitModelTotal = (1 << kNumBitModelTotalBits);
 
-template <int numMoveBits>
+template<int numMoveBits>
 class CBitModel
 {
 public:
@@ -1349,7 +1356,7 @@ public:
     }
 };
 
-template <int numMoveBits>
+template<int numMoveBits>
 class CBitDecoder : public CBitModel<numMoveBits>
 {
 public:
@@ -1404,7 +1411,7 @@ static QByteArray decodeBCJ2(const QByteArray &mainStream, const QByteArray &cal
     rangeDecoder.setStream(rangeBuffer);
     rangeDecoder.init();
 
-    QVector<CBitDecoder<kNumMoveBits> > statusDecoder(256 + 2);
+    QVector<CBitDecoder<kNumMoveBits>> statusDecoder(256 + 2);
 
     for (int i = 0; i < 256 + 2; i++) {
         statusDecoder[i].init();
@@ -1482,7 +1489,8 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
     quint64 startPos = 32 + packPos;
     for (int i = 0; i < folders.size(); i++) {
         const Folder *folder = folders.at(i);
-        quint64 unpackSize64 = folder->getUnpackSize();;
+        quint64 unpackSize64 = folder->getUnpackSize();
+        ;
         size_t unpackSize = (size_t)unpackSize64;
         if (unpackSize != unpackSize64) {
             qCDebug(KArchiveLog) << "unsupported";
@@ -1594,9 +1602,9 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             }
             case k_AES:
                 if (coder->properties.size() >= 1) {
-                    //const Byte *data = (const Byte *)coder.Props;
-                    //Byte firstByte = *data++;
-                    //UInt32 numCyclesPower = firstByte & 0x3F;
+                    // const Byte *data = (const Byte *)coder.Props;
+                    // Byte firstByte = *data++;
+                    // UInt32 numCyclesPower = firstByte & 0x3F;
                 }
                 break;
             case k_BCJ:
@@ -1654,7 +1662,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 inflatedDataTmp.append(outBuffer.data(), uncompressedBytes);
 
                 if (result == KFilterBase::End) {
-                    //qCDebug(KArchiveLog) << "Finished unpacking";
+                    // qCDebug(KArchiveLog) << "Finished unpacking";
                     break; // Finished.
                 }
             }
@@ -1673,7 +1681,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         }
 
         QByteArray inflated;
-        for (const QByteArray& data : qAsConst(inflatedDatas)) {
+        for (const QByteArray &data : qAsConst(inflatedDatas)) {
             inflated.append(data);
         }
 
@@ -1736,7 +1744,6 @@ void K7Zip::K7ZipPrivate::createItemsFromEntities(const KArchiveDirectory *dir, 
             fileInfo->isDir = true;
             fileInfos.append(fileInfo);
             createItemsFromEntities((KArchiveDirectory *)entry, path + (*it) + QLatin1Char('/'), data);
-
         }
     }
 }
@@ -1753,7 +1760,7 @@ void K7Zip::K7ZipPrivate::writeNumber(quint64 value)
     short mask = 0x80;
     int i;
     for (i = 0; i < 8; i++) {
-        if (value < ((quint64(1) << (7  * (i + 1))))) {
+        if (value < ((quint64(1) << (7 * (i + 1))))) {
             firstByte |= (int)(value >> (8 * i));
             break;
         }
@@ -1807,7 +1814,7 @@ void K7Zip::K7ZipPrivate::writeAlignedBoolHeader(const QVector<bool> &v, int num
 {
     const unsigned bvSize = (numDefined == v.size()) ? 0 : ((unsigned)v.size() + 7) / 8;
     const quint64 dataSize = (quint64)numDefined * itemSize + bvSize + 2;
-    //SkipAlign(3 + (unsigned)bvSize + (unsigned)GetBigNumberSize(dataSize), itemSize);
+    // SkipAlign(3 + (unsigned)bvSize + (unsigned)GetBigNumberSize(dataSize), itemSize);
 
     writeByte(type);
     writeNumber(dataSize);
@@ -1843,9 +1850,7 @@ void K7Zip::K7ZipPrivate::writeUInt64DefVector(const QVector<quint64> &v, const 
     }
 }
 
-void K7Zip::K7ZipPrivate::writeHashDigests(
-    const QVector<bool> &digestsDefined,
-    const QVector<quint32> &digests)
+void K7Zip::K7ZipPrivate::writeHashDigests(const QVector<bool> &digestsDefined, const QVector<quint32> &digests)
 {
     int numDefined = 0;
     int i;
@@ -1903,7 +1908,7 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
 
             quint64 id = info->methodID;
             size_t idSize;
-            for (idSize = 1; idSize < sizeof (id); idSize++) {
+            for (idSize = 1; idSize < sizeof(id); idSize++) {
                 if ((id >> (8 * idSize)) == 0) {
                     break;
                 }
@@ -1993,10 +1998,7 @@ void K7Zip::K7ZipPrivate::writeUnpackInfo(const QVector<Folder *> &folderItems)
     writeByte(kEnd);
 }
 
-void K7Zip::K7ZipPrivate::writeSubStreamsInfo(
-    const QVector<quint64> &unpackSizes,
-    const QVector<bool> &digestsDefined,
-    const QVector<quint32> &digests)
+void K7Zip::K7ZipPrivate::writeSubStreamsInfo(const QVector<quint64> &unpackSizes, const QVector<bool> &digestsDefined, const QVector<quint32> &digests)
 {
     writeByte(kSubStreamsInfo);
 
@@ -2074,7 +2076,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QVector<quint64> &packSizes, QVecto
 
     folds.append(folder);
 
-    //compress data
+    // compress data
     QByteArray encodedData;
     if (!header.isEmpty()) {
         QByteArray enc;
@@ -2209,7 +2211,7 @@ void K7Zip::K7ZipPrivate::writeHeader(quint64 &headerOffset)
 
         if (numDefined > 0) {
             namesDataSize++;
-            //SkipAlign(2 + GetBigNumberSize(namesDataSize), 2);
+            // SkipAlign(2 + GetBigNumberSize(namesDataSize), 2);
 
             writeByte(kName);
             writeNumber(namesDataSize);
@@ -2288,7 +2290,7 @@ void K7Zip::K7ZipPrivate::writeSignature()
 {
     unsigned char buf[8];
     memcpy(buf, k7zip_signature, 6);
-    buf[6] = 0/*kMajorVersion*/;
+    buf[6] = 0 /*kMajorVersion*/;
     buf[7] = 3;
     q->device()->write((char *)buf, 8);
 }
@@ -2364,16 +2366,14 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
     n = dev->read(inBuffer.data(), inBuffer.size());
     if (n != (qint64)nextHeaderSize) {
-        setErrorString(
-              tr("Failed read next header size; should read %1, read %2")
-              .arg(nextHeaderSize).arg(n));
+        setErrorString(tr("Failed read next header size; should read %1, read %2").arg(nextHeaderSize).arg(n));
         return false;
     }
     d->buffer = inBuffer.data();
     d->end = nextHeaderSize;
 
     d->headerSize = 32 + nextHeaderSize;
-    //int physSize = 32 + nextHeaderSize + nextHeaderOffset;
+    // int physSize = 32 + nextHeaderSize + nextHeaderOffset;
 
     crc = crc32(0, (Bytef *)(d->buffer), (quint32)nextHeaderSize);
 
@@ -2396,7 +2396,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         if (external != 0) {
             int dataIndex = (int)d->readNumber();
             if (dataIndex < 0) {
-                //qCDebug(KArchiveLog) << "dataIndex error";
+                // qCDebug(KArchiveLog) << "dataIndex error";
             }
             d->buffer = decodedData.constData();
             d->pos = 0;
@@ -2449,7 +2449,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         return false;
     }
 
-    //read files info
+    // read files info
     int numFiles = d->readNumber();
     for (int i = 0; i < numFiles; ++i) {
         d->fileInfos.append(new FileInfo);
@@ -2578,14 +2578,13 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             d->skipData(d->readNumber());
         }
 
-        bool checkRecordsSize = (major > 0 ||
-                                 minor > 2);
+        bool checkRecordsSize = (major > 0 || minor > 2);
         if (checkRecordsSize && d->pos - ppp != size) {
-            setErrorString(
-                tr(
-                    "Read size failed "
-                    "(checkRecordsSize: %1, d->pos - ppp: %2, size: %3)")
-                .arg(checkRecordsSize).arg(d->pos - ppp).arg(size));
+            setErrorString(tr("Read size failed "
+                              "(checkRecordsSize: %1, d->pos - ppp: %2, size: %3)")
+                               .arg(checkRecordsSize)
+                               .arg(d->pos - ppp)
+                               .arg(size));
             return false;
         }
     }
@@ -2681,11 +2680,20 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             if (ent && ent->isDirectory()) {
                 e = nullptr;
             } else {
-                e = new KArchiveDirectory(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), QString()/*symlink*/);
+                e = new KArchiveDirectory(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), QString() /*symlink*/);
             }
         } else {
             if (!symlink) {
-                e = new K7ZipFileEntry(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), QString()/*symlink*/, pos, fileInfo->size, d->outData);
+                e = new K7ZipFileEntry(this,
+                                       entryName,
+                                       access,
+                                       mTime,
+                                       rootDir()->user(),
+                                       rootDir()->group(),
+                                       QString() /*symlink*/,
+                                       pos,
+                                       fileInfo->size,
+                                       d->outData);
             } else {
                 QString target = QFile::decodeName(d->outData.mid(pos, fileInfo->size));
                 e = new K7ZipFileEntry(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), target, 0, 0, nullptr);
@@ -2710,7 +2718,7 @@ bool K7Zip::closeArchive()
 {
     // Unnecessary check (already checked by KArchive::close())
     if (!isOpen()) {
-        //qCWarning(KArchiveLog) << "You must open the file before close it\n";
+        // qCWarning(KArchiveLog) << "You must open the file before close it\n";
         return false;
     }
 
@@ -2758,7 +2766,7 @@ bool K7Zip::closeArchive()
     folder->unpackCRCDefined = true;
     folder->unpackCRC = crc32(0, (Bytef *)(d->outData.data()), d->outData.size());
 
-    //compress data
+    // compress data
     QByteArray encodedData;
     if (!d->outData.isEmpty()) {
         QByteArray enc;
@@ -2838,7 +2846,6 @@ bool K7Zip::closeArchive()
 
 bool K7Zip::doFinishWriting(qint64 size)
 {
-
     d->m_currentFile->setSize(size);
     d->m_currentFile = nullptr;
 
@@ -2862,9 +2869,14 @@ bool K7Zip::writeData(const char *data, qint64 size)
     return true;
 }
 
-bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
-                             const QString &group, qint64 /*size*/, mode_t perm,
-                             const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
+bool K7Zip::doPrepareWriting(const QString &name,
+                             const QString &user,
+                             const QString &group,
+                             qint64 /*size*/,
+                             mode_t perm,
+                             const QDateTime & /*atime*/,
+                             const QDateTime &mtime,
+                             const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
@@ -2880,7 +2892,7 @@ bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
 
     // Find or create parent dir
     KArchiveDirectory *parentDir = rootDir();
-    //QString fileName( name );
+    // QString fileName( name );
     // In some files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
     int i = name.lastIndexOf(QLatin1Char('/'));
@@ -2893,22 +2905,27 @@ bool K7Zip::doPrepareWriting(const QString &name, const QString &user,
     // test if the entry already exist
     const KArchiveEntry *entry = parentDir->entry(fileName);
     if (!entry) {
-        K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString()/*symlink*/, d->outData.size(), 0 /*unknown yet*/, d->outData);
+        K7ZipFileEntry *e =
+            new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString() /*symlink*/, d->outData.size(), 0 /*unknown yet*/, d->outData);
         if (!parentDir->addEntryV2(e))
             return false;
         d->m_entryList << e;
         d->m_currentFile = e;
     } else {
         // TODO : find and replace in m_entryList
-        //d->m_currentFile = static_cast<K7ZipFileEntry*>(entry);
+        // d->m_currentFile = static_cast<K7ZipFileEntry*>(entry);
     }
 
     return true;
 }
 
-bool K7Zip::doWriteDir(const QString &name, const QString &user,
-                       const QString &group, mode_t perm,
-                       const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
+bool K7Zip::doWriteDir(const QString &name,
+                       const QString &user,
+                       const QString &group,
+                       mode_t perm,
+                       const QDateTime & /*atime*/,
+                       const QDateTime &mtime,
+                       const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));
@@ -2917,7 +2934,7 @@ bool K7Zip::doWriteDir(const QString &name, const QString &user,
     }
 
     if (!(mode() & QIODevice::WriteOnly)) {
-        //qCWarning(KArchiveLog) << "You must open the tar file for writing\n";
+        // qCWarning(KArchiveLog) << "You must open the tar file for writing\n";
         return false;
     }
 
@@ -2937,15 +2954,20 @@ bool K7Zip::doWriteDir(const QString &name, const QString &user,
         parentDir = findOrCreate(dir);
     }
 
-    KArchiveDirectory *e = new KArchiveDirectory(this, dirName, perm, mtime, user, group, QString()/*symlink*/);
+    KArchiveDirectory *e = new KArchiveDirectory(this, dirName, perm, mtime, user, group, QString() /*symlink*/);
     parentDir->addEntry(e);
 
     return true;
 }
 
-bool K7Zip::doWriteSymLink(const QString &name, const QString &target,
-                           const QString &user, const QString &group,
-                           mode_t perm, const QDateTime & /*atime*/, const QDateTime &mtime, const QDateTime & /*ctime*/)
+bool K7Zip::doWriteSymLink(const QString &name,
+                           const QString &target,
+                           const QString &user,
+                           const QString &group,
+                           mode_t perm,
+                           const QDateTime & /*atime*/,
+                           const QDateTime &mtime,
+                           const QDateTime & /*ctime*/)
 {
     if (!isOpen()) {
         setErrorString(tr("Application error: 7-Zip file must be open before being written into"));

@@ -45,18 +45,32 @@ public:
     virtual ~K7Zip();
 
 protected:
-
     /// Reimplemented from KArchive
-    bool doWriteSymLink(const QString &name, const QString &target,
-                        const QString &user, const QString &group,
-                        mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteSymLink(const QString &name,
+                        const QString &target,
+                        const QString &user,
+                        const QString &group,
+                        mode_t perm,
+                        const QDateTime &atime,
+                        const QDateTime &mtime,
+                        const QDateTime &ctime) override;
     /// Reimplemented from KArchive
-    bool doWriteDir(const QString &name, const QString &user, const QString &group,
-                    mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteDir(const QString &name,
+                    const QString &user,
+                    const QString &group,
+                    mode_t perm,
+                    const QDateTime &atime,
+                    const QDateTime &mtime,
+                    const QDateTime &ctime) override;
     /// Reimplemented from KArchive
-    bool doPrepareWriting(const QString &name, const QString &user,
-                          const QString &group, qint64 size, mode_t perm,
-                          const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doPrepareWriting(const QString &name,
+                          const QString &user,
+                          const QString &group,
+                          qint64 size,
+                          mode_t perm,
+                          const QDateTime &atime,
+                          const QDateTime &mtime,
+                          const QDateTime &ctime) override;
     /// Reimplemented from KArchive
     bool doFinishWriting(qint64 size) override;
 
@@ -74,6 +88,7 @@ protected:
 
 protected:
     void virtual_hook(int id, void *data) override;
+
 private:
     class K7ZipPrivate;
     K7ZipPrivate *const d;

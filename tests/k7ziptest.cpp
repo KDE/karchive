@@ -5,8 +5,8 @@
  */
 
 #include "k7zip.h"
-#include <stdio.h>
 #include <QDebug>
+#include <stdio.h>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {
@@ -15,8 +15,13 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     QStringList::ConstIterator it = l.constBegin();
     for (; it != l.constEnd(); ++it) {
         const KArchiveEntry *entry = dir->entry((*it));
-        printf("mode=%07o %s %s %s %s%s %lld isdir=%d\n", entry->permissions(), entry->date().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss")).toLatin1().constData(),
-               entry->user().toLatin1().constData(), entry->group().toLatin1().constData(), path.toLatin1().constData(), (*it).toLatin1().constData(),
+        printf("mode=%07o %s %s %s %s%s %lld isdir=%d\n",
+               entry->permissions(),
+               entry->date().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss")).toLatin1().constData(),
+               entry->user().toLatin1().constData(),
+               entry->group().toLatin1().constData(),
+               path.toLatin1().constData(),
+               (*it).toLatin1().constData(),
                entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0,
                entry->isDirectory());
         if (!entry->symLinkTarget().isEmpty()) {
@@ -43,9 +48,10 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
 int main(int argc, char **argv)
 {
     if (argc != 2) {
-        printf("\n"
-               " Usage :\n"
-               " ./k7ziptest /path/to/existing_file.7z       tests listing an existing .7z\n");
+        printf(
+            "\n"
+            " Usage :\n"
+            " ./k7ziptest /path/to/existing_file.7z       tests listing an existing .7z\n");
         return 1;
     }
 
@@ -58,12 +64,11 @@ int main(int argc, char **argv)
 
     const KArchiveDirectory *dir = k7z.directory();
 
-    //printf("calling recursive_print\n");
+    // printf("calling recursive_print\n");
     recursive_print(dir, QLatin1String(""));
-    //printf("recursive_print called\n");
+    // printf("recursive_print called\n");
 
     k7z.close();
 
     return 0;
 }
-

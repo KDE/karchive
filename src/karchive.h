@@ -14,10 +14,10 @@
 
 #include <QCoreApplication>
 #include <QDate>
-#include <QString>
-#include <QStringList>
 #include <QHash>
 #include <QIODevice>
+#include <QString>
+#include <QStringList>
 
 #include <karchive_export.h>
 
@@ -157,9 +157,13 @@ public:
      * @param mtime modification time of the file
      * @param ctime time of last status change
      */
-    bool writeDir(const QString &name, const QString &user = QString(), const QString &group = QString(),
-                  mode_t perm = 040755, const QDateTime &atime = QDateTime(),
-                  const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+    bool writeDir(const QString &name,
+                  const QString &user = QString(),
+                  const QString &group = QString(),
+                  mode_t perm = 040755,
+                  const QDateTime &atime = QDateTime(),
+                  const QDateTime &mtime = QDateTime(),
+                  const QDateTime &ctime = QDateTime());
 
     /**
      * Writes a symbolic link to the archive if supported.
@@ -174,20 +178,33 @@ public:
      * @param mtime modification time of the file
      * @param ctime time of last status change
      */
-    bool writeSymLink(const QString &name, const QString &target,
-                      const QString &user = QString(), const QString &group = QString(),
-                      mode_t perm = 0120755, const QDateTime &atime = QDateTime(),
-                      const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+    bool writeSymLink(const QString &name,
+                      const QString &target,
+                      const QString &user = QString(),
+                      const QString &group = QString(),
+                      mode_t perm = 0120755,
+                      const QDateTime &atime = QDateTime(),
+                      const QDateTime &mtime = QDateTime(),
+                      const QDateTime &ctime = QDateTime());
 
 #if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
-     * @deprecated since 5.0, use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)
+     * @deprecated since 5.0, use writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const
+     * QDateTime&)
      */
-    KARCHIVE_DEPRECATED_VERSION(5, 0, "Use KArchive::writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)")
-    bool writeFile(const QString &name, const QString &user, const QString &group,
-                   const char *data, qint64 size,
-                   mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
-                   const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime())
+    KARCHIVE_DEPRECATED_VERSION(
+        5,
+        0,
+        "Use KArchive::writeFile(const QString&,const QByteArray&,mode_t,const QString&,const QString&,const QDateTime&,const QDateTime&,const QDateTime&)")
+    bool writeFile(const QString &name,
+                   const QString &user,
+                   const QString &group,
+                   const char *data,
+                   qint64 size,
+                   mode_t perm = 0100644,
+                   const QDateTime &atime = QDateTime(),
+                   const QDateTime &mtime = QDateTime(),
+                   const QDateTime &ctime = QDateTime())
     {
         QByteArray array(data, size);
         return writeFile(name, array, perm, user, group, atime, mtime, ctime);
@@ -218,11 +235,14 @@ public:
      * @param mtime modification time of the file
      * @param ctime time of last status change
      */
-    bool writeFile(const QString &name, const QByteArray &data,
+    bool writeFile(const QString &name,
+                   const QByteArray &data,
                    mode_t perm = 0100644,
-                   const QString &user = QString(), const QString &group = QString(),
+                   const QString &user = QString(),
+                   const QString &group = QString(),
                    const QDateTime &atime = QDateTime(),
-                   const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+                   const QDateTime &mtime = QDateTime(),
+                   const QDateTime &ctime = QDateTime());
 
     /**
      * Here's another way of writing a file into an archive:
@@ -243,10 +263,14 @@ public:
      * @param mtime modification time of the file
      * @param ctime time of last status change
      */
-    bool prepareWriting(const QString &name, const QString &user,
-                        const QString &group, qint64 size,
-                        mode_t perm = 0100644, const QDateTime &atime = QDateTime(),
-                        const QDateTime &mtime = QDateTime(), const QDateTime &ctime = QDateTime());
+    bool prepareWriting(const QString &name,
+                        const QString &user,
+                        const QString &group,
+                        qint64 size,
+                        mode_t perm = 0100644,
+                        const QDateTime &atime = QDateTime(),
+                        const QDateTime &mtime = QDateTime(),
+                        const QDateTime &ctime = QDateTime());
 
     /**
      * Write data into the current file - to be called after calling prepareWriting
@@ -305,8 +329,13 @@ protected:
      * @param ctime time of last status change
      * @see writeDir
      */
-    virtual bool doWriteDir(const QString &name, const QString &user, const QString &group,
-                            mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
+    virtual bool doWriteDir(const QString &name,
+                            const QString &user,
+                            const QString &group,
+                            mode_t perm,
+                            const QDateTime &atime,
+                            const QDateTime &mtime,
+                            const QDateTime &ctime) = 0;
 
     /**
      * Writes a symbolic link to the archive.
@@ -322,9 +351,14 @@ protected:
      * @param ctime time of last status change
      * @see writeSymLink
      */
-    virtual bool doWriteSymLink(const QString &name, const QString &target,
-                                const QString &user, const QString &group,
-                                mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
+    virtual bool doWriteSymLink(const QString &name,
+                                const QString &target,
+                                const QString &user,
+                                const QString &group,
+                                mode_t perm,
+                                const QDateTime &atime,
+                                const QDateTime &mtime,
+                                const QDateTime &ctime) = 0;
 
     /**
      * This virtual method must be implemented by subclasses.
@@ -341,9 +375,14 @@ protected:
      * @param ctime time of last status change
      * @see prepareWriting
      */
-    virtual bool doPrepareWriting(const QString &name, const QString &user,
-                                  const QString &group, qint64 size, mode_t perm,
-                                  const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) = 0;
+    virtual bool doPrepareWriting(const QString &name,
+                                  const QString &user,
+                                  const QString &group,
+                                  qint64 size,
+                                  mode_t perm,
+                                  const QDateTime &atime,
+                                  const QDateTime &mtime,
+                                  const QDateTime &ctime) = 0;
 
     /**
      * Called after writing the data.
@@ -384,13 +423,14 @@ protected:
 
 protected:
     virtual void virtual_hook(int id, void *data);
+
 private:
     friend class KArchivePrivate;
     KArchivePrivate *const d;
 };
 
 // for source compat
-#include "karchivefile.h"
 #include "karchivedirectory.h"
+#include "karchivefile.h"
 
 #endif

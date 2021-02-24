@@ -44,9 +44,7 @@ public:
      * @param group the group that owns the entry
      * @param symlink the symlink, or QString()
      */
-    KArchiveEntry(KArchive *archive, const QString &name, int access, const QDateTime &date,
-                  const QString &user, const QString &group,
-                  const QString &symlink);
+    KArchiveEntry(KArchive *archive, const QString &name, int access, const QDateTime &date, const QString &user, const QString &group, const QString &symlink);
 
     virtual ~KArchiveEntry();
 
@@ -101,6 +99,7 @@ protected:
 
 protected:
     virtual void virtual_hook(int id, void *data);
+
 private:
     KArchiveEntryPrivate *const d;
 };

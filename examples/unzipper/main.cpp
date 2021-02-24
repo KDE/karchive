@@ -13,7 +13,7 @@
  * api: KArchiveDirectory::copyTo(QString destination, bool recursive)
  *
  * Usage: ./unzipper <archive>
-*/
+ */
 
 #include <QCoreApplication>
 #include <QDir>

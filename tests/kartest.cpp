@@ -5,8 +5,8 @@
 */
 
 #include "kar.h"
-#include <stdio.h>
 #include <QDebug>
+#include <stdio.h>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {
@@ -15,9 +15,11 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     QStringList::ConstIterator it = l.constBegin();
     for (; it != l.constEnd(); ++it) {
         const KArchiveEntry *entry = dir->entry((*it));
-        printf("mode=%7o path=%s type=%s size=%lld\n", entry->permissions(), qPrintable(path + (*it)),
-                entry->isFile() ? "file" : "dir",
-                entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0);
+        printf("mode=%7o path=%s type=%s size=%lld\n",
+               entry->permissions(),
+               qPrintable(path + (*it)),
+               entry->isFile() ? "file" : "dir",
+               entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0);
         if (!entry->symLinkTarget().isEmpty()) {
             printf("  (symlink to %s)\n", qPrintable(entry->symLinkTarget()));
         }
@@ -32,9 +34,10 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
 int main(int argc, char **argv)
 {
     if (argc != 2) {
-        printf("\n"
-               " Usage :\n"
-               " ./kartest /path/to/existing_file.a       tests listing an existing archive\n");
+        printf(
+            "\n"
+            " Usage :\n"
+            " ./kartest /path/to/existing_file.a       tests listing an existing archive\n");
         return 1;
     }
 
@@ -47,12 +50,11 @@ int main(int argc, char **argv)
 
     const KArchiveDirectory *dir = archive.directory();
 
-    //printf("calling recursive_print\n");
+    // printf("calling recursive_print\n");
     recursive_print(dir, QLatin1String(""));
-    //printf("recursive_print called\n");
+    // printf("recursive_print called\n");
 
     archive.close();
 
     return 0;
 }
-

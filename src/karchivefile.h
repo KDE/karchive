@@ -36,9 +36,15 @@ public:
      * @param pos the position of the file in the directory
      * @param size the size of the file
      */
-    KArchiveFile(KArchive *archive, const QString &name, int access, const QDateTime &date,
-                 const QString &user, const QString &group, const QString &symlink,
-                 qint64 pos, qint64 size);
+    KArchiveFile(KArchive *archive,
+                 const QString &name,
+                 int access,
+                 const QDateTime &date,
+                 const QString &user,
+                 const QString &group,
+                 const QString &symlink,
+                 qint64 pos,
+                 qint64 size);
 
     /**
      * Destructor. Do not call this, KArchive takes care of it.
@@ -95,6 +101,7 @@ public:
 
 protected:
     void virtual_hook(int id, void *data) override;
+
 private:
     KArchiveFilePrivate *const d;
 };

@@ -6,19 +6,22 @@
 
 #include "kzip.h"
 #include "kcompressiondevice.h"
-#include <stdio.h>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QFile>
-#include <QCoreApplication>
+#include <stdio.h>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {
     const QStringList lst = dir->entries();
     for (const QString &it : lst) {
         const KArchiveEntry *entry = dir->entry(it);
-        printf("mode=%07o %s %s \"%s%s\" size: %lld pos: %lld isdir=%d%s", entry->permissions(),
-               entry->user().toLatin1().constData(), entry->group().toLatin1().constData(),
-               path.toLatin1().constData(), it.toLatin1().constData(),
+        printf("mode=%07o %s %s \"%s%s\" size: %lld pos: %lld isdir=%d%s",
+               entry->permissions(),
+               entry->user().toLatin1().constData(),
+               entry->group().toLatin1().constData(),
+               path.toLatin1().constData(),
+               it.toLatin1().constData(),
                entry->isDirectory() ? 0 : (static_cast<const KArchiveFile *>(entry))->size(),
                entry->isDirectory() ? 0 : (static_cast<const KArchiveFile *>(entry))->position(),
                entry->isDirectory(),
@@ -32,8 +35,7 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     }
 }
 
-void recursive_transfer(const KArchiveDirectory *dir,
-                        const QString &path, KZip *zip)
+void recursive_transfer(const KArchiveDirectory *dir, const QString &path, KZip *zip)
 {
     const QStringList lst = dir->entries();
     for (const QString &it : lst) {
@@ -55,8 +57,7 @@ void recursive_transfer(const KArchiveDirectory *dir,
                 zip->writeSymLink(path + e->name(), e->symLinkTarget());
             }
         } else if (e->isDirectory()) {
-            recursive_transfer(static_cast<const KArchiveDirectory *>(e),
-                               path + e->name() + '/', zip);
+            recursive_transfer(static_cast<const KArchiveDirectory *>(e), path + e->name() + '/', zip);
         }
     }
 }
@@ -121,8 +122,8 @@ static int doSave(const QString &fileName)
         qWarning() << "Write error (other file)";
         return 1;
     }
-    //writeOk = zip.addLocalFile("David.jpg", "picture.jpg");
-    //if (!writeOk) {
+    // writeOk = zip.addLocalFile("David.jpg", "picture.jpg");
+    // if (!writeOk) {
     //    qWarning() << "Write error (picture)";
     //    return 1;
     //}
@@ -247,17 +248,17 @@ int main(int argc, char **argv)
     if (argc < 3) {
         // ###### Note: please consider adding new tests to karchivetest (so that they can be automated)
         // rather than here (interactive)
-        printf("\n"
-               " Usage :\n"
-               " ./kziptest list /path/to/existing_file.zip       tests listing an existing zip\n"
-               " ./kziptest print-all file.zip                    prints contents of all files.\n"
-               " ./kziptest print file.zip filename               prints contents of one file.\n"
-               " ./kziptest update file.zip filename              update filename in file.zip.\n"
-               " ./kziptest save file.zip                         save file.\n"
-               " ./kziptest load file.zip                         load file.\n"
-               " ./kziptest write file.bz2                        write compressed file.\n"
-               " ./kziptest read file.bz2                         read uncompressed file.\n"
-              );
+        printf(
+            "\n"
+            " Usage :\n"
+            " ./kziptest list /path/to/existing_file.zip       tests listing an existing zip\n"
+            " ./kziptest print-all file.zip                    prints contents of all files.\n"
+            " ./kziptest print file.zip filename               prints contents of one file.\n"
+            " ./kziptest update file.zip filename              update filename in file.zip.\n"
+            " ./kziptest save file.zip                         save file.\n"
+            " ./kziptest load file.zip                         load file.\n"
+            " ./kziptest write file.bz2                        write compressed file.\n"
+            " ./kziptest read file.bz2                         read uncompressed file.\n");
         return 1;
     }
     QCoreApplication app(argc, argv);

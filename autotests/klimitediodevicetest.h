@@ -7,13 +7,12 @@
 #ifndef KLIMITEDIODEVICETEST_H
 #define KLIMITEDIODEVICETEST_H
 
-#include <QByteArray>
 #include <QBuffer>
+#include <QByteArray>
 #include <QList>
 #include <QObject>
 
-struct ChunkData
-{
+struct ChunkData {
     QByteArray data;
     int offset;
 };

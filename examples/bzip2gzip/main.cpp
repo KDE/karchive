@@ -17,12 +17,12 @@
  * api: QIODevice::write(const QByteArray &data)
  *
  * Usage: ./bzip2gzip <archive.bz2>
-*/
+ */
 
 #include <QCoreApplication>
-#include <QStringList>
 #include <QFile>
 #include <QFileInfo>
+#include <QStringList>
 
 #include <KCompressionDevice>
 

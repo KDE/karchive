@@ -6,8 +6,8 @@
 
 #include "kfilterdev.h"
 #include "loggingcategory.h"
-#include <config-compression.h>
 #include <QMimeDatabase>
+#include <config-compression.h>
 
 #include <QDebug>
 
@@ -29,7 +29,7 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
     else {
         // not a warning, since this is called often with other mimetypes (see #88574)...
         // maybe we can avoid that though?
-        //qCDebug(KArchiveLog) << "findCompressionByFileName : no compression found for " << fileName;
+        // qCDebug(KArchiveLog) << "findCompressionByFileName : no compression found for " << fileName;
     }
 
     return KCompressionDevice::None;
@@ -46,16 +46,15 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
         return KCompressionDevice::GZip;
     }
 #if HAVE_BZIP2_SUPPORT
-    if (mimeType == QLatin1String("application/x-bzip")
-        || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
-       ) {
+    if (mimeType == QLatin1String("application/x-bzip") || mimeType == QLatin1String("application/x-bzip2") // old name, kept for compatibility
+    ) {
         return KCompressionDevice::BZip2;
     }
 #endif
 #if HAVE_XZ_SUPPORT
-    if (mimeType == QLatin1String("application/x-lzma")    // legacy name, still used
-        || mimeType == QLatin1String("application/x-xz")   // current naming
-       ) {
+    if (mimeType == QLatin1String("application/x-lzma") // legacy name, still used
+        || mimeType == QLatin1String("application/x-xz") // current naming
+    ) {
         return KCompressionDevice::Xz;
     }
 #endif
@@ -83,6 +82,6 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
 
     // not a warning, since this is called often with other mimetypes (see #88574)...
     // maybe we can avoid that though?
-    //qCDebug(KArchiveLog) << "no compression found for" << mimeType;
+    // qCDebug(KArchiveLog) << "no compression found for" << mimeType;
     return KCompressionDevice::None;
 }

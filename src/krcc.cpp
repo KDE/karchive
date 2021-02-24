@@ -8,13 +8,13 @@
 #include "karchive_p.h"
 #include "loggingcategory.h"
 
-#include <QFile>
-#include <QDebug>
-#include <QUuid>
 #include <QDateTime>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QResource>
-#include <QDir>
+#include <QUuid>
 
 class Q_DECL_HIDDEN KRcc::KRccPrivate
 {
@@ -24,7 +24,7 @@ public:
     }
     void createEntries(const QDir &dir, KArchiveDirectory *parentDir, KRcc *q);
 
-    QString m_prefix;  // '/' + uuid
+    QString m_prefix; // '/' + uuid
 };
 
 /**
@@ -33,8 +33,14 @@ public:
 class KARCHIVE_EXPORT KRccFileEntry : public KArchiveFile
 {
 public:
-    KRccFileEntry(KArchive *archive, const QString &name, int access, const QDateTime &date,
-                  const QString &user, const QString &group, qint64 size, const QString &resourcePath)
+    KRccFileEntry(KArchive *archive,
+                  const QString &name,
+                  int access,
+                  const QDateTime &date,
+                  const QString &user,
+                  const QString &group,
+                  qint64 size,
+                  const QString &resourcePath)
         : KArchiveFile(archive, name, access, date, user, group, QString(), 0, size)
         , m_resourcePath(resourcePath)
     {
@@ -53,6 +59,7 @@ public:
     {
         return new QFile(m_resourcePath);
     }
+
 private:
     QString m_resourcePath;
 };
@@ -71,8 +78,7 @@ KRcc::~KRcc()
     delete d;
 }
 
-bool KRcc::doPrepareWriting(const QString &, const QString &, const QString &,
-                            qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KRcc::doPrepareWriting(const QString &, const QString &, const QString &, qint64, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
     qCWarning(KArchiveLog) << "doPrepareWriting not implemented for KRcc";
@@ -86,16 +92,14 @@ bool KRcc::doFinishWriting(qint64)
     return false;
 }
 
-bool KRcc::doWriteDir(const QString &, const QString &, const QString &,
-                      mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KRcc::doWriteDir(const QString &, const QString &, const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
     qCWarning(KArchiveLog) << "doWriteDir not implemented for KRcc";
     return false;
 }
 
-bool KRcc::doWriteSymLink(const QString &, const QString &, const QString &,
-                          const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
+bool KRcc::doWriteSymLink(const QString &, const QString &, const QString &, const QString &, mode_t, const QDateTime &, const QDateTime &, const QDateTime &)
 {
     setErrorString(tr("Cannot write to RCC file"));
     qCWarning(KArchiveLog) << "doWriteSymLink not implemented for KRcc";
@@ -117,9 +121,7 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
     QUuid uuid = QUuid::createUuid();
     d->m_prefix = QLatin1Char('/') + uuid.toString();
     if (!QResource::registerResource(fileName(), d->m_prefix)) {
-        setErrorString(
-            tr("Failed to register resource %1 under prefix %2")
-                .arg(fileName(), d->m_prefix));
+        setErrorString(tr("Failed to register resource %1 under prefix %2").arg(fileName(), d->m_prefix));
         return false;
     }
 
@@ -134,12 +136,11 @@ void KRcc::KRccPrivate::createEntries(const QDir &dir, KArchiveDirectory *parent
         const QString entryPath = dir.path() + QLatin1Char('/') + fileName;
         const QFileInfo info(entryPath);
         if (info.isFile()) {
-            KArchiveEntry *entry = new KRccFileEntry(q, fileName, 0444, info.lastModified(),
-                                                     parentDir->user(), parentDir->group(), info.size(), entryPath);
+            KArchiveEntry *entry = new KRccFileEntry(q, fileName, 0444, info.lastModified(), parentDir->user(), parentDir->group(), info.size(), entryPath);
             parentDir->addEntry(entry);
         } else {
-            KArchiveDirectory *entry = new KArchiveDirectory(q, fileName, 0555, info.lastModified(),
-                                                             parentDir->user(), parentDir->group(), /*symlink*/ QString());
+            KArchiveDirectory *entry =
+                new KArchiveDirectory(q, fileName, 0555, info.lastModified(), parentDir->user(), parentDir->group(), /*symlink*/ QString());
             if (parentDir->addEntryV2(entry)) {
                 createEntries(QDir(entryPath), entry, q);
             }

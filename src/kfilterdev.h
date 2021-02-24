@@ -6,9 +6,9 @@
 #ifndef __kfilterdev_h
 #define __kfilterdev_h
 
+#include <QString>
 #include <karchive_export.h>
 #include <kcompressiondevice.h>
-#include <QString>
 
 class QFile;
 class KFilterBase;
@@ -84,9 +84,7 @@ public:
      *         The returned KCompressionDevice has to be deleted after using.
      */
     KARCHIVE_DEPRECATED_VERSION(5, 0, "See API docs")
-    static KCompressionDevice *deviceForFile(const QString &fileName,
-            const QString &mimetype = QString(),
-            bool forceFilter = false)
+    static KCompressionDevice *deviceForFile(const QString &fileName, const QString &mimetype = QString(), bool forceFilter = false)
     {
         KCompressionDevice *device;
         if (mimetype.isEmpty()) {
@@ -131,8 +129,7 @@ public:
      * @return a KCompressionDevice that filters the original stream. Must be deleted after using
      */
     KARCHIVE_DEPRECATED_VERSION(5, 0, "See API docs")
-    static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype,
-            bool autoDeleteInDevice = true)
+    static KCompressionDevice *device(QIODevice *inDevice, const QString &mimetype, bool autoDeleteInDevice = true)
     {
         if (inDevice == nullptr) {
             return nullptr;

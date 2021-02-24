@@ -1,7 +1,8 @@
-#include <QIODevice>
 #include "kzip.h"
+#include <QIODevice>
 
-int main() {
+int main()
+{
     KZip a("somefile");
     return 0;
 }

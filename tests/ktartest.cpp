@@ -5,8 +5,8 @@
  */
 
 #include "ktar.h"
-#include <stdio.h>
 #include <QDebug>
+#include <stdio.h>
 
 void recursive_print(const KArchiveDirectory *dir, const QString &path)
 {
@@ -15,7 +15,12 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
     QStringList::ConstIterator it = l.constBegin();
     for (; it != l.constEnd(); ++it) {
         const KArchiveEntry *entry = dir->entry((*it));
-        printf("mode=%07o %s %s %s%s %lld isdir=%d\n", entry->permissions(), entry->user().toLatin1().constData(), entry->group().toLatin1().constData(), path.toLatin1().constData(), (*it).toLatin1().constData(),
+        printf("mode=%07o %s %s %s%s %lld isdir=%d\n",
+               entry->permissions(),
+               entry->user().toLatin1().constData(),
+               entry->group().toLatin1().constData(),
+               path.toLatin1().constData(),
+               (*it).toLatin1().constData(),
                entry->isFile() ? static_cast<const KArchiveFile *>(entry)->size() : 0,
                entry->isDirectory());
         if (!entry->symLinkTarget().isEmpty()) {
@@ -32,9 +37,10 @@ void recursive_print(const KArchiveDirectory *dir, const QString &path)
 int main(int argc, char **argv)
 {
     if (argc != 2) {
-        printf("\n"
-               " Usage :\n"
-               " ./ktartest /path/to/existing_file.tar.gz       tests listing an existing tar.gz\n");
+        printf(
+            "\n"
+            " Usage :\n"
+            " ./ktartest /path/to/existing_file.tar.gz       tests listing an existing tar.gz\n");
         return 1;
     }
 
@@ -47,12 +53,11 @@ int main(int argc, char **argv)
 
     const KArchiveDirectory *dir = tar.directory();
 
-    //printf("calling recursive_print\n");
+    // printf("calling recursive_print\n");
     recursive_print(dir, QLatin1String(""));
-    //printf("recursive_print called\n");
+    // printf("recursive_print called\n");
 
     tar.close();
 
     return 0;
 }
-

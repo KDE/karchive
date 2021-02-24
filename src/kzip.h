@@ -66,9 +66,9 @@ public:
      * Describes the contents of the "extra field" for a given file in the Zip archive.
      */
     enum ExtraField {
-        NoExtraField = 0,      ///< No extra field
-        ModificationTime = 1,  ///< Modification time ("extended timestamp" header)
-        DefaultExtraField = 1,  // alias of ModificationTime
+        NoExtraField = 0, ///< No extra field
+        ModificationTime = 1, ///< Modification time ("extended timestamp" header)
+        DefaultExtraField = 1, // alias of ModificationTime
     };
 
     /**
@@ -90,7 +90,7 @@ public:
      * Describes the compression type for a given file in the Zip archive.
      */
     enum Compression {
-        NoCompression = 0,     ///< Uncompressed.
+        NoCompression = 0, ///< Uncompressed.
         DeflateCompression = 1, ///< Deflate compression method.
     };
 
@@ -119,13 +119,23 @@ public:
 
 protected:
     /// Reimplemented from KArchive
-    bool doWriteSymLink(const QString &name, const QString &target,
-                        const QString &user, const QString &group,
-                        mode_t perm, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteSymLink(const QString &name,
+                        const QString &target,
+                        const QString &user,
+                        const QString &group,
+                        mode_t perm,
+                        const QDateTime &atime,
+                        const QDateTime &mtime,
+                        const QDateTime &ctime) override;
     /// Reimplemented from KArchive
-    bool doPrepareWriting(const QString &name, const QString &user,
-                          const QString &group, qint64 size, mode_t perm,
-                          const QDateTime &atime, const QDateTime &mtime, const QDateTime &creationTime) override;
+    bool doPrepareWriting(const QString &name,
+                          const QString &user,
+                          const QString &group,
+                          qint64 size,
+                          mode_t perm,
+                          const QDateTime &atime,
+                          const QDateTime &mtime,
+                          const QDateTime &creationTime) override;
 
     /**
      * Write data to a file that has been created using prepareWriting().
@@ -146,8 +156,13 @@ protected:
     bool closeArchive() override;
 
     /// Reimplemented from KArchive
-    bool doWriteDir(const QString &name, const QString &user, const QString &group, mode_t perm,
-                    const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime) override;
+    bool doWriteDir(const QString &name,
+                    const QString &user,
+                    const QString &group,
+                    mode_t perm,
+                    const QDateTime &atime,
+                    const QDateTime &mtime,
+                    const QDateTime &ctime) override;
 
 protected:
     void virtual_hook(int id, void *data) override;

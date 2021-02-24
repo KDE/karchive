@@ -7,11 +7,11 @@
 #ifndef __kcompressiondevice_h
 #define __kcompressiondevice_h
 
-#include <karchive_export.h>
-#include <QIODevice>
 #include <QFileDevice>
-#include <QString>
+#include <QIODevice>
 #include <QMetaType>
+#include <QString>
+#include <karchive_export.h>
 class KCompressionDevicePrivate;
 
 class KFilterBase;
@@ -118,6 +118,7 @@ protected:
     qint64 writeData(const char *data, qint64 len) override;
 
     KFilterBase *filterBase();
+
 private:
     friend KCompressionDevicePrivate;
     KCompressionDevicePrivate *const d;

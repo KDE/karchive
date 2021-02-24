@@ -45,8 +45,8 @@ public:
     void writeFooter();
     void setOutBuffer(char *data, uint maxlen) override;
     void setInBuffer(const char *data, uint size) override;
-    int  inBufferAvailable() const override;
-    int  outBufferAvailable() const override;
+    int inBufferAvailable() const override;
+    int outBufferAvailable() const override;
     Result uncompress() override;
     Result compress(bool finish) override;
 

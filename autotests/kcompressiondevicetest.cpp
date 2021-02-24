@@ -12,10 +12,10 @@
 #include <QBuffer>
 #include <QDir>
 #include <QDirIterator>
-#include <QTemporaryDir>
-#include <QTest>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QTemporaryDir>
+#include <QTest>
 #include <QVector>
 
 QTEST_MAIN(KCompressionDeviceTest)
@@ -52,9 +52,7 @@ QString KCompressionDeviceTest::formatExtension(KCompressionDevice::CompressionT
     return QString(); // silence compiler warning
 }
 
-void KCompressionDeviceTest::setDeviceToArchive(
-        QIODevice *d,
-        KCompressionDevice::CompressionType type)
+void KCompressionDeviceTest::setDeviceToArchive(QIODevice *d, KCompressionDevice::CompressionType type)
 {
     KCompressionDevice *devRawPtr = new KCompressionDevice(d, true, type);
     archive.reset(new KTar(devRawPtr));
@@ -91,18 +89,13 @@ void KCompressionDeviceTest::testExtraction()
     QVERIFY(QDir("examples/unzipper").exists());
 
     QVector<QString> fileList;
-    fileList
-            << QLatin1String("examples/bzip2gzip/CMakeLists.txt")
-            << QLatin1String("examples/bzip2gzip/main.cpp")
-            << QLatin1String("examples/helloworld/CMakeLists.txt")
-            << QLatin1String("examples/helloworld/helloworld.pro")
-            << QLatin1String("examples/helloworld/main.cpp")
-            << QLatin1String("examples/tarlocalfiles/CMakeLists.txt")
-            << QLatin1String("examples/tarlocalfiles/main.cpp")
-            << QLatin1String("examples/unzipper/CMakeLists.txt")
-            << QLatin1String("examples/unzipper/main.cpp");
+    fileList << QLatin1String("examples/bzip2gzip/CMakeLists.txt") << QLatin1String("examples/bzip2gzip/main.cpp")
+             << QLatin1String("examples/helloworld/CMakeLists.txt") << QLatin1String("examples/helloworld/helloworld.pro")
+             << QLatin1String("examples/helloworld/main.cpp") << QLatin1String("examples/tarlocalfiles/CMakeLists.txt")
+             << QLatin1String("examples/tarlocalfiles/main.cpp") << QLatin1String("examples/unzipper/CMakeLists.txt")
+             << QLatin1String("examples/unzipper/main.cpp");
 
-    for (const QString& s : qAsConst(fileList)) {
+    for (const QString &s : qAsConst(fileList)) {
         QFileInfo extractedFile(s);
         QFileInfo sourceFile(QFINDTESTDATA("../" + s));
 

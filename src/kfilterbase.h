@@ -62,11 +62,11 @@ public:
     /** \internal */
     virtual bool inBufferEmpty() const;
     /** \internal */
-    virtual int  inBufferAvailable() const = 0;
+    virtual int inBufferAvailable() const = 0;
     /** \internal */
     virtual bool outBufferFull() const;
     /** \internal */
-    virtual int  outBufferAvailable() const = 0;
+    virtual int outBufferAvailable() const = 0;
 
     /** \internal */
     enum Result {
@@ -100,6 +100,7 @@ protected:
         binary compatibility. Unused in this class.
     */
     virtual void virtual_hook(int id, void *data);
+
 private:
     Q_DISABLE_COPY(KFilterBase)
     KFilterBasePrivate *const d;

@@ -12,13 +12,13 @@ KLimitedIODevice::KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length)
     , m_start(start)
     , m_length(length)
 {
-    //qCDebug(KArchiveLog) << "start=" << start << "length=" << length;
-    open(QIODevice::ReadOnly);   //krazy:exclude=syscalls
+    // qCDebug(KArchiveLog) << "start=" << start << "length=" << length;
+    open(QIODevice::ReadOnly); // krazy:exclude=syscalls
 }
 
 bool KLimitedIODevice::open(QIODevice::OpenMode m)
 {
-    //qCDebug(KArchiveLog) << "m=" << m;
+    // qCDebug(KArchiveLog) << "m=" << m;
     if (m & QIODevice::ReadOnly) {
         /*bool ok = false;
           if ( m_dev->isOpen() )
@@ -26,9 +26,9 @@ bool KLimitedIODevice::open(QIODevice::OpenMode m)
           else
           ok = m_dev->open( m );
           if ( ok )*/
-        m_dev->seek(m_start);   // No concurrent access !
+        m_dev->seek(m_start); // No concurrent access !
     } else {
-        //qCWarning(KArchiveLog) << "KLimitedIODevice::open only supports QIODevice::ReadOnly!";
+        // qCWarning(KArchiveLog) << "KLimitedIODevice::open only supports QIODevice::ReadOnly!";
     }
     setOpenMode(QIODevice::ReadOnly);
     return true;
@@ -45,14 +45,14 @@ qint64 KLimitedIODevice::size() const
 
 qint64 KLimitedIODevice::readData(char *data, qint64 maxlen)
 {
-    maxlen = qMin(maxlen, m_length - pos());   // Apply upper limit
+    maxlen = qMin(maxlen, m_length - pos()); // Apply upper limit
     return m_dev->read(data, maxlen);
 }
 
 bool KLimitedIODevice::seek(qint64 pos)
 {
     Q_ASSERT(pos <= m_length);
-    pos = qMin(pos, m_length);   // Apply upper limit
+    pos = qMin(pos, m_length); // Apply upper limit
     bool ret = m_dev->seek(m_start + pos);
     if (ret) {
         QIODevice::seek(pos);

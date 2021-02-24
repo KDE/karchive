@@ -6,27 +6,27 @@
 
 #include "kfiltertest.h"
 
-#include <QTest>
 #include <QBuffer>
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+#include <QTest>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QTextCodec>
 #endif
-#include <QSaveFile>
 #include <QRandomGenerator>
+#include <QSaveFile>
 
-#include <config-compression.h>
-#include "kfilterdev.h"
 #include "kfilterbase.h"
-#include <QFile>
-#include <QTextStream>
+#include "kfilterdev.h"
 #include <QDebug>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
+#include <QTextStream>
+#include <config-compression.h>
 #include <zlib.h>
 
 #ifdef Q_OS_UNIX
-#include <unistd.h>
 #include <limits.h>
+#include <unistd.h>
 #endif
 
 QTEST_MAIN(KFilterTest)
@@ -62,23 +62,23 @@ void KFilterTest::test_block_write()
 {
     qDebug() << " -- test_block_write gzip -- ";
     test_block_write(pathgz, testData);
-    QCOMPARE(QFileInfo(pathgz).size(), 33LL);     // size of test.gz
+    QCOMPARE(QFileInfo(pathgz).size(), 33LL); // size of test.gz
 
 #if HAVE_BZIP2_SUPPORT
     qDebug() << " -- test_block_write bzip2 -- ";
     test_block_write(pathbz2, testData);
-    QCOMPARE(QFileInfo(pathbz2).size(), 52LL);     // size of test.bz2
+    QCOMPARE(QFileInfo(pathbz2).size(), 52LL); // size of test.bz2
 #endif
 
 #if HAVE_XZ_SUPPORT
     qDebug() << " -- test_block_write xz -- ";
     test_block_write(pathxz, testData);
-    QCOMPARE(QFileInfo(pathxz).size(), 64LL);     // size of test.lzma
+    QCOMPARE(QFileInfo(pathxz).size(), 64LL); // size of test.lzma
 #endif
 
     qDebug() << " -- test_block_write none -- ";
     test_block_write(pathnone, testData);
-    QCOMPARE(QFileInfo(pathnone).size(), 12LL);     // size of test.txt
+    QCOMPARE(QFileInfo(pathnone).size(), 12LL); // size of test.txt
 }
 
 void KFilterTest::test_biggerWrites()
@@ -121,14 +121,14 @@ void KFilterTest::test_block_read(const QString &fileName)
     while ((n = dev.read(array.data(), array.size()))) {
         QVERIFY(n > 0);
         read += QByteArray(array.constData(), n);
-        //qDebug() << "read returned " << n;
-        //qDebug() << "read='" << read << "'";
+        // qDebug() << "read returned " << n;
+        // qDebug() << "read='" << read << "'";
 
         // pos() has no real meaning on sequential devices
         // Ah, but kzip uses kfilterdev as a non-sequential device...
 
         QCOMPARE((int)dev.pos(), (int)read.size());
-        //qDebug() << "dev.at = " << dev->at();
+        // qDebug() << "dev.at = " << dev->at();
     }
     QCOMPARE(read, testData);
 
@@ -166,7 +166,7 @@ void KFilterTest::test_getch(const QString &fileName)
     QByteArray read;
     char ch;
     while (dev.getChar(&ch)) {
-        //printf("%c",ch);
+        // printf("%c",ch);
         read += ch;
     }
     dev.close();
@@ -334,10 +334,10 @@ void KFilterTest::test_deflateWithZlibHeader()
 
     mFilterDevice->setInBuffer(deflatedData.constData(), deflatedData.size());
     char buf[8192];
-    mFilterDevice->setOutBuffer(buf, sizeof (buf));
+    mFilterDevice->setOutBuffer(buf, sizeof(buf));
     KFilterBase::Result result = mFilterDevice->uncompress();
     QCOMPARE(result, KFilterBase::End);
-    const int bytesOut = sizeof (buf) - mFilterDevice->outBufferAvailable();
+    const int bytesOut = sizeof(buf) - mFilterDevice->outBufferAvailable();
     QVERIFY(bytesOut);
     QByteArray read(buf, bytesOut);
     mFilterDevice->terminate();
@@ -399,16 +399,16 @@ void KFilterTest::test_saveFile()
         KCompressionDevice device(&file, false, compressionType);
         QVERIFY(device.open(QIODevice::WriteOnly));
         QTextStream stream(&device);
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         stream.setCodec(QTextCodec::codecForName("UTF-8"));
 #endif
-        for (int i = 0 ; i < numLines ; ++i) {
+        for (int i = 0; i < numLines; ++i) {
             stream << lineTemplate.arg(i);
             stream << QString("\n");
         }
         stream.flush();
         QCOMPARE(stream.status(), QTextStream::Ok);
-        //device.write("The data to be compressed");
+        // device.write("The data to be compressed");
         device.close();
         QVERIFY(file.commit());
     }
@@ -416,7 +416,7 @@ void KFilterTest::test_saveFile()
     KCompressionDevice reader(outFile, compressionType);
     QVERIFY(reader.open(QIODevice::ReadOnly));
     QString expectedFullData;
-    for (int i = 0 ; i < numLines ; ++i) {
+    for (int i = 0; i < numLines; ++i) {
         QCOMPARE(QString::fromUtf8(reader.readLine()), QString(lineTemplate.arg(i) + '\n'));
         expectedFullData += QString(lineTemplate.arg(i) + '\n');
     }
