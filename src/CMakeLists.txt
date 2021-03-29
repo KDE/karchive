@@ -4,6 +4,7 @@ if(BZIP2_FOUND AND BZIP2_NEED_PREFIX)
 endif()
 
 set(HAVE_XZ_SUPPORT ${LIBLZMA_FOUND})
+set(HAVE_ZSTD_SUPPORT ${LibZstd_FOUND})
 
 configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-compression.h)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -18,6 +19,11 @@ if(LIBLZMA_FOUND)
     include_directories(${LIBLZMA_INCLUDE_DIRS})
     set(karchive_OPTIONAL_SRCS ${karchive_OPTIONAL_SRCS} kxzfilter.cpp k7zip.cpp)
     set(karchive_OPTIONAL_LIBS ${karchive_OPTIONAL_LIBS} ${LIBLZMA_LIBRARIES})
+endif()
+
+if (LibZstd_FOUND)
+    set(karchive_OPTIONAL_SRCS ${karchive_OPTIONAL_SRCS} kzstdfilter.cpp)
+    set(karchive_OPTIONAL_LIBS ${karchive_OPTIONAL_LIBS} PkgConfig::LibZstd)
 endif()
 
 

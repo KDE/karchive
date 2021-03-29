@@ -20,6 +20,9 @@
 #if HAVE_XZ_SUPPORT
 #include "kxzfilter.h"
 #endif
+#if HAVE_ZSTD_SUPPORT
+#include "kzstdfilter.h"
+#endif
 
 #include <QDebug>
 #include <QFile>
@@ -88,6 +91,10 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
 #endif
     case KCompressionDevice::None:
         return new KNoneFilter;
+#if HAVE_ZSTD_SUPPORT
+    case KCompressionDevice::Zstd:
+        return new KZstdFilter;
+#endif
     }
     return nullptr;
 }

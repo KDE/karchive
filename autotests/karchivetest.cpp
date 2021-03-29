@@ -359,6 +359,10 @@ void KArchiveTest::setupData()
     QTest::newRow(".tar.xz") << "karchivetest.tar.xz"
                              << "application/x-xz";
 #endif
+#if HAVE_ZSTD_SUPPORT
+    QTest::newRow(".tar.zst") << "karchivetest.tar.zst"
+                              << "application/zstd";
+#endif
 }
 
 /**

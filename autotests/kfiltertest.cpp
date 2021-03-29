@@ -39,6 +39,7 @@ void KFilterTest::initTestCase()
     pathbz2 = currentdir + "/test.bz2";
     pathxz = currentdir + "/test.xz";
     pathnone = currentdir + "/test.txt";
+    pathzstd = currentdir + "/test.zst";
 
     // warning, update the COMPAREs in test_block_write() if changing the test data...
     testData = "hello world\n";
@@ -79,6 +80,12 @@ void KFilterTest::test_block_write()
     qDebug() << " -- test_block_write none -- ";
     test_block_write(pathnone, testData);
     QCOMPARE(QFileInfo(pathnone).size(), 12LL); // size of test.txt
+
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_block_write zstd -- ";
+    test_block_write(pathzstd, testData);
+    QCOMPARE(QFileInfo(pathzstd).size(), 24LL); // size of test.zst
+#endif
 }
 
 void KFilterTest::test_biggerWrites()
@@ -156,6 +163,10 @@ void KFilterTest::test_block_read()
 #endif
     qDebug() << " -- test_block_read none -- ";
     test_block_read(pathnone);
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_block_read zstd -- ";
+    test_block_read(pathzstd);
+#endif
 }
 
 void KFilterTest::test_getch(const QString &fileName)
@@ -187,6 +198,10 @@ void KFilterTest::test_getch()
 #endif
     qDebug() << " -- test_getch none -- ";
     test_getch(pathnone);
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_getch zstd -- ";
+    test_getch(pathzstd);
+#endif
 }
 
 void KFilterTest::test_textstream(const QString &fileName)
@@ -216,6 +231,10 @@ void KFilterTest::test_textstream()
 #endif
     qDebug() << " -- test_textstream none -- ";
     test_textstream(pathnone);
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_textstream zstd -- ";
+    test_textstream(pathzstd);
+#endif
 }
 
 void KFilterTest::test_readall(const QString &fileName, const QString &mimeType, const QByteArray &expectedData)
@@ -256,6 +275,11 @@ void KFilterTest::test_readall()
 
     qDebug() << " -- test_readall none -- ";
     test_readall(pathnone, QString::fromLatin1("text/plain"), testData);
+
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_readall zstd -- ";
+    test_readall(pathzstd, QString::fromLatin1("application/zstd"), testData);
+#endif
 }
 
 void KFilterTest::test_uncompressed()

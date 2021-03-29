@@ -29,6 +29,7 @@ static const char application_gzip[] = "application/x-gzip";
 static const char application_bzip[] = "application/x-bzip";
 static const char application_lzma[] = "application/x-lzma";
 static const char application_xz[] = "application/x-xz";
+static const char application_zstd[] = "application/zstd";
 
 class Q_DECL_HIDDEN KTar::KTarPrivate
 {
@@ -108,6 +109,9 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
         } else if (mime.inherits(QStringLiteral("application/x-xz-compressed-tar")) || mime.inherits(QString::fromLatin1(application_xz))) {
             // xz compressed tar file (with possibly invalid name), ask for xz filter
             d->mimetype = QString::fromLatin1(application_xz);
+        } else if (mime.inherits(QStringLiteral("application/x-zstd-compressed-tar")) || mime.inherits(QString::fromLatin1(application_zstd))) {
+            // zstd compressed tar file (with possibly invalid name), ask for zstd filter
+            d->mimetype = QString::fromLatin1(application_zstd);
         }
     }
 

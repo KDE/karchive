@@ -27,6 +27,11 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
         return KCompressionDevice::Xz;
     }
 #endif
+#if HAVE_ZSTD_SUPPORT
+    if (fileName.endsWith(QLatin1String(".zst"), Qt::CaseInsensitive)) {
+        return KCompressionDevice::Zstd;
+    }
+#endif
     else {
         // not a warning, since this is called often with other mimetypes (see #88574)...
         // maybe we can avoid that though?
@@ -58,6 +63,11 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
         || mimeType == QLatin1String("application/x-xz") // current naming
     ) {
         return KCompressionDevice::Xz;
+    }
+#endif
+#if HAVE_ZSTD_SUPPORT
+    if (mimeType == QLatin1String("application/zstd")) {
+        return KCompressionDevice::Zstd;
     }
 #endif
     QMimeDatabase db;

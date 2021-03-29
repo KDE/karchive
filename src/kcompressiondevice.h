@@ -36,6 +36,7 @@ public:
         BZip2,
         Xz,
         None,
+        Zstd, ///< @since 5.82
     };
 
     /**

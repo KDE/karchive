@@ -55,4 +55,12 @@ if (Qt5Network_FOUND)
             ${testDir}/kcompressiondevice_test.tar.xz examples
             WORKING_DIRECTORY ${topdir})
     endif()
+
+    if (LibZstd_FOUND)
+        # cmake doesn't support creating zstd files so run tar directly
+        add_custom_command(TARGET kcompressiondevicetest POST_BUILD
+            COMMAND tar --zstd -cf
+            ${testDir}/kcompressiondevice_test.tar.zst examples
+            WORKING_DIRECTORY ${topdir})
+    endif()
 endif()

@@ -42,6 +42,7 @@ private:
     QString pathbz2;
     QString pathxz;
     QString pathnone;
+    QString pathzstd;
     QByteArray testData;
 };
 

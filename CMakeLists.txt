@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.6)
 
 set(KF_VERSION "5.81.0") # handled by release scripts
 project(KArchive VERSION ${KF_VERSION})
@@ -45,6 +45,12 @@ set_package_properties(LibLZMA PROPERTIES
 )
 include_directories(
     ${ZLIB_INCLUDE_DIR}
+)
+
+find_package(PkgConfig)
+pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
+add_feature_info(LibZstd LibZstd_FOUND
+                "Support for zstd compressed files and data streams"
 )
 
 include(ECMSetupVersion)
