@@ -664,8 +664,6 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // offset, where the real data for uncompression starts
             uint dataoffset = localheaderoffset + 30 + localextralen + namelen; // comment only in central header
 
-            // qCDebug(KArchiveLog) << "esize: " << esize;
-            // qCDebug(KArchiveLog) << "eoffset: " << eoffset;
             // qCDebug(KArchiveLog) << "csize: " << csize;
 
             int os_madeby = (uchar)buffer[5];
@@ -828,8 +826,8 @@ bool KZip::closeArchive()
             return false;
         }
         // qCDebug(KArchiveLog) << "closearchive setcrcandcsize: fileName:"
-        //    << it.current()->path()
-        //    << "encoding:" << it.current()->encoding();
+        //    << it.value()->path()
+        //    << "encoding:" << it.value()->encoding();
 
         uLong mycrc = it.value()->crc32();
         buffer[0] = char(mycrc); // crc checksum, at headerStart+14
@@ -859,8 +857,8 @@ bool KZip::closeArchive()
     it.toFront();
     while (it.hasNext()) {
         it.next();
-        // qCDebug(KArchiveLog) << "fileName:" << it.current()->path()
-        //              << "encoding:" << it.current()->encoding();
+        // qCDebug(KArchiveLog) << "fileName:" << it.value()->path()
+        //              << "encoding:" << it.value()->encoding();
 
         QByteArray path = QFile::encodeName(it.value()->path());
 
@@ -1074,11 +1072,11 @@ bool KZip::doPrepareWriting(const QString &name,
     // qCDebug(KArchiveLog) << "fileName to write: " << name;
     while (it.hasNext()) {
         it.next();
-        // qCDebug(KArchiveLog) << "prepfileName: " << it.current()->path();
+        // qCDebug(KArchiveLog) << "prepfileName: " << it.value()->path();
         if (name == it.value()->path()) {
             // also remove from the parentDir
             parentDir->removeEntry(it.value());
-            // qCDebug(KArchiveLog) << "removing following entry: " << it.current()->path();
+            // qCDebug(KArchiveLog) << "removing following entry: " << it.value()->path();
             delete it.value();
             it.remove();
         }
