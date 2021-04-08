@@ -166,6 +166,24 @@ static int doPrint(const QString &fileName, const QString &entryName)
     return zip.close() ? 0 : 1 /*error*/;
 }
 
+static int doCreate(const QString &archiveName, const QStringList &fileNames)
+{
+    KZip zip(archiveName);
+    if (!zip.open(QIODevice::WriteOnly)) {
+        qWarning() << "Could not open" << archiveName << "for writing";
+        return 1;
+    }
+    for (const QString &fileName : fileNames) {
+        QFile f(fileName);
+        if (!f.open(QIODevice::ReadOnly)) {
+            qWarning() << "Could not open" << fileName << "for reading.";
+            return 1;
+        }
+        zip.writeFile(fileName, f.readAll());
+    }
+    return zip.close() ? 0 : 1 /*error*/;
+}
+
 static int doUpdate(const QString &archiveName, const QString &fileName)
 {
     KZip zip(archiveName);
@@ -256,6 +274,7 @@ int main(int argc, char **argv)
             " ./kziptest list /path/to/existing_file.zip       tests listing an existing zip\n"
             " ./kziptest print-all file.zip                    prints contents of all files.\n"
             " ./kziptest print file.zip filename               prints contents of one file.\n"
+            " ./kziptest create file.zip filenames             create a new zip file with these files.\n"
             " ./kziptest update file.zip filename              update filename in file.zip.\n"
             " ./kziptest save file.zip                         save file.\n"
             " ./kziptest load file.zip                         load file.\n"
@@ -283,6 +302,13 @@ int main(int argc, char **argv)
         return doCompress(QFile::decodeName(argv[2]));
     } else if (command == QLatin1String("read")) {
         return doUncompress(QFile::decodeName(argv[2]));
+    } else if (command == QLatin1String("create")) {
+        if (argc < 4) {
+            printf("usage: kziptest create archivename filenames");
+            return 1;
+        }
+        const QStringList fileNames = app.arguments().mid(3);
+        return doCreate(QFile::decodeName(argv[2]), fileNames);
     } else if (command == QLatin1String("update")) {
         if (argc != 4) {
             printf("usage: kziptest update archivename filename");
