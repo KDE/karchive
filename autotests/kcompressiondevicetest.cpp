@@ -143,7 +143,7 @@ void KCompressionDeviceTest::testXzBufferedDevice()
 
 void KCompressionDeviceTest::testZstdBufferedDevice()
 {
-#if HAVE_ZSTD_SUPPORT
+#ifdef HAVE_ZSTD_SUPPORT_FILE
     testBufferedDevice(KCompressionDevice::Zstd);
 #else
     QSKIP("This test needs zstd support");

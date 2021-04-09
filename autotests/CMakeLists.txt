@@ -58,9 +58,21 @@ if (Qt5Network_FOUND)
 
     if (LibZstd_FOUND)
         # cmake doesn't support creating zstd files so run tar directly
-        add_custom_command(TARGET kcompressiondevicetest POST_BUILD
-            COMMAND tar --zstd -cf
-            ${testDir}/kcompressiondevice_test.tar.zst examples
-            WORKING_DIRECTORY ${topdir})
+        # which is a bit annoying since not all tars support zstd either
+        # so we first check that the installed tar has the --zstd
+        # option and then we check that the zstd binary is available
+
+        execute_process(COMMAND tar --help OUTPUT_VARIABLE TAR_OUTPUT)
+        if (TAR_OUTPUT MATCHES ".*--zstd.*")
+            find_program(ZSTD_FOUND zstd)
+            if (ZSTD_FOUND)
+                add_custom_command(TARGET kcompressiondevicetest POST_BUILD
+                    COMMAND tar --zstd -cf
+                    ${testDir}/kcompressiondevice_test.tar.zst examples
+                    WORKING_DIRECTORY ${topdir})
+
+                target_compile_definitions(kcompressiondevicetest PRIVATE HAVE_ZSTD_SUPPORT_FILE)
+            endif()
+        endif()
     endif()
 endif()
