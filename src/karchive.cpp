@@ -20,7 +20,7 @@
 #include <QMap>
 #include <QStack>
 
-#include <errno.h>
+#include <cerrno>
 #include <stdio.h>
 #include <stdlib.h>
 

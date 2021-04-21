@@ -25,7 +25,7 @@
 #include <kfilterdev.h>
 
 #ifndef Q_OS_WIN
-#include <errno.h>
+#include <cerrno>
 #include <unistd.h> // symlink
 #endif
 
