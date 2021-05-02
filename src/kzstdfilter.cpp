@@ -7,6 +7,8 @@
 #include "kzstdfilter.h"
 #include "loggingcategory.h"
 
+#include <QIODevice>
+
 #if HAVE_ZSTD_SUPPORT
 
 extern "C" {
