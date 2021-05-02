@@ -75,7 +75,7 @@ target_link_libraries(KF5Archive
 )
 
 set_target_properties(KF5Archive PROPERTIES
-    VERSION     ${KARCHIVE_VERSION_STRING}
+    VERSION     ${KARCHIVE_VERSION}
     SOVERSION   ${KARCHIVE_SOVERSION}
     EXPORT_NAME "Archive"
 )
