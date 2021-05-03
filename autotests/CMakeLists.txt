@@ -17,7 +17,7 @@ ecm_add_tests(
     LINK_LIBRARIES KF5::Archive Qt5::Test
 )
 
-target_link_libraries(kfiltertest ${ZLIB_LIBRARIES})
+target_link_libraries(kfiltertest ZLIB::ZLIB)
 
 ########### klimitediodevicetest ###############
 

@@ -71,7 +71,7 @@ target_link_libraries(KF5Archive
         Qt5::Core
     PRIVATE
         ${karchive_OPTIONAL_LIBS}
-        ${ZLIB_LIBRARY}
+        ZLIB::ZLIB
 )
 
 set_target_properties(KF5Archive PROPERTIES

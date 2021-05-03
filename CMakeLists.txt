@@ -43,9 +43,6 @@ set_package_properties(LibLZMA PROPERTIES
     DESCRIPTION "Support for xz compressed files and data streams"
     PURPOSE "Support for xz compressed files and data streams"
 )
-include_directories(
-    ${ZLIB_INCLUDE_DIR}
-)
 
 find_package(PkgConfig)
 pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
