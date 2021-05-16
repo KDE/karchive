@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.16)
 
 set(KF_VERSION "5.83.0") # handled by release scripts
 project(KArchive VERSION ${KF_VERSION})
