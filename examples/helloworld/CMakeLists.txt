@@ -2,8 +2,6 @@
 # http://www.cmake.org/cmake/help/documentation.html
 # http://techbase.kde.org/Development/Tutorials/CMake
 
-cmake_minimum_required(VERSION 2.8.12)
-
 # Project name
 project(HelloWorld)
 
