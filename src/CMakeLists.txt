@@ -9,26 +9,28 @@ set(HAVE_ZSTD_SUPPORT ${LibZstd_FOUND})
 configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-compression.h)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
+add_library(KF5Archive)
+add_library(KF5::Archive ALIAS KF5Archive)
+
 if(BZIP2_FOUND)
-    include_directories(${BZIP2_INCLUDE_DIR})
-    set(karchive_OPTIONAL_SRCS ${karchive_OPTIONAL_SRCS} kbzip2filter.cpp)
-    set(karchive_OPTIONAL_LIBS ${karchive_OPTIONAL_LIBS} ${BZIP2_LIBRARIES})
+    target_include_directories(KF5Archive PRIVATE ${BZIP2_INCLUDE_DIR})
+    target_sources(KF5Archive PRIVATE kbzip2filter.cpp)
+    target_link_libraries(KF5Archive PRIVATE ${BZIP2_LIBRARIES})
 endif()
 
 if(LIBLZMA_FOUND)
-    include_directories(${LIBLZMA_INCLUDE_DIRS})
-    set(karchive_OPTIONAL_SRCS ${karchive_OPTIONAL_SRCS} kxzfilter.cpp k7zip.cpp)
-    set(karchive_OPTIONAL_LIBS ${karchive_OPTIONAL_LIBS} ${LIBLZMA_LIBRARIES})
+    target_include_directories(KF5Archive PRIVATE ${LIBLZMA_INCLUDE_DIRS})
+    target_sources(KF5Archive PRIVATE kxzfilter.cpp k7zip.cpp)
+    target_link_libraries(KF5Archive PRIVATE ${LIBLZMA_LIBRARIES})
 endif()
 
 if (LibZstd_FOUND)
-    set(karchive_OPTIONAL_SRCS ${karchive_OPTIONAL_SRCS} kzstdfilter.cpp)
-    set(karchive_OPTIONAL_LIBS ${karchive_OPTIONAL_LIBS} PkgConfig::LibZstd)
+    target_sources(KF5Archive PRIVATE kzstdfilter.cpp)
+    target_link_libraries(KF5Archive PRIVATE PkgConfig::LibZstd)
 endif()
 
 
-set(karchive_SRCS
-    karchive.cpp
+target_sources(KF5Archive PRIVATE karchive.cpp
     kar.cpp
     kcompressiondevice.cpp
     kfilterbase.cpp
@@ -41,7 +43,7 @@ set(karchive_SRCS
     krcc.cpp
 )
 
-ecm_qt_declare_logging_category(karchive_SRCS
+ecm_qt_declare_logging_category(KF5Archive
     HEADER loggingcategory.h
     IDENTIFIER KArchiveLog
     CATEGORY_NAME kf.archive
@@ -51,8 +53,6 @@ ecm_qt_declare_logging_category(karchive_SRCS
     EXPORT KARCHIVE
 )
 
-add_library(KF5Archive ${karchive_SRCS} ${karchive_OPTIONAL_SRCS})
-add_library(KF5::Archive ALIAS KF5Archive)
 ecm_generate_export_header(KF5Archive
     BASE_NAME KArchive
     GROUP_BASE_NAME KF
@@ -70,7 +70,6 @@ target_link_libraries(KF5Archive
     PUBLIC
         Qt5::Core
     PRIVATE
-        ${karchive_OPTIONAL_LIBS}
         ZLIB::ZLIB
 )
 
