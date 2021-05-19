@@ -7,7 +7,6 @@ set(HAVE_XZ_SUPPORT ${LIBLZMA_FOUND})
 set(HAVE_ZSTD_SUPPORT ${LibZstd_FOUND})
 
 configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-compression.h)
-add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 add_library(KF5Archive)
 add_library(KF5::Archive ALIAS KF5Archive)
