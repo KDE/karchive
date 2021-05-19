@@ -12,15 +12,13 @@ add_library(KF5Archive)
 add_library(KF5::Archive ALIAS KF5Archive)
 
 if(BZIP2_FOUND)
-    target_include_directories(KF5Archive PRIVATE ${BZIP2_INCLUDE_DIR})
     target_sources(KF5Archive PRIVATE kbzip2filter.cpp)
-    target_link_libraries(KF5Archive PRIVATE ${BZIP2_LIBRARIES})
+    target_link_libraries(KF5Archive PRIVATE BZip2::BZip2)
 endif()
 
 if(LIBLZMA_FOUND)
-    target_include_directories(KF5Archive PRIVATE ${LIBLZMA_INCLUDE_DIRS})
     target_sources(KF5Archive PRIVATE kxzfilter.cpp k7zip.cpp)
-    target_link_libraries(KF5Archive PRIVATE ${LIBLZMA_LIBRARIES})
+    target_link_libraries(KF5Archive PRIVATE LibLZMA::LibLZMA)
 endif()
 
 if (LibZstd_FOUND)
