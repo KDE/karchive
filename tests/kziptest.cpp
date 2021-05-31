@@ -68,7 +68,7 @@ static int doList(const QString &fileName)
 {
     KZip zip(fileName);
     if (!zip.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid.";
+        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid:" << zip.errorString();
         return 1;
     }
     const KArchiveDirectory *dir = zip.directory();
@@ -82,7 +82,7 @@ static int doPrintAll(const QString &fileName)
     KZip zip(fileName);
     qDebug() << "Opening zip file";
     if (!zip.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid.";
+        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid:" << zip.errorString();
         return 1;
     }
     const KArchiveDirectory *dir = zip.directory();
@@ -108,7 +108,7 @@ static int doSave(const QString &fileName)
 {
     KZip zip(fileName);
     if (!zip.open(QIODevice::WriteOnly)) {
-        qWarning() << "Could not open" << fileName << "for writing";
+        qWarning() << "Could not open" << fileName << "for writing:" << zip.errorString();
         return 1;
     }
 
@@ -136,7 +136,7 @@ static int doLoad(const QString &fileName)
 {
     KZip zip(fileName);
     if (!zip.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid.";
+        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid:" << zip.errorString();
         return 1;
     }
     const KArchiveDirectory *dir = zip.directory();
@@ -151,7 +151,7 @@ static int doPrint(const QString &fileName, const QString &entryName)
 {
     KZip zip(fileName);
     if (!zip.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid.";
+        qWarning() << "Could not open" << fileName << "for reading. ZIP file doesn't exist or is invalid:" << zip.errorString();
         return 1;
     }
     const KArchiveDirectory *dir = zip.directory();
@@ -170,13 +170,13 @@ static int doCreate(const QString &archiveName, const QStringList &fileNames)
 {
     KZip zip(archiveName);
     if (!zip.open(QIODevice::WriteOnly)) {
-        qWarning() << "Could not open" << archiveName << "for writing";
+        qWarning() << "Could not open" << archiveName << "for writing:" << zip.errorString();
         return 1;
     }
     for (const QString &fileName : fileNames) {
         QFile f(fileName);
         if (!f.open(QIODevice::ReadOnly)) {
-            qWarning() << "Could not open" << fileName << "for reading.";
+            qWarning() << "Could not open" << fileName << "for reading:" << zip.errorString();
             return 1;
         }
         zip.writeFile(fileName, f.readAll());
@@ -188,13 +188,13 @@ static int doUpdate(const QString &archiveName, const QString &fileName)
 {
     KZip zip(archiveName);
     if (!zip.open(QIODevice::ReadWrite)) {
-        qWarning() << "Could not open" << archiveName << "for read/write";
+        qWarning() << "Could not open" << archiveName << "for read/write:" << zip.errorString();
         return 1;
     }
 
     QFile f(fileName);
     if (!f.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading.";
+        qWarning() << "Could not open" << fileName << "for reading:" << zip.errorString();
         return 1;
     }
 
@@ -207,11 +207,11 @@ static int doTransfer(const QString &sourceFile, const QString &destFile)
     KZip zip1(sourceFile);
     KZip zip2(destFile);
     if (!zip1.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << sourceFile << "for reading. ZIP file doesn't exist or is invalid.";
+        qWarning() << "Could not open" << sourceFile << "for reading. ZIP file doesn't exist or is invalid:" << zip1.errorString();
         return 1;
     }
     if (!zip2.open(QIODevice::WriteOnly)) {
-        qWarning() << "Could not open" << destFile << "for writing";
+        qWarning() << "Could not open" << destFile << "for writing:" << zip2.errorString();
         return 1;
     }
     const KArchiveDirectory *dir1 = zip1.directory();
@@ -239,7 +239,7 @@ static int doCompress(const QString &fileName)
 {
     KCompressionDevice device(fileName, KCompressionDevice::BZip2);
     if (!device.open(QIODevice::WriteOnly)) {
-        qWarning() << "Could not open" << fileName << "for writing";
+        qWarning() << "Could not open" << fileName << "for writing:" << device.errorString();
         return 1;
     }
 
@@ -257,7 +257,7 @@ static int doUncompress(const QString &fileName)
 {
     KCompressionDevice device(fileName, KCompressionDevice::BZip2);
     if (!device.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open" << fileName << "for reading";
+        qWarning() << "Could not open" << fileName << "for reading:" << device.errorString();
         return 1;
     }
     return load(&device);
