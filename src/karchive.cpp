@@ -153,7 +153,7 @@ bool KArchive::open(QIODevice::OpenMode mode)
     }
 
     if (!d->dev->isOpen() && !d->dev->open(mode)) {
-        setErrorString(tr("Could not set device mode to %1").arg(mode));
+        setErrorString(tr("Could not open device in mode %1").arg(mode));
         return false;
     }
 
