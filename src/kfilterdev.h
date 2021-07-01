@@ -11,6 +11,8 @@
 
 #include <QString>
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 85)
+
 class QFile;
 class KFilterBase;
 
@@ -26,22 +28,26 @@ class KFilterBase;
  * provides compatibility methods for KDE 4 code.
  *
  * @author David Faure <faure@kde.org>
+ * @deprecated Since 5.85, use KCompressionDevice directly
  */
 class KARCHIVE_EXPORT KFilterDev : public KCompressionDevice
 {
     Q_OBJECT
 public:
     /**
-     * @since 5.0
      * Constructs a KFilterDev for a given FileName.
      * @param fileName the name of the file to filter.
+     * @since 5.0
+     * @deprecated Since 5.85, use KCompressionDevice(const QString &)
      */
     KFilterDev(const QString &fileName);
 
     /**
      * Returns the compression type for the given mimetype, if possible. Otherwise returns None.
      * This handles simple cases like application/x-gzip, but also application/x-compressed-tar, and inheritance.
+     * @deprecated Since 5.85, use KCompressionDevice::compressionTypeForMimeType(const QString &)
      */
+    KARCHIVE_DEPRECATED_VERSION(5, 85, "Use KCompressionDevice::compressionTypeForMimeType(const QString &)")
     static CompressionType compressionTypeForMimeType(const QString &mimetype);
 
 #if KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 0)
@@ -141,5 +147,7 @@ public:
     }
 #endif
 };
+
+#endif // KARCHIVE_ENABLE_DEPRECATED_SINCE(5, 85)
 
 #endif

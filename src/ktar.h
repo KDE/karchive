@@ -39,7 +39,7 @@ public:
 
     /**
      * Creates an instance that operates on the given device.
-     * The device can be compressed (KFilterDev) or not (QFile, etc.).
+     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
      * @warning Do not assume that giving a QFile here will decompress the file,
      * in case it's compressed!
      * @param dev the device to read from. If the source is compressed, the
@@ -56,7 +56,7 @@ public:
     /**
      * Special function for setting the "original file name" in the gzip header,
      * when writing a tar.gz file. It appears when using in the "file" command,
-     * for instance. Should only be called if the underlying device is a KFilterDev!
+     * for instance. Should only be called if the underlying device is a KCompressionDevice!
      * @param fileName the original file name
      */
     void setOrigFileName(const QByteArray &fileName);

@@ -7,7 +7,7 @@
 
 #include "kzip.h"
 #include "karchive_p.h"
-#include "kfilterdev.h"
+#include "kcompressiondevice.h"
 #include "klimitediodevice_p.h"
 #include "loggingcategory.h"
 
@@ -1192,7 +1192,7 @@ bool KZip::doPrepareWriting(const QString &name,
     }
 
     // Prepare device for writing the data
-    // Either device() if no compression, or a KFilterDev to compress
+    // Either device() if no compression, or a KCompressionDevice to compress
     if (d->m_compression == 0) {
         d->m_currentDev = device();
         return true;

@@ -22,7 +22,7 @@
 #include <QSaveFile>
 #include <QStandardPaths>
 #include <QTemporaryDir>
-#include <kfilterdev.h>
+#include <kcompressiondevice.h>
 
 #ifndef Q_OS_WIN
 #include <cerrno>
@@ -568,7 +568,7 @@ void KArchiveTest::testUncompress()
 
     // testCreateTar must have been run first.
     QVERIFY(QFile::exists(fileName));
-    KFilterDev filterDev(fileName);
+    KCompressionDevice filterDev(fileName);
     QByteArray buffer;
     buffer.resize(8 * 1024);
     // qDebug() << "buffer.size()=" << buffer.size();

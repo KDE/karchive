@@ -31,7 +31,7 @@ public:
 
     /**
      * Creates an instance that operates on the given device.
-     * The device can be compressed (KFilterDev) or not (QFile, etc.).
+     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
      * @param dev the device to read from
      */
     KAr(QIODevice *dev);

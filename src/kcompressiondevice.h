@@ -55,6 +55,13 @@ public:
     KCompressionDevice(const QString &fileName, CompressionType type);
 
     /**
+     * Constructs a KCompressionDevice for a given @p fileName.
+     * @param fileName the name of the file to filter.
+     * @since 5.85
+     */
+    KCompressionDevice(const QString &fileName);
+
+    /**
      * Destructs the KCompressionDevice.
      * Calls close() if the filter device is still open.
      */
@@ -105,6 +112,13 @@ public:
      * @return the filter for the @p type, or 0 if not found
      */
     static KFilterBase *filterForCompressionType(CompressionType type);
+
+    /**
+     * Returns the compression type for the given MIME type, if possible. Otherwise returns None.
+     * This handles simple cases like application/x-gzip, but also application/x-compressed-tar, and inheritance.
+     * @since 5.85
+     */
+    static CompressionType compressionTypeForMimeType(const QString &mimetype);
 
     /**
      * Returns the error code from the last failing operation.

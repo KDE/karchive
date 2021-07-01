@@ -14,8 +14,8 @@
 #include <QRandomGenerator>
 #include <QSaveFile>
 
+#include "kcompressiondevice.h"
 #include "kfilterbase.h"
-#include "kfilterdev.h"
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -47,7 +47,7 @@ void KFilterTest::initTestCase()
 
 void KFilterTest::test_block_write(const QString &fileName, const QByteArray &data)
 {
-    KFilterDev dev(fileName);
+    KCompressionDevice dev(fileName);
     bool ok = dev.open(QIODevice::WriteOnly);
     QVERIFY(ok);
 
@@ -118,7 +118,7 @@ void KFilterTest::test_biggerWrites()
 
 void KFilterTest::test_block_read(const QString &fileName)
 {
-    KFilterDev dev(fileName);
+    KCompressionDevice dev(fileName);
     bool ok = dev.open(QIODevice::ReadOnly);
     QVERIFY(ok);
 
@@ -171,7 +171,7 @@ void KFilterTest::test_block_read()
 
 void KFilterTest::test_getch(const QString &fileName)
 {
-    KFilterDev dev(fileName);
+    KCompressionDevice dev(fileName);
     bool ok = dev.open(QIODevice::ReadOnly);
     QVERIFY(ok);
     QByteArray read;
@@ -206,7 +206,7 @@ void KFilterTest::test_getch()
 
 void KFilterTest::test_textstream(const QString &fileName)
 {
-    KFilterDev dev(fileName);
+    KCompressionDevice dev(fileName);
     bool ok = dev.open(QIODevice::ReadOnly);
     QVERIFY(ok);
     QTextStream ts(&dev);
@@ -240,7 +240,7 @@ void KFilterTest::test_textstream()
 void KFilterTest::test_readall(const QString &fileName, const QString &mimeType, const QByteArray &expectedData)
 {
     QFile file(fileName);
-    KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(mimeType);
+    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(mimeType);
     KCompressionDevice flt(&file, false, type);
     bool ok = flt.open(QIODevice::ReadOnly);
     QVERIFY(ok);
@@ -284,11 +284,11 @@ void KFilterTest::test_readall()
 
 void KFilterTest::test_uncompressed()
 {
-    // Can KFilterDev handle uncompressed data even when using gzip decompression?
+    // Can KCompressionDevice handle uncompressed data even when using gzip decompression?
     qDebug() << " -- test_uncompressed -- ";
     QBuffer buffer(&testData);
     buffer.open(QIODevice::ReadOnly);
-    KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
+    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
     KCompressionDevice flt(&buffer, false, type);
     bool ok = flt.open(QIODevice::ReadOnly);
     QVERIFY(ok);
@@ -324,7 +324,7 @@ void KFilterTest::test_findFilterByMimeType()
     QFETCH(QString, mimeType);
     QFETCH(KCompressionDevice::CompressionType, type);
 
-    KCompressionDevice::CompressionType compressionType = KFilterDev::compressionTypeForMimeType(mimeType);
+    KCompressionDevice::CompressionType compressionType = KCompressionDevice::compressionTypeForMimeType(mimeType);
     QCOMPARE(compressionType, type);
 }
 
@@ -384,7 +384,7 @@ void KFilterTest::test_pushData() // ### UNFINISHED
     QByteArray firstData(compressed.constData(), firstChunkSize);
     QBuffer inBuffer(&firstData);
     QVERIFY(inBuffer.open(QIODevice::ReadWrite));
-    KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
+    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
     KCompressionDevice flt(&inBuffer, false, type);
     QVERIFY(flt.open(QIODevice::ReadOnly));
     QByteArray read = flt.readAll();
@@ -444,7 +444,7 @@ void KFilterTest::test_saveFile()
         QCOMPARE(QString::fromUtf8(reader.readLine()), QString(lineTemplate.arg(i) + '\n'));
         expectedFullData += QString(lineTemplate.arg(i) + '\n');
     }
-    KFilterDev otherReader(outFile);
+    KCompressionDevice otherReader(outFile);
     QVERIFY(otherReader.open(QIODevice::ReadOnly));
     QCOMPARE(QString::fromLatin1(otherReader.readAll()), expectedFullData);
     QVERIFY(otherReader.atEnd());
@@ -457,7 +457,7 @@ void KFilterTest::test_twofilesgztogether()
     // echo foo > foo; echo bar > bar ; gzip -c foo > twofiles.gz; gzip -c bar >> twofiles.gz
     // as documented in the gzip manpage
     QString data = QFINDTESTDATA("data/twofiles.gz");
-    KFilterDev dev(data);
+    KCompressionDevice dev(data);
     QVERIFY(dev.open(QIODevice::ReadOnly));
     QByteArray extractedData = dev.readAll();
     QByteArray expectedData{"foo\nbar\n"};
@@ -469,7 +469,7 @@ void KFilterTest::test_threefilesgztogether()
     // Generated similarly to the one above
     // This catches the case where there's more than two streams available in the same buffer fed to KGzipFilter
     QString data = QFINDTESTDATA("data/threefiles.gz");
-    KFilterDev dev(data);
+    KCompressionDevice dev(data);
     QVERIFY(dev.open(QIODevice::ReadOnly));
     QByteArray extractedData = dev.readAll();
     QByteArray expectedData{"foo\nbar\nbaz\n"};

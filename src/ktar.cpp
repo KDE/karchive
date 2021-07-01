@@ -7,8 +7,8 @@
 
 #include "ktar.h"
 #include "karchive_p.h"
+#include "kcompressiondevice.h"
 #include "kfilterbase.h"
-#include "kfilterdev.h"
 #include "loggingcategory.h"
 
 #include <QDebug>
@@ -123,8 +123,8 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
         }
         if (!d->mimetype.isEmpty()) {
             // Create a compression filter on top of the QSaveFile device that KArchive created.
-            // qCDebug(KArchiveLog) << "creating KFilterDev for" << d->mimetype;
-            KCompressionDevice::CompressionType type = KFilterDev::compressionTypeForMimeType(d->mimetype);
+            // qCDebug(KArchiveLog) << "creating KCompressionDevice for" << d->mimetype;
+            KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(d->mimetype);
             d->compressionDevice = new KCompressionDevice(device(), false, type);
             setDevice(d->compressionDevice);
         }
@@ -315,7 +315,7 @@ bool KTar::KTarPrivate::fillTempFile(const QString &fileName)
 
     // qCDebug(KArchiveLog) << "filling tmpFile of mimetype" << mimetype;
 
-    KCompressionDevice::CompressionType compressionType = KFilterDev::compressionTypeForMimeType(mimetype);
+    KCompressionDevice::CompressionType compressionType = KCompressionDevice::compressionTypeForMimeType(mimetype);
     KCompressionDevice filterDev(fileName, compressionType);
 
     QFile *file = tmpFile;
@@ -555,7 +555,7 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     // (KArchive uses QSaveFile by default, but the temp-uncompressed-file trick
     // circumvents that).
 
-    KFilterDev dev(fileName);
+    KCompressionDevice dev(fileName);
     QFile *file = tmpFile;
     if (!dev.open(QIODevice::WriteOnly)) {
         file->close();

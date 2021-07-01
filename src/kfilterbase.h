@@ -20,7 +20,7 @@ class QIODevice;
  *
  * This is the base class for compression filters
  * such as gzip and bzip2. It's pretty much internal.
- * Don't use directly, use KFilterDev instead.
+ * Don't use directly, use KCompressionDevice instead.
  * @internal
  */
 class KARCHIVE_EXPORT KFilterBase

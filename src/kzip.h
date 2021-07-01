@@ -49,7 +49,7 @@ public:
 
     /**
      * Creates an instance that operates on the given device.
-     * The device can be compressed (KFilterDev) or not (QFile, etc.).
+     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
      * @warning Do not assume that giving a QFile here will decompress the file,
      * in case it's compressed!
      * @param dev the device to access
