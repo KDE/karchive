@@ -44,7 +44,7 @@ public:
 
     /**
      * Returns the compression type for the given mimetype, if possible. Otherwise returns None.
-     * This handles simple cases like application/x-gzip, but also application/x-compressed-tar, and inheritance.
+     * This handles simple cases like application/gzip, but also application/x-compressed-tar, and inheritance.
      * @deprecated Since 5.85, use KCompressionDevice::compressionTypeForMimeType(const QString &)
      */
     KARCHIVE_DEPRECATED_VERSION(5, 85, "Use KCompressionDevice::compressionTypeForMimeType(const QString &)")
@@ -70,7 +70,7 @@ public:
      * (gzip/bzip2 etc.) will automatically be used.
      *
      * The compression filter to be used is determined from the @p fileName
-     * if @p mimetype is empty. Pass "application/x-gzip" or "application/x-bzip"
+     * if @p mimetype is empty. Pass "application/gzip" or "application/x-bzip"
      * to force the corresponding decompression filter, if available.
      *
      * Warning: application/x-bzip may not be available.
@@ -123,7 +123,7 @@ public:
      * (gzip/bzip2 etc.) will automatically be used.
      *
      * The compression filter to be used is determined @p mimetype .
-     * Pass "application/x-gzip" or "application/x-bzip"
+     * Pass "application/gzip" or "application/x-bzip"
      * to use the corresponding decompression filter.
      *
      * Warning: application/x-bzip may not be available.

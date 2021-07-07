@@ -115,7 +115,7 @@ public:
 
     /**
      * Returns the compression type for the given MIME type, if possible. Otherwise returns None.
-     * This handles simple cases like application/x-gzip, but also application/x-compressed-tar, and inheritance.
+     * This handles simple cases like application/gzip, but also application/x-compressed-tar, and inheritance.
      * @since 5.85
      */
     static CompressionType compressionTypeForMimeType(const QString &mimetype);

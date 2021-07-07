@@ -25,11 +25,18 @@
 ////////////////////////////////////////////////////////////////////////
 
 // Mime types of known filters
-static const char application_gzip[] = "application/x-gzip";
 static const char application_bzip[] = "application/x-bzip";
 static const char application_lzma[] = "application/x-lzma";
 static const char application_xz[] = "application/x-xz";
 static const char application_zstd[] = "application/zstd";
+
+/* clang-format off */
+namespace MimeType
+{
+QString application_gzip()     { return QStringLiteral("application/gzip"); }
+QString application_gzip_old() { return QStringLiteral("application/x-gzip"); }
+}
+/* clang-format on */
 
 class Q_DECL_HIDDEN KTar::KTarPrivate
 {
@@ -63,7 +70,7 @@ KTar::KTar(const QString &fileName, const QString &_mimetype)
     : KArchive(fileName)
     , d(new KTarPrivate(this))
 {
-    d->mimetype = _mimetype;
+    d->mimetype = (_mimetype == MimeType::application_gzip_old()) ? MimeType::application_gzip() : _mimetype;
 }
 
 KTar::KTar(QIODevice *dev)
@@ -97,9 +104,9 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
 
         // qCDebug(KArchiveLog) << mode << mime->name();
 
-        if (mime.inherits(QStringLiteral("application/x-compressed-tar")) || mime.inherits(QString::fromLatin1(application_gzip))) {
+        if (mime.inherits(QStringLiteral("application/x-compressed-tar")) || mime.inherits(MimeType::application_gzip())) {
             // gzipped tar file (with possibly invalid file name), ask for gzip filter
-            d->mimetype = QString::fromLatin1(application_gzip);
+            d->mimetype = MimeType::application_gzip();
         } else if (mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) || mime.inherits(QString::fromLatin1(application_bzip))) {
             // bzipped2 tar file (with possibly invalid file name), ask for bz2 filter
             d->mimetype = QString::fromLatin1(application_bzip);
@@ -546,8 +553,12 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     // qCDebug(KArchiveLog) << "Write temporary file to compressed file" << fileName << mimetype;
 
     bool forced = false;
-    if (QLatin1String(application_gzip) == mimetype || QLatin1String(application_bzip) == mimetype || QLatin1String(application_lzma) == mimetype
-        || QLatin1String(application_xz) == mimetype) {
+    /* clang-format off */
+    if (MimeType::application_gzip() == mimetype ||
+        QLatin1String(application_bzip) == mimetype ||
+        QLatin1String(application_lzma) == mimetype ||
+        QLatin1String(application_xz) == mimetype) {
+        /* clang-format on */
         forced = true;
     }
 

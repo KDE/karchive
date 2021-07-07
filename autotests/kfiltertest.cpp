@@ -110,7 +110,7 @@ void KFilterTest::test_biggerWrites()
         compressedSize = QFileInfo(outFile).size();
         qDebug() << data.size() << "compressed into" << compressedSize;
         // Test data is valid
-        test_readall(outFile, QString::fromLatin1("application/x-gzip"), data);
+        test_readall(outFile, QString::fromLatin1("application/gzip"), data);
 
         data.append((char)(generator->bounded(256)));
     }
@@ -261,7 +261,7 @@ void KFilterTest::test_readall(const QString &fileName, const QString &mimeType,
 void KFilterTest::test_readall()
 {
     qDebug() << " -- test_readall gzip -- ";
-    test_readall(pathgz, QString::fromLatin1("application/x-gzip"), testData);
+    test_readall(pathgz, QString::fromLatin1("application/gzip"), testData);
 #if HAVE_BZIP2_SUPPORT
     qDebug() << " -- test_readall bzip2 -- ";
     test_readall(pathbz2, QString::fromLatin1("application/x-bzip"), testData);
@@ -288,7 +288,7 @@ void KFilterTest::test_uncompressed()
     qDebug() << " -- test_uncompressed -- ";
     QBuffer buffer(&testData);
     buffer.open(QIODevice::ReadOnly);
-    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
+    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/gzip"));
     KCompressionDevice flt(&buffer, false, type);
     bool ok = flt.open(QIODevice::ReadOnly);
     QVERIFY(ok);
@@ -303,7 +303,7 @@ void KFilterTest::test_findFilterByMimeType_data()
     QTest::addColumn<KCompressionDevice::CompressionType>("type");
 
     // direct mimetype name
-    QTest::newRow("application/x-gzip") << QString::fromLatin1("application/x-gzip") << KCompressionDevice::GZip;
+    QTest::newRow("application/gzip") << QString::fromLatin1("application/gzip") << KCompressionDevice::GZip;
 #if HAVE_BZIP2_SUPPORT
     QTest::newRow("application/x-bzip") << QString::fromLatin1("application/x-bzip") << KCompressionDevice::BZip2;
     QTest::newRow("application/x-bzip2") << QString::fromLatin1("application/x-bzip2") << KCompressionDevice::BZip2;
@@ -345,7 +345,7 @@ void KFilterTest::test_deflateWithZlibHeader()
 
 #if 0 // Can't use KFilterDev for this, we need to call KGzipFilter::init(QIODevice::ReadOnly, KGzipFilter::ZlibHeader);
     QBuffer buffer(&deflatedData);
-    QIODevice *flt = KFilterDev::device(&buffer, "application/x-gzip", false);
+    QIODevice *flt = KFilterDev::device(&buffer, "application/gzip", false);
     static_cast<KFilterDev *>(flt)->setSkipHeaders();
     bool ok = flt->open(QIODevice::ReadOnly);
     QVERIFY(ok);
@@ -384,7 +384,7 @@ void KFilterTest::test_pushData() // ### UNFINISHED
     QByteArray firstData(compressed.constData(), firstChunkSize);
     QBuffer inBuffer(&firstData);
     QVERIFY(inBuffer.open(QIODevice::ReadWrite));
-    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/x-gzip"));
+    KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QString::fromLatin1("application/gzip"));
     KCompressionDevice flt(&inBuffer, false, type);
     QVERIFY(flt.open(QIODevice::ReadOnly));
     QByteArray read = flt.readAll();

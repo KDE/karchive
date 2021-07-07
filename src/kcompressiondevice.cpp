@@ -104,7 +104,9 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
 
 KCompressionDevice::CompressionType KCompressionDevice::compressionTypeForMimeType(const QString &mimeType)
 {
-    if (mimeType == QLatin1String("application/x-gzip")) {
+    if (mimeType == QLatin1String("application/gzip") //
+        || mimeType == QLatin1String("application/x-gzip") // legacy name, kept for compatibility
+    ) {
         return KCompressionDevice::GZip;
     }
 #if HAVE_BZIP2_SUPPORT
@@ -129,7 +131,7 @@ KCompressionDevice::CompressionType KCompressionDevice::compressionTypeForMimeTy
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForName(mimeType);
     if (mime.isValid()) {
-        if (mime.inherits(QStringLiteral("application/x-gzip"))) {
+        if (mime.inherits(QStringLiteral("application/gzip"))) {
             return KCompressionDevice::GZip;
         }
 #if HAVE_BZIP2_SUPPORT
