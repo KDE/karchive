@@ -427,7 +427,7 @@ public:
 
     QVector<Folder *> folders;
     QVector<FileInfo *> fileInfos;
-    // File informations
+    // File information
     QVector<bool> cTimesDefined;
     QVector<quint64> cTimes;
     QVector<bool> aTimesDefined;
@@ -2745,7 +2745,7 @@ bool K7Zip::closeArchive()
         dictSize = kMinReduceSize;
     }
 
-    // k_LZMA2 mehtod
+    // k_LZMA2 method
     int dict;
     for (dict = 0; dict < 40; dict++) {
         if (dictSize <= LZMA2_DIC_SIZE_FROM_PROP(dict)) {
