@@ -131,7 +131,8 @@ KCompressionDevice::CompressionType KCompressionDevice::compressionTypeForMimeTy
     QMimeDatabase db;
     const QMimeType mime = db.mimeTypeForName(mimeType);
     if (mime.isValid()) {
-        if (mime.inherits(QStringLiteral("application/gzip"))) {
+        // use legacy MIME type for now, see comment in impl. of KTar(const QString &, const QString &_mimetype)
+        if (mime.inherits(QStringLiteral("application/x-gzip"))) {
             return KCompressionDevice::GZip;
         }
 #if HAVE_BZIP2_SUPPORT
