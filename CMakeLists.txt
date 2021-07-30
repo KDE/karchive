@@ -45,7 +45,9 @@ set_package_properties(LibLZMA PROPERTIES
 )
 
 find_package(PkgConfig)
-pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
+if (PkgConfig_FOUND)
+    pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
+endif()
 add_feature_info(LibZstd LibZstd_FOUND
                 "Support for zstd compressed files and data streams"
 )
