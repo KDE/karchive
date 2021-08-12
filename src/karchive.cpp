@@ -811,14 +811,17 @@ bool KArchiveFile::isFile() const
 
 static QFileDevice::Permissions withExecutablePerms(QFileDevice::Permissions filePerms, mode_t perms)
 {
-    if (perms & 01)
+    if (perms & 01) {
         filePerms |= QFileDevice::ExeOther;
+    }
 
-    if (perms & 010)
+    if (perms & 010) {
         filePerms |= QFileDevice::ExeGroup;
+    }
 
-    if (perms & 0100)
+    if (perms & 0100) {
         filePerms |= QFileDevice::ExeOwner;
+    }
 
     return filePerms;
 }

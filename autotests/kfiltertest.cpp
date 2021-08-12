@@ -340,7 +340,8 @@ static void getCompressedData(QByteArray &data, QByteArray &compressedData)
 
 void KFilterTest::test_deflateWithZlibHeader()
 {
-    QByteArray data, deflatedData;
+    QByteArray data;
+    QByteArray deflatedData;
     getCompressedData(data, deflatedData);
 
 #if 0 // Can't use KFilterDev for this, we need to call KGzipFilter::init(QIODevice::ReadOnly, KGzipFilter::ZlibHeader);

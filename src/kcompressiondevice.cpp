@@ -300,8 +300,9 @@ bool KCompressionDevice::seek(qint64 pos)
     Q_ASSERT(d->filter->mode() == QIODevice::ReadOnly);
 
     if (pos == 0) {
-        if (!QIODevice::seek(pos))
+        if (!QIODevice::seek(pos)) {
             return false;
+        }
 
         // We can forget about the cached data
         d->bNeedHeader = !d->bSkipHeaders;

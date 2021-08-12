@@ -1096,7 +1096,8 @@ static uint toTimeT(const long long liTime)
      * To convert take 12 from Januari and Februari and
      * increase the year by one. */
 
-    short month, year;
+    short month;
+    short year;
     if (months < 14) {
         month = (short)(months - 1);
         year = (short)(years + 1524);
@@ -1223,7 +1224,8 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
         return false;
     }
 
-    quint32 coderIndex, coderStreamIndex;
+    quint32 coderIndex;
+    quint32 coderStreamIndex;
     folder->findInStream(folder->inIndexes[binderIndex], coderIndex, coderStreamIndex);
 
     quint32 startIndex = folder->getCoderOutStreamIndex(coderIndex);
@@ -2164,8 +2166,10 @@ void K7Zip::K7ZipPrivate::writeHeader(quint64 &headerOffset)
             writeNumber(((unsigned)emptyStreamVector.size() + 7) / 8);
             writeBoolVector(emptyStreamVector);
 
-            QVector<bool> emptyFileVector, antiVector;
-            int numEmptyFiles = 0, numAntiItems = 0;
+            QVector<bool> emptyFileVector;
+            QVector<bool> antiVector;
+            int numEmptyFiles = 0;
+            int numAntiItems = 0;
             for (int i = 0; i < fileInfos.size(); i++) {
                 const FileInfo *file = fileInfos.at(i);
                 if (!file->hasStream) {
@@ -2906,8 +2910,9 @@ bool K7Zip::doPrepareWriting(const QString &name,
     if (!entry) {
         K7ZipFileEntry *e =
             new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString() /*symlink*/, d->outData.size(), 0 /*unknown yet*/, d->outData);
-        if (!parentDir->addEntryV2(e))
+        if (!parentDir->addEntryV2(e)) {
             return false;
+        }
         d->m_entryList << e;
         d->m_currentFile = e;
     } else {
@@ -2995,8 +3000,9 @@ bool K7Zip::doWriteSymLink(const QString &name,
     K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, target, 0, 0, nullptr);
     d->outData.append(encodedTarget);
 
-    if (!parentDir->addEntryV2(e))
+    if (!parentDir->addEntryV2(e)) {
         return false;
+    }
 
     d->m_entryList << e;
 

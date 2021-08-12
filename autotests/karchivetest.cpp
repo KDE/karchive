@@ -672,7 +672,8 @@ void KArchiveTest::testTarMaxLength()
     // Also exceed 512 byte block size limit to see how well the ././@LongLink
     // implementation fares
     for (int i = 98; i < 514; i++) {
-        QString str, num;
+        QString str;
+        QString num;
         str.fill('a', i - 10);
         num.setNum(i);
         num = num.rightJustified(10, '0');
@@ -1054,7 +1055,8 @@ void KArchiveTest::testZipMaxLength()
     // Similar to testTarMaxLength just to make sure, but of course zip doesn't have
     // those limitations in the first place.
     for (int i = 98; i < 514; i++) {
-        QString str, num;
+        QString str;
+        QString num;
         str.fill('a', i - 10);
         num.setNum(i);
         num = num.rightJustified(10, '0');
@@ -1506,7 +1508,8 @@ void KArchiveTest::test7ZipMaxLength()
 
     // Generate long filenames of each possible length bigger than 98...
     for (int i = 98; i < 514; i++) {
-        QString str, num;
+        QString str;
+        QString num;
         str.fill('a', i - 10);
         num.setNum(i);
         num = num.rightJustified(10, '0');
