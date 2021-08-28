@@ -35,14 +35,14 @@
 class KCompressionDevicePrivate
 {
 public:
-    KCompressionDevicePrivate(KCompressionDevice *q)
+    KCompressionDevicePrivate(KCompressionDevice *qq)
         : bNeedHeader(true)
         , bSkipHeaders(false)
         , bOpenedUnderlyingDevice(false)
         , type(KCompressionDevice::None)
         , errorCode(QFileDevice::NoError)
         , deviceReadPos(0)
-        , q(q)
+        , q(qq)
     {
     }
 
