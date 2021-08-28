@@ -1682,7 +1682,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         }
 
         QByteArray inflated;
-        for (const QByteArray &data : qAsConst(inflatedDatas)) {
+        for (const QByteArray &data : std::as_const(inflatedDatas)) {
             inflated.append(data);
         }
 
