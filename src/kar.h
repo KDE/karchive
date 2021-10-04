@@ -1,7 +1,7 @@
 /* This file is part of the KDE libraries
    SPDX-FileCopyrightText: 2002 Laurence Anderson <l.d.anderson@warwick.ac.uk>
 
-   SPDX-License-Identifier: LGPL-2.0-only
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #ifndef KAR_H
 #define KAR_H
