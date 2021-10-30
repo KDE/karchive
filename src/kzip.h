@@ -60,7 +60,7 @@ public:
      * If the zip file is still opened, then it will be
      * closed automatically by the destructor.
      */
-    virtual ~KZip();
+    ~KZip() override;
 
     /**
      * Describes the contents of the "extra field" for a given file in the Zip archive.

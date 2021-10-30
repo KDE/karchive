@@ -163,7 +163,7 @@ public:
                    qint64 size,
                    const QByteArray &data);
 
-    ~K7ZipFileEntry();
+    ~K7ZipFileEntry() override;
 
     /**
      * @return the content of this file.

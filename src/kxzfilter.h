@@ -24,7 +24,7 @@ class KXzFilter : public KFilterBase
 {
 public:
     KXzFilter();
-    virtual ~KXzFilter();
+    ~KXzFilter() override;
 
     bool init(int) override;
 

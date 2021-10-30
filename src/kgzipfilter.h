@@ -20,7 +20,7 @@ class KGzipFilter : public KFilterBase
 {
 public:
     KGzipFilter();
-    virtual ~KGzipFilter();
+    ~KGzipFilter() override;
 
     bool init(int mode) override;
 

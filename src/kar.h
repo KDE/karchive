@@ -40,7 +40,7 @@ public:
      * If the ar file is still opened, then it will be
      * closed automatically by the destructor.
      */
-    virtual ~KAr();
+    ~KAr() override;
 
 protected:
     /*

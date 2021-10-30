@@ -21,7 +21,7 @@ class KBzip2Filter : public KFilterBase
 {
 public:
     KBzip2Filter();
-    virtual ~KBzip2Filter();
+    ~KBzip2Filter() override;
 
     bool init(int) override;
     int mode() const override;

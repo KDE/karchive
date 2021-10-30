@@ -37,7 +37,7 @@ public:
     /**
      * Destructor. Do not call this.
      */
-    ~KZipFileEntry();
+    ~KZipFileEntry() override;
 
     int encoding() const;
     qint64 compressedSize() const;

@@ -42,7 +42,7 @@ public:
      * If the archive is still opened, then it will be
      * closed automatically by the destructor.
      */
-    virtual ~K7Zip();
+    ~K7Zip() override;
 
 protected:
     /// Reimplemented from KArchive

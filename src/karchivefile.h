@@ -49,7 +49,7 @@ public:
     /**
      * Destructor. Do not call this, KArchive takes care of it.
      */
-    virtual ~KArchiveFile();
+    ~KArchiveFile() override;
 
     /**
      * Position of the data in the [uncompressed] archive.

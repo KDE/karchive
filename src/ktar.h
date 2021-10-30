@@ -51,7 +51,7 @@ public:
      * If the tar ball is still opened, then it will be
      * closed automatically by the destructor.
      */
-    virtual ~KTar();
+    ~KTar() override;
 
     /**
      * Special function for setting the "original file name" in the gzip header,

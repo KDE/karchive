@@ -32,7 +32,7 @@ public:
      * If the rcc file is still opened, then it will be
      * closed automatically by the destructor.
      */
-    virtual ~KRcc();
+    ~KRcc() override;
 
 protected:
     /*

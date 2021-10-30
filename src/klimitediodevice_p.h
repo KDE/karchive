@@ -28,7 +28,7 @@ public:
      * @param length the length of the data to read (in bytes)
      */
     KLimitedIODevice(QIODevice *dev, qint64 start, qint64 length);
-    virtual ~KLimitedIODevice()
+    ~KLimitedIODevice() override
     {
     }
 

@@ -65,7 +65,7 @@ public:
      * Destructs the KCompressionDevice.
      * Calls close() if the filter device is still open.
      */
-    virtual ~KCompressionDevice();
+    ~KCompressionDevice() override;
 
     /**
      * The compression actually used by this device.

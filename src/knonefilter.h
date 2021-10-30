@@ -23,7 +23,7 @@ class KNoneFilter : public KFilterBase
 {
 public:
     KNoneFilter();
-    virtual ~KNoneFilter();
+    ~KNoneFilter() override;
 
     bool init(int mode) override;
     int mode() const override;

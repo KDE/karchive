@@ -50,7 +50,7 @@ public:
                       const QString &group,
                       const QString &symlink);
 
-    virtual ~KArchiveDirectory();
+    ~KArchiveDirectory() override;
 
     /**
      * Returns a list of sub-entries.
