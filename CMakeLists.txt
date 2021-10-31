@@ -18,8 +18,11 @@ include(KDEGitCommitHooks)
 
 include(ECMGenerateExportHeader)
 
-set(REQUIRED_QT_VERSION 5.15.2)
-find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt6 COMPONENTS Core NO_MODULE)
+if (NOT Qt6_FOUND)
+    set(REQUIRED_QT_VERSION 5.15.2)
+    find_package(Qt5Core ${REQUIRED_QT_VERSION} COMPONENTS Core REQUIRED NO_MODULE)
+endif()
 
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES
