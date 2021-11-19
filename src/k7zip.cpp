@@ -635,7 +635,7 @@ QString K7Zip::K7ZipPrivate::readString()
 
     QString p;
     for (int i = 0; i < len; i++, buf += 2) {
-        p += (wchar_t)GetUi16(buf, 0);
+        p += (char16_t)GetUi16(buf, 0);
     }
 
     pos += rem + 2;
@@ -2222,7 +2222,7 @@ void K7Zip::K7ZipPrivate::writeHeader(quint64 &headerOffset)
             for (int i = 0; i < fileInfos.size(); i++) {
                 const QString &name = fileInfos.at(i)->path;
                 for (int t = 0; t < name.length(); t++) {
-                    wchar_t c = name[t].toLatin1();
+                    const char16_t c = name[t].unicode();
                     writeByte((unsigned char)c);
                     writeByte((unsigned char)(c >> 8));
                 }
