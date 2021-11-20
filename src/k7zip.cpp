@@ -36,14 +36,33 @@
 static const unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1C};
 // static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
 
-#define GetUi16(p, offset) (((unsigned char)p[offset + 0]) | (((unsigned char)p[1]) << 8))
+/* clang-format off */
+static QChar GetUi16(const char *p, quint64 offset)
+{
+    return QChar(static_cast<unsigned char>(p[offset + 0])
+                 | (static_cast<unsigned char>(p[1]) << 8));
+}
 
-#define GetUi32(p, offset)                                                                                                                                     \
-    (((unsigned char)p[offset + 0]) | (((unsigned char)p[offset + 1]) << 8) | (((unsigned char)p[offset + 2]) << 16) | (((unsigned char)p[offset + 3]) << 24))
+static quint32 GetUi32(const char *p, quint64 offset)
+{
+    return (static_cast<unsigned char>(p[offset + 0])
+            | (static_cast<unsigned char>(p[offset + 1]) << 8)
+            | (static_cast<unsigned char>(p[offset + 2]) << 16)
+            | (static_cast<unsigned char>(p[offset + 3]) << 24));
+}
 
-#define GetUi64(p, offset) ((quint32)GetUi32(p, offset) | (((quint64)GetUi32(p, offset + 4)) << 32))
+static quint64 GetUi64(const char *p, quint64 offset)
+{
+    return (GetUi32(p, offset)
+            | (static_cast<quint64>(GetUi32(p, offset + 4)) << 32));
+}
 
-#define LZMA2_DIC_SIZE_FROM_PROP(p) (((quint32)2 | ((p)&1)) << ((p) / 2 + 11))
+static quint32 lzma2_dic_size_from_prop(int p)
+{
+    return ((static_cast<quint32>(2) | (p & 1)) << ((p / 2) + 11));
+}
+
+/* clang-format on*/
 
 #define FILE_ATTRIBUTE_READONLY 1
 #define FILE_ATTRIBUTE_HIDDEN 2
@@ -635,7 +654,7 @@ QString K7Zip::K7ZipPrivate::readString()
 
     QString p;
     for (int i = 0; i < len; i++, buf += 2) {
-        p += (wchar_t)GetUi16(buf, 0);
+        p += GetUi16(buf, 0);
     }
 
     pos += rem + 2;
@@ -2067,7 +2086,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QVector<quint64> &packSizes, QVecto
 
     int dict;
     for (dict = 0; dict < 40; dict++) {
-        if (dictSize <= LZMA2_DIC_SIZE_FROM_PROP(dict)) {
+        if (dictSize <= lzma2_dic_size_from_prop(dict)) {
             break;
         }
     }
@@ -2752,7 +2771,7 @@ bool K7Zip::closeArchive()
     // k_LZMA2 method
     int dict;
     for (dict = 0; dict < 40; dict++) {
-        if (dictSize <= LZMA2_DIC_SIZE_FROM_PROP(dict)) {
+        if (dictSize <= lzma2_dic_size_from_prop(dict)) {
             break;
         }
     }
