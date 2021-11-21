@@ -316,11 +316,9 @@ public:
 
     int getNumOutStreams() const
     {
-        int result = 0;
-        for (int i = 0; i < folderInfos.size(); i++) {
-            result += folderInfos.at(i)->numOutStreams;
-        }
-        return result;
+        return std::transform_reduce(folderInfos.cbegin(), folderInfos.cend(), 0, std::plus<>(), [](const FolderInfo *info) {
+            return info->numOutStreams;
+        });
     }
 
     quint32 getCoderInStreamIndex(quint32 coderIndex) const
@@ -2813,12 +2811,9 @@ bool K7Zip::closeArchive()
 
     d->packSizes.append(encodedData.size());
 
-    int numUnpackStream = 0;
-    for (int i = 0; i < d->fileInfos.size(); ++i) {
-        if (d->fileInfos.at(i)->hasStream) {
-            numUnpackStream++;
-        }
-    }
+    const int numUnpackStream = std::count_if(d->fileInfos.cbegin(), d->fileInfos.cend(), [](const FileInfo *finfo) {
+        return finfo->hasStream;
+    });
     d->numUnpackStreamsInFolders.append(numUnpackStream);
 
     quint64 headerOffset;
@@ -2845,9 +2840,7 @@ bool K7Zip::closeArchive()
         d->writePackInfo(headerOffset, packSizes, emptyDefined, emptyCrcs);
         d->writeUnpackInfo(folders);
         d->writeByte(kEnd);
-        for (int i = 0; i < packSizes.size(); i++) {
-            headerOffset += packSizes.at(i);
-        }
+        headerOffset += std::reduce(packSizes.cbegin(), packSizes.cend());
         qDeleteAll(folders);
     }
     // end encode header
