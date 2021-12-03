@@ -66,12 +66,12 @@ ecm_generate_export_header(KF5Archive
 )
 
 target_include_directories(KF5Archive
-    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive>"
+    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KArchive>"
 )
 
 target_link_libraries(KF5Archive
     PUBLIC
-        Qt5::Core
+        Qt${QT_MAJOR_VERSION}::Core
     PRIVATE
         ZLIB::ZLIB
 )
@@ -115,7 +115,7 @@ endif()
 install(FILES
             ${CMAKE_CURRENT_BINARY_DIR}/karchive_export.h
             ${KArchive_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KArchive
         COMPONENT Devel)
 
 ecm_qt_install_logging_categories(
@@ -149,7 +149,7 @@ if(BUILD_QCH)
 endif()
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KArchive LIB_NAME KF5Archive DEPS "core" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KArchive)
+ecm_generate_pri_file(BASE_NAME KArchive LIB_NAME KF5Archive DEPS "core" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KArchive)
 install(FILES ${PRI_FILENAME}
         DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
 

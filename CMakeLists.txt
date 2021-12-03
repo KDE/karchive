@@ -19,7 +19,7 @@ include(KDEGitCommitHooks)
 include(ECMGenerateExportHeader)
 
 set(REQUIRED_QT_VERSION 5.15.2)
-find_package(Qt5Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES
@@ -97,7 +97,7 @@ configure_package_config_file(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}
         COMPONENT Devel)
 
 install(FILES
