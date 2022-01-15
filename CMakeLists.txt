@@ -102,7 +102,7 @@ configure_package_config_file(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KArchive
         COMPONENT Devel)
 
 install(FILES
