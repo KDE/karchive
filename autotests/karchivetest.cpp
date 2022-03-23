@@ -962,7 +962,7 @@ void KArchiveTest::testReadZipError()
         KZip zip(QStringLiteral("broken.zip"));
 
         QVERIFY(!zip.open(QIODevice::ReadOnly));
-        QCOMPARE(zip.errorString(), tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(1));
+        QCOMPARE(zip.errorString(), tr("Invalid ZIP file. Could not find End of central directory record"));
 
         QVERIFY(brokenZip.open(QIODevice::WriteOnly | QIODevice::Append));
 
@@ -972,7 +972,7 @@ void KArchiveTest::testReadZipError()
         brokenZip.close();
 
         QVERIFY(!zip.open(QIODevice::ReadOnly));
-        QCOMPARE(zip.errorString(), tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(4));
+        QCOMPARE(zip.errorString(), tr("Invalid ZIP file. Could not find End of central directory record"));
     }
 
     QVERIFY(brokenZip.remove());
