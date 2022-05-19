@@ -23,6 +23,11 @@ public:
     }
     ~KArchivePrivate()
     {
+        if (deviceOwned) {
+            delete dev; // we created it ourselves in open()
+            dev = nullptr;
+        }
+
         delete saveFile;
         delete rootDir;
     }
