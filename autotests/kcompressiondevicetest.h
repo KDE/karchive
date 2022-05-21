@@ -7,10 +7,9 @@
 #ifndef KCOMPRESSIONDEVICETEST_H
 #define KCOMPRESSIONDEVICETEST_H
 
-#include <QObject>
-
 #include <QNetworkAccessManager>
-#include <QScopedPointer>
+#include <QObject>
+#include <memory>
 
 #include <KCompressionDevice>
 #include <KTar>
@@ -31,8 +30,8 @@ private:
     void testExtraction();
 
     QNetworkAccessManager qnam;
-    QScopedPointer<KCompressionDevice> device;
-    QScopedPointer<KTar> archive;
+    std::unique_ptr<KCompressionDevice> device;
+    std::unique_ptr<KTar> archive;
 
 private Q_SLOTS:
     void regularKTarUsage();
