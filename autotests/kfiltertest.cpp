@@ -45,14 +45,16 @@ void KFilterTest::initTestCase()
     testData = "hello world\n";
 }
 
-void KFilterTest::test_block_write(const QString &fileName, const QByteArray &data)
+void KFilterTest::test_block_write(const QString &fileName, const QByteArray &data, int nTimes)
 {
     KCompressionDevice dev(fileName);
     bool ok = dev.open(QIODevice::WriteOnly);
     QVERIFY(ok);
 
-    const int ret = dev.write(data);
-    QCOMPARE(ret, data.size());
+    for (int i = 0; i < nTimes; ++i) {
+        const int ret = dev.write(data);
+        QCOMPARE(ret, data.size());
+    }
 
     dev.close();
 
@@ -61,6 +63,37 @@ void KFilterTest::test_block_write(const QString &fileName, const QByteArray &da
 
 void KFilterTest::test_block_write()
 {
+    // First we do it 50 times, to make sure the compressor
+    // can "reuse" existing data, i.e. zstd used to have a bug
+    // that made this use 513 bytes instead of 28
+    qDebug() << " -- test_block_write gzip -- ";
+    test_block_write(pathgz, testData, 50);
+    QCOMPARE(QFileInfo(pathgz).size(), 40LL); // size of test.gz
+
+#if HAVE_BZIP2_SUPPORT
+    qDebug() << " -- test_block_write bzip2 -- ";
+    test_block_write(pathbz2, testData, 50);
+    QCOMPARE(QFileInfo(pathbz2).size(), 64LL); // size of test.bz2
+#endif
+
+#if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_block_write xz -- ";
+    test_block_write(pathxz, testData, 50);
+    QCOMPARE(QFileInfo(pathxz).size(), 84LL); // size of test.lzma
+#endif
+
+    qDebug() << " -- test_block_write none -- ";
+    test_block_write(pathnone, testData, 50);
+    QCOMPARE(QFileInfo(pathnone).size(), 600LL); // size of test.txt
+
+#if HAVE_ZSTD_SUPPORT
+    qDebug() << " -- test_block_write zstd -- ";
+    test_block_write(pathzstd, testData, 50);
+    QCOMPARE(QFileInfo(pathzstd).size(), 28LL); // size of test.zst
+#endif
+
+    // Then do the write data just once because test_block_read
+    // depends on this
     qDebug() << " -- test_block_write gzip -- ";
     test_block_write(pathgz, testData);
     QCOMPARE(QFileInfo(pathgz).size(), 33LL); // size of test.gz
@@ -84,7 +117,7 @@ void KFilterTest::test_block_write()
 #if HAVE_ZSTD_SUPPORT
     qDebug() << " -- test_block_write zstd -- ";
     test_block_write(pathzstd, testData);
-    QCOMPARE(QFileInfo(pathzstd).size(), 24LL); // size of test.zst
+    QCOMPARE(QFileInfo(pathzstd).size(), 21LL); // size of test.zst
 #endif
 }
 

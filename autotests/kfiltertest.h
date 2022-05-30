@@ -31,7 +31,7 @@ private Q_SLOTS:
     void test_threefilesgztogether();
 
 private:
-    void test_block_write(const QString &fileName, const QByteArray &data);
+    void test_block_write(const QString &fileName, const QByteArray &data, int nTimes = 1);
     void test_block_read(const QString &fileName);
     void test_getch(const QString &fileName);
     void test_textstream(const QString &fileName);

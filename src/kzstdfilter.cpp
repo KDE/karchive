@@ -123,7 +123,7 @@ KZstdFilter::Result KZstdFilter::uncompress()
 KZstdFilter::Result KZstdFilter::compress(bool finish)
 {
     // qCDebug(KArchiveLog) << "Calling ZSTD_compressStream2 with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
-    const size_t result = ZSTD_compressStream2(d->cStream, &d->outBuffer, &d->inBuffer, finish ? ZSTD_e_end : ZSTD_e_flush);
+    const size_t result = ZSTD_compressStream2(d->cStream, &d->outBuffer, &d->inBuffer, finish ? ZSTD_e_end : ZSTD_e_continue);
     if (ZSTD_isError(result)) {
         return KFilterBase::Error;
     }
