@@ -1160,6 +1160,9 @@ void KArchiveTest::testZipAddLocalDirectory()
     const QString file1 = QStringLiteral("file1");
     QVERIFY(writeFile(dirName, file1, file1Data));
 
+    const QString emptyDir = QStringLiteral("emptyDir");
+    QDir(dirName).mkdir(emptyDir);
+
     {
         KZip zip(s_zipFileName);
 
@@ -1177,8 +1180,11 @@ void KArchiveTest::testZipAddLocalDirectory()
 
         const KArchiveEntry *e = dir->entry(file1);
         QVERIFY(e && e->isFile());
-        const KArchiveFile *f = (KArchiveFile *)e;
+        const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
         QCOMPARE(f->data(), file1Data);
+
+        const KArchiveEntry *empty = dir->entry(emptyDir);
+        QVERIFY(empty && empty->isDirectory());
     }
 }
 

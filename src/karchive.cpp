@@ -36,6 +36,12 @@
 #include <windows.h> // DWORD, GetUserNameW
 #endif // Q_OS_WIN
 
+#if defined(Q_OS_UNIX)
+#define STAT_METHOD QT_LSTAT
+#else
+#define STAT_METHOD QT_STAT
+#endif
+
 ////////////////////////////////////////////////////////////////////////
 /////////////////// KArchiveDirectoryPrivate ///////////////////////////
 ////////////////////////////////////////////////////////////////////////
@@ -263,11 +269,6 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
         return false;
     }
 
-#if defined(Q_OS_UNIX)
-#define STAT_METHOD QT_LSTAT
-#else
-#define STAT_METHOD QT_STAT
-#endif
     QT_STATBUF fi;
     if (STAT_METHOD(QFile::encodeName(fileName).constData(), &fi) == -1) {
         setErrorString(tr("Failed accessing the file %1 for adding to the archive. The error was: %2").arg(fileName).arg(QLatin1String{strerror(errno)}));
@@ -355,16 +356,24 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
     }
     dir.setFilter(dir.filter() | QDir::Hidden);
     const QStringList files = dir.entryList();
-    for (QStringList::ConstIterator it = files.begin(); it != files.end(); ++it) {
-        if (*it != QLatin1String(".") && *it != QLatin1String("..")) {
-            QString fileName = path + QLatin1Char('/') + *it;
+    for (const QString &file : files) {
+        if (file != QLatin1String(".") && file != QLatin1String("..")) {
+            const QString fileName = path + QLatin1Char('/') + file;
             //            qCDebug(KArchiveLog) << "storing " << fileName;
-            QString dest = destName.isEmpty() ? *it : (destName + QLatin1Char('/') + *it);
+            const QString dest = destName.isEmpty() ? file : (destName + QLatin1Char('/') + file);
             QFileInfo fileInfo(fileName);
 
             if (fileInfo.isFile() || fileInfo.isSymLink()) {
                 addLocalFile(fileName, dest);
             } else if (fileInfo.isDir()) {
+                // Write directory, so that empty dirs are preserved (and permissions written out, etc.)
+                int perms = 0;
+                QT_STATBUF fi;
+                if (STAT_METHOD(QFile::encodeName(fileName).constData(), &fi) != -1) {
+                    perms = fi.st_mode;
+                }
+                writeDir(file, fileInfo.owner(), fileInfo.group(), perms, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.birthTime());
+                // Recurse
                 addLocalDirectory(fileName, dest);
             }
             // We omit sockets
