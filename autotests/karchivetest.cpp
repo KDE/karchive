@@ -75,8 +75,7 @@ static void writeTestFilesToArchive(KArchive *archive)
     QVERIFY(archive->writeFile("my/dir/test3", "I do not speak German\nDavid.", 0100644, "dfaure", "hackers"));
 
     // Now a medium file : 100 null bytes
-    char medium[SIZE1];
-    memset(medium, 0, SIZE1);
+    char medium[SIZE1] = {0};
     QVERIFY(archive->writeFile("mediumfile", QByteArray(medium, SIZE1)));
     // Another one, with an absolute path
     QVERIFY(archive->writeFile("/dir/subdir/mediumfile2", QByteArray(medium, SIZE1)));

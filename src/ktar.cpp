@@ -790,8 +790,8 @@ bool KTar::doPrepareWriting(const QString &name,
       }
     */
 
-    char buffer[0x201];
-    memset(buffer, 0, 0x200);
+    char buffer[0x201] = {0};
+
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd); // Go to end of archive as might have moved with a read
     }
@@ -857,8 +857,8 @@ bool KTar::doWriteDir(const QString &name,
         return true; // already there
     }
 
-    char buffer[0x201];
-    memset(buffer, 0, 0x200);
+    char buffer[0x201] = {0};
+
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd); // Go to end of archive as might have moved with a read
     }
@@ -917,8 +917,8 @@ bool KTar::doWriteSymLink(const QString &name,
     // In some tar files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
 
-    char buffer[0x201];
-    memset(buffer, 0, 0x200);
+    char buffer[0x201] = {0};
+
     if ((mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite) {
         device()->seek(d->tarEnd); // Go to end of archive as might have moved with a read
     }
