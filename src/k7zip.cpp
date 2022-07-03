@@ -1272,9 +1272,15 @@ public:
     quint32 range;
     quint32 code;
 
-    RangeDecoder()
+    RangeDecoder(const QByteArray &s)
         : pos(0)
+        , stream(s)
+        , range(0xFFFFFFFF)
+        , code(0)
     {
+        for (int i = 0; i < 5; i++) {
+            code = (code << 8) | readByte();
+        }
     }
 
     unsigned char readByte()
@@ -1287,20 +1293,6 @@ public:
         while (range < kTopValue) {
             code = (code << 8) | readByte();
             range <<= 8;
-        }
-    }
-
-    void setStream(const QByteArray &s)
-    {
-        stream = s;
-    }
-
-    void init()
-    {
-        code = 0;
-        range = 0xFFFFFFFF;
-        for (int i = 0; i < 5; i++) {
-            code = (code << 8) | readByte();
         }
     }
 
@@ -1428,9 +1420,7 @@ static QByteArray decodeBCJ2(const QByteArray &mainStream, const QByteArray &cal
     int callStreamPos = 0;
     int jumpStreamPos = 0;
 
-    RangeDecoder rangeDecoder;
-    rangeDecoder.setStream(rangeBuffer);
-    rangeDecoder.init();
+    RangeDecoder rangeDecoder(rangeBuffer);
 
     QVector<CBitDecoder<kNumMoveBits>> statusDecoder(256 + 2);
 
