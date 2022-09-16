@@ -102,7 +102,7 @@ ecm_generate_headers(KArchive_HEADERS
 
 install(TARGETS KF5Archive
         EXPORT KF5ArchiveTargets
-        ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+        ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(LIBLZMA_FOUND)
     ecm_generate_headers(KArchive_HEADERS
