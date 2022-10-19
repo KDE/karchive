@@ -57,6 +57,7 @@ include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddQch)
 include(ECMDeprecationSettings)
+include(ECMPoQmTools)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
@@ -79,6 +80,8 @@ if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
+
+ecm_install_po_files_as_qm(poqm)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Archive")
