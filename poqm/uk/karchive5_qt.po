@@ -1,0 +1,463 @@
+# Yuri Chornoivan <yurchor@ukr.net>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-10-20 18:02+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: k7zip.cpp:2319
+msgctxt "K7Zip|"
+msgid "Could not get underlying device"
+msgstr "Не вдалося отримати базовий пристрій"
+
+#: k7zip.cpp:2327
+msgctxt "K7Zip|"
+msgid "Read header failed"
+msgstr "Не вдалося прочитати заголовок"
+
+#: k7zip.cpp:2333
+msgctxt "K7Zip|"
+msgid "Check signature failed"
+msgstr "Перевірку підпису не пройдено"
+
+#: k7zip.cpp:2356
+msgctxt "K7Zip|"
+msgid "Bad CRC"
+msgstr "Помилкова CRC"
+
+#: k7zip.cpp:2365
+msgctxt "K7Zip|"
+msgid "Next header size is too big"
+msgstr "Розмір наступного заголовка є надто великим"
+
+#: k7zip.cpp:2370
+msgctxt "K7Zip|"
+msgid "Next header size is less than zero"
+msgstr "Розмір наступного заголовка є від'ємним"
+
+#: k7zip.cpp:2381
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Failed read next header size; should read %1, read %2"
+msgstr ""
+"Не вдалося прочитати розмір наступного заголовка: мало бути прочитано %1, а "
+"фактично прочитано %2"
+
+#: k7zip.cpp:2393
+msgctxt "K7Zip|"
+msgid "Bad next header CRC"
+msgstr "Помилкова сума CRC наступного заголовка"
+
+#: k7zip.cpp:2401
+msgctxt "K7Zip|"
+msgid "Error in header"
+msgstr "Помилка у заголовку"
+
+#: k7zip.cpp:2420
+msgctxt "K7Zip|"
+msgid "Wrong header type"
+msgstr "Помилковий тип заголовка"
+
+#: k7zip.cpp:2430 k7zip.cpp:2436
+msgctxt "K7Zip|"
+msgid "Not implemented"
+msgstr "Не реалізовано"
+
+#: k7zip.cpp:2442
+msgctxt "K7Zip|"
+msgid "Error while reading main streams information"
+msgstr "Помилка під час читання даних основних потоків"
+
+#: k7zip.cpp:2460
+msgctxt "K7Zip|"
+msgid "Error while reading header"
+msgstr "Помилка під час читання заголовка"
+
+#: k7zip.cpp:2520
+msgctxt "K7Zip|"
+msgid "Error reading modification time"
+msgstr "Помилка під час читання часу внесення змін"
+
+#: k7zip.cpp:2566
+msgctxt "K7Zip|"
+msgid "Error reading MTime"
+msgstr "Помилка під час читання MTime"
+
+#: k7zip.cpp:2573
+msgctxt "K7Zip|"
+msgid "Invalid"
+msgstr "Некоректний"
+
+#: k7zip.cpp:2595
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
+msgstr ""
+"Не вдалося прочитати розмір (checkRecordsSize: %1, d->pos - ppp: %2, розмір: "
+"%3)"
+
+#: k7zip.cpp:2796
+msgctxt "K7Zip|"
+msgid "Write error"
+msgstr "Помилка запису"
+
+#: k7zip.cpp:2826
+msgctxt "K7Zip|"
+msgid "Failed while encoding header"
+msgstr "Помилка під час кодування заголовка"
+
+#: k7zip.cpp:2870
+msgctxt "K7Zip|"
+msgid "No file currently selected"
+msgstr "Зараз не вибрано жодного файла"
+
+#: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
+msgctxt "K7Zip|"
+msgid "Application error: 7-Zip file must be open before being written into"
+msgstr ""
+"Помилка програми: файл 7-Zip має бути відкрито до того, як до нього буде "
+"записано дані"
+
+#: k7zip.cpp:2900 k7zip.cpp:2992
+msgctxt "K7Zip|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
+
+#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+msgctxt "KAr|"
+msgid "Cannot write to AR file"
+msgstr "Запис до файла AR неможливий"
+
+#: kar.cpp:90
+#, qt-format
+msgctxt "KAr|"
+msgid "Unsupported mode %1"
+msgstr "Непідтримуваний режим %1"
+
+#: kar.cpp:101
+msgctxt "KAr|"
+msgid "Invalid main magic"
+msgstr "Некоректна основна контрольна сума"
+
+#: kar.cpp:118
+msgctxt "KAr|"
+msgid "Invalid magic"
+msgstr "Некоректна контрольна сума"
+
+#: kar.cpp:129
+msgctxt "KAr|"
+msgid "Invalid size"
+msgstr "Некоректний розмір"
+
+#: kar.cpp:149
+msgctxt "KAr|"
+msgid "Invalid longfilename reference"
+msgstr "Некоректне посилання на longfilename"
+
+#: kar.cpp:153
+msgctxt "KAr|"
+msgid "Invalid longfilename position reference"
+msgstr "Некоректне посилання на позицію longfilename"
+
+#: karchive.cpp:157
+msgctxt "KArchive|"
+msgid "No filename or device was specified"
+msgstr "Не вказано назви файла або пристрою"
+
+#: karchive.cpp:162
+#, qt-format
+msgctxt "KArchive|"
+msgid "Could not open device in mode %1"
+msgstr "Не вдалося відкрити пристрій у режимі %1"
+
+#: karchive.cpp:189
+#, qt-format
+msgctxt "KArchive|"
+msgid "QSaveFile creation for %1 failed: %2"
+msgstr "Не вдалося виконати створення QSaveFile для %1: %2"
+
+#: karchive.cpp:208
+#, qt-format
+msgctxt "KArchive|"
+msgid "Unsupported mode %1"
+msgstr "Непідтримуваний режим %1"
+
+#: karchive.cpp:217
+msgctxt "KArchive|"
+msgid "Archive already closed"
+msgstr "Архів вже закрито"
+
+#: karchive.cpp:268
+#, qt-format
+msgctxt "KArchive|"
+msgid "%1 doesn't exist or is not a regular file."
+msgstr "%1 не існує або він не є звичайним файлом."
+
+#: karchive.cpp:274
+#, qt-format
+msgctxt "KArchive|"
+msgid ""
+"Failed accessing the file %1 for adding to the archive. The error was: %2"
+msgstr ""
+"Не вдалося отримати доступ до файла %1 для додавання до архіву. Повідомлення "
+"про помилку: %2"
+
+#: karchive.cpp:320
+#, qt-format
+msgctxt "KArchive|"
+msgid "Couldn't open file %1: %2"
+msgstr "Не вдалося відкрити файл %1: %2"
+
+#: karchive.cpp:354
+#, qt-format
+msgctxt "KArchive|"
+msgid "Directory %1 does not exist"
+msgstr "Каталогу %1 не існує"
+
+#: karchive.cpp:418
+#, qt-format
+msgctxt "KArchive|"
+msgid "Writing failed: %1"
+msgstr "Не вдалося записати: %1"
+
+#: karchive_p.h:56
+msgctxt "KArchivePrivate|"
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: kcompressiondevice.cpp:485
+msgctxt "KCompressionDevice|"
+msgid "Could not write. Partition full?"
+msgstr "Не вдалося записати. Переповнений розділ на диску?"
+
+#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+msgctxt "KRcc|"
+msgid "Cannot write to RCC file"
+msgstr "Запис до файла RCC неможливий"
+
+#: krcc.cpp:117
+#, qt-format
+msgctxt "KRcc|"
+msgid "Unsupported mode %1"
+msgstr "Непідтримуваний режим %1"
+
+#: krcc.cpp:124
+#, qt-format
+msgctxt "KRcc|"
+msgid "Failed to register resource %1 under prefix %2"
+msgstr "Не вдалося зареєструвати ресурс %1 із префіксом %2"
+
+#: ktar.cpp:343
+#, qt-format
+msgctxt "KTar|"
+msgid "File %1 does not exist"
+msgstr "Файла %1 не існує"
+
+#: ktar.cpp:350
+#, qt-format
+msgctxt "KTar|"
+msgid "Archive %1 is corrupt"
+msgstr "Архів %1 пошкоджено"
+
+#: ktar.cpp:354
+msgctxt "KTar|"
+msgid "Disk full"
+msgstr "Диск переповнено"
+
+#: ktar.cpp:388
+msgctxt "KTar|"
+msgid "Could not get underlying device"
+msgstr "не вдалося отримати розмір пристрою"
+
+#: ktar.cpp:403
+msgctxt "KTar|"
+msgid "Could not read tar header"
+msgstr "Не вдалось прочитати заголовок tar"
+
+#: ktar.cpp:581
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write back temp file: %1"
+msgstr "Не вдалося записати тимчасовий файл: %1"
+
+#: ktar.cpp:637
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write alignment: %1"
+msgstr "Не вдалося записати вирівнювання: %1"
+
+#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+msgctxt "KTar|"
+msgid "Application error: TAR file must be open before being written into"
+msgstr ""
+"Помилка програми: файл TAR має бути відкрито до того, як до нього буде "
+"записано дані"
+
+#: ktar.cpp:766
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
+
+#: ktar.cpp:821
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write header: %1"
+msgstr "Не вдалось записати заголовок: %1"
+
+#: ktar.cpp:843 ktar.cpp:912
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable TAR file"
+msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"
+
+#: kzip.cpp:450 kzip.cpp:469
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
+msgstr "Некоректний файл ZIP. Неочікуване завершення файла. (Код помилки: %1)"
+
+#: kzip.cpp:493
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Negative name length"
+msgstr "Некоректний файл ZIP. Від'ємна довжина назви"
+
+#: kzip.cpp:498
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Name not completely read (#2)"
+msgstr "Некоректний файл ZIP. Назву не прочитано повністю (#2)"
+
+#: kzip.cpp:517
+msgctxt "KZip|"
+msgid "Invalid ZIP File. Broken ExtraField."
+msgstr "Некоректний файл ZIP. Пошкоджено ExtraField."
+
+#: kzip.cpp:531 kzip.cpp:554
+msgctxt "KZip|"
+msgid "Could not seek to next header token"
+msgstr "Не вдалося виконати позиціювання до наступного жетона заголовка"
+
+#: kzip.cpp:546
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#5)"
+msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#5)"
+
+#: kzip.cpp:562
+msgctxt "KZip|"
+msgid "Could not seek to file compressed size"
+msgstr "Не вдалося виконати позиціювання до стисненого розміру файла"
+
+#: kzip.cpp:578
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#1)"
+msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#1)"
+
+#: kzip.cpp:611
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, central entry too short (not long enough for valid entry)"
+msgstr ""
+"Некоректний файл ZIP, центральний запис є надто коротким (недостатньо довгим "
+"для коректного запису)"
+
+#: kzip.cpp:620
+msgctxt "KZip|"
+msgid "Invalid ZIP file, file path name length smaller or equal to zero"
+msgstr ""
+"Некоректний файл ZIP, довжина назви шляху файла є меншою або рівною нулеві"
+
+#: kzip.cpp:696
+msgctxt "KZip|"
+msgid "Invalid ZIP file, found empty entry name"
+msgstr "Некоректний файл ZIP. Виявлено порожню назву запису"
+
+#: kzip.cpp:737
+#, qt-format
+msgctxt "KZip|"
+msgid "File %1 is in folder %2, but %3 is actually a file."
+msgstr "Файл %1 перебуває у теці %2, але %3 насправді є файлом."
+
+#: kzip.cpp:748
+msgctxt "KZip|"
+msgid "Could not seek to next entry"
+msgstr "Не вдалося виконати позиціювання до наступного запису"
+
+#: kzip.cpp:761 kzip.cpp:771
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file."
+msgstr "Некоректний файл ZIP. Несподіване завершення файла."
+
+#: kzip.cpp:794
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unrecognized header at offset %1"
+msgstr "Некоректний файл ZIP. Невідомий заголовок із відступом %1"
+
+#: kzip.cpp:825
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not seek to next file header: %1"
+msgstr "Не вдалося виконати позиціювання до наступного заголовка файла: %1"
+
+#: kzip.cpp:851 kzip.cpp:947
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write file header: %1"
+msgstr "Не вдалося записати заголовок файла: %1"
+
+#: kzip.cpp:994
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write central dir record: %1"
+msgstr "Не вдалося записати запис центрального каталогу: %1"
+
+#: kzip.cpp:1030
+msgctxt "KZip|"
+msgid "Application error: ZIP file must be open before being written into"
+msgstr ""
+"Помилка програми: файл ZIP має бути відкрито до того, як до нього буде "
+"записано дані"
+
+#: kzip.cpp:1036
+msgctxt "KZip|"
+msgid "Application error: attempted to write into non-writable ZIP file"
+msgstr "Помилка програми: спроба запису до непридатного до запису файла ZIP"
+
+#: kzip.cpp:1042
+msgctxt "KZip|"
+msgid "Cannot create a device. Disk full?"
+msgstr "Не вдалося створити пристрій. Диск переповнено?"
+
+#: kzip.cpp:1048
+msgctxt "KZip|"
+msgid "Cannot seek in ZIP file. Disk full?"
+msgstr "Не вдалося виконати позиціювання у файлі ZIP. Диск переповнено?"
+
+#: kzip.cpp:1190
+msgctxt "KZip|"
+msgid "Could not write to the archive. Disk full?"
+msgstr "Не вдалося записати дані до архіву. Диск переповнено?"
+
+#: kzip.cpp:1209
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not open compression device: %1"
+msgstr "Не вдалося відкрити пристрій стискання: %1"
+
+#: kzip.cpp:1296
+msgctxt "KZip|"
+msgid "No file or device"
+msgstr "Немає файла або пристрою"
+
+#: kzip.cpp:1309
+#, qt-format
+msgctxt "KZip|"
+msgid "Error writing data: %1"
+msgstr "Помилка під час спроби запису даних: %1"
