@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2022-10-20 18:13+0200\n"
+"PO-Revision-Date: 2022-10-22 19:33+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,32 +16,32 @@ msgstr ""
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "No se ha podido obtener el dispositivo subyacente"
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "La lectura de la cabecera ha fallado"
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr ""
+msgstr "La comprobación de la firma ha fallado"
 
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr ""
+msgstr "CRC incorrecto"
 
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "El tamaño de la siguiente cabecera es demasiado grande"
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "El tamaño de la siguiente cabecera es menor que cero"
 
 #: k7zip.cpp:2381
 #, qt-format
@@ -52,7 +52,7 @@ msgstr ""
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "CRC de la siguiente cabecera incorrecto"
 
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
@@ -72,22 +72,22 @@ msgstr "No implementado"
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "Error de lectura de información de los canales principales"
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "Error de lectura de cabecera"
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "Error de lectura de la hora de modificación"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "Error de lectura de MTime"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
@@ -119,11 +119,15 @@ msgstr ""
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
+"Error de la aplicación: el archivo 7-Zip debe estar abierto antes de "
+"escribir en él"
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
+"Error de la aplicación: se ha intentado escribir en un archivo 7-Zip que no "
+"permite escritura"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
@@ -164,13 +168,13 @@ msgstr ""
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "No se ha indicado ningún archivo ni dispositivo"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "No se ha podido abrir el dispositivo en modo %1"
 
 #: karchive.cpp:189
 #, qt-format
@@ -187,13 +191,13 @@ msgstr ""
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "El archivo ya está cerrado"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 no existe o no es un archivo normal."
 
 #: karchive.cpp:274
 #, qt-format
@@ -206,7 +210,7 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "No se ha podido abrir el archivo %1: %2"
 
 #: karchive.cpp:354
 #, qt-format
@@ -239,7 +243,7 @@ msgstr "No se puede escribir en archivo RCC"
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Modo %1 no permitido"
 
 #: krcc.cpp:124
 #, qt-format
@@ -257,7 +261,7 @@ msgstr "El archivo %1 no existe"
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "El archivo %1 está dañado"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
@@ -267,12 +271,12 @@ msgstr "Disco lleno"
 #: ktar.cpp:388
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "No se ha podido obtener el dispositivo subyacente"
 
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "No se ha podido leer la cabecera «tar»"
 
 #: ktar.cpp:581
 #, qt-format
@@ -290,11 +294,15 @@ msgstr ""
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
+"Error de la aplicación: el archivo TAR debe estar abierto antes de escribir "
+"en él"
 
 #: ktar.cpp:766
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
+"Error de la aplicación: se ha intentado escribir en un archivo 7-Zip que no "
+"permite escritura"
 
 #: ktar.cpp:821
 #, qt-format
@@ -306,6 +314,8 @@ msgstr ""
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
+"Error de la aplicación: se ha intentado escribir en un archivo TAR que no "
+"permite escritura"
 
 #: kzip.cpp:450 kzip.cpp:469
 #, qt-format
