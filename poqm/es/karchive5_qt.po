@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2022-10-22 19:33+0200\n"
+"PO-Revision-Date: 2022-10-26 01:35+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -113,21 +113,21 @@ msgstr ""
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "No se ha seleccionado ningún archivo"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Error de la aplicación: el archivo 7-Zip debe estar abierto antes de "
-"escribir en él"
+"escribir en él."
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error de la aplicación: se ha intentado escribir en un archivo 7-Zip que no "
-"permite escritura"
+"permite escritura."
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
@@ -138,7 +138,7 @@ msgstr "No se puede escribir en archivo AR"
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Modo %1 no permitido"
 
 #: kar.cpp:101
 msgctxt "KAr|"
@@ -186,7 +186,7 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Modo %1 no permitido"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
@@ -205,6 +205,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Ha fallado el acceso al archivo %1 para añadirlo al archivo comprimido. El "
+"error ha sido: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -249,7 +251,7 @@ msgstr "Modo %1 no permitido"
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "No se ha podido registrar el recurso %1 bajo el prefijo %2"
 
 #: ktar.cpp:343
 #, qt-format
@@ -288,55 +290,56 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "No se ha podido escribir la alineación: %1"
 
 #: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Error de la aplicación: el archivo TAR debe estar abierto antes de escribir "
-"en él"
+"en él."
 
 #: ktar.cpp:766
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error de la aplicación: se ha intentado escribir en un archivo 7-Zip que no "
-"permite escritura"
+"permite escritura."
 
 #: ktar.cpp:821
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "No se ha podido escribir la cabecera: %1"
 
 #: ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
 "Error de la aplicación: se ha intentado escribir en un archivo TAR que no "
-"permite escritura"
+"permite escritura."
 
 #: kzip.cpp:450 kzip.cpp:469
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr ""
+"Archivo ZIP no válido: fin de archivo inesperado. (Código de error: %1)"
 
 #: kzip.cpp:493
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Archivo ZIP no válido: longitud de nombre negativa"
 
 #: kzip.cpp:498
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "Archivo ZIP no válido: nombre no leído completamente (#2)."
 
 #: kzip.cpp:517
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Archivo ZIP no válido: «ExtraField» incorrecto."
 
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
@@ -346,7 +349,7 @@ msgstr ""
 #: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Archivo ZIP no válido: fin de archivo inesperado. (#5)"
 
 #: kzip.cpp:562
 msgctxt "KZip|"
@@ -356,29 +359,33 @@ msgstr ""
 #: kzip.cpp:578
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Archivo ZIP no válido: fin de archivo inesperado. (#1)"
 
 #: kzip.cpp:611
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"Archivo ZIP no válido: entrada central demasiado corta (no es lo "
+"suficientemente larga para ser una entrada válida)."
 
 #: kzip.cpp:620
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
+"Archivo ZIP no válido: longitud de nombre de ruta de archivo menor o igual "
+"que cero."
 
 #: kzip.cpp:696
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Archivo ZIP no válido: se ha encontrado un nombre de entrada vacío."
 
 #: kzip.cpp:737
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "El archivo %1 está en la carpeta %2, pero %3 es realmente un archivo."
 
 #: kzip.cpp:748
 msgctxt "KZip|"
@@ -388,13 +395,13 @@ msgstr ""
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "Archivo ZIP no válido: fin de archivo inesperado."
 
 #: kzip.cpp:794
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "Archivo ZIP no válido: cabecera no reconocida en el desplazamiento %1"
 
 #: kzip.cpp:825
 #, qt-format
@@ -418,11 +425,15 @@ msgstr ""
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
+"Error de la aplicación: el archivo ZIP debe estar abierto antes de escribir "
+"en él."
 
 #: kzip.cpp:1036
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
+"Error de la aplicación: se ha intentado escribir en un archivo ZIP que no "
+"permite escritura."
 
 #: kzip.cpp:1042
 msgctxt "KZip|"
@@ -437,13 +448,13 @@ msgstr ""
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "No se puede escribir en el archivo. ¿Disco lleno?"
 
 #: kzip.cpp:1209
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "No se ha podido abrir el dispositivo de compresión: %1"
 
 #: kzip.cpp:1296
 msgctxt "KZip|"
@@ -454,4 +465,4 @@ msgstr ""
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "Ha ocurrido un error al escribir datos: %1"
