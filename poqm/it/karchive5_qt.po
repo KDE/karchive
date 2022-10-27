@@ -1,207 +1,207 @@
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2022-10-25 21:33+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
-"Language: fr\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-10-23 13:55+0200\n"
+"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr "Impossible d'obtenir le périphérique sous-jacent"
+msgstr "Impossibile ottenere il dispositivo sottostante"
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr "Échec de la lecture de l'en-tête"
+msgstr "Lettura dell'intestazione non riuscita"
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr "Échec de la vérification de la signature"
+msgstr "Verifica della firma non riuscita"
 
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr "Contrôle cyclique (CRC) erroné"
+msgstr "CRC errato"
 
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr "La taille de la prochaine en-tête est trop grande"
+msgstr "La dimensione dell'intestazione successiva è troppo grande"
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr "La taille de la prochaine en-tête est inférieure à zéro."
+msgstr "La dimensione dell'intestazione successiva è inferiore a zero"
 
 #: k7zip.cpp:2381
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
-"Impossible de lire la taille de la prochaine en-tête. Doit-on lire %1 puis "
-"%2 ?"
+"Impossibile leggere la dimensione dell'intestazione successiva; dovrebbe "
+"leggere %1, letto %2"
 
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr "Code de redondance cyclique (CRC) erroné pour le prochain en-tête"
+msgstr "CRC dell'intestazione successiva non valido"
 
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr "Erreur dans l'en-tête"
+msgstr "Errore nell'intestazione"
 
 #: k7zip.cpp:2420
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr "Mauvais type d'en-tête"
+msgstr "Tipo di intestazione errato"
 
 #: k7zip.cpp:2430 k7zip.cpp:2436
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr "Non implémenté"
+msgstr "Non implementato"
 
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr "Erreur durant la lecture des informations principales des flux"
+msgstr "Errore durante la lettura delle informazioni sui flussi principali"
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr "Erreur lors de la lecture de l'en-tête"
+msgstr "Errore durante la lettura dell'intestazione"
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr "Erreur lors de la lecture de l'heure de modification"
+msgstr "Errore durante la lettura dell'ora di modifica"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr "Erreur durant la lecture du paramètre « MTime »"
+msgstr "Errore di lettura MTime"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr "Non valable"
+msgstr "Non valido"
 
 #: k7zip.cpp:2595
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
-"Échec de la lecture de la taille (checkRecordsSize : %1, d->pos - ppp : %2, "
-"size : %3)"
+"Dimensione di lettura non riuscita (checkRecordsSize: %1, d->pos - ppp: %2, "
+"dimensione: %3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr "Erreur en écriture"
+msgstr "Errore di scrittura"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr "Échec lors de l'encodage de l'en-tête"
+msgstr "Errore durante la codifica dell'intestazione"
 
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr "Aucun fichier actuellement sélectionné"
+msgstr "Nessun file attualmente selezionato"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
-"Erreur de l'application : le fichier au format « 7-ZIP » doit être ouvert "
-"avant d'y écrire dedans."
+"Errore dell'applicazione: il file 7-Zip deve essere aperto prima di essere "
+"scritto"
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
-"Erreur de l'application : tentative d'écriture dans un fichier en lecture "
-"seule de format « 7-ZIP »"
+"Errore dell'applicazione: tentativo di scrittura in un file 7-Zip non "
+"scrivibile"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr "Impossible d'écrire vers un fichier « AR »"
+msgstr "Impossibile scrivere su file AR"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr "Mode %1 non pris en charge"
+msgstr "Modalità %1 non supportata"
 
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr "Numéro magique principal non valable"
+msgstr "Codice intestazione principale non valido"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr "Numéro magique non valable"
+msgstr "Codice intestazione non valido"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr "Taille non valable"
+msgstr "Dimensione non valida"
 
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr "Référence non valable à un nom long de fichier"
+msgstr "Riferimento longfilename non valido"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr "Référence non valable de position d'un nom long de fichier"
+msgstr "Riferimento di posizione longfilename non valido"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr "Aucun nom de fichier ou aucun périphérique n'a été spécifié"
+msgstr "Non è stato specificato alcun nome file o dispositivo"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr "Impossible d'ouvrir le périphérique en mode %1"
+msgstr "Impossibile aprire il dispositivo in modalità %1"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr "Impossible de créer un objet « QSaveFile » pour %1 : %2"
+msgstr "Creazione QSaveFile per %1 non riuscita: %2"
 
 #: karchive.cpp:208
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr "Mode %1 non pris en charge"
+msgstr "Modalità %1 non supportata"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr "Archive déjà fermée"
+msgstr "Archivio già chiuso"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr "%1n'existe pas ou n'est pas un fichier standard."
+msgstr "%1 non esiste o non è un file normale."
 
 #: karchive.cpp:274
 #, qt-format
@@ -209,279 +209,262 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"Échec d’accès au fichier %1 durant son ajout à l’archive. L’erreur était : %2"
+"Impossibile accedere al file %1 per l'aggiunta all'archivio. L'errore era: %2"
 
 #: karchive.cpp:320
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr "Impossible d'ouvrir le fichier %1 : %2"
+msgstr "Impossibile aprire il file %1: %2"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr "Le dossier %1 n'existe pas"
+msgstr "La cartella %1 non esiste"
 
 #: karchive.cpp:418
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr "Échec de l'écriture : %1"
+msgstr "Scrittura non riuscita: %1"
 
 #: karchive_p.h:56
 msgctxt "KArchivePrivate|"
 msgid "Unknown error"
-msgstr "Erreur inconnue"
+msgstr "Errore sconosciuto"
 
 #: kcompressiondevice.cpp:485
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
-"Impossible de réaliser une écriture. La partition pourrait-elle être pleine ?"
+msgstr "Impossibile scrivere. Partizione piena?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr "Impossible d'écrire vers un fichier « RCC »"
+msgstr "Impossibile scrivere nel file RCC"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr "Mode %1 non pris en charge"
+msgstr "Modalità %1 non supportata"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr "Impossible d'enregistrer la ressource %1 sous le préfixe %2"
+msgstr "Impossibile registrare la risorsa %1 con il prefisso %2"
 
 #: ktar.cpp:343
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr "Le fichier %1 n'existe pas"
+msgstr "Il file %1 non esiste"
 
 #: ktar.cpp:350
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr "L'archive %1 est corrompue"
+msgstr "L'archivio %1 è danneggiato"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr "Disque plein"
+msgstr "Disco pieno"
 
 #: ktar.cpp:388
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr "Impossible d'obtenir le périphérique sous-jacent"
+msgstr "Impossibile ottenere il dispositivo sottostante"
 
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr "Impossible de lire l'en-tête du fichier « TAR »"
+msgstr "Impossibile leggere l'intestazione tar"
 
 #: ktar.cpp:581
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr "Échec de l’écriture du fichier temporaire : %1"
+msgstr "Impossibile riscrivere il file temporaneo: %1"
 
 #: ktar.cpp:637
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr "Impossible d'écrire l'alignement : %1"
+msgstr "Impossibile scrivere l'allineamento: %1"
 
 #: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
-"Erreur de l'application : le fichier au format « TAR » doit être ouvert "
-"avant d'y écrire dedans."
+"Errore dell'applicazione: il file TAR deve essere aperto prima di essere "
+"scritto"
 
 #: ktar.cpp:766
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
-"Erreur de l'application : tentative d'écriture dans un fichier en lecture "
-"seule de format « 7-ZIP »"
+"Errore dell'applicazione: tentativo di scrittura in un file 7-Zip non "
+"scrivibile"
 
 #: ktar.cpp:821
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr "Impossible d'écrire l'en-tête : %1"
+msgstr "Impossibile scrivere l'intestazione: %1"
 
 #: ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
-"Erreur de l'application : tentative d'écriture dans un fichier en lecture "
-"seule de format « TAR »"
+"Errore dell'applicazione: tentativo di scrittura in un file TAR non "
+"scrivibile"
 
 #: kzip.cpp:450 kzip.cpp:469
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
-"Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
-"façon non prévue (Code d'erreur : %1)"
+msgstr "File ZIP non valido. Fine inattesa del file. (Codice di errore: %1)"
 
 #: kzip.cpp:493
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr "Fichier au format « zip » non valable. Longueur négative du nom."
+msgstr "File ZIP non valido. Lunghezza del nome negativa"
 
 #: kzip.cpp:498
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
-"Fichier au format « zip » non valable. Un nom n'a pu être lu en totalité. "
-"(#2)"
+msgstr "File ZIP non valido. Nome non completamente letto (#2)"
 
 #: kzip.cpp:517
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr "Fichier au format « zip » non valable. Champ additionnel corrompu."
+msgstr "File ZIP non valido. ExtraField danneggiato."
 
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr "Impossible de trouver le prochain jeton d'en-tête"
+msgstr "Impossibile cercare il token di intestazione successivo"
 
 #: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
-"Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
-"façon non prévue. (#5)"
+msgstr "File ZIP non valido. Fine inattesa del file. (#5)"
 
 #: kzip.cpp:562
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr "Impossible de trouver la taille du fichier compressé"
+msgstr "Impossibile cercare la dimensione del file compresso"
 
 #: kzip.cpp:578
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
-"Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
-"façon non prévue. (#1)"
+msgstr "File ZIP non valido. Fine inattesa del file. (#1)"
 
 #: kzip.cpp:611
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
-"Fichier au format « zip » non valable. L'entrée central est trop courte (Pas "
-"assez longue pour être une entrée valable)"
+"File ZIP non valido, voce centrale troppo corta (non abbastanza lunga per "
+"una voce valida)"
 
 #: kzip.cpp:620
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
-"Fichier au format « zip » non valable. La longueur du nom de l'emplacement "
-"du fichier est inférieure ou égale à zéro."
+"File ZIP non valido, lunghezza del nome del percorso del file inferiore o "
+"uguale a zero"
 
 #: kzip.cpp:696
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
-"Fichier au format « zip » non valable. Un nom d'entrée vide a été trouvé."
+msgstr "File ZIP non valido, trovato nome vuoto della voce"
 
 #: kzip.cpp:737
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
-"Le fichier %1 est dans le dossier %2 mais %3 est actuellement un fichier."
+msgstr "Il file %1 si trova nella cartella %2, ma %3 è in realtà un file."
 
 #: kzip.cpp:748
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr "Impossible de se positionner sur l'entrée suivante"
+msgstr "Impossibile cercare la voce successiva"
 
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
-"Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
-"façon non prévue."
+msgstr "File ZIP non valido. Fine inattesa del file."
 
 #: kzip.cpp:794
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
-"Fichier au format « zip » non valable. En-tête non reconnu avec le décalage "
-"%1"
+msgstr "File ZIP non valido. Intestazione non riconosciuta all'offset %1"
 
 #: kzip.cpp:825
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr "Impossible de trouver la prochaine en-tête de fichier : %1"
+msgstr "Impossibile cercare l'intestazione del file successiva: %1"
 
 #: kzip.cpp:851 kzip.cpp:947
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr "Impossible d'écrire l'en-tête du fichier : %1"
+msgstr "Impossibile scrivere l'intestazione del file: %1"
 
 #: kzip.cpp:994
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr "Impossible d'écrire l'enregistrement principal du dossier : %1"
+msgstr "Impossibile scrivere il record della directory centrale: %1"
 
 #: kzip.cpp:1030
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
-"Erreur de l'application : le fichier au format « ZIP » doit être ouvert "
-"avant d'y écrire dedans."
+"Errore dell'applicazione: il file ZIP deve essere aperto prima di essere "
+"scritto"
 
 #: kzip.cpp:1036
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
-"Erreur de l'application : tentative d'écriture dans un fichier en lecture "
-"seule de format « ZIP »"
+"Errore dell'applicazione: tentativo di scrittura in un file ZIP non "
+"scrivibile"
 
 #: kzip.cpp:1042
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
-"Impossible de créer un périphérique. Le disque pourrait-il être plein ?"
+msgstr "Impossibile creare un dispositivo. Disco pieno?"
 
 #: kzip.cpp:1048
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
-"Impossible de rechercher dans un fichier « ZIP ». Le disque serait-il plein ?"
+msgstr "Impossibile cercare nel file ZIP. Disco pieno?"
 
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr "Impossible d'écrire dans l'archive Le disque pourrait-il être plein ?"
+msgstr "Impossibile scrivere nell'archivio. Disco pieno?"
 
 #: kzip.cpp:1209
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr "Impossible d'ouvrir le périphérique de compression : %1"
+msgstr "Impossibile aprire il dispositivo di compressione: %1"
 
 #: kzip.cpp:1296
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr "Aucun fichier ou périphérique"
+msgstr "Nessun file o dispositivo"
 
 #: kzip.cpp:1309
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr "Erreur lors de l'écriture des données : %1"
+msgstr "Errore durante la scrittura dei dati: %1"
