@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2022-10-26 01:35+0200\n"
+"PO-Revision-Date: 2022-10-30 11:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -48,6 +48,8 @@ msgstr "El tamaño de la siguiente cabecera es menor que cero"
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
+"Ha fallado la lectura del tamaño de la siguiente cabecera: tendría que ser "
+"%1 y se la leído %2"
 
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
@@ -99,6 +101,8 @@ msgstr "No válido"
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Ha fallado el tamaño de la lectura (checkRecordsSize: %1, d->pos - ppp: %2, "
+"tamaño: %3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
@@ -108,7 +112,7 @@ msgstr "Error de escritura"
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Ha fallado la codificación de la cabecera"
 
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
@@ -158,12 +162,12 @@ msgstr "Tamaño no válido"
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Referencia a nombre de archivo largo no válida"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Referencia a posición de nombre de archivo largo no válida"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
@@ -180,7 +184,7 @@ msgstr "No se ha podido abrir el dispositivo en modo %1"
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "Ha fallado la creación de QSaveFile para %1: %2"
 
 #: karchive.cpp:208
 #, qt-format
@@ -390,7 +394,7 @@ msgstr "El archivo %1 está en la carpeta %2, pero %3 es realmente un archivo."
 #: kzip.cpp:748
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "No se puede avanzar a la siguiente entrada"
 
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
@@ -407,19 +411,19 @@ msgstr "Archivo ZIP no válido: cabecera no reconocida en el desplazamiento %1"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "No se puede buscar la siguiente cabecera de archivo: %1"
 
 #: kzip.cpp:851 kzip.cpp:947
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "No se ha podido escribir la cabecera del archivo: %1"
 
 #: kzip.cpp:994
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "No se puede escribir el registro «dir» central: %1"
 
 #: kzip.cpp:1030
 msgctxt "KZip|"
@@ -443,7 +447,7 @@ msgstr "No se puede crear un dispositivo. ¿Disco lleno?"
 #: kzip.cpp:1048
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "No se puede buscar en el archivo ZIP. ¿Disco lleno?"
 
 #: kzip.cpp:1190
 msgctxt "KZip|"
@@ -459,7 +463,7 @@ msgstr "No se ha podido abrir el dispositivo de compresión: %1"
 #: kzip.cpp:1296
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Ningún archivo ni dispositivo"
 
 #: kzip.cpp:1309
 #, qt-format
