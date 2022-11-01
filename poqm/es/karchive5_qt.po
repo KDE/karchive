@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2022-10-30 11:19+0100\n"
+"PO-Revision-Date: 2022-10-31 21:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -147,12 +147,12 @@ msgstr "Modo %1 no permitido"
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Número mágico principal no válido"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Número mágico no válido"
 
 #: kar.cpp:129
 msgctxt "KAr|"
@@ -288,7 +288,7 @@ msgstr "No se ha podido leer la cabecera «tar»"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "No se ha podido reescribir el archivo temporal: %1"
 
 #: ktar.cpp:637
 #, qt-format
@@ -348,7 +348,7 @@ msgstr "Archivo ZIP no válido: «ExtraField» incorrecto."
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "No se puede ir hasta el siguiente token de cabecera"
 
 #: kzip.cpp:546
 msgctxt "KZip|"
@@ -358,7 +358,7 @@ msgstr "Archivo ZIP no válido: fin de archivo inesperado. (#5)"
 #: kzip.cpp:562
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "No se puede ir hasta el tamaño del archivo comprimido"
 
 #: kzip.cpp:578
 msgctxt "KZip|"

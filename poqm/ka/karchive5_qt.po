@@ -1,0 +1,448 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: \n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.2\n"
+
+#: k7zip.cpp:2319
+msgctxt "K7Zip|"
+msgid "Could not get underlying device"
+msgstr "ქვედა მოწყობილობის მიღების შეცდომა"
+
+#: k7zip.cpp:2327
+msgctxt "K7Zip|"
+msgid "Read header failed"
+msgstr "თავსართის წაკითხვის შეცდომა"
+
+#: k7zip.cpp:2333
+msgctxt "K7Zip|"
+msgid "Check signature failed"
+msgstr "ხელმოწერის შემოწმების შეცდომა"
+
+#: k7zip.cpp:2356
+msgctxt "K7Zip|"
+msgid "Bad CRC"
+msgstr "არასწორი CRC"
+
+#: k7zip.cpp:2365
+msgctxt "K7Zip|"
+msgid "Next header size is too big"
+msgstr "შემდეგი თავსართის ზომა ძალიან დიდია"
+
+#: k7zip.cpp:2370
+msgctxt "K7Zip|"
+msgid "Next header size is less than zero"
+msgstr "შემდეგი თავსართის ზომა ნულზე ნაკლებია"
+
+#: k7zip.cpp:2381
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Failed read next header size; should read %1, read %2"
+msgstr "შემდეგი თავსართის წაკითხვის შეცდომა. უნდა იყოს %1, წავიკითხე %2"
+
+#: k7zip.cpp:2393
+msgctxt "K7Zip|"
+msgid "Bad next header CRC"
+msgstr "არასწორი შემდეგი თავსართის CRC"
+
+#: k7zip.cpp:2401
+msgctxt "K7Zip|"
+msgid "Error in header"
+msgstr "თავსართის შეცდომა"
+
+#: k7zip.cpp:2420
+msgctxt "K7Zip|"
+msgid "Wrong header type"
+msgstr "თავსართის არასწორი ტიპი"
+
+#: k7zip.cpp:2430 k7zip.cpp:2436
+msgctxt "K7Zip|"
+msgid "Not implemented"
+msgstr "განხორციელებული არაა"
+
+#: k7zip.cpp:2442
+msgctxt "K7Zip|"
+msgid "Error while reading main streams information"
+msgstr "შეცდომა მთავარი ნაკადებს ინფორმაციის წაკითხვისას"
+
+#: k7zip.cpp:2460
+msgctxt "K7Zip|"
+msgid "Error while reading header"
+msgstr "შეცდომა თავსართის წაკითხვისას"
+
+#: k7zip.cpp:2520
+msgctxt "K7Zip|"
+msgid "Error reading modification time"
+msgstr "შეცდომა ცვლილების დროის წაკითხვისას"
+
+#: k7zip.cpp:2566
+msgctxt "K7Zip|"
+msgid "Error reading MTime"
+msgstr "შეცდომა MTime-ის წაკიხვისას"
+
+#: k7zip.cpp:2573
+msgctxt "K7Zip|"
+msgid "Invalid"
+msgstr "არასწორი"
+
+#: k7zip.cpp:2595
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
+msgstr ""
+"ზომის წაკითხვის შეცდომა (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
+
+#: k7zip.cpp:2796
+msgctxt "K7Zip|"
+msgid "Write error"
+msgstr "ჩაწერის შეცდომა"
+
+#: k7zip.cpp:2826
+msgctxt "K7Zip|"
+msgid "Failed while encoding header"
+msgstr "შეცდომა თავსართის კოდირებისას"
+
+#: k7zip.cpp:2870
+msgctxt "K7Zip|"
+msgid "No file currently selected"
+msgstr "ამჟამად ფაილი არჩეული არაა"
+
+#: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
+msgctxt "K7Zip|"
+msgid "Application error: 7-Zip file must be open before being written into"
+msgstr "აპლიკაციის შეცდომა: 7-Zip ფაილში ჩაწერამდე მისი გახსნაა საჭირო"
+
+#: k7zip.cpp:2900 k7zip.cpp:2992
+msgctxt "K7Zip|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr "აპლიკაციის შეცდომა: არა-ჩაწერად 7-Zip ფაილში ჩაწერის მცდელობა"
+
+#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+msgctxt "KAr|"
+msgid "Cannot write to AR file"
+msgstr "AR ფაილში ჩაწერის შეცდომა"
+
+#: kar.cpp:90
+#, qt-format
+msgctxt "KAr|"
+msgid "Unsupported mode %1"
+msgstr "მხარდაუჭერელი რეჟიმი: %1"
+
+#: kar.cpp:101
+msgctxt "KAr|"
+msgid "Invalid main magic"
+msgstr "არასწორი მთავარი მაგიური რიცხვი"
+
+#: kar.cpp:118
+msgctxt "KAr|"
+msgid "Invalid magic"
+msgstr "არასწორი მაგიური რიცხვი"
+
+#: kar.cpp:129
+msgctxt "KAr|"
+msgid "Invalid size"
+msgstr "არასწორი ზომა"
+
+#: kar.cpp:149
+msgctxt "KAr|"
+msgid "Invalid longfilename reference"
+msgstr "არასწორი longfilename მიმართვა"
+
+#: kar.cpp:153
+msgctxt "KAr|"
+msgid "Invalid longfilename position reference"
+msgstr "არასწორი longfilename მდებარეობის იმართვა"
+
+#: karchive.cpp:157
+msgctxt "KArchive|"
+msgid "No filename or device was specified"
+msgstr "ფაილის სახელი ან მოწყობილობა მითითებული არაა"
+
+#: karchive.cpp:162
+#, qt-format
+msgctxt "KArchive|"
+msgid "Could not open device in mode %1"
+msgstr "მოწყობილობის %1 რეჟიმში გახსნის შეცდომა"
+
+#: karchive.cpp:189
+#, qt-format
+msgctxt "KArchive|"
+msgid "QSaveFile creation for %1 failed: %2"
+msgstr "შეცდომა QSaveFile -ის შექმნისას %1-სთვის: %2"
+
+#: karchive.cpp:208
+#, qt-format
+msgctxt "KArchive|"
+msgid "Unsupported mode %1"
+msgstr "მხარდაუჭერელი რეჟიმი: %1"
+
+#: karchive.cpp:217
+msgctxt "KArchive|"
+msgid "Archive already closed"
+msgstr "არქივი უკვე დახურულია"
+
+#: karchive.cpp:268
+#, qt-format
+msgctxt "KArchive|"
+msgid "%1 doesn't exist or is not a regular file."
+msgstr "%1 არ არსებობს ან ფაილი არაა."
+
+#: karchive.cpp:274
+#, qt-format
+msgctxt "KArchive|"
+msgid ""
+"Failed accessing the file %1 for adding to the archive. The error was: %2"
+msgstr "არქივში ჩასამატებელი ფაილთან (%1) წვდომის შეცდომა: %2"
+
+#: karchive.cpp:320
+#, qt-format
+msgctxt "KArchive|"
+msgid "Couldn't open file %1: %2"
+msgstr "ფაილის გახსნის შეცდომა %1: %2"
+
+#: karchive.cpp:354
+#, qt-format
+msgctxt "KArchive|"
+msgid "Directory %1 does not exist"
+msgstr "საქაღალდე %1 არ არსებობს"
+
+#: karchive.cpp:418
+#, qt-format
+msgctxt "KArchive|"
+msgid "Writing failed: %1"
+msgstr "ჩაწერის შეცდომა: %1"
+
+#: karchive_p.h:56
+msgctxt "KArchivePrivate|"
+msgid "Unknown error"
+msgstr "უცნობი შეცდომა"
+
+#: kcompressiondevice.cpp:485
+msgctxt "KCompressionDevice|"
+msgid "Could not write. Partition full?"
+msgstr "ჩაწერის შეცდომა. დანაყოფი გადავსებულია?"
+
+#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+msgctxt "KRcc|"
+msgid "Cannot write to RCC file"
+msgstr "RCC ფაილში ჩაწერის შეცდომა"
+
+#: krcc.cpp:117
+#, qt-format
+msgctxt "KRcc|"
+msgid "Unsupported mode %1"
+msgstr "მხარდაუჭერელი რეჟიმი: %1"
+
+#: krcc.cpp:124
+#, qt-format
+msgctxt "KRcc|"
+msgid "Failed to register resource %1 under prefix %2"
+msgstr "რესურსის (%1) პრეფიქსის (%2) ქვეშ რეგისტრაციის შეცდომა"
+
+#: ktar.cpp:343
+#, qt-format
+msgctxt "KTar|"
+msgid "File %1 does not exist"
+msgstr "ფაილი არ არსებობს: %1"
+
+#: ktar.cpp:350
+#, qt-format
+msgctxt "KTar|"
+msgid "Archive %1 is corrupt"
+msgstr "არქივი %1 დაზიანებულია"
+
+#: ktar.cpp:354
+msgctxt "KTar|"
+msgid "Disk full"
+msgstr "დისკი გადავსებულია"
+
+#: ktar.cpp:388
+msgctxt "KTar|"
+msgid "Could not get underlying device"
+msgstr "ქვედა მოწყობილობის მიღების შეცდომა"
+
+#: ktar.cpp:403
+msgctxt "KTar|"
+msgid "Could not read tar header"
+msgstr "შეცდომა tar-ის თავსართის კითვისას"
+
+#: ktar.cpp:581
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write back temp file: %1"
+msgstr "დროებითი ფაილის ჩაწერის შეცდომა: %1"
+
+#: ktar.cpp:637
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write alignment: %1"
+msgstr "სწორების ჩაწერის შეცდომა: %1"
+
+#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+msgctxt "KTar|"
+msgid "Application error: TAR file must be open before being written into"
+msgstr "აპლიკაციის შეცდომა: TAR ფაილში ჩაწერამდე მისი გახსნაა საჭირო"
+
+#: ktar.cpp:766
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr "აპლიკაციის შეცდომა: არა-ჩაწერად 7-Zip ფაილში ჩაწერის მცდელობა"
+
+#: ktar.cpp:821
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write header: %1"
+msgstr "თავსართის ჩაწერის შეცდომა: %1"
+
+#: ktar.cpp:843 ktar.cpp:912
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable TAR file"
+msgstr "აპლიკაციის შეცდომა: არა-ჩაწერად TAR ფაილში ჩაწერის მცდელობა"
+
+#: kzip.cpp:450 kzip.cpp:469
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
+msgstr "არასწორი ZIP ფაილი. ფაილის მოულოდნელი დასასრული (შეცდომის კოდი: %1)"
+
+#: kzip.cpp:493
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Negative name length"
+msgstr "არასწორი ZIP ფაილი. სახელის სიგრძელი უარყოფითია"
+
+#: kzip.cpp:498
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Name not completely read (#2)"
+msgstr "არასწორი ZIP ფაილი. სახელის სრულად წაკიხვა შეუძლებელია (#2)"
+
+#: kzip.cpp:517
+msgctxt "KZip|"
+msgid "Invalid ZIP File. Broken ExtraField."
+msgstr "არასწორი ZIP ფაილი. Extrafield დაზიანებულია."
+
+#: kzip.cpp:531 kzip.cpp:554
+msgctxt "KZip|"
+msgid "Could not seek to next header token"
+msgstr "შემდეგი თავსართის კოდამდე გადახვევის შეცდომა"
+
+#: kzip.cpp:546
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#5)"
+msgstr "არასწორი ZIP ფაილი. ფაილის მოულოდნელი დასასრული. (#5)"
+
+#: kzip.cpp:562
+msgctxt "KZip|"
+msgid "Could not seek to file compressed size"
+msgstr "ფაილის შეკუმშულ ზომამდე გადახვევის შეცდომა"
+
+#: kzip.cpp:578
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#1)"
+msgstr "არასწორი ZIP ფაილი. ფაილის მოულოდნელი დასასრული. (#1)"
+
+#: kzip.cpp:611
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, central entry too short (not long enough for valid entry)"
+msgstr "არასწორი ZIP ფაილი. ცენტრალური ჩანაწერი ძალიან მოკლეა"
+
+#: kzip.cpp:620
+msgctxt "KZip|"
+msgid "Invalid ZIP file, file path name length smaller or equal to zero"
+msgstr "არასწორი ZIP ფაილი. ფაილის ბილიკის სიგრძე ძალიან მცირე ან ნულის ტოლია"
+
+#: kzip.cpp:696
+msgctxt "KZip|"
+msgid "Invalid ZIP file, found empty entry name"
+msgstr "არასწორი ZIP ფაილი. ჩანაწერის სახელი ცარიელია"
+
+#: kzip.cpp:737
+#, qt-format
+msgctxt "KZip|"
+msgid "File %1 is in folder %2, but %3 is actually a file."
+msgstr "ფაილი %1 საქაღალდეშია, %2, მაგრამ %3 ფაილს წარმოადგენს."
+
+#: kzip.cpp:748
+msgctxt "KZip|"
+msgid "Could not seek to next entry"
+msgstr "შემდეგ ჩანაწერამდე გადახვევის შეცდომა"
+
+#: kzip.cpp:761 kzip.cpp:771
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file."
+msgstr "არასწორი ZIP ფაილი. ფაილის მოულოდნელი დასასრული."
+
+#: kzip.cpp:794
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unrecognized header at offset %1"
+msgstr "არასწორი ZIP ფაილი. უცნობი თავსართი წანაცვლებაზე %1"
+
+#: kzip.cpp:825
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not seek to next file header: %1"
+msgstr "შემდეგი თავსართის კოდამდე გადახვევის შეცდომა: %1"
+
+#: kzip.cpp:851 kzip.cpp:947
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write file header: %1"
+msgstr "ფაილის თავსართის ჩაწერის შეცდომა: %1"
+
+#: kzip.cpp:994
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write central dir record: %1"
+msgstr "ცენტრალური საქაღალდის ჩანაწერის ჩაწერის შეცდომა: %1"
+
+#: kzip.cpp:1030
+msgctxt "KZip|"
+msgid "Application error: ZIP file must be open before being written into"
+msgstr "აპლიკაციის შეცდომა: ZIP ფაილში ჩაწერამდე მისი გახსნაა საჭირო"
+
+#: kzip.cpp:1036
+msgctxt "KZip|"
+msgid "Application error: attempted to write into non-writable ZIP file"
+msgstr "აპლიკაციის შეცდომა: არა-ჩაწერად ZIP ფაილში ჩაწერის მცდელობა"
+
+#: kzip.cpp:1042
+msgctxt "KZip|"
+msgid "Cannot create a device. Disk full?"
+msgstr "მოწყობილობის შექმნის შეცდომა. დისკი სავსეა?"
+
+#: kzip.cpp:1048
+msgctxt "KZip|"
+msgid "Cannot seek in ZIP file. Disk full?"
+msgstr "ZIP ფაილში გადახვევის შეცდომა. დისკი სავსეა?"
+
+#: kzip.cpp:1190
+msgctxt "KZip|"
+msgid "Could not write to the archive. Disk full?"
+msgstr "არქივში ჩაწერის შეცდომა. დისკი სავსეა?"
+
+#: kzip.cpp:1209
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not open compression device: %1"
+msgstr "შეკუმშვის მოწყობილობის გახსნის შეცდომა: %1"
+
+#: kzip.cpp:1296
+msgctxt "KZip|"
+msgid "No file or device"
+msgstr "ფალი ან მოწყობილობა არ არსებობს"
+
+#: kzip.cpp:1309
+#, qt-format
+msgctxt "KZip|"
+msgid "Error writing data: %1"
+msgstr "მონაცემების ჩაწერის შეცდომა: %1"
