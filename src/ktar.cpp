@@ -468,7 +468,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             // == '2' );
 
             if (typeflag == 'x' || typeflag == 'g') { // pax extended header, or pax global extended header
-                // Skip it for now. TODO: implement reading of extended header, as per http://pubs.opengroup.org/onlinepubs/009695399/utilities/pax.html
+                // Skip it for now. TODO: implement reading of extended header, as per https://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html
                 (void)dev->read(buffer, 0x200);
                 continue;
             }

@@ -1,6 +1,6 @@
 # For more information see the CMake documentation:
-# http://www.cmake.org/cmake/help/documentation.html
-# http://techbase.kde.org/Development/Tutorials/CMake
+# https://cmake.org/documentation/
+# https://community.kde.org/Guidelines_and_HOWTOs/CMake
 
 # Project name
 project(HelloWorld)

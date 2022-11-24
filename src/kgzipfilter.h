@@ -30,7 +30,7 @@ public:
     // - Gzip header, implemented here by readHeader
     //
     // (1) as written out by compress()/compress2()
-    // (2) see http://www.zlib.net/zlib_faq.html#faq39
+    // (2) see https://www.zlib.net/zlib_faq.html#faq39
     enum Flag {
         RawDeflate = 0, // raw deflate data
         ZlibHeader = 1, // zlib headers (HTTP deflate)

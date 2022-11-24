@@ -23,7 +23,7 @@ find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE
 
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES
-    URL "http://www.zlib.net"
+    URL "https://www.zlib.net"
     DESCRIPTION "Support for gzip compressed files and data streams"
     TYPE REQUIRED
     PURPOSE "Support for gzip compressed files and data streams"
@@ -39,7 +39,7 @@ set_package_properties(BZip2 PROPERTIES
 
 find_package(LibLZMA)
 set_package_properties(LibLZMA PROPERTIES
-    URL "http://tukaani.org/xz/"
+    URL "https://tukaani.org/xz/"
     DESCRIPTION "Support for xz compressed files and data streams"
     PURPOSE "Support for xz compressed files and data streams"
 )
