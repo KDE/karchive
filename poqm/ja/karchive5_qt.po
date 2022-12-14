@@ -1,90 +1,86 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2022-12-13 12:22\n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"Project-Id-Version: karchive5_qt\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: qtrich\n"
 "X-Qt-Contexts: true\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/karchive/karchive5_qt.pot\n"
-"X-Crowdin-File-ID: 41108\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr "无法获取底层设备"
+msgstr ""
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr "读取文件头失败"
+msgstr ""
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr "检查签名失败"
+msgstr ""
 
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr "CRC 错误"
+msgstr ""
 
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr "下一个文件头大小过大"
+msgstr ""
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr "下一个文件头大小小于0"
+msgstr ""
 
 #: k7zip.cpp:2381
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr "读取下一文件头大小失败；应读取 %1，读取 %2"
+msgstr ""
 
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr "下一个文件头 CRC 错误"
+msgstr ""
 
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr "文件头错误"
+msgstr ""
 
 #: k7zip.cpp:2420
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr "错误的文件头类型"
+msgstr ""
 
 #: k7zip.cpp:2430 k7zip.cpp:2436
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr "尚未实现"
+msgstr ""
 
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr "读取主信息流时出错"
+msgstr ""
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr "读取文件头时出错"
+msgstr ""
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr "读取修改时间错误"
+msgstr ""
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
