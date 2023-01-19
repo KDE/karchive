@@ -6,11 +6,11 @@
 project(HelloWorld)
 
 # Look for the KArchive module
-find_package(KF5Archive ${KF_VERSION} REQUIRED)
+find_package(KF6Archive ${KF_VERSION} REQUIRED)
 
 find_package(Qt${QT_MAJOR_VERSION}Core REQUIRED)
 
 add_executable(helloworld main.cpp)
 
 # Link our executable with the KArchive library
-target_link_libraries(helloworld KF5::Archive Qt${QT_MAJOR_VERSION}::Core)
+target_link_libraries(helloworld KF6::Archive Qt${QT_MAJOR_VERSION}::Core)

@@ -67,8 +67,8 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 ecm_setup_version(PROJECT
     VARIABLE_PREFIX KARCHIVE
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h"
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfigVersion.cmake"
-    SOVERSION 5)
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6ArchiveConfigVersion.cmake"
+    SOVERSION 6)
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
@@ -84,23 +84,23 @@ endif()
 ecm_install_po_files_as_qm(poqm)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Archive")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Archive")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5Archive_QCH
-        FILE KF5ArchiveQchTargets.cmake
+        TARGETS KF6Archive_QCH
+        FILE KF6ArchiveQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5ArchiveQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6ArchiveQchTargets.cmake\")")
 endif()
 
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/KF5ArchiveConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfig.cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/KF6ArchiveConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/KF6ArchiveConfig.cmake"
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
 
@@ -109,15 +109,15 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/karchive_version.h
         COMPONENT Devel)
 
 install(FILES
-            "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfig.cmake"
-            "${CMAKE_CURRENT_BINARY_DIR}/KF5ArchiveConfigVersion.cmake"
+            "${CMAKE_CURRENT_BINARY_DIR}/KF6ArchiveConfig.cmake"
+            "${CMAKE_CURRENT_BINARY_DIR}/KF6ArchiveConfigVersion.cmake"
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel)
 
-install(EXPORT KF5ArchiveTargets
+install(EXPORT KF6ArchiveTargets
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        FILE KF5ArchiveTargets.cmake
-        NAMESPACE KF5::)
+        FILE KF6ArchiveTargets.cmake
+        NAMESPACE KF6::)
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

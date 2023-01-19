@@ -14,7 +14,7 @@ ecm_add_tests(
     karchivetest.cpp
     kfiltertest.cpp
     deprecatedtest.cpp
-    LINK_LIBRARIES KF5::Archive Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF6::Archive Qt${QT_MAJOR_VERSION}::Test
 )
 
 target_link_libraries(kfiltertest ZLIB::ZLIB)
@@ -28,13 +28,13 @@ ecm_add_test(
     LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test
 )
 target_include_directories(klimitediodevicetest
-    PRIVATE $<TARGET_PROPERTY:KF5Archive,INTERFACE_INCLUDE_DIRECTORIES>)
+    PRIVATE $<TARGET_PROPERTY:KF6Archive,INTERFACE_INCLUDE_DIRECTORIES>)
 
 ########## kcompressiondevicetest ##############
 if (Qt${QT_MAJOR_VERSION}Network_FOUND)
     ecm_add_test(
         kcompressiondevicetest.cpp
-        LINK_LIBRARIES KF5::Archive Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+        LINK_LIBRARIES KF6::Archive Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
     )
 
     set(testDir $<TARGET_FILE_DIR:kcompressiondevicetest>)

@@ -27,5 +27,5 @@ class KArchiveConan(ConanFile):
         pass
 
     def package_info(self):
-        self.cpp_info.libs = ["KF5Archive"]
-        self.cpp_info.includedirs = ['include/KF5', 'include/KF5/KArchive']
+        self.cpp_info.libs = ["KF6Archive"]
+        self.cpp_info.includedirs = ['include/KF6', 'include/KF6/KArchive']
