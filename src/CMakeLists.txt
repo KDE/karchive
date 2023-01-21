@@ -66,7 +66,7 @@ target_include_directories(KF6Archive
 
 target_link_libraries(KF6Archive
     PUBLIC
-        Qt${QT_MAJOR_VERSION}::Core
+        Qt6::Core
     PRIVATE
         ZLIB::ZLIB
 )

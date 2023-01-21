@@ -49,11 +49,7 @@ void recursive_transfer(const KArchiveDirectory *dir, const QString &path, KZip 
             printf("FILE=%s\n", qPrintable(e->name()));
 
             QByteArray arr(f->data());
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
             printf("SIZE=%lli\n", arr.size());
-#else
-            printf("SIZE=%i\n", arr.size());
-#endif
             QString str(arr);
             printf("DATA=%s\n", qPrintable(str));
 
@@ -99,11 +95,7 @@ static int doPrintAll(const QString &fileName)
             Q_ASSERT(e && e->isFile());
             const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
             const QByteArray data(f->data());
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
             printf("SIZE=%lli\n", data.size());
-#else
-            printf("SIZE=%i\n", data.size());
-#endif
             QString str = QString::fromUtf8(data);
             printf("DATA=%s\n", qPrintable(str));
         }
@@ -168,11 +160,7 @@ static int doPrint(const QString &fileName, const QString &entryName)
     const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
 
     const QByteArray arr(f->data());
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     printf("SIZE=%lli\n", arr.size());
-#else
-    printf("SIZE=%i\n", arr.size());
-#endif
 
     QString str = QString::fromUtf8(arr);
     printf("%s", qPrintable(str));

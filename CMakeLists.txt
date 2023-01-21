@@ -19,7 +19,7 @@ include(KDEGitCommitHooks)
 include(ECMGenerateExportHeader)
 
 set(REQUIRED_QT_VERSION 6.4.0)
-find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES
@@ -71,7 +71,7 @@ ecm_setup_version(PROJECT
     SOVERSION 6)
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
+    QT 6.4
 )
 
 

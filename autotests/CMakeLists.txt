@@ -2,18 +2,18 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 include(ECMAddTests)
 
-find_package(Qt${QT_MAJOR_VERSION}Test ${REQUIRED_QT_VERSION} CONFIG QUIET)
-find_package(Qt${QT_MAJOR_VERSION}Network)
+find_package(Qt6Test ${REQUIRED_QT_VERSION} CONFIG QUIET)
+find_package(Qt6Network)
 
-if(NOT Qt${QT_MAJOR_VERSION}Test_FOUND)
-    message(STATUS "Qt${QT_MAJOR_VERSION}Test not found, autotests will not be built.")
+if(NOT Qt6Test_FOUND)
+    message(STATUS "Qt6Test not found, autotests will not be built.")
     return()
 endif()
 
 ecm_add_tests(
     karchivetest.cpp
     kfiltertest.cpp
-    LINK_LIBRARIES KF6::Archive Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF6::Archive Qt6::Test
 )
 
 target_link_libraries(kfiltertest ZLIB::ZLIB)
@@ -24,16 +24,16 @@ ecm_add_test(
     klimitediodevicetest.cpp
     ../src/klimitediodevice.cpp
     TEST_NAME klimitediodevicetest
-    LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES Qt6::Test
 )
 target_include_directories(klimitediodevicetest
     PRIVATE $<TARGET_PROPERTY:KF6Archive,INTERFACE_INCLUDE_DIRECTORIES>)
 
 ########## kcompressiondevicetest ##############
-if (Qt${QT_MAJOR_VERSION}Network_FOUND)
+if (Qt6Network_FOUND)
     ecm_add_test(
         kcompressiondevicetest.cpp
-        LINK_LIBRARIES KF6::Archive Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+        LINK_LIBRARIES KF6::Archive Qt6::Test Qt6::Network
     )
 
     set(testDir $<TARGET_FILE_DIR:kcompressiondevicetest>)
