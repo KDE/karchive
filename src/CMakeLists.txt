@@ -7,7 +7,6 @@ set(HAVE_XZ_SUPPORT ${LIBLZMA_FOUND})
 set(HAVE_ZSTD_SUPPORT ${LibZstd_FOUND})
 
 configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-compression.h)
-set(deprecated_HEADER_NAMES)
 
 add_library(KF6Archive)
 add_library(KF6::Archive ALIAS KF6Archive)
@@ -42,12 +41,6 @@ target_sources(KF6Archive PRIVATE karchive.cpp
     krcc.cpp
 )
 
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.85.0)
-    list(APPEND deprecated_HEADER_NAMES KFilterDev)
-    target_sources(KF6Archive PRIVATE kfilterdev.cpp)
-endif()
-
 ecm_qt_declare_logging_category(KF6Archive
     HEADER loggingcategory.h
     IDENTIFIER KArchiveLog
@@ -63,7 +56,7 @@ ecm_generate_export_header(KF6Archive
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 5.0 5.85
+    DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
@@ -97,7 +90,6 @@ ecm_generate_headers(KArchive_HEADERS
     KTar
     KZip
     KZipFileEntry
-    ${deprecated_HEADER_NAMES}
 
     REQUIRED_HEADERS KArchive_HEADERS
 )

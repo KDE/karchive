@@ -13,7 +13,6 @@ endif()
 ecm_add_tests(
     karchivetest.cpp
     kfiltertest.cpp
-    deprecatedtest.cpp
     LINK_LIBRARIES KF6::Archive Qt${QT_MAJOR_VERSION}::Test
 )
 
