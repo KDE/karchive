@@ -768,6 +768,12 @@ bool KTar::doPrepareWriting(const QString &name,
         return false;
     }
 
+    const qint64 MAX_FILESIZE = 077777777777L; // the format we use only allows 11 octal digits for size
+    if (size > MAX_FILESIZE) {
+        setErrorString(tr("Application limitation: Can not add file larger than %1 bytes").arg(MAX_FILESIZE));
+        return false;
+    }
+
     // In some tar files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
 
