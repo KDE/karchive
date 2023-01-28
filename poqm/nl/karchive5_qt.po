@@ -1,8 +1,8 @@
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 15:36+0200\n"
+"PO-Revision-Date: 2023-01-27 13:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -308,6 +308,7 @@ msgstr "Toepassingsfout: poging te schrijven niet-te beschrijven 7-zip-bestand"
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
+"Beperking van toepassing: kan geen bestand groter dan %1 bytes toevoegen"
 
 #: ktar.cpp:827
 #, qt-format

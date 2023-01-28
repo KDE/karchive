@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -301,7 +301,7 @@ msgstr "აპლიკაციის შეცდომა: არა-ჩა�
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "აპლიკაციის შეზღუდვა: %1 ბატიზე დიდი ფაილების დამატება შეუძლებელია"
 
 #: ktar.cpp:827
 #, qt-format

@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 11:32+0300\n"
+"PO-Revision-Date: 2023-01-27 18:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -301,7 +301,7 @@ msgstr "Uygulama hatası: Yazılamaz 7-Zip dosyasına yazmaya çalışıldı"
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Uygulama sınırlaması: %1 bayttan büyük dosyalar eklenemez"
 
 #: ktar.cpp:827
 #, qt-format

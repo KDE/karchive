@@ -1,9 +1,9 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 18:02+0300\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2023-01-27 10:54+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -312,6 +312,7 @@ msgstr "Помилка програми: спроба запису до непр
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
+"Обмеження програми: не можна додавати файли, розмір яких перевищує %1 байтів"
 
 #: ktar.cpp:827
 #, qt-format
