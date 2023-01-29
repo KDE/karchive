@@ -1,9 +1,9 @@
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-22 08:20+0200\n"
+"PO-Revision-Date: 2023-01-28 09:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -306,7 +306,7 @@ msgstr "Napaka aplikacije: poskus pisanja v nezapisljivo datoteko 7-Zip"
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Omejitev aplikacije: Ni mogoče dodati večje datoteke kot %1 bytov"
 
 #: ktar.cpp:827
 #, qt-format
