@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-01-12 10:32\n"
+"PO-Revision-Date: 2023-02-07 11:03\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -38,12 +38,12 @@ msgstr "CRC 错误"
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr "下一个文件头大小过大"
+msgstr "下一个文件头太大"
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr "下一个文件头大小小于0"
+msgstr "下一个文件头小于 0"
 
 #: k7zip.cpp:2381
 #, qt-format
@@ -89,367 +89,367 @@ msgstr "读取修改时间错误"
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "读取 MTime 出错"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "无效"
 
 #: k7zip.cpp:2595
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
-msgstr ""
+msgstr "读取大小失败 (checkRecordsize：%1，d->pos - ppp：%2，size：%3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "写入错误"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "编码文件头失败"
 
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "当前没有选择文件"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
-msgstr ""
+msgstr "应用程序错误：7-Zip 文件必须先打开才能写入"
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "应用程序错误：尝试写入不可写入的 7-Zip 文件"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "无法写入 AR 文件"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "不支持的模式 %1"
 
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "无效的主 magic 参数"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "无效 magic 参数"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "无效的大小"
 
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "无效的长文件名引用"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "无效的长文件名位置引用"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "未指定文件名或设备"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "无法在模式 %1 中打开设备"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "QSaveFile 在创建文件：%1 时失败：%2"
 
 #: karchive.cpp:208
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "不支持的模式 %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "压缩包已关闭"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 不存在，或者不是一个普通文件。"
 
 #: karchive.cpp:274
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
-msgstr ""
+msgstr "无法访问要添加到压缩包的文件 %1。错误：%2"
 
 #: karchive.cpp:320
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "无法打开文件 %1：%2"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "目录 %1 不存在"
 
 #: karchive.cpp:418
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "写入失败：%1"
 
 #: karchive_p.h:56
 msgctxt "KArchivePrivate|"
 msgid "Unknown error"
-msgstr ""
+msgstr "未知的错误"
 
 #: kcompressiondevice.cpp:485
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "无法写入。请检查分区是否已满。"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "无法写入 RCC 文件"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "不支持的模式 %1"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "在前缀 %2 下注册资源 %1 失败"
 
 #: ktar.cpp:343
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "文件 %1 不存在"
 
 #: ktar.cpp:350
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "压缩包 %1 已损坏"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "磁盘已满"
 
 #: ktar.cpp:388
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "无法获取底层设备"
 
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "无法读取 tar 文件头部信息。"
 
 #: ktar.cpp:581
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "写入临时文件：%1 失败"
 
 #: ktar.cpp:637
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "写入对齐信息：%1 失败"
 
 #: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
-msgstr ""
+msgstr "应用程序错误：TAR 文件必须先打开才能写入"
 
 #: ktar.cpp:766
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "应用程序错误：尝试写入不可写入的 7-Zip 文件"
 
 #: ktar.cpp:773
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "应用程序限制：不能添加大于 %1 字节的文件"
 
 #: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "无法写入文件头：%1"
 
 #: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "应用程序错误：尝试写入不可写入的 TAR 文件"
 
 #: kzip.cpp:450 kzip.cpp:469
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "无效的 ZIP 文件。意外的文件结尾。（错误代码：%1 ）"
 
 #: kzip.cpp:493
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "无效的 ZIP 文件。名称长度为负值。"
 
 #: kzip.cpp:498
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "无效的 ZIP 文件。名称无法完全读取 (#2)"
 
 #: kzip.cpp:517
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "无效的 ZIP 文件。损坏的 ExtraField。"
 
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "无法定位到下一个头标记"
 
 #: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "无效的 ZIP 文件。意外的文件结尾。(#5)"
 
 #: kzip.cpp:562
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "无法定位文件压缩后大小信息"
 
 #: kzip.cpp:578
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "无效的 ZIP 文件。意外的文件结尾。(#1)"
 
 #: kzip.cpp:611
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
-msgstr ""
+msgstr "无效的 ZIP 文件，中心条目太短 (短于有效条目的长度要求)"
 
 #: kzip.cpp:620
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
-msgstr ""
+msgstr "无效的 ZIP 文件，文件路径名称长度小于或等于 0"
 
 #: kzip.cpp:696
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "无效的 ZIP 文件，发现空条目名称"
 
 #: kzip.cpp:737
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "文件 %1 位于文件夹 %2 之中，但 %3 实际上是一个文件。"
 
 #: kzip.cpp:748
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "无法定位到下一个条目"
 
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "无效的 ZIP 文件。意外的文件结尾。"
 
 #: kzip.cpp:794
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "无效的 ZIP 文件。无法识别的文件头偏移量 %1"
 
 #: kzip.cpp:825
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "无法定位到下一个头标记：%1"
 
 #: kzip.cpp:851 kzip.cpp:947
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "无法写入文件头：%1"
 
 #: kzip.cpp:994
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "无法写入中央目录记录：%1"
 
 #: kzip.cpp:1030
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
-msgstr ""
+msgstr "应用程序错误：ZIP 文件必须先打开才能写入"
 
 #: kzip.cpp:1036
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
-msgstr ""
+msgstr "应用程序错误：尝试写入不可写入的 ZIP 文件"
 
 #: kzip.cpp:1042
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "无法创建设备。请检查磁盘是否已满。"
 
 #: kzip.cpp:1048
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "无法在 ZIP 文件中寻址。请检查磁盘是否已满。"
 
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "无法写入该压缩包。请检查磁盘是否已满。"
 
 #: kzip.cpp:1209
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "无法打开压缩设备：%1"
 
 #: kzip.cpp:1296
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "没有文件或者设备"
 
 #: kzip.cpp:1309
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "写入数据时出错：%1"
