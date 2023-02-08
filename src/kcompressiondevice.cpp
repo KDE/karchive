@@ -176,9 +176,11 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
 #endif
     case KCompressionDevice::None:
         return new KNoneFilter;
-#if HAVE_ZSTD_SUPPORT
     case KCompressionDevice::Zstd:
+#if HAVE_ZSTD_SUPPORT
         return new KZstdFilter;
+#else
+        return nullptr;
 #endif
     }
     return nullptr;
