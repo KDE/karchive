@@ -1,12 +1,16 @@
+# Frederik Schwarzer <schwarzer@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: l 10n-support\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-09 00:57+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
@@ -17,7 +21,7 @@ msgstr ""
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "Lesen des Vorspanns ist fehlgeschlagen"
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
@@ -32,12 +36,12 @@ msgstr ""
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "Der nächste Vorspann ist zu groß"
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "Der nächste Vorspann hat eine Größe kleiner Null"
 
 #: k7zip.cpp:2381
 #, qt-format
@@ -53,17 +57,17 @@ msgstr ""
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr ""
+msgstr "Fehler in Vorspann"
 
 #: k7zip.cpp:2420
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "Falscher Vorspann-Typ"
 
 #: k7zip.cpp:2430 k7zip.cpp:2436
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr ""
+msgstr "Nicht implementiert"
 
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
@@ -88,7 +92,7 @@ msgstr ""
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "Ungültig"
 
 #: k7zip.cpp:2595
 #, qt-format
@@ -99,7 +103,7 @@ msgstr ""
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "Schreibfehler"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
@@ -109,7 +113,7 @@ msgstr ""
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "Derzeit keine Datei ausgewählt"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
@@ -124,13 +128,13 @@ msgstr ""
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "Kann nicht in AR-Datei schreiben"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nicht unterstützter Modus %1"
 
 #: kar.cpp:101
 msgctxt "KAr|"
@@ -145,7 +149,7 @@ msgstr ""
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "Ungültige Größe"
 
 #: kar.cpp:149
 msgctxt "KAr|"
@@ -160,13 +164,13 @@ msgstr ""
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "Kein Dateiname oder Gerät angegeben"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "Gerät kann nicht in Modus %1 geöffnet werden"
 
 #: karchive.cpp:189
 #, qt-format
@@ -178,18 +182,18 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nicht unterstützter Modus %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "Archiv bereits geschlossen"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 existiert nicht oder ist keine reguläre Datei."
 
 #: karchive.cpp:274
 #, qt-format
@@ -202,40 +206,40 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "Die Datei %1 kann nicht geöffnet werden: %2"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "Der Ordner %1 existiert nicht"
 
 #: karchive.cpp:418
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "Fehler beim Schreiben: %1"
 
 #: karchive_p.h:56
 msgctxt "KArchivePrivate|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
 #: kcompressiondevice.cpp:485
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "Kann nicht schreiben. Ist die Partition voll?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "In RCC-Datei kann nicht geschrieben werden"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nicht unterstützter Modus %1"
 
 #: krcc.cpp:124
 #, qt-format
@@ -247,18 +251,18 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "Die Datei %1 existiert nicht"
 
 #: ktar.cpp:350
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "Das Archiv %1 ist beschädigt"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "Medium ist voll"
 
 #: ktar.cpp:388
 msgctxt "KTar|"
