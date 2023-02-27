@@ -1,10 +1,10 @@
-# Steve Allewell <steve.allewell@gmail.com>, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-31 17:23+0000\n"
+"PO-Revision-Date: 2023-02-26 19:46+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -301,7 +301,7 @@ msgstr "Application error: attempted to write into non-writable 7-Zip file"
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Application limitation: Cannot add file larger than %1 bytes"
 
 #: ktar.cpp:827
 #, qt-format
