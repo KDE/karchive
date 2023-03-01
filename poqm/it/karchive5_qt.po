@@ -1,8 +1,8 @@
-# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-23 13:55+0200\n"
+"PO-Revision-Date: 2023-01-27 19:12+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
@@ -230,11 +230,14 @@ msgid "Writing failed: %1"
 msgstr "Scrittura non riuscita: %1"
 
 #: karchive_p.h:56
-msgctxt "KArchivePrivate|"
+#, fuzzy
+#| msgctxt "KArchivePrivate|"
+#| msgid "Unknown error"
+msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
 
-#: kcompressiondevice.cpp:485
+#: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Impossibile scrivere. Partizione piena?"
@@ -295,7 +298,7 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Impossibile scrivere l'allineamento: %1"
 
-#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
@@ -309,13 +312,21 @@ msgstr ""
 "Errore dell'applicazione: tentativo di scrittura in un file 7-Zip non "
 "scrivibile"
 
-#: ktar.cpp:821
+#: ktar.cpp:773
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+"Limitazione dell'applicazione: impossibile aggiungere file più grandi di %1 "
+"byte"
+
+#: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Impossibile scrivere l'intestazione: %1"
 
-#: ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

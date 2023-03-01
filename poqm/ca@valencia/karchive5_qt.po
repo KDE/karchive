@@ -1,13 +1,13 @@
 # Translation of karchive5_qt.po to Catalan (Valencian)
-# Copyright (C) 2022 This_file_is_part_of_KDE
+# Copyright (C) 2022-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2022-10-20 21:59+0200\n"
+"PO-Revision-Date: 2023-01-27 10:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -236,11 +236,14 @@ msgid "Writing failed: %1"
 msgstr "No s'ha pogut fer l'escriptura: %1"
 
 #: karchive_p.h:56
-msgctxt "KArchivePrivate|"
+#, fuzzy
+#| msgctxt "KArchivePrivate|"
+#| msgid "Unknown error"
+msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "S'ha produït un error desconegut"
 
-#: kcompressiondevice.cpp:485
+#: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "No s'ha pogut escriure. La partició està plena?"
@@ -301,7 +304,7 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "No s'ha pogut escriure l'alineació: %1"
 
-#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
@@ -315,13 +318,20 @@ msgstr ""
 "S'ha produït un error de l'aplicació: s'ha intentat escriure en un fitxer 7-"
 "Zip no escrivible"
 
-#: ktar.cpp:821
+#: ktar.cpp:773
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+"Limitació de l'aplicació: No es pot afegir un fitxer més gran que %1 bytes"
+
+#: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "No s'ha pogut escriure la capçalera: %1"
 
-#: ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

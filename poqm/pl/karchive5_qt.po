@@ -1,8 +1,8 @@
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-11 07:43+0100\n"
+"PO-Revision-Date: 2023-02-04 08:39+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -231,11 +231,14 @@ msgid "Writing failed: %1"
 msgstr "Nie udało się zapisać: %1"
 
 #: karchive_p.h:56
-msgctxt "KArchivePrivate|"
+#, fuzzy
+#| msgctxt "KArchivePrivate|"
+#| msgid "Unknown error"
+msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Nieznany błąd"
 
-#: kcompressiondevice.cpp:485
+#: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Nie udało się zapisać. Może partycja jest pełna?"
@@ -296,7 +299,7 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Nie udało się zapisać wyrównania: %1"
 
-#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
@@ -309,13 +312,20 @@ msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Błąd aplikacji: Usiłowano zapisać do pliku 7-Zip, który jest nie do zapisu"
 
-#: ktar.cpp:821
+#: ktar.cpp:773
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+"Ograniczenie tej aplikacji: Nie można dodać plików większych niż %1 bajtów"
+
+#: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Nie udało się zapisać nagłówka: %1"
 
-#: ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

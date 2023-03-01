@@ -1,9 +1,9 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 18:02+0300\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2023-01-27 10:54+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -230,11 +230,14 @@ msgid "Writing failed: %1"
 msgstr "Не вдалося записати: %1"
 
 #: karchive_p.h:56
-msgctxt "KArchivePrivate|"
+#, fuzzy
+#| msgctxt "KArchivePrivate|"
+#| msgid "Unknown error"
+msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Невідома помилка"
 
-#: kcompressiondevice.cpp:485
+#: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Не вдалося записати. Переповнений розділ на диску?"
@@ -295,7 +298,7 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Не вдалося записати вирівнювання: %1"
 
-#: ktar.cpp:760 ktar.cpp:837 ktar.cpp:906
+#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
@@ -307,13 +310,20 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
 
-#: ktar.cpp:821
+#: ktar.cpp:773
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+"Обмеження програми: не можна додавати файли, розмір яких перевищує %1 байтів"
+
+#: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Не вдалось записати заголовок: %1"
 
-#: ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"
