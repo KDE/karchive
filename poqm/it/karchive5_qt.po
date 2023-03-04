@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-01-27 19:12+0100\n"
+"PO-Revision-Date: 2023-03-03 02:56+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
@@ -230,9 +230,6 @@ msgid "Writing failed: %1"
 msgstr "Scrittura non riuscita: %1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
