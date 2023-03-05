@@ -222,9 +222,6 @@ msgid "Writing failed: %1"
 msgstr "ჩაწერის შეცდომა: %1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "უცნობი შეცდომა"
