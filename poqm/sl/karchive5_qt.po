@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-01-28 09:52+0100\n"
+"PO-Revision-Date: 2023-03-04 09:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -227,9 +227,6 @@ msgid "Writing failed: %1"
 msgstr "Pisanje ni uspelo: %1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Neznana napaka"
