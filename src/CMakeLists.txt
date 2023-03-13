@@ -11,7 +11,7 @@ configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-com
 add_library(KF6Archive)
 add_library(KF6::Archive ALIAS KF6Archive)
 
-ecm_create_qm_loader(KF6Archive karchive5_qt)
+ecm_create_qm_loader(KF6Archive karchive6_qt)
 
 if(BZIP2_FOUND)
     target_sources(KF6Archive PRIVATE kbzip2filter.cpp)
