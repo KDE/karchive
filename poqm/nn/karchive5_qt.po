@@ -1,4 +1,4 @@
-# Translation of karchive5_qt to Norwegian Nynorsk
+# Translation of karchive6_qt to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2023.
 msgid ""
