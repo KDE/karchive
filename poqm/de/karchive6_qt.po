@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: l 10n-support\n"
-"PO-Revision-Date: 2023-02-09 00:57+0100\n"
+"PO-Revision-Date: 2023-03-18 17:51+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
@@ -26,12 +26,12 @@ msgstr "Lesen des Vorspanns ist fehlgeschlagen"
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr ""
+msgstr "Überprüfung der Signatur ist fehlgeschlagen"
 
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr ""
+msgstr "Fehlerhafte CRC"
 
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
@@ -77,17 +77,17 @@ msgstr ""
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "Fehler beim Lesen des Vorspanns"
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "Fehler beim Lesen der Änderungszeit"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "Fehler beim Lesen der MTime"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
@@ -221,9 +221,6 @@ msgid "Writing failed: %1"
 msgstr "Fehler beim Schreiben: %1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
@@ -275,7 +272,7 @@ msgstr ""
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "tar-Vorspann kann nicht gelesen werden"
 
 #: ktar.cpp:581
 #, qt-format
@@ -320,12 +317,12 @@ msgstr ""
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (Fehlercode: %1)"
 
 #: kzip.cpp:493
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Name negativer Länge"
 
 #: kzip.cpp:498
 msgctxt "KZip|"
@@ -345,7 +342,7 @@ msgstr ""
 #: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (#5)"
 
 #: kzip.cpp:562
 msgctxt "KZip|"
@@ -355,7 +352,7 @@ msgstr ""
 #: kzip.cpp:578
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (#1)"
 
 #: kzip.cpp:611
 msgctxt "KZip|"
@@ -387,7 +384,7 @@ msgstr ""
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende."
 
 #: kzip.cpp:794
 #, qt-format
@@ -405,7 +402,7 @@ msgstr ""
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "Datei-Vorspann kann nicht geschrieben werden: %1"
 
 #: kzip.cpp:994
 #, qt-format
@@ -436,7 +433,7 @@ msgstr ""
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "Es kann nicht in das Archiv geschrieben werden. Ist das Medium voll?"
 
 #: kzip.cpp:1209
 #, qt-format
@@ -453,4 +450,4 @@ msgstr ""
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "Fehler beim Schreiben der Daten: %1"
