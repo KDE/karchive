@@ -27,14 +27,14 @@ public:
      *
      * @param filename is a local path (e.g. "/home/holger/myfile.ar")
      */
-    KAr(const QString &filename);
+    explicit KAr(const QString &filename);
 
     /**
      * Creates an instance that operates on the given device.
      * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
      * @param dev the device to read from
      */
-    KAr(QIODevice *dev);
+    explicit KAr(QIODevice *dev);
 
     /**
      * If the ar file is still opened, then it will be

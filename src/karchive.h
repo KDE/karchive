@@ -47,7 +47,7 @@ protected:
      * from which the archive will be read from, or into which the archive
      * will be written, depending on the mode given to open().
      */
-    KArchive(const QString &fileName);
+    explicit KArchive(const QString &fileName);
 
     /**
      * Base constructor (protected since this is a pure virtual class).
@@ -56,7 +56,7 @@ protected:
      * For a file in writing mode it is better to use the other constructor
      * though, to benefit from the use of QSaveFile when saving.
      */
-    KArchive(QIODevice *dev);
+    explicit KArchive(QIODevice *dev);
 
 public:
     virtual ~KArchive();

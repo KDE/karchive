@@ -59,7 +59,7 @@ public:
      * @param fileName the name of the file to filter.
      * @since 5.85
      */
-    KCompressionDevice(const QString &fileName);
+    explicit KCompressionDevice(const QString &fileName);
 
     /**
      * Destructs the KCompressionDevice.

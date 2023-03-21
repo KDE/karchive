@@ -45,7 +45,7 @@ public:
      *
      * @param filename is a local path (e.g. "/home/holger/myfile.zip")
      */
-    KZip(const QString &filename);
+    explicit KZip(const QString &filename);
 
     /**
      * Creates an instance that operates on the given device.
@@ -54,7 +54,7 @@ public:
      * in case it's compressed!
      * @param dev the device to access
      */
-    KZip(QIODevice *dev);
+    explicit KZip(QIODevice *dev);
 
     /**
      * If the zip file is still opened, then it will be

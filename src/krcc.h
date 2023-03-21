@@ -26,7 +26,7 @@ public:
      *
      * @param filename is a local path (e.g. "/home/holger/myfile.rcc")
      */
-    KRcc(const QString &filename);
+    explicit KRcc(const QString &filename);
 
     /**
      * If the rcc file is still opened, then it will be
