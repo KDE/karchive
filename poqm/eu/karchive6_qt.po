@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-05 21:40+0100\n"
+"PO-Revision-Date: 2023-03-23 22:04+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,17 +22,17 @@ msgstr ""
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Ezin izan da azpian dagoen gailua lortu"
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "Goiburua irakurtzea huts egin du"
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr ""
+msgstr "Sinadura egiaztatzea huts egin du"
 
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
@@ -42,23 +42,25 @@ msgstr "CRC okerra"
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "Hurrengo goiburuaren neurria handiegia da"
 
 #: k7zip.cpp:2370
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "Hurrengo goiburuaren neurria zero baino txikiagoa da"
 
 #: k7zip.cpp:2381
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
+"Hurrengo goiburuaren neurria irakurtzea huts egin du; %1 irakurri ordez %2 "
+"irakurri du"
 
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "Hurrengo goiburuaren CRC okerra"
 
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
@@ -68,7 +70,7 @@ msgstr "Errorea goiburuan"
 #: k7zip.cpp:2420
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "Goiburu-mota okerra"
 
 #: k7zip.cpp:2430 k7zip.cpp:2436
 msgctxt "K7Zip|"
@@ -78,17 +80,17 @@ msgstr "Inplementatu gabe"
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "Errorea korronte nagusien informazioa irakurtzean"
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "Errorea goiburua irakurtzean"
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "Errorea aldaketa ordua irakurtzean"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
@@ -98,7 +100,7 @@ msgstr ""
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "Baliogabea"
 
 #: k7zip.cpp:2595
 #, qt-format
@@ -109,53 +111,57 @@ msgstr ""
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "Idazketa errorea"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Goiburua kodetzean huts egin du"
 
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "Une honetan ez dago fitxategirik hautatuta"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
+"Aplikazioaren errorea: 7-Zip fitxategia irekita egon behar da hartan idatzi "
+"aurretik"
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
+"Aplikazioaren errorea: idazgarria ez den 7-Zip fitxategi batean idazteko "
+"saiakera"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "Ezin du idatzi AR fitxategian"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Euskarririk gabeko %1 modua"
 
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Zenbaki magiko nagusi baliogabea"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Zenbaki magiko baliogabea"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "Neurri baliogabea"
 
 #: kar.cpp:149
 msgctxt "KAr|"
@@ -188,18 +194,18 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Euskarririk gabeko %1 modua"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "Artxiboa dagoeneko itxita"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 ez dago edo ez da fitxategi arrunta."
 
 #: karchive.cpp:274
 #, qt-format
@@ -212,40 +218,40 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "Ezin izan du %1 fitxategia ireki: %2"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "%1 direktorioa ez dago"
 
 #: karchive.cpp:418
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "Idaztea huts egin du: %1"
 
 #: karchive_p.h:56
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Errore ezezaguna"
 
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "Ezin izan du idatzi. Partizioa beteta?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "Ezin du RCC fitxategian idatzi"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Euskarririk gabeko %1 modua"
 
 #: krcc.cpp:124
 #, qt-format
@@ -257,28 +263,28 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "%1 fitxategia ez dago"
 
 #: ktar.cpp:350
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "%1 artxiboa hondatuta dago"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "Diskoa beteta"
 
 #: ktar.cpp:388
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Ezin izan da azpian dagoen gailua lortu"
 
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "Ezin izan du «tar» goiburua irakurri"
 
 #: ktar.cpp:581
 #, qt-format
@@ -296,49 +302,57 @@ msgstr ""
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
+"Aplikazioaren errorea: TAR fitxategia irekita egon behar da hartan idatzi "
+"aurretik"
 
 #: ktar.cpp:766
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
+"Aplikazioaren errorea: idazgarria ez den 7-Zip fitxategi batean idazteko "
+"saiakera"
 
 #: ktar.cpp:773
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
+"Aplikazioaren muga: Ezin da gehitu %1 byte baino handiagoa den fitxategia"
 
 #: ktar.cpp:827
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "Goiburua idaztea huts egin du: %1"
 
 #: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
+"Aplikazioaren errorea: idazgarria ez den TAR fitxategi batean idazteko "
+"saiakera"
 
 #: kzip.cpp:450 kzip.cpp:469
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr ""
+"ZIP fitxategi baliogabea. Ustekabeko fitxategi amaiera. (Errore kodea: %1)"
 
 #: kzip.cpp:493
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. Izenaren luzera negatiboa"
 
 #: kzip.cpp:498
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. Izenaren osotasuna ez da irakurri (2 zk.)"
 
 #: kzip.cpp:517
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. «ExtraField» hautsia."
 
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
@@ -348,7 +362,7 @@ msgstr ""
 #: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera. (5 zk.)"
 
 #: kzip.cpp:562
 msgctxt "KZip|"
@@ -358,7 +372,7 @@ msgstr ""
 #: kzip.cpp:578
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera. (1 zk.)"
 
 #: kzip.cpp:611
 msgctxt "KZip|"
@@ -374,13 +388,13 @@ msgstr ""
 #: kzip.cpp:696
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea, sarrera-izen hutsa aurkitu da"
 
 #: kzip.cpp:737
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "%1 fitxategia %2 karpetan dago, baina %3 fitxategi bat da."
 
 #: kzip.cpp:748
 msgctxt "KZip|"
@@ -420,37 +434,41 @@ msgstr ""
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
+"Aplikazioaren errorea: ZIP fitxategia irekita egon behar da hartan idatzi "
+"aurretik"
 
 #: kzip.cpp:1036
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
+"Aplikazioaren errorea: idazgarria ez den ZIP fitxategi batean idazteko "
+"saiakera"
 
 #: kzip.cpp:1042
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "Ezin du gailu bat sortu. Diskoa beteta?"
 
 #: kzip.cpp:1048
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "Ezin du ZIP fitxategi batean bilatu. Diskoa beteta?"
 
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "Ezin du artxiboan idatzi. Diskoa beteta?"
 
 #: kzip.cpp:1209
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "Ezin izan du konpresio gailua ireki: %1"
 
 #: kzip.cpp:1296
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Fitxategirik edo gailurik ez"
 
 #: kzip.cpp:1309
 #, qt-format
