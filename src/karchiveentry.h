@@ -20,6 +20,7 @@
 
 class KArchiveDirectory;
 class KArchiveFile;
+class KArchive;
 
 class KArchiveEntryPrivate;
 /**
