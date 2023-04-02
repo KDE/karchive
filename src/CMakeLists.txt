@@ -11,6 +11,12 @@ configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-com
 add_library(KF6Archive)
 add_library(KF6::Archive ALIAS KF6Archive)
 
+set_target_properties(KF6Archive PROPERTIES
+    VERSION     ${KARCHIVE_VERSION}
+    SOVERSION   ${KARCHIVE_SOVERSION}
+    EXPORT_NAME "Archive"
+)
+
 ecm_create_qm_loader(KF6Archive karchive6_qt)
 
 if(BZIP2_FOUND)
@@ -69,12 +75,6 @@ target_link_libraries(KF6Archive
         Qt6::Core
     PRIVATE
         ZLIB::ZLIB
-)
-
-set_target_properties(KF6Archive PROPERTIES
-    VERSION     ${KARCHIVE_VERSION}
-    SOVERSION   ${KARCHIVE_SOVERSION}
-    EXPORT_NAME "Archive"
 )
 
 ecm_generate_headers(KArchive_HEADERS
