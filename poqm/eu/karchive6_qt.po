@@ -1,4 +1,4 @@
-# Translation for karchive5_qt.po to Euskara/Basque (eu).
+# Translation for karchive6_qt.po to Euskara/Basque (eu).
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the original file.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-23 22:04+0100\n"
+"PO-Revision-Date: 2023-04-10 08:42+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -90,12 +90,12 @@ msgstr "Errorea goiburua irakurtzean"
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr "Errorea aldaketa ordua irakurtzean"
+msgstr "Aldaketa ordua irakurtzeko errorea"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "«MTime» irakurtzeko errorea"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
@@ -107,6 +107,8 @@ msgstr "Baliogabea"
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Neurria irakurtzea huts egin du (checkRecordsSize: %1, d->pos - ppp: %2, "
+"neurria: %3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
@@ -166,29 +168,29 @@ msgstr "Neurri baliogabea"
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Fitxategi-izen luzearen erreferentzia baliogabea"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Fitxategi-izen luzearen kokapenaren erreferentzia baliogabea"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "Ez da fitxategi-izen edo gailurik zehaztu"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "Ezin izan du gailua %1 moduan ireki"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "%1(e)rako «QSaveFile» sortzeak huts egin du: %2"
 
 #: karchive.cpp:208
 #, qt-format
@@ -213,6 +215,7 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Artxibora gehitzeko %1 fitxategira sartzea huts egin du. Errorea izan da: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -257,7 +260,7 @@ msgstr "Euskarririk gabeko %1 modua"
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "%1 baliabidea %2 aurrizki pean erregistratzea huts egin du"
 
 #: ktar.cpp:343
 #, qt-format
@@ -290,13 +293,13 @@ msgstr "Ezin izan du «tar» goiburua irakurri"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "Aldi baterako fitxategian atzera idaztea huts egin du: %1"
 
 #: ktar.cpp:637
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "Ezin izan du lerrokadura idatzi: %1"
 
 #: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
@@ -357,7 +360,7 @@ msgstr "ZIP fitxategi baliogabea. «ExtraField» hautsia."
 #: kzip.cpp:531 kzip.cpp:554
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Ezin izan du goiburuko hurrengo tokena bilatu"
 
 #: kzip.cpp:546
 msgctxt "KZip|"
@@ -367,7 +370,7 @@ msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera. (5 zk.)"
 #: kzip.cpp:562
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Ezin izan du fitxategiaren neurri konprimatua bilatu"
 
 #: kzip.cpp:578
 msgctxt "KZip|"
@@ -379,11 +382,15 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"ZIP fitxategi baliogabea, sarrera nagusia laburregia (ez da baliozkoa "
+"izateko behar bezain luzea)"
 
 #: kzip.cpp:620
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
+"ZIP fitxategi baliogabea, fitxategiaren bide-izenaren luzera zero edo "
+"txikiagoa"
 
 #: kzip.cpp:696
 msgctxt "KZip|"
@@ -399,7 +406,7 @@ msgstr "%1 fitxategia %2 karpetan dago, baina %3 fitxategi bat da."
 #: kzip.cpp:748
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Ezin du hurrengo sarrera bilatu"
 
 #: kzip.cpp:761 kzip.cpp:771
 msgctxt "KZip|"
@@ -410,25 +417,25 @@ msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera."
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "ZIP fitxategi baliogabea. Goiburu ezezaguna %1 jatorri-aldaketan"
 
 #: kzip.cpp:825
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Ezin izan du hurrengo fitxategiaren goiburua bilatu: %1"
 
 #: kzip.cpp:851 kzip.cpp:947
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "Ezin izan du fitxategiaren goiburua idatzi: %1"
 
 #: kzip.cpp:994
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "Ezin izan du direktorio nagusiaren erregistroa idatzi: %1"
 
 #: kzip.cpp:1030
 msgctxt "KZip|"
