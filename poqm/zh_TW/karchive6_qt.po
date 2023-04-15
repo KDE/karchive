@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-01-19 21:07+0900\n"
+"PO-Revision-Date: 2023-04-14 22:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -221,9 +221,6 @@ msgid "Writing failed: %1"
 msgstr "寫入失敗：%1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "未知的錯誤"
@@ -303,7 +300,7 @@ msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "應用程式限制：無法新增大於 %1 個位元組的檔案"
 
 #: ktar.cpp:827
 #, qt-format
