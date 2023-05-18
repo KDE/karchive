@@ -372,7 +372,7 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
                 if (STAT_METHOD(QFile::encodeName(fileName).constData(), &fi) != -1) {
                     perms = fi.st_mode;
                 }
-                writeDir(file, fileInfo.owner(), fileInfo.group(), perms, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.birthTime());
+                writeDir(dest, fileInfo.owner(), fileInfo.group(), perms, fileInfo.lastRead(), fileInfo.lastModified(), fileInfo.birthTime());
                 // Recurse
                 addLocalDirectory(fileName, dest);
             }
