@@ -1,11 +1,11 @@
-# Enol P. <enolp@softastur.org>, 2023.
+# A S Alam <aalam@satluj.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-15 22:37+0200\n"
-"Last-Translator: Enol P. <enolp@softastur.org>\n"
-"Language-Team: \n"
-"Language: ast\n"
+"PO-Revision-Date: 2023-05-19 20:17-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,7 +103,7 @@ msgstr ""
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "ਲਿਖਣ ਗਲਤੀ"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
@@ -134,7 +134,7 @@ msgstr ""
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "ਗੈਰ-ਸਹਾਇਕ ਢੰਗ %1"
 
 #: kar.cpp:101
 msgctxt "KAr|"
@@ -182,18 +182,18 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "ਗੈਰ-ਸਹਾਇਕ ਢੰਗ %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "ਅਕਾਇਵ ਪਹਿਲਾਂ ਹੀ ਬੰਦ ਹੈ"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 ਮੌਜੂਦ ਨਹੀਂ ਹੈ ਜਾਂ ਨਿਯਮਤ ਫ਼ਾਈਲ ਨਹੀਂ ਹੈ"
 
 #: karchive.cpp:274
 #, qt-format
@@ -212,23 +212,23 @@ msgstr ""
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "%1 ਡਾਇਰੈਕਟਰੀ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
 #: karchive.cpp:418
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "ਲਿਖਣ ਲਈ ਫ਼ੇਲ੍ਹ: %1"
 
 #: karchive_p.h:56
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "ਅਣਜਾਣ ਗਲਤੀ"
 
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "ਲਿਖਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਪਾਰਟੀਸ਼ਨ ਭਰ ਤਾਂ ਨਹੀ ਗਿਆ?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
@@ -239,7 +239,7 @@ msgstr ""
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "ਗੈਰ-ਸਹਾਇਕ ਢੰਗ %1"
 
 #: krcc.cpp:124
 #, qt-format
@@ -251,7 +251,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr "El ficheru «%2» nun esiste"
+msgstr "%1 ਫਾਈਲ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
 #: ktar.cpp:350
 #, qt-format
@@ -262,7 +262,7 @@ msgstr ""
 #: ktar.cpp:354
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "ਡਿਸਕ ਭਰੀ"
 
 #: ktar.cpp:388
 msgctxt "KTar|"
