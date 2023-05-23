@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/karchive/karchive5_qt.pot\n"
-"X-Crowdin-File-ID: 41108\n"
+"X-Crowdin-File: /kf6-trunk/messages/karchive/karchive6_qt.pot\n"
+"X-Crowdin-File-ID: 43723\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -223,12 +223,9 @@ msgid "Writing failed: %1"
 msgstr "写入失败：%1"
 
 #: karchive_p.h:56
-#, fuzzy
-#| msgctxt "KArchivePrivate|"
-#| msgid "Unknown error"
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr "未知的错误"
+msgstr "未知错误"
 
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
