@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-05-22 13:58\n"
+"PO-Revision-Date: 2023-06-17 04:09\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr "不支持的模式 %1"
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr "压缩包已关闭"
+msgstr "压缩文件已关闭"
 
 #: karchive.cpp:268
 #, qt-format
@@ -202,7 +202,7 @@ msgstr "%1 不存在，或者不是一个普通文件。"
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
-msgstr "无法访问要添加到压缩包的文件 %1。错误：%2"
+msgstr "无法访问文件 %1 以添加到压缩文件中。错误：%2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -259,7 +259,7 @@ msgstr "文件 %1 不存在"
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr "压缩包 %1 已损坏"
+msgstr "压缩文件 %1 已损坏"
 
 #: ktar.cpp:354
 msgctxt "KTar|"
@@ -435,7 +435,7 @@ msgstr "无法在 ZIP 文件中寻址。请检查磁盘是否已满。"
 #: kzip.cpp:1190
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr "无法写入该压缩包。请检查磁盘是否已满。"
+msgstr "无法写入该压缩文件。请检查磁盘是否已满。"
 
 #: kzip.cpp:1209
 #, qt-format
