@@ -221,3 +221,5 @@ void KCompressionDeviceTest::testSeekReadUncompressedBuffer()
         QCOMPARE(kcdData[i], i);
     }
 }
+
+#include "moc_kcompressiondevicetest.cpp"

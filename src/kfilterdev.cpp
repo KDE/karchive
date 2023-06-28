@@ -18,4 +18,6 @@ KCompressionDevice::CompressionType KFilterDev::compressionTypeForMimeType(const
     return KCompressionDevice::compressionTypeForMimeType(mimeType);
 }
 
+#include "moc_kfilterdev.cpp"
+
 #endif // KARCHIVE_BUILD_DEPRECATED_SINCE(5, 85)

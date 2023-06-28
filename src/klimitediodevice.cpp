@@ -69,3 +69,5 @@ bool KLimitedIODevice::isSequential() const
 {
     return m_dev->isSequential();
 }
+
+#include "moc_klimitediodevice_p.cpp"
