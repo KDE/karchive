@@ -515,3 +515,5 @@ KFilterBase *KCompressionDevice::filterBase()
 {
     return d->filter;
 }
+
+#include "moc_kcompressiondevice.cpp"

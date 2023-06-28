@@ -503,3 +503,5 @@ void KFilterTest::test_threefilesgztogether()
     QByteArray expectedData{"foo\nbar\nbaz\n"};
     QCOMPARE(extractedData, expectedData);
 }
+
+#include "moc_kfiltertest.cpp"

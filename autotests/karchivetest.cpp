@@ -1533,3 +1533,5 @@ void KArchiveTest::test7ZipMaxLength()
     QFile::remove(fileName);
 }
 #endif
+
+#include "moc_karchivetest.cpp"
