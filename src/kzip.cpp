@@ -18,6 +18,7 @@
 #include <QFile>
 #include <QHash>
 #include <QList>
+#include <QtEndian>
 #include <qplatformdefs.h>
 
 #include <string.h>
@@ -90,6 +91,10 @@ struct ParseFileInfo {
     // has been parsed
     bool newinfounix_seen; // true if Info-ZIP Unix New extra field has
     // been parsed
+
+    // file sizes from a ZIP64 extra field
+    quint64 uncompressedSize = 0;
+    quint64 compressedSize = 0;
 
     ParseFileInfo()
         : perm(0100644)
@@ -255,6 +260,14 @@ static bool parseExtraField(const char *buffer, int size, bool islocal, ParseFil
         }
 
         switch (magic) {
+        case 0x0001: // ZIP64 extended file information
+            if (size >= 8) {
+                pfi.uncompressedSize = qFromLittleEndian(*reinterpret_cast<const quint64 *>(buffer));
+            }
+            if (size >= 16) {
+                pfi.compressedSize = qFromLittleEndian(*reinterpret_cast<const quint64 *>(buffer + 8));
+            }
+            break;
         case 0x5455: // extended timestamp
             if (!parseExtTimestamp(buffer, fieldsize, islocal, pfi)) {
                 return false;
@@ -645,9 +658,15 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             uint crc32 = (uchar)buffer[19] << 24 | (uchar)buffer[18] << 16 | (uchar)buffer[17] << 8 | (uchar)buffer[16];
 
             // uncompressed file size
-            uint ucsize = (uchar)buffer[27] << 24 | (uchar)buffer[26] << 16 | (uchar)buffer[25] << 8 | (uchar)buffer[24];
+            quint64 ucsize = uint32_t((uchar)buffer[27] << 24 | (uchar)buffer[26] << 16 | (uchar)buffer[25] << 8 | (uchar)buffer[24]);
+            if (ucsize == 0xFFFFFFFF) {
+                ucsize = pfi.uncompressedSize;
+            }
             // compressed file size
-            uint csize = (uchar)buffer[23] << 24 | (uchar)buffer[22] << 16 | (uchar)buffer[21] << 8 | (uchar)buffer[20];
+            quint64 csize = uint32_t((uchar)buffer[23] << 24 | (uchar)buffer[22] << 16 | (uchar)buffer[21] << 8 | (uchar)buffer[20]);
+            if (csize == 0xFFFFFFFF) {
+                csize = pfi.compressedSize;
+            }
 
             // offset of local header
             uint localheaderoffset = (uchar)buffer[45] << 24 | (uchar)buffer[44] << 16 | (uchar)buffer[43] << 8 | (uchar)buffer[42];

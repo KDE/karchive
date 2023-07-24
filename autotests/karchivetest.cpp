@@ -1274,6 +1274,28 @@ void KArchiveTest::testZipDuplicateNames()
     QVERIFY2(metaInfCount == 1, "Archive root directory contains duplicates");
 }
 
+void KArchiveTest::testZip64()
+{
+    QString fileName = QFINDTESTDATA("data/zip64.pkpass");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+
+    // NOTE the actual content of this file has been wiped, we can only verify the file meta data here
+    QCOMPARE(zip.directory()->entries().size(), 7);
+    auto entry = static_cast<const KZipFileEntry *>(zip.directory()->entry(QStringLiteral("manifest.json")));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 305);
+    QCOMPARE(entry->compressedSize(), 194);
+    QCOMPARE(entry->position(), 21417);
+    entry = static_cast<const KZipFileEntry *>(zip.directory()->entry(QStringLiteral("logo.png")));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 3589);
+    QCOMPARE(entry->compressedSize(), 3594);
+    QCOMPARE(entry->position(), 8943);
+}
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
