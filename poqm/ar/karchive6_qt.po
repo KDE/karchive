@@ -315,141 +315,141 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "خطأ في التطبيق: جرت محاولة الكتابة في ملف TAR غير قابل للكتابة"
 
-#: kzip.cpp:450 kzip.cpp:469
+#: kzip.cpp:463 kzip.cpp:482
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "ملف ZIP غير صالح. نهاية غير متوقعه للملف. (رمز الخطأ: %1)"
 
-#: kzip.cpp:493
+#: kzip.cpp:506
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "ملف ZIP غير صالح. طول الاسم سلبي"
 
-#: kzip.cpp:498
+#: kzip.cpp:511
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "ملف ZIP غير صالح. الاسم غير مقروء بالكامل (#2)"
 
-#: kzip.cpp:517
+#: kzip.cpp:530
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "ملف مضغوط غير صالح. حقل اكسترافيلد مكسور."
 
-#: kzip.cpp:531 kzip.cpp:554
+#: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "لا يمكن السعي إلى الرمز المميز التالي للعنوان"
 
-#: kzip.cpp:546
+#: kzip.cpp:559
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "ملف ZIP غير صالح. نهاية غير متوقعه للملف. (#5)"
 
-#: kzip.cpp:562
+#: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "لا يمكن السعي إلى حجم الضغط للملف"
 
-#: kzip.cpp:578
+#: kzip.cpp:591
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "ملف ZIP غير صالح. نهاية غير متوقعه للملف. (#1)"
 
-#: kzip.cpp:611
+#: kzip.cpp:624
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "ملف ZIP غير صالح، المدخلة المركزية قصيرة جدًا (ليس طويلًا بما يكفي مدخلة صالحة)"
 
-#: kzip.cpp:620
+#: kzip.cpp:633
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr "ملف ZIP غير صالح، طول اسم مسار الملف أصغر أو يساوي الصفر"
 
-#: kzip.cpp:696
+#: kzip.cpp:715
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "ملف ZIP غير صالح، عثر على اسم فارغ لمدخلة"
 
-#: kzip.cpp:737
+#: kzip.cpp:756
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "ملف %1 في المجلد %2، لكن %3 هو ملف."
 
-#: kzip.cpp:748
+#: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "تعذر الانتقال إلى المدخلة التالية"
 
-#: kzip.cpp:761 kzip.cpp:771
+#: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "ملف ZIP غير صالح. نهاية غير متوقعه للملف."
 
-#: kzip.cpp:794
+#: kzip.cpp:813
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "ملف ZIP غير صالح. عنوان غير معروف عند الإزاحة %1"
 
-#: kzip.cpp:825
+#: kzip.cpp:844
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "لا يمكن السعي إلى عنوان الملف التالي: %1"
 
-#: kzip.cpp:851 kzip.cpp:947
+#: kzip.cpp:870 kzip.cpp:966
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "تعذر كتابة عنوان الملف: %1"
 
-#: kzip.cpp:994
+#: kzip.cpp:1013
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "تعذر كتابة السجل المجلد المركزي: %1"
 
-#: kzip.cpp:1030
+#: kzip.cpp:1049
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "خطأ في التطبيق: يجب فتح ملف Zip قبل الكتابة فيه"
 
-#: kzip.cpp:1036
+#: kzip.cpp:1055
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "خطأ في التطبيق: جرت محاولة الكتابة في ملف Zip غير قابل للكتابة"
 
-#: kzip.cpp:1042
+#: kzip.cpp:1061
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "تعذّر إنشاء جهاز. هل القرص ممتلئ؟"
 
-#: kzip.cpp:1048
+#: kzip.cpp:1067
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "تعذر الانتقال في ملف ZIP. هل القرص ممتلئ؟"
 
-#: kzip.cpp:1190
+#: kzip.cpp:1209
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "تعذر الكتابة إلى الأرشيف. هل القرص ممتلئ؟"
 
-#: kzip.cpp:1209
+#: kzip.cpp:1228
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "تعذّر فتح جهاز الضغط: %1"
 
-#: kzip.cpp:1296
+#: kzip.cpp:1315
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "لا يوجد ملف أو جهاز"
 
-#: kzip.cpp:1309
+#: kzip.cpp:1328
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

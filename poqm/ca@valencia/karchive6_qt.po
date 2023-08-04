@@ -335,48 +335,48 @@ msgstr ""
 "S'ha produït un error de l'aplicació: s'ha intentat escriure en un fitxer "
 "TAR no escrivible"
 
-#: kzip.cpp:450 kzip.cpp:469
+#: kzip.cpp:463 kzip.cpp:482
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer. (Codi d'error: %1)"
 
-#: kzip.cpp:493
+#: kzip.cpp:506
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Fitxer ZIP no vàlid. Llargària negativa del nom"
 
-#: kzip.cpp:498
+#: kzip.cpp:511
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Fitxer ZIP no vàlid. El nom no s'ha llegit completament (núm. 2)"
 
-#: kzip.cpp:517
+#: kzip.cpp:530
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Fitxer ZIP no vàlid. «ExtraField» està trencat."
 
-#: kzip.cpp:531 kzip.cpp:554
+#: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "No s'ha pogut buscar al testimoni de la capçalera següent"
 
-#: kzip.cpp:546
+#: kzip.cpp:559
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer. (núm. 5)"
 
-#: kzip.cpp:562
+#: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "No s'ha pogut buscar a la mida comprimida del fitxer"
 
-#: kzip.cpp:578
+#: kzip.cpp:591
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer. (núm. 1)"
 
-#: kzip.cpp:611
+#: kzip.cpp:624
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -384,99 +384,99 @@ msgstr ""
 "Fitxer ZIP no vàlid. Entrada central massa curta (no té la llargària "
 "suficient per a que siga vàlida)"
 
-#: kzip.cpp:620
+#: kzip.cpp:633
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "Fitxer ZIP no vàlid. La llargària del nom del camí és inferior o igual que "
 "zero"
 
-#: kzip.cpp:696
+#: kzip.cpp:715
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Fitxer ZIP no vàlid. S'ha trobat un nom d'entrada buit"
 
-#: kzip.cpp:737
+#: kzip.cpp:756
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "El fitxer %1 es troba en la carpeta %2, però %3 és realment un fitxer."
 
-#: kzip.cpp:748
+#: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "No s'ha pogut buscar fins a l'entrada següent"
 
-#: kzip.cpp:761 kzip.cpp:771
+#: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer."
 
-#: kzip.cpp:794
+#: kzip.cpp:813
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Fitxer ZIP no vàlid. Capçalera no reconeguda en el desplaçament %1"
 
-#: kzip.cpp:825
+#: kzip.cpp:844
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "No s'ha pogut buscar fins a la capçalera del fitxer següent: %1"
 
-#: kzip.cpp:851 kzip.cpp:947
+#: kzip.cpp:870 kzip.cpp:966
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "No s'ha pogut escriure la capçalera del fitxer: %1"
 
-#: kzip.cpp:994
+#: kzip.cpp:1013
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "No s'ha pogut escriure el registre central del directori: %1"
 
-#: kzip.cpp:1030
+#: kzip.cpp:1049
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "S'ha produït un error de l'aplicació: el fitxer ZIP cal que estiga obert "
 "abans que s'hi puga escriure"
 
-#: kzip.cpp:1036
+#: kzip.cpp:1055
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "S'ha produït un error de l'aplicació: s'ha intentat escriure en un fitxer "
 "ZIP no escrivible"
 
-#: kzip.cpp:1042
+#: kzip.cpp:1061
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "No s'ha pogut crear un dispositiu. El disc està ple?"
 
-#: kzip.cpp:1048
+#: kzip.cpp:1067
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "No s'ha pogut buscar en el fitxer ZIP. El disc està ple?"
 
-#: kzip.cpp:1190
+#: kzip.cpp:1209
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "No s'ha pogut escriure a l'arxiu. El disc està ple?"
 
-#: kzip.cpp:1209
+#: kzip.cpp:1228
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "No s'ha pogut obrir el dispositiu de compressió: %1"
 
-#: kzip.cpp:1296
+#: kzip.cpp:1315
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "No hi ha cap fitxer ni dispositiu"
 
-#: kzip.cpp:1309
+#: kzip.cpp:1328
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
