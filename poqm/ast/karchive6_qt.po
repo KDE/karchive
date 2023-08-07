@@ -248,7 +248,7 @@ msgid "Failed to register resource %1 under prefix %2"
 msgstr ""
 
 #: ktar.cpp:343
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "El ficheru «%2» nun esiste"
