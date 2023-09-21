@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2023-03-05 12:45+0100\n"
+"PO-Revision-Date: 2023-09-19 19:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -382,7 +382,7 @@ msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "Fitxer ZIP no vàlid. Entrada central massa curta (no té la llargària "
-"suficient per a que siga vàlida)"
+"suficient perquè siga vàlida)"
 
 #: kzip.cpp:633
 msgctxt "KZip|"
