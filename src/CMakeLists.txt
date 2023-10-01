@@ -143,8 +143,3 @@ if(BUILD_QCH)
     )
 endif()
 
-include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KArchive LIB_NAME KF6Archive DEPS "core" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KArchive)
-install(FILES ${PRI_FILENAME}
-        DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
-

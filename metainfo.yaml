@@ -12,8 +12,7 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - qmake: KArchive
-   cmake: "KF6::Archive"
+ - cmake: "KF6::Archive"
 cmakename: KF6Archive
 
 public_lib: true
