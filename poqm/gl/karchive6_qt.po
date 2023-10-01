@@ -16,7 +16,7 @@ msgstr ""
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr "Non se puido acceder ao dispositivo."
+msgstr "Non foi posíbel acceder ao dispositivo."
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
@@ -134,7 +134,7 @@ msgstr ""
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr "Non se pode escribir no ficheiro AR."
+msgstr "Non é posíbel escribir no ficheiro AR."
 
 #: kar.cpp:90
 #, qt-format
@@ -176,7 +176,7 @@ msgstr "Non se indicou ningún nome de ficheiro ou dispositivo."
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr "Non se puido abrir o dispositivo en modo «%1»."
+msgstr "Non foi posíbel abrir o dispositivo en modo «%1»."
 
 #: karchive.cpp:189
 #, qt-format
@@ -207,14 +207,14 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"Non se puido acceder ao ficheiro «%1» para engadilo ao arquivo. O erro foi: "
-"%2"
+"Non foi posíbel acceder ao ficheiro «%1» para engadilo ao arquivo. O erro "
+"foi: %2"
 
 #: karchive.cpp:320
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr "Non se pode abrir o ficheiro %1: %2"
+msgstr "Non é posíbel abrir o ficheiro %1: %2"
 
 #: karchive.cpp:354
 #, qt-format
@@ -236,12 +236,12 @@ msgstr "Produciuse un erro descoñecido"
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr "Non se puido escribir. Está a partición chea?"
+msgstr "Non foi posíbel escribir. Está a partición chea?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr "Non se pode escribir no ficheiro RCC."
+msgstr "Non é posíbel escribir no ficheiro RCC."
 
 #: krcc.cpp:117
 #, qt-format
@@ -253,7 +253,7 @@ msgstr "Non se permite o modo «%1»."
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr "Non se puido rexistrar o recurso «%1» co prefixo «%2»."
+msgstr "Non foi posíbel rexistrar o recurso «%1» co prefixo «%2»."
 
 #: ktar.cpp:343
 #, qt-format
@@ -275,24 +275,24 @@ msgstr "O disco está cheo."
 #: ktar.cpp:388
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr "Non se puido acceder ao dispositivo."
+msgstr "Non foi posíbel acceder ao dispositivo."
 
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr "Non se puido ler a cabeceira de TAR."
+msgstr "Non foi posíbel ler a cabeceira de TAR."
 
 #: ktar.cpp:581
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr "Non se puido escribir de volta no ficheiro temporal: %1"
+msgstr "Non foi posíbel escribir de volta no ficheiro temporal: %1"
 
 #: ktar.cpp:637
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr "Non se puido escribir o aliñamento: %1"
+msgstr "Non foi posíbel escribir o aliñamento: %1"
 
 #: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
 msgctxt "KTar|"
@@ -319,7 +319,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr "Non se puido escribir a cabeceira: %1."
+msgstr "Non foi posíbel escribir a cabeceira: %1."
 
 #: ktar.cpp:849 ktar.cpp:918
 msgctxt "KTar|"
@@ -354,7 +354,8 @@ msgstr "O ficheiro ZIP non é válido. ExtraField está roto."
 #: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr "Non se puido mover o punto de lectura ao seguinte código de cabeceira."
+msgstr ""
+"Non foi posíbel mover o punto de lectura ao seguinte código de cabeceira."
 
 #: kzip.cpp:559
 msgctxt "KZip|"
@@ -365,7 +366,7 @@ msgstr "O ficheiro ZIP non é válido. O fin do ficheiro foi inesperado (#5)."
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr ""
-"Non se puido mover o punto de lectura ao tamaño comprimido do ficheiro."
+"Non foi posíbel mover o punto de lectura ao tamaño comprimido do ficheiro."
 
 #: kzip.cpp:591
 msgctxt "KZip|"
@@ -401,7 +402,7 @@ msgstr "O ficheiro %1 está no cartafol %2, pero %3 é en realidade un ficheiro.
 #: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr "Non se puido mover o punto de lectura á seguinte entrada."
+msgstr "Non foi posíbel mover o punto de lectura á seguinte entrada."
 
 #: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
@@ -420,19 +421,19 @@ msgstr ""
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr ""
-"Non se puido mover o punto de lectura á seguinte cabeceira de ficheiro: %1"
+"Non foi posíbel mover o punto de lectura á seguinte cabeceira de ficheiro: %1"
 
 #: kzip.cpp:870 kzip.cpp:966
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr "Non se puido escribir na cabeceira do ficheiro: %1"
+msgstr "Non foi posíbel escribir na cabeceira do ficheiro: %1"
 
 #: kzip.cpp:1013
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr "Non se puido escribir o rexistro do cartafol central: %1"
+msgstr "Non foi posíbel escribir o rexistro do cartafol central: %1"
 
 #: kzip.cpp:1049
 msgctxt "KZip|"
@@ -451,24 +452,24 @@ msgstr ""
 #: kzip.cpp:1061
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr "Non se pode crear un dispositivo. Está cheo o disco?"
+msgstr "Non é posíbel crear un dispositivo. Está cheo o disco?"
 
 #: kzip.cpp:1067
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
-"Non se pode mover a posición de lectura no ficheiro ZIP. Está cheo o disco?"
+"Non é posíbel mover a posición de lectura no ficheiro ZIP. Está cheo o disco?"
 
 #: kzip.cpp:1209
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr "Non se puido escribir no arquivo. Está cheo o disco?"
+msgstr "Non foi posíbel escribir no arquivo. Está cheo o disco?"
 
 #: kzip.cpp:1228
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr "Non se puido abrir o dispositivo de compresión: %1"
+msgstr "Non foi posíbel abrir o dispositivo de compresión: %1"
 
 #: kzip.cpp:1315
 msgctxt "KZip|"
