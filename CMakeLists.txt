@@ -8,6 +8,30 @@ find_package(ECM 5.240.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
+option(WITH_BZIP2 "Make bzip2 required" ON)
+option(WITH_LIBLZMA "Make liblzma required" ON)
+option(WITH_LIBZSTD "Make libzstd required" ON)
+
+set(PKGCONFIG_REQUIRED_TYPE "")
+
+if(WITH_BZIP2)
+    set(BZIP2_PACKAGE_TYPE "REQUIRED")
+else()
+    set(BZIP2_PACKAGE_TYPE "RECOMMENDED")
+endif()
+
+if(WITH_LIBLZMA)
+    set(LIBLZMA_PACKAGE_TYPE "REQUIRED")
+else()
+    set(LIBLZMA_PACKAGE_TYPE "RECOMMENDED")
+endif()
+
+if(WITH_LIBZSTD)
+    set(PKGCONFIG_REQUIRED_TYPE "REQUIRED")
+    set(LIBZSTD_REQUIRED_TYPE "REQUIRED")
+else()
+    set(LIBZSTD_REQUIRED_TYPE "")
+endif()
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
@@ -33,7 +57,7 @@ find_package(BZip2)
 set_package_properties(BZip2 PROPERTIES
     URL "https://sourceware.org/bzip2/"
     DESCRIPTION "Support for BZip2 compressed files and data streams"
-    TYPE RECOMMENDED
+    TYPE ${BZIP2_PACKAGE_TYPE}
     PURPOSE "Support for BZip2 compressed files and data streams"
 )
 
@@ -41,12 +65,14 @@ find_package(LibLZMA)
 set_package_properties(LibLZMA PROPERTIES
     URL "https://tukaani.org/xz/"
     DESCRIPTION "Support for xz compressed files and data streams"
+    TYPE ${LIBLZMA_PACKAGE_TYPE}
     PURPOSE "Support for xz compressed files and data streams"
 )
 
-find_package(PkgConfig)
+
+find_package(PkgConfig ${PKGCONFIG_REQUIRED_TYPE})
 if (PkgConfig_FOUND)
-    pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
+    pkg_check_modules(LibZstd ${LIBZSTD_REQUIRED_TYPE} IMPORTED_TARGET "libzstd")
 endif()
 add_feature_info(LibZstd LibZstd_FOUND
                 "Support for zstd compressed files and data streams"
