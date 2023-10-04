@@ -1112,7 +1112,7 @@ static uint toTimeT(const long long liTime)
     long int yearday = days - (years * DAYSPERNORMALQUADRENNIUM) / 4;
     long int months = (64 * yearday) / 1959;
     /* the result is based on a year starting on March.
-     * To convert take 12 from Januari and Februari and
+     * To convert take 12 from January and February and
      * increase the year by one. */
 
     short month;

@@ -74,7 +74,7 @@ public:
 
         QString name = QDir::cleanPath(_name);
         int pos = name.indexOf(QLatin1Char('/'));
-        if (pos == 0) { // ouch absolute path (see also KArchive::findOrCreate)
+        if (pos == 0) { // absolute path (see also KArchive::findOrCreate)
             if (name.length() > 1) {
                 name = name.mid(1); // remove leading slash
                 pos = name.indexOf(QLatin1Char('/')); // look again
@@ -314,7 +314,7 @@ bool KArchive::addLocalFile(const QString &fileName, const QString &destName)
 
     // the file must be opened before prepareWriting is called, otherwise
     // if the opening fails, no content will follow the already written
-    // header and the tar file is effectively f*cked up
+    // header and the tar file is incorrect
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
         setErrorString(tr("Couldn't open file %1: %2").arg(fileName, file.errorString()));
@@ -527,7 +527,7 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
 {
     // Check we're not in a path that is ultra deep, this is most probably fine since PATH_MAX on Linux
     // is defined as 4096, so even on /a/a/a/a/a/a 2500 recursions puts us over that limit
-    // an ultra deep recursion will makes us crash due to not enough stack. Tests show that 1MB stack
+    // an ultra deep recursion will make us crash due to not enough stack. Tests show that 1MB stack
     // (default on Linux seems to be 8MB) gives us up to around 4000 recursions
     if (recursionCounter > 2500) {
         qCWarning(KArchiveLog) << "path recursion limit exceeded, bailing out";

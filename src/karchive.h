@@ -122,7 +122,7 @@ public:
      * is that this method minimizes memory usage, by not loading the whole file
      * into memory in one go.
      *
-     * If @p fileName is a symbolic link, it will be written as is, i. e.
+     * If @p fileName is a symbolic link, it will be written as is, i.e.
      * it will not be resolved before.
      * @param fileName full path to an existing local file, to be added to the archive.
      * @param destName the resulting name (or relative path) of the file in the archive.

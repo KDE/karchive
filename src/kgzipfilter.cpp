@@ -255,7 +255,7 @@ int KGzipFilter::outBufferAvailable() const
 
 KGzipFilter::Result KGzipFilter::uncompress_noop()
 {
-    // I'm not sure we really need support for that (uncompressed streams),
+    // I'm not sure that we really need support for that (uncompressed streams),
     // but why not, it can't hurt to have it. One case I can think of is someone
     // naming a tar file "blah.tar.gz" :-)
     if (d->zStream.avail_in > 0) {
