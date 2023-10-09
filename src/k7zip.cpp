@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QTimeZone>
 #include <qplatformdefs.h>
 
 #include "kcompressiondevice.h"
@@ -1130,7 +1131,7 @@ static uint toTimeT(const long long liTime)
     short day = (short)(yearday - (1959 * months) / 64);
 
     QDateTime t(QDate(year, month, day), QTime(hour, minute, second));
-    t.setTimeSpec(Qt::UTC);
+    t.setTimeZone(QTimeZone::utc());
     return t.toSecsSinceEpoch();
 }
 
