@@ -359,7 +359,7 @@ msgstr "Fitxer ZIP no vàlid. «ExtraField» està trencat."
 #: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr "No s'ha pogut buscar al testimoni de la capçalera següent"
+msgstr "No s'ha pogut buscar fins al testimoni de la capçalera següent"
 
 #: kzip.cpp:559
 msgctxt "KZip|"
@@ -369,7 +369,7 @@ msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer. (núm. 5)"
 #: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr "No s'ha pogut buscar a la mida comprimida del fitxer"
+msgstr "No s'ha pogut buscar fins al fitxer de mida comprimida"
 
 #: kzip.cpp:591
 msgctxt "KZip|"
