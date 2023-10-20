@@ -12,11 +12,11 @@
 #include <QBuffer>
 #include <QDir>
 #include <QDirIterator>
+#include <QList>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QTemporaryDir>
 #include <QTest>
-#include <QVector>
 
 QTEST_MAIN(KCompressionDeviceTest)
 

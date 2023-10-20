@@ -47,7 +47,7 @@ KXzFilter::~KXzFilter()
 
 bool KXzFilter::init(int mode)
 {
-    QVector<unsigned char> props;
+    QList<unsigned char> props;
     return init(mode, AUTO, props);
 }
 
@@ -58,7 +58,7 @@ static void freeFilters(lzma_filter filters[])
     }
 }
 
-bool KXzFilter::init(int mode, Flag flag, const QVector<unsigned char> &properties)
+bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties)
 {
     if (d->isInitialized) {
         terminate();

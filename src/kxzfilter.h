@@ -40,7 +40,7 @@ public:
         SPARC = 8,
     };
 
-    virtual bool init(int, Flag flag, const QVector<unsigned char> &props);
+    virtual bool init(int, Flag flag, const QList<unsigned char> &props);
     int mode() const override;
     bool terminate() override;
     void reset() override;
