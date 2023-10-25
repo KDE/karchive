@@ -287,7 +287,7 @@ msgstr "No s'ha pogut obtindre el dispositiu subjacent"
 #: ktar.cpp:403
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr "No s'ha pogut llegir la capçalera del «tar»"
+msgstr "No s'ha pogut llegir la capçalera de «tar»"
 
 #: ktar.cpp:581
 #, qt-format
