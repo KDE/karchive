@@ -168,6 +168,8 @@ static void testFileData(KArchive *archive)
     const KArchiveDirectory *dir = archive->directory();
 
     const KArchiveFile *f = dir->file(QStringLiteral("z/test3"));
+    QVERIFY(f);
+
     QByteArray arr(f->data());
     QCOMPARE(arr.size(), 13);
     QCOMPARE(arr, QByteArray("Noch so einer"));
