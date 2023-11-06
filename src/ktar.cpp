@@ -115,7 +115,8 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
         if (mime.inherits(QStringLiteral("application/x-compressed-tar")) || mime.inherits(MimeType::application_gzip_old())) {
             // gzipped tar file (with possibly invalid file name), ask for gzip filter
             d->mimetype = MimeType::application_gzip_old();
-        } else if (mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) || mime.inherits(QString::fromLatin1(application_bzip))) {
+        } else if (mime.inherits(QStringLiteral("application/x-bzip-compressed-tar")) || mime.inherits(QStringLiteral("application/x-bzip2-compressed-tar"))
+                   || mime.inherits(QStringLiteral("application/x-bzip2")) || mime.inherits(QString::fromLatin1(application_bzip))) {
             // bzipped2 tar file (with possibly invalid file name), ask for bz2 filter
             d->mimetype = QString::fromLatin1(application_bzip);
         } else if (mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) || mime.inherits(QString::fromLatin1(application_lzma))) {
