@@ -256,60 +256,60 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Impossibile registrare la risorsa %1 con il prefisso %2"
 
-#: ktar.cpp:343
+#: ktar.cpp:344
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Il file %1 non esiste"
 
-#: ktar.cpp:350
+#: ktar.cpp:351
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "L'archivio %1 è danneggiato"
 
-#: ktar.cpp:354
+#: ktar.cpp:355
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disco pieno"
 
-#: ktar.cpp:388
+#: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Impossibile ottenere il dispositivo sottostante"
 
-#: ktar.cpp:403
+#: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Impossibile leggere l'intestazione tar"
 
-#: ktar.cpp:581
+#: ktar.cpp:582
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Impossibile riscrivere il file temporaneo: %1"
 
-#: ktar.cpp:637
+#: ktar.cpp:638
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Impossibile scrivere l'allineamento: %1"
 
-#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:761 ktar.cpp:844 ktar.cpp:913
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Errore dell'applicazione: il file TAR deve essere aperto prima di essere "
 "scritto"
 
-#: ktar.cpp:766
+#: ktar.cpp:767
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Errore dell'applicazione: tentativo di scrittura in un file 7-Zip non "
 "scrivibile"
 
-#: ktar.cpp:773
+#: ktar.cpp:774
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
@@ -317,13 +317,13 @@ msgstr ""
 "Limitazione dell'applicazione: impossibile aggiungere file più grandi di %1 "
 "byte"
 
-#: ktar.cpp:827
+#: ktar.cpp:828
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Impossibile scrivere l'intestazione: %1"
 
-#: ktar.cpp:849 ktar.cpp:918
+#: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
