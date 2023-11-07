@@ -257,69 +257,69 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Malsukcesis registri rimedon %1 sub prefikso %2"
 
-#: ktar.cpp:343
+#: ktar.cpp:344
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Dosiero %1 ne ekzistas"
 
-#: ktar.cpp:350
+#: ktar.cpp:351
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Arkivo %1 estas difektita"
 
-#: ktar.cpp:354
+#: ktar.cpp:355
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disko plena"
 
-#: ktar.cpp:388
+#: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Ne eblis akiri subestan aparaton"
 
-#: ktar.cpp:403
+#: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Ne eblis legi tar-kapon"
 
-#: ktar.cpp:581
+#: ktar.cpp:582
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Malsukcesis reskribi tempdosieron: %1"
 
-#: ktar.cpp:637
+#: ktar.cpp:638
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Ne eblis skribi vicigon: %1"
 
-#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:761 ktar.cpp:844 ktar.cpp:913
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Aplika eraro: TAR-dosiero devas esti malfermita antaŭ ol esti skribita enen"
 
-#: ktar.cpp:766
+#: ktar.cpp:767
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Aplika eraro: provis skribi en ne-skribiblan 7-Zip-dosieron"
 
-#: ktar.cpp:773
+#: ktar.cpp:774
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Limigo de aplikaĵo: Ne povas aldoni dosieron pli grandan ol %1 bajtoj"
 
-#: ktar.cpp:827
+#: ktar.cpp:828
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Malsukcesis skribi kaplinion: %1"
 
-#: ktar.cpp:849 ktar.cpp:918
+#: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Aplika eraro: provis skribi en ne-skribeblan TAR-dosieron"

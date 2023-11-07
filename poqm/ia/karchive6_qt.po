@@ -250,71 +250,71 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Falleva a registrar ressource %1 sub prefixo %2"
 
-#: ktar.cpp:343
+#: ktar.cpp:344
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Le file %1 non existe"
 
-#: ktar.cpp:350
+#: ktar.cpp:351
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archivo %1 es corrupte"
 
-#: ktar.cpp:354
+#: ktar.cpp:355
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disco Plen"
 
-#: ktar.cpp:388
+#: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Non poteva obtener dispositivo subjacente"
 
-#: ktar.cpp:403
+#: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Nonpoteva leger capite de tar"
 
-#: ktar.cpp:581
+#: ktar.cpp:582
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Falleva a scriber retro file temp: %1"
 
-#: ktar.cpp:637
+#: ktar.cpp:638
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Non poteva scriber alineamento: %1"
 
-#: ktar.cpp:760 ktar.cpp:843 ktar.cpp:912
+#: ktar.cpp:761 ktar.cpp:844 ktar.cpp:913
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Error de application: file TAR debe esser aperite ante que on scribe in illo"
 
-#: ktar.cpp:766
+#: ktar.cpp:767
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error de application: tantativa a scriber in un file 7-Zip non scribibile"
 
-#: ktar.cpp:773
+#: ktar.cpp:774
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Limitation de application: Non pote adder file plus grande que %1 bytes"
 
-#: ktar.cpp:827
+#: ktar.cpp:828
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Falleva a scriber capite: %1"
 
-#: ktar.cpp:849 ktar.cpp:918
+#: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
