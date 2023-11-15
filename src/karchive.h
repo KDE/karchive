@@ -12,6 +12,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#include <QByteArrayView>
 #include <QCoreApplication>
 #include <QDate>
 #include <QHash>
@@ -248,8 +249,17 @@ public:
 
     /**
      * Write data into the current file - to be called after calling prepareWriting
+     * @param data a pointer to the data
+     * @param size the size of the chunk
+     * @return @c true if successful, @c false otherwise
      */
-    virtual bool writeData(const char *data, qint64 size);
+    bool writeData(const char *data, qint64 size);
+
+    /**
+     * Overload for writeData(const char *, qint64);
+     * @since 6.0
+     */
+    bool writeData(QByteArrayView data);
 
     /**
      * Call finishWriting after writing the data.
@@ -357,6 +367,18 @@ protected:
                                   const QDateTime &atime,
                                   const QDateTime &mtime,
                                   const QDateTime &ctime) = 0;
+
+    /**
+     * Write data into the current file.
+     * Called by writeData.
+     *
+     * @param data a pointer to the data
+     * @param size the size of the chunk
+     * @return @c true if successful, @c false otherwise
+     * @see writeData
+     * @since 6.0
+     */
+    virtual bool doWriteData(const char *data, qint64 size);
 
     /**
      * Called after writing the data.

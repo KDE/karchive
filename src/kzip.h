@@ -109,14 +109,6 @@ public:
      */
     Compression compression() const;
 
-    /**
-     * Write data to a file that has been created using prepareWriting().
-     * @param data a pointer to the data
-     * @param size the size of the chunk
-     * @return true if successful, false otherwise
-     */
-    bool writeData(const char *data, qint64 size) override;
-
 protected:
     /// Reimplemented from KArchive
     bool doWriteSymLink(const QString &name,
@@ -143,6 +135,14 @@ protected:
      * @return true if successful, false otherwise
      */
     bool doFinishWriting(qint64 size) override;
+
+    /**
+     * Write data to a file that has been created using prepareWriting().
+     * @param data a pointer to the data
+     * @param size the size of the chunk
+     * @return true if successful, false otherwise
+     */
+    bool doWriteData(const char *data, qint64 size) override;
 
     /**
      * Opens the archive for reading.

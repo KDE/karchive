@@ -1307,7 +1307,7 @@ void KZip::virtual_hook(int id, void *data)
     KArchive::virtual_hook(id, data);
 }
 
-bool KZip::writeData(const char *data, qint64 size)
+bool KZip::doWriteData(const char *data, qint64 size)
 {
     Q_ASSERT(d->m_currentFile);
     Q_ASSERT(d->m_currentDev);

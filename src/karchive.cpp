@@ -413,6 +413,16 @@ bool KArchive::writeFile(const QString &name,
 
 bool KArchive::writeData(const char *data, qint64 size)
 {
+    return doWriteData(data, size);
+}
+
+bool KArchive::writeData(QByteArrayView data)
+{
+    return doWriteData(data.constData(), data.size());
+}
+
+bool KArchive::doWriteData(const char *data, qint64 size)
+{
     bool ok = device()->write(data, size) == size;
     if (!ok) {
         setErrorString(tr("Writing failed: %1").arg(device()->errorString()));

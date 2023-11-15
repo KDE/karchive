@@ -75,7 +75,7 @@ protected:
     bool doFinishWriting(qint64 size) override;
 
     /// Reimplemented from KArchive
-    bool writeData(const char *data, qint64 size) override;
+    bool doWriteData(const char *data, qint64 size) override;
 
     /**
      * Opens the archive for reading.

@@ -2865,7 +2865,7 @@ bool K7Zip::doFinishWriting(qint64 size)
     return true;
 }
 
-bool K7Zip::writeData(const char *data, qint64 size)
+bool K7Zip::doWriteData(const char *data, qint64 size)
 {
     if (!d->m_currentFile) {
         setErrorString(tr("No file currently selected"));
