@@ -1032,7 +1032,7 @@ bool KZip::doWriteDir(const QString &name,
     if (!name.endsWith(QLatin1Char('/'))) {
         dirName = dirName.append(QLatin1Char('/'));
     }
-    return writeFile(dirName, QByteArray(), perm, user, group, atime, mtime, ctime);
+    return writeFile(dirName, QByteArrayView(), perm, user, group, atime, mtime, ctime);
 }
 
 bool KZip::doPrepareWriting(const QString &name,

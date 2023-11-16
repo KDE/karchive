@@ -383,7 +383,7 @@ bool KArchive::addLocalDirectory(const QString &path, const QString &destName)
 }
 
 bool KArchive::writeFile(const QString &name,
-                         const QByteArray &data,
+                         QByteArrayView data,
                          mode_t perm,
                          const QString &user,
                          const QString &group,

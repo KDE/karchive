@@ -209,9 +209,10 @@ public:
      * @param atime time the file was last accessed
      * @param mtime modification time of the file
      * @param ctime time of last status change
+     * @since 6.0
      */
     bool writeFile(const QString &name,
-                   const QByteArray &data,
+                   QByteArrayView data,
                    mode_t perm = 0100644,
                    const QString &user = QString(),
                    const QString &group = QString(),
