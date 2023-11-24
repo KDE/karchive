@@ -225,7 +225,7 @@ msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Priečinok %1 neexistuje"
 
-#: karchive.cpp:418
+#: karchive.cpp:428
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"

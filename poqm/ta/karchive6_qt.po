@@ -214,7 +214,7 @@ msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "%1 எனும் அடைவு இல்லை"
 
-#: karchive.cpp:418
+#: karchive.cpp:428
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
