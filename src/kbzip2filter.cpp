@@ -145,7 +145,7 @@ KBzip2Filter::Result KBzip2Filter::uncompress()
     // qCDebug(KArchiveLog) << "Calling bzDecompress with avail_in=" << inBufferAvailable() << " avail_out=" << outBufferAvailable();
     int result = bzDecompress(&d->zStream);
     if (result < BZ_OK) {
-        qCWarning(KArchiveLog) << "bzDecompress returned" << result;
+        bzDecompressEnd(&d->zStream);
     }
 
     switch (result) {
@@ -153,9 +153,23 @@ KBzip2Filter::Result KBzip2Filter::uncompress()
         return KFilterBase::Ok;
     case BZ_STREAM_END:
         return KFilterBase::End;
+    case BZ_MEM_ERROR:
+        qCWarning(KArchiveLog) << "bzDecompress error, insufficient memory";
+        break;
+    case BZ_DATA_ERROR:
+        qCWarning(KArchiveLog) << "bzDecompress error, data integrity error";
+        break;
+    case BZ_DATA_ERROR_MAGIC:
+        qCWarning(KArchiveLog) << "bzDecompress error, stream does not start with the right magic bytes";
+        break;
+    case BZ_PARAM_ERROR:
+        qCWarning(KArchiveLog) << "bzDecompress error, parameter error";
+        break;
     default:
-        return KFilterBase::Error;
+        qCWarning(KArchiveLog) << "bzDecompress error, returned:" << result;
+        break;
     }
+    return KFilterBase::Error;
 }
 
 KBzip2Filter::Result KBzip2Filter::compress(bool finish)
