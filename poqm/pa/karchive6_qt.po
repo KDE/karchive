@@ -1,9 +1,9 @@
-# A S Alam <aalam@satluj.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 A S Alam <aalam@satluj.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-19 20:17-0700\n"
-"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"PO-Revision-Date: 2024-01-03 14:00-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: k7zip.cpp:2320
 msgctxt "K7Zip|"
@@ -251,7 +251,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr "%1 ਫਾਈਲ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+msgstr "%1 ਫਾਇਲ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
 #: ktar.cpp:351
 #, qt-format
