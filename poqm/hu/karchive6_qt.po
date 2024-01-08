@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2023 Kristof Kiszel <kiszel.kristof@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-18 12:55+0100\n"
-"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2024-01-07 22:07+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: k7zip.cpp:2320
 msgctxt "K7Zip|"
@@ -111,7 +111,7 @@ msgstr "Írási hiba"
 #: k7zip.cpp:2827
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Sikertelen a fejléc kódolása közben"
 
 #: k7zip.cpp:2871
 msgctxt "K7Zip|"
@@ -142,61 +142,61 @@ msgstr "Nem támogatott mód: %1"
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Érvénytelen fő varázsszám"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Érvénytelen varázsszám"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "Érvénytelen méret"
 
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Érvénytelen longfilename hivatkozás"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Érvénytelen longfilename pozícióhivatkozás"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "Nincs megadva fájlnév vagy eszköz"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "Nem sikerült megnyitni az eszközt %1 módban"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "A QSaveFile létrehozáse nem sikerült ehhez: %1: %2"
 
 #: karchive.cpp:208
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nem támogatott mód: %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "Az archívum már lezárt"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "A(z) %1 nem létezik, vagy nem normál fájl."
 
 #: karchive.cpp:274
 #, qt-format
@@ -204,214 +204,220 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Nem sikerült hozzáférni a(z) %1 fájlhoz az archívumhoz hozzáadáshoz. A hiba: "
+"%2"
 
 #: karchive.cpp:320
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "Nem sikerült megnyitni a(z) %1 fájlt: %2"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "A(z) %1 könyvtár nem létezik"
 
 #: karchive.cpp:428
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "Sikertelen írás: %1"
 
 #: karchive_p.h:56
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Ismeretlen hiba"
 
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "Nem sikerült írni. Betelt a partíció?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "Nem lehet írni az RCC-fájlba"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nem támogatott mód: %1"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "Nem sikerült regisztrálni a(z) %1 erőforrást a(z) %2 előtag alá"
 
 #: ktar.cpp:344
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "A(z) %1 fájl nem létezik"
 
 #: ktar.cpp:351
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "A(z) %1 archívum sérült"
 
 #: ktar.cpp:355
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "A lemez megtelt"
 
 #: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Nem sikerült elérni a mögöttes eszközt"
 
 #: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "Nem sikerült olvasni a TAR fejlécét"
 
 #: ktar.cpp:582
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "Nem sikerült visszaírni az átmeneti fájlt: %1"
 
 #: ktar.cpp:638
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "Nem sikerült írni az igazítást: %1"
 
 #: ktar.cpp:761 ktar.cpp:844 ktar.cpp:913
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
-msgstr ""
+msgstr "Alkalmazáshiba: a TAR-fájlt meg kell nyitni írás előtt"
 
 #: ktar.cpp:767
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Alkalmazáshiba: írási kísérlet egy nem írható 7-Zip fájlba"
 
 #: ktar.cpp:774
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Alkalmazáskorlát: Nem lehet hozzáadni %1 bájtnál nagyobb fájlokat"
 
 #: ktar.cpp:828
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "Nem sikerült írni a fejlécet: %1"
 
 #: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "Alkalmazáshiba: írási kísérlet egy nem írható TAR-fájlba"
 
 #: kzip.cpp:463 kzip.cpp:482
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (Hibakód: %1)"
 
 #: kzip.cpp:506
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Negatív névhossz"
 
 #: kzip.cpp:511
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. A név nem olvasható teljesen (#2)"
 
 #: kzip.cpp:530
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Sérült ExtraField."
 
 #: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Nem sikerült megkeresni a következő fejléctokent"
 
 #: kzip.cpp:559
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (#5)"
 
 #: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Nem sikerült megkeresni a fájl tömörített méretét"
 
 #: kzip.cpp:591
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (#1)"
 
 #: kzip.cpp:624
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"Érvénytelen ZIP-fájl, a központi bejegyzés túl rövid (nem elég hosszú egy "
+"érvényes bejegyzéshez)"
 
 #: kzip.cpp:633
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
+"Érvénytelen ZIP-fájl, a fájl elérési útjának hossza kisebb vagy egyenlő "
+"nullával"
 
 #: kzip.cpp:715
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl, üres bejegyzésnév található"
 
 #: kzip.cpp:756
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "A(z) %1 fájl a(z) %2 mappában van, de a(z) %3 valójában egy fájl."
 
 #: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Nem sikerült megkeresni a következő bejegyzést"
 
 #: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége."
 
 #: kzip.cpp:813
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "Érvénytelen ZIP-fájl. Ismeretlen fejléc a(z) %1 eltolásnál"
 
 #: kzip.cpp:844
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Nem sikerült megkeresni a következő fájl fejlécét: %1"
 
 #: kzip.cpp:870 kzip.cpp:966
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "Nem sikerült írni a fájl fejlécét: %1"
 
 #: kzip.cpp:1013
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "Nem sikerült írni a központi mapparekordot: %1"
 
 #: kzip.cpp:1049
 msgctxt "KZip|"
