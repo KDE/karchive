@@ -1,13 +1,13 @@
 # Translation of karchive5_qt.po to Catalan
-# Copyright (C) 2022-2023 This_file_is_part_of_KDE
+# Copyright (C) 2022-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2023-01-27 10:56+0100\n"
+"PO-Revision-Date: 2024-01-28 19:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
@@ -213,8 +213,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"Ha fallat en accedir al fitxer %1 per afegir-lo a l'arxiu. L'error ha estat: "
-"%2"
+"Ha fallat en accedir al fitxer %1 per a afegir-lo a l'arxiu. L'error ha "
+"estat: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -379,7 +379,7 @@ msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "Fitxer ZIP no vàlid. Entrada central massa curta (no té la longitud "
-"suficient per a que sigui vàlida)"
+"suficient perquè sigui vàlida)"
 
 #: kzip.cpp:633
 msgctxt "KZip|"
