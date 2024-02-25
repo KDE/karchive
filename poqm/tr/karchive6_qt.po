@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-20 22:01+0300\n"
+"PO-Revision-Date: 2024-02-24 22:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: k7zip.cpp:2320
 msgctxt "K7Zip|"
@@ -67,7 +67,7 @@ msgstr "Yanlış üstbilgi türü"
 #: k7zip.cpp:2431 k7zip.cpp:2437
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr "Uygulamaya eklenmemiş"
+msgstr "Gerçeklenmedi"
 
 #: k7zip.cpp:2443
 msgctxt "K7Zip|"
