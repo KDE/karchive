@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: l 10n-support\n"
-"PO-Revision-Date: 2024-04-23 17:59+0200\n"
+"PO-Revision-Date: 2024-04-26 16:53+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -121,11 +121,14 @@ msgstr "Derzeit keine Datei ausgewählt"
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
+"Anwendungsfehler: Die 7-Zip-Datei muss vor dem Hineinschreiben geöffnet sein"
 
 #: k7zip.cpp:2900 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
+"Anwendungsfehler: In eine nicht beschreibbare 7-Zip-Datei kann nicht "
+"geschrieben werden"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
