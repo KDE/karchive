@@ -14,6 +14,9 @@
 
 #include <karchive_export.h>
 
+#include <QDateTime>
+#include <QString>
+
 #ifdef Q_OS_WIN
 #include <qplatformdefs.h> // mode_t
 #endif
