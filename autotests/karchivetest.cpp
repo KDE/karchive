@@ -802,6 +802,10 @@ void KArchiveTest::testTarRootDir() // bug 309463
 
 void KArchiveTest::testTarLongNonASCIINames() // bug 266141
 {
+#ifdef Q_OS_WIN
+    QSKIP("tar test file encoding not windows compatible");
+#endif
+
     const QString tarName = QString("karchive-long-non-ascii-names.tar");
     const QString longName = QString::fromUtf8("раз-два-три-четыре-пять-вышел-зайчик-погулять-вдруг-охотник-выбегает-прямо-в-зайчика.txt");
 
@@ -832,6 +836,10 @@ void KArchiveTest::testTarLongNonASCIINames() // bug 266141
 
 void KArchiveTest::testTarShortNonASCIINames() // bug 266141
 {
+#ifdef Q_OS_WIN
+    QSKIP("tar test file encoding not windows compatible");
+#endif
+
     KTar tar(QFINDTESTDATA(QString("tar_non_ascii_file_name.tar.gz")));
 
     QVERIFY(tar.open(QIODevice::ReadOnly));
