@@ -9,10 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2320
 msgctxt "K7Zip|"
@@ -130,7 +129,7 @@ msgstr "خطأ في التطبيق: جرت محاولة الكتابة في مل
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr "تعذرت الكتابة إلى الملف "
+msgstr "تعذرت الكتابة إلى ملف AR"
 
 #: kar.cpp:90
 #, qt-format
@@ -146,12 +145,12 @@ msgstr "السحر الرئيسي غير صالح"
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr "السحر الرئيسي غير صالح"
+msgstr "السحر غير صالح"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr "حجم غير موجود أو غير سليم محدّد"
+msgstr "حجم غير صالح"
 
 #: kar.cpp:149
 msgctxt "KAr|"
@@ -220,7 +219,7 @@ msgstr "المجلد %1 غير موجود"
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr "فشلت كتابة كلمة السّرّ: %1"
+msgstr "فشلت الكتابة: %1"
 
 #: karchive_p.h:56
 msgctxt "QIODevice|"
@@ -399,7 +398,7 @@ msgstr "ملف ZIP غير صالح. عنوان غير معروف عند الإز
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr "لا يمكن السعي إلى عنوان الملف التالي: %1"
+msgstr "تعذر السعي إلى عنوان الملف التالي: %1"
 
 #: kzip.cpp:870 kzip.cpp:966
 #, qt-format
@@ -453,4 +452,4 @@ msgstr "لا يوجد ملف أو جهاز"
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr "خطأ في كتابة البيانات: %1"
+msgstr "حدث خطأ أثناء الكتابة: %1"
