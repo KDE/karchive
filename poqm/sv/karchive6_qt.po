@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-21 16:00+0200\n"
+"PO-Revision-Date: 2024-06-22 08:57+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
 #: k7zip.cpp:2320
@@ -21,7 +21,7 @@ msgstr "Kunde inte hämta underliggande enhet"
 #: k7zip.cpp:2328
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "Misslyckades läsa huvud"
 
 #: k7zip.cpp:2334
 msgctxt "K7Zip|"
@@ -36,33 +36,33 @@ msgstr "Felaktig CRC"
 #: k7zip.cpp:2366
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "Nästa huvudstorlek är för stor"
 
 #: k7zip.cpp:2371
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "Nästa huvudstorlek är mindre än noll"
 
 #: k7zip.cpp:2382
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr ""
+msgstr "Misslyckades läsa nästa huvudstorlek, borde läst %1, läste %2"
 
 #: k7zip.cpp:2394
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "Felaktig CRC för nästa huvud"
 
 #: k7zip.cpp:2402
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr ""
+msgstr "Fel i huvud"
 
 #: k7zip.cpp:2421
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "Felaktig huvudtyp"
 
 #: k7zip.cpp:2431 k7zip.cpp:2437
 msgctxt "K7Zip|"
@@ -72,22 +72,22 @@ msgstr "Inte implementerad"
 #: k7zip.cpp:2443
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "Fel vid läsning av huvudströmmarnas information"
 
 #: k7zip.cpp:2461
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "Fel vid läsning av huvud"
 
 #: k7zip.cpp:2521
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "Fel vid läsning av ändringstid"
 
 #: k7zip.cpp:2567
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "Fel vid läsning av MTime"
 
 #: k7zip.cpp:2574
 msgctxt "K7Zip|"
@@ -99,6 +99,7 @@ msgstr "Ogiltig"
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Läs storlek misslyckades (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 
 #: k7zip.cpp:2797
 msgctxt "K7Zip|"
@@ -108,7 +109,7 @@ msgstr "Skrivfel"
 #: k7zip.cpp:2827
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Misslyckades vid kodning av huvud"
 
 #: k7zip.cpp:2871
 msgctxt "K7Zip|"
@@ -123,7 +124,7 @@ msgstr "Programfel: 7-Zip fil måste vara öppnad innan den skrivs"
 #: k7zip.cpp:2901 k7zip.cpp:2993
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Programfel: försökte skriva till en skrivskyddad 7-Zip fil"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
@@ -134,17 +135,17 @@ msgstr "Kan inte skriva i AR-fil"
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Läget %1 stöds inte"
 
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Ogiltig huvudmagi"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Ogiltig magi"
 
 #: kar.cpp:129
 msgctxt "KAr|"
@@ -154,12 +155,12 @@ msgstr "Ogiltig storlek"
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Ogiltig referens till långt filnamn"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Ogiltig positionsreferens till långt filnamn"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
@@ -176,7 +177,7 @@ msgstr "Kunde inte öppna enhet i läge %1"
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "Misslyckades skapa QSaveFile för %1: %2"
 
 #: karchive.cpp:208
 #, qt-format
@@ -200,7 +201,7 @@ msgstr "%1 finns inte eller är inte en vanlig fil."
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
-msgstr ""
+msgstr "Misslyckades komma åt filen %1 för tillägg i arkivet. Felet är: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -245,7 +246,7 @@ msgstr "Läget %1 stöds inte"
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "Misslyckades registrera resursen %1 med prefix %2"
 
 #: ktar.cpp:344
 #, qt-format
@@ -294,92 +295,92 @@ msgstr "Programfel: TAR fil måste vara öppnad innan den skrivs"
 #: ktar.cpp:767
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Programfel: försökte skriva till en skrivskyddad 7-Zip fil"
 
 #: ktar.cpp:774
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Programbegränsning: kan inte lägga till en fil större än %1 byte"
 
 #: ktar.cpp:828
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "Misslyckades skriva huvud: %1"
 
 #: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "Programfel: försökte skriva till en skrivskyddad TAR-fil"
 
 #: kzip.cpp:463 kzip.cpp:482
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Oväntat filslut. (felkod: %1)"
 
 #: kzip.cpp:506
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Negativ namnlängd"
 
 #: kzip.cpp:511
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Namnet inte fullständigt läst (nr. 2)"
 
 #: kzip.cpp:530
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Felaktigt extrafält."
 
 #: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Kunde inte söka till nästa huvudsymbol"
 
 #: kzip.cpp:559
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Oväntat filslut. (nr. 5)"
 
 #: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Kunde inte söka till filens komprimerade storlek"
 
 #: kzip.cpp:591
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Oväntat filslut. (nr. 1)"
 
 #: kzip.cpp:624
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Central post för kort (inte lång nog för giltig post)"
 
 #: kzip.cpp:633
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Filsökvägens längd mindre eller lika med noll"
 
 #: kzip.cpp:715
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Fann tomt postnamn"
 
 #: kzip.cpp:756
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "Filen %1 är i katalogen %2, men %3 är i själva verket en fil."
 
 #: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Kunde inte söka till nästa post"
 
 #: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
@@ -390,13 +391,13 @@ msgstr "Ogiltig ZIP-fil. Oväntat filslut."
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "Ogiltig ZIP-fil. Huvud känns inte igen på position %1"
 
 #: kzip.cpp:844
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Kunde inte söka till nästa filhuvud: %1"
 
 #: kzip.cpp:870 kzip.cpp:966
 #, qt-format
@@ -408,46 +409,46 @@ msgstr "Kunde inte skriva filhuvud: %1"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "Kunde inte skriva central katalogpost: %1"
 
 #: kzip.cpp:1049
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
-msgstr ""
+msgstr "Programfel: ZIP-filen måste vara öppnad innan den skrivs till"
 
 #: kzip.cpp:1055
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
-msgstr ""
+msgstr "Programfel: försökte skriva till en skrivskyddad ZIP-fil"
 
 #: kzip.cpp:1061
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "Kan inte skapa en enhet. Är disken full?"
 
 #: kzip.cpp:1067
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "Kan inte söka i ZIP-filen. Är disken full?"
 
 #: kzip.cpp:1209
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "Kunde inte skriva till arkivet. Är disken full?"
 
 #: kzip.cpp:1228
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "Kunde inte öppna komprimeringsenhet: %1"
 
 #: kzip.cpp:1315
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Ingen fil eller enhet"
 
 #: kzip.cpp:1328
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "Fel vid skrivning av data: %1"
