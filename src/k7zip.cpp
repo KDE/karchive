@@ -1286,6 +1286,9 @@ public:
 
     unsigned char readByte()
     {
+        if (pos >= stream.size()) {
+            return 0;
+        }
         return stream[pos++];
     }
 
