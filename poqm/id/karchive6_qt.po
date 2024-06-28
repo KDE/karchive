@@ -13,115 +13,115 @@ msgstr ""
 "X-Generator: Lokalize 23.04.0\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2320
+#: k7zip.cpp:2323
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Tidak bisa mendapatkan perangkat yang mendasari"
 
-#: k7zip.cpp:2328
+#: k7zip.cpp:2331
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Gagal membaca tajuk"
 
-#: k7zip.cpp:2334
+#: k7zip.cpp:2337
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Gagal memeriksa tanda tangan"
 
-#: k7zip.cpp:2357
+#: k7zip.cpp:2360
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC buruk"
 
-#: k7zip.cpp:2366
+#: k7zip.cpp:2369
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Ukuran tajuk selanjutnya terlalu besar"
 
-#: k7zip.cpp:2371
+#: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Ukuran tajuk selanjutnya kurang dari nol"
 
-#: k7zip.cpp:2382
+#: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Gagal membaca ukuran tajuk selanjutnya; yang seharusnya baca %1, baca %2"
 
-#: k7zip.cpp:2394
+#: k7zip.cpp:2397
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Tajuk CRC selanjutnya buruk"
 
-#: k7zip.cpp:2402
+#: k7zip.cpp:2405
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Galat di tajuk"
 
-#: k7zip.cpp:2421
+#: k7zip.cpp:2424
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Jenis tajuk salah"
 
-#: k7zip.cpp:2431 k7zip.cpp:2437
+#: k7zip.cpp:2434 k7zip.cpp:2440
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Tidak diimplementasikan"
 
-#: k7zip.cpp:2443
+#: k7zip.cpp:2446
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Galat ketika membaca informasi stream utama"
 
-#: k7zip.cpp:2461
+#: k7zip.cpp:2464
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Galat ketika membaca tajuk"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2524
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Galat membaca waktu modifikasi"
 
-#: k7zip.cpp:2567
+#: k7zip.cpp:2570
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Galat membaca MTime"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Tidak valid"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2599
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "Ukuran baca gagal (checkRecordsSize: %1, d->pos - ppp: %2, ukuran: %3)"
 
-#: k7zip.cpp:2797
+#: k7zip.cpp:2800
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Galat tulis"
 
-#: k7zip.cpp:2827
+#: k7zip.cpp:2830
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Gagal ketika mengecoding tajuk"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2874
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Saat ini tidak ada file yang dipilih"
 
-#: k7zip.cpp:2895 k7zip.cpp:2945 k7zip.cpp:2987
+#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Galat aplikasi: file 7-Zip mustinya dibuka sebelum menulis ke dalamnya"
 
-#: k7zip.cpp:2901 k7zip.cpp:2993
+#: k7zip.cpp:2904 k7zip.cpp:2996
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

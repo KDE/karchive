@@ -13,37 +13,37 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2320
+#: k7zip.cpp:2323
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Impossibile ottenere il dispositivo sottostante"
 
-#: k7zip.cpp:2328
+#: k7zip.cpp:2331
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lettura dell'intestazione non riuscita"
 
-#: k7zip.cpp:2334
+#: k7zip.cpp:2337
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Verifica della firma non riuscita"
 
-#: k7zip.cpp:2357
+#: k7zip.cpp:2360
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC errato"
 
-#: k7zip.cpp:2366
+#: k7zip.cpp:2369
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "La dimensione dell'intestazione successiva è troppo grande"
 
-#: k7zip.cpp:2371
+#: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "La dimensione dell'intestazione successiva è inferiore a zero"
 
-#: k7zip.cpp:2382
+#: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -51,52 +51,52 @@ msgstr ""
 "Impossibile leggere la dimensione dell'intestazione successiva; dovrebbe "
 "leggere %1, letto %2"
 
-#: k7zip.cpp:2394
+#: k7zip.cpp:2397
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "CRC dell'intestazione successiva non valido"
 
-#: k7zip.cpp:2402
+#: k7zip.cpp:2405
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Errore nell'intestazione"
 
-#: k7zip.cpp:2421
+#: k7zip.cpp:2424
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Tipo di intestazione errato"
 
-#: k7zip.cpp:2431 k7zip.cpp:2437
+#: k7zip.cpp:2434 k7zip.cpp:2440
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Non implementato"
 
-#: k7zip.cpp:2443
+#: k7zip.cpp:2446
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Errore durante la lettura delle informazioni sui flussi principali"
 
-#: k7zip.cpp:2461
+#: k7zip.cpp:2464
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Errore durante la lettura dell'intestazione"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2524
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Errore durante la lettura dell'ora di modifica"
 
-#: k7zip.cpp:2567
+#: k7zip.cpp:2570
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Errore di lettura MTime"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Non valido"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2599
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -104,29 +104,29 @@ msgstr ""
 "Dimensione di lettura non riuscita (checkRecordsSize: %1, d->pos - ppp: %2, "
 "dimensione: %3)"
 
-#: k7zip.cpp:2797
+#: k7zip.cpp:2800
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Errore di scrittura"
 
-#: k7zip.cpp:2827
+#: k7zip.cpp:2830
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Errore durante la codifica dell'intestazione"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2874
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nessun file attualmente selezionato"
 
-#: k7zip.cpp:2895 k7zip.cpp:2945 k7zip.cpp:2987
+#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Errore dell'applicazione: il file 7-Zip deve essere aperto prima di essere "
 "scritto"
 
-#: k7zip.cpp:2901 k7zip.cpp:2993
+#: k7zip.cpp:2904 k7zip.cpp:2996
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

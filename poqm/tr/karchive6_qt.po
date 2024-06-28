@@ -13,115 +13,115 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: k7zip.cpp:2320
+#: k7zip.cpp:2323
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Altındaki aygıt alınamadı"
 
-#: k7zip.cpp:2328
+#: k7zip.cpp:2331
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Üstbilgiyi okuma başarısız"
 
-#: k7zip.cpp:2334
+#: k7zip.cpp:2337
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "İmzayı denetleme başarısız"
 
-#: k7zip.cpp:2357
+#: k7zip.cpp:2360
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Hatalı CRC"
 
-#: k7zip.cpp:2366
+#: k7zip.cpp:2369
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Sonraki üstbilgi boyutu pek büyük"
 
-#: k7zip.cpp:2371
+#: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Sonraki üstbilgi boyutu sıfırdan küçük"
 
-#: k7zip.cpp:2382
+#: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Sonraki üstbilgi boyutunu okuma başarısız; %1 okumalıydı, %2 okudu"
 
-#: k7zip.cpp:2394
+#: k7zip.cpp:2397
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Sonraki CRC üstbilgisi hatalı"
 
-#: k7zip.cpp:2402
+#: k7zip.cpp:2405
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Üstbilgide hata"
 
-#: k7zip.cpp:2421
+#: k7zip.cpp:2424
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Yanlış üstbilgi türü"
 
-#: k7zip.cpp:2431 k7zip.cpp:2437
+#: k7zip.cpp:2434 k7zip.cpp:2440
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Gerçeklenmedi"
 
-#: k7zip.cpp:2443
+#: k7zip.cpp:2446
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Ana akış bilgisi okunurken hata"
 
-#: k7zip.cpp:2461
+#: k7zip.cpp:2464
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Üstbilgi okunurken hata"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2524
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Değiştirme zamanı okunurken hata"
 
-#: k7zip.cpp:2567
+#: k7zip.cpp:2570
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "MTime okunurken hata"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Geçersiz"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2599
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Boyutu okuma başarısız (checkRecordsSize: %1, d->pos - ppp: %2, boyut: %3)"
 
-#: k7zip.cpp:2797
+#: k7zip.cpp:2800
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Yazma hatası"
 
-#: k7zip.cpp:2827
+#: k7zip.cpp:2830
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Üstbilgiyi kodlama başarısız"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2874
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Şu anda seçili dosya yok"
 
-#: k7zip.cpp:2895 k7zip.cpp:2945 k7zip.cpp:2987
+#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Uygulama hatası: 7-Zip dosyası, içine yazılmadan önce açılmış olmalı"
 
-#: k7zip.cpp:2901 k7zip.cpp:2993
+#: k7zip.cpp:2904 k7zip.cpp:2996
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Uygulama hatası: Yazılamaz 7-Zip dosyasına yazmaya çalışıldı"

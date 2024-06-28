@@ -17,37 +17,37 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2320
+#: k7zip.cpp:2323
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Nepodarilo sa získať základné zariadenie"
 
-#: k7zip.cpp:2328
+#: k7zip.cpp:2331
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Čítanie hlavičky zlyhalo"
 
-#: k7zip.cpp:2334
+#: k7zip.cpp:2337
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Kontrola podpisu zlyhala"
 
-#: k7zip.cpp:2357
+#: k7zip.cpp:2360
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Zlý CRC"
 
-#: k7zip.cpp:2366
+#: k7zip.cpp:2369
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Veľkosť nasledujúcej hlavičky je príliš veľká"
 
-#: k7zip.cpp:2371
+#: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Veľkosť nasledujúcej hlavičky je menšia ako nula"
 
-#: k7zip.cpp:2382
+#: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -55,52 +55,52 @@ msgstr ""
 "Neúspešné čítanie veľkosti nasledujúcej hlavičky; malo sa prečítať %1, "
 "prečítané %2"
 
-#: k7zip.cpp:2394
+#: k7zip.cpp:2397
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Zlá nasledujúca hlavička CRC"
 
-#: k7zip.cpp:2402
+#: k7zip.cpp:2405
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Chyba v hlavičke"
 
-#: k7zip.cpp:2421
+#: k7zip.cpp:2424
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Nesprávny typ hlavičky"
 
-#: k7zip.cpp:2431 k7zip.cpp:2437
+#: k7zip.cpp:2434 k7zip.cpp:2440
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Neimplementované"
 
-#: k7zip.cpp:2443
+#: k7zip.cpp:2446
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Chyba pri čítaní informácií o hlavných prúdoch"
 
-#: k7zip.cpp:2461
+#: k7zip.cpp:2464
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Chyba pri čítaní hlavičky"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2524
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Chyba pri čítaní času zmeny"
 
-#: k7zip.cpp:2567
+#: k7zip.cpp:2570
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Chyba pri čítaní MTime"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Neplatné"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2599
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -108,28 +108,28 @@ msgstr ""
 "Čítanie veľkosti zlyhalo (checkRecordsSize: %1, d->pos - ppp: %2, veľkosť: "
 "%3)"
 
-#: k7zip.cpp:2797
+#: k7zip.cpp:2800
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Chyba zápisu"
 
-#: k7zip.cpp:2827
+#: k7zip.cpp:2830
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Zlyhanie pri kódovaní hlavičky"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2874
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Aktuálne nie je vybraný žiadny súbor"
 
-#: k7zip.cpp:2895 k7zip.cpp:2945 k7zip.cpp:2987
+#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Chyba aplikácie: Súbor 7-Zip musí byť otvorený predtým, ako sa doň zapíše"
 
-#: k7zip.cpp:2901 k7zip.cpp:2993
+#: k7zip.cpp:2904 k7zip.cpp:2996
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Chyba aplikácie: pokus o zápis do nezapisovateľného súboru 7-Zip"
