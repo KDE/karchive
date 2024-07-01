@@ -486,6 +486,10 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 // read size
                 QByteArray sizeBuffer(buffer + 0x7c, 12);
                 qint64 size = sizeBuffer.trimmed().toLongLong(nullptr, 8 /*octal*/);
+                if (size < 0) {
+                    qWarning() << "Tar file has negative size, resetting to 0";
+                    size = 0;
+                }
                 // qCDebug(KArchiveLog) << "sizeBuffer='" << sizeBuffer << "' -> size=" << size;
 
                 // for isDumpDir we will skip the additional info about that dirs contents
