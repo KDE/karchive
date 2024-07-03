@@ -276,41 +276,41 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "无法读取 tar 文件头部信息。"
 
-#: ktar.cpp:582
+#: ktar.cpp:586
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "写入临时文件：%1 失败"
 
-#: ktar.cpp:638
+#: ktar.cpp:642
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "写入对齐信息：%1 失败"
 
-#: ktar.cpp:761 ktar.cpp:844 ktar.cpp:913
+#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "应用程序错误：TAR 文件必须先打开才能写入"
 
-#: ktar.cpp:767
+#: ktar.cpp:771
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "应用程序错误：尝试写入不可写入的 7-Zip 文件"
 
-#: ktar.cpp:774
+#: ktar.cpp:778
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "应用程序限制：不能添加大于 %1 字节的文件"
 
-#: ktar.cpp:828
+#: ktar.cpp:832
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "无法写入文件头：%1"
 
-#: ktar.cpp:850 ktar.cpp:919
+#: ktar.cpp:854 ktar.cpp:923
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "应用程序错误：尝试写入不可写入的 TAR 文件"
