@@ -275,7 +275,7 @@ msgstr "Non poteva obtener dispositivo subjacente"
 #: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr "Nonpoteva leger capite de tar"
+msgstr "Non poteva leger capite de tar"
 
 #: ktar.cpp:586
 #, qt-format
@@ -413,7 +413,7 @@ msgstr "Non poteva facer seek al proxime capite de file : %1"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr "Nonpoiteva scriber capite de file: %1"
+msgstr "Non poteva scriber capite de file: %1"
 
 #: kzip.cpp:1013
 #, qt-format
@@ -452,7 +452,7 @@ msgstr "Non poteva scriber al archivo. Disco plen?"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr "Nonpoteva aperir dispositivo de compression: %1"
+msgstr "Non poteva aperir dispositivo de compression: %1"
 
 #: kzip.cpp:1315
 msgctxt "KZip|"
