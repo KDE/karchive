@@ -2,7 +2,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: l 10n-support\n"
+"Project-Id-Version: karchive6_qt\n"
 "PO-Revision-Date: 2024-04-26 16:53+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
