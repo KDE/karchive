@@ -2684,7 +2684,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         Q_ASSERT(!entryName.isEmpty());
 
         QDateTime mTime;
-        if (d->mTimesDefined[i]) {
+        if (d->mTimesDefined.size() > i && d->mTimesDefined[i]) {
             mTime = KArchivePrivate::time_tToDateTime(toTimeT(d->mTimes[i]));
         } else {
             mTime = KArchivePrivate::time_tToDateTime(time(nullptr));
