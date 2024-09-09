@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive6_qt\n"
-"PO-Revision-Date: 2024-04-26 16:53+0200\n"
+"PO-Revision-Date: 2024-09-08 17:37+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -11,13 +11,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2319
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
@@ -32,7 +32,7 @@ msgstr "Überprüfung der Signatur ist fehlgeschlagen"
 #: k7zip.cpp:2356
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr "Fehlerhafte CRC"
+msgstr "Fehlerhafte Prüfsumme"
 
 #: k7zip.cpp:2365
 msgctxt "K7Zip|"
@@ -54,7 +54,7 @@ msgstr ""
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "Die Prüfsumme des nächsten Vorspanns ist fehlerhaft"
 
 #: k7zip.cpp:2401
 msgctxt "K7Zip|"
@@ -74,7 +74,7 @@ msgstr "Nicht implementiert"
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "Fehler beim Lesen der Informationen des Hauptteils"
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
@@ -101,6 +101,8 @@ msgstr "Ungültig"
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Das Lesen der Größe ist fehlgeschlagen (checkRecordsSize: %1, d->pos - ppp: "
+"%2, size: %3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
@@ -110,12 +112,12 @@ msgstr "Schreibfehler"
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Der Vorspann kann nicht verschlüsselt werden"
 
 #: k7zip.cpp:2870
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr "Derzeit keine Datei ausgewählt"
+msgstr "Derzeit ist keine Datei ausgewählt"
 
 #: k7zip.cpp:2894 k7zip.cpp:2944 k7zip.cpp:2986
 msgctxt "K7Zip|"
@@ -133,7 +135,7 @@ msgstr ""
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr "Kann nicht in AR-Datei schreiben"
+msgstr "In die AR-Datei kann nicht geschrieben werden"
 
 #: kar.cpp:90
 #, qt-format
@@ -144,12 +146,12 @@ msgstr "Nicht unterstützter Modus %1"
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Ungültige Hauptkennung"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Ungültige Kennung"
 
 #: kar.cpp:129
 msgctxt "KAr|"
@@ -159,12 +161,12 @@ msgstr "Ungültige Größe"
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Ungültige Referenz zum langen Dateinamen"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Ungültige Referenz zur Position des langen Dateinamens"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
@@ -181,7 +183,7 @@ msgstr "Gerät kann nicht in Modus %1 geöffnet werden"
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "Das Erstellen des QSaveFile-Objekts für %1 ist fehlgeschlagen: %2"
 
 #: karchive.cpp:208
 #, qt-format
@@ -206,6 +208,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Die Datei %1 kann für das Hinzufügen zum Archiv nicht geöffnet werden. Der "
+"Fehler ist: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -250,7 +254,7 @@ msgstr "Nicht unterstützter Modus %1"
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "Die Ressource %1 kann unter dem Präfix %2 nicht registriert werden"
 
 #: ktar.cpp:344
 #, qt-format
@@ -272,7 +276,7 @@ msgstr "Medium ist voll"
 #: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
 #: ktar.cpp:404
 msgctxt "KTar|"
@@ -284,6 +288,7 @@ msgstr "tar-Vorspann kann nicht gelesen werden"
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr ""
+"Die temporäre Datei kann nicht in die Orginaldatei geschrieben werden: %1"
 
 #: ktar.cpp:638
 #, qt-format
@@ -340,16 +345,17 @@ msgstr "Ungültige ZIP-Datei. Name negativer Länge"
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr ""
+"Ungültige ZIP-Datei. Der Name kann nicht vollständig gelesen werden (#2)"
 
 #: kzip.cpp:530
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Ungültige ZIP-Datei. „ExtraField“ ist fehlerhaft."
 
 #: kzip.cpp:544 kzip.cpp:567
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Der Datensatz des nächsten Vorspanns ist nicht auffindbar"
 
 #: kzip.cpp:559
 msgctxt "KZip|"
@@ -359,7 +365,7 @@ msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (#5)"
 #: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Die komprimierte Dateigröße nicht nicht auffindbar"
 
 #: kzip.cpp:591
 msgctxt "KZip|"
@@ -371,27 +377,30 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"Ungültige ZIP-Datei. Der zentrale Eintrag ist zu kurz (nicht lang genug für "
+"einen gültigen Eintrag)"
 
 #: kzip.cpp:633
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
+"Ungültige ZIP-Datei. Die Länge des Pfadnamens ist kleiner oder gleich null"
 
 #: kzip.cpp:715
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Ungültige ZIP-Datei. Der Name des Eintrags ist leer"
 
 #: kzip.cpp:756
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "Die Datei %1 befindet sich im Ordner %2. Jedoch ist %3 eine Datei."
 
 #: kzip.cpp:767
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Der nächste Eintrag ist nicht auffindbar"
 
 #: kzip.cpp:780 kzip.cpp:790
 msgctxt "KZip|"
@@ -408,7 +417,7 @@ msgstr "Ungültige ZIP-Datei. Unerkannter Vorspann bei Versatz %1"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Der nächste Dateivorspann ist nicht auffindbar: %1"
 
 #: kzip.cpp:870 kzip.cpp:966
 #, qt-format
@@ -421,6 +430,7 @@ msgstr "Datei-Vorspann kann nicht geschrieben werden: %1"
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr ""
+"Der Datensatz des zentralen Verzeichnisses kann nicht geschrieben werden: %1"
 
 #: kzip.cpp:1049
 msgctxt "KZip|"
@@ -459,7 +469,7 @@ msgstr "Das Komprimierungsgerät kann nicht geöffnet werden: %1"
 #: kzip.cpp:1315
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Keine Datei oder kein Gerät"
 
 #: kzip.cpp:1328
 #, qt-format
