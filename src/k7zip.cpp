@@ -1557,12 +1557,12 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
         QList<QByteArray> datas;
         for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
-            int size = packSizes[j + i];
+            quint64 size = packSizes[j + i];
             std::unique_ptr<char[]> encodedBuffer(new char[size]);
             QIODevice *dev = q->device();
             dev->seek(startPos);
             quint64 n = dev->read(encodedBuffer.get(), size);
-            if (n != (quint64)size) {
+            if (n != size) {
                 qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << n;
                 return inflatedData;
             }
