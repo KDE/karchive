@@ -6,7 +6,12 @@ project(KArchive VERSION ${KF_VERSION})
 include(FeatureSummary)
 find_package(ECM 6.7.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
-feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(REQUIRED_QT_VERSION 6.5.0)
+
+find_package(Qt6Core ${REQUIRED_QT_VERSION} NO_MODULE)
+set_package_properties(Qt6Core PROPERTIES TYPE REQUIRED)
 
 option(WITH_BZIP2 "Make bzip2 required" ON)
 option(WITH_LIBLZMA "Make liblzma required" ON)
@@ -33,18 +38,6 @@ else()
     set(LIBZSTD_REQUIRED_TYPE "")
 endif()
 
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
-
-include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(KDEGitCommitHooks)
-
-include(ECMGenerateExportHeader)
-
-set(REQUIRED_QT_VERSION 6.5.0)
-find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
-
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES
     URL "https://www.zlib.net"
@@ -69,8 +62,8 @@ set_package_properties(LibLZMA PROPERTIES
     PURPOSE "Support for xz compressed files and data streams"
 )
 
-
-find_package(PkgConfig ${PKGCONFIG_REQUIRED_TYPE})
+find_package(PkgConfig)
+set_package_properties(PkgConfig PROPERTIES TYPE ${PKGCONFIG_REQUIRED_TYPE})
 if (PkgConfig_FOUND)
     pkg_check_modules(LibZstd ${LIBZSTD_REQUIRED_TYPE} IMPORTED_TARGET "libzstd")
 endif()
@@ -78,6 +71,13 @@ add_feature_info(LibZstd LibZstd_FOUND
                 "Support for zstd compressed files and data streams"
 )
 
+feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+include(KDEInstallDirs)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+include(KDEGitCommitHooks)
+include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
