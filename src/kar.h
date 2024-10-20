@@ -6,8 +6,6 @@
 #ifndef KAR_H
 #define KAR_H
 
-#include <karchive.h>
-
 /*!
  * \class KAr
  * \module KArchive

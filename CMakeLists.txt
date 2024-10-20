@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.23)
 
 set(KF_VERSION "6.22.0") # handled by release scripts
 project(KArchive VERSION ${KF_VERSION})
@@ -49,6 +49,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMGenerateQDoc)
+set(CMAKE_VERIFY_INTERFACE_HEADER_SETS ON)
 
 include(ECMGenerateExportHeader)
 
