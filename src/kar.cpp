@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <karchive.h>
+
 #include "kar.h"
 #include "karchive_p.h"
 #include "loggingcategory.h"
