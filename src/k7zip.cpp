@@ -166,7 +166,7 @@ static const quint64 k_BZip2 = 0x040202;
 // static const quint64 k_Bzip2NSIS = 0x040902;
 static const quint64 k_AES = 0x06F10701;
 
-/**
+/*!
  * A K7ZipFileEntry represents a file in a 7zip archive.
  */
 class K7ZipFileEntry : public KArchiveFile
@@ -185,13 +185,13 @@ public:
 
     ~K7ZipFileEntry() override;
 
-    /**
-     * @return the content of this file.
+    /*!
+     * Returns the content of this file.
      * Call data() with care (only once per file), this data isn't cached.
      */
     QByteArray data() const override;
 
-    /**
+    /*!
      * This method returns QIODevice (internal class: KLimitedIODevice)
      * on top of the underlying QIODevice. This is obviously for reading only.
      *
@@ -199,7 +199,7 @@ public:
      * who will have to delete it.
      *
      * The returned device auto-opens (in readonly mode), no need to open it.
-     * @return the QIODevice of the file
+     * Returns the QIODevice of the file
      */
     QIODevice *createDevice() const override;
 

@@ -80,7 +80,7 @@ static quint64 parseUi64(const char *buffer)
 
 // == parsing routines for zip headers
 
-/** all relevant information about parsing file information */
+/*! all relevant information about parsing file information */
 struct ParseFileInfo {
     // file related info
     mode_t perm; // permissions of this file
@@ -115,13 +115,13 @@ struct ParseFileInfo {
     }
 };
 
-/** updates the parse information with the given extended timestamp extra field.
- * @param buffer start content of buffer known to contain an extended
+/*! updates the parse information with the given extended timestamp extra field.
+ * \a buffer start content of buffer known to contain an extended
  *  timestamp extra field (without magic & size)
- * @param size size of field content (must not count magic and size entries)
- * @param islocal true if this is a local field, false if central
- * @param pfi ParseFileInfo object to be updated
- * @return true if processing was successful
+ * \a size size of field content (must not count magic and size entries)
+ * \a islocal true if this is a local field, false if central
+ * \a pfi ParseFileInfo object to be updated
+ * Returns true if processing was successful
  */
 static bool parseExtTimestamp(const char *buffer, int size, bool islocal, ParseFileInfo &pfi)
 {
@@ -172,13 +172,13 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal, ParseF
     return true;
 }
 
-/** updates the parse information with the given Info-ZIP Unix old extra field.
- * @param buffer start of content of buffer known to contain an Info-ZIP
+/* updates the parse information with the given Info-ZIP Unix old extra field.
+ * \a buffer start of content of buffer known to contain an Info-ZIP
  *  Unix old extra field (without magic & size)
- * @param size size of field content (must not count magic and size entries)
- * @param islocal true if this is a local field, false if central
- * @param pfi ParseFileInfo object to be updated
- * @return true if processing was successful
+ * \a size size of field content (must not count magic and size entries)
+ * \a islocal true if this is a local field, false if central
+ * \a pfi ParseFileInfo object to be updated
+ * Returns true if processing was successful
  */
 static bool parseInfoZipUnixOld(const char *buffer, int size, bool islocal, ParseFileInfo &pfi)
 {
@@ -206,13 +206,13 @@ static bool parseInfoZipUnixOld(const char *buffer, int size, bool islocal, Pars
 }
 
 #if 0 // not needed yet
-/** updates the parse information with the given Info-ZIP Unix new extra field.
- * @param buffer start of content of buffer known to contain an Info-ZIP
+/*! updates the parse information with the given Info-ZIP Unix new extra field.
+ * \a buffer start of content of buffer known to contain an Info-ZIP
  *      Unix new extra field (without magic & size)
- * @param size size of field content (must not count magic and size entries)
- * @param islocal true if this is a local field, false if central
- * @param pfi ParseFileInfo object to be updated
- * @return true if processing was successful
+ * \a size size of field content (must not count magic and size entries)
+ * \a islocal true if this is a local field, false if central
+ * \a pfi ParseFileInfo object to be updated
+ * Returns true if processing was successful
  */
 static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
                                 ParseFileInfo &pfi)
@@ -237,13 +237,13 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
 }
 #endif
 
-/**
+/*!
  * parses the extra field
- * @param buffer start of buffer where the extra field is to be found
- * @param size size of the extra field
- * @param islocal true if this is part of a local header, false if of central
- * @param pfi ParseFileInfo object which to write the results into
- * @return true if parsing was successful
+ * \a buffer start of buffer where the extra field is to be found
+ * \a size size of the extra field
+ * \a islocal true if this is part of a local header, false if of central
+ * \a pfi ParseFileInfo object which to write the results into
+ * Returns true if parsing was successful
  */
 static bool parseExtraField(const char *buffer, int size, bool islocal, ParseFileInfo &pfi)
 {
@@ -303,17 +303,17 @@ static bool parseExtraField(const char *buffer, int size, bool islocal, ParseFil
     return true;
 }
 
-/**
+/*!
  * Checks if a token for a central or local header has been found and resets
  * the device to the begin of the token. If a token for the data descriptor is
  * found it is assumed there is a central or local header token starting right
  * behind the data descriptor, and the device is set accordingly to the begin
  * of that token.
  * To be called when a 'P' has been found.
- * @param buffer start of buffer with the 3 bytes behind 'P'
- * @param dev device that is read from
- * @param dataDescriptor only search for data descriptor
- * @return true if a local or central header begin is or could be reached
+ * \a buffer start of buffer with the 3 bytes behind 'P'
+ * \a dev device that is read from
+ * \a dataDescriptor only search for data descriptor
+ * Returns true if a local or central header begin is or could be reached
  */
 static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev, bool dataDescriptor)
 {
@@ -344,11 +344,11 @@ static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev, bool d
     return false;
 }
 
-/**
+/*!
  * Reads the device forwards from the current pos until a token for a central or
  * local header has been found or is to be assumed.
- * @param dev device that is read from
- * @return true if a local or central header token could be reached, false on error
+ * \a dev device that is read from
+ * Returns true if a local or central header token could be reached, false on error
  */
 static bool seekToNextHeaderToken(QIODevice *dev, bool dataDescriptor)
 {

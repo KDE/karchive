@@ -27,7 +27,7 @@ public:
     QString m_prefix; // '/' + uuid
 };
 
-/**
+/*!
  * A KRccFileEntry represents a file in a rcc archive.
  */
 class KRccFileEntry : public KArchiveFile

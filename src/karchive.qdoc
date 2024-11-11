@@ -1,0 +1,9 @@
+/*!
+    \module KArchive
+    \title KArchive C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent Archive
+
+    \brief Reading, creating, and manipulating file archives.
+*/

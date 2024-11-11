@@ -652,7 +652,7 @@ bool KTar::doFinishWriting(qint64 size)
     return true;
 }
 
-/*** Some help from the tar sources
+/*!* Some help from the tar sources
 struct posix_header
 {                               byte offset
   char name[100];               *   0 *     0x0
