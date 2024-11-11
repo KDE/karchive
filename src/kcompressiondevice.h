@@ -18,8 +18,9 @@ class KCompressionDevicePrivate;
 
 class KFilterBase;
 
-/**
- * @class KCompressionDevice kcompressiondevice.h KCompressionDevice
+/*!
+ * \class KCompressionDevice
+ * \inmodule KArchive
  *
  * A class for reading and writing compressed data onto a device
  * (e.g. file, but other usages are possible, like a buffer or a socket).
@@ -31,96 +32,111 @@ class KARCHIVE_EXPORT KCompressionDevice : public QIODevice // KF7 TODO: conside
 {
     Q_OBJECT
 public:
+    /*!
+     * \value GZip
+     * \value BZip2
+     * \value Xz
+     * \value None
+     * \value[since 5.82] Zstd
+     */
     enum CompressionType {
         GZip,
         BZip2,
         Xz,
         None,
-        Zstd, ///< @since 5.82
+        Zstd,
     };
 
-    /**
+    /*!
      * Constructs a KCompressionDevice for a given CompressionType (e.g. GZip, BZip2 etc.).
-     * @param inputDevice input device.
-     * @param autoDeleteInputDevice if true, @p inputDevice will be deleted automatically
-     * @param type the CompressionType to use.
+     *
+     * \a inputDevice input device.
+     *
+     * \a autoDeleteInputDevice if true, \a inputDevice will be deleted automatically
+     *
+     * \a type the CompressionType to use.
      */
     KCompressionDevice(QIODevice *inputDevice, bool autoDeleteInputDevice, CompressionType type);
 
-    /**
+    /*!
      * Constructs a KCompressionDevice for a given CompressionType (e.g. GZip, BZip2 etc.).
-     * @param fileName the name of the file to filter.
-     * @param type the CompressionType to use.
+     *
+     * \a fileName the name of the file to filter.
+     *
+     * \a type the CompressionType to use.
      */
     KCompressionDevice(const QString &fileName, CompressionType type);
 
-    /**
-     * Constructs a KCompressionDevice for a given @p fileName.
-     * @param fileName the name of the file to filter.
-     * @since 5.85
+    /*!
+     * Constructs a KCompressionDevice for a given \a fileName.
+     *
+     * \a fileName the name of the file to filter.
+     *
+     * \since 5.85
      */
     explicit KCompressionDevice(const QString &fileName);
 
-    /**
+    /*!
      * Destructs the KCompressionDevice.
+     *
      * Calls close() if the filter device is still open.
      */
     ~KCompressionDevice() override;
 
-    /**
+    /*!
      * The compression actually used by this device.
+     *
      * If the support for the compression requested in the constructor
      * is not available, then the device will use None.
      */
     CompressionType compressionType() const;
 
-    /**
-     * Open for reading or writing.
-     */
     bool open(QIODevice::OpenMode mode) override;
 
-    /**
-     * Close after reading or writing.
-     */
     void close() override;
 
-    /**
+    /*!
      * For writing gzip compressed files only:
      * set the name of the original file, to be used in the gzip header.
-     * @param fileName the name of the original file
+     *
+     * \a fileName the name of the original file
      */
     void setOrigFileName(const QByteArray &fileName);
 
-    /**
+    /*!
      * Call this let this device skip the gzip headers when reading/writing.
      * This way KCompressionDevice (with gzip filter) can be used as a direct wrapper
      * around zlib - this is used by KZip.
      */
     void setSkipHeaders();
 
-    /**
+    /*!
+     * \reimp
      * That one can be quite slow, when going back. Use with care.
      */
     bool seek(qint64) override;
 
     bool atEnd() const override;
 
-    /**
+    /*!
      * Call this to create the appropriate filter for the CompressionType
-     * named @p type.
-     * @param type the type of the compression filter
-     * @return the filter for the @p type, or 0 if not found
+     * named \a type.
+     *
+     * \a type the type of the compression filter
+     *
+     * Returns the filter for the \a type, or 0 if not found
      */
     static KFilterBase *filterForCompressionType(CompressionType type);
 
-    /**
+    /*!
      * Returns the compression type for the given MIME type, if possible. Otherwise returns None.
+     *
      * This handles simple cases like application/gzip, but also application/x-compressed-tar, and inheritance.
-     * @since 5.85
+     * \since 5.85
      */
     static CompressionType compressionTypeForMimeType(const QString &mimetype);
 
-    /**
+    /*!
      * Returns the error code from the last failing operation.
      * This is especially useful after calling close(), which unfortunately returns void
      * (see https://bugreports.qt.io/browse/QTBUG-70033), to see if the flushing done by close

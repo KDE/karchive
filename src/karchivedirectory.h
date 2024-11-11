@@ -20,27 +20,34 @@
 
 class KArchiveDirectoryPrivate;
 class KArchiveFile;
-/**
- * @class KArchiveDirectory karchivedirectory.h KArchiveDirectory
+/*!
+ * \class KArchiveDirectory
+ * \inmodule KArchive
  *
- * Represents a directory entry in a KArchive.
- * @short A directory in an archive.
+ * \brief A directory in an archive.
  *
- * @see KArchive
- * @see KArchiveFile
+ * \sa KArchive
+ * \sa KArchiveFile
  */
 class KARCHIVE_EXPORT KArchiveDirectory : public KArchiveEntry
 {
 public:
-    /**
+    /*!
      * Creates a new directory entry.
-     * @param archive the entries archive
-     * @param name the name of the entry
-     * @param access the permissions in unix format
-     * @param date the date (in seconds since 1970)
-     * @param user the user that owns the entry
-     * @param group the group that owns the entry
-     * @param symlink the symlink, or QString()
+     *
+     * \a archive the entries archive
+     *
+     * \a name the name of the entry
+     *
+     * \a access the permissions in unix format
+     *
+     * \a date the date (in seconds since 1970)
+     *
+     * \a user the user that owns the entry
+     *
+     * \a group the group that owns the entry
+     *
+     * \a symlink the symlink, or QString()
      */
     KArchiveDirectory(KArchive *archive,
                       const QString &name,
@@ -52,83 +59,106 @@ public:
 
     ~KArchiveDirectory() override;
 
-    /**
+    /*!
      * Returns a list of sub-entries.
+     *
      * Note that the list is not sorted, it's even in random order (due to using a hashtable).
      * Use sort() on the result to sort the list by filename.
      *
-     * @return the names of all entries in this directory (filenames, no path).
+     * Returns the names of all entries in this directory (filenames, no path).
      */
     QStringList entries() const;
 
-    /**
+    /*!
      * Returns the entry in the archive with the given name.
+     *
      * The entry could be a file or a directory, use isFile() to find out which one it is.
-     * @param name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
-     * @return a pointer to the entry in the directory, or a null pointer if there is no such entry.
+     *
+     * \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
+     *
+     * Returns a pointer to the entry in the directory, or a null pointer if there is no such entry.
      */
     const KArchiveEntry *entry(const QString &name) const;
 
-    /**
+    /*!
      * Returns the file entry in the archive with the given name.
+     *
      * If the entry exists and is a file, a KArchiveFile is returned.
+     *
      * Otherwise, a null pointer is returned.
+     *
      * This is a convenience method for entry(), when we know the entry is expected to be a file.
      *
-     * @param name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
-     * @return a pointer to the file entry in the directory, or a null pointer if there is no such file entry.
-     * @since 5.3
+     *
+     * \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
+     *
+     * Returns a pointer to the file entry in the directory, or a null pointer if there is no such file entry.
+     * \since 5.3
      */
     const KArchiveFile *file(const QString &name) const;
 
 #if KARCHIVE_ENABLE_DEPRECATED_SINCE(6, 13)
-    /**
-     * @internal
+    /*!
+     * \internal
      * Adds a new entry to the directory.
+     *
      * Note: this can delete the entry if another one with the same name is already present
-     * @deprecated since 6.13, use addEntryV2() instead.
+     *
+     * \deprecated[6.13]
+     *
+     * Use addEntryV2() instead.
      */
     KARCHIVE_DEPRECATED_VERSION(6, 13, "Use addEntryV2() instead.")
     void addEntry(KArchiveEntry *); // KF7 TODO: remove
 #endif
 
-    /**
-     * @internal
+    /*!
+     * \internal
      * Adds a new entry to the directory.
-     * @return whether the entry was added or not. Non added entries are deleted
-     * @since 6.13
+     *
+     * Returns whether the entry was added or not. Non added entries are deleted
+     * \since 6.13
+     *
+     * Returns whether the entry was added or not. Non added entries are deleted
      */
     [[nodiscard]] bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
 #if KARCHIVE_ENABLE_DEPRECATED_SINCE(6, 13)
-    /**
-     * @internal
+    /*!
+     * \internal
+     *
      * Removes an entry from the directory.
-     * @deprecated since 6.13, use removeEntryV2() instead.
+     *
+     * \deprecated[6.13]
+     * Use removeEntryV2() instead.
      */
     KARCHIVE_DEPRECATED_VERSION(6, 13, "Use removeEntryV2() instead.")
     void removeEntry(KArchiveEntry *); // KF7 TODO: remove
 #endif
 
-    /**
+    /*!
      * Removes an entry from the directory.
-     * @return whether the entry was removed or not.
-     * @since 6.13
+     *
+     * Returns whether the entry was removed or not.
+     * \since 6.13
      */
     [[nodiscard]] bool removeEntryV2(KArchiveEntry *); // KF7 TODO: rename to removeEntry
 
-    /**
-     * Checks whether this entry is a directory.
-     * @return true, since this entry is a directory
+    /*
+     * Returns true, since this entry is a directory
      */
     bool isDirectory() const override;
 
-    /**
+    /*!
      * Extracts all entries in this archive directory to the directory
-     * @p dest.
-     * @param dest the directory to extract to
-     * @param recursive if set to true, subdirectories are extracted as well
-     * @return true on success, false if the directory (dest + '/' + name()) couldn't be created
+     *
+     * \a dest.
+     *
+     * \a dest the directory to extract to
+     *
+     * \a recursive if set to true, subdirectories are extracted as well
+     *
+     * Returns true on success, false if the directory (dest + '/' + name()) couldn't be created
      */
     bool copyTo(const QString &dest, bool recursive = true) const;
 

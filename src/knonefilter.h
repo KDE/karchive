@@ -12,12 +12,12 @@
 
 #include "kfilterbase.h"
 
-/**
+/*!
  * Internal class used by KCompressionDevice
  *
  * This header is not installed.
  *
- * @internal
+ * \internal
  */
 class KNoneFilter : public KFilterBase
 {

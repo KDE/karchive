@@ -15,9 +15,9 @@
 
 #include <memory>
 
-/**
+/*!
  * Internal class used by KCompressionDevice
- * @internal
+ * \internal
  */
 class KZstdFilter : public KFilterBase
 {

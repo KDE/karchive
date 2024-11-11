@@ -16,9 +16,9 @@
 
 #include "kfilterbase.h"
 
-/**
+/*!
  * Internal class used by KCompressionDevice
- * @internal
+ * \internal
  */
 class KXzFilter : public KFilterBase
 {

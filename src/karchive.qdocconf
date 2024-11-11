@@ -1,0 +1,16 @@
+include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
+
+project = KArchive
+description = Reading, creating, and manipulating file archives
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+outputformats = HTML
+
+depends += \
+    kde \
+    qtcore \
+    qtgui
