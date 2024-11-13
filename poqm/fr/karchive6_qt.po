@@ -429,67 +429,67 @@ msgstr ""
 "Fichier au format « zip » non valable. En-tête non reconnu avec le décalage "
 "%1"
 
-#: kzip.cpp:844
+#: kzip.cpp:841
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Impossible de trouver la prochaine en-tête de fichier : %1"
 
-#: kzip.cpp:870 kzip.cpp:966
+#: kzip.cpp:867 kzip.cpp:961
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Impossible d'écrire l'en-tête du fichier : %1"
 
-#: kzip.cpp:1013
+#: kzip.cpp:1008
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Impossible d'écrire l'enregistrement principal du dossier : %1"
 
-#: kzip.cpp:1049
+#: kzip.cpp:1044
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « ZIP » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: kzip.cpp:1055
+#: kzip.cpp:1050
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « ZIP »"
 
-#: kzip.cpp:1061
+#: kzip.cpp:1056
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr ""
 "Impossible de créer un périphérique. Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1067
+#: kzip.cpp:1062
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 "Impossible de rechercher dans un fichier « ZIP ». Le disque serait-il plein ?"
 
-#: kzip.cpp:1209
+#: kzip.cpp:1204
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Impossible d'écrire dans l'archive Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1228
+#: kzip.cpp:1223
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Impossible d'ouvrir le périphérique de compression : %1"
 
-#: kzip.cpp:1315
+#: kzip.cpp:1310
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Aucun fichier ou périphérique"
 
-#: kzip.cpp:1328
+#: kzip.cpp:1323
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

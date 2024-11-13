@@ -395,61 +395,61 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "קובץ ZIP שגוי. כותרת שגויה בהיסט %1"
 
-#: kzip.cpp:844
+#: kzip.cpp:841
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "לא ניתן לחתור לכותרת הקובץ הבאה: %1"
 
-#: kzip.cpp:870 kzip.cpp:966
+#: kzip.cpp:867 kzip.cpp:961
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "לא ניתן לכתוב את כותרת הקובץ: %1"
 
-#: kzip.cpp:1013
+#: kzip.cpp:1008
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "לא ניתן לכתוב רשומת תיקייה מרכזית: %1"
 
-#: kzip.cpp:1049
+#: kzip.cpp:1044
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "שגיאת יישום: קובץ ה־ZIP חייב להיות פתוח לפני הכתיבה אליו"
 
-#: kzip.cpp:1055
+#: kzip.cpp:1050
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ ‎ZIP שנעול לכתיבה"
 
-#: kzip.cpp:1061
+#: kzip.cpp:1056
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "לא ניתן ליצור התקן. הכונן מלא?"
 
-#: kzip.cpp:1067
+#: kzip.cpp:1062
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "לא ניתן לחתור בקובץ ZIP. הכונן מלא?"
 
-#: kzip.cpp:1209
+#: kzip.cpp:1204
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "לא ניתן לכתוב לארכיון. הכונן מלא?"
 
-#: kzip.cpp:1228
+#: kzip.cpp:1223
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "לא ניתן לפתוח התקן דחיסה: %1"
 
-#: kzip.cpp:1315
+#: kzip.cpp:1310
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "אין קובץ או התקן"
 
-#: kzip.cpp:1328
+#: kzip.cpp:1323
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

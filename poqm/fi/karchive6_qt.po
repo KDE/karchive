@@ -403,62 +403,62 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Virheellinen Zip-tiedosto. Tuntematon otsake kohdassa %1"
 
-#: kzip.cpp:844
+#: kzip.cpp:841
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Seuraavaa tiedosto-otsaketta ei voitu etsiä: %1"
 
-#: kzip.cpp:870 kzip.cpp:966
+#: kzip.cpp:867 kzip.cpp:961
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Tiedoston otsaketta ei voida kirjoittaa: %1"
 
-#: kzip.cpp:1013
+#: kzip.cpp:1008
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Keskeistä hakemistotietuetta ei voitu kirjoittaa: %1"
 
-#: kzip.cpp:1049
+#: kzip.cpp:1044
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Sovellusvirhe: Zip-tiedoston tulee olla auki, ennen kuin siihen kirjoitetaan"
 
-#: kzip.cpp:1055
+#: kzip.cpp:1050
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Sovellusvirhe: yritettiin kirjoittaa ei-kirjoitettavaa ZIP-tiedostoa"
 
-#: kzip.cpp:1061
+#: kzip.cpp:1056
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Laitetta ei voida luoda. Onko levy täynnä?"
 
-#: kzip.cpp:1067
+#: kzip.cpp:1062
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ZIP-tiedostossa ei voi etsiä. Onko levy täysi?"
 
-#: kzip.cpp:1209
+#: kzip.cpp:1204
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Arkistoon ei voida kirjoittaa. Onko levy täynnä?"
 
-#: kzip.cpp:1228
+#: kzip.cpp:1223
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Pakkauslaitetta ei voitu avata: %1"
 
-#: kzip.cpp:1315
+#: kzip.cpp:1310
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Ei tiedosto tai laite"
 
-#: kzip.cpp:1328
+#: kzip.cpp:1323
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
