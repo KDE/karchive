@@ -2789,7 +2789,9 @@ bool K7Zip::closeArchive()
         QBuffer inBuffer(&enc);
 
         KCompressionDevice flt(&inBuffer, false, KCompressionDevice::Xz);
-        flt.open(QIODevice::WriteOnly);
+        if(!flt.open(QIODevice::WriteOnly)) {
+            return false;
+        }
 
         KFilterBase *filter = flt.filterBase();
 
