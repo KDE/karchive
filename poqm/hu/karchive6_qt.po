@@ -103,27 +103,27 @@ msgstr ""
 "A méret olvasása nem sikerült (checkRecordsSize: %1, s->pos - ppp: %2, "
 "méret: %3)"
 
-#: k7zip.cpp:2800
+#: k7zip.cpp:2802
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Írási hiba"
 
-#: k7zip.cpp:2830
+#: k7zip.cpp:2832
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Sikertelen a fejléc kódolása közben"
 
-#: k7zip.cpp:2874
+#: k7zip.cpp:2876
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nincs kiválasztva fájl"
 
-#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
+#: k7zip.cpp:2900 k7zip.cpp:2950 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Alkalmazáshiba: a 7-Zip fájlt meg kell nyitni írás előtt"
 
-#: k7zip.cpp:2904 k7zip.cpp:2996
+#: k7zip.cpp:2906 k7zip.cpp:2998
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Alkalmazáshiba: írási kísérlet egy nem írható 7-Zip fájlba"

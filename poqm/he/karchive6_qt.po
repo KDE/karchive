@@ -102,27 +102,27 @@ msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "קריאת הגודל נכשלה (checkRecordsSize: %1,‏ d->pos - ppp: %2, גודל: %3)"
 
-#: k7zip.cpp:2800
+#: k7zip.cpp:2802
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "שגיאת כתיבה"
 
-#: k7zip.cpp:2830
+#: k7zip.cpp:2832
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "קידוד הכותרת נכשל"
 
-#: k7zip.cpp:2874
+#: k7zip.cpp:2876
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "לא נבחר קובץ"
 
-#: k7zip.cpp:2898 k7zip.cpp:2948 k7zip.cpp:2990
+#: k7zip.cpp:2900 k7zip.cpp:2950 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "שגיאת יישום: קובץ ה־‎7-Zip חייב להיות פתוח לפני הכתיבה אליו"
 
-#: k7zip.cpp:2904 k7zip.cpp:2996
+#: k7zip.cpp:2906 k7zip.cpp:2998
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ ‎7-Zip שנעול לכתיבה"
