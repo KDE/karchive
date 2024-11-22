@@ -37,24 +37,24 @@ static const unsigned char k7zip_signature[6] = {'7', 'z', 0xBC, 0xAF, 0x27, 0x1
 // static const unsigned char XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };
 
 /* clang-format off */
-static QChar GetUi16(const char *p, quint64 offset)
+static QChar GetUi16(const char *p)
 {
-    return QChar(static_cast<unsigned char>(p[offset + 0])
+    return QChar(static_cast<unsigned char>(p[0])
                  | (static_cast<unsigned char>(p[1]) << 8));
 }
 
-static quint32 GetUi32(const char *p, quint64 offset)
+static quint32 GetUi32(const char *p)
 {
-    return (static_cast<unsigned char>(p[offset + 0])
-            | (static_cast<unsigned char>(p[offset + 1]) << 8)
-            | (static_cast<unsigned char>(p[offset + 2]) << 16)
-            | (static_cast<unsigned char>(p[offset + 3]) << 24));
+    return (static_cast<unsigned char>(p[0])
+            | (static_cast<unsigned char>(p[1]) << 8)
+            | (static_cast<unsigned char>(p[2]) << 16)
+            | (static_cast<unsigned char>(p[3]) << 24));
 }
 
-static quint64 GetUi64(const char *p, quint64 offset)
+static quint64 GetUi64(const char *p)
 {
-    return (GetUi32(p, offset)
-            | (static_cast<quint64>(GetUi32(p, offset + 4)) << 32));
+    return (GetUi32(p)
+            | (static_cast<quint64>(GetUi32(p + 4)) << 32));
 }
 
 static quint32 lzma2_dic_size_from_prop(int p)
@@ -586,7 +586,7 @@ quint32 K7Zip::K7ZipPrivate::readUInt32()
         return 0;
     }
 
-    quint32 res = GetUi32(buffer, pos);
+    quint32 res = GetUi32(buffer + pos);
     pos += 4;
     return res;
 }
@@ -598,7 +598,7 @@ quint64 K7Zip::K7ZipPrivate::readUInt64()
         return 0;
     }
 
-    quint64 res = GetUi64(buffer, pos);
+    quint64 res = GetUi64(buffer + pos);
     pos += 8;
     return res;
 }
@@ -654,7 +654,7 @@ QString K7Zip::K7ZipPrivate::readString()
 
     QString p;
     for (int i = 0; i < len; i++, buf += 2) {
-        p += GetUi16(buf, 0);
+        p += GetUi16(buf);
     }
 
     pos += rem + 2;
@@ -732,7 +732,7 @@ void K7Zip::K7ZipPrivate::readHashDigests(int numItems, QVector<bool> &digestsDe
     for (int i = 0; i < numItems; i++) {
         quint32 crc = 0;
         if (digestsDefined[i]) {
-            crc = GetUi32(buffer, pos);
+            crc = GetUi32(buffer + pos);
             pos += 4;
         }
         digests.append(crc);
@@ -2345,10 +2345,10 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     }*/
 
     // get Start Header CRC
-    quint32 startHeaderCRC = GetUi32(header, 8);
-    quint64 nextHeaderOffset = GetUi64(header, 12);
-    quint64 nextHeaderSize = GetUi64(header, 20);
-    quint32 nextHeaderCRC = GetUi32(header, 28);
+    quint32 startHeaderCRC = GetUi32(header + 8);
+    quint64 nextHeaderOffset = GetUi64(header + 12);
+    quint64 nextHeaderSize = GetUi64(header + 20);
+    quint32 nextHeaderCRC = GetUi32(header + 28);
 
     quint32 crc = crc32(0, (Bytef *)(header + 0xC), 20);
 
