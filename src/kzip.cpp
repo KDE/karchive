@@ -71,6 +71,13 @@ static uint transformFromMsDos(const char *buffer)
     return dt.toSecsSinceEpoch();
 }
 
+static quint64 parseUi64(const char *buffer)
+{
+    const uint a = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+    const uint b = uint((uchar)buffer[4] | (uchar)buffer[5] << 8 | (uchar)buffer[6] << 16 | (uchar)buffer[7] << 24);
+    return (a | (quint64)b << 32);
+}
+
 // == parsing routines for zip headers
 
 /** all relevant information about parsing file information */
@@ -262,10 +269,10 @@ static bool parseExtraField(const char *buffer, int size, bool islocal, ParseFil
         switch (magic) {
         case 0x0001: // ZIP64 extended file information
             if (size >= 8) {
-                pfi.uncompressedSize = qFromLittleEndian(*reinterpret_cast<const quint64 *>(buffer));
+                pfi.uncompressedSize = parseUi64(buffer);
             }
             if (size >= 16) {
-                pfi.compressedSize = qFromLittleEndian(*reinterpret_cast<const quint64 *>(buffer + 8));
+                pfi.compressedSize = parseUi64(buffer + 8);
             }
             break;
         case 0x5455: // extended timestamp
