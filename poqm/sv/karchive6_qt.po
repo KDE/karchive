@@ -314,140 +314,140 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Programfel: försökte skriva till en skrivskyddad TAR-fil"
 
-#: kzip.cpp:463 kzip.cpp:482
+#: kzip.cpp:470 kzip.cpp:489
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Ogiltig ZIP-fil. Oväntat filslut. (felkod: %1)"
 
-#: kzip.cpp:506
+#: kzip.cpp:513
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Ogiltig ZIP-fil. Negativ namnlängd"
 
-#: kzip.cpp:511
+#: kzip.cpp:518
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Ogiltig ZIP-fil. Namnet inte fullständigt läst (nr. 2)"
 
-#: kzip.cpp:530
+#: kzip.cpp:537
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Ogiltig ZIP-fil. Felaktigt extrafält."
 
-#: kzip.cpp:544 kzip.cpp:567
+#: kzip.cpp:551 kzip.cpp:574
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Kunde inte söka till nästa huvudsymbol"
 
-#: kzip.cpp:559
+#: kzip.cpp:566
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Ogiltig ZIP-fil. Oväntat filslut. (nr. 5)"
 
-#: kzip.cpp:575
+#: kzip.cpp:582
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Kunde inte söka till filens komprimerade storlek"
 
-#: kzip.cpp:591
+#: kzip.cpp:598
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Ogiltig ZIP-fil. Oväntat filslut. (nr. 1)"
 
-#: kzip.cpp:624
+#: kzip.cpp:631
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr "Ogiltig ZIP-fil. Central post för kort (inte lång nog för giltig post)"
 
-#: kzip.cpp:633
+#: kzip.cpp:640
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr "Ogiltig ZIP-fil. Filsökvägens längd mindre eller lika med noll"
 
-#: kzip.cpp:715
+#: kzip.cpp:722
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Ogiltig ZIP-fil. Fann tomt postnamn"
 
-#: kzip.cpp:756
+#: kzip.cpp:763
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Filen %1 är i katalogen %2, men %3 är i själva verket en fil."
 
-#: kzip.cpp:767
+#: kzip.cpp:774
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Kunde inte söka till nästa post"
 
-#: kzip.cpp:780 kzip.cpp:790
+#: kzip.cpp:787 kzip.cpp:797
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Ogiltig ZIP-fil. Oväntat filslut."
 
-#: kzip.cpp:813
+#: kzip.cpp:820
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Ogiltig ZIP-fil. Huvud känns inte igen på position %1"
 
-#: kzip.cpp:841
+#: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Kunde inte söka till nästa filhuvud: %1"
 
-#: kzip.cpp:867 kzip.cpp:961
+#: kzip.cpp:874 kzip.cpp:968
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Kunde inte skriva filhuvud: %1"
 
-#: kzip.cpp:1008
+#: kzip.cpp:1015
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Kunde inte skriva central katalogpost: %1"
 
-#: kzip.cpp:1044
+#: kzip.cpp:1051
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "Programfel: ZIP-filen måste vara öppnad innan den skrivs till"
 
-#: kzip.cpp:1050
+#: kzip.cpp:1057
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Programfel: försökte skriva till en skrivskyddad ZIP-fil"
 
-#: kzip.cpp:1056
+#: kzip.cpp:1063
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Kan inte skapa en enhet. Är disken full?"
 
-#: kzip.cpp:1062
+#: kzip.cpp:1069
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Kan inte söka i ZIP-filen. Är disken full?"
 
-#: kzip.cpp:1204
+#: kzip.cpp:1211
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Kunde inte skriva till arkivet. Är disken full?"
 
-#: kzip.cpp:1223
+#: kzip.cpp:1230
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Kunde inte öppna komprimeringsenhet: %1"
 
-#: kzip.cpp:1310
+#: kzip.cpp:1317
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Ingen fil eller enhet"
 
-#: kzip.cpp:1323
+#: kzip.cpp:1330
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

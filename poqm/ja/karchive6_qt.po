@@ -325,49 +325,49 @@ msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
 "アプリケーションエラー: 書き込み不可の TAR ファイルに書き込もうとしました"
 
-#: kzip.cpp:463 kzip.cpp:482
+#: kzip.cpp:470 kzip.cpp:489
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr ""
 "無効な ZIP ファイルです。予期しないファイルの終端です。(エラーコード: %1)"
 
-#: kzip.cpp:506
+#: kzip.cpp:513
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "無効な ZIP ファイルです。名前の長さが負です"
 
-#: kzip.cpp:511
+#: kzip.cpp:518
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "無効な ZIP ファイルです。名前が完全に読み取られていません (#2)"
 
-#: kzip.cpp:530
+#: kzip.cpp:537
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "無効な ZIP ファイルです。拡張フィールドが壊れています。"
 
-#: kzip.cpp:544 kzip.cpp:567
+#: kzip.cpp:551 kzip.cpp:574
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "後続ヘッダのトークンにシークできませんでした"
 
-#: kzip.cpp:559
+#: kzip.cpp:566
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。(#5)"
 
-#: kzip.cpp:575
+#: kzip.cpp:582
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "ファイル圧縮サイズでシークできませんでした"
 
-#: kzip.cpp:591
+#: kzip.cpp:598
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。(#1)"
 
-#: kzip.cpp:624
+#: kzip.cpp:631
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -375,95 +375,95 @@ msgstr ""
 "無効な ZIP ファイルです。セントラルエントリが短すぎます (有効なエントリに十分"
 "な長さがありません)"
 
-#: kzip.cpp:633
+#: kzip.cpp:640
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr "無効な ZIP ファイルです。ファイルのパス名の長さがゼロ以下です"
 
-#: kzip.cpp:715
+#: kzip.cpp:722
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "無効な ZIP ファイルです。空のエントリ名があります"
 
-#: kzip.cpp:756
+#: kzip.cpp:763
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "ファイル %1 はフォルダ %2 にありますが、%3 は実際にはファイルです。"
 
-#: kzip.cpp:767
+#: kzip.cpp:774
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "後続エントリにシークできませんでした"
 
-#: kzip.cpp:780 kzip.cpp:790
+#: kzip.cpp:787 kzip.cpp:797
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。"
 
-#: kzip.cpp:813
+#: kzip.cpp:820
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "無効な ZIP ファイルです。オフセット %1 のヘッダが認識されません"
 
-#: kzip.cpp:841
+#: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "後続のファイルヘッダにシークできませんでした: %1"
 
-#: kzip.cpp:867 kzip.cpp:961
+#: kzip.cpp:874 kzip.cpp:968
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "ファイルヘッダを書き込めませんでした: %1"
 
-#: kzip.cpp:1008
+#: kzip.cpp:1015
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "セントラルディレクトリのレコードを書き込めませんでした: %1"
 
-#: kzip.cpp:1044
+#: kzip.cpp:1051
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "アプリケーションエラー: 書き込む前に ZIP ファイルが開いている必要があります"
 
-#: kzip.cpp:1050
+#: kzip.cpp:1057
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "アプリケーションエラー: 書き込み不可の ZIP ファイルに書き込もうとしました"
 
-#: kzip.cpp:1056
+#: kzip.cpp:1063
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "デバイスを作成できません。ディスクに空きはありますか？"
 
-#: kzip.cpp:1062
+#: kzip.cpp:1069
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ZIP ファイルをシークできません。ディスクに空きはありますか？"
 
-#: kzip.cpp:1204
+#: kzip.cpp:1211
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "アーカイブに書き込めませんでした。ディスクに空きはありますか？"
 
-#: kzip.cpp:1223
+#: kzip.cpp:1230
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "圧縮デバイスを開けませんでした: %1"
 
-#: kzip.cpp:1310
+#: kzip.cpp:1317
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "ファイルまたはデバイスがありません"
 
-#: kzip.cpp:1323
+#: kzip.cpp:1330
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
