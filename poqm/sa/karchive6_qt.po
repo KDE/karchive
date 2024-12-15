@@ -1,4 +1,3 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,438 +13,439 @@ msgstr ""
 #: k7zip.cpp:2323
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "अन्तर्निहितं यन्त्रं प्राप्तुं न शक्तवान्"
 
 #: k7zip.cpp:2331
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "पठनशीर्षकं विफलम्"
 
 #: k7zip.cpp:2337
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr ""
+msgstr "चेक हस्ताक्षरं विफलम्"
 
 #: k7zip.cpp:2360
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr ""
+msgstr "दुष्ट सीआरसी"
 
 #: k7zip.cpp:2369
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "अग्रिमः शीर्षकस्य आकारः अतीव विशालः अस्ति"
 
 #: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "अग्रिमशीर्षकस्य आकारः शून्यात् न्यूनः अस्ति"
 
 #: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr ""
+msgstr "अग्रिमः शीर्षकस्य आकारः पठितुं असफलः; %1 पठितव्यं, %2 पठितव्यम्"
 
 #: k7zip.cpp:2397
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "दुष्टः अग्रिमः शीर्षकः CRC"
 
 #: k7zip.cpp:2405
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr ""
+msgstr "शीर्षके त्रुटिः"
 
 #: k7zip.cpp:2424
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "गलत् शीर्षकप्रकारः"
 
 #: k7zip.cpp:2434 k7zip.cpp:2440
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr ""
+msgstr "न कार्यान्वितम्"
 
 #: k7zip.cpp:2446
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "मुख्यधारासूचनाः पठन् त्रुटिः"
 
 #: k7zip.cpp:2464
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "शीर्षकं पठन् त्रुटिः"
 
 #: k7zip.cpp:2524
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "परिवर्तनसमये पठने त्रुटिः"
 
 #: k7zip.cpp:2570
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "MTime पठने त्रुटिः"
 
 #: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "अप्रतिषेध"
 
 #: k7zip.cpp:2599
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
-msgstr ""
+msgstr "पठनस्य आकारः विफलः (checkRecordsSize: %1, d->pos - ppp: %2, आकारः: %3)"
 
 #: k7zip.cpp:2802
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "लेखनदोषः"
 
 #: k7zip.cpp:2832
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "शीर्षकं एन्कोडिंग् कुर्वन् विफलम्"
 
 #: k7zip.cpp:2876
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "सम्प्रति कोऽपि सञ्चिका न चयनिता"
 
 #: k7zip.cpp:2900 k7zip.cpp:2950 k7zip.cpp:2992
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
-msgstr ""
+msgstr "अनुप्रयोगदोषः : 7-Zip सञ्चिकायां लेखनात् पूर्वं उद्घाटिता भवितुमर्हति"
 
 #: k7zip.cpp:2906 k7zip.cpp:2998
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "अनुप्रयोगदोषः: अलेखनीय 7-Zip सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "AR सञ्चिकायां लिखितुं न शक्यते"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "असमर्थितः मोडः %1"
 
 #: kar.cpp:101
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "अमान्य मुख्य जादू"
 
 #: kar.cpp:118
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "असिद्धं जादू"
 
 #: kar.cpp:129
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "अमान्यः आकारः"
 
 #: kar.cpp:149
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "अमान्य longfilename सन्दर्भः"
 
 #: kar.cpp:153
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "अमान्य longfilename स्थितिसन्दर्भः"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "कोऽपि सञ्चिकानाम वा यन्त्रं वा निर्दिष्टं नासीत्"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "%1 मोड् मध्ये यन्त्रं उद्घाटयितुं न शक्तम्"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "%1 कृते QSaveFile निर्माणं विफलम्: %2"
 
 #: karchive.cpp:208
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "असमर्थितः मोडः %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "अभिलेखागारः पूर्वमेव बन्दः अस्ति"
 
 #: karchive.cpp:268
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 नास्ति अथवा नियमितसञ्चिका नास्ति ।"
 
 #: karchive.cpp:274
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
-msgstr ""
+msgstr "संग्रहे योजयितुं %1 सञ्चिकां प्राप्तुं असफलम् । त्रुटिः आसीत् : %2"
 
 #: karchive.cpp:320
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "%1: %2 सञ्चिकां उद्घाटयितुं न शक्यते"
 
 #: karchive.cpp:354
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "%1 निर्देशिका नास्ति"
 
 #: karchive.cpp:428
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "लेखनं विफलम्: %1"
 
 #: karchive_p.h:56
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "अज्ञातदोषः"
 
 #: kcompressiondevice.cpp:487
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "लेखितुं न शक्तवान्। विभाजनं पूर्णम्?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "RCC सञ्चिकायां लिखितुं न शक्यते"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "असमर्थितः मोड %1"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "%2 उपसर्गस्य अधः संसाधनं %1 पञ्जीकरणं कर्तुं असफलम्"
 
 #: ktar.cpp:344
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "%1 सञ्चिका नास्ति"
 
 #: ktar.cpp:351
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "संग्रहः %1 दूषितः अस्ति"
 
 #: ktar.cpp:355
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "डिस्क पूर्णा"
 
 #: ktar.cpp:389
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "अन्तर्निहितं यन्त्रं प्राप्तुं न शक्तवान्"
 
 #: ktar.cpp:404
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "tar header पठितुं न शक्तवान्"
 
 #: ktar.cpp:586
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "temp सञ्चिकां पुनः लिखितुं असफलम्: %1"
 
 #: ktar.cpp:642
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "संरेखणं लिखितुं न शक्तम्: %1"
 
 #: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
-msgstr ""
+msgstr "अनुप्रयोगदोषः : TAR सञ्चिकायाः लेखनात् पूर्वं उद्घाटिता भवितुमर्हति"
 
 #: ktar.cpp:771
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "अनुप्रयोगदोषः: अलेखनीय 7-Zip सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
 #: ktar.cpp:778
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "अनुप्रयोगसीमा: %1 बाइट् इत्यस्मात् बृहत्तरं सञ्चिकां योजयितुं न शक्यते"
 
 #: ktar.cpp:832
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "शीर्षकं लिखितुं असफलम्: %1"
 
 #: ktar.cpp:854 ktar.cpp:923
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "अनुप्रयोगदोषः: अलेखनीय TAR सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
 #: kzip.cpp:470 kzip.cpp:489
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (त्रुटिसङ्केतः : %1)"
 
 #: kzip.cpp:513
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । नकारात्मक नाम लम्बाई"
 
 #: kzip.cpp:518
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । नाम सम्पूर्णतया न पठितम् (#2)"
 
 #: kzip.cpp:537
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । भग्न अतिरिक्तक्षेत्र।"
 
 #: kzip.cpp:551 kzip.cpp:574
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "अग्रिमशीर्षकटोकनं अन्वेष्टुं न शक्तवान्"
 
 #: kzip.cpp:566
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#5) ९."
 
 #: kzip.cpp:582
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "संपीडितं आकारं सञ्चिकां कर्तुं न शक्तवान्"
 
 #: kzip.cpp:598
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#1) ९."
 
 #: kzip.cpp:631
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"अमान्य ZIP सञ्चिका, केन्द्रीयप्रविष्टिः अतीव लघु (वैधप्रविष्ट्यर्थं पर्याप्तं दीर्घः नास्ति)"
 
 #: kzip.cpp:640
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका, सञ्चिकामार्गनामदीर्घता शून्यस्य वा समाना वा"
 
 #: kzip.cpp:722
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका, रिक्तं प्रविष्टिनाम प्राप्तम्"
 
 #: kzip.cpp:763
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "%1 सञ्चिका %2 पुटे अस्ति, परन्तु %3 वस्तुतः सञ्चिका अस्ति ।"
 
 #: kzip.cpp:774
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "अग्रिमप्रवेशं अन्वेष्टुं न शक्तवान्"
 
 #: kzip.cpp:787 kzip.cpp:797
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः ।"
 
 #: kzip.cpp:820
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "अमान्य ZIP सञ्चिका । ऑफसेट् %1 इत्यत्र अज्ञातशीर्षकं"
 
 #: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "अग्रिमसञ्चिकाशीर्षकं अन्वेष्टुं न शक्तम्: %1"
 
 #: kzip.cpp:874 kzip.cpp:968
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "सञ्चिकाशीर्षकं लिखितुं न शक्तम्: %1"
 
 #: kzip.cpp:1015
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "केन्द्रीय dir अभिलेखं लिखितुं न शक्तम्: %1"
 
 #: kzip.cpp:1051
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
-msgstr ""
+msgstr "अनुप्रयोगदोषः : ZIP सञ्चिकां लिखितुं पूर्वं उद्घाटिता भवितुमर्हति"
 
 #: kzip.cpp:1057
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
-msgstr ""
+msgstr "अनुप्रयोगदोषः: अलेखनीय ZIP सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
 #: kzip.cpp:1063
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "यन्त्रं निर्मातुं न शक्यते। डिस्क पूर्णा?"
 
 #: kzip.cpp:1069
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "ZIP सञ्चिकायां अन्वेष्टुं न शक्यते । डिस्क पूर्णा?"
 
 #: kzip.cpp:1211
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "अभिलेखागारं प्रति लिखितुं न शक्तवान्। डिस्क पूर्णा?"
 
 #: kzip.cpp:1230
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "संपीडनयन्त्रं उद्घाटयितुं न शक्तम्: %1"
 
 #: kzip.cpp:1317
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "न सञ्चिका वा यन्त्रं वा"
 
 #: kzip.cpp:1330
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "दत्तांशलेखनदोषः: %1"
