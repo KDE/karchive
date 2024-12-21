@@ -1,15 +1,17 @@
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive6_qt\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-20 22:01+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: k7zip.cpp:2323
 msgctxt "K7Zip|"
@@ -340,7 +342,7 @@ msgstr "अग्रिमशीर्षकटोकनं अन्वेष�
 #: kzip.cpp:566
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#5) ९."
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#5)"
 
 #: kzip.cpp:582
 msgctxt "KZip|"
@@ -350,7 +352,7 @@ msgstr "संपीडितं आकारं सञ्चिकां कर
 #: kzip.cpp:598
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#1) ९."
+msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#1)"
 
 #: kzip.cpp:631
 msgctxt "KZip|"
