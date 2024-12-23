@@ -71,7 +71,7 @@ bool KGzipFilter::init(int mode, Flag flag)
     if (d->isInitialized) {
         terminate();
     }
-    d->zStream.next_in = Z_NULL;
+    d->zStream.next_in = nullptr;
     d->zStream.avail_in = 0;
     if (mode == QIODevice::ReadOnly) {
         const int windowBits = (flag == RawDeflate) ? -MAX_WBITS /*no zlib header*/
