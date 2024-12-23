@@ -18,6 +18,8 @@
 
 // #define DEBUG_GZIP
 
+static_assert(Z_NULL == 0, "zlib API has changed. We no longer can use nullptr or zero instead of Z_NULL.");
+
 class Q_DECL_HIDDEN KGzipFilter::Private
 {
 public:
@@ -71,7 +73,7 @@ bool KGzipFilter::init(int mode, Flag flag)
     if (d->isInitialized) {
         terminate();
     }
-    d->zStream.next_in = Z_NULL;
+    d->zStream.next_in = nullptr;
     d->zStream.avail_in = 0;
     if (mode == QIODevice::ReadOnly) {
         const int windowBits = (flag == RawDeflate) ? -MAX_WBITS /*no zlib header*/
