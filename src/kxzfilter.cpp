@@ -69,8 +69,11 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
     d->zStream.next_in = nullptr;
     d->zStream.avail_in = 0;
     if (mode == QIODevice::ReadOnly) {
-        // TODO when we can depend on Qt 5.12 Use a QScopeGuard to call freeFilters
         lzma_filter filters[5];
+        const auto filtersCleanupGuard = qScopeGuard([&filters] {
+            freeFilters(filters);
+        });
+
         filters[0].id = LZMA_VLI_UNKNOWN;
 
         switch (flag) {
@@ -99,7 +102,6 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
             result = lzma_properties_decode(&filters[0], nullptr, props, sizeof(props));
             if (result != LZMA_OK) {
                 qCWarning(KArchiveLog) << "lzma_properties_decode returned" << result;
-                freeFilters(filters);
                 return false;
             }
             break;
@@ -117,7 +119,6 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
             result = lzma_properties_decode(&filters[0], nullptr, props, sizeof(props));
             if (result != LZMA_OK) {
                 qCWarning(KArchiveLog) << "lzma_properties_decode returned" << result;
-                freeFilters(filters);
                 return false;
             }
             break;
@@ -132,7 +133,6 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
             result = lzma_properties_decode(&filters[1], nullptr, props, sizeof(props));
             if (result != LZMA_OK) {
                 qCWarning(KArchiveLog) << "lzma_properties_decode1 returned" << result;
-                freeFilters(filters);
                 return false;
             }
 
@@ -154,11 +154,9 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
             result = lzma_raw_decoder(&d->zStream, filters);
             if (result != LZMA_OK) {
                 qCWarning(KArchiveLog) << "lzma_raw_decoder returned" << result;
-                freeFilters(filters);
                 return false;
             }
         }
-        freeFilters(filters);
 
     } else if (mode == QIODevice::WriteOnly) {
         if (flag == AUTO) {
