@@ -60,7 +60,7 @@ public:
     bool fillTempFile(const QString &fileName);
     bool writeBackTempFile(const QString &fileName);
     void fillBuffer(char *buffer, const char *mode, qint64 size, const QDateTime &mtime, char typeflag, const char *uname, const char *gname);
-    void writeLonglink(char *buffer, const QByteArray &name, char typeflag, const char *uname, const char *gname);
+    [[nodiscard]] bool writeLonglink(char *buffer, const QByteArray &name, char typeflag, const char *uname, const char *gname);
     qint64 readRawHeader(char *buffer);
     bool readLonglink(char *buffer, QByteArray &longlink);
     qint64 readHeader(char *buffer, QString &name, QString &symlink);
@@ -734,22 +734,32 @@ void KTar::KTarPrivate::fillBuffer(char *buffer, const char *mode, qint64 size, 
     memcpy(buffer + 0x94, s.constData(), 6);
 }
 
-void KTar::KTarPrivate::writeLonglink(char *buffer, const QByteArray &name, char typeflag, const char *uname, const char *gname)
+bool KTar::KTarPrivate::writeLonglink(char *buffer, const QByteArray &name, char typeflag, const char *uname, const char *gname)
 {
     strcpy(buffer, "././@LongLink");
     qint64 namelen = name.length() + 1;
     fillBuffer(buffer, "     0", namelen, QDateTime(), typeflag, uname, gname);
-    q->device()->write(buffer, 0x200); // TODO error checking
+
+    if (q->device()->write(buffer, 0x200) != 0x200) {
+        q->setErrorString(tr("Couldn't write long link: %1").arg(q->device()->errorString()));
+        return false;
+    }
+
     qint64 offset = 0;
     while (namelen > 0) {
         int chunksize = qMin(namelen, 0x200LL);
         memcpy(buffer, name.data() + offset, chunksize);
         // write long name
-        q->device()->write(buffer, 0x200); // TODO error checking
+        if (q->device()->write(buffer, 0x200) != 0x200) {
+            q->setErrorString(tr("Couldn't write long link: %1").arg(q->device()->errorString()));
+            return false;
+        }
         // not even needed to reclear the buffer, tar doesn't do it
         namelen -= chunksize;
         offset += 0x200;
     } /*wend*/
+
+    return true;
 }
 
 bool KTar::doPrepareWriting(const QString &name,
@@ -813,8 +823,8 @@ bool KTar::doPrepareWriting(const QString &name,
     const QByteArray gname = group.toLocal8Bit();
 
     // If more than 100 bytes, we need to use the LongLink trick
-    if (encodedFileName.length() > 99) {
-        d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData());
+    if (encodedFileName.length() > 99 && !d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData())) {
+        return false;
     }
 
     // Write (potentially truncated) name
@@ -880,8 +890,8 @@ bool KTar::doWriteDir(const QString &name,
     QByteArray gname = group.toLocal8Bit();
 
     // If more than 100 bytes, we need to use the LongLink trick
-    if (encodedDirname.length() > 99) {
-        d->writeLonglink(buffer, encodedDirname, 'L', uname.constData(), gname.constData());
+    if (encodedDirname.length() > 99 && !d->writeLonglink(buffer, encodedDirname, 'L', uname.constData(), gname.constData())) {
+        return false;
     }
 
     // Write (potentially truncated) name
@@ -941,11 +951,11 @@ bool KTar::doWriteSymLink(const QString &name,
     QByteArray gname = group.toLocal8Bit();
 
     // If more than 100 bytes, we need to use the LongLink trick
-    if (encodedTarget.length() > 99) {
-        d->writeLonglink(buffer, encodedTarget, 'K', uname.constData(), gname.constData());
+    if (encodedTarget.length() > 99 && !d->writeLonglink(buffer, encodedTarget, 'K', uname.constData(), gname.constData())) {
+        return false;
     }
-    if (encodedFileName.length() > 99) {
-        d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData());
+    if (encodedFileName.length() > 99 && !d->writeLonglink(buffer, encodedFileName, 'L', uname.constData(), gname.constData())) {
+        return false;
     }
 
     // Write (potentially truncated) name
