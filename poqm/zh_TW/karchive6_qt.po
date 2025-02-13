@@ -286,29 +286,37 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "無法寫入對齊：%1"
 
-#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
+#: ktar.cpp:744 ktar.cpp:754
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "無法寫入對齊：%1"
+
+#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "應用程式錯誤：TAR 檔案必須開啟才能寫入"
 
-#: ktar.cpp:771
+#: ktar.cpp:781
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 
-#: ktar.cpp:778
+#: ktar.cpp:788
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "應用程式限制：無法新增大於 %1 個位元組的檔案"
 
-#: ktar.cpp:832
+#: ktar.cpp:842
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "寫入標頭失敗：%1"
 
-#: ktar.cpp:854 ktar.cpp:923
+#: ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 TAR 檔案"

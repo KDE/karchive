@@ -43,13 +43,13 @@ msgstr "下一个文件头太大"
 #: k7zip.cpp:2374
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr "下一个文件头小于 0"
+msgstr "下一个文件头大小小于 0"
 
 #: k7zip.cpp:2385
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr "读取下一文件头大小失败；应读取 %1，读取 %2"
+msgstr "读取下一个文件头大小失败；本应读取 %1，实际读取了 %2"
 
 #: k7zip.cpp:2397
 msgctxt "K7Zip|"
@@ -288,29 +288,37 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "写入对齐信息：%1 失败"
 
-#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
+#: ktar.cpp:744 ktar.cpp:754
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "写入对齐信息：%1 失败"
+
+#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "应用程序错误：TAR 文件必须先打开才能写入"
 
-#: ktar.cpp:771
+#: ktar.cpp:781
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "应用程序错误：尝试写入不可写入的 7-Zip 文件"
 
-#: ktar.cpp:778
+#: ktar.cpp:788
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "应用程序限制：不能添加大于 %1 字节的文件"
 
-#: ktar.cpp:832
+#: ktar.cpp:842
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "无法写入文件头：%1"
 
-#: ktar.cpp:854 ktar.cpp:923
+#: ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "应用程序错误：尝试写入不可写入的 TAR 文件"

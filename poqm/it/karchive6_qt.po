@@ -295,21 +295,29 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Impossibile scrivere l'allineamento: %1"
 
-#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
+#: ktar.cpp:744 ktar.cpp:754
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "Impossibile scrivere l'allineamento: %1"
+
+#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Errore dell'applicazione: il file TAR deve essere aperto prima di essere "
 "scritto"
 
-#: ktar.cpp:771
+#: ktar.cpp:781
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Errore dell'applicazione: tentativo di scrittura in un file 7-Zip non "
 "scrivibile"
 
-#: ktar.cpp:778
+#: ktar.cpp:788
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
@@ -317,13 +325,13 @@ msgstr ""
 "Limitazione dell'applicazione: impossibile aggiungere file più grandi di %1 "
 "byte"
 
-#: ktar.cpp:832
+#: ktar.cpp:842
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Impossibile scrivere l'intestazione: %1"
 
-#: ktar.cpp:854 ktar.cpp:923
+#: ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

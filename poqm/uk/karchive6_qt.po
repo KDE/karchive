@@ -295,32 +295,40 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Не вдалося записати вирівнювання: %1"
 
-#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
+#: ktar.cpp:744 ktar.cpp:754
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "Не вдалося записати вирівнювання: %1"
+
+#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Помилка програми: файл TAR має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: ktar.cpp:771
+#: ktar.cpp:781
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
 
-#: ktar.cpp:778
+#: ktar.cpp:788
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Обмеження програми: не можна додавати файли, розмір яких перевищує %1 байтів"
 
-#: ktar.cpp:832
+#: ktar.cpp:842
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Не вдалось записати заголовок: %1"
 
-#: ktar.cpp:854 ktar.cpp:923
+#: ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"

@@ -296,30 +296,38 @@ msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Ne eblis skribi vicigon: %1"
 
-#: ktar.cpp:765 ktar.cpp:848 ktar.cpp:917
+#: ktar.cpp:744 ktar.cpp:754
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "Ne eblis skribi vicigon: %1"
+
+#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Aplika eraro: TAR-dosiero devas esti malfermita antaŭ ol esti skribita enen"
 
-#: ktar.cpp:771
+#: ktar.cpp:781
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Aplika eraro: provis skribi en ne-skribiblan 7-Zip-dosieron"
 
-#: ktar.cpp:778
+#: ktar.cpp:788
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Limigo de aplikaĵo: Ne povas aldoni dosieron pli grandan ol %1 bajtoj"
 
-#: ktar.cpp:832
+#: ktar.cpp:842
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Malsukcesis skribi kaplinion: %1"
 
-#: ktar.cpp:854 ktar.cpp:923
+#: ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Aplika eraro: provis skribi en ne-skribeblan TAR-dosieron"
