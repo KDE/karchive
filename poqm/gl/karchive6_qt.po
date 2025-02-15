@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-06 20:47+0100\n"
+"PO-Revision-Date: 2025-02-14 08:32+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2323
@@ -297,12 +297,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Non foi posíbel escribir o aliñamento: %1"
 
 #: ktar.cpp:744 ktar.cpp:754
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Non foi posíbel escribir o aliñamento: %1"
+msgstr "Non foi posíbel escribir a ligazón longa: %1"
 
 #: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"

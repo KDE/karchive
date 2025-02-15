@@ -289,12 +289,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "写入对齐信息：%1 失败"
 
 #: ktar.cpp:744 ktar.cpp:754
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "写入对齐信息：%1 失败"
+msgstr ""
 
 #: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"

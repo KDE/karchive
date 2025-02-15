@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-04-11 06:47+0300\n"
+"PO-Revision-Date: 2025-02-14 09:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: k7zip.cpp:2323
 msgctxt "K7Zip|"
@@ -289,12 +289,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "לא ניתן לכתוב יישור: %1"
 
 #: ktar.cpp:744 ktar.cpp:754
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "לא ניתן לכתוב יישור: %1"
+msgstr "לא ניתן לכתוב קישור ארוך: %1"
 
 #: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
