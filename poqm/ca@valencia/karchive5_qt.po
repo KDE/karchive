@@ -112,7 +112,7 @@ msgstr ""
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr "S'ha produït un error d'escriptura"
+msgstr "S'ha produït un error mentre s'escrivia"
 
 #: k7zip.cpp:2826
 msgctxt "K7Zip|"
