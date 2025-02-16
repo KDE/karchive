@@ -595,7 +595,12 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     qint64 len;
     while (!file->atEnd()) {
         len = file->read(buffer.data(), buffer.size());
-        dev.write(buffer.data(), len); // TODO error checking
+        if (dev.write(buffer.data(), len) != len) {
+            file->close();
+            dev.close();
+            q->setErrorString(tr("Failed to write back temp file: %1").arg(dev.errorString()));
+            return false;
+        }
     }
     file->close();
     dev.close();
