@@ -1,8 +1,8 @@
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-10 11:22+0200\n"
+"PO-Revision-Date: 2025-02-15 10:48+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -11,6 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2323
@@ -296,12 +297,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Nie udało się zapisać wyrównania: %1"
 
 #: ktar.cpp:744 ktar.cpp:754
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Nie udało się zapisać wyrównania: %1"
+msgstr "Nie można zapisać długiego odnośnika: %1"
 
 #: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"

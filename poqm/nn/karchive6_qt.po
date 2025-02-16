@@ -295,8 +295,6 @@ msgstr "Klarte ikkje skriva justering: %1"
 
 #: ktar.cpp:744 ktar.cpp:754
 #, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Klarte ikkje skriva justering: %1"

@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2024-04-25 14:16+0200\n"
+"PO-Revision-Date: 2025-02-14 08:53+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2323
@@ -298,12 +298,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Impossible d'écrire l'alignement : %1"
 
 #: ktar.cpp:744 ktar.cpp:754
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Impossible d'écrire l'alignement : %1"
+msgstr "Impossible d'écrire un lien au format long : %1"
 
 #: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
 msgctxt "KTar|"
