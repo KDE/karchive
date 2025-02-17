@@ -280,49 +280,49 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Kon tar-header niet lezen"
 
-#: ktar.cpp:586
+#: ktar.cpp:586 ktar.cpp:601
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Niet in staat om terug te schrijven naar tijdelijk bestand: %1"
 
-#: ktar.cpp:642
+#: ktar.cpp:647
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Kon uitlijning nuet schrijven: %1"
 
-#: ktar.cpp:744 ktar.cpp:754
+#: ktar.cpp:749 ktar.cpp:759
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Kon lange koppeling niet schrijven: %1"
 
-#: ktar.cpp:775 ktar.cpp:858 ktar.cpp:927
+#: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Toepassingsfout: TAR-bestand moet open zijn alvorens er in te schrijven"
 
-#: ktar.cpp:781
+#: ktar.cpp:786
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Toepassingsfout: poging te schrijven niet-te beschrijven 7-zip-bestand"
 
-#: ktar.cpp:788
+#: ktar.cpp:793
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Beperking van toepassing: kan geen bestand groter dan %1 bytes toevoegen"
 
-#: ktar.cpp:842
+#: ktar.cpp:847
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Header schrijven is mislukt: %1"
 
-#: ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Toepassingsfout: poging te schrijven niet-te beschrijven TAR-bestand"
