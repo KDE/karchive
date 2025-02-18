@@ -292,7 +292,7 @@ msgstr "写入对齐信息：%1 失败"
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr ""
+msgstr "无法写入长链接：%1"
 
 #: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"

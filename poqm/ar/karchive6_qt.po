@@ -1,8 +1,8 @@
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-04 18:14+0400\n"
+"PO-Revision-Date: 2025-02-17 21:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -11,6 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2323
@@ -288,12 +289,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "تعذر كتابة المحاذاة: %1"
 
 #: ktar.cpp:749 ktar.cpp:759
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "تعذر كتابة المحاذاة: %1"
+msgstr "تعذر كتابة رابط طويل: %1"
 
 #: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"
