@@ -12,6 +12,7 @@
 #include <ktar.h>
 #include <kzip.h>
 
+#include <QBuffer>
 #include <QDebug>
 #include <QFileInfo>
 #include <QRegularExpression>
@@ -1376,7 +1377,7 @@ void KArchiveTest::cleanupTestCase()
 #if HAVE_XZ_SUPPORT
 
 /**
- * Prepares dataset for archive filter tests
+ * Prepares dataset for 7zip tests
  */
 void KArchiveTest::setup7ZipData()
 {
@@ -1563,6 +1564,50 @@ void KArchiveTest::test7ZipMaxLength()
 
     // NOTE Cleanup here
     QFile::remove(fileName);
+}
+
+void KArchiveTest::test7ZipNamelessFile()
+{
+    QBuffer archive;
+
+    K7Zip writer(&archive);
+
+    QVERIFY(writer.open(QIODevice::WriteOnly));
+    QVERIFY(writer.writeFile(QString(), "Hello from a nameless file.", 0100644, "azhar", "users"));
+    QVERIFY(writer.close());
+
+    K7Zip reader(&archive);
+
+    QVERIFY(reader.open(QIODevice::ReadOnly));
+
+    const KArchiveDirectory *dir = reader.directory();
+    QVERIFY(dir != nullptr);
+    const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
+
+    QCOMPARE(listing.count(), 1);
+    QCOMPARE(listing[0], "mode=100644 path=contents type=file size=27");
+
+    QVERIFY(reader.close());
+}
+
+void KArchiveTest::test7ZipMultipleNamelessFiles()
+{
+    QString fileName = QFINDTESTDATA("data/multiple_nameless_files.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY2(k7zip.open(QIODevice::ReadOnly), "data/multiple_nameless_files.7z");
+
+    const KArchiveDirectory *dir = k7zip.directory();
+    QVERIFY(dir != nullptr);
+    const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
+
+    QCOMPARE(listing.count(), 2);
+
+    QCOMPARE(listing[0], QString("mode=10600 path=multiple_nameless_files_1 type=file size=27"));
+    QCOMPARE(listing[1], QString("mode=10600 path=multiple_nameless_files_2 type=file size=33"));
+
+    QVERIFY(k7zip.close());
 }
 #endif
 

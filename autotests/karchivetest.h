@@ -121,6 +121,8 @@ private Q_SLOTS:
         setup7ZipData();
     }
     void test7ZipMaxLength();
+    void test7ZipNamelessFile();
+    void test7ZipMultipleNamelessFiles();
 #endif
 
     void cleanupTestCase();

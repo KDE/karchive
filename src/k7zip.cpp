@@ -2219,10 +2219,8 @@ void K7Zip::K7ZipPrivate::writeHeader(quint64 &headerOffset)
         size_t namesDataSize = 0;
         for (int i = 0; i < fileInfos.size(); i++) {
             const QString &name = fileInfos.at(i)->path;
-            if (!name.isEmpty()) {
-                numDefined++;
-                namesDataSize += (name.length() + 1) * 2;
-            }
+            numDefined++;
+            namesDataSize += (name.length() + 1) * 2;
         }
 
         if (numDefined > 0) {
@@ -2630,8 +2628,28 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     d->outData = d->readAndDecodePackedStreams(false);
 
     int oldPos = 0;
+    int filesWithoutNames = 0;
+
+    // "contents" is used as the default name when the archive was opened from a QIODevice  
+    // instead of a file, meaning there is no actual file name available. 
+    const QString defaultBaseName = d->q->fileName().isEmpty()
+                ? tr("contents")
+                : QFileInfo(d->q->fileName()).completeBaseName();
+
     for (int i = 0; i < numFiles; i++) {
         FileInfo *fileInfo = d->fileInfos.at(i);
+
+        // If the kName property is not present or doesn't contain all the file names,
+        // then the file name is the name of the archive
+        if (fileInfo->path.isEmpty()) {
+            if (numFiles > 1) {
+                filesWithoutNames++;
+                fileInfo->path = QStringLiteral("%1_%2").arg(defaultBaseName).arg(filesWithoutNames);
+            } else {
+                fileInfo->path = defaultBaseName;
+            }
+        }
+
         bool isAnti;
         fileInfo->hasStream = !emptyStreamVector[i];
         if (fileInfo->hasStream) {
