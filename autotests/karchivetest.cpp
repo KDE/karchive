@@ -699,7 +699,7 @@ void KArchiveTest::testTarMaxLength()
 
 void KArchiveTest::testTarGlobalHeader()
 {
-    QString fileName = QFINDTESTDATA("data/global_header_test.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/global_header_test.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -720,7 +720,7 @@ void KArchiveTest::testTarGlobalHeader()
 
 void KArchiveTest::testTarPrefix()
 {
-    QString fileName = QFINDTESTDATA("data/tar_prefix_test.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_prefix_test.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -755,7 +755,7 @@ void KArchiveTest::testTarPrefix()
 
 void KArchiveTest::testTarDirectoryForgotten()
 {
-    QString fileName = QFINDTESTDATA("data/tar_directory_forgotten.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_directory_forgotten.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -776,7 +776,7 @@ void KArchiveTest::testTarDirectoryForgotten()
 
 void KArchiveTest::testTarEmptyFileMissingDir()
 {
-    QString fileName = QFINDTESTDATA("data/tar_emptyfile_missingdir.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_emptyfile_missingdir.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -797,7 +797,7 @@ void KArchiveTest::testTarEmptyFileMissingDir()
 
 void KArchiveTest::testTarRootDir() // bug 309463
 {
-    QString fileName = QFINDTESTDATA("data/tar_rootdir.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_rootdir.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -855,7 +855,7 @@ void KArchiveTest::testTarShortNonASCIINames() // bug 266141
 #ifdef Q_OS_WIN
     QSKIP("tar test file encoding not windows compatible");
 #endif
-    QString fileName = QFINDTESTDATA("data/tar_non_ascii_file_name.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_non_ascii_file_name.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -875,7 +875,7 @@ void KArchiveTest::testTarShortNonASCIINames() // bug 266141
 
 void KArchiveTest::testTarDirectoryTwice() // bug 206994
 {
-    QString fileName = QFINDTESTDATA("data/tar_directory_twice.tar.gz");
+    const QString fileName = QFINDTESTDATA("data/tar_directory_twice.tar.gz");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -901,7 +901,7 @@ void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
     // outside of the archive directory. For security reasons extractions should only
     // be allowed within the extracted directory as long as not specifically asked.
 
-    QString fileName = QFINDTESTDATA("data/tar_relative_path_outside_archive.tar.bz2");
+    const QString fileName = QFINDTESTDATA("data/tar_relative_path_outside_archive.tar.bz2");
     QVERIFY(!fileName.isEmpty());
 
     KTar tar(fileName);
@@ -1250,7 +1250,7 @@ void KArchiveTest::testZipReadRedundantDataDescriptor()
 
 void KArchiveTest::testZipDirectoryPermissions()
 {
-    QString fileName = QFINDTESTDATA("data/dirpermissions.zip");
+    const QString fileName = QFINDTESTDATA("data/dirpermissions.zip");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
@@ -1263,7 +1263,7 @@ void KArchiveTest::testZipDirectoryPermissions()
 
 void KArchiveTest::testZipWithinZip()
 {
-    QString fileName = QFINDTESTDATA("data/zip_within_zip.zip");
+    const QString fileName = QFINDTESTDATA("data/zip_within_zip.zip");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
@@ -1278,7 +1278,7 @@ void KArchiveTest::testZipWithinZip()
 
 void KArchiveTest::testZipUnusualButValid()
 {
-    QString fileName = QFINDTESTDATA("data/unusual_but_valid_364071.zip");
+    const QString fileName = QFINDTESTDATA("data/unusual_but_valid_364071.zip");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
@@ -1291,7 +1291,7 @@ void KArchiveTest::testZipUnusualButValid()
 
 void KArchiveTest::testZipDuplicateNames()
 {
-    QString fileName = QFINDTESTDATA("data/out.epub");
+    const QString fileName = QFINDTESTDATA("data/out.epub");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
@@ -1310,7 +1310,7 @@ void KArchiveTest::testZipDuplicateNames()
 
 void KArchiveTest::testZip64()
 {
-    QString fileName = QFINDTESTDATA("data/zip64.pkpass");
+    const QString fileName = QFINDTESTDATA("data/zip64.pkpass");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
@@ -1615,7 +1615,7 @@ void KArchiveTest::test7ZipNamelessFile()
 
 void KArchiveTest::test7ZipMultipleNamelessFiles()
 {
-    QString fileName = QFINDTESTDATA("data/multiple_nameless_files.7z");
+    const QString fileName = QFINDTESTDATA("data/multiple_nameless_files.7z");
     QVERIFY(!fileName.isEmpty());
 
     K7Zip k7zip(fileName);
