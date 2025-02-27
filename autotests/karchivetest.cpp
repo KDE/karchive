@@ -699,8 +699,11 @@ void KArchiveTest::testTarMaxLength()
 
 void KArchiveTest::testTarGlobalHeader()
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("global_header_test.tar.gz")));
-    QVERIFY2(tar.open(QIODevice::ReadOnly), "global_header_test.tar.gz");
+    QString fileName = QFINDTESTDATA("data/global_header_test.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
+    QVERIFY2(tar.open(QIODevice::ReadOnly), "data/global_header_test.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
     QVERIFY(dir != nullptr);
@@ -717,8 +720,11 @@ void KArchiveTest::testTarGlobalHeader()
 
 void KArchiveTest::testTarPrefix()
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_prefix_test.tar.gz")));
-    QVERIFY2(tar.open(QIODevice::ReadOnly), "tar_prefix_test.tar.gz");
+    QString fileName = QFINDTESTDATA("data/tar_prefix_test.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
+    QVERIFY2(tar.open(QIODevice::ReadOnly), "data/tar_prefix_test.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
     QVERIFY(dir != nullptr);
@@ -749,8 +755,11 @@ void KArchiveTest::testTarPrefix()
 
 void KArchiveTest::testTarDirectoryForgotten()
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_directory_forgotten.tar.gz")));
-    QVERIFY2(tar.open(QIODevice::ReadOnly), "tar_directory_forgotten.tar.gz");
+    QString fileName = QFINDTESTDATA("data/tar_directory_forgotten.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
+    QVERIFY2(tar.open(QIODevice::ReadOnly), "data/tar_directory_forgotten.tar.gz");
 
     const KArchiveDirectory *dir = tar.directory();
     QVERIFY(dir != nullptr);
@@ -767,7 +776,10 @@ void KArchiveTest::testTarDirectoryForgotten()
 
 void KArchiveTest::testTarEmptyFileMissingDir()
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_emptyfile_missingdir.tar.gz")));
+    QString fileName = QFINDTESTDATA("data/tar_emptyfile_missingdir.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
     QVERIFY(tar.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = tar.directory();
@@ -785,7 +797,10 @@ void KArchiveTest::testTarEmptyFileMissingDir()
 
 void KArchiveTest::testTarRootDir() // bug 309463
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_rootdir.tar.gz")));
+    QString fileName = QFINDTESTDATA("data/tar_rootdir.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
     QVERIFY2(tar.open(QIODevice::ReadOnly), qPrintable(tar.fileName()));
 
     const KArchiveDirectory *dir = tar.directory();
@@ -840,8 +855,10 @@ void KArchiveTest::testTarShortNonASCIINames() // bug 266141
 #ifdef Q_OS_WIN
     QSKIP("tar test file encoding not windows compatible");
 #endif
+    QString fileName = QFINDTESTDATA("data/tar_non_ascii_file_name.tar.gz");
+    QVERIFY(!fileName.isEmpty());
 
-    KTar tar(QFINDTESTDATA(QString("tar_non_ascii_file_name.tar.gz")));
+    KTar tar(fileName);
 
     QVERIFY(tar.open(QIODevice::ReadOnly));
     const KArchiveDirectory *dir = tar.directory();
@@ -858,7 +875,10 @@ void KArchiveTest::testTarShortNonASCIINames() // bug 266141
 
 void KArchiveTest::testTarDirectoryTwice() // bug 206994
 {
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_directory_twice.tar.gz")));
+    QString fileName = QFINDTESTDATA("data/tar_directory_twice.tar.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
     QVERIFY(tar.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = tar.directory();
@@ -881,7 +901,10 @@ void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
     // outside of the archive directory. For security reasons extractions should only
     // be allowed within the extracted directory as long as not specifically asked.
 
-    KTar tar(QFINDTESTDATA(QLatin1String("tar_relative_path_outside_archive.tar.bz2")));
+    QString fileName = QFINDTESTDATA("data/tar_relative_path_outside_archive.tar.bz2");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
     QVERIFY(tar.open(QIODevice::ReadOnly));
 
     const KArchiveDirectory *dir = tar.directory();
@@ -1309,7 +1332,7 @@ void KArchiveTest::testZip64()
 
 void KArchiveTest::testRcc()
 {
-    const QString rccFile = QFINDTESTDATA("runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
+    const QString rccFile = QFINDTESTDATA("data/runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
     QVERIFY(!rccFile.isEmpty());
     KRcc rcc(rccFile);
     QVERIFY(rcc.open(QIODevice::ReadOnly));
