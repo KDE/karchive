@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-13 16:52+0100\n"
+"PO-Revision-Date: 2025-02-28 10:46+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -106,7 +106,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "inhoud"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"

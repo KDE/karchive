@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2025-02-13 09:08+0100\n"
+"PO-Revision-Date: 2025-02-28 09:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -112,7 +112,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "contingut"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"

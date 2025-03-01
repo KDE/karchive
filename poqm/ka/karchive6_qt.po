@@ -104,7 +104,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "შემცველობა"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"

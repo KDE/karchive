@@ -1,9 +1,12 @@
+# Translation of karchive6_qt.po to Spanish
+#
 # SPDX-FileCopyrightText: 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: karchive5_qt\n"
+"Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2025-02-13 16:47+0100\n"
+"POT-Creation-Date: 2025-02-28 00:41+0000\n"
+"PO-Revision-Date: 2025-03-01 01:02+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -108,7 +111,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "contenido"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"
