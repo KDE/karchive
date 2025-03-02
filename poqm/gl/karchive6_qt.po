@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-14 08:32+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-03-01 08:32+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "contido"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"
