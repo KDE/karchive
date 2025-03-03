@@ -86,20 +86,20 @@ public:
      * Adds a new entry to the directory.
      * Note: this can delete the entry if another one with the same name is already present
      */
-    void addEntry(KArchiveEntry *); // KF6 TODO: return bool
+    void addEntry(KArchiveEntry *); // KF7 TODO: remove
 
     /**
      * @internal
      * Adds a new entry to the directory.
      * @return whether the entry was added or not. Non added entries are deleted
      */
-    bool addEntryV2(KArchiveEntry *); // KF6 TODO: merge with the one above
+    bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
     /**
      * @internal
      * Removes an entry from the directory.
      */
-    void removeEntry(KArchiveEntry *); // KF6 TODO: return bool since it can fail
+    void removeEntry(KArchiveEntry *); // KF7 TODO: return bool since it can fail
 
     /**
      * Checks whether this entry is a directory.

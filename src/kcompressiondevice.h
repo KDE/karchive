@@ -27,7 +27,7 @@ class KFilterBase;
  * Use this class to read/write compressed files.
  */
 
-class KARCHIVE_EXPORT KCompressionDevice : public QIODevice // KF6 TODO: consider inheriting from QFileDevice, so apps can use error() generically ?
+class KARCHIVE_EXPORT KCompressionDevice : public QIODevice // KF7 TODO: consider inheriting from QFileDevice, so apps can use error() generically ?
 {
     Q_OBJECT
 public:
