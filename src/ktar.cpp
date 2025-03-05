@@ -529,17 +529,16 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                         delete e;
                     }
                 } else {
-                    rootDir()->addEntry(e);
+                    if (!rootDir()->addEntryV2(e)){
+                        return false;
+                    }
                 }
             } else {
                 // In some tar files we can find dir/./file => call cleanPath
                 QString path = QDir::cleanPath(name.left(pos));
                 // Ensure container directory exists, create otherwise
                 KArchiveDirectory *d = findOrCreate(path);
-                if (d) {
-                    d->addEntry(e);
-                } else {
-                    delete e;
+                if(!d || !d->addEntryV2(e)){
                     return false;
                 }
             }

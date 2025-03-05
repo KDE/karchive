@@ -2736,11 +2736,15 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
         if (e) {
             if (index == -1) {
-                rootDir()->addEntry(e);
+                if (!rootDir()->addEntryV2(e)){
+                    return false;
+                }
             } else {
                 QString path = QDir::cleanPath(fileInfo->path.left(index));
                 KArchiveDirectory *d = findOrCreate(path);
-                d->addEntry(e);
+                if (!d->addEntryV2(e)){
+                    return false;
+                }
             }
         }
     }
@@ -2992,7 +2996,9 @@ bool K7Zip::doWriteDir(const QString &name,
     }
 
     KArchiveDirectory *e = new KArchiveDirectory(this, dirName, perm, mtime, user, group, QString() /*symlink*/);
-    parentDir->addEntry(e);
+    if (!parentDir->addEntryV2(e)){
+        return false;
+    }
 
     return true;
 }

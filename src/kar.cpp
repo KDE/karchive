@@ -175,8 +175,9 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
                                                 /*symlink*/ QString(),
                                                 dev->pos(),
                                                 size);
-        rootDir()->addEntry(entry); // Ar files don't support directories, so everything in root
-
+        if (!rootDir()->addEntryV2(entry)){ // Ar files don't support directories, so everything in root
+            return false;
+        }
         dev->seek(dev->pos() + size); // Skip contents
     }
 

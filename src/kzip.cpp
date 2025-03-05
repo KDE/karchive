@@ -751,14 +751,18 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             if (entry) {
                 if (pos == -1) {
-                    rootDir()->addEntry(entry);
+                    if (!rootDir()->addEntryV2(entry)){
+                        return false;
+                    }
                 } else {
                     // In some tar files we can find dir/./file => call cleanPath
                     QString path = QDir::cleanPath(name.left(pos));
                     // Ensure container directory exists, create otherwise
                     KArchiveDirectory *tdir = findOrCreate(path);
                     if (tdir) {
-                        tdir->addEntry(entry);
+                        if (!tdir->addEntryV2(entry)){
+                            return false;
+                        }
                     } else {
                         setErrorString(tr("File %1 is in folder %2, but %3 is actually a file.").arg(entryName, path, path));
                         delete entry;

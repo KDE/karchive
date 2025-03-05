@@ -86,6 +86,7 @@ public:
      * Adds a new entry to the directory.
      * Note: this can delete the entry if another one with the same name is already present
      */
+    [[deprecated]]
     void addEntry(KArchiveEntry *); // KF7 TODO: remove
 
     /**
@@ -93,6 +94,7 @@ public:
      * Adds a new entry to the directory.
      * @return whether the entry was added or not. Non added entries are deleted
      */
+    [[nodiscard]]
     bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
     /**
