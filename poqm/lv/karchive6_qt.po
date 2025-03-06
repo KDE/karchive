@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-03-10 13:17+0200\n"
+"PO-Revision-Date: 2025-03-04 20:14+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: k7zip.cpp:2321
 msgctxt "K7Zip|"
@@ -105,7 +105,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "saturs"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"
@@ -295,12 +295,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Neizdevās rakstīt līdzinājumu: %1"
 
 #: ktar.cpp:749 ktar.cpp:759
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Neizdevās rakstīt līdzinājumu: %1"
+msgstr "Neizdevās rakstīt garo saiti: %1"
 
 #: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"
