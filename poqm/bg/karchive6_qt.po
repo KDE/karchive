@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-13 13:43+0100\n"
+"PO-Revision-Date: 2025-03-06 19:50+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -107,7 +107,7 @@ msgstr ""
 #: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "съдържание"
 
 #: k7zip.cpp:2820
 msgctxt "K7Zip|"
