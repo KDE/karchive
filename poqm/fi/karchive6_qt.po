@@ -1,8 +1,8 @@
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-07 21:29+0200\n"
+"PO-Revision-Date: 2025-02-15 19:35+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,6 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2321
@@ -296,12 +297,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Tasausta ei voitu kirjoittaa: %1"
 
 #: ktar.cpp:749 ktar.cpp:759
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Tasausta ei voitu kirjoittaa: %1"
+msgstr "Ei voitu kirjoittaa pitkää linkkiä: %1"
 
 #: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"
