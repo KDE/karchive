@@ -1632,6 +1632,26 @@ void KArchiveTest::test7ZipMultipleNamelessFiles()
 
     QVERIFY(k7zip.close());
 }
+
+// This test was added to verify K7ZipPrivate::readNumber() boundary check.
+// See: https://invent.kde.org/frameworks/karchive/-/merge_requests/105
+void KArchiveTest::test7ZipReadNumber()
+{
+    const QString fileName = QFINDTESTDATA("data/readnumber_check.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY2(k7zip.open(QIODevice::ReadOnly), "data/readnumber_check.7z");
+
+    const KArchiveDirectory *dir = k7zip.directory();
+    QVERIFY(dir != nullptr);
+    const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
+
+    QCOMPARE(listing.count(), 1);
+    QCOMPARE(listing[0], QString("mode=644 path=file.txt type=file size=5"));
+
+    QVERIFY(k7zip.close());
+}
 #endif
 
 #include "moc_karchivetest.cpp"

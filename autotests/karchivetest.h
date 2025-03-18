@@ -123,6 +123,7 @@ private Q_SLOTS:
     void test7ZipMaxLength();
     void test7ZipNamelessFile();
     void test7ZipMultipleNamelessFiles();
+    void test7ZipReadNumber();
 #endif
 
     void cleanupTestCase();

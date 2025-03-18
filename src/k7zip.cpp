@@ -606,7 +606,7 @@ quint64 K7Zip::K7ZipPrivate::readUInt64()
 
 quint64 K7Zip::K7ZipPrivate::readNumber()
 {
-    if (!buffer || (quint64)(pos + 8) > end) {
+    if (!buffer || pos >= end) {
         return 0;
     }
 
@@ -619,6 +619,11 @@ quint64 K7Zip::K7ZipPrivate::readNumber()
             value += (highPart << (i * 8));
             return value;
         }
+
+        if (pos >= end) {
+            return 0;
+        }
+
         value |= ((unsigned char)buffer[pos++] << (8 * i));
         mask >>= 1;
     }
