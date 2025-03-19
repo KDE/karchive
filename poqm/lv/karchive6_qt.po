@@ -14,121 +14,121 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 24.12.2\n"
 
-#: k7zip.cpp:2321
+#: k7zip.cpp:2326
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Neizdevās iegūt pamata ierīci"
 
-#: k7zip.cpp:2329
+#: k7zip.cpp:2334
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Neizdevās nolasīt galveni"
 
-#: k7zip.cpp:2335
+#: k7zip.cpp:2340
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Neizdevās pārbaudīt parakstu"
 
-#: k7zip.cpp:2358
+#: k7zip.cpp:2363
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Nederīgs CRC"
 
-#: k7zip.cpp:2367
+#: k7zip.cpp:2372
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Nākamais galvenes izmērs ir par lielu"
 
-#: k7zip.cpp:2372
+#: k7zip.cpp:2377
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Nākamais galvenes izmērs ir mazāks par nulli"
 
-#: k7zip.cpp:2383
+#: k7zip.cpp:2388
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Neizdevās nolasīt nākamo galvenes izmēru. Jābūt %1, nolasīja %2"
 
-#: k7zip.cpp:2395
+#: k7zip.cpp:2400
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Slikts nākamais galvenes CRC"
 
-#: k7zip.cpp:2403
+#: k7zip.cpp:2408
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Kļūda galvenē"
 
-#: k7zip.cpp:2422
+#: k7zip.cpp:2427
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Nepareizs galvenes tips"
 
-#: k7zip.cpp:2432 k7zip.cpp:2438
+#: k7zip.cpp:2437 k7zip.cpp:2443
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Nav ieviests"
 
-#: k7zip.cpp:2444
+#: k7zip.cpp:2449
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Kļūda, lasot pamata straumju informāciju"
 
-#: k7zip.cpp:2462
+#: k7zip.cpp:2467
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Kļūda, nolasot galveni"
 
-#: k7zip.cpp:2522
+#: k7zip.cpp:2527
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Kļūda, nolasot izmaiņu laiku"
 
-#: k7zip.cpp:2568
+#: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Kļūda, lasot „MTime“"
 
-#: k7zip.cpp:2575
+#: k7zip.cpp:2580
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Nederīgs"
 
-#: k7zip.cpp:2597
+#: k7zip.cpp:2602
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Kļūda, lasot izmēru (checkRecordsSize: %1, d->pos - ppp: %2, izmērs: %3)"
 
-#: k7zip.cpp:2636
+#: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "saturs"
 
-#: k7zip.cpp:2820
+#: k7zip.cpp:2825
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Rakstīšanas kļūda"
 
-#: k7zip.cpp:2850
+#: k7zip.cpp:2855
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Neizdevās šifrēt galveni"
 
-#: k7zip.cpp:2894
+#: k7zip.cpp:2899
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nav atlasīta datne"
 
-#: k7zip.cpp:2918 k7zip.cpp:2968 k7zip.cpp:3010
+#: k7zip.cpp:2923 k7zip.cpp:2973 k7zip.cpp:3015
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Programmas kļūda: „7-Zip“ datnei ir jābūt atvērtai, lai tajā varētu rakstīt"
 
-#: k7zip.cpp:2924 k7zip.cpp:3016
+#: k7zip.cpp:2929 k7zip.cpp:3021
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programmas kļūda: mēģinājums rakstīt nerakstāmā „7-zip“ datnē"
