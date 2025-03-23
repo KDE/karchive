@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karchive\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 02:58+0200\n"
-"PO-Revision-Date: 2025-02-16 17:10+0100\n"
+"PO-Revision-Date: 2025-03-22 22:36+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -111,7 +111,7 @@ msgstr ""
 #: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "enhavo"
 
 #: k7zip.cpp:2825
 msgctxt "K7Zip|"
