@@ -99,7 +99,14 @@ public:
      * @internal
      * Removes an entry from the directory.
      */
-    void removeEntry(KArchiveEntry *); // KF7 TODO: return bool since it can fail
+    [[deprecated]] void removeEntry(KArchiveEntry *); // KF7 TODO: remove
+
+    /**
+     * Removes an entry from the directory.
+     * @return whether the entry was removed or not.
+     * @since 6.13
+     */
+    [[nodiscard]] bool removeEntryV2(KArchiveEntry *); // KF7 TODO: rename to removeEntry
 
     /**
      * Checks whether this entry is a directory.

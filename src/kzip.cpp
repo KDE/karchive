@@ -1094,7 +1094,9 @@ bool KZip::doPrepareWriting(const QString &name,
         // qCDebug(KArchiveLog) << "prepfileName: " << entry->path();
         if (name == (*it)->path()) {
             // also remove from the parentDir
-            parentDir->removeEntry(*it);
+            if (!parentDir->removeEntryV2(*it)) {
+                return false;
+            }
             // qCDebug(KArchiveLog) << "removing following entry: " << entry->path();
             delete *it;
             it = d->m_fileList.erase(it);

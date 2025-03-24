@@ -572,8 +572,12 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
 
             qCDebug(KArchiveLog) << path << " is an empty file, assuming it is actually a directory and replacing";
             KArchiveEntry *myEntry = const_cast<KArchiveEntry *>(existingEntry);
-            existingEntryParentDirectory->removeEntry(myEntry);
-            delete myEntry;
+            if (existingEntryParentDirectory->removeEntryV2(myEntry)) {
+                delete myEntry;
+            } else {
+                qCDebug(KArchiveLog) << path << " is an empty file, but failed to remove it";
+                return nullptr;
+            }
         }
     }
 
@@ -937,21 +941,27 @@ bool KArchiveDirectory::addEntryV2(KArchiveEntry *entry)
 
 void KArchiveDirectory::removeEntry(KArchiveEntry *entry)
 {
+    (void)removeEntryV2(entry);
+}
+
+bool KArchiveDirectory::removeEntryV2(KArchiveEntry *entry)
+{
     if (!entry) {
-        return;
+        return false;
     }
 
     QHash<QString, KArchiveEntry *>::Iterator it = d->entries.find(entry->name());
     // nothing removed?
     if (it == d->entries.end()) {
         qCWarning(KArchiveLog) << "directory " << name() << "has no entry with name " << entry->name();
-        return;
+        return false;
     }
     if (it.value() != entry) {
         qCWarning(KArchiveLog) << "directory " << name() << "has another entry for name " << entry->name();
-        return;
+        return false;
     }
     d->entries.erase(it);
+    return true;
 }
 
 bool KArchiveDirectory::isDirectory() const
