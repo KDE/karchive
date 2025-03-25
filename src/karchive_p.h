@@ -28,7 +28,6 @@ public:
             dev = nullptr;
         }
 
-        delete saveFile;
         delete rootDir;
     }
 
@@ -48,7 +47,7 @@ public:
 
     KArchive *q = nullptr;
     KArchiveDirectory *rootDir = nullptr;
-    QSaveFile *saveFile = nullptr;
+    std::unique_ptr<QSaveFile> saveFile;
     QIODevice *dev = nullptr;
     QString fileName;
     QIODevice::OpenMode mode = QIODevice::NotOpen;
