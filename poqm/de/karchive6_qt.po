@@ -468,23 +468,23 @@ msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "In der ZIP-Datei kann nicht gesucht werden. Ist das Laufwerk voll?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Es kann nicht in das Archiv geschrieben werden. Ist das Medium voll?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Das Komprimierungsgerät kann nicht geöffnet werden: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Keine Datei oder kein Gerät"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

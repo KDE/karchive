@@ -443,23 +443,23 @@ msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "காப்பகத்திற்கு எழுத முடியவில்லை. வட்டில் இடமுள்ளதா?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "சுருக்க சாதனத்தை திறக்க முடியவில்லை: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "கோப்போ சாதனமோ இல்லை"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

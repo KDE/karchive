@@ -452,23 +452,23 @@ msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Nem lehet keresni a ZIP-fájlban. Megtelt a lemez?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Nem sikerült írni az archívumfájlt. Megtelt a lemez?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Nem sikerült megnyitni a tömörítő eszközt: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Nincs fájl vagy eszköz"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

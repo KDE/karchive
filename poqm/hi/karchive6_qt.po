@@ -442,23 +442,23 @@ msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ज़िप फ़ाइल में नहीं खोजा जा सकता। डिस्क भरी हुई है?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "संग्रह में नहीं लिखा जा सका. डिस्क भर गई?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "संपीड़न डिवाइस नहीं खोला जा सका: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "कोई फ़ाइल या डिवाइस नहीं"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

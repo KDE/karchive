@@ -473,23 +473,23 @@ msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 "Non é posíbel mover a posición de lectura no ficheiro ZIP. Está cheo o disco?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Non foi posíbel escribir no arquivo. Está cheo o disco?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Non foi posíbel abrir o dispositivo de compresión: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Non hai nin ficheiro nin dispositivo."
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
