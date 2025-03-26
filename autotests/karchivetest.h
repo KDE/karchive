@@ -85,6 +85,7 @@ private Q_SLOTS:
     void testZipDuplicateNames();
     void testZipWithinZip();
     void testZip64();
+    void testZipReopenWithoutDoubleDeletion();
 
     void testRcc();
 

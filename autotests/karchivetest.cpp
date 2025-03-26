@@ -1330,6 +1330,18 @@ void KArchiveTest::testZip64()
     QCOMPARE(entry->position(), 8943);
 }
 
+void KArchiveTest::testZipReopenWithoutDoubleDeletion()
+{
+    // testCreateZip must have been run first.
+    KZip zip(s_zipFileName);
+
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+    QVERIFY(zip.close());
+
+    QVERIFY(zip.open(QIODevice::WriteOnly));
+    QVERIFY(zip.close()); // should not crash
+}
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("data/runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
