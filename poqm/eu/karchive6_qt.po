@@ -1,14 +1,14 @@
 # Translation for karchive6_qt.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023, 2025 This file is copyright:
 # This file is distributed under the same license as the original file.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-10 08:42+0200\n"
+"PO-Revision-Date: 2025-03-25 22:05+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2326
 msgctxt "K7Zip|"
@@ -113,7 +113,7 @@ msgstr ""
 #: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "edukia"
 
 #: k7zip.cpp:2825
 msgctxt "K7Zip|"
@@ -307,12 +307,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Ezin izan du lerrokadura idatzi: %1"
 
 #: ktar.cpp:749 ktar.cpp:759
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Ezin izan du lerrokadura idatzi: %1"
+msgstr "Ezin izan du esteka luzea idatzi: %1"
 
 #: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
 msgctxt "KTar|"
