@@ -2741,11 +2741,12 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
         if (e) {
             if (index == -1) {
-                rootDir()->addEntry(e);
+                // We don't want to fail opening potentially malformed files, so void the return value
+                (void)rootDir()->addEntryV2(e);
             } else {
                 QString path = QDir::cleanPath(fileInfo->path.left(index));
                 KArchiveDirectory *d = findOrCreate(path);
-                d->addEntry(e);
+                (void)d->addEntryV2(e);
             }
         }
     }
@@ -2997,9 +2998,7 @@ bool K7Zip::doWriteDir(const QString &name,
     }
 
     KArchiveDirectory *e = new KArchiveDirectory(this, dirName, perm, mtime, user, group, QString() /*symlink*/);
-    parentDir->addEntry(e);
-
-    return true;
+    return parentDir->addEntryV2(e);
 }
 
 bool K7Zip::doWriteSymLink(const QString &name,

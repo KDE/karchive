@@ -529,7 +529,8 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                         delete e;
                     }
                 } else {
-                    rootDir()->addEntry(e);
+                    // We don't want to fail opening potentially malformed files, so void the return value
+                    (void)rootDir()->addEntryV2(e);
                 }
             } else {
                 // In some tar files we can find dir/./file => call cleanPath
@@ -537,7 +538,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 // Ensure container directory exists, create otherwise
                 KArchiveDirectory *d = findOrCreate(path);
                 if (d) {
-                    d->addEntry(e);
+                    (void)d->addEntryV2(e);
                 } else {
                     delete e;
                     return false;

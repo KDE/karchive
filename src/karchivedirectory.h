@@ -86,14 +86,14 @@ public:
      * Adds a new entry to the directory.
      * Note: this can delete the entry if another one with the same name is already present
      */
-    void addEntry(KArchiveEntry *); // KF7 TODO: remove
+    [[deprecated("Use addEntryV2() instead.")]] void addEntry(KArchiveEntry *); // KF7 TODO: remove
 
     /**
      * @internal
      * Adds a new entry to the directory.
      * @return whether the entry was added or not. Non added entries are deleted
      */
-    bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
+    [[nodiscard]] bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
     /**
      * @internal
