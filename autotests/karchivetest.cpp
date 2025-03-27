@@ -1664,6 +1664,39 @@ void KArchiveTest::test7ZipReadNumber()
 
     QVERIFY(k7zip.close());
 }
+
+#if HAVE_OPENSSL_SUPPORT
+void KArchiveTest::test7ZipPasswordProtected()
+{
+    const QString fileName = QFINDTESTDATA("data/password_protected.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(!k7zip.open(QIODevice::ReadOnly)); // Should fail without a password
+
+    QVERIFY(k7zip.passwordNeeded());
+    k7zip.setPassword("youshallnotpass");
+
+    QVERIFY2(k7zip.open(QIODevice::ReadOnly), "data/password_protected.7z");
+
+    const KArchiveDirectory *dir = k7zip.directory();
+    QVERIFY(dir != nullptr);
+
+    const KArchiveEntry *entry = dir->entry("file.txt");
+    QVERIFY(entry != nullptr);
+
+    QVERIFY(entry->name() == "file.txt");
+    QVERIFY(entry->isFile());
+
+    const QByteArray fileData = QByteArray("Hello from an encrypted file in a 7z archive!\n");
+
+    const KArchiveFile *file = static_cast<const KArchiveFile *>(entry);
+    QCOMPARE(file->data(), fileData);
+
+    QVERIFY(k7zip.close());
+}
+#endif
+
 #endif
 
 #include "moc_karchivetest.cpp"

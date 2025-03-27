@@ -4,6 +4,7 @@ if(BZIP2_FOUND AND BZIP2_NEED_PREFIX)
 endif()
 
 set(HAVE_XZ_SUPPORT ${LIBLZMA_FOUND})
+set(HAVE_OPENSSL_SUPPORT ${OpenSSL_FOUND})
 set(HAVE_ZSTD_SUPPORT ${LibZstd_FOUND})
 
 configure_file(config-compression.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-compression.h)
@@ -27,6 +28,10 @@ endif()
 if(LIBLZMA_FOUND)
     target_sources(KF6Archive PRIVATE kxzfilter.cpp k7zip.cpp)
     target_link_libraries(KF6Archive PRIVATE LibLZMA::LibLZMA)
+endif()
+
+if (OpenSSL_FOUND)
+    target_link_libraries(KF6Archive PRIVATE OpenSSL::Crypto)
 endif()
 
 if (LibZstd_FOUND)

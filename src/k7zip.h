@@ -44,6 +44,23 @@ public:
      */
     ~K7Zip() override;
 
+    /**
+     * Sets the password to use for encrypted archives.
+     * This method must be called before opening the archive.
+     * @note Currently only AES decryption is supported.
+     * @param password the password to use for encrypted archive
+     * @since 6.13
+     */
+    void setPassword(const QString &password);
+
+    /**
+     * Whether the archive needs a password to be opened.
+     * @note This can only be called after open() has been called once.
+     * @return true if the archive requires a password to be opened
+     * @since 6.13
+     */
+    bool passwordNeeded() const;
+
 protected:
     /// Reimplemented from KArchive
     bool doWriteSymLink(const QString &name,

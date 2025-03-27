@@ -9,6 +9,7 @@
 #include "loggingcategory.h"
 
 #include <QBuffer>
+#include <QCryptographicHash>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -23,6 +24,10 @@
 #include "zlib.h"
 #include <memory>
 #include <time.h> // time()
+
+#if HAVE_OPENSSL_SUPPORT
+#include <openssl/evp.h>
+#endif
 
 #ifndef QT_STAT_LNK
 #define QT_STAT_LNK 0120000
@@ -467,6 +472,8 @@ public:
 
     QList<bool> isAnti;
 
+    QString password;
+
     const char *buffer;
     quint64 pos;
     quint64 end;
@@ -528,6 +535,7 @@ public:
     bool readPackInfo();
     bool readUnpackInfo();
     bool readSubStreamsInfo();
+    KFilterBase *getFilter(const Folder *folder, const Folder::FolderInfo *coder, const int currentCoderIndex, QByteArray &deflatedData, QList<QByteArray> &inflatedDatas);
     QByteArray readAndDecodePackedStreams(bool readMainStreamInfo = true);
 
     // Write
@@ -570,6 +578,21 @@ K7Zip::~K7Zip()
     }
 
     delete d;
+}
+
+void K7Zip::setPassword(const QString &password) {
+    d->password = password;
+}
+
+bool K7Zip::passwordNeeded() const
+{
+    for (int i = 0; i < d->folders.size(); i++) {
+        if (d->folders.at(i)->isEncrypted()) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 int K7Zip::K7ZipPrivate::readByte()
@@ -1266,6 +1289,122 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
     return true;
 }
 
+static const int catCycle = 6;
+
+static QByteArray calculateKey(const QByteArray &password, quint32 numCyclesPower, const QByteArray &salt)
+{
+    quint32 rounds, stages;
+
+    if (numCyclesPower > catCycle) {
+        rounds = 1 << catCycle;
+        stages = 1 << (numCyclesPower - catCycle);
+    } else {
+        rounds = 1 << numCyclesPower;
+        stages = 1;
+    }
+
+    QByteArray saltPassword = salt + password;
+    quint64 s = 0;
+
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+
+    for (quint32 i = 0; i < stages; i++) {
+        QByteArray result;
+        result.reserve(saltPassword.size() + rounds * 8);
+
+        for (quint32 j = 0; j < rounds; j++) {
+            result += saltPassword;
+
+            quint64 value = s + j;
+            for (int k = 0; k < 8; k++) {
+                result.append(value >> (k * 8));
+            }
+        }
+
+        hash.addData(result);
+        s += rounds;
+    }
+
+    return hash.result();
+}
+
+#if HAVE_OPENSSL_SUPPORT
+
+static QByteArray decryptAES(const QList<quint8> &coderProperties, const QString &password, QByteArray &encryptedData)
+{
+    QStringEncoder toUtf16LE(QStringEncoder::Utf16LE);
+    const QByteArray passwordBytes = toUtf16LE(password);
+
+    quint8 firstByte = coderProperties[0];
+    quint32 numCyclesPower = firstByte & 0x3F;
+
+    if ((firstByte & 0xC0) == 0) {
+        qCDebug(KArchiveLog) << "Unsupported AES properties";
+        return QByteArray();
+    }
+
+    int saltSize = ((firstByte >> 7) & 1) + (coderProperties[1] >> 4);
+    int ivSize = ((firstByte >> 6) & 1) + (coderProperties[1] & 0x0F);
+
+    QByteArray salt((const char *)coderProperties.data() + 2, saltSize);
+    QByteArray iv((const char *)coderProperties.data() + 2 + saltSize, ivSize);
+
+    if (ivSize < 16) {
+        iv.append(16 - ivSize, '\x00');
+    }
+
+    const QByteArray key = calculateKey(passwordBytes, numCyclesPower, salt);
+    if (key.size() != 32) {
+        qCDebug(KArchiveLog) << "Failed to calculate key";
+        return QByteArray();
+    }
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        qCDebug(KArchiveLog) << "Failed to create OpenSSL cipher context";
+        return QByteArray();
+    }
+
+    const auto ctxCleanupGuard = qScopeGuard([&ctx] {
+        EVP_CIPHER_CTX_free(ctx);
+    });
+
+
+    int padLen = encryptedData.size() % 16;
+    if (padLen > 0) {
+        encryptedData.append(16 - padLen, '\x00');
+    }
+
+    QByteArray decryptedData;
+    int len, plainTextLen = 0;
+    decryptedData.resize(encryptedData.size());
+
+    if (EVP_DecryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, (const unsigned char *)key.constData(), (const unsigned char *)iv.constData()) != 1) {
+        qCDebug(KArchiveLog) << "EVP_DecryptInit_ex failed";
+        return QByteArray();
+    }
+
+    // Disable automatic padding
+    EVP_CIPHER_CTX_set_padding(ctx, 0);
+
+    if (EVP_DecryptUpdate(ctx, (unsigned char *)decryptedData.data(), &len, (const unsigned char *)encryptedData.constData(), encryptedData.size()) != 1) {
+        qCDebug(KArchiveLog) << "EVP_DecryptUpdate failed";
+        return QByteArray();
+    }
+    plainTextLen += len;
+
+    if (EVP_DecryptFinal_ex(ctx, (unsigned char *)decryptedData.data() + len, &len) != 1) {
+        qCDebug(KArchiveLog) << "EVP_DecryptFinal_ex failed";
+        return QByteArray();
+    }
+    plainTextLen += len;
+
+    decryptedData.resize(plainTextLen);
+    return decryptedData;
+}
+
+#endif
+
 const int kNumTopBits = 24;
 const quint32 kTopValue = (1 << kNumTopBits);
 
@@ -1494,6 +1633,93 @@ static QByteArray decodeBCJ2(const QByteArray &mainStream, const QByteArray &cal
     }
 }
 
+KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
+                                            const Folder::FolderInfo *coder,
+                                            const int currentCoderIndex,
+                                            QByteArray &deflatedData,
+                                            QList<QByteArray> &inflatedDatas)
+{
+    KFilterBase *filter = nullptr;
+
+    switch (coder->methodID) {
+    case k_LZMA:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA, coder->properties);
+        break;
+    case k_LZMA2:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA2, coder->properties);
+        break;
+    case k_PPMD: {
+        /*if (coder->properties.size() == 5) {
+            //Byte order = *(const Byte *)coder.Props;
+            qint32 dicSize = ((unsigned char)coder->properties[1]        |
+                                (((unsigned char)coder->properties[2]) <<  8) |
+                                (((unsigned char)coder->properties[3]) << 16) |
+                                (((unsigned char)coder->properties[4]) << 24));
+        }*/
+        break;
+    }
+    case k_AES: {
+        if (coder->properties.size() >= 2) {
+            if (password.isEmpty()) {
+                qCDebug(KArchiveLog) << "Password is required for AES decryption";
+                return nullptr;
+            }
+
+#if HAVE_OPENSSL_SUPPORT
+            QByteArray decryptedData = decryptAES(coder->properties, password, deflatedData);
+            if (decryptedData.isEmpty()) {
+                qCDebug(KArchiveLog) << "AES decryption failed";
+                return nullptr;
+            }
+
+            if (folder->folderInfos.size() > 1 && currentCoderIndex < folder->folderInfos.size()) {
+                deflatedData = decryptedData; // set the data for the filter to the decrypted data
+                int nextCoderIndex = currentCoderIndex + 1;
+                filter = getFilter(folder, folder->folderInfos[nextCoderIndex], nextCoderIndex, decryptedData, inflatedDatas);
+            } else {
+                inflatedDatas.append(decryptedData);
+            }
+#endif
+        }
+        break;
+    }
+    case k_BCJ:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::BCJ, coder->properties);
+        break;
+    case k_BCJ2: {
+        QByteArray bcj2 = decodeBCJ2(inflatedDatas[0], inflatedDatas[1], inflatedDatas[2], deflatedData);
+        inflatedDatas.clear();
+        inflatedDatas.append(bcj2);
+        break;
+    }
+    case k_BZip2:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::BZip2);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        filter->init(QIODevice::ReadOnly);
+        break;
+    }
+
+    return filter;
+}
+
 QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamInfo)
 {
     if (!buffer) {
@@ -1581,80 +1807,26 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         QList<QByteArray> inflatedDatas;
         QByteArray deflatedData;
         for (int j = 0; j < seqInStreams.size(); ++j) {
-            Folder::FolderInfo *coder = nullptr;
+            int coderIndex = 0;
+
             if ((quint32)j != mainCoderIndex) {
-                coder = folder->folderInfos[coderIndexes[j]];
+                coderIndex = coderIndexes[j];
             } else {
-                coder = folder->folderInfos[mainCoderIndex];
+                coderIndex = mainCoderIndex;
             }
 
+            Folder::FolderInfo *coder = folder->folderInfos[coderIndex];
             deflatedData = datas[seqInStreams[j]];
 
-            KFilterBase *filter = nullptr;
-
-            switch (coder->methodID) {
-            case k_LZMA:
-                filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
-                if (!filter) {
-                    qCDebug(KArchiveLog) << "filter not found";
-                    return QByteArray();
-                }
-                static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA, coder->properties);
-                break;
-            case k_LZMA2:
-                filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
-                if (!filter) {
-                    qCDebug(KArchiveLog) << "filter not found";
-                    return QByteArray();
-                }
-                static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA2, coder->properties);
-                break;
-            case k_PPMD: {
-                /*if (coder->properties.size() == 5) {
-                    //Byte order = *(const Byte *)coder.Props;
-                    qint32 dicSize = ((unsigned char)coder->properties[1]        |
-                                     (((unsigned char)coder->properties[2]) <<  8) |
-                                     (((unsigned char)coder->properties[3]) << 16) |
-                                     (((unsigned char)coder->properties[4]) << 24));
-                }*/
-                break;
-            }
-            case k_AES:
-                if (coder->properties.size() >= 1) {
-                    // const Byte *data = (const Byte *)coder.Props;
-                    // Byte firstByte = *data++;
-                    // UInt32 numCyclesPower = firstByte & 0x3F;
-                }
-                break;
-            case k_BCJ:
-                filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
-                if (!filter) {
-                    qCDebug(KArchiveLog) << "filter not found";
-                    return QByteArray();
-                }
-                static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::BCJ, coder->properties);
-                break;
-            case k_BCJ2: {
-                QByteArray bcj2 = decodeBCJ2(inflatedDatas[0], inflatedDatas[1], inflatedDatas[2], deflatedData);
-                inflatedDatas.clear();
-                inflatedDatas.append(bcj2);
-                break;
-            }
-            case k_BZip2:
-                filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::BZip2);
-                if (!filter) {
-                    qCDebug(KArchiveLog) << "filter not found";
-                    return QByteArray();
-                }
-                filter->init(QIODevice::ReadOnly);
-                break;
-            }
-
+            KFilterBase *filter = getFilter(folder, coder, coderIndex, deflatedData, inflatedDatas);
             if (coder->methodID == k_BCJ2) {
                 continue;
             }
 
             if (!filter) {
+                if (coder->methodID == k_AES) {
+                    continue;
+                }
                 return QByteArray();
             }
 
@@ -2389,6 +2561,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         return false;
     }
     d->buffer = inBuffer.data();
+    d->pos = 0;
     d->end = nextHeaderSize;
 
     d->headerSize = 32 + nextHeaderSize;
@@ -2422,6 +2595,11 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             d->end = decodedData.size();
         }
 
+        if (passwordNeeded() && d->password.isEmpty()) {
+            setErrorString(tr("Password needed for this archive"));
+            return false;
+        }
+
         type = d->readByte();
         if (type != kHeader) {
             setErrorString(tr("Wrong header type"));
@@ -2449,6 +2627,12 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             setErrorString(tr("Error while reading main streams information"));
             return false;
         }
+
+        if (passwordNeeded() && d->password.isEmpty()) {
+            setErrorString(tr("Password needed for this archive"));
+            return false;
+        }
+
         type = d->readByte();
     } else {
         for (int i = 0; i < d->folders.size(); ++i) {

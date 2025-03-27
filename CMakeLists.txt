@@ -10,6 +10,7 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 
 option(WITH_BZIP2 "Make bzip2 required" ON)
 option(WITH_LIBLZMA "Make liblzma required" ON)
+option(WITH_OPENSSL "Make openssl required" ON)
 option(WITH_LIBZSTD "Make libzstd required" ON)
 
 set(PKGCONFIG_REQUIRED_TYPE "")
@@ -24,6 +25,12 @@ if(WITH_LIBLZMA)
     set(LIBLZMA_PACKAGE_TYPE "REQUIRED")
 else()
     set(LIBLZMA_PACKAGE_TYPE "RECOMMENDED")
+endif()
+
+if(WITH_OPENSSL)
+    set(OPENSSL_PACKAGE_TYPE "REQUIRED")
+else()
+    set(OPENSSL_PACKAGE_TYPE "RECOMMENDED")
 endif()
 
 if(WITH_LIBZSTD)
@@ -67,6 +74,14 @@ set_package_properties(LibLZMA PROPERTIES
     DESCRIPTION "Support for xz compressed files and data streams"
     TYPE ${LIBLZMA_PACKAGE_TYPE}
     PURPOSE "Support for xz compressed files and data streams"
+)
+
+find_package(OpenSSL)
+set_package_properties(OpenSSL PROPERTIES
+    URL "https://www.openssl.org/"
+    DESCRIPTION "Support for encrypted archives"
+    TYPE ${OPENSSL_PACKAGE_TYPE}
+    PURPOSE "Support for encrypted archives"
 )
 
 

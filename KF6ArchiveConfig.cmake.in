@@ -4,10 +4,11 @@ include(CMakeFindDependencyMacro)
 find_dependency(Qt6Core @REQUIRED_QT_VERSION@)
 
 
-set(KArchive_HAVE_ZLIB  "@ZLIB_FOUND@")
-set(KArchive_HAVE_BZIP2 "@BZIP2_FOUND@")
-set(KArchive_HAVE_LZMA  "@LIBLZMA_FOUND@")
-set(KArchive_HAVE_ZSTD  "@LibZstd_FOUND@")
+set(KArchive_HAVE_ZLIB    "@ZLIB_FOUND@")
+set(KArchive_HAVE_BZIP2   "@BZIP2_FOUND@")
+set(KArchive_HAVE_LZMA    "@LIBLZMA_FOUND@")
+set(KArchive_HAVE_OPENSSL "@OpenSSL_FOUND@")
+set(KArchive_HAVE_ZSTD    "@LibZstd_FOUND@")
 
 if (NOT @BUILD_SHARED_LIBS@)
     if (@ZLIB_FOUND@)
@@ -20,6 +21,10 @@ if (NOT @BUILD_SHARED_LIBS@)
 
     if (@LIBLZMA_FOUND@)
         find_dependency(LibLZMA)
+    endif()
+
+    if (@OpenSSL_FOUND@)
+        find_dependency(OpenSSL)
     endif()
 
     if (@LibZstd_FOUND@)
