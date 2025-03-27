@@ -1342,6 +1342,100 @@ void KArchiveTest::testZipReopenWithoutDoubleDeletion()
     QVERIFY(zip.close()); // should not crash
 }
 
+void KArchiveTest::testZip64NestedStored()
+{
+    const QString fileName = QFINDTESTDATA("data/dirpermissions.zip");
+    QVERIFY(!fileName.isEmpty());
+    QFile nested(fileName);
+    QVERIFY(nested.open(QIODevice::ReadOnly));
+    auto nestedData = nested.readAll();
+
+    QBuffer archive;
+
+    KZip writer(&archive);
+    QVERIFY(writer.open(QIODevice::WriteOnly));
+    // Write nested zip file
+    writer.setCompression(KZip::NoCompression);
+    QVERIFY(writer.prepareWriting(QStringLiteral("nested.zip"), {}, {}, nestedData.size()));
+    QVERIFY(writer.writeData(nestedData));
+    QVERIFY(writer.finishWriting(nestedData.size()));
+
+    QVERIFY(writer.close());
+
+    KZip reader(&archive);
+    QVERIFY(reader.open(QIODevice::ReadOnly));
+
+    QCOMPARE(reader.directory()->entries().size(), 1);
+    QCOMPARE(reader.directory()->entries(), QList{QStringLiteral("nested.zip")});
+
+    auto entry = reader.directory()->file(QStringLiteral("nested.zip"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 430);
+    QCOMPARE(entry->size(), nestedData.size());
+
+    QVERIFY(reader.close());
+}
+
+void KArchiveTest::testZip64NestedStoredStreamed()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_nested_stored_streamed.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QEXPECT_FAIL("", "Nested data descriptors not handled correctly", Abort);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 2);
+
+    auto entry = zip.directory()->file(QStringLiteral("zip64_datadescriptor.zip"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 150);
+
+    entry = zip.directory()->file(QStringLiteral("zip64_end_of_central_directory.zip"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 200);
+
+    QVERIFY(zip.close());
+}
+
+void KArchiveTest::testZip64EndOfCentralDirectory()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_end_of_central_directory.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QEXPECT_FAIL("", "Zip64 End of central directory records not recognized", Abort);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 1);
+    QCOMPARE(zip.directory()->entries(), QList{QStringLiteral("-")});
+
+    auto entry = zip.directory()->file(QStringLiteral("-"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 4);
+
+    QVERIFY(zip.close());
+}
+
+void KArchiveTest::testZip64DataDescriptor()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_datadescriptor.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QEXPECT_FAIL("", "Zip64 data descriptors not handled correctly", Abort);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 1);
+    QCOMPARE(zip.directory()->entries(), QList{QStringLiteral("-")});
+
+    auto entry = zip.directory()->file(QStringLiteral("-"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 4);
+
+    QVERIFY(zip.close());
+}
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("data/runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
