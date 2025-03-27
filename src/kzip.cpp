@@ -800,40 +800,22 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             startOfFile = false;
             bool foundSignature = false;
 
-            while (!foundSignature) {
-                n = dev->read(buffer, 1);
-                if (n < 1) {
-                    setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
-                    return false;
-                }
-
-                if (buffer[0] != 'P') {
-                    continue;
-                }
-
-                n = dev->read(buffer, 3);
-                if (n < 3) {
-                    setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
-                    return false;
-                }
-
+            QByteArray header;
+            while (seekAnyHeader(dev, header, 4)) {
                 // We have to detect the magic token for a local header: PK\003\004
                 /*
                  * Note: we do not need to check the other magics, if the ZIP file has no
                  * local header, then it has not any files!
                  */
-                if (buffer[0] == 'K' && buffer[1] == 3 && buffer[2] == 4) {
+                if (header.startsWith("PK\x03\x04")) {
                     foundSignature = true;
-                    dev->seek(dev->pos() - 4); // go back 4 bytes, so that the magic bytes can be found...
-                } else {
-                    for (int i = 0; i < 3; ++i) {
-                        if (buffer[i] == 'P') {
-                            // We have another P character so we must go back a little to check if it is a magic
-                            dev->seek(dev->pos() - 3 + i);
-                            break;
-                        }
-                    }
+                    break;
                 }
+            }
+
+            if (!foundSignature) {
+                setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
+                return false;
             }
         } else {
             setErrorString(tr("Invalid ZIP file. Unrecognized header at offset %1").arg(dev->pos() - 4));
