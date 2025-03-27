@@ -471,6 +471,11 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             return false;
         }
 
+        if (!memcmp(buffer, "PK\6\6", 4)) { // 'Zip64 end of central directory record'
+            startOfFile = false;
+            break;
+        }
+
         if (!memcmp(buffer, "PK\5\6", 4)) { // 'end of entries'
             // qCDebug(KArchiveLog) << "PK56 found end of archive";
             startOfFile = false;

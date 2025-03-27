@@ -1404,7 +1404,6 @@ void KArchiveTest::testZip64EndOfCentralDirectory()
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
-    QEXPECT_FAIL("", "Zip64 End of central directory records not recognized", Abort);
     QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
 
     QCOMPARE(zip.directory()->entries().size(), 1);
