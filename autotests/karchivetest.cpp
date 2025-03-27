@@ -1382,7 +1382,6 @@ void KArchiveTest::testZip64NestedStoredStreamed()
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
-    QEXPECT_FAIL("", "Nested data descriptors not handled correctly", Abort);
     QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
 
     QCOMPARE(zip.directory()->entries().size(), 2);
@@ -1422,7 +1421,6 @@ void KArchiveTest::testZip64DataDescriptor()
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
-    QEXPECT_FAIL("", "Zip64 data descriptors not handled correctly", Abort);
     QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
 
     QCOMPARE(zip.directory()->entries().size(), 1);
