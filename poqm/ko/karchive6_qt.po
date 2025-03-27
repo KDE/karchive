@@ -105,27 +105,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:2825
+#: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "쓰기 오류"
 
-#: k7zip.cpp:2855
+#: k7zip.cpp:2856
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "헤더를 인코드하는 중 오류 발생"
 
-#: k7zip.cpp:2899
+#: k7zip.cpp:2900
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "선택한 파일 없음"
 
-#: k7zip.cpp:2923 k7zip.cpp:2973 k7zip.cpp:3015
+#: k7zip.cpp:2924 k7zip.cpp:2974 k7zip.cpp:3014
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "앱 오류: 7-Zip 파일에 기록하기 전에 먼저 열어야 함"
 
-#: k7zip.cpp:2929 k7zip.cpp:3021
+#: k7zip.cpp:2930 k7zip.cpp:3020
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
@@ -194,38 +194,38 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "압축 파일이 이미 닫힘"
 
-#: karchive.cpp:268
+#: karchive.cpp:266
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1이(가) 없거나 일반 파일이 아닙니다."
 
-#: karchive.cpp:274
+#: karchive.cpp:272
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr "압축 파일에 추가할 파일 %1에 접근할 수 없습니다. 오류: %2"
 
-#: karchive.cpp:320
+#: karchive.cpp:318
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "%1 파일을 열 수 없음: %2"
 
-#: karchive.cpp:354
+#: karchive.cpp:352
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "%1 디렉터리가 없음"
 
-#: karchive.cpp:428
+#: karchive.cpp:426
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "쓰기 실패: %1"
 
-#: karchive_p.h:56
+#: karchive_p.h:55
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "알 수 없는 오류"
@@ -279,19 +279,19 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "TAR 헤더를 읽을 수 없음"
 
-#: ktar.cpp:586 ktar.cpp:601
+#: ktar.cpp:587 ktar.cpp:602
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "임시 파일에 기록할 수 없음: %1"
 
-#: ktar.cpp:647
+#: ktar.cpp:648
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
-#: ktar.cpp:749 ktar.cpp:759
+#: ktar.cpp:750 ktar.cpp:760
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -299,29 +299,29 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
-#: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
+#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "앱 오류: TAR 파일에 기록하기 전에 먼저 열어야 함"
 
-#: ktar.cpp:786
+#: ktar.cpp:787
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: ktar.cpp:793
+#: ktar.cpp:794
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "앱 제한: %1바이트보다 큰 파일을 추가할 수 없음"
 
-#: ktar.cpp:847
+#: ktar.cpp:848
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "헤더를 기록할 수 없음: %1"
 
-#: ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:870 ktar.cpp:939
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "앱 오류: 기록할 수 없는 TAR 파일에 기록을 시도함"
@@ -384,83 +384,83 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "잘못된 ZIP 파일입니다. 빈 항목 이름을 발견함"
 
-#: kzip.cpp:763
+#: kzip.cpp:764
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "%1 파일은 %2 폴더에 있지만, %3은(는) 실제로 파일입니다."
 
-#: kzip.cpp:774
+#: kzip.cpp:775
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "다음 항목으로 이동할 수 없음"
 
-#: kzip.cpp:787 kzip.cpp:797
+#: kzip.cpp:788 kzip.cpp:798
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "잘못된 ZIP 파일입니다. 예상하지 못한 곳에서 끝났습니다."
 
-#: kzip.cpp:820
+#: kzip.cpp:821
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "잘못된 ZIP 파일입니다. 위치 %1에 인식할 수 없는 헤더가 있음"
 
-#: kzip.cpp:848
+#: kzip.cpp:849
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "다음 파일 헤더로 이동할 수 없음: %1"
 
-#: kzip.cpp:874 kzip.cpp:968
+#: kzip.cpp:875 kzip.cpp:969
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "파일 헤더를 기록할 수 없음: %1"
 
-#: kzip.cpp:1015
+#: kzip.cpp:1016
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "중심 디렉터리 레코드를 기록할 수 없음: %1"
 
-#: kzip.cpp:1051
+#: kzip.cpp:1052
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "앱 오류: ZIP 파일에 기록하기 전에 먼저 열어야 함"
 
-#: kzip.cpp:1057
+#: kzip.cpp:1058
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "앱 오류: 기록할 수 없는 ZIP 파일에 기록을 시도함"
 
-#: kzip.cpp:1063
+#: kzip.cpp:1064
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "장치를 만들 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1069
+#: kzip.cpp:1070
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ZIP 파일에서 이동할 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1213
+#: kzip.cpp:1214
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "압축 파일에 쓸 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1232
+#: kzip.cpp:1233
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "압축 장치를 열 수 없음: %1"
 
-#: kzip.cpp:1319
+#: kzip.cpp:1320
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "파일이나 장치 없음"
 
-#: kzip.cpp:1332
+#: kzip.cpp:1333
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

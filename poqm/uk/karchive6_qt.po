@@ -110,29 +110,29 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "вміст"
 
-#: k7zip.cpp:2825
+#: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Помилка запису"
 
-#: k7zip.cpp:2855
+#: k7zip.cpp:2856
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Помилка під час кодування заголовка"
 
-#: k7zip.cpp:2899
+#: k7zip.cpp:2900
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Зараз не вибрано жодного файла"
 
-#: k7zip.cpp:2923 k7zip.cpp:2973 k7zip.cpp:3015
+#: k7zip.cpp:2924 k7zip.cpp:2974 k7zip.cpp:3014
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Помилка програми: файл 7-Zip має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: k7zip.cpp:2929 k7zip.cpp:3021
+#: k7zip.cpp:2930 k7zip.cpp:3020
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
@@ -201,13 +201,13 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "Архів вже закрито"
 
-#: karchive.cpp:268
+#: karchive.cpp:266
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 не існує або він не є звичайним файлом."
 
-#: karchive.cpp:274
+#: karchive.cpp:272
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
@@ -216,25 +216,25 @@ msgstr ""
 "Не вдалося отримати доступ до файла %1 для додавання до архіву. Повідомлення "
 "про помилку: %2"
 
-#: karchive.cpp:320
+#: karchive.cpp:318
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "Не вдалося відкрити файл %1: %2"
 
-#: karchive.cpp:354
+#: karchive.cpp:352
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Каталогу %1 не існує"
 
-#: karchive.cpp:428
+#: karchive.cpp:426
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "Не вдалося записати: %1"
 
-#: karchive_p.h:56
+#: karchive_p.h:55
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Невідома помилка"
@@ -288,50 +288,50 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Не вдалось прочитати заголовок tar"
 
-#: ktar.cpp:586 ktar.cpp:601
+#: ktar.cpp:587 ktar.cpp:602
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Не вдалося записати тимчасовий файл: %1"
 
-#: ktar.cpp:647
+#: ktar.cpp:648
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Не вдалося записати вирівнювання: %1"
 
-#: ktar.cpp:749 ktar.cpp:759
+#: ktar.cpp:750 ktar.cpp:760
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Не вдалося записати довге посилання: %1"
 
-#: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
+#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Помилка програми: файл TAR має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: ktar.cpp:786
+#: ktar.cpp:787
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
 
-#: ktar.cpp:793
+#: ktar.cpp:794
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Обмеження програми: не можна додавати файли, розмір яких перевищує %1 байтів"
 
-#: ktar.cpp:847
+#: ktar.cpp:848
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Не вдалось записати заголовок: %1"
 
-#: ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:870 ktar.cpp:939
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"
@@ -396,85 +396,85 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Некоректний файл ZIP. Виявлено порожню назву запису"
 
-#: kzip.cpp:763
+#: kzip.cpp:764
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Файл %1 перебуває у теці %2, але %3 насправді є файлом."
 
-#: kzip.cpp:774
+#: kzip.cpp:775
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Не вдалося виконати позиціювання до наступного запису"
 
-#: kzip.cpp:787 kzip.cpp:797
+#: kzip.cpp:788 kzip.cpp:798
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Некоректний файл ZIP. Несподіване завершення файла."
 
-#: kzip.cpp:820
+#: kzip.cpp:821
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Некоректний файл ZIP. Невідомий заголовок із відступом %1"
 
-#: kzip.cpp:848
+#: kzip.cpp:849
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Не вдалося виконати позиціювання до наступного заголовка файла: %1"
 
-#: kzip.cpp:874 kzip.cpp:968
+#: kzip.cpp:875 kzip.cpp:969
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Не вдалося записати заголовок файла: %1"
 
-#: kzip.cpp:1015
+#: kzip.cpp:1016
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Не вдалося записати запис центрального каталогу: %1"
 
-#: kzip.cpp:1051
+#: kzip.cpp:1052
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Помилка програми: файл ZIP має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: kzip.cpp:1057
+#: kzip.cpp:1058
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла ZIP"
 
-#: kzip.cpp:1063
+#: kzip.cpp:1064
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Не вдалося створити пристрій. Диск переповнено?"
 
-#: kzip.cpp:1069
+#: kzip.cpp:1070
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Не вдалося виконати позиціювання у файлі ZIP. Диск переповнено?"
 
-#: kzip.cpp:1213
+#: kzip.cpp:1214
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Не вдалося записати дані до архіву. Диск переповнено?"
 
-#: kzip.cpp:1232
+#: kzip.cpp:1233
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Не вдалося відкрити пристрій стискання: %1"
 
-#: kzip.cpp:1319
+#: kzip.cpp:1320
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Немає файла або пристрою"
 
-#: kzip.cpp:1332
+#: kzip.cpp:1333
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

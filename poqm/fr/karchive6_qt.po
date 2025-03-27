@@ -110,29 +110,29 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "sommaire"
 
-#: k7zip.cpp:2825
+#: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Erreur en écriture"
 
-#: k7zip.cpp:2855
+#: k7zip.cpp:2856
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Échec lors de l'encodage de l'en-tête"
 
-#: k7zip.cpp:2899
+#: k7zip.cpp:2900
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Aucun fichier actuellement sélectionné"
 
-#: k7zip.cpp:2923 k7zip.cpp:2973 k7zip.cpp:3015
+#: k7zip.cpp:2924 k7zip.cpp:2974 k7zip.cpp:3014
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « 7-ZIP » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: k7zip.cpp:2929 k7zip.cpp:3021
+#: k7zip.cpp:2930 k7zip.cpp:3020
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
@@ -203,13 +203,13 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "Archive déjà fermée"
 
-#: karchive.cpp:268
+#: karchive.cpp:266
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1n'existe pas ou n'est pas un fichier standard."
 
-#: karchive.cpp:274
+#: karchive.cpp:272
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
@@ -217,25 +217,25 @@ msgid ""
 msgstr ""
 "Échec d'accès au fichier %1 durant son ajout à l'archive. L'erreur était : %2"
 
-#: karchive.cpp:320
+#: karchive.cpp:318
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "Impossible d'ouvrir le fichier %1 : %2"
 
-#: karchive.cpp:354
+#: karchive.cpp:352
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Le dossier %1 n'existe pas"
 
-#: karchive.cpp:428
+#: karchive.cpp:426
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "Échec de l'écriture : %1"
 
-#: karchive_p.h:56
+#: karchive_p.h:55
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Erreur inconnue"
@@ -290,39 +290,39 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Impossible de lire l'en-tête du fichier « TAR »"
 
-#: ktar.cpp:586 ktar.cpp:601
+#: ktar.cpp:587 ktar.cpp:602
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Échec de l'écriture du fichier temporaire : %1"
 
-#: ktar.cpp:647
+#: ktar.cpp:648
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Impossible d'écrire l'alignement : %1"
 
-#: ktar.cpp:749 ktar.cpp:759
+#: ktar.cpp:750 ktar.cpp:760
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Impossible d'écrire un lien au format long : %1"
 
-#: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
+#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « TAR » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: ktar.cpp:786
+#: ktar.cpp:787
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « 7-ZIP »"
 
-#: ktar.cpp:793
+#: ktar.cpp:794
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
@@ -330,13 +330,13 @@ msgstr ""
 "Limitation de l'application : impossible d'ajouter des fichiers ayant une "
 "taille supérieure à %1 octets"
 
-#: ktar.cpp:847
+#: ktar.cpp:848
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Impossible d'écrire l'en-tête : %1"
 
-#: ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:870 ktar.cpp:939
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
@@ -413,26 +413,26 @@ msgid "Invalid ZIP file, found empty entry name"
 msgstr ""
 "Fichier au format « zip » non valable. Un nom d'entrée vide a été trouvé."
 
-#: kzip.cpp:763
+#: kzip.cpp:764
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr ""
 "Le fichier %1 est dans le dossier %2 mais %3 est actuellement un fichier."
 
-#: kzip.cpp:774
+#: kzip.cpp:775
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Impossible de se positionner sur l'entrée suivante"
 
-#: kzip.cpp:787 kzip.cpp:797
+#: kzip.cpp:788 kzip.cpp:798
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr ""
 "Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
 "façon non prévue."
 
-#: kzip.cpp:820
+#: kzip.cpp:821
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
@@ -440,67 +440,67 @@ msgstr ""
 "Fichier au format « zip » non valable. En-tête non reconnu avec le décalage "
 "%1"
 
-#: kzip.cpp:848
+#: kzip.cpp:849
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Impossible de trouver la prochaine en-tête de fichier : %1"
 
-#: kzip.cpp:874 kzip.cpp:968
+#: kzip.cpp:875 kzip.cpp:969
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Impossible d'écrire l'en-tête du fichier : %1"
 
-#: kzip.cpp:1015
+#: kzip.cpp:1016
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Impossible d'écrire l'enregistrement principal du dossier : %1"
 
-#: kzip.cpp:1051
+#: kzip.cpp:1052
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « ZIP » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: kzip.cpp:1057
+#: kzip.cpp:1058
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « ZIP »"
 
-#: kzip.cpp:1063
+#: kzip.cpp:1064
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr ""
 "Impossible de créer un périphérique. Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1069
+#: kzip.cpp:1070
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 "Impossible de rechercher dans un fichier « ZIP ». Le disque serait-il plein ?"
 
-#: kzip.cpp:1213
+#: kzip.cpp:1214
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Impossible d'écrire dans l'archive Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1232
+#: kzip.cpp:1233
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Impossible d'ouvrir le périphérique de compression : %1"
 
-#: kzip.cpp:1319
+#: kzip.cpp:1320
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Aucun fichier ou périphérique"
 
-#: kzip.cpp:1332
+#: kzip.cpp:1333
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

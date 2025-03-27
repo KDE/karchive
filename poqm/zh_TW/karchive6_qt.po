@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-18 16:03+0900\n"
+"PO-Revision-Date: 2025-03-26 18:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2326
 msgctxt "K7Zip|"
@@ -103,29 +103,29 @@ msgstr "讀取大小失敗 (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 #: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "內容"
 
-#: k7zip.cpp:2825
+#: k7zip.cpp:2826
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "寫入錯誤"
 
-#: k7zip.cpp:2855
+#: k7zip.cpp:2856
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "編碼標頭失敗"
 
-#: k7zip.cpp:2899
+#: k7zip.cpp:2900
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "目前沒有選取檔案"
 
-#: k7zip.cpp:2923 k7zip.cpp:2973 k7zip.cpp:3015
+#: k7zip.cpp:2924 k7zip.cpp:2974 k7zip.cpp:3014
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "應用程式錯誤：7-Zip 檔案必須開啟才能寫入"
 
-#: k7zip.cpp:2929 k7zip.cpp:3021
+#: k7zip.cpp:2930 k7zip.cpp:3020
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
@@ -194,38 +194,38 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "封存檔已關閉"
 
-#: karchive.cpp:268
+#: karchive.cpp:266
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 不存在或不是普通檔案。"
 
-#: karchive.cpp:274
+#: karchive.cpp:272
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr "為新增到封存檔而存取檔案 %1 時失敗。錯誤是：%2"
 
-#: karchive.cpp:320
+#: karchive.cpp:318
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "無法開啟檔案 %1：%2"
 
-#: karchive.cpp:354
+#: karchive.cpp:352
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "目錄 %1 不存在"
 
-#: karchive.cpp:428
+#: karchive.cpp:426
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "寫入失敗：%1"
 
-#: karchive_p.h:56
+#: karchive_p.h:55
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "未知的錯誤"
@@ -279,47 +279,47 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "無法讀取 tar 標頭"
 
-#: ktar.cpp:586 ktar.cpp:601
+#: ktar.cpp:587 ktar.cpp:602
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "寫回暫存檔失敗：%1"
 
-#: ktar.cpp:647
+#: ktar.cpp:648
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "無法寫入對齊：%1"
 
-#: ktar.cpp:749 ktar.cpp:759
+#: ktar.cpp:750 ktar.cpp:760
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "無法寫入長連結：%1"
 
-#: ktar.cpp:780 ktar.cpp:863 ktar.cpp:932
+#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "應用程式錯誤：TAR 檔案必須開啟才能寫入"
 
-#: ktar.cpp:786
+#: ktar.cpp:787
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 
-#: ktar.cpp:793
+#: ktar.cpp:794
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "應用程式限制：無法新增大於 %1 個位元組的檔案"
 
-#: ktar.cpp:847
+#: ktar.cpp:848
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "寫入標頭失敗：%1"
 
-#: ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:870 ktar.cpp:939
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 TAR 檔案"
@@ -381,83 +381,83 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "無效的 ZIP 檔，找到了空白的項目名稱"
 
-#: kzip.cpp:763
+#: kzip.cpp:764
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "檔案 %1 在資料夾 %2 裡，但 %3 其實是檔案。"
 
-#: kzip.cpp:774
+#: kzip.cpp:775
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "無法跳至下一個項目"
 
-#: kzip.cpp:787 kzip.cpp:797
+#: kzip.cpp:788 kzip.cpp:798
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "無效的 ZIP 檔。未預期的檔案結尾。"
 
-#: kzip.cpp:820
+#: kzip.cpp:821
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "無效的 ZIP 檔。在位移 %1 有無法辨識的標頭"
 
-#: kzip.cpp:848
+#: kzip.cpp:849
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "無法跳至下一個檔案標頭：%1"
 
-#: kzip.cpp:874 kzip.cpp:968
+#: kzip.cpp:875 kzip.cpp:969
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "無法寫入檔案標頭：%1"
 
-#: kzip.cpp:1015
+#: kzip.cpp:1016
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "無法寫入中央目錄紀錄：%1"
 
-#: kzip.cpp:1051
+#: kzip.cpp:1052
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "應用程式錯誤：ZIP 檔案必須開啟才能寫入"
 
-#: kzip.cpp:1057
+#: kzip.cpp:1058
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 ZIP 檔案"
 
-#: kzip.cpp:1063
+#: kzip.cpp:1064
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "無法建立裝置。磁碟滿了嗎？"
 
-#: kzip.cpp:1069
+#: kzip.cpp:1070
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "無法在 ZIP 檔中搜尋。磁碟滿了嗎？"
 
-#: kzip.cpp:1213
+#: kzip.cpp:1214
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "無法寫入封存檔。磁碟滿了嗎？"
 
-#: kzip.cpp:1232
+#: kzip.cpp:1233
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "無法開啟壓縮裝置：%1"
 
-#: kzip.cpp:1319
+#: kzip.cpp:1320
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "沒有檔案或裝置"
 
-#: kzip.cpp:1332
+#: kzip.cpp:1333
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
