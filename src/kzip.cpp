@@ -71,6 +71,11 @@ static uint transformFromMsDos(const char *buffer)
     return dt.toSecsSinceEpoch();
 }
 
+static uint parseUi32(const char *buffer)
+{
+    return uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+}
+
 static quint64 parseUi64(const char *buffer)
 {
     const uint a = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
@@ -304,87 +309,91 @@ static bool parseExtraField(const char *buffer, int size, bool islocal, ParseFil
 }
 
 /**
- * Checks if a token for a central or local header has been found and resets
- * the device to the begin of the token. If a token for the data descriptor is
- * found it is assumed there is a central or local header token starting right
- * behind the data descriptor, and the device is set accordingly to the begin
- * of that token.
- * To be called when a 'P' has been found.
- * @param buffer start of buffer with the 3 bytes behind 'P'
+ * Advance the current file position to the next possible header location
+ *
  * @param dev device that is read from
- * @param dataDescriptor only search for data descriptor
- * @return true if a local or central header begin is or could be reached
+ * @param header storage location for the complete header
+ * @param minSize required size of the header
+ * @return true if a possible header location matching the 'PK' signature
+ *     bytes have been found, false if the end of file has been reached
  */
-static bool handlePossibleHeaderBegin(const char *buffer, QIODevice *dev, bool dataDescriptor)
+static bool seekAnyHeader(QIODevice *dev, QByteArray &header, qsizetype minSize)
 {
-    // we have to detect three magic tokens here:
-    // PK34 for the next local header in case there is no data descriptor
-    // PK12 for the central header in case there is no data descriptor
-    // PK78 for the data descriptor in case it is following the compressed data
-    // TODO: optimize using 32bit const data for comparison instead of byte-wise,
-    // given we run at least on 32bit CPUs
+    header.resize(1024);
+    int n = dev->peek(header.data(), header.size());
 
-    if (buffer[0] == 'K') {
-        if (buffer[1] == 7 && buffer[2] == 8) {
-            // data descriptor token found
-            dev->seek(dev->pos() + 12); // skip the 'data_descriptor'
-            return true;
+    while (n >= minSize) {
+        if (auto i = header.indexOf("PK"); i >= 0) {
+            dev->seek(dev->pos() + i);
+            if ((i + minSize) < n) {
+                header.remove(0, i);
+                header.resize(minSize);
+                return true;
+            } else {
+                n = dev->peek(header.data(), minSize);
+                header.resize(n);
+                return n >= minSize;
+            }
         }
+        dev->seek(dev->pos() + (n - 1));
+        n = dev->peek(header.data(), header.size());
+    }
+    header.resize(n);
+    return false;
+}
 
-        if (!dataDescriptor
-            && ((buffer[1] == 1 && buffer[2] == 2) //
-                || (buffer[1] == 3 && buffer[2] == 4))) {
-            // central/local header token found
-            dev->seek(dev->pos() - 4);
-            // go back 4 bytes, so that the magic bytes can be found
-            // in the next cycle...
-            return true;
+/**
+ * Advance the current file position to the next header following
+ * a data descriptor
+ *
+ * @param dev device that is read from
+ * @param isZip64 use Zip64 data descriptor layout
+ * @return true if a data descriptor signature has been found, and the
+ *     compressed size matches the current position advance
+ */
+static bool seekPostDataDescriptor(QIODevice *dev, bool isZip64)
+{
+    // Both size fields are uint64 for Zip64, uint32 otherwise
+    const qsizetype descriptorSize = isZip64 ? 24 : 16;
+
+    QByteArray header;
+    auto oldPos = dev->pos();
+
+    while (seekAnyHeader(dev, header, descriptorSize)) {
+        // qCDebug(KArchiveLog) << "Possible data descriptor header at" << dev->pos() << header;
+        if (header.startsWith("PK\x07\x08")) {
+            qint64 compressedSize = isZip64 ? parseUi64(header.constData() + 8) //
+                                            : parseUi32(header.constData() + 8);
+            if (oldPos + compressedSize == dev->pos()) {
+                dev->seek(dev->pos() + descriptorSize);
+                return true;
+            }
+            dev->seek(dev->pos() + 4); // Skip found 'PK\7\8'
+        } else {
+            dev->seek(dev->pos() + 2); // Skip found 'PK'
         }
     }
     return false;
 }
 
 /**
- * Reads the device forwards from the current pos until a token for a central or
- * local header has been found or is to be assumed.
+ * Advance the current file position to the next header
  * @param dev device that is read from
  * @return true if a local or central header token could be reached, false on error
  */
-static bool seekToNextHeaderToken(QIODevice *dev, bool dataDescriptor)
+static bool seekToNextHeaderToken(QIODevice *dev)
 {
-    bool headerTokenFound = false;
-    char buffer[3];
+    QByteArray header;
 
-    while (!headerTokenFound) {
-        int n = dev->read(buffer, 1);
-        if (n < 1) {
-            // qCWarning(KArchiveLog) << "Invalid ZIP file. Unexpected end of file. (#2)";
-            return false;
-        }
-
-        if (buffer[0] != 'P') {
-            continue;
-        }
-
-        n = dev->read(buffer, 3);
-        if (n < 3) {
-            // qCWarning(KArchiveLog) << "Invalid ZIP file. Unexpected end of file. (#3)";
-            return false;
-        }
-
-        if (handlePossibleHeaderBegin(buffer, dev, dataDescriptor)) {
-            headerTokenFound = true;
-        } else {
-            for (int i = 0; i < 3; ++i) {
-                if (buffer[i] == 'P') {
-                    // We have another P character so we must go back a little to check if it is a magic
-                    dev->seek(dev->pos() - 3 + i);
-                    break;
-                }
-            }
+    while (seekAnyHeader(dev, header, 4)) {
+        // qCDebug(KArchiveLog) << "Possible header at" << dev->pos() << header;
+        // PK34 for the next local header in case there is no data descriptor
+        // PK12 for the central header in case there is no data descriptor
+        if (header.startsWith("PK\x03\x04") || header.startsWith("PK\x01\x02")) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -485,24 +494,24 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         if (!memcmp(buffer, "PK\3\4", 4)) { // local file header
             // qCDebug(KArchiveLog) << "PK34 found local file header";
             startOfFile = false;
-            // can this fail ???
-            dev->seek(dev->pos() + 2); // skip 'version needed to extract'
 
             // read static header stuff
-            n = dev->read(buffer, 24);
-            if (n < 24) {
+            n = dev->read(buffer, 26);
+            if (n < 26) {
                 setErrorString(tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(4));
                 return false;
             }
+            int neededVersion = (uchar)buffer[0] | (uchar)buffer[1] << 8;
+            bool isZip64 = neededVersion >= 45;
 
-            int gpf = (uchar)buffer[0]; // "general purpose flag" not "general protection fault" ;-)
-            int compression_mode = (uchar)buffer[2] | (uchar)buffer[3] << 8;
-            uint mtime = transformFromMsDos(buffer + 4);
+            int gpf = (uchar)buffer[2]; // "general purpose flag" not "general protection fault" ;-)
+            int compression_mode = (uchar)buffer[4] | (uchar)buffer[5] << 8;
+            uint mtime = transformFromMsDos(buffer + 6);
 
-            const qint64 compr_size = uint(uchar(buffer[12])) | uint(uchar(buffer[13])) << 8 | uint(uchar(buffer[14])) << 16 | uint(uchar(buffer[15])) << 24;
-            const qint64 uncomp_size = uint(uchar(buffer[16])) | uint(uchar(buffer[17])) << 8 | uint(uchar(buffer[18])) << 16 | uint(uchar(buffer[19])) << 24;
-            const int namelen = uint(uchar(buffer[20])) | uint(uchar(buffer[21])) << 8;
-            const int extralen = uint(uchar(buffer[22])) | uint(uchar(buffer[23])) << 8;
+            const qint64 compr_size = parseUi32(buffer + 14);
+            const qint64 uncomp_size = parseUi32(buffer + 18);
+            const int namelen = uint(uchar(buffer[22])) | uint(uchar(buffer[23])) << 8;
+            const int extralen = uint(uchar(buffer[24])) | uint(uchar(buffer[25])) << 8;
 
             /*
               qCDebug(KArchiveLog) << "general purpose bit flag: " << gpf;
@@ -552,7 +561,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             if (gpf & 8) {
                 // here we have to read through the compressed data to find
                 // the next PKxx
-                if (!seekToNextHeaderToken(dev, true)) {
+                if (!seekPostDataDescriptor(dev, isZip64)) {
                     setErrorString(tr("Could not seek to next header token"));
                     return false;
                 }
@@ -575,7 +584,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     if (compr_size > dev->size()) {
                         // here we cannot trust the compressed size, so scan through the compressed
                         // data to find the next header
-                        if (!seekToNextHeaderToken(dev, false)) {
+                        if (!seekToNextHeaderToken(dev)) {
                             setErrorString(tr("Could not seek to next header token"));
                             return false;
                         }
@@ -598,15 +607,19 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 if (!foundSignature) {
                     //                     qCDebug(KArchiveLog) << "Testing for optional data descriptor";
                     // read static data descriptor
-                    n = dev->read(buffer, 4);
+                    n = dev->peek(buffer, 4);
                     if (n < 4) {
                         setErrorString(tr("Invalid ZIP file. Unexpected end of file. (#1)"));
                         return false;
                     }
 
-                    if (buffer[0] != 'P' || !handlePossibleHeaderBegin(buffer + 1, dev, false)) {
+                    QByteArrayView currentHead(buffer, 4);
+                    // qCDebug(KArchiveLog) << "Testing for optional data descriptor @ " << dev->pos() << currentHead;
+                    if (currentHead.startsWith("PK\x07\x08")) {
+                        dev->seek(dev->pos() + 16); // skip rest of the 'data_descriptor'
+                    } else if (!(currentHead.startsWith("PK\x03\x04") || currentHead.startsWith("PK\x01\x02"))) {
                         // assume data descriptor without signature
-                        dev->seek(dev->pos() + 8); // skip rest of the 'data_descriptor'
+                        dev->seek(dev->pos() + 12); // skip rest of the 'data_descriptor'
                     }
                 }
 
