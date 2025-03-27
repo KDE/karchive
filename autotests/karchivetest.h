@@ -86,6 +86,10 @@ private Q_SLOTS:
     void testZipWithinZip();
     void testZip64();
     void testZipReopenWithoutDoubleDeletion();
+    void testZip64NestedStored();
+    void testZip64NestedStoredStreamed();
+    void testZip64EndOfCentralDirectory();
+    void testZip64DataDescriptor();
 
     void testRcc();
 
