@@ -13,121 +13,126 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: k7zip.cpp:2326
+#: k7zip.cpp:2498
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Non poteva obtener dispositivo subjacente"
 
-#: k7zip.cpp:2334
+#: k7zip.cpp:2506
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lectura de capite falleva"
 
-#: k7zip.cpp:2340
+#: k7zip.cpp:2512
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Verifica de signatura falleva"
 
-#: k7zip.cpp:2363
+#: k7zip.cpp:2535
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Mal CRC"
 
-#: k7zip.cpp:2372
+#: k7zip.cpp:2544
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Grandor de proxime capite es troppo grande"
 
-#: k7zip.cpp:2377
+#: k7zip.cpp:2549
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Grandor de proxime capite es minus que zero"
 
-#: k7zip.cpp:2388
+#: k7zip.cpp:2560
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Falleva a leger grandor de proxime capite: deberea leger %1, legite %2"
 
-#: k7zip.cpp:2400
+#: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Mal CRC de proxime capite"
 
-#: k7zip.cpp:2408
+#: k7zip.cpp:2581
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Error in capite"
 
-#: k7zip.cpp:2427
+#: k7zip.cpp:2599 k7zip.cpp:2632
+msgctxt "K7Zip|"
+msgid "Password needed for this archive"
+msgstr ""
+
+#: k7zip.cpp:2605
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Typo de capite errate"
 
-#: k7zip.cpp:2437 k7zip.cpp:2443
+#: k7zip.cpp:2615 k7zip.cpp:2621
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Non actuate"
 
-#: k7zip.cpp:2449
+#: k7zip.cpp:2627
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Error durante que lege information de fluxos (streams) principal"
 
-#: k7zip.cpp:2467
+#: k7zip.cpp:2651
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Error durante que lege capite"
 
-#: k7zip.cpp:2527
+#: k7zip.cpp:2711
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Error a leger tempore de modification"
 
-#: k7zip.cpp:2573
+#: k7zip.cpp:2757
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Error a leger MTime"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2764
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Invalide"
 
-#: k7zip.cpp:2602
+#: k7zip.cpp:2786
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Falleva a leger grandor (checkRecordsSize: %1, d->pos - ppp: %2, grandor: %3)"
 
-#: k7zip.cpp:2641
+#: k7zip.cpp:2825
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contentos"
 
-#: k7zip.cpp:2826
+#: k7zip.cpp:3010
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Error de scriptura"
 
-#: k7zip.cpp:2856
+#: k7zip.cpp:3040
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Falleva durante que codificava capite"
 
-#: k7zip.cpp:2900
+#: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nulle file currentemente seligite"
 
-#: k7zip.cpp:2924 k7zip.cpp:2974 k7zip.cpp:3014
+#: k7zip.cpp:3108 k7zip.cpp:3158 k7zip.cpp:3198
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Error de application: file7-Zip debe esser aperite ante que on scribe in illo"
 
-#: k7zip.cpp:2930 k7zip.cpp:3020
+#: k7zip.cpp:3114 k7zip.cpp:3204
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
