@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-25 22:05+0100\n"
+"PO-Revision-Date: 2025-03-28 20:49+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -70,7 +70,7 @@ msgstr "Errorea goiburuan"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Artxibo honetarako pasahitza behar da"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"

@@ -62,7 +62,7 @@ msgstr "თავსართის შეცდომა"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "ამ არქივისთვის საჭირო პაროლი"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
