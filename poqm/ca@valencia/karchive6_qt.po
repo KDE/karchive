@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2025-02-28 09:53+0100\n"
+"PO-Revision-Date: 2025-03-28 10:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -69,7 +69,7 @@ msgstr "S'ha produït un error en la capçalera"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Cal contrasenya per a este arxiu"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"

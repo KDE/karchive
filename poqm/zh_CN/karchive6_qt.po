@@ -64,7 +64,7 @@ msgstr "文件头错误"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "打开此压缩包所需的密码"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"

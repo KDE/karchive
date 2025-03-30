@@ -1,4 +1,4 @@
-# Translation of karchive6_qt.po to Spanish
+# Spanish translations for karchive6_qt.po package.
 #
 # SPDX-FileCopyrightText: 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-01 01:02+0100\n"
+"PO-Revision-Date: 2025-03-30 01:13+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -68,7 +68,7 @@ msgstr "Error en cabecera"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Se necesita contraseña para este archivo"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
