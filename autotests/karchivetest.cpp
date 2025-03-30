@@ -1433,6 +1433,60 @@ void KArchiveTest::testZip64DataDescriptor()
     QVERIFY(zip.close());
 }
 
+void KArchiveTest::testZip64ExtraZip64Size()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_extra_zip64_size.zip.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KCompressionDevice gzfilter(fileName);
+    QVERIFY2(gzfilter.open(QIODevice::ReadOnly), qPrintable(gzfilter.errorString()));
+
+    // Get the actual test data, which is compressed so the repository does
+    // not have to store 4 MByte of binary data
+    auto zipData = gzfilter.read(5 * 1000 * 1000);
+    QVERIFY(zipData.startsWith("PK"));
+
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 1);
+    QCOMPARE(zip.directory()->entries(), QList{QStringLiteral("-")});
+
+    auto entry = zip.directory()->file(QStringLiteral("-"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 4404019208);
+
+    auto readDev = std::unique_ptr<QIODevice>(entry->createDevice());
+    auto head = readDev->read(8);
+    QCOMPARE(head, QByteArrayLiteral("abcd\0\0\0\0"));
+    readDev->seek(entry->size() - 8);
+    auto tail = readDev->read(8);
+    QCOMPARE(tail, QByteArrayLiteral("\0\0\0\0ABCD"));
+
+    QVERIFY(zip.close());
+}
+
+void KArchiveTest::testZip64ExtraZip64Offset()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_extra_zip64_localheader.oxps");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 6);
+
+    auto entry = zip.directory()->file(QStringLiteral("_rels/.rels"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 576);
+
+    const auto data = entry->data();
+    QCOMPARE(data.sliced(0, 6), "<?xml ");
+
+    QVERIFY(zip.close());
+}
+
 void KArchiveTest::testRcc()
 {
     const QString rccFile = QFINDTESTDATA("data/runtime_resource.rcc"); // was copied from qtbase/tests/auto/corelib/io/qresourceengine
