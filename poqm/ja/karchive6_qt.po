@@ -343,49 +343,49 @@ msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
 "アプリケーションエラー: 書き込み不可の TAR ファイルに書き込もうとしました"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr ""
 "無効な ZIP ファイルです。予期しないファイルの終端です。(エラーコード: %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "無効な ZIP ファイルです。名前の長さが負です"
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "無効な ZIP ファイルです。名前が完全に読み取られていません (#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "無効な ZIP ファイルです。拡張フィールドが壊れています。"
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "後続ヘッダのトークンにシークできませんでした"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。(#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "ファイル圧縮サイズでシークできませんでした"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。(#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -393,28 +393,28 @@ msgstr ""
 "無効な ZIP ファイルです。セントラルエントリが短すぎます (有効なエントリに十分"
 "な長さがありません)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr "無効な ZIP ファイルです。ファイルのパス名の長さがゼロ以下です"
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "無効な ZIP ファイルです。空のエントリ名があります"
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "ファイル %1 はフォルダ %2 にありますが、%3 は実際にはファイルです。"
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "後続エントリにシークできませんでした"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "無効な ZIP ファイルです。予期しないファイルの終端です。"

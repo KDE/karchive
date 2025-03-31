@@ -346,7 +346,7 @@ msgstr ""
 "Erro da aplicación: intentou escribir nun ficheiro TAR que non permite "
 "escritura."
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
@@ -354,44 +354,44 @@ msgstr ""
 "O ficheiro ZIP non é válido. O fin do ficheiro foi inesperado. O código do "
 "erro foi: %1."
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "O ficheiro ZIP non é válido. A lonxitude do nome é negativa."
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "O ficheiro ZIP non é válido. Non se puido ler o nome completo (#2)."
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "O ficheiro ZIP non é válido. ExtraField está roto."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr ""
 "Non foi posíbel mover o punto de lectura ao seguinte código de cabeceira."
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "O ficheiro ZIP non é válido. O fin do ficheiro foi inesperado (#5)."
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr ""
 "Non foi posíbel mover o punto de lectura ao tamaño comprimido do ficheiro."
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "O ficheiro ZIP non é válido. O fin do ficheiro foi inesperado (#1)."
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -399,30 +399,30 @@ msgstr ""
 "O ficheiro ZIP non é válido, a entrada central é curta de máis (non é longa "
 "dabondo para ser unha entrada válida)."
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "O ficheiro ZIP non é válido, a lonxitude do nome da ruta de ficheiro é cero "
 "ou negativa."
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "O ficheiro ZIP non é válido, atopouse un nome de entrada baleiro."
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "O ficheiro %1 está no cartafol %2, pero %3 é en realidade un ficheiro."
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Non foi posíbel mover o punto de lectura á seguinte entrada."
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "O ficheiro ZIP non é válido. O fin do ficheiro foi inesperado."

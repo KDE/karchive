@@ -346,48 +346,48 @@ msgstr ""
 "Errore dell'applicazione: tentativo di scrittura in un file TAR non "
 "scrivibile"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "File ZIP non valido. Fine inattesa del file. (Codice di errore: %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "File ZIP non valido. Lunghezza del nome negativa"
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "File ZIP non valido. Nome non completamente letto (#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "File ZIP non valido. ExtraField danneggiato."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Impossibile cercare il token di intestazione successivo"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "File ZIP non valido. Fine inattesa del file. (#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Impossibile cercare la dimensione del file compresso"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "File ZIP non valido. Fine inattesa del file. (#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -395,30 +395,30 @@ msgstr ""
 "File ZIP non valido, voce centrale troppo corta (non abbastanza lunga per "
 "una voce valida)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "File ZIP non valido, lunghezza del nome del percorso del file inferiore o "
 "uguale a zero"
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "File ZIP non valido, trovato nome vuoto della voce"
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Il file %1 si trova nella cartella %2, ma %3 è in realtà un file."
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Impossibile cercare la voce successiva"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "File ZIP non valido. Fine inattesa del file."

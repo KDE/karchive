@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2025-03-01 09:49+0100\n"
+"PO-Revision-Date: 2025-03-29 10:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2498
@@ -65,7 +65,7 @@ msgstr "Erreur dans l'en-tête"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Un mot de passe est nécessaire pour cette archive."
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -348,7 +348,7 @@ msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « TAR »"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
@@ -356,48 +356,48 @@ msgstr ""
 "Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
 "façon non prévue (Code d'erreur : %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Fichier au format « zip » non valable. Longueur négative du nom."
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr ""
 "Fichier au format « zip » non valable. Un nom n'a pu être lu en totalité. "
 "(#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Fichier au format « zip » non valable. Champ additionnel corrompu."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Impossible de trouver le prochain jeton d'en-tête"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr ""
 "Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
 "façon non prévue. (#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Impossible de trouver la taille du fichier compressé"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr ""
 "Fichier au format « zip » non valable. La fin de fichier a été atteinte de "
 "façon non prévue. (#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -405,32 +405,32 @@ msgstr ""
 "Fichier au format « zip » non valable. L'entrée central est trop courte (Pas "
 "assez longue pour être une entrée valable)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "Fichier au format « zip » non valable. La longueur du nom de l'emplacement "
 "du fichier est inférieure ou égale à zéro."
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr ""
 "Fichier au format « zip » non valable. Un nom d'entrée vide a été trouvé."
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr ""
 "Le fichier %1 est dans le dossier %2 mais %3 est actuellement un fichier."
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Impossible de se positionner sur l'entrée suivante"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr ""

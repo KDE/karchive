@@ -341,48 +341,48 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Некоректний файл ZIP. Неочікуване завершення файла. (Код помилки: %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Некоректний файл ZIP. Від'ємна довжина назви"
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Некоректний файл ZIP. Назву не прочитано повністю (#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Некоректний файл ZIP. Пошкоджено ExtraField."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Не вдалося виконати позиціювання до наступного жетона заголовка"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Не вдалося виконати позиціювання до стисненого розміру файла"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -390,29 +390,29 @@ msgstr ""
 "Некоректний файл ZIP, центральний запис є надто коротким (недостатньо довгим "
 "для коректного запису)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "Некоректний файл ZIP, довжина назви шляху файла є меншою або рівною нулеві"
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Некоректний файл ZIP. Виявлено порожню назву запису"
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Файл %1 перебуває у теці %2, але %3 насправді є файлом."
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Не вдалося виконати позиціювання до наступного запису"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Некоректний файл ZIP. Несподіване завершення файла."

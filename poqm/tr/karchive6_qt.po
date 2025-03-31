@@ -330,48 +330,48 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Uygulama hatası: Yazılamaz TAR dosyasına yazmaya çalışıldı"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Geçersiz ZIP dosyası. Beklenmedik dosya sonu. (Hata kodu: %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Geçersiz ZIP dosyası. Negatif ad uzunluğu"
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Geçersiz ZIP dosyası. Ad, tümüyle okunmadı (#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Geçersiz ZIP dosyası. Bozuk ExtraField."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Sonraki üstbilgi jetonuna gidilemedi"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Geçersiz ZIP dosyası. Beklenmedik dosya sonu (#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Sıkıştırılmış dosya boyutuna gidilemedi"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Geçersiz ZIP dosyası. Beklenmedik dosya sonu (#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -379,29 +379,29 @@ msgstr ""
 "Geçersiz ZIP dosyası, merkezi girdi pek kısa (geçerli olacak kadar uzun "
 "değil)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr ""
 "Geçersiz ZIP dosyası, dosya yol adı uzunluğu daha küçük veya sıfır olmalı"
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Geçersiz ZIP dosyası, boş girdi adı bulundu"
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "%1 dosyası %2 klasöründe; ancak %3, özünde bir dosya."
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Sonraki girdiye gidilemedi"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Geçersiz ZIP dosyası. Beklenmedik dosya sonu."

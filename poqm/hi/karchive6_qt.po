@@ -329,76 +329,76 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "अनुप्रयोग त्रुटि: गैर-लेखन योग्य TAR फ़ाइल में लिखने का प्रयास किया गया"
 
-#: kzip.cpp:470 kzip.cpp:489
+#: kzip.cpp:479 kzip.cpp:501
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "अमान्य ZIP फ़ाइल। फ़ाइल का अप्रत्याशित अंत। (त्रुटि कोड: %1)"
 
-#: kzip.cpp:513
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "अमान्य ZIP फ़ाइल. नकारात्मक नाम लंबाई"
 
-#: kzip.cpp:518
+#: kzip.cpp:532
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "अमान्य ZIP फ़ाइल. नाम पूरी तरह से पढ़ा नहीं जा सका (#2)"
 
-#: kzip.cpp:537
+#: kzip.cpp:551
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "अमान्य ज़िप फ़ाइल. टूटा हुआ एक्स्ट्राफ़ील्ड."
 
-#: kzip.cpp:551 kzip.cpp:574
+#: kzip.cpp:565 kzip.cpp:588
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "अगले हेडर टोकन की खोज नहीं की जा सकी"
 
-#: kzip.cpp:566
+#: kzip.cpp:580
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "अमान्य ZIP फ़ाइल. फ़ाइल का अप्रत्याशित अंत. (#5)"
 
-#: kzip.cpp:582
+#: kzip.cpp:596
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "संपीड़ित आकार की फ़ाइल नहीं खोजी जा सकी"
 
-#: kzip.cpp:598
+#: kzip.cpp:612
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "अमान्य ZIP फ़ाइल. फ़ाइल का अप्रत्याशित अंत. (#1)"
 
-#: kzip.cpp:631
+#: kzip.cpp:649
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "अमान्य ZIP फ़ाइल, केंद्रीय प्रविष्टि बहुत छोटी है (वैध प्रविष्टि के लिए पर्याप्त लंबी नहीं)"
 
-#: kzip.cpp:640
+#: kzip.cpp:658
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgstr "अमान्य ZIP फ़ाइल, फ़ाइल पथ नाम की लंबाई शून्य से कम या बराबर है"
 
-#: kzip.cpp:722
+#: kzip.cpp:740
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "अमान्य ZIP फ़ाइल, रिक्त प्रविष्टि नाम मिला"
 
-#: kzip.cpp:764
+#: kzip.cpp:782
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "फ़ाइल %1 फ़ोल्डर %2 में है, लेकिन %3 वास्तव में एक फ़ाइल है।"
 
-#: kzip.cpp:775
+#: kzip.cpp:793
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "अगली प्रविष्टि की तलाश नहीं की जा सकी"
 
-#: kzip.cpp:788 kzip.cpp:798
+#: kzip.cpp:817
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "अमान्य ZIP फ़ाइल. फ़ाइल का अप्रत्याशित अंत."
