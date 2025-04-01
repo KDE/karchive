@@ -1276,6 +1276,31 @@ void KArchiveTest::testZipWithinZip()
     QCOMPARE(listing[1], QString::fromUtf8("mode=100644 path=test.epub type=file size=525154"));
 }
 
+void KArchiveTest::testZipPrependedData()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_datadescriptor.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    QFile origFile(fileName);
+    QVERIFY2(origFile.open(QIODevice::ReadOnly), qPrintable(origFile.errorString()));
+    auto zipData = origFile.readAll();
+    QVERIFY(zipData.startsWith("PK"));
+
+    zipData.insert(0, QByteArrayLiteral("PrependedPK\x01\x02Garbage"));
+    QBuffer zipBuffer(&zipData);
+
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 1);
+    QCOMPARE(zip.directory()->entries(), QList{QStringLiteral("-")});
+
+    auto entry = zip.directory()->file(QStringLiteral("-"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 4);
+    QCOMPARE(entry->data(), "abcd");
+}
+
 void KArchiveTest::testZipUnusualButValid()
 {
     const QString fileName = QFINDTESTDATA("data/unusual_but_valid_364071.zip");
@@ -1429,6 +1454,7 @@ void KArchiveTest::testZip64DataDescriptor()
     auto entry = zip.directory()->file(QStringLiteral("-"));
     QVERIFY(entry);
     QCOMPARE(entry->size(), 4);
+    QCOMPARE(entry->data(), "abcd");
 
     QVERIFY(zip.close());
 }
