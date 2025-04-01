@@ -104,9 +104,11 @@ struct ParseFileInfo {
     bool newinfounix_seen; // true if Info-ZIP Unix New extra field has
     // been parsed
 
-    // file sizes and header position from a ZIP64 extra field
+    // file sizes from a ZIP64 extra field
     quint64 uncompressedSize = 0;
     quint64 compressedSize = 0;
+    // position of the Local File Header itself, or from the
+    // ZIP64 extra field in the Central Directory
     quint64 localheaderoffset = 0;
 
     ParseFileInfo()
@@ -422,6 +424,8 @@ public:
     // writeonly mode, or it points to the beginning of the central directory.
     // each call to writefile updates this value.
     quint64 m_offset;
+    // Position of the first Local File Header
+    quint64 m_startPos = 0;
 };
 
 KZip::KZip(const QString &fileName)
@@ -467,6 +471,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
     // We set a bool for knowing if we are allowed to skip the start of the file
     bool startOfFile = true;
 
+    qint64 expectedStartPos = 0;
+
     for (;;) { // repeat until 'end of entries' signature is reached
         // qCDebug(KArchiveLog) << "loop starts";
         // qCDebug(KArchiveLog) << "dev->pos() now : " << dev->pos();
@@ -491,6 +497,9 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
         if (!memcmp(buffer, "PK\3\4", 4)) { // local file header
             // qCDebug(KArchiveLog) << "PK34 found local file header at offset" << dev->pos();
             startOfFile = false;
+
+            ParseFileInfo pfi;
+            pfi.localheaderoffset = dev->pos() - 4;
 
             // read static header stuff
             n = dev->read(buffer, 26);
@@ -530,7 +539,6 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 return false;
             }
 
-            ParseFileInfo pfi;
             pfi.mtime = mtime;
             pfi.dataoffset = 30 + extralen + namelen;
 
@@ -705,7 +713,17 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // qCDebug(KArchiveLog) << "localheader dataoffset: " << pfi.dataoffset;
 
             // offset, where the real data for uncompression starts
-            qint64 dataoffset = localheaderoffset + pfi.dataoffset; // comment only in central header
+            qint64 dataoffset = localheaderoffset + pfi.dataoffset;
+            if (pfi.localheaderoffset != expectedStartPos + localheaderoffset) {
+                if (pfi.localheaderoffset == d->m_startPos + localheaderoffset) {
+                    qCDebug(KArchiveLog) << "warning:" << d->m_startPos << "extra bytes at beginning of zipfile";
+                    expectedStartPos = d->m_startPos;
+                } else {
+                    setErrorString(tr("Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1").arg(offset));
+                    return false;
+                }
+                dataoffset = localheaderoffset + pfi.dataoffset + d->m_startPos;
+            }
 
             // qCDebug(KArchiveLog) << "csize: " << csize;
 
@@ -808,12 +826,17 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                  */
                 if (header.startsWith("PK\x03\x04")) {
                     foundSignature = true;
+                    d->m_startPos = dev->pos();
                     break;
                 }
+                if (dev->pos() > 4 * 1024 * 1024) {
+                    break;
+                }
+                dev->seek(dev->pos() + 2); // Skip found 'PK'
             }
 
             if (!foundSignature) {
-                setErrorString(tr("Invalid ZIP file. Unexpected end of file."));
+                setErrorString(tr("Not a ZIP file, no Local File Header found."));
                 return false;
             }
         } else {
