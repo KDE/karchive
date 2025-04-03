@@ -336,48 +336,48 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Alkalmazáshiba: írási kísérlet egy nem írható TAR-fájlba"
 
-#: kzip.cpp:479 kzip.cpp:501
+#: kzip.cpp:474 kzip.cpp:496
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (Hibakód: %1)"
 
-#: kzip.cpp:527
+#: kzip.cpp:522
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Érvénytelen ZIP-fájl. Negatív névhossz"
 
-#: kzip.cpp:532
+#: kzip.cpp:527
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Érvénytelen ZIP-fájl. A név nem olvasható teljesen (#2)"
 
-#: kzip.cpp:551
+#: kzip.cpp:546
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Érvénytelen ZIP-fájl. Sérült ExtraField."
 
-#: kzip.cpp:565 kzip.cpp:588
+#: kzip.cpp:560 kzip.cpp:583
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Nem sikerült megkeresni a következő fejléctokent"
 
-#: kzip.cpp:580
+#: kzip.cpp:575
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (#5)"
 
-#: kzip.cpp:596
+#: kzip.cpp:591
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Nem sikerült megkeresni a fájl tömörített méretét"
 
-#: kzip.cpp:612
+#: kzip.cpp:607
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége. (#1)"
 
-#: kzip.cpp:649
+#: kzip.cpp:644
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -385,95 +385,98 @@ msgstr ""
 "Érvénytelen ZIP-fájl, a központi bejegyzés túl rövid (nem elég hosszú egy "
 "érvényes bejegyzéshez)"
 
-#: kzip.cpp:658
+#: kzip.cpp:659
+#, fuzzy
+#| msgctxt "KZip|"
+#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
-msgid "Invalid ZIP file, file path name length smaller or equal to zero"
+msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
 "Érvénytelen ZIP-fájl, a fájl elérési útjának hossza kisebb vagy egyenlő "
 "nullával"
 
-#: kzip.cpp:740
+#: kzip.cpp:737
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Érvénytelen ZIP-fájl, üres bejegyzésnév található"
 
-#: kzip.cpp:782
+#: kzip.cpp:779
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "A(z) %1 fájl a(z) %2 mappában van, de a(z) %3 valójában egy fájl."
 
-#: kzip.cpp:793
+#: kzip.cpp:790
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Nem sikerült megkeresni a következő bejegyzést"
 
-#: kzip.cpp:817
+#: kzip.cpp:814
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Érvénytelen ZIP-fájl. Váratlan fájlvége."
 
-#: kzip.cpp:821
+#: kzip.cpp:818
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Érvénytelen ZIP-fájl. Ismeretlen fejléc a(z) %1 eltolásnál"
 
-#: kzip.cpp:849
+#: kzip.cpp:846
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Nem sikerült megkeresni a következő fájl fejlécét: %1"
 
-#: kzip.cpp:875 kzip.cpp:969
+#: kzip.cpp:872 kzip.cpp:966
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Nem sikerült írni a fájl fejlécét: %1"
 
-#: kzip.cpp:1016
+#: kzip.cpp:1013
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Nem sikerült írni a központi mapparekordot: %1"
 
-#: kzip.cpp:1052
+#: kzip.cpp:1049
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "Alkalmazáshiba: a ZIP-fájlt meg kell nyitni írás előtt"
 
-#: kzip.cpp:1058
+#: kzip.cpp:1055
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Alkalmazáshiba: írási kísérlet egy nem írható ZIP-fájlba"
 
-#: kzip.cpp:1064
+#: kzip.cpp:1061
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Nem lehet létrehozni egy eszközt. Megtelt a lemez?"
 
-#: kzip.cpp:1070
+#: kzip.cpp:1067
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Nem lehet keresni a ZIP-fájlban. Megtelt a lemez?"
 
-#: kzip.cpp:1214
+#: kzip.cpp:1211
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Nem sikerült írni az archívumfájlt. Megtelt a lemez?"
 
-#: kzip.cpp:1233
+#: kzip.cpp:1230
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Nem sikerült megnyitni a tömörítő eszközt: %1"
 
-#: kzip.cpp:1320
+#: kzip.cpp:1317
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Nincs fájl vagy eszköz"
 
-#: kzip.cpp:1333
+#: kzip.cpp:1330
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
