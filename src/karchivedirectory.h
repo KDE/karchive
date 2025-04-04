@@ -107,7 +107,7 @@ public:
      * @deprecated since 6.13, use removeEntryV2() instead.
      */
     KARCHIVE_DEPRECATED_VERSION(6, 13, "Use removeEntryV2() instead.")
-    [[deprecated]] void removeEntry(KArchiveEntry *); // KF7 TODO: remove
+    void removeEntry(KArchiveEntry *); // KF7 TODO: remove
 #endif
 
     /**
