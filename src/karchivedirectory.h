@@ -96,6 +96,7 @@ public:
      * @internal
      * Adds a new entry to the directory.
      * @return whether the entry was added or not. Non added entries are deleted
+     * @since 6.13
      */
     [[nodiscard]] bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
