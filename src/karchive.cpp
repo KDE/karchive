@@ -923,7 +923,7 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 #if KARCHIVE_BUILD_DEPRECATED_SINCE(6, 13)
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
-    addEntryV2(entry);
+    (void)addEntryV2(entry);
 }
 #endif
 
