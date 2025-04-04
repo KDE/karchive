@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-28 22:27+0300\n"
+"PO-Revision-Date: 2025-04-03 20:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -380,12 +380,9 @@ msgstr ""
 "קובץ ZIP פגום, הרשומה המרכזית קצרה מדי (לא ארוכה מספיק כדי להיות רשומה תקינה)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "קובץ ZIP פגום, אורך שם נתיב קובץ קטן או שווה לאפס"
+msgstr "קובץ ZIP פגום, אורך שם נתיב הקובץ הוא אפס"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

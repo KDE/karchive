@@ -378,12 +378,9 @@ msgid ""
 msgstr "არასწორი ZIP ფაილი. ცენტრალური ჩანაწერი ძალიან მოკლეა"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "არასწორი ZIP ფაილი. ფაილის ბილიკის სიგრძე ძალიან მცირე ან ნულის ტოლია"
+msgstr "არასწორი ZIP ფაილი. ფაილის ბილიკის სიგრძე ნულის ტოლია"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

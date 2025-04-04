@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-30 01:13+0100\n"
+"PO-Revision-Date: 2025-04-04 02:20+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -401,14 +401,9 @@ msgstr ""
 "suficientemente larga para ser una entrada válida)."
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Archivo ZIP no válido: longitud de nombre de ruta de archivo menor o igual "
-"que cero."
+msgstr "Archivo ZIP no válido: longitud de nombre de ruta de archivo es cero."
 
 #: kzip.cpp:737
 msgctxt "KZip|"

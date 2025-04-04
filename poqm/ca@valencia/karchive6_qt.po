@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2025-03-28 10:53+0100\n"
+"PO-Revision-Date: 2025-04-03 09:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -401,14 +401,9 @@ msgstr ""
 "suficient perquè siga vàlida)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Fitxer ZIP no vàlid. La llargària del nom del camí és inferior o igual que "
-"zero"
+msgstr "Fitxer ZIP no vàlid. La llargària del nom del camí és zero"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

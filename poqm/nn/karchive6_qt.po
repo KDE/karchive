@@ -387,8 +387,6 @@ msgstr ""
 
 #: kzip.cpp:659
 #, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "Ugyldig zip-fil: Lengda på filadressa var mindre enn eller lik 0"

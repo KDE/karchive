@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-28 19:31+0100\n"
+"PO-Revision-Date: 2025-04-03 22:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -62,7 +62,7 @@ msgstr "Fel i huvud"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Lösenord krävs för arkivet"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -378,12 +378,9 @@ msgid ""
 msgstr "Ogiltig ZIP-fil. Central post för kort (inte lång nog för giltig post)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "Ogiltig ZIP-fil. Filsökvägens längd mindre eller lika med noll"
+msgstr "Ogiltig ZIP-fil, filsökvägens namnlängd är noll"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

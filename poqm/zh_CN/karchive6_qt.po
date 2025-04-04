@@ -379,12 +379,9 @@ msgid ""
 msgstr "无效的 ZIP 文件，中心条目太短 (短于有效条目的长度要求)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "无效的 ZIP 文件，文件路径名称长度小于或等于 0"
+msgstr ""
 
 #: kzip.cpp:737
 msgctxt "KZip|"

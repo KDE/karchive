@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-28 07:15+0100\n"
+"PO-Revision-Date: 2025-04-03 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -386,13 +386,9 @@ msgstr ""
 "vnos)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Neveljavna datoteka ZIP, dolžina imena poti datoteke manjše ali enaka nič"
+msgstr "Neveljavna datoteka ZIP, dolžina imena poti datoteke je nič"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

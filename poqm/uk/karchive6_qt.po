@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-28 12:42+0200\n"
+"PO-Revision-Date: 2025-04-03 17:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -391,13 +391,9 @@ msgstr ""
 "для коректного запису)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Некоректний файл ZIP, довжина назви шляху файла є меншою або рівною нулеві"
+msgstr "Некоректний файл ZIP, довжина назви шляху файла є нульовою"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

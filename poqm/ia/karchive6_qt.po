@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-02 15:16+0200\n"
+"PO-Revision-Date: 2025-04-03 17:03+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -386,14 +386,9 @@ msgstr ""
 "entrata valide)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Invalide file ZIP, longessa de nomine de percurso de file plus parve o equal "
-"a zero"
+msgstr "Invalide file ZIP, longessa de nomine de percurso de file es zero"
 
 #: kzip.cpp:737
 msgctxt "KZip|"
