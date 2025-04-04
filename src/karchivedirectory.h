@@ -81,12 +81,16 @@ public:
      */
     const KArchiveFile *file(const QString &name) const;
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(6, 13)
     /**
      * @internal
      * Adds a new entry to the directory.
      * Note: this can delete the entry if another one with the same name is already present
+     * @deprecated since 6.13, use addEntryV2() instead.
      */
-    [[deprecated("Use addEntryV2() instead.")]] void addEntry(KArchiveEntry *); // KF7 TODO: remove
+    KARCHIVE_DEPRECATED_VERSION(6, 13, "Use addEntryV2() instead.")
+    void addEntry(KArchiveEntry *); // KF7 TODO: remove
+#endif
 
     /**
      * @internal
@@ -95,11 +99,15 @@ public:
      */
     [[nodiscard]] bool addEntryV2(KArchiveEntry *); // KF7 TODO: rename to addEntry
 
+#if KARCHIVE_ENABLE_DEPRECATED_SINCE(6, 13)
     /**
      * @internal
      * Removes an entry from the directory.
+     * @deprecated since 6.13, use removeEntryV2() instead.
      */
+    KARCHIVE_DEPRECATED_VERSION(6, 13, "Use removeEntryV2() instead.")
     [[deprecated]] void removeEntry(KArchiveEntry *); // KF7 TODO: remove
+#endif
 
     /**
      * Removes an entry from the directory.

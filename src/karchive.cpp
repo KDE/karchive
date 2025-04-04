@@ -920,10 +920,12 @@ const KArchiveFile *KArchiveDirectory::file(const QString &name) const
     return nullptr;
 }
 
+#if KARCHIVE_BUILD_DEPRECATED_SINCE(6, 13)
 void KArchiveDirectory::addEntry(KArchiveEntry *entry)
 {
     addEntryV2(entry);
 }
+#endif
 
 bool KArchiveDirectory::addEntryV2(KArchiveEntry *entry)
 {
@@ -936,10 +938,12 @@ bool KArchiveDirectory::addEntryV2(KArchiveEntry *entry)
     return true;
 }
 
+#if KARCHIVE_BUILD_DEPRECATED_SINCE(6, 13)
 void KArchiveDirectory::removeEntry(KArchiveEntry *entry)
 {
     (void)removeEntryV2(entry);
 }
+#endif
 
 bool KArchiveDirectory::removeEntryV2(KArchiveEntry *entry)
 {
