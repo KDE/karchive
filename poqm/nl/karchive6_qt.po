@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-28 17:39+0100\n"
+"PO-Revision-Date: 2025-04-04 12:26+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -387,13 +387,9 @@ msgstr ""
 "item)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Ongeldig ZIP-bestand, naamlengte van bestandspad kleiner of gelijk aan nul"
+msgstr "Ongeldig ZIP-bestand, naamlengte van bestandspad is nul"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

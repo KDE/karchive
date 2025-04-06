@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-02 10:44+0400\n"
+"PO-Revision-Date: 2025-04-05 12:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -63,7 +63,7 @@ msgstr "خطأ في العنوان"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "بحاجة إلى كلمة السر لهذا الأرشيف"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -380,12 +380,9 @@ msgstr ""
 "ملف ZIP غير صالح، المدخلة المركزية قصيرة جدًا (ليس طويلًا بما يكفي مدخلة صالحة)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "ملف ZIP غير صالح، طول اسم مسار الملف أصغر أو يساوي الصفر"
+msgstr "ملف ZIP غير صالح، طول اسم مسار الملف يساوي الصفر"
 
 #: kzip.cpp:737
 msgctxt "KZip|"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2025-03-29 10:55+0100\n"
+"PO-Revision-Date: 2025-04-04 13:57+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -406,14 +406,11 @@ msgstr ""
 "assez longue pour être une entrée valable)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
 "Fichier au format « zip » non valable. La longueur du nom de l'emplacement "
-"du fichier est inférieure ou égale à zéro."
+"du fichier est de zéro."
 
 #: kzip.cpp:737
 msgctxt "KZip|"
