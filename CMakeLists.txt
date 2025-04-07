@@ -49,7 +49,7 @@ include(KDEGitCommitHooks)
 
 include(ECMGenerateExportHeader)
 
-set(REQUIRED_QT_VERSION 6.6.0)
+set(REQUIRED_QT_VERSION 6.7.0)
 find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 find_package(ZLIB)
