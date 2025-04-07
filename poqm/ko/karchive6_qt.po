@@ -1,8 +1,8 @@
-# Shinjo Park <kde@peremen.name>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Shinjo Park <kde@peremen.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-24 22:04+0200\n"
+"PO-Revision-Date: 2025-04-06 22:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2498
@@ -62,7 +62,7 @@ msgstr "헤더 내부 오류"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "이 압축 파일에 암호가 필요함"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -108,7 +108,7 @@ msgstr "읽기 크기 실패(checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 #: k7zip.cpp:2825
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "내용"
 
 #: k7zip.cpp:3010
 msgctxt "K7Zip|"
@@ -297,12 +297,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
 #: ktar.cpp:750 ktar.cpp:760
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "정렬을 기록할 수 없음: %1"
+msgstr "긴 링크를 기록할 수 없음: %1"
 
 #: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
@@ -380,12 +378,9 @@ msgstr ""
 "잘못된 ZIP 파일입니다. 중심 항목이 너무 짧음(올바른 항목 길이보다 짧음)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "잘못된 ZIP 파일입니다. 파일 경로 이름이 0보다 작거나 같음"
+msgstr "잘못된 ZIP 파일입니다. 파일 경로 이름이 0임"
 
 #: kzip.cpp:737
 msgctxt "KZip|"
