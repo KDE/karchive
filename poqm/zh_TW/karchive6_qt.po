@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-26 18:06+0900\n"
+"PO-Revision-Date: 2025-04-07 13:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -62,7 +62,7 @@ msgstr "標頭有錯誤"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "這個封存檔需要密碼"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -377,12 +377,9 @@ msgid ""
 msgstr "無效的 ZIP 檔，中央項目太短（不夠作為有效的項目）"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "無效的 ZIP 檔，檔案路徑名稱長度小於或等於零"
+msgstr "無效的 ZIP 檔，檔案路徑名稱長度是零"
 
 #: kzip.cpp:737
 msgctxt "KZip|"
