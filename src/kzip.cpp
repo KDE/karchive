@@ -387,6 +387,8 @@ static bool seekToNextHeaderToken(QIODevice *dev)
         // PK12 for the central header in case there is no data descriptor
         if (header.startsWith("PK\x03\x04") || header.startsWith("PK\x01\x02")) {
             return true;
+        } else {
+            dev->seek(dev->pos() + 2); // Skip found 'PK'
         }
     }
     return false;
