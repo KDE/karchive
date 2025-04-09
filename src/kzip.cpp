@@ -319,7 +319,7 @@ static bool seekAnyHeader(QIODevice *dev, QByteArray &header, qsizetype minSize)
     int n = dev->peek(header.data(), header.size());
 
     while (n >= minSize) {
-        if (auto i = header.indexOf("PK"); i >= 0) {
+        if (auto i = QByteArrayView(header.data(), n).indexOf("PK"); i >= 0) {
             dev->seek(dev->pos() + i);
             if ((i + minSize) < n) {
                 header.remove(0, i);
