@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-28 20:49+0100\n"
+"PO-Revision-Date: 2025-04-11 22:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -402,14 +402,9 @@ msgstr ""
 "izateko behar bezain luzea)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"ZIP fitxategi baliogabea, fitxategiaren bide-izenaren luzera zero edo "
-"txikiagoa"
+msgstr "ZIP fitxategi baliogabea, fitxategi bide-izenaren luzera zero da"
 
 #: kzip.cpp:737
 msgctxt "KZip|"
