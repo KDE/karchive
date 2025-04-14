@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-16 16:16+0530\n"
+"PO-Revision-Date: 2025-04-13 16:46+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -36,12 +36,12 @@ msgstr ""
 #: k7zip.cpp:2544
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "அடுத்த தலைப்புப்புலத்தின் அளவு சரியானதைவிட பெரிதாக உள்ளது"
 
 #: k7zip.cpp:2549
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "அடுத்த தலைப்புப்புலத்தின் அளவு சுழியத்தைவிட சிறியதாக உள்ளது"
 
 #: k7zip.cpp:2560
 #, qt-format
@@ -62,12 +62,12 @@ msgstr "தலைப்புப்புலத்தில் பிழை"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "இக்காப்பகத்திற்கு கடவுச்சொல் தேவை"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "தவறான தலைப்புப்புல வகை"
 
 #: k7zip.cpp:2615 k7zip.cpp:2621
 msgctxt "K7Zip|"
@@ -97,7 +97,7 @@ msgstr ""
 #: k7zip.cpp:2764
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "முறையற்றது"
 
 #: k7zip.cpp:2786
 #, qt-format
@@ -113,7 +113,7 @@ msgstr ""
 #: k7zip.cpp:3010
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "எழுதுவதில் சிக்கல்"
 
 #: k7zip.cpp:3040
 msgctxt "K7Zip|"
@@ -123,7 +123,7 @@ msgstr ""
 #: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "எக்கோப்பும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: k7zip.cpp:3108 k7zip.cpp:3158 k7zip.cpp:3198
 msgctxt "K7Zip|"

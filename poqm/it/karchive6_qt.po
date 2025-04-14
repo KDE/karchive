@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-01 07:46+0100\n"
+"PO-Revision-Date: 2025-04-05 17:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2498
@@ -64,7 +64,7 @@ msgstr "Errore nell'intestazione"
 #: k7zip.cpp:2599 k7zip.cpp:2632
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Password richiesta per questo archivio"
 
 #: k7zip.cpp:2605
 msgctxt "K7Zip|"
@@ -396,14 +396,11 @@ msgstr ""
 "una voce valida)"
 
 #: kzip.cpp:659
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
-"File ZIP non valido, lunghezza del nome del percorso del file inferiore o "
-"uguale a zero"
+"File ZIP non valido, la lunghezza del nome del percorso del file è uguale a "
+"zero"
 
 #: kzip.cpp:737
 msgctxt "KZip|"
