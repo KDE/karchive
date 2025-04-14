@@ -761,8 +761,7 @@ void K7Zip::K7ZipPrivate::readHashDigests(int numItems, QList<bool> &digestsDefi
     for (int i = 0; i < numItems; i++) {
         quint32 crc = 0;
         if (digestsDefined[i]) {
-            crc = GetUi32(buffer + pos);
-            pos += 4;
+            crc = readUInt32();
         }
         digests.append(crc);
     }
