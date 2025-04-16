@@ -340,48 +340,48 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Aplika eraro: provis skribi en ne-skribeblan TAR-dosieron"
 
-#: kzip.cpp:474 kzip.cpp:496
+#: kzip.cpp:476 kzip.cpp:498
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Nevalida ZIP-dosiero. Neatendita fino de dosiero. (Erara kodo: %1)"
 
-#: kzip.cpp:522
+#: kzip.cpp:524
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Nevalida ZIP-dosiero. Negativa nomlongeco"
 
-#: kzip.cpp:527
+#: kzip.cpp:529
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Nevalida ZIP-dosiero. Nomo ne tute legita (n-ro 2)"
 
-#: kzip.cpp:546
+#: kzip.cpp:548
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Nevalida ZIP-dosiero. Rompita ExtraField."
 
-#: kzip.cpp:560 kzip.cpp:583
+#: kzip.cpp:562 kzip.cpp:585
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Ne eblis serĉi la sekvan kapĵetonon"
 
-#: kzip.cpp:575
+#: kzip.cpp:577
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Nevalida ZIP-dosiero. Neatendita fino de dosiero. (#5)"
 
-#: kzip.cpp:591
+#: kzip.cpp:593
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Ne eblis serĉi dosieron kunpremitan grandecon"
 
-#: kzip.cpp:607
+#: kzip.cpp:609
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Nevalida ZIP-dosiero. Neatendita fino de dosiero. (#1)"
 
-#: kzip.cpp:644
+#: kzip.cpp:646
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -389,7 +389,7 @@ msgstr ""
 "Nevalida ZIP-dosiero, centra enskribo tro mallonga (ne sufiĉe longa por "
 "valida enskribo)"
 
-#: kzip.cpp:659
+#: kzip.cpp:661
 #, fuzzy
 #| msgctxt "KZip|"
 #| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
@@ -398,89 +398,89 @@ msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
 "Nevalida ZIP-dosiero, dosiera vojo nomo longo pli malgranda aŭ egala al nulo"
 
-#: kzip.cpp:737
+#: kzip.cpp:739
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Nevalida ZIP-dosiero, trovita malplena enirnomo"
 
-#: kzip.cpp:779
+#: kzip.cpp:781
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Dosiero %1 estas en dosierujo %2, sed %3 fakte estas dosiero."
 
-#: kzip.cpp:790
+#: kzip.cpp:792
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Ne eblis serĉi la sekvan enskribon"
 
-#: kzip.cpp:814
+#: kzip.cpp:816
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "Nevalida ZIP-dosiero. Neatendita fino de dosiero."
 
-#: kzip.cpp:818
+#: kzip.cpp:820
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Nevalida ZIP-dosiero. Nerekonita kaplinio ĉe deŝovo %1"
 
-#: kzip.cpp:846
+#: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Ne eblis serĉi la sekvan dosierkapon: %1"
 
-#: kzip.cpp:872 kzip.cpp:966
+#: kzip.cpp:874 kzip.cpp:968
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Ne eblis skribi dosierkapon: %1"
 
-#: kzip.cpp:1013
+#: kzip.cpp:1015
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Ne eblis skribi centran dosierujrikordon: %1"
 
-#: kzip.cpp:1049
+#: kzip.cpp:1051
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Aplika eraro: ZIP-dosiero devas esti malfermita antaŭ ol esti skribita enen"
 
-#: kzip.cpp:1055
+#: kzip.cpp:1057
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Aplika eraro: provis skribi en neskribeblan ZIP-dosieron"
 
-#: kzip.cpp:1061
+#: kzip.cpp:1063
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Ne povas krei aparaton. Disko plena?"
 
-#: kzip.cpp:1067
+#: kzip.cpp:1069
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Ne eblas serĉi en ZIP-dosiero. Disko plena?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Ne eblis skribi al la arkivo. Disko plena?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Ne eblis malfermi kunpreman aparaton: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Neniu dosiero aŭ aparato"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

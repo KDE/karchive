@@ -337,48 +337,48 @@ msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
 "Galat aplikasi: mencoba menulis ke dalam file TAR yang tidak dapat ditulis"
 
-#: kzip.cpp:474 kzip.cpp:496
+#: kzip.cpp:476 kzip.cpp:498
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "File ZIP tidak valid. Akhir file tidak terduga. (Kode galat: %1)"
 
-#: kzip.cpp:522
+#: kzip.cpp:524
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "File ZIP tidak valid. Panjang nama negatif"
 
-#: kzip.cpp:527
+#: kzip.cpp:529
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "File ZIP tidak valid. Nama tidak secara lengkap dibaca (#2)"
 
-#: kzip.cpp:546
+#: kzip.cpp:548
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "File ZIP tidak valid. ExtraField rusak."
 
-#: kzip.cpp:560 kzip.cpp:583
+#: kzip.cpp:562 kzip.cpp:585
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Tidak bisa menjangka ke token tajuk selanjutnya"
 
-#: kzip.cpp:575
+#: kzip.cpp:577
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "File ZIP tidak valid. Akhir file tidak terduga. (#5)"
 
-#: kzip.cpp:591
+#: kzip.cpp:593
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Tidak bisa menjangka ke file yang ukurannya dikompres"
 
-#: kzip.cpp:607
+#: kzip.cpp:609
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "File ZIP tidak valid. Akhir file tidak terduga. (#1)"
 
-#: kzip.cpp:644
+#: kzip.cpp:646
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -386,7 +386,7 @@ msgstr ""
 "File ZIP tidak valid, entri sentral terlalu pendek (tidak cukup panjang "
 "untuk entri yang valid)"
 
-#: kzip.cpp:659
+#: kzip.cpp:661
 #, fuzzy
 #| msgctxt "KZip|"
 #| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
@@ -396,89 +396,89 @@ msgstr ""
 "File ZIP tidak valid, nama alur file panjangnya lebih pendek atau sama "
 "dengan nol"
 
-#: kzip.cpp:737
+#: kzip.cpp:739
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "File ZIP tidak valid, ditemukan nama entri yang kosong"
 
-#: kzip.cpp:779
+#: kzip.cpp:781
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "File %1 berada dalam folder %2, tetapi %3 adalah file yang sebenarnya."
 
-#: kzip.cpp:790
+#: kzip.cpp:792
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Tidak bisa menjangka ke entri selanjutnya"
 
-#: kzip.cpp:814
+#: kzip.cpp:816
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
 msgstr "File ZIP tidak valid. Akhir file tidak terduga."
 
-#: kzip.cpp:818
+#: kzip.cpp:820
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "File ZIP tidak valid. Tajuk tak dikenal pada ofset %1"
 
-#: kzip.cpp:846
+#: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Tidak bisa menjangka ke tajuk file selanjutnya: %1"
 
-#: kzip.cpp:872 kzip.cpp:966
+#: kzip.cpp:874 kzip.cpp:968
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Tidak bisa menulis tajuk file: %1"
 
-#: kzip.cpp:1013
+#: kzip.cpp:1015
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Tidak bisa menulis catatan dir sentral: %1"
 
-#: kzip.cpp:1049
+#: kzip.cpp:1051
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "Galat aplikasi: file Zip mustinya dibuka sebelum menulis ke dalamnya"
 
-#: kzip.cpp:1055
+#: kzip.cpp:1057
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Galat aplikasi: mencoba menulis ke dalam file Zip yang tidak dapat ditulis"
 
-#: kzip.cpp:1061
+#: kzip.cpp:1063
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Tidak dapat membuat sebuah peranti. Apakah disk penuh?"
 
-#: kzip.cpp:1067
+#: kzip.cpp:1069
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Tidak dapat menjangka di dalam file ZIP. Apakah disk penuh?"
 
-#: kzip.cpp:1211
+#: kzip.cpp:1213
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Tidak bisa menulis ke arsip. Apakah disk penuh?"
 
-#: kzip.cpp:1230
+#: kzip.cpp:1232
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Tak bisa membuka peranti kompresi: %1"
 
-#: kzip.cpp:1317
+#: kzip.cpp:1319
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Tidak ada file atau peranti"
 
-#: kzip.cpp:1330
+#: kzip.cpp:1332
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
