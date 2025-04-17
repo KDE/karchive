@@ -348,49 +348,49 @@ msgstr ""
 "Anwendungsfehler: Es wird versucht in eine nicht beschreibbare TAR-Datei zu "
 "schreiben"
 
-#: kzip.cpp:476 kzip.cpp:498
+#: kzip.cpp:482 kzip.cpp:507
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (Fehlercode: %1)"
 
-#: kzip.cpp:524
+#: kzip.cpp:533
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Ungültige ZIP-Datei. Name negativer Länge"
 
-#: kzip.cpp:529
+#: kzip.cpp:538
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr ""
 "Ungültige ZIP-Datei. Der Name kann nicht vollständig gelesen werden (#2)"
 
-#: kzip.cpp:548
+#: kzip.cpp:556
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Ungültige ZIP-Datei. „ExtraField“ ist fehlerhaft."
 
-#: kzip.cpp:562 kzip.cpp:585
+#: kzip.cpp:570 kzip.cpp:593
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Der Datensatz des nächsten Vorspanns ist nicht auffindbar"
 
-#: kzip.cpp:577
+#: kzip.cpp:585
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (#5)"
 
-#: kzip.cpp:593
+#: kzip.cpp:601
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Die komprimierte Dateigröße nicht nicht auffindbar"
 
-#: kzip.cpp:609
+#: kzip.cpp:617
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende. (#1)"
 
-#: kzip.cpp:646
+#: kzip.cpp:654
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -398,7 +398,7 @@ msgstr ""
 "Ungültige ZIP-Datei. Der zentrale Eintrag ist zu kurz (nicht lang genug für "
 "einen gültigen Eintrag)"
 
-#: kzip.cpp:661
+#: kzip.cpp:669
 #, fuzzy
 #| msgctxt "KZip|"
 #| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
@@ -407,93 +407,104 @@ msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
 "Ungültige ZIP-Datei. Die Länge des Pfadnamens ist kleiner oder gleich null"
 
-#: kzip.cpp:739
+#: kzip.cpp:722
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
+msgstr ""
+
+#: kzip.cpp:757
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Ungültige ZIP-Datei. Der Name des Eintrags ist leer"
 
-#: kzip.cpp:781
+#: kzip.cpp:799
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Die Datei %1 befindet sich im Ordner %2. Jedoch ist %3 eine Datei."
 
-#: kzip.cpp:792
+#: kzip.cpp:810
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Der nächste Eintrag ist nicht auffindbar"
 
-#: kzip.cpp:816
+#: kzip.cpp:839
 msgctxt "KZip|"
-msgid "Invalid ZIP file. Unexpected end of file."
-msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende."
+msgid "Not a ZIP file, no Local File Header found."
+msgstr ""
 
-#: kzip.cpp:820
+#: kzip.cpp:843
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Ungültige ZIP-Datei. Unerkannter Vorspann bei Versatz %1"
 
-#: kzip.cpp:848
+#: kzip.cpp:871
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Der nächste Dateivorspann ist nicht auffindbar: %1"
 
-#: kzip.cpp:874 kzip.cpp:968
+#: kzip.cpp:897 kzip.cpp:991
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Datei-Vorspann kann nicht geschrieben werden: %1"
 
-#: kzip.cpp:1015
+#: kzip.cpp:1038
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr ""
 "Der Datensatz des zentralen Verzeichnisses kann nicht geschrieben werden: %1"
 
-#: kzip.cpp:1051
+#: kzip.cpp:1074
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Anwendungsfehler: Die ZIP-Datei muss vor dem Hineinschreiben geöffnet sein"
 
-#: kzip.cpp:1057
+#: kzip.cpp:1080
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Anwendungsfehler: In eine nicht beschreibbare ZIP-Datei kann nicht "
 "geschrieben werden"
 
-#: kzip.cpp:1063
+#: kzip.cpp:1086
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Das Gerät kann nicht erstellt werden. Ist das Laufwerk voll?"
 
-#: kzip.cpp:1069
+#: kzip.cpp:1092
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "In der ZIP-Datei kann nicht gesucht werden. Ist das Laufwerk voll?"
 
-#: kzip.cpp:1213
+#: kzip.cpp:1236
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Es kann nicht in das Archiv geschrieben werden. Ist das Medium voll?"
 
-#: kzip.cpp:1232
+#: kzip.cpp:1255
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Das Komprimierungsgerät kann nicht geöffnet werden: %1"
 
-#: kzip.cpp:1319
+#: kzip.cpp:1342
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Keine Datei oder kein Gerät"
 
-#: kzip.cpp:1332
+#: kzip.cpp:1355
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "Fehler beim Schreiben der Daten: %1"
+
+#~ msgctxt "KZip|"
+#~ msgid "Invalid ZIP file. Unexpected end of file."
+#~ msgstr "Ungültige ZIP-Datei. Unerwartetes Dateiende."
