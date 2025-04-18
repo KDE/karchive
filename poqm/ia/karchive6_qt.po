@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-03 17:03+0200\n"
+"PO-Revision-Date: 2025-04-17 17:29+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -396,6 +396,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Invalide file ZIP, Displaciamento de Capite Local ( Local Header Offset) "
+"inconsistente  in Directorio Central a %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -417,6 +419,7 @@ msgstr "Non poteva facer seek a prossime entrata"
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr ""
+"Non un file ZIP, necun Capite de File Local (Local File Header)  trovate."
 
 #: kzip.cpp:843
 #, qt-format

@@ -476,7 +476,3 @@ msgstr "没有文件或者设备"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "写入数据时出错：%1"
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "无效的 ZIP 文件。意外的文件结尾。"

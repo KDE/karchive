@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-04 12:26+0200\n"
+"PO-Revision-Date: 2025-04-18 00:55+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -397,6 +397,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Ongeldig ZIP-bestand, inconsistente lokale header-offset in centrale map bij "
+"%1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -417,7 +419,7 @@ msgstr "Kon geen seek doen naar volgend item"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Geen ZIP-bestand, geen lokale bestandskop gevonden."
 
 #: kzip.cpp:843
 #, qt-format

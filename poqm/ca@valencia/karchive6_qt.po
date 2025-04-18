@@ -3,11 +3,11 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2025.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive\n"
-"PO-Revision-Date: 2025-04-03 09:32+0200\n"
+"PO-Revision-Date: 2025-04-17 10:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -411,6 +411,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"El fitxer ZIP no és vàlid, el desplaçament de capçalera local és incoherent "
+"en el directori central a %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -431,7 +433,7 @@ msgstr "No s'ha pogut buscar fins a l'entrada següent"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "No és un fitxer ZIP, no s'ha trobat la capçalera del fitxer local."
 
 #: kzip.cpp:843
 #, qt-format
@@ -502,7 +504,3 @@ msgstr "No hi ha cap fitxer ni dispositiu"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "S'ha produït un error en escriure les dades: %1"
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "Fitxer ZIP no vàlid. Final inesperat del fitxer."

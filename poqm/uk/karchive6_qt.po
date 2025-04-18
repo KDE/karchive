@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-03 17:37+0300\n"
+"PO-Revision-Date: 2025-04-17 13:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -401,6 +401,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Некоректний файл ZIP, несумісний зсув локального заголовка у центральному "
+"каталозі на %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -421,7 +423,7 @@ msgstr "Не вдалося виконати позиціювання до на�
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Не є файлом ZIP : не знайдено заголовка локального файла."
 
 #: kzip.cpp:843
 #, qt-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-03 07:24+0200\n"
+"PO-Revision-Date: 2025-04-17 07:02+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -396,6 +396,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Neveljavna datoteka ZIP, nedosleden odmik lokalne glave v osrednjem imeniku "
+"na %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -416,7 +418,7 @@ msgstr "Ni bilo mogoče preiskati do naslednjega vnosa"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Ni datoteka ZIP, glave lokalne datoteke ni bilo najdene."
 
 #: kzip.cpp:843
 #, qt-format

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-03 22:37+0200\n"
+"PO-Revision-Date: 2025-04-17 12:15+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -388,6 +388,7 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Ogiltig ZIP-fil, inkonsekvent lokal huvudposition i central katalog på %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -408,7 +409,7 @@ msgstr "Kunde inte söka till nästa post"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Inte en ZIP-fil, inget lokalt filhuvud hittades."
 
 #: kzip.cpp:843
 #, qt-format

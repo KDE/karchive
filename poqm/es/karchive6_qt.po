@@ -1,13 +1,14 @@
 # Spanish translations for karchive6_qt.po package.
 #
 # SPDX-FileCopyrightText: 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2025 Gabriel Gazzán <gabcorreo@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:41+0000\n"
-"PO-Revision-Date: 2025-04-04 02:20+0100\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"PO-Revision-Date: 2025-04-17 11:47+0100\n"
+"Last-Translator: Gabriel Gazzán <gabcorreo@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -411,6 +412,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Archivo ZIP no válido: desplazamiento de cabecera local inconsistente en "
+"directorio central en %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -432,6 +435,7 @@ msgstr "No se puede avanzar a la siguiente entrada"
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr ""
+"No es un archivo ZIP: no se ha encontrado la cabecera de archivo local."
 
 #: kzip.cpp:843
 #, qt-format
@@ -502,7 +506,3 @@ msgstr "Ningún archivo ni dispositivo"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "Ha ocurrido un error al escribir datos: %1"
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "Archivo ZIP no válido: fin de archivo inesperado."
