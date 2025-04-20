@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-05 12:10+0400\n"
+"PO-Revision-Date: 2025-04-19 13:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -389,7 +389,7 @@ msgstr "ملف ZIP غير صالح، طول اسم مسار الملف يساو�
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
-msgstr ""
+msgstr "ملف ZIP غير صالح، إزاحة رأس محلية غير متسقة في الدليل المركزي عند %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -410,7 +410,7 @@ msgstr "تعذر الانتقال إلى المدخلة التالية"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "ليس ملف ZIP، ولم يعثر على رأس الملف المحلي."
 
 #: kzip.cpp:843
 #, qt-format

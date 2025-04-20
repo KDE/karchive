@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-07 13:35+0900\n"
+"PO-Revision-Date: 2025-04-19 15:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -386,7 +386,7 @@ msgstr "無效的 ZIP 檔，檔案路徑名稱長度是零"
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
-msgstr ""
+msgstr "無效 ZIP 檔，中央目錄於 %1 的本地標頭偏移不一致"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -407,7 +407,7 @@ msgstr "無法跳至下一個項目"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "不是 ZIP 檔，因為沒有找到本地檔案 (Local File) 標頭。"
 
 #: kzip.cpp:843
 #, qt-format

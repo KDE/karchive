@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-06 16:17+0200\n"
+"PO-Revision-Date: 2025-04-19 11:51+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -398,6 +398,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Невалиден ZIP файл, непоследователно локално отместване на заглавката в "
+"централната директория на %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -418,7 +420,7 @@ msgstr "Не може да се търси следващ запис"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Не е ZIP файл, не е намерена заглавка на локален файл."
 
 #: kzip.cpp:843
 #, qt-format

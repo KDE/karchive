@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-03 20:42+0300\n"
+"PO-Revision-Date: 2025-04-19 18:19+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -389,7 +389,7 @@ msgstr "קובץ ZIP פגום, אורך שם נתיב הקובץ הוא אפס"
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
-msgstr ""
+msgstr "קובץ ZIP שגוי, היסט כותרת מקומית בלתי רציף בספרייה המרכזית ב־%1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -410,7 +410,7 @@ msgstr "לא ניתן לחתור לרשומה הבאה"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "לא קובץ ZIP, לא נמצאה כותרת קובץ מקומית."
 
 #: kzip.cpp:843
 #, qt-format
