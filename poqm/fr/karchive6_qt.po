@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2025-04-04 13:57+0200\n"
+"PO-Revision-Date: 2025-04-19 09:20+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -418,6 +418,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Fichier « ZIP » non valable. Décalage incohérent de l'en-tête local dans le "
+"dépôt central à %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -441,6 +443,8 @@ msgstr "Impossible de se positionner sur l'entrée suivante"
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr ""
+"N'est pas un fichier « ZIP ». Impossible de trouver un en-tête local de "
+"fichier."
 
 #: kzip.cpp:843
 #, qt-format
