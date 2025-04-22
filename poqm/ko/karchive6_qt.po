@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-06 22:17+0200\n"
+"PO-Revision-Date: 2025-04-22 01:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2498
@@ -388,6 +388,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"잘못된 ZIP 파일입니다. %1에 있는 중앙 디렉터리의 로컬 헤더 오프셋이 일정하지 "
+"않음"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -408,7 +410,7 @@ msgstr "다음 항목으로 이동할 수 없음"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "ZIP 파일이 아닙니다. 로컬 파일 헤더를 찾을 수 없습니다."
 
 #: kzip.cpp:843
 #, qt-format
