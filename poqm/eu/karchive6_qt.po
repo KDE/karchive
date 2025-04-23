@@ -1,14 +1,14 @@
 # Translation for karchive6_qt.po to Euskara/Basque (eu).
 # Copyright (C) 2023, 2025 This file is copyright:
 # This file is distributed under the same license as the original file.
-# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-11 22:54+0200\n"
+"PO-Revision-Date: 2025-04-22 11:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: k7zip.cpp:2498
 msgctxt "K7Zip|"
@@ -237,7 +237,7 @@ msgstr "Ezin izan du %1 fitxategia ireki: %2"
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr "%1 direktorioa ez dago"
+msgstr "%1 direktorioa ez da existitzen"
 
 #: karchive.cpp:426
 #, qt-format
@@ -412,6 +412,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"ZIP fitxategi baliogabea, direktorio nagusian %1(e)an goiburu lokaleko "
+"jatorri aldaketa inkoherentea"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -432,7 +434,7 @@ msgstr "Ezin du hurrengo sarrera bilatu"
 #: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Ez da ZIP fitxategi bat, ez da fitxategi lokalaren goibururik aurkitu."
 
 #: kzip.cpp:843
 #, qt-format
