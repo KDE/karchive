@@ -484,7 +484,3 @@ msgstr "Inga fil eller eining"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "Feil ved skriving av data: %1"
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "Ugyldig zip-fil: Kom til slutten av fila for tidleg"
