@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-05 17:55+0200\n"
+"PO-Revision-Date: 2025-04-21 14:47+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2498
@@ -408,6 +408,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"File ZIP non valido, offset dell'intestazione locale incoerente nella "
+"Central Directory in %1"
 
 #: kzip.cpp:757
 msgctxt "KZip|"
@@ -429,6 +431,7 @@ msgstr "Impossibile cercare la voce successiva"
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr ""
+"Non è un file ZIP, non è stata trovata alcuna intestazione del file locale."
 
 #: kzip.cpp:843
 #, qt-format
