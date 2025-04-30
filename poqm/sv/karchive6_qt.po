@@ -13,125 +13,125 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.12.3\n"
 
-#: k7zip.cpp:2498
+#: k7zip.cpp:2497
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Kunde inte hämta underliggande enhet"
 
-#: k7zip.cpp:2506
+#: k7zip.cpp:2505
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Misslyckades läsa huvud"
 
-#: k7zip.cpp:2512
+#: k7zip.cpp:2511
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Signaturkontroll misslyckades"
 
-#: k7zip.cpp:2535
+#: k7zip.cpp:2534
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Felaktig CRC"
 
-#: k7zip.cpp:2544
+#: k7zip.cpp:2543
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Nästa huvudstorlek är för stor"
 
-#: k7zip.cpp:2549
+#: k7zip.cpp:2548
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Nästa huvudstorlek är mindre än noll"
 
-#: k7zip.cpp:2560
+#: k7zip.cpp:2559
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Misslyckades läsa nästa huvudstorlek, borde läst %1, läste %2"
 
-#: k7zip.cpp:2573
+#: k7zip.cpp:2572
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Felaktig CRC för nästa huvud"
 
-#: k7zip.cpp:2581
+#: k7zip.cpp:2580
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Fel i huvud"
 
-#: k7zip.cpp:2599 k7zip.cpp:2632
+#: k7zip.cpp:2598 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Lösenord krävs för arkivet"
 
-#: k7zip.cpp:2605
+#: k7zip.cpp:2604
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Felaktig huvudtyp"
 
-#: k7zip.cpp:2615 k7zip.cpp:2621
+#: k7zip.cpp:2614 k7zip.cpp:2620
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Inte implementerad"
 
-#: k7zip.cpp:2627
+#: k7zip.cpp:2626
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Fel vid läsning av huvudströmmarnas information"
 
-#: k7zip.cpp:2651
+#: k7zip.cpp:2650
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Fel vid läsning av huvud"
 
-#: k7zip.cpp:2711
+#: k7zip.cpp:2710
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Fel vid läsning av ändringstid"
 
-#: k7zip.cpp:2757
+#: k7zip.cpp:2756
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Fel vid läsning av MTime"
 
-#: k7zip.cpp:2764
+#: k7zip.cpp:2763
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Ogiltig"
 
-#: k7zip.cpp:2786
+#: k7zip.cpp:2785
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Läs storlek misslyckades (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 
-#: k7zip.cpp:2825
+#: k7zip.cpp:2824
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "innehåll"
 
-#: k7zip.cpp:3010
+#: k7zip.cpp:3009
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skrivfel"
 
-#: k7zip.cpp:3040
+#: k7zip.cpp:3039
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Misslyckades vid kodning av huvud"
 
-#: k7zip.cpp:3084
+#: k7zip.cpp:3083
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Ingen fil är för närvarande vald"
 
-#: k7zip.cpp:3108 k7zip.cpp:3158 k7zip.cpp:3198
+#: k7zip.cpp:3107 k7zip.cpp:3157 k7zip.cpp:3197
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Programfel: 7-Zip fil måste vara öppnad innan den skrivs"
 
-#: k7zip.cpp:3114 k7zip.cpp:3204
+#: k7zip.cpp:3113 k7zip.cpp:3203
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programfel: försökte skriva till en skrivskyddad 7-Zip fil"
