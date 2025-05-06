@@ -669,7 +669,13 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 setErrorString(tr("Invalid ZIP file, file path name length is zero"));
                 return false;
             }
-            QByteArray varData = dev->read(namelen + extralen);
+            const int varDataDesiredLength = namelen + extralen;
+            const QByteArray varData = dev->read(varDataDesiredLength);
+            if (varData.length() < varDataDesiredLength) {
+                setErrorString(tr("Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data at offset %3")
+                                   .arg(namelen, extralen, dev->pos() - varData.size()));
+                return false;
+            }
 
             ParseFileInfo extrafi;
             if (extralen) {
@@ -677,9 +683,6 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             }
 
             QByteArray bufferName(varData.constData(), namelen);
-            if (bufferName.size() < namelen) {
-                // qCWarning(KArchiveLog) << "Invalid ZIP file. Name not completely read";
-            }
 
             ParseFileInfo pfi = pfi_map.value(bufferName, ParseFileInfo());
 
