@@ -402,7 +402,15 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "Fitxer ZIP no vàlid. La longitud del nom del camí és zero"
 
-#: kzip.cpp:722
+#: kzip.cpp:675
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
+"at offset %3"
+msgstr ""
+
+#: kzip.cpp:725
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -411,91 +419,91 @@ msgstr ""
 "El fitxer ZIP no és vàlid, el desplaçament de capçalera local és incoherent "
 "en el directori central a %1"
 
-#: kzip.cpp:757
+#: kzip.cpp:760
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Fitxer ZIP no vàlid. S'ha trobat un nom d'entrada buit"
 
-#: kzip.cpp:799
+#: kzip.cpp:802
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "El fitxer %1 és en la carpeta %2, però %3 és realment un fitxer."
 
-#: kzip.cpp:810
+#: kzip.cpp:813
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "No s'ha pogut cercar fins a l'entrada següent"
 
-#: kzip.cpp:839
+#: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "No és un fitxer ZIP, no s'ha trobat la capçalera del fitxer local."
 
-#: kzip.cpp:843
+#: kzip.cpp:846
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Fitxer ZIP no vàlid. Capçalera no reconeguda en el desplaçament %1"
 
-#: kzip.cpp:871
+#: kzip.cpp:874
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "No s'ha pogut cercar fins a la capçalera del fitxer següent: %1"
 
-#: kzip.cpp:897 kzip.cpp:991
+#: kzip.cpp:900 kzip.cpp:994
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "No s'ha pogut escriure la capçalera del fitxer: %1"
 
-#: kzip.cpp:1038
+#: kzip.cpp:1041
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "No s'ha pogut escriure el registre central del directori: %1"
 
-#: kzip.cpp:1074
+#: kzip.cpp:1077
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Error d'aplicació: el fitxer ZIP cal que estigui obert abans que s'hi pugui "
 "escriure"
 
-#: kzip.cpp:1080
+#: kzip.cpp:1083
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Error d'aplicació: s'ha intentat escriure en un fitxer ZIP no escrivible"
 
-#: kzip.cpp:1086
+#: kzip.cpp:1089
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "No s'ha pogut crear un dispositiu. El disc està ple?"
 
-#: kzip.cpp:1092
+#: kzip.cpp:1095
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "No s'ha pogut cercar en el fitxer ZIP. El disc està ple?"
 
-#: kzip.cpp:1236
+#: kzip.cpp:1239
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "No s'ha pogut escriure a l'arxiu. El disc està ple?"
 
-#: kzip.cpp:1255
+#: kzip.cpp:1258
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "No s'ha pogut obrir el dispositiu de compressió: %1"
 
-#: kzip.cpp:1342
+#: kzip.cpp:1345
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "No hi ha cap fitxer ni dispositiu"
 
-#: kzip.cpp:1355
+#: kzip.cpp:1358
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
