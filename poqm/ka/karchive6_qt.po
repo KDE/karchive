@@ -389,6 +389,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"არასწორი ZIP ფაილი. შეუძლებელია %1 + %2 ბაიტის წაკითხვა ფაილის სახელისთვის "
+"და დამატებითი მონაცემების წანაცვლებაზე %3"
 
 #: kzip.cpp:725
 #, qt-format
