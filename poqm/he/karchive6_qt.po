@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-04-19 18:19+0300\n"
+"PO-Revision-Date: 2025-05-07 09:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: k7zip.cpp:2497
 msgctxt "K7Zip|"
@@ -390,7 +390,7 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
-msgstr ""
+msgstr "קובץ ZIP שגוי, לא ניתן לקרוא %1 + %2 בתים ונתונים נוספים בהיסט %3"
 
 #: kzip.cpp:725
 #, qt-format
