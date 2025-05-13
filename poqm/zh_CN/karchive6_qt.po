@@ -389,14 +389,14 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
-msgstr ""
+msgstr "无效的 ZIP 文件，无法在偏移量 %3 处读取 %1 + %2 字节的文件名和额外数据"
 
 #: kzip.cpp:725
 #, qt-format
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
-msgstr ""
+msgstr "无效的 ZIP 文件，本地文件头偏移量不一致，位于 %1"
 
 #: kzip.cpp:760
 msgctxt "KZip|"
@@ -417,7 +417,7 @@ msgstr "无法定位到下一个条目"
 #: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "这不是 ZIP 文件，没有找到本地文件头。"
 
 #: kzip.cpp:846
 #, qt-format

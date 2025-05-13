@@ -297,12 +297,10 @@ msgid "Couldn't write alignment: %1"
 msgstr ""
 
 #: ktar.cpp:750 ktar.cpp:760
-#, fuzzy, qt-format
-#| msgctxt "KArchive|"
-#| msgid "Couldn't open file %1: %2"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Soubor %1 nelze otevřít: %2"
+msgstr ""
 
 #: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
 msgctxt "KTar|"
@@ -379,12 +377,9 @@ msgid ""
 msgstr ""
 
 #: kzip.cpp:669
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file. Unexpected end of file."
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "Neplatný soubor ZIP. Neočekávaný konec souboru."
+msgstr ""
 
 #: kzip.cpp:675
 #, qt-format
@@ -487,7 +482,3 @@ msgstr "Žádný soubor nebo zařízení"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr ""
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "Neplatný soubor ZIP. Neočekávaný konec souboru."
