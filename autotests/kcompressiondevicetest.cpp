@@ -44,6 +44,8 @@ QString KCompressionDeviceTest::formatExtension(KCompressionDevice::CompressionT
         return "tar.gz";
     case KCompressionDevice::BZip2:
         return "tar.bz2";
+    case KCompressionDevice::Lz:
+        return "tar.lz";
     case KCompressionDevice::Xz:
         return "tar.xz";
     case KCompressionDevice::Zstd:
@@ -130,6 +132,15 @@ void KCompressionDeviceTest::testBZip2BufferedDevice()
     testBufferedDevice(KCompressionDevice::BZip2);
 #else
     QSKIP("This test needs bzip2 support");
+#endif
+}
+
+void KCompressionDeviceTest::testLzBufferedDevice()
+{
+#ifdef HAVE_LZIP_SUPPORT_FILE
+    testBufferedDevice(KCompressionDevice::Lz);
+#else
+    QSKIP("This test needs lzip support");
 #endif
 }
 

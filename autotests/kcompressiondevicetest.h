@@ -37,6 +37,7 @@ private Q_SLOTS:
     void regularKTarUsage();
     void testGZipBufferedDevice();
     void testBZip2BufferedDevice();
+    void testLzBufferedDevice();
     void testXzBufferedDevice();
     void testZstdBufferedDevice();
 

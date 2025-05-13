@@ -40,6 +40,7 @@ private:
 private:
     QString pathgz;
     QString pathbz2;
+    QString pathlz;
     QString pathxz;
     QString pathnone;
     QString pathzstd;

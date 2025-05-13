@@ -346,6 +346,8 @@ void KArchiveTest::setupData()
 #if HAVE_XZ_SUPPORT
     QTest::newRow(".tar.lzma") << "karchivetest.tar.lzma"
                                << "application/x-lzma";
+    QTest::newRow(".tar.lz") << "karchivetest.tar.lz"
+                             << "application/x-lzip";
     QTest::newRow(".tar.xz") << "karchivetest.tar.xz"
                              << "application/x-xz";
 #endif

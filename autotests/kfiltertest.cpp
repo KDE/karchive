@@ -34,6 +34,7 @@ void KFilterTest::initTestCase()
     const QString currentdir = QDir::currentPath();
     pathgz = currentdir + "/test.gz";
     pathbz2 = currentdir + "/test.bz2";
+    pathlz = currentdir + "/test.lz";
     pathxz = currentdir + "/test.xz";
     pathnone = currentdir + "/test.txt";
     pathzstd = currentdir + "/test.zst";
@@ -74,6 +75,10 @@ void KFilterTest::test_block_write()
 #endif
 
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_block_write lzip -- ";
+    test_block_write(pathlz, testData, 50);
+    QCOMPARE(QFileInfo(pathlz).size(), 54LL); // size of test.lzip
+
     qDebug() << " -- test_block_write xz -- ";
     test_block_write(pathxz, testData, 50);
     QCOMPARE(QFileInfo(pathxz).size(), 84LL); // size of test.lzma
@@ -102,6 +107,10 @@ void KFilterTest::test_block_write()
 #endif
 
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_block_write lzip -- ";
+    test_block_write(pathlz, testData);
+    QCOMPARE(QFileInfo(pathlz).size(), 48LL); // size of test.lzip
+
     qDebug() << " -- test_block_write xz -- ";
     test_block_write(pathxz, testData);
     QCOMPARE(QFileInfo(pathxz).size(), 64LL); // size of test.lzma
@@ -188,6 +197,8 @@ void KFilterTest::test_block_read()
     test_block_read(pathbz2);
 #endif
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_block_read lzip -- ";
+    test_block_read(pathlz);
     qDebug() << " -- test_block_read lzma -- ";
     test_block_read(pathxz);
 #endif
@@ -223,6 +234,8 @@ void KFilterTest::test_getch()
     test_getch(pathbz2);
 #endif
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_getch lzip -- ";
+    test_getch(pathlz);
     qDebug() << " -- test_getch lzma -- ";
     test_getch(pathxz);
 #endif
@@ -256,6 +269,8 @@ void KFilterTest::test_textstream()
     test_textstream(pathbz2);
 #endif
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_textstream lzip -- ";
+    test_textstream(pathlz);
     qDebug() << " -- test_textstream lzma -- ";
     test_textstream(pathxz);
 #endif
@@ -297,6 +312,8 @@ void KFilterTest::test_readall()
     test_readall(pathbz2, QString::fromLatin1("application/x-bzip"), testData);
 #endif
 #if HAVE_XZ_SUPPORT
+    qDebug() << " -- test_readall lzip -- ";
+    test_readall(pathlz, QString::fromLatin1("application/x-lzip"), testData);
     qDebug() << " -- test_readall lzma -- ";
     test_readall(pathxz, QString::fromLatin1("application/x-xz"), testData);
 #endif

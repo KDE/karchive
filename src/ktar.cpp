@@ -27,6 +27,7 @@
 // Mime types of known filters
 static const char application_bzip[] = "application/x-bzip";
 static const char application_lzma[] = "application/x-lzma";
+static const char application_lzip[] = "application/x-lzip";
 static const char application_xz[] = "application/x-xz";
 static const char application_zstd[] = "application/zstd";
 
@@ -122,6 +123,9 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
         } else if (mime.inherits(QStringLiteral("application/x-lzma-compressed-tar")) || mime.inherits(QString::fromLatin1(application_lzma))) {
             // lzma compressed tar file (with possibly invalid file name), ask for xz filter
             d->mimetype = QString::fromLatin1(application_lzma);
+        } else if (mime.inherits(QStringLiteral("application/x-lzip-compressed-tar")) || mime.inherits(QString::fromLatin1(application_lzip))) {
+            // lzip compresssed tar file (with possibly invalid file name), ask for lzip filter
+            d->mimetype = QString::fromLatin1(application_lzip);
         } else if (mime.inherits(QStringLiteral("application/x-xz-compressed-tar")) || mime.inherits(QString::fromLatin1(application_xz))) {
             // xz compressed tar file (with possibly invalid name), ask for xz filter
             d->mimetype = QString::fromLatin1(application_xz);
@@ -571,6 +575,7 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     if (MimeType::application_gzip_old() == mimetype ||
         QLatin1String(application_bzip) == mimetype ||
         QLatin1String(application_lzma) == mimetype ||
+        QLatin1String(application_lzip) == mimetype ||
         QLatin1String(application_xz) == mimetype) {
         /* clang-format on */
         forced = true;

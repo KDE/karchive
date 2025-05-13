@@ -18,6 +18,7 @@
 #include "kbzip2filter.h"
 #endif
 #if HAVE_XZ_SUPPORT
+#include "klzfilter.h"
 #include "kxzfilter.h"
 #endif
 #if HAVE_ZSTD_SUPPORT
@@ -84,6 +85,9 @@ static KCompressionDevice::CompressionType findCompressionByFileName(const QStri
     }
 #endif
 #if HAVE_XZ_SUPPORT
+    if (fileName.endsWith(QLatin1String(".lz"), Qt::CaseInsensitive)) {
+        return KCompressionDevice::Lz;
+    }
     if (fileName.endsWith(QLatin1String(".lzma"), Qt::CaseInsensitive) || fileName.endsWith(QLatin1String(".xz"), Qt::CaseInsensitive)) {
         return KCompressionDevice::Xz;
     }
@@ -117,6 +121,9 @@ KCompressionDevice::CompressionType KCompressionDevice::compressionTypeForMimeTy
     }
 #endif
 #if HAVE_XZ_SUPPORT
+    if (mimeType == QLatin1String("application/x-lzip")) {
+        return KCompressionDevice::Lz;
+    }
     if (mimeType == QLatin1String("application/x-lzma") // legacy name, still used
         || mimeType == QLatin1String("application/x-xz") // current naming
     ) {
@@ -141,6 +148,10 @@ KCompressionDevice::CompressionType KCompressionDevice::compressionTypeForMimeTy
         }
 #endif
 #if HAVE_XZ_SUPPORT
+        if (mime.inherits(QStringLiteral("application/x-lzip"))) {
+            return KCompressionDevice::Lz;
+        }
+
         if (mime.inherits(QStringLiteral("application/x-lzma"))) {
             return KCompressionDevice::Xz;
         }
@@ -165,6 +176,12 @@ KFilterBase *KCompressionDevice::filterForCompressionType(KCompressionDevice::Co
     case KCompressionDevice::BZip2:
 #if HAVE_BZIP2_SUPPORT
         return new KBzip2Filter;
+#else
+        return nullptr;
+#endif
+    case KCompressionDevice::Lz:
+#if HAVE_XZ_SUPPORT
+        return new KLzFilter;
 #else
         return nullptr;
 #endif

@@ -16,7 +16,7 @@
  * \brief A class for reading / writing (optionally compressed) tar archives.
  *
  * KTar allows you to read and write tar archives, including those
- * that are compressed using gzip, bzip2 or xz.
+ * that are compressed using gzip, bzip2, xz or lzip.
  */
 class KARCHIVE_EXPORT KTar : public KArchive
 {
@@ -31,6 +31,7 @@ public:
      *
      * \a mimetype "application/gzip" (before 5.85: "application/x-gzip"), "application/x-bzip",
      * "application/x-xz", "application/zstd" (since 5.82)
+     * "application/x-lzip" (since 6.15)
      * Do not use application/x-compressed-tar or similar - you only need to
      * specify the compression layer !  If the mimetype is omitted, it
      * will be determined from the filename.

@@ -30,6 +30,27 @@ target_include_directories(klimitediodevicetest
     PRIVATE $<TARGET_PROPERTY:KF6Archive,INTERFACE_INCLUDE_DIRECTORIES>)
 
 ########## kcompressiondevicetest ##############
+function(check_and_create_tar help_option program_name compression_option extension)
+    # cmake doesn't support creating zstd/lzip files so run tar directly
+    # which is a bit annoying since not all tars support zstd/lzip either
+    # so we first check that the installed tar has the --zstd/--lzip
+    # option and then we check that the zstd/lzip binary is available
+
+    execute_process(COMMAND tar --help OUTPUT_VARIABLE TAR_OUTPUT)
+    if (TAR_OUTPUT MATCHES ${help_option})
+        find_program(PROGRAM_FOUND ${program_name})
+        if (PROGRAM_FOUND)
+            add_custom_command(TARGET kcompressiondevicetest POST_BUILD
+                COMMAND tar ${compression_option} -cf
+                ${testDir}/kcompressiondevice_test.tar.${extension} examples
+                WORKING_DIRECTORY ${topdir})
+
+            string(TOUPPER ${program_name} program_name_upper)
+            target_compile_definitions(kcompressiondevicetest PRIVATE HAVE_${program_name_upper}_SUPPORT_FILE)
+        endif()
+    endif()
+endfunction()
+
 if (Qt6Network_FOUND)
     ecm_add_test(
         kcompressiondevicetest.cpp
@@ -53,25 +74,11 @@ if (Qt6Network_FOUND)
             COMMAND ${CMAKE_COMMAND} -E tar cJf
             ${testDir}/kcompressiondevice_test.tar.xz examples
             WORKING_DIRECTORY ${topdir})
+
+        check_and_create_tar(".*--lzip.*" "lzip" "--lzip" "lz")
     endif()
 
     if (LibZstd_FOUND)
-        # cmake doesn't support creating zstd files so run tar directly
-        # which is a bit annoying since not all tars support zstd either
-        # so we first check that the installed tar has the --zstd
-        # option and then we check that the zstd binary is available
-
-        execute_process(COMMAND tar --help OUTPUT_VARIABLE TAR_OUTPUT)
-        if (TAR_OUTPUT MATCHES ".*--zstd.*")
-            find_program(ZSTD_FOUND zstd)
-            if (ZSTD_FOUND)
-                add_custom_command(TARGET kcompressiondevicetest POST_BUILD
-                    COMMAND tar --zstd -cf
-                    ${testDir}/kcompressiondevice_test.tar.zst examples
-                    WORKING_DIRECTORY ${topdir})
-
-                target_compile_definitions(kcompressiondevicetest PRIVATE HAVE_ZSTD_SUPPORT_FILE)
-            endif()
-        endif()
+        check_and_create_tar(".*--zstd.*" "zstd" "--zstd" "zst")
     endif()
 endif()

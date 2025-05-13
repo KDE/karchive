@@ -26,7 +26,7 @@ if(BZIP2_FOUND)
 endif()
 
 if(LIBLZMA_FOUND)
-    target_sources(KF6Archive PRIVATE kxzfilter.cpp k7zip.cpp)
+    target_sources(KF6Archive PRIVATE kxzfilter.cpp klzfilter.cpp k7zip.cpp)
     target_link_libraries(KF6Archive PRIVATE LibLZMA::LibLZMA)
 endif()
 

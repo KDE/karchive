@@ -38,6 +38,7 @@ public:
      * \value Xz
      * \value None
      * \value[since 5.82] Zstd
+     * \value[since 6.15] Lz
      */
     enum CompressionType {
         GZip,
@@ -45,6 +46,7 @@ public:
         Xz,
         None,
         Zstd,
+        Lz,
     };
 
     /*!
