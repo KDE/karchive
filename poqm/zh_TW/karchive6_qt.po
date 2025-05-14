@@ -235,7 +235,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "未知的錯誤"
 
-#: kcompressiondevice.cpp:487
+#: kcompressiondevice.cpp:504
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "無法寫入。磁碟分割區滿了嗎？"
@@ -257,74 +257,74 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "在前綴 %2 下登錄資源 %1 失敗"
 
-#: ktar.cpp:344
+#: ktar.cpp:348
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "檔案 %1 不存在"
 
-#: ktar.cpp:351
+#: ktar.cpp:355
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "封存檔 %1 已毀損"
 
-#: ktar.cpp:355
+#: ktar.cpp:359
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "磁碟已滿"
 
-#: ktar.cpp:389
+#: ktar.cpp:393
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "無法取得底層裝置"
 
-#: ktar.cpp:404
+#: ktar.cpp:408
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "無法讀取 tar 標頭"
 
-#: ktar.cpp:587 ktar.cpp:602
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "寫回暫存檔失敗：%1"
 
-#: ktar.cpp:648
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "無法寫入對齊：%1"
 
-#: ktar.cpp:750 ktar.cpp:760
+#: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "無法寫入長連結：%1"
 
-#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "應用程式錯誤：TAR 檔案必須開啟才能寫入"
 
-#: ktar.cpp:787
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 
-#: ktar.cpp:794
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "應用程式限制：無法新增大於 %1 個位元組的檔案"
 
-#: ktar.cpp:848
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "寫入標頭失敗：%1"
 
-#: ktar.cpp:870 ktar.cpp:939
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 TAR 檔案"

@@ -238,7 +238,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Error Incognite"
 
-#: kcompressiondevice.cpp:487
+#: kcompressiondevice.cpp:504
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Non poteva scriber. Partition plen?"
@@ -260,77 +260,77 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Falleva a registrar ressource %1 sub prefixo %2"
 
-#: ktar.cpp:344
+#: ktar.cpp:348
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Le file %1 non existe"
 
-#: ktar.cpp:351
+#: ktar.cpp:355
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archivo %1 es corrupte"
 
-#: ktar.cpp:355
+#: ktar.cpp:359
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disco Plen"
 
-#: ktar.cpp:389
+#: ktar.cpp:393
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Non poteva obtener dispositivo subjacente"
 
-#: ktar.cpp:404
+#: ktar.cpp:408
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Non poteva leger capite de tar"
 
-#: ktar.cpp:587 ktar.cpp:602
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Falleva a scriber retro file temp: %1"
 
-#: ktar.cpp:648
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Non poteva scriber alineamento: %1"
 
-#: ktar.cpp:750 ktar.cpp:760
+#: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Non poteva scriber ligamine longe: %1"
 
-#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Error de application: file TAR debe esser aperite ante que on scribe in illo"
 
-#: ktar.cpp:787
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error de application: tantativa a scriber in un file 7-Zip non scribibile"
 
-#: ktar.cpp:794
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Limitation de application: Non pote adder file plus grande que %1 bytes"
 
-#: ktar.cpp:848
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Falleva a scriber capite: %1"
 
-#: ktar.cpp:870 ktar.cpp:939
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

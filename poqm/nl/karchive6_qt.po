@@ -241,7 +241,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Onbekende fout"
 
-#: kcompressiondevice.cpp:487
+#: kcompressiondevice.cpp:504
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Kon niet schrijven. Is de partitie vol?"
@@ -263,76 +263,76 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Hulpbron %1 registreren onder voorvoegsel %2 is mislukt"
 
-#: ktar.cpp:344
+#: ktar.cpp:348
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Bestand %1 bestaat niet"
 
-#: ktar.cpp:351
+#: ktar.cpp:355
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archief %1 is beschadigd"
 
-#: ktar.cpp:355
+#: ktar.cpp:359
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Schijf vol"
 
-#: ktar.cpp:389
+#: ktar.cpp:393
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Kon onderliggend apparaat niet verkrijgen"
 
-#: ktar.cpp:404
+#: ktar.cpp:408
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Kon tar-header niet lezen"
 
-#: ktar.cpp:587 ktar.cpp:602
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Niet in staat om terug te schrijven naar tijdelijk bestand: %1"
 
-#: ktar.cpp:648
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Kon uitlijning nuet schrijven: %1"
 
-#: ktar.cpp:750 ktar.cpp:760
+#: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Kon lange koppeling niet schrijven: %1"
 
-#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Toepassingsfout: TAR-bestand moet open zijn alvorens er in te schrijven"
 
-#: ktar.cpp:787
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Toepassingsfout: poging te schrijven niet-te beschrijven 7-zip-bestand"
 
-#: ktar.cpp:794
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Beperking van toepassing: kan geen bestand groter dan %1 bytes toevoegen"
 
-#: ktar.cpp:848
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Header schrijven is mislukt: %1"
 
-#: ktar.cpp:870 ktar.cpp:939
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Toepassingsfout: poging te schrijven niet-te beschrijven TAR-bestand"

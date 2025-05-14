@@ -244,7 +244,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "不明なエラー"
 
-#: kcompressiondevice.cpp:487
+#: kcompressiondevice.cpp:504
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "書き込めませんでした。パーティションに空きはありますか？"
@@ -266,46 +266,46 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "リソース %1 をプレフィックス %2 に登録できませんでした"
 
-#: ktar.cpp:344
+#: ktar.cpp:348
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "ファイル %1 は存在しません"
 
-#: ktar.cpp:351
+#: ktar.cpp:355
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "アーカイブ %1 は壊れています"
 
-#: ktar.cpp:355
+#: ktar.cpp:359
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "ディスクがいっぱいです"
 
-#: ktar.cpp:389
+#: ktar.cpp:393
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "基礎となるデバイスを取得できませんでした"
 
-#: ktar.cpp:404
+#: ktar.cpp:408
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "tar ヘッダを読み取れませんでした"
 
-#: ktar.cpp:587 ktar.cpp:602
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "一時ファイルの書き戻しに失敗しました: %1"
 
-#: ktar.cpp:648
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "アライメントを書き込めませんでした: %1"
 
-#: ktar.cpp:750 ktar.cpp:760
+#: ktar.cpp:755 ktar.cpp:765
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -313,31 +313,31 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "アライメントを書き込めませんでした: %1"
 
-#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "アプリケーションエラー: 書き込む前に TAR ファイルが開いている必要があります"
 
-#: ktar.cpp:787
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "アプリケーションエラー: 書き込み不可の 7-Zip ファイルに書き込もうとしました"
 
-#: ktar.cpp:794
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "アプリケーション制限: %1 バイトより大きいファイルを追加できません"
 
-#: ktar.cpp:848
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "ヘッダを書き込めませんでした: %1"
 
-#: ktar.cpp:870 ktar.cpp:939
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

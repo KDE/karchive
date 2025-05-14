@@ -235,7 +235,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "अज्ञातदोषः"
 
-#: kcompressiondevice.cpp:487
+#: kcompressiondevice.cpp:504
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "लेखितुं न शक्तवान्। विभाजनं पूर्णम्?"
@@ -257,46 +257,46 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "%2 उपसर्गस्य अधः संसाधनं %1 पञ्जीकरणं कर्तुं असफलम्"
 
-#: ktar.cpp:344
+#: ktar.cpp:348
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "%1 सञ्चिका नास्ति"
 
-#: ktar.cpp:351
+#: ktar.cpp:355
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "संग्रहः %1 दूषितः अस्ति"
 
-#: ktar.cpp:355
+#: ktar.cpp:359
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "डिस्क पूर्णा"
 
-#: ktar.cpp:389
+#: ktar.cpp:393
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "अन्तर्निहितं यन्त्रं प्राप्तुं न शक्तवान्"
 
-#: ktar.cpp:404
+#: ktar.cpp:408
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "tar header पठितुं न शक्तवान्"
 
-#: ktar.cpp:587 ktar.cpp:602
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "temp सञ्चिकां पुनः लिखितुं असफलम्: %1"
 
-#: ktar.cpp:648
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "संरेखणं लिखितुं न शक्तम्: %1"
 
-#: ktar.cpp:750 ktar.cpp:760
+#: ktar.cpp:755 ktar.cpp:765
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -304,29 +304,29 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "संरेखणं लिखितुं न शक्तम्: %1"
 
-#: ktar.cpp:781 ktar.cpp:864 ktar.cpp:933
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "अनुप्रयोगदोषः : TAR सञ्चिकायाः लेखनात् पूर्वं उद्घाटिता भवितुमर्हति"
 
-#: ktar.cpp:787
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "अनुप्रयोगदोषः: अलेखनीय 7-Zip सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
-#: ktar.cpp:794
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "अनुप्रयोगसीमा: %1 बाइट् इत्यस्मात् बृहत्तरं सञ्चिकां योजयितुं न शक्यते"
 
-#: ktar.cpp:848
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "शीर्षकं लिखितुं असफलम्: %1"
 
-#: ktar.cpp:870 ktar.cpp:939
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "अनुप्रयोगदोषः: अलेखनीय TAR सञ्चिकायां लेखनस्य प्रयासः कृतः"
