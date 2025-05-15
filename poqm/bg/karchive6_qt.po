@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-19 11:51+0200\n"
+"PO-Revision-Date: 2025-05-08 19:36+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -399,6 +399,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Невалиден файл ZIP, не може да се прочетат %1 + %2 байта за име на файла и "
+"допълнителни данни при отместване %3"
 
 #: kzip.cpp:725
 #, qt-format
