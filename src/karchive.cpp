@@ -814,7 +814,9 @@ QByteArray KArchiveFile::data() const
     QByteArray arr;
     if (d->size) {
         arr = archive()->device()->read(d->size);
-        Q_ASSERT(arr.size() == d->size);
+        if (arr.size() != d->size) {
+            qCWarning(KArchiveLog) << "KArchiveFile::data: Different size" << arr.size() << "than expected" << d->size << "in" << name();
+        }
     }
     return arr;
 }
