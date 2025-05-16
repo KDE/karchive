@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-03 17:24+0300\n"
+"PO-Revision-Date: 2025-04-20 10:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -63,7 +63,7 @@ msgstr "Virhe otsakkeessa"
 #: k7zip.cpp:2598 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Tämä arkisto vaatii salasanan"
 
 #: k7zip.cpp:2604
 msgctxt "K7Zip|"
@@ -386,14 +386,9 @@ msgstr ""
 "pitkä kelvolliseksi tietueeksi)"
 
 #: kzip.cpp:669
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Virheellinen Zip-tiedosto. Tiedostopolun nimen pituus pienempi tai yhtä "
-"suuri kuin nolla"
+msgstr "Virheellinen Zip-tiedosto: tiedostopolun nimen pituus on nolla"
 
 #: kzip.cpp:675
 #, qt-format

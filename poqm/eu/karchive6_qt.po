@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-14 23:33+0200\n"
+"PO-Revision-Date: 2025-05-15 20:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -413,8 +413,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
-"ZIP fitxategi baliogabea, ezin ditu irakurri %1 + %2 byte fitxategi-"
-"izenerako eta datu gehigarrietarako %3 posizioan"
+"ZIP fitxategi baliogabea, ezin ditu irakurri %1 + %2 byte, fitxategi-"
+"izenerako eta datu gehigarrietarako, %3 posizioan"
 
 #: kzip.cpp:725
 #, qt-format
