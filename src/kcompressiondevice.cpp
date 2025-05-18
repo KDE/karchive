@@ -211,20 +211,14 @@ KCompressionDevice::KCompressionDevice(QIODevice *inputDevice, bool autoDeleteIn
     if (d->filter) {
         d->type = type;
         d->filter->setDevice(inputDevice, autoDeleteInputDevice);
+    } else if (autoDeleteInputDevice) {
+        delete inputDevice;
     }
 }
 
 KCompressionDevice::KCompressionDevice(const QString &fileName, CompressionType type)
-    : d(new KCompressionDevicePrivate(this))
+    : KCompressionDevice(new QFile(fileName), true, type)
 {
-    QFile *f = new QFile(fileName);
-    d->filter = filterForCompressionType(type);
-    if (d->filter) {
-        d->type = type;
-        d->filter->setDevice(f, true);
-    } else {
-        delete f;
-    }
 }
 
 KCompressionDevice::KCompressionDevice(const QString &fileName)
