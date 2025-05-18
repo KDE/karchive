@@ -57,6 +57,7 @@ public:
     KFilterBase::Result result;
     KFilterBase *filter;
     KCompressionDevice::CompressionType type;
+    std::optional<quint64> size;
     QFileDevice::FileError errorCode;
     qint64 deviceReadPos;
     KCompressionDevice *q;
@@ -232,6 +233,12 @@ KCompressionDevice::KCompressionDevice(const QString &fileName)
 {
 }
 
+KCompressionDevice::KCompressionDevice(std::unique_ptr<QIODevice> inputDevice, CompressionType type, std::optional<qint64> size)
+    : KCompressionDevice(inputDevice.release(), true, type)
+{
+    d->size = size;
+}
+
 KCompressionDevice::~KCompressionDevice()
 {
     if (isOpen()) {
@@ -301,6 +308,11 @@ void KCompressionDevice::close()
         d->propagateErrorCode();
     }
     setOpenMode(QIODevice::NotOpen);
+}
+
+qint64 KCompressionDevice::size() const
+{
+    return d->size.value_or(0);
 }
 
 QFileDevice::FileError KCompressionDevice::error() const
