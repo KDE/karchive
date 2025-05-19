@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-13 16:46+0530\n"
+"PO-Revision-Date: 2025-05-18 18:59+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: k7zip.cpp:2497
 msgctxt "K7Zip|"
@@ -31,7 +31,7 @@ msgstr "கையொப்ப சரிபார்ப்பு தோல்வ�
 #: k7zip.cpp:2534
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr ""
+msgstr "தவறான CRC"
 
 #: k7zip.cpp:2543
 msgctxt "K7Zip|"
@@ -138,13 +138,13 @@ msgstr ""
 #: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "AR கோப்புக்கு எழுத முடியவில்லை"
 
 #: kar.cpp:90
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "ஆதரிக்கப்படாத பயன்முறை %1"
 
 #: kar.cpp:101
 msgctxt "KAr|"
