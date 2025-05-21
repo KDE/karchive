@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-01 08:32+0100\n"
+"PO-Revision-Date: 2025-05-20 06:49+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2497
@@ -62,7 +62,7 @@ msgstr "Hai un erro na cabeceira."
 #: k7zip.cpp:2598 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "O arquivo require contrasinal."
 
 #: k7zip.cpp:2604
 msgctxt "K7Zip|"
@@ -245,7 +245,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Produciuse un erro descoñecido"
 
-#: kcompressiondevice.cpp:504
+#: kcompressiondevice.cpp:498
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Non foi posíbel escribir. Está a partición chea?"
@@ -400,14 +400,10 @@ msgstr ""
 "dabondo para ser unha entrada válida)."
 
 #: kzip.cpp:669
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr ""
-"O ficheiro ZIP non é válido, a lonxitude do nome da ruta de ficheiro é cero "
-"ou negativa."
+"O ficheiro ZIP non é válido, a lonxitude do nome da ruta de ficheiro é cero."
 
 #: kzip.cpp:675
 #, qt-format
@@ -416,6 +412,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"O ficheiro ZIP non é válido, non é posíbel ler o nome de ficheiro e datos "
+"adicionais de %1 + %2 bytes na posición %3."
 
 #: kzip.cpp:725
 #, qt-format
@@ -423,6 +421,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"O ficheiro ZIP non é válido, a posición de cabeceira local no directorio "
+"central en %1 é inconsistente."
 
 #: kzip.cpp:760
 msgctxt "KZip|"
@@ -443,7 +443,7 @@ msgstr "Non foi posíbel mover o punto de lectura á seguinte entrada."
 #: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Non é un ficheiro ZIP, non se atopou unha cabeceira de ficheiro local."
 
 #: kzip.cpp:846
 #, qt-format

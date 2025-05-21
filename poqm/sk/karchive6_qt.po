@@ -246,7 +246,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Neznáma chyba"
 
-#: kcompressiondevice.cpp:504
+#: kcompressiondevice.cpp:498
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Nepodarilo sa zapísať. Plný oddiel?"
