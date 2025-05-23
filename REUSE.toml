@@ -1,0 +1,6 @@
+version = 1
+
+[[annotations]]
+path = "autotests/data/corpus/*"
+SPDX-FileCopyrightText = "2025 Azhar Momin <azhar.momin@kdemail.net>"
+SPDX-License-Identifier = "CC0-1.0"

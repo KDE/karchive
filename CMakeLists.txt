@@ -13,6 +13,8 @@ option(WITH_LIBLZMA "Make liblzma required" ON)
 option(WITH_OPENSSL "Make openssl required" ON)
 option(WITH_LIBZSTD "Make libzstd required" ON)
 
+option(BUILD_FUZZERS "Build KArchive fuzzers" OFF)
+
 set(PKGCONFIG_REQUIRED_TYPE "")
 
 if(WITH_BZIP2)
@@ -118,6 +120,10 @@ add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
+endif()
+
+if (BUILD_FUZZERS)
+    add_subdirectory(autotests/ossfuzz)
 endif()
 
 ecm_install_po_files_as_qm(poqm)
