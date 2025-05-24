@@ -16,3 +16,5 @@ depends += \
     kde \
     qtcore \
     qtgui
+
+tagfile = karchive.tags
