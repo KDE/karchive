@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-15 10:29+0100\n"
+"PO-Revision-Date: 2025-05-24 08:40+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -65,7 +65,7 @@ msgstr "Błąd w nagłówku"
 #: k7zip.cpp:2598 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "To archiwum wymaga hasła"
 
 #: k7zip.cpp:2604
 msgctxt "K7Zip|"
@@ -394,13 +394,9 @@ msgstr ""
 "stanowić prawidłowy wpis)"
 
 #: kzip.cpp:669
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Nieprawidłowy plik ZIP, długość ścieżki do pliku mniejsza lub równa zeru"
+msgstr "Nieprawidłowy plik ZIP, długość ścieżki do pliku jest równa zeru"
 
 #: kzip.cpp:675
 #, qt-format
@@ -409,6 +405,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Nieprawidłowy plik ZIP, nie można odczytać %1 + %2 bajtów nazwy pliku i "
+"dodatkowych danych w miejscu %3"
 
 #: kzip.cpp:725
 #, qt-format
@@ -416,6 +414,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Nieprawidłowy plik ZIP, niespójne wskaźnik do lokalnego nagłówka w katalogu "
+"głównym w miejscu %1"
 
 #: kzip.cpp:760
 msgctxt "KZip|"
@@ -436,7 +436,7 @@ msgstr "Nie udało się przewinąć do następnego wpisu"
 #: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Nie jest to plik ZIP, nie znaleziono nagłówka pliku lokalnego."
 
 #: kzip.cpp:846
 #, qt-format
