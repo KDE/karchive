@@ -978,6 +978,9 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
 
     for (int i = 0; i < numFolders; ++i) {
         Folder *folder = folders.at(i);
+        if (!folder) {
+            continue;
+        }
         int numOutStreams = folder->getNumOutStreams();
         for (int j = 0; j < numOutStreams; ++j) {
             folder->unpackSizes.append(readNumber());
