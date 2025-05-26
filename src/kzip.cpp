@@ -355,14 +355,16 @@ static bool seekPostDataDescriptor(QIODevice *dev, bool isZip64)
     const qsizetype descriptorSize = isZip64 ? 24 : 16;
 
     QByteArray header;
-    auto oldPos = dev->pos();
+    const qint64 oldPos = dev->pos();
 
     while (seekAnyHeader(dev, header, descriptorSize)) {
         // qCDebug(KArchiveLog) << "Possible data descriptor header at" << dev->pos() << header;
         if (header.startsWith("PK\x07\x08")) {
-            qint64 compressedSize = isZip64 ? parseUi64(header.constData() + 8) //
-                                            : parseUi32(header.constData() + 8);
-            if (oldPos + compressedSize == dev->pos()) {
+            const qint64 compressedSize = isZip64 ? parseUi64(header.constData() + 8) //
+                                                  : parseUi32(header.constData() + 8);
+            // Do not move compressedSize to the left side of the check
+            // we have on the left on purpose to prevent addition overflows
+            if ((compressedSize > 0) && (oldPos == dev->pos() - compressedSize)) {
                 dev->seek(dev->pos() + descriptorSize);
                 return true;
             }
