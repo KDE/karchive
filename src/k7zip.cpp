@@ -988,6 +988,10 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
     }
 
     for (;;) {
+        if (pos >= end) {
+            return false;
+        }
+
         int type = readByte();
         if (type == kEnd) {
             break;
