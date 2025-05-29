@@ -15,94 +15,94 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.6\n"
 
-#: k7zip.cpp:2497
+#: k7zip.cpp:2504
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Ni mogoče dobiti spodnje naprave"
 
-#: k7zip.cpp:2505
+#: k7zip.cpp:2512
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Branje glave ni uspelo"
 
-#: k7zip.cpp:2511
+#: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Preverjanje podpisa ni uspelo"
 
-#: k7zip.cpp:2534
+#: k7zip.cpp:2541
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Slab CRC"
 
-#: k7zip.cpp:2543
+#: k7zip.cpp:2550
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Velikost naslednja glave je prevelika"
 
-#: k7zip.cpp:2548
+#: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Velikost naslednja glave je manjša od nič"
 
-#: k7zip.cpp:2559
+#: k7zip.cpp:2566
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Branje velikosti naslednje glave; bi moralo biti prebrano %1, prebrano %2"
 
-#: k7zip.cpp:2572
+#: k7zip.cpp:2579
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Slab CRC naslednje glave"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2587
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Napaka v glavi"
 
-#: k7zip.cpp:2598 k7zip.cpp:2631
+#: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Geslo je potrebno za ta arhiv"
 
-#: k7zip.cpp:2604
+#: k7zip.cpp:2611
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Napačna vrsta glave"
 
-#: k7zip.cpp:2614 k7zip.cpp:2620
+#: k7zip.cpp:2621 k7zip.cpp:2627
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Ni izdelano"
 
-#: k7zip.cpp:2626
+#: k7zip.cpp:2633
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Napaka ob branju informacije o glavnih tokovih"
 
-#: k7zip.cpp:2650
+#: k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Napaka ob branju glave"
 
-#: k7zip.cpp:2710
+#: k7zip.cpp:2717
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Napaka ob branju časa spremembe"
 
-#: k7zip.cpp:2756
+#: k7zip.cpp:2763
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Napaka ob branju MTime"
 
-#: k7zip.cpp:2763
+#: k7zip.cpp:2770
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Neveljavno"
 
-#: k7zip.cpp:2785
+#: k7zip.cpp:2792
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -110,32 +110,32 @@ msgstr ""
 "Branje velikosti ni uspelo  (preverjanje velikosti zapisa: %1, d->pos - ppp: "
 "%2, velikost: %3)"
 
-#: k7zip.cpp:2824
+#: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "vsebina"
 
-#: k7zip.cpp:3009
+#: k7zip.cpp:3016
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Napaka pisanja"
 
-#: k7zip.cpp:3039
+#: k7zip.cpp:3046
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Napaka med kodiranjem glave"
 
-#: k7zip.cpp:3083
+#: k7zip.cpp:3090
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Trenutno ni izbrane nobene datoteke"
 
-#: k7zip.cpp:3107 k7zip.cpp:3157 k7zip.cpp:3197
+#: k7zip.cpp:3114 k7zip.cpp:3164 k7zip.cpp:3204
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Napaka aplikacije: datoteka 7-Zip mora biti odprta pred pisanjem vanjo"
 
-#: k7zip.cpp:3113 k7zip.cpp:3203
+#: k7zip.cpp:3120 k7zip.cpp:3210
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Napaka aplikacije: poskus pisanja v nezapisljivo datoteko 7-Zip"

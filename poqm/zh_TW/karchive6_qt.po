@@ -13,124 +13,124 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.07.70\n"
 
-#: k7zip.cpp:2497
+#: k7zip.cpp:2504
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "無法取得底層裝置"
 
-#: k7zip.cpp:2505
+#: k7zip.cpp:2512
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "讀取標頭失敗"
 
-#: k7zip.cpp:2511
+#: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "檢查簽章失敗"
 
-#: k7zip.cpp:2534
+#: k7zip.cpp:2541
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "不正確的 CRC"
 
-#: k7zip.cpp:2543
+#: k7zip.cpp:2550
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "下一個標頭太大"
 
-#: k7zip.cpp:2548
+#: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "下一個標頭大小小於零"
 
-#: k7zip.cpp:2559
+#: k7zip.cpp:2566
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "讀取下一個標頭大小失敗；應為 %1，讀取到了 %2"
 
-#: k7zip.cpp:2572
+#: k7zip.cpp:2579
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "下一個標頭 CRC 不正確"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2587
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "標頭有錯誤"
 
-#: k7zip.cpp:2598 k7zip.cpp:2631
+#: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "這個封存檔需要密碼"
 
-#: k7zip.cpp:2604
+#: k7zip.cpp:2611
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "錯誤的標頭型態"
 
-#: k7zip.cpp:2614 k7zip.cpp:2620
+#: k7zip.cpp:2621 k7zip.cpp:2627
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "尚未實作"
 
-#: k7zip.cpp:2626
+#: k7zip.cpp:2633
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "無法讀取主串流資訊"
 
-#: k7zip.cpp:2650
+#: k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "無法讀取標頭"
 
-#: k7zip.cpp:2710
+#: k7zip.cpp:2717
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "無法讀取變更時間"
 
-#: k7zip.cpp:2756
+#: k7zip.cpp:2763
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "無法讀取 MTime"
 
-#: k7zip.cpp:2763
+#: k7zip.cpp:2770
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "無效"
 
-#: k7zip.cpp:2785
+#: k7zip.cpp:2792
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "讀取大小失敗 (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 
-#: k7zip.cpp:2824
+#: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "內容"
 
-#: k7zip.cpp:3009
+#: k7zip.cpp:3016
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "寫入錯誤"
 
-#: k7zip.cpp:3039
+#: k7zip.cpp:3046
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "編碼標頭失敗"
 
-#: k7zip.cpp:3083
+#: k7zip.cpp:3090
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "目前沒有選取檔案"
 
-#: k7zip.cpp:3107 k7zip.cpp:3157 k7zip.cpp:3197
+#: k7zip.cpp:3114 k7zip.cpp:3164 k7zip.cpp:3204
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "應用程式錯誤：7-Zip 檔案必須開啟才能寫入"
 
-#: k7zip.cpp:3113 k7zip.cpp:3203
+#: k7zip.cpp:3120 k7zip.cpp:3210
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"

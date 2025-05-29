@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-20 10:31+0300\n"
+"PO-Revision-Date: 2025-05-28 17:07+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -13,128 +13,128 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2497
+#: k7zip.cpp:2504
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Alla olevaa laitetta ei saatu"
 
-#: k7zip.cpp:2505
+#: k7zip.cpp:2512
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Otsakkeen lukeminen epäonnistui"
 
-#: k7zip.cpp:2511
+#: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Allekirjoituksen tarkistaminen epäonnistui"
 
-#: k7zip.cpp:2534
+#: k7zip.cpp:2541
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Virheellinen tarkistussumma"
 
-#: k7zip.cpp:2543
+#: k7zip.cpp:2550
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Seuraava otsake on kooltaan liian suuri"
 
-#: k7zip.cpp:2548
+#: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Seuraava otsake on kooltaan alle nolla"
 
-#: k7zip.cpp:2559
+#: k7zip.cpp:2566
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Seuraavan otsakkeen koon lukeminen epäonnistui: tulisi lukea %1, luettiin %2"
 
-#: k7zip.cpp:2572
+#: k7zip.cpp:2579
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Seuraavan otsakkeen tarkistussumma on virheellinen"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2587
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Virhe otsakkeessa"
 
-#: k7zip.cpp:2598 k7zip.cpp:2631
+#: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Tämä arkisto vaatii salasanan"
 
-#: k7zip.cpp:2604
+#: k7zip.cpp:2611
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Väärä otsakkeen tyyppi"
 
-#: k7zip.cpp:2614 k7zip.cpp:2620
+#: k7zip.cpp:2621 k7zip.cpp:2627
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Ei toteutettu"
 
-#: k7zip.cpp:2626
+#: k7zip.cpp:2633
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Virhe luettaessa päävirran tietoa"
 
-#: k7zip.cpp:2650
+#: k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Virhe luettaessa otsaketta"
 
-#: k7zip.cpp:2710
+#: k7zip.cpp:2717
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Virhe luettaessa muutosaikaa"
 
-#: k7zip.cpp:2756
+#: k7zip.cpp:2763
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Virhe luettaessa MTimea"
 
-#: k7zip.cpp:2763
+#: k7zip.cpp:2770
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Virheellinen"
 
-#: k7zip.cpp:2785
+#: k7zip.cpp:2792
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Koon lukeminen epäonnistui (checkRecordsSize: %1, d->pos – ppp: %2, koko: %3)"
 
-#: k7zip.cpp:2824
+#: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "sisältö"
 
-#: k7zip.cpp:3009
+#: k7zip.cpp:3016
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Kirjoitusvirhe"
 
-#: k7zip.cpp:3039
+#: k7zip.cpp:3046
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Virhe otsaketta koodattaessa"
 
-#: k7zip.cpp:3083
+#: k7zip.cpp:3090
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Tiedostoa ei ole valittu"
 
-#: k7zip.cpp:3107 k7zip.cpp:3157 k7zip.cpp:3197
+#: k7zip.cpp:3114 k7zip.cpp:3164 k7zip.cpp:3204
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Sovellusvirhe: 7-Zip-tiedoston tulee olla auki, ennen kuin siihen "
 "kirjoitetaan"
 
-#: k7zip.cpp:3113 k7zip.cpp:3203
+#: k7zip.cpp:3120 k7zip.cpp:3210
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Sovellusvirhe: yritettiin kirjoittaa ei-kirjoitettavaa 7-Zip-tiedostoa"
@@ -397,6 +397,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Virheellinen Zip-tiedosto: ei voida lukea %1 + %2 tavua tiedostonimelle ja "
+"lisätiedolle kohdasta %3"
 
 #: kzip.cpp:725
 #, qt-format
@@ -404,6 +406,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Virheellinen Zip-tiedosto: epäjohdonmukainen paikallisen otsakkeen siirtymä "
+"keskushakemistossa kohdassa %1"
 
 #: kzip.cpp:760
 msgctxt "KZip|"
@@ -424,7 +428,7 @@ msgstr "Seuraavaa tietuetta ei voitu etsiä"
 #: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Ei Zip-tiedosto: ei löytynyt paikallista tiedosto-otsaketta."
 
 #: kzip.cpp:846
 #, qt-format
