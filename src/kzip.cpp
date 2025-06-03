@@ -268,13 +268,13 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
 
         switch (magic) {
         case 0x0001: // ZIP64 extended file information
-            if (size >= 8) {
+            if (fieldsize >= 8) {
                 pfi.uncompressedSize = parseUi64(buffer);
             }
-            if (size >= 16) {
+            if (fieldsize >= 16) {
                 pfi.compressedSize = parseUi64(buffer + 8);
             }
-            if (size >= 24) {
+            if (fieldsize >= 24) {
                 pfi.localheaderoffset = parseUi64(buffer + 16);
             }
             break;

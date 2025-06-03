@@ -97,6 +97,7 @@ private Q_SLOTS:
     void testZip64ExtraZip64Size();
     void testZip64ExtraZip64SizeFirst();
     void testZip64ExtraZip64Offset();
+    void testZip64SmallSize();
     void testZipOssFuzzIssue433303801();
     void testZipDeepDirHierarchy();
     void benchmarkZipDeepDirHierarchy();

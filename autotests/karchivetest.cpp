@@ -1594,6 +1594,26 @@ void KArchiveTest::testZip64ExtraZip64Offset()
     QVERIFY(zip.close());
 }
 
+void KArchiveTest::testZip64SmallSize()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_small_size.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 1);
+
+    auto entry = zip.directory()->file(QStringLiteral("123.txt"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 3);
+
+    const auto data = entry->data();
+    QCOMPARE(data, "123");
+
+    QVERIFY(zip.close());
+}
+
 void KArchiveTest::testZipOssFuzzIssue433303801()
 {
     const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_433303801.zip");
