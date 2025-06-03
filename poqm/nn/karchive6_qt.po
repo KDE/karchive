@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-27 20:25+0200\n"
+"PO-Revision-Date: 2025-06-01 15:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: qtrich\n"
@@ -66,7 +66,7 @@ msgstr "Feil i filhovud"
 #: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Treng passord for å lesa denne arkivfila"
 
 #: k7zip.cpp:2611
 msgctxt "K7Zip|"
@@ -114,7 +114,7 @@ msgstr ""
 #: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "innhald"
 
 #: k7zip.cpp:3016
 msgctxt "K7Zip|"
