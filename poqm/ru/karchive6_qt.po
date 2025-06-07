@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-28 14:55+0300\n"
+"PO-Revision-Date: 2025-06-06 16:44+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -66,7 +66,7 @@ msgstr "Ошибка в заголовке"
 #: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Для этого архива требуется пароль"
 
 #: k7zip.cpp:2611
 msgctxt "K7Zip|"
@@ -306,12 +306,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Не удалось выполнить запись выравнивания: %1"
 
 #: ktar.cpp:755 ktar.cpp:765
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Не удалось выполнить запись выравнивания: %1"
+msgstr "Не удалось выполнить запись длинной ссылки: %1"
 
 #: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
@@ -392,12 +390,9 @@ msgstr ""
 "длинная для корректной записи)"
 
 #: kzip.cpp:669
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "Некорректный файл ZIP, длина имени пути к файлу меньше или равна нулю"
+msgstr "Некорректный файл ZIP, длина имени пути к файлу равна нулю"
 
 #: kzip.cpp:675
 #, qt-format
@@ -406,6 +401,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Некорректный файл ZIP. Невозможно прочитать %1 + %2 байт имени файла, а "
+"также имеются дополнительные данные со смещением %3"
 
 #: kzip.cpp:725
 #, qt-format
@@ -413,6 +410,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Некорректный файл ZIP. Непоследовательное смещение локального заголовка в "
+"центральном каталоге (%1)"
 
 #: kzip.cpp:760
 msgctxt "KZip|"
@@ -433,7 +432,7 @@ msgstr "Не удалось перейти к следующей записи"
 #: kzip.cpp:842
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Не является файлом ZIP. Не найден локальный заголовок файла."
 
 #: kzip.cpp:846
 #, qt-format
