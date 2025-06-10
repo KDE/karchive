@@ -341,48 +341,48 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла TAR"
 
-#: kzip.cpp:482 kzip.cpp:507
+#: kzip.cpp:484 kzip.cpp:509
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "Некоректний файл ZIP. Неочікуване завершення файла. (Код помилки: %1)"
 
-#: kzip.cpp:533
+#: kzip.cpp:535
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "Некоректний файл ZIP. Від'ємна довжина назви"
 
-#: kzip.cpp:538
+#: kzip.cpp:540
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "Некоректний файл ZIP. Назву не прочитано повністю (#2)"
 
-#: kzip.cpp:556
+#: kzip.cpp:558
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "Некоректний файл ZIP. Пошкоджено ExtraField."
 
-#: kzip.cpp:570 kzip.cpp:593
+#: kzip.cpp:572 kzip.cpp:595
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Не вдалося виконати позиціювання до наступного жетона заголовка"
 
-#: kzip.cpp:585
+#: kzip.cpp:587
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#5)"
 
-#: kzip.cpp:601
+#: kzip.cpp:603
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Не вдалося виконати позиціювання до стисненого розміру файла"
 
-#: kzip.cpp:617
+#: kzip.cpp:619
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Некоректний файл ZIP. Неочікуваний кінець файла. (#1)"
 
-#: kzip.cpp:654
+#: kzip.cpp:656
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -390,12 +390,12 @@ msgstr ""
 "Некоректний файл ZIP, центральний запис є надто коротким (недостатньо довгим "
 "для коректного запису)"
 
-#: kzip.cpp:669
+#: kzip.cpp:671
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "Некоректний файл ZIP, довжина назви шляху файла є нульовою"
 
-#: kzip.cpp:675
+#: kzip.cpp:677
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -405,7 +405,7 @@ msgstr ""
 "Некоректний файл ZIP, не вдалося прочитати %1 + %2 байтів для назви файла і "
 "додаткові дані зі зсувом %3"
 
-#: kzip.cpp:725
+#: kzip.cpp:727
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -414,90 +414,90 @@ msgstr ""
 "Некоректний файл ZIP, несумісний зсув локального заголовка у центральному "
 "каталозі на %1"
 
-#: kzip.cpp:760
+#: kzip.cpp:762
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Некоректний файл ZIP. Виявлено порожню назву запису"
 
-#: kzip.cpp:802
+#: kzip.cpp:804
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Файл %1 перебуває у теці %2, але %3 насправді є файлом."
 
-#: kzip.cpp:813
+#: kzip.cpp:815
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Не вдалося виконати позиціювання до наступного запису"
 
-#: kzip.cpp:842
+#: kzip.cpp:844
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "Не є файлом ZIP : не знайдено заголовка локального файла."
 
-#: kzip.cpp:846
+#: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Некоректний файл ZIP. Невідомий заголовок із відступом %1"
 
-#: kzip.cpp:874
+#: kzip.cpp:876
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Не вдалося виконати позиціювання до наступного заголовка файла: %1"
 
-#: kzip.cpp:900 kzip.cpp:994
+#: kzip.cpp:902 kzip.cpp:996
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Не вдалося записати заголовок файла: %1"
 
-#: kzip.cpp:1041
+#: kzip.cpp:1043
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Не вдалося записати запис центрального каталогу: %1"
 
-#: kzip.cpp:1077
+#: kzip.cpp:1079
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Помилка програми: файл ZIP має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: kzip.cpp:1083
+#: kzip.cpp:1085
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла ZIP"
 
-#: kzip.cpp:1089
+#: kzip.cpp:1091
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Не вдалося створити пристрій. Диск переповнено?"
 
-#: kzip.cpp:1095
+#: kzip.cpp:1097
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Не вдалося виконати позиціювання у файлі ZIP. Диск переповнено?"
 
-#: kzip.cpp:1239
+#: kzip.cpp:1241
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Не вдалося записати дані до архіву. Диск переповнено?"
 
-#: kzip.cpp:1258
+#: kzip.cpp:1260
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Не вдалося відкрити пристрій стискання: %1"
 
-#: kzip.cpp:1345
+#: kzip.cpp:1347
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Немає файла або пристрою"
 
-#: kzip.cpp:1358
+#: kzip.cpp:1360
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
