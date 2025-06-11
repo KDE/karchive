@@ -2659,7 +2659,21 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     }
 
     // read files info
-    int numFiles = d->readNumber();
+    const quint64 fileNumFiles = d->readNumber();
+    if (fileNumFiles > std::numeric_limits<qsizetype>::max()) {
+        // We iterate over QList with at() and at() accepts qsizetype as input parameter
+        setErrorString(tr("Archive has %1 files which is more than the supported amount (%2)").arg(fileNumFiles).arg(std::numeric_limits<qsizetype>::max()));
+        return false;
+    }
+
+    // TODO Explore a way to be able to support more files.
+    // Right now we limit to 1000 million files
+    static const qsizetype MAX_FILE_NUMBER = 1000 * 1000 * 1000;
+    const qsizetype numFiles = fileNumFiles;
+    if (numFiles > MAX_FILE_NUMBER) {
+        setErrorString(tr("Archive has %1 files which is more than the supported amount (%2)").arg(numFiles).arg(MAX_FILE_NUMBER));
+        return false;
+    }
     for (int i = 0; i < numFiles; ++i) {
         d->fileInfos.append(new FileInfo);
     }
