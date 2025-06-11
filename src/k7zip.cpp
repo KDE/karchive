@@ -2659,7 +2659,11 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     }
 
     // read files info
-    int numFiles = d->readNumber();
+    const int numFiles = d->readNumber();
+    if (numFiles < 0) {
+        setErrorString(tr("Archive malformed. It reports a negative file number"));
+        return false;
+    }
     for (int i = 0; i < numFiles; ++i) {
         d->fileInfos.append(new FileInfo);
     }
