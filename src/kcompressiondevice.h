@@ -79,6 +79,19 @@ public:
     explicit KCompressionDevice(const QString &fileName);
 
     /*!
+     * Constructs a KCompressionDevice for a given CompressionType (e.g. GZip, BZip2 etc.).
+     *
+     * \a inputDevice input device.
+     *
+     * \a type the CompressionType to use.
+     *
+     * \a size the size we know the inputDevice with CompressionType type has. If we know it.
+     *
+     * \since 6.16
+     */
+    KCompressionDevice(std::unique_ptr<QIODevice> inputDevice, CompressionType type, std::optional<qint64> size = {});
+
+    /*!
      * Destructs the KCompressionDevice.
      *
      * Calls close() if the filter device is still open.
@@ -96,6 +109,8 @@ public:
     bool open(QIODevice::OpenMode mode) override;
 
     void close() override;
+
+    qint64 size() const override;
 
     /*!
      * For writing gzip compressed files only:

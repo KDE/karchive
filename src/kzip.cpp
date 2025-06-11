@@ -1483,14 +1483,14 @@ QIODevice *KZipFileEntry::createDevice() const
 {
     // qCDebug(KArchiveLog) << "creating iodevice limited to pos=" << position() << ", csize=" << compressedSize();
     // Limit the reading to the appropriate part of the underlying device (e.g. file)
-    KLimitedIODevice *limitedDev = new KLimitedIODevice(archive()->device(), position(), compressedSize());
+    std::unique_ptr limitedDev = std::make_unique<KLimitedIODevice>(archive()->device(), position(), compressedSize());
     if (encoding() == 0 || compressedSize() == 0) { // no compression (or even no data)
-        return limitedDev;
+        return limitedDev.release();
     }
 
     if (encoding() == 8) {
         // On top of that, create a device that uncompresses the zlib data
-        KCompressionDevice *filterDev = new KCompressionDevice(limitedDev, true, KCompressionDevice::GZip);
+        KCompressionDevice *filterDev = new KCompressionDevice(std::move(limitedDev), KCompressionDevice::GZip, size());
 
         if (!filterDev) {
             return nullptr; // ouch
@@ -1504,6 +1504,5 @@ QIODevice *KZipFileEntry::createDevice() const
 
     qCCritical(KArchiveLog) << "This zip file contains files compressed with method" << encoding() << ", this method is currently not supported by KZip,"
                             << "please use a command-line tool to handle this file.";
-    delete limitedDev;
     return nullptr;
 }
