@@ -1,4 +1,4 @@
-include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
 
 project = KArchive
 description = Reading, creating, and manipulating file archives
@@ -16,5 +16,19 @@ depends += \
     kde \
     qtcore \
     qtgui
+
+qhp.projects            = KArchive
+
+qhp.KArchive.file                = karchive.qhp
+qhp.KArchive.namespace           = org.kde.karchive.$QT_VERSION_TAG
+qhp.KArchive.virtualFolder       = karchive
+qhp.KArchive.indexTitle          = KArchive
+qhp.KArchive.indexRoot           =
+
+qhp.KArchive.subprojects         = classes
+qhp.KArchive.subprojects.classes.title = C++ Classes
+qhp.KArchive.subprojects.classes.indexTitle = KArchive C++ Classes
+qhp.KArchive.subprojects.classes.selectors = class fake:headerfile
+qhp.KArchive.subprojects.classes.sortPages = true
 
 tagfile = karchive.tags
