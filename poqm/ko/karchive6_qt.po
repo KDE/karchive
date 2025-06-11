@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-22 01:22+0200\n"
+"PO-Revision-Date: 2025-06-10 23:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -389,6 +389,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"잘못된 ZIP 파일입니다. %3 위치에서 파일 이름의 %1 + %2바이트와 추가 데이터를 "
+"읽을 수 없음"
 
 #: kzip.cpp:727
 #, qt-format
