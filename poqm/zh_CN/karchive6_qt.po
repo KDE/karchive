@@ -237,7 +237,7 @@ msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: kcompressiondevice.cpp:498
+#: kcompressiondevice.cpp:514
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "无法写入。请检查分区是否已满。"
