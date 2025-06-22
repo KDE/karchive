@@ -499,7 +499,3 @@ msgstr "Няма файл или устройство"
 msgctxt "KZip|"
 msgid "Error writing data: %1"
 msgstr "Грешка при запис на данни: %1"
-
-#~ msgctxt "KZip|"
-#~ msgid "Invalid ZIP file. Unexpected end of file."
-#~ msgstr "Невалиден ZIP файл. Неочакван край на файла."
