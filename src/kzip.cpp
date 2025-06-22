@@ -256,6 +256,7 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
     while (size >= 4) { // as long as a potential extra field can be read
         int magic = (uchar)buffer[0] | (uchar)buffer[1] << 8;
         buffer += 2;
+        // Read the payload size (not including magic/size words) of each record
         int fieldsize = (uchar)buffer[0] | (uchar)buffer[1] << 8;
         buffer += 2;
         size -= 4;
