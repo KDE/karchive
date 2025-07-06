@@ -38,8 +38,8 @@ function(check_and_create_tar help_option program_name compression_option extens
 
     execute_process(COMMAND tar --help OUTPUT_VARIABLE TAR_OUTPUT)
     if (TAR_OUTPUT MATCHES ${help_option})
-        find_program(PROGRAM_FOUND ${program_name})
-        if (PROGRAM_FOUND)
+        find_program(${program_name}_PROGRAM_FOUND ${program_name})
+        if (${program_name}_PROGRAM_FOUND)
             add_custom_command(TARGET kcompressiondevicetest POST_BUILD
                 COMMAND tar ${compression_option} -cf
                 ${testDir}/kcompressiondevice_test.tar.${extension} examples
