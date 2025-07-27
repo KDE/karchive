@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2023, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-01-07 22:07+0100\n"
+"PO-Revision-Date: 2025-07-26 21:28+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: k7zip.cpp:2504
 msgctxt "K7Zip|"
@@ -63,7 +63,7 @@ msgstr "Hiba a fejlécben"
 #: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Jelszó szükséges ehhez az archívumhoz"
 
 #: k7zip.cpp:2611
 msgctxt "K7Zip|"
@@ -111,7 +111,7 @@ msgstr ""
 #: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "tartalom"
 
 #: k7zip.cpp:3016
 msgctxt "K7Zip|"
@@ -302,12 +302,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Nem sikerült írni az igazítást: %1"
 
 #: ktar.cpp:755 ktar.cpp:765
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Nem sikerült írni az igazítást: %1"
+msgstr "Nem sikerült írni a hosszú linket: %1"
 
 #: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
@@ -386,14 +384,9 @@ msgstr ""
 "érvényes bejegyzéshez)"
 
 #: kzip.cpp:671
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
-"Érvénytelen ZIP-fájl, a fájl elérési útjának hossza kisebb vagy egyenlő "
-"nullával"
+msgstr "Érvénytelen ZIP-fájl, a fájl elérési útjának hossza nulla"
 
 #: kzip.cpp:677
 #, qt-format
@@ -402,6 +395,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Érvénytelen ZIP-fájl, nem lehet olvasni %1 + %2 bájtot a fájlnévhez és az "
+"extra adatokhoz a(z) %3 eltolásnál"
 
 #: kzip.cpp:727
 #, qt-format
@@ -409,6 +404,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Érvénytelen ZIP-fájl, inkonzisztens helyi fejléceltolás a központi mappában "
+"itt: %1"
 
 #: kzip.cpp:762
 msgctxt "KZip|"
@@ -429,7 +426,7 @@ msgstr "Nem sikerült megkeresni a következő bejegyzést"
 #: kzip.cpp:844
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Nem ZIP-fájl, nem található helyi fájlfejléc."
 
 #: kzip.cpp:848
 #, qt-format
