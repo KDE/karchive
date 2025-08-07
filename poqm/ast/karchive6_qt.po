@@ -84,53 +84,59 @@ msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr ""
 
-#: k7zip.cpp:2717
+#: k7zip.cpp:2665 k7zip.cpp:2674
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Archive has %1 files which is more than the supported amount (%2)"
+msgstr ""
+
+#: k7zip.cpp:2731
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr ""
 
-#: k7zip.cpp:2763
+#: k7zip.cpp:2777
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr ""
 
-#: k7zip.cpp:2770
+#: k7zip.cpp:2784
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr ""
 
-#: k7zip.cpp:2792
+#: k7zip.cpp:2806
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 
-#: k7zip.cpp:2831
+#: k7zip.cpp:2845
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3016
+#: k7zip.cpp:3030
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr ""
 
-#: k7zip.cpp:3046
+#: k7zip.cpp:3060
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr ""
 
-#: k7zip.cpp:3090
+#: k7zip.cpp:3104
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr ""
 
-#: k7zip.cpp:3114 k7zip.cpp:3164 k7zip.cpp:3204
+#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 
-#: k7zip.cpp:3120 k7zip.cpp:3210
+#: k7zip.cpp:3134 k7zip.cpp:3224
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
