@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:41+0000\n"
-"PO-Revision-Date: 2025-05-07 18:16+0100\n"
+"PO-Revision-Date: 2025-08-07 12:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: k7zip.cpp:2504
 msgctxt "K7Zip|"
@@ -70,7 +70,7 @@ msgstr "Error en cabecera"
 #: k7zip.cpp:2605 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr "Se necesita contraseña para este archivo"
+msgstr "Se necesita contraseña para este archivador"
 
 #: k7zip.cpp:2611
 msgctxt "K7Zip|"
@@ -97,6 +97,7 @@ msgstr "Error de lectura de cabecera"
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
+"El archivador tiene %1 archivos, que son más de la cantidad permitida (%2)"
 
 #: k7zip.cpp:2731
 msgctxt "K7Zip|"
@@ -217,7 +218,7 @@ msgstr "Modo %1 no permitido"
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr "El archivo ya está cerrado"
+msgstr "El archivador ya está cerrado"
 
 #: karchive.cpp:266
 #, qt-format
@@ -231,8 +232,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"Ha fallado el acceso al archivo %1 para añadirlo al archivo comprimido. El "
-"error ha sido: %2"
+"Ha fallado el acceso al archivo %1 para añadirlo al archivador. El error ha "
+"sido: %2"
 
 #: karchive.cpp:318
 #, qt-format
@@ -289,7 +290,7 @@ msgstr "El archivo %1 no existe"
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr "El archivo %1 está dañado"
+msgstr "El archivador %1 está dañado"
 
 #: ktar.cpp:359
 msgctxt "KTar|"
@@ -505,7 +506,7 @@ msgstr "No se puede buscar en el archivo ZIP. ¿Disco lleno?"
 #: kzip.cpp:1241
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr "No se puede escribir en el archivo. ¿Disco lleno?"
+msgstr "No se puede escribir en el archivador. ¿El disco está lleno?"
 
 #: kzip.cpp:1260
 #, qt-format
