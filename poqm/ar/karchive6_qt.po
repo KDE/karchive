@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-07 17:54+0400\n"
+"PO-Revision-Date: 2025-08-10 22:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -89,7 +89,7 @@ msgstr "خطأ أثناء قراءة العنوان"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "يحتوي الأرشيف على %1 ملفًا، وهو عدد أكبر من العدد المسموح به (%2)"
 
 #: k7zip.cpp:2731
 msgctxt "K7Zip|"
