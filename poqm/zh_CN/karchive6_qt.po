@@ -90,7 +90,7 @@ msgstr "读取文件头时出错"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "压缩包中有 %1 个文件，超过了可支持的数量 (%2)"
 
 #: k7zip.cpp:2731
 msgctxt "K7Zip|"
