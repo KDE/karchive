@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-08 08:35+0200\n"
+"PO-Revision-Date: 2025-08-07 14:23+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.11.70\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2504
@@ -91,6 +91,8 @@ msgstr "Errore durante la lettura dell'intestazione"
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
+"L'archivio contiene %1 file, ovvero una quantità superiore a quella "
+"supportata (%2)"
 
 #: k7zip.cpp:2731
 msgctxt "K7Zip|"
