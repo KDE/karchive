@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-08 19:36+0200\n"
+"PO-Revision-Date: 2025-08-16 22:51+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -90,7 +90,7 @@ msgstr "Грешка при четене на заглавието"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Архивът съдържа %1 файла, което е повече от поддържания брой (%2)"
 
 #: k7zip.cpp:2731
 msgctxt "K7Zip|"
