@@ -2908,7 +2908,10 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         } else {
             entryName = fileInfo->path.mid(index + 1);
         }
-        Q_ASSERT(!entryName.isEmpty());
+        if (entryName.isEmpty()) {
+            // fileInfo->path ends in /
+            return false;
+        }
 
         QDateTime mTime;
         if (d->mTimesDefined.size() > i && d->mTimesDefined[i]) {

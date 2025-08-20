@@ -1838,6 +1838,15 @@ void KArchiveTest::test7ZipReadNumber()
     QVERIFY(k7zip.close());
 }
 
+void KArchiveTest::test7ZipFileNameEndsInSlash()
+{
+    const QString fileName = QFINDTESTDATA("data/filename_ends_in_slash.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+}
+
 #if HAVE_OPENSSL_SUPPORT
 void KArchiveTest::test7ZipPasswordProtected()
 {
