@@ -122,27 +122,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "innhald"
 
-#: k7zip.cpp:3030
+#: k7zip.cpp:3033
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skrivefeil"
 
-#: k7zip.cpp:3060
+#: k7zip.cpp:3063
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Feil ved koding av filhovud"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Inga fil er vald"
 
-#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Programfeil: 7-Zip-fila må vera open før ho vert skriven til"
 
-#: k7zip.cpp:3134 k7zip.cpp:3224
+#: k7zip.cpp:3137 k7zip.cpp:3227
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programfeil: Prøvde å skriva til ikkje-skrivbar 7-Zip-fil"

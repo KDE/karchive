@@ -118,27 +118,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "תוכן"
 
-#: k7zip.cpp:3030
+#: k7zip.cpp:3033
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "שגיאת כתיבה"
 
-#: k7zip.cpp:3060
+#: k7zip.cpp:3063
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "קידוד הכותרת נכשל"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "לא נבחר קובץ"
 
-#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "שגיאת יישום: קובץ ה־‎7-Zip חייב להיות פתוח לפני הכתיבה אליו"
 
-#: k7zip.cpp:3134 k7zip.cpp:3224
+#: k7zip.cpp:3137 k7zip.cpp:3227
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ ‎7-Zip שנעול לכתיבה"

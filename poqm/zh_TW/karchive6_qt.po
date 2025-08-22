@@ -116,27 +116,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "內容"
 
-#: k7zip.cpp:3030
+#: k7zip.cpp:3033
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "寫入錯誤"
 
-#: k7zip.cpp:3060
+#: k7zip.cpp:3063
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "編碼標頭失敗"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "目前沒有選取檔案"
 
-#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "應用程式錯誤：7-Zip 檔案必須開啟才能寫入"
 
-#: k7zip.cpp:3134 k7zip.cpp:3224
+#: k7zip.cpp:3137 k7zip.cpp:3227
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"

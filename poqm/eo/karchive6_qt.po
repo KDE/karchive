@@ -124,28 +124,28 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "enhavo"
 
-#: k7zip.cpp:3030
+#: k7zip.cpp:3033
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skriberaro"
 
-#: k7zip.cpp:3060
+#: k7zip.cpp:3063
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Malsukcesis dum kodado de kaplinio"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Neniu dosiero nuntempe elektita"
 
-#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Aplika eraro: 7-Zip-dosiero devas esti malfermita antaŭ ol esti skribita enen"
 
-#: k7zip.cpp:3134 k7zip.cpp:3224
+#: k7zip.cpp:3137 k7zip.cpp:3227
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Aplika eraro: provis skribi en neskribiblan 7-Zip-dosieron"

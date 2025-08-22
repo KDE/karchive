@@ -114,27 +114,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3030
+#: k7zip.cpp:3033
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "लिखने त्रुटि"
 
-#: k7zip.cpp:3060
+#: k7zip.cpp:3063
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "हेडर एनकोड करते समय विफल"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "वर्तमान में कोई फ़ाइल चयनित नहीं है"
 
-#: k7zip.cpp:3128 k7zip.cpp:3178 k7zip.cpp:3218
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "अनुप्रयोग त्रुटि: 7-ज़िप फ़ाइल को लिखे जाने से पहले उसे खोलना आवश्यक है"
 
-#: k7zip.cpp:3134 k7zip.cpp:3224
+#: k7zip.cpp:3137 k7zip.cpp:3227
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "अनुप्रयोग त्रुटि: गैर-लेखन योग्य 7-ज़िप फ़ाइल में लिखने का प्रयास किया गया"
