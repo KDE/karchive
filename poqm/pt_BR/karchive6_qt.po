@@ -1,0 +1,505 @@
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2025-08-23 09:24-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 25.08.0\n"
+
+#: k7zip.cpp:2504
+msgctxt "K7Zip|"
+msgid "Could not get underlying device"
+msgstr "Não foi possível obter o dispositivo subjacente"
+
+#: k7zip.cpp:2512
+msgctxt "K7Zip|"
+msgid "Read header failed"
+msgstr "Leitura do cabeçalho falhou"
+
+#: k7zip.cpp:2518
+msgctxt "K7Zip|"
+msgid "Check signature failed"
+msgstr "Verificação da assinatura falhou"
+
+#: k7zip.cpp:2541
+msgctxt "K7Zip|"
+msgid "Bad CRC"
+msgstr "CRC ruim"
+
+#: k7zip.cpp:2550
+msgctxt "K7Zip|"
+msgid "Next header size is too big"
+msgstr "O próximo tamanho de cabeçalho é muito grande"
+
+#: k7zip.cpp:2555
+msgctxt "K7Zip|"
+msgid "Next header size is less than zero"
+msgstr "O próximo tamanho de cabeçalho é menor que zero"
+
+#: k7zip.cpp:2566
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Failed read next header size; should read %1, read %2"
+msgstr ""
+"Falha na leitura do próximo tamanho do cabeçalho; deveria ler %1, ler %2"
+
+#: k7zip.cpp:2579
+msgctxt "K7Zip|"
+msgid "Bad next header CRC"
+msgstr "Próximo CRC do cabeçalho ruim"
+
+#: k7zip.cpp:2587
+msgctxt "K7Zip|"
+msgid "Error in header"
+msgstr "Erro no cabeçalho"
+
+#: k7zip.cpp:2605 k7zip.cpp:2638
+msgctxt "K7Zip|"
+msgid "Password needed for this archive"
+msgstr "Senha necessária para este arquivo"
+
+#: k7zip.cpp:2611
+msgctxt "K7Zip|"
+msgid "Wrong header type"
+msgstr "Tipo de cabeçalho errado"
+
+#: k7zip.cpp:2621 k7zip.cpp:2627
+msgctxt "K7Zip|"
+msgid "Not implemented"
+msgstr "Não implementado"
+
+#: k7zip.cpp:2633
+msgctxt "K7Zip|"
+msgid "Error while reading main streams information"
+msgstr "Erro ao ler informações dos principais fluxos"
+
+#: k7zip.cpp:2657
+msgctxt "K7Zip|"
+msgid "Error while reading header"
+msgstr "Erro ao ler informações do cabeçalho"
+
+#: k7zip.cpp:2665 k7zip.cpp:2674
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Archive has %1 files which is more than the supported amount (%2)"
+msgstr ""
+"O arquivo tem %1 arquivos, o que é mais do que a quantidade suportada (%2)"
+
+#: k7zip.cpp:2731
+msgctxt "K7Zip|"
+msgid "Error reading modification time"
+msgstr "Erro ao ler a hora de modificação"
+
+#: k7zip.cpp:2777
+msgctxt "K7Zip|"
+msgid "Error reading MTime"
+msgstr "Erro ao ler o MTime"
+
+#: k7zip.cpp:2784
+msgctxt "K7Zip|"
+msgid "Invalid"
+msgstr "Inválido"
+
+#: k7zip.cpp:2806
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
+msgstr ""
+"Falha na leitura do tamanho (checkRecordsSize: %1, d->pos - ppp: %2, "
+"tamanho: %3)"
+
+#: k7zip.cpp:2845
+msgctxt "K7Zip|"
+msgid "contents"
+msgstr "conteúdo"
+
+#: k7zip.cpp:3033
+msgctxt "K7Zip|"
+msgid "Write error"
+msgstr "Erro de gravação"
+
+#: k7zip.cpp:3063
+msgctxt "K7Zip|"
+msgid "Failed while encoding header"
+msgstr "Falha ao codificar o cabeçalho"
+
+#: k7zip.cpp:3107
+msgctxt "K7Zip|"
+msgid "No file currently selected"
+msgstr "Nenhum arquivo selecionado atualmente"
+
+#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
+msgctxt "K7Zip|"
+msgid "Application error: 7-Zip file must be open before being written into"
+msgstr ""
+"Erro do aplicativo: o arquivo 7-Zip deve ser aberto antes de ser gravado"
+
+#: k7zip.cpp:3137 k7zip.cpp:3227
+msgctxt "K7Zip|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr ""
+"Erro do aplicativo: tentativa de gravação em arquivo 7-Zip não gravável"
+
+#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+msgctxt "KAr|"
+msgid "Cannot write to AR file"
+msgstr "Não foi possível gravar para arquivo AR"
+
+#: kar.cpp:90
+#, qt-format
+msgctxt "KAr|"
+msgid "Unsupported mode %1"
+msgstr "Modo não suportado %1"
+
+#: kar.cpp:101
+msgctxt "KAr|"
+msgid "Invalid main magic"
+msgstr "Magia principal inválida"
+
+#: kar.cpp:118
+msgctxt "KAr|"
+msgid "Invalid magic"
+msgstr "Magia inválida"
+
+#: kar.cpp:129
+msgctxt "KAr|"
+msgid "Invalid size"
+msgstr "Tamanho inválido"
+
+#: kar.cpp:149
+msgctxt "KAr|"
+msgid "Invalid longfilename reference"
+msgstr "Referência de nome de arquivo longo inválida"
+
+#: kar.cpp:153
+msgctxt "KAr|"
+msgid "Invalid longfilename position reference"
+msgstr "Referência de posição de nome de arquivo longo inválida"
+
+#: karchive.cpp:157
+msgctxt "KArchive|"
+msgid "No filename or device was specified"
+msgstr "Nenhum nome de arquivo ou dispositivo indicado"
+
+#: karchive.cpp:162
+#, qt-format
+msgctxt "KArchive|"
+msgid "Could not open device in mode %1"
+msgstr "Não foi possível abrir o dispositivo no modo %1"
+
+#: karchive.cpp:189
+#, qt-format
+msgctxt "KArchive|"
+msgid "QSaveFile creation for %1 failed: %2"
+msgstr "Falha na criação do QSaveFile para %1: %2"
+
+#: karchive.cpp:208
+#, qt-format
+msgctxt "KArchive|"
+msgid "Unsupported mode %1"
+msgstr "Modo não suportado %1"
+
+#: karchive.cpp:217
+msgctxt "KArchive|"
+msgid "Archive already closed"
+msgstr "O arquivo já está fechado"
+
+#: karchive.cpp:266
+#, qt-format
+msgctxt "KArchive|"
+msgid "%1 doesn't exist or is not a regular file."
+msgstr "%1 não existe ou não é um arquivo regular."
+
+#: karchive.cpp:272
+#, qt-format
+msgctxt "KArchive|"
+msgid ""
+"Failed accessing the file %1 for adding to the archive. The error was: %2"
+msgstr ""
+"Falha ao acessar o arquivo %1 para adicioná-lo ao arquivo. O erro foi: %2"
+
+#: karchive.cpp:318
+#, qt-format
+msgctxt "KArchive|"
+msgid "Couldn't open file %1: %2"
+msgstr "Não foi possível abrir o arquivo %1: %2"
+
+#: karchive.cpp:352
+#, qt-format
+msgctxt "KArchive|"
+msgid "Directory %1 does not exist"
+msgstr "A pasta %1 não existe"
+
+#: karchive.cpp:426
+#, qt-format
+msgctxt "KArchive|"
+msgid "Writing failed: %1"
+msgstr "Escrita falhou: %1"
+
+#: karchive_p.h:55
+msgctxt "QIODevice|"
+msgid "Unknown error"
+msgstr "Erro desconhecido"
+
+#: kcompressiondevice.cpp:514
+msgctxt "KCompressionDevice|"
+msgid "Could not write. Partition full?"
+msgstr "Não foi possível gravar. A partição está cheia?"
+
+#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+msgctxt "KRcc|"
+msgid "Cannot write to RCC file"
+msgstr "Não foi possível gravar para arquivo RCC"
+
+#: krcc.cpp:117
+#, qt-format
+msgctxt "KRcc|"
+msgid "Unsupported mode %1"
+msgstr "Modo não suportado %1"
+
+#: krcc.cpp:124
+#, qt-format
+msgctxt "KRcc|"
+msgid "Failed to register resource %1 under prefix %2"
+msgstr "Falha ao registrar o recurso %1 sob o prefixo %2"
+
+#: ktar.cpp:348
+#, qt-format
+msgctxt "KTar|"
+msgid "File %1 does not exist"
+msgstr "O arquivo %1 não existe"
+
+#: ktar.cpp:355
+#, qt-format
+msgctxt "KTar|"
+msgid "Archive %1 is corrupt"
+msgstr "O arquivo %1 está corrompido"
+
+#: ktar.cpp:359
+msgctxt "KTar|"
+msgid "Disk full"
+msgstr "Disco cheio"
+
+#: ktar.cpp:393
+msgctxt "KTar|"
+msgid "Could not get underlying device"
+msgstr "Não foi possível obter o dispositivo subjacente"
+
+#: ktar.cpp:408
+msgctxt "KTar|"
+msgid "Could not read tar header"
+msgstr "Não foi possível ler o cabeçalho tar"
+
+#: ktar.cpp:592 ktar.cpp:607
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write back temp file: %1"
+msgstr "Falha ao gravar novamente o arquivo temporário: %1"
+
+#: ktar.cpp:653
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write alignment: %1"
+msgstr "Não foi possível gravar o alinhamento: %1"
+
+#: ktar.cpp:755 ktar.cpp:765
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr "Não foi possível gravar link longo: %1"
+
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+msgctxt "KTar|"
+msgid "Application error: TAR file must be open before being written into"
+msgstr "Erro do aplicativo: o arquivo TAR deve ser aberto antes de ser gravado"
+
+#: ktar.cpp:792
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr ""
+"Erro do aplicativo: tentativa de gravação em arquivo 7-Zip não gravável"
+
+#: ktar.cpp:799
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+"Limitação do aplicativo: Não é possível adicionar arquivo maior que %1 bytes"
+
+#: ktar.cpp:853
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write header: %1"
+msgstr "Falha ao gravar no cabeçalho: %1"
+
+#: ktar.cpp:875 ktar.cpp:944
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable TAR file"
+msgstr "Erro do aplicativo: tentativa de gravação em arquivo TAR não gravável"
+
+#: kzip.cpp:484 kzip.cpp:509
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
+msgstr "Arquivo ZIP inválido. Fim de arquivo inesperado. (Código de erro: %1)"
+
+#: kzip.cpp:535
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Negative name length"
+msgstr "Arquivo ZIP inválido. Comprimento do nome negativo."
+
+#: kzip.cpp:540
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Name not completely read (#2)"
+msgstr "Arquivo ZIP inválido. Nome não totalmente legível (#2)"
+
+#: kzip.cpp:558
+msgctxt "KZip|"
+msgid "Invalid ZIP File. Broken ExtraField."
+msgstr "Arquivo ZIP inválido. Campo extra corrompido."
+
+#: kzip.cpp:572 kzip.cpp:595
+msgctxt "KZip|"
+msgid "Could not seek to next header token"
+msgstr "Não foi possível procurar o próximo token de cabeçalho"
+
+#: kzip.cpp:587
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#5)"
+msgstr "Arquivo ZIP inválido. Fim de arquivo inesperado. (#5)"
+
+#: kzip.cpp:603
+msgctxt "KZip|"
+msgid "Could not seek to file compressed size"
+msgstr "Não foi possível tentar arquivar o tamanho compactado"
+
+#: kzip.cpp:619
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#1)"
+msgstr "Arquivo ZIP inválido. Fim de arquivo inesperado. (#1)"
+
+#: kzip.cpp:656
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, central entry too short (not long enough for valid entry)"
+msgstr ""
+"Arquivo ZIP inválido, entrada central muito curta (não longa o suficiente "
+"para uma entrada válida)"
+
+#: kzip.cpp:671
+msgctxt "KZip|"
+msgid "Invalid ZIP file, file path name length is zero"
+msgstr "Arquivo ZIP inválido, comprimento do caminho do arquivo é zero"
+
+#: kzip.cpp:677
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
+"at offset %3"
+msgstr ""
+"Arquivo ZIP inválido, não foi possível ler %1 + %2 bytes para o nome do "
+"arquivo e dados extras no deslocamento %3"
+
+#: kzip.cpp:727
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
+msgstr ""
+"Arquivo ZIP inválido, deslocamento de cabeçalho local inconsistente no "
+"diretório central em %1"
+
+#: kzip.cpp:762
+msgctxt "KZip|"
+msgid "Invalid ZIP file, found empty entry name"
+msgstr "Arquivo ZIP inválido, nome de entrada vazio encontrado"
+
+#: kzip.cpp:804
+#, qt-format
+msgctxt "KZip|"
+msgid "File %1 is in folder %2, but %3 is actually a file."
+msgstr "O arquivo %1 está na pasta %2, mas %3 é na verdade um arquivo."
+
+#: kzip.cpp:815
+msgctxt "KZip|"
+msgid "Could not seek to next entry"
+msgstr "Não foi possível prosseguir para a próxima entrada"
+
+#: kzip.cpp:844
+msgctxt "KZip|"
+msgid "Not a ZIP file, no Local File Header found."
+msgstr "Não é um arquivo ZIP, nenhum cabeçalho de arquivo local encontrado."
+
+#: kzip.cpp:848
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unrecognized header at offset %1"
+msgstr "Arquivo ZIP inválido. Cabeçalho não reconhecido no deslocamento %1."
+
+#: kzip.cpp:876
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not seek to next file header: %1"
+msgstr "Não foi possível procurar o próximo cabeçalho de arquivo: %1"
+
+#: kzip.cpp:902 kzip.cpp:996
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write file header: %1"
+msgstr "Não foi possível gravar o cabeçalho do arquivo: %1"
+
+#: kzip.cpp:1043
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write central dir record: %1"
+msgstr "Não foi possível gravar o registro do diretório central: %1"
+
+#: kzip.cpp:1079
+msgctxt "KZip|"
+msgid "Application error: ZIP file must be open before being written into"
+msgstr "Erro do aplicativo: o arquivo Zip deve ser aberto antes de ser gravado"
+
+#: kzip.cpp:1085
+msgctxt "KZip|"
+msgid "Application error: attempted to write into non-writable ZIP file"
+msgstr "Erro do aplicativo: tentativa de gravação em arquivo Zip não gravável"
+
+#: kzip.cpp:1091
+msgctxt "KZip|"
+msgid "Cannot create a device. Disk full?"
+msgstr "Não foi possível criar um dispositivo. Disco cheio?"
+
+#: kzip.cpp:1097
+msgctxt "KZip|"
+msgid "Cannot seek in ZIP file. Disk full?"
+msgstr "Não foi possível buscar no arquivo ZIP. Disco cheio?"
+
+#: kzip.cpp:1241
+msgctxt "KZip|"
+msgid "Could not write to the archive. Disk full?"
+msgstr "Não foi possível gravar no arquivo. Disco cheio?"
+
+#: kzip.cpp:1260
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not open compression device: %1"
+msgstr "Não foi possível abrir o dispositivo de compressão: %1"
+
+#: kzip.cpp:1347
+msgctxt "KZip|"
+msgid "No file or device"
+msgstr "Nenhum arquivo ou dispositivo"
+
+#: kzip.cpp:1360
+#, qt-format
+msgctxt "KZip|"
+msgid "Error writing data: %1"
+msgstr "Erro ao gravar dados: %1"
