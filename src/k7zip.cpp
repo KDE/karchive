@@ -1057,6 +1057,9 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
                 sum += size;
             }
         }
+        if (!folders.at(i)) {
+            return false;
+        }
         unpackSizes.append(folders.at(i)->getUnpackSize() - sum);
     }
 

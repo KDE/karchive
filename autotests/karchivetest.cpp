@@ -1847,6 +1847,15 @@ void KArchiveTest::test7ZipFileNameEndsInSlash()
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
 }
 
+void KArchiveTest::test7ZipOssFuzz440829292()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_440829292.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+}
+
 #if HAVE_OPENSSL_SUPPORT
 void KArchiveTest::test7ZipPasswordProtected()
 {

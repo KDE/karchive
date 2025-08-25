@@ -133,6 +133,7 @@ private Q_SLOTS:
     void test7ZipMultipleNamelessFiles();
     void test7ZipReadNumber();
     void test7ZipFileNameEndsInSlash();
+    void test7ZipOssFuzz440829292();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
 #endif
