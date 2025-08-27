@@ -1847,13 +1847,22 @@ void KArchiveTest::test7ZipFileNameEndsInSlash()
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
 }
 
-void KArchiveTest::test7ZipOssFuzz440829292()
+void KArchiveTest::test7ZipOssFuzzIssue440829292()
 {
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_440829292.7z");
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_440829292.7z");
     QVERIFY(!fileName.isEmpty());
 
     K7Zip k7zip(fileName);
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+}
+
+void KArchiveTest::test7ZipOssFuzzTestcase6096742417498112()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6096742417498112.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(k7zip.open(QIODevice::ReadOnly));
 }
 
 #if HAVE_OPENSSL_SUPPORT

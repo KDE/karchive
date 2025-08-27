@@ -587,7 +587,8 @@ void K7Zip::setPassword(const QString &password) {
 bool K7Zip::passwordNeeded() const
 {
     for (int i = 0; i < d->folders.size(); i++) {
-        if (d->folders.at(i)->isEncrypted()) {
+        const Folder *folder = d->folders.at(i);
+        if (folder && folder->isEncrypted()) {
             return true;
         }
     }
