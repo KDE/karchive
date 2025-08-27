@@ -1498,6 +1498,41 @@ void KArchiveTest::testZip64ExtraZip64Size()
     QVERIFY(zip.close());
 }
 
+void KArchiveTest::testZip64ExtraZip64SizeFirst()
+{
+    const QString fileName = QFINDTESTDATA("data/zip64_extra_zip64_size_first.zip.gz");
+    QVERIFY(!fileName.isEmpty());
+
+    KCompressionDevice gzfilter(fileName);
+    QVERIFY2(gzfilter.open(QIODevice::ReadOnly), qPrintable(gzfilter.errorString()));
+
+    // Get the actual test data, which is compressed so the repository does
+    // not have to store 4 MByte of binary data
+    auto zipData = gzfilter.read(5 * 1000 * 1000);
+    QVERIFY(zipData.startsWith("PK"));
+
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QEXPECT_FAIL("", "Zip64 extra at front incorrectly parsed", Abort);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries().size(), 2);
+    QCOMPARE(zip.directory()->entries(), (QList{QStringLiteral("4200M.bin"), QStringLiteral("4.bin")}));
+
+    auto entry = zip.directory()->file(QStringLiteral("4200M.bin"));
+    QVERIFY(entry);
+    QCOMPARE(entry->size(), 4404019208);
+
+    auto readDev = std::unique_ptr<QIODevice>(entry->createDevice());
+    auto head = readDev->read(8);
+    QCOMPARE(head, QByteArrayLiteral("abcd\0\0\0\0"));
+    readDev->seek(entry->size() - 8);
+    auto tail = readDev->read(8);
+    QCOMPARE(tail, QByteArrayLiteral("\0\0\0\0ABCD"));
+
+    QVERIFY(zip.close());
+}
+
 void KArchiveTest::testZip64ExtraZip64Offset()
 {
     const QString fileName = QFINDTESTDATA("data/zip64_extra_zip64_localheader.oxps");
