@@ -145,7 +145,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal, ParseF
             // qCDebug(KArchiveLog) << "premature end of extended timestamp (#2)";
             return false;
         } /*end if*/
-        pfi.mtime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+        pfi.mtime = parseUi32(buffer);
         buffer += 4;
         size -= 4;
     } /*end if*/
@@ -161,7 +161,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal, ParseF
             // qCDebug(KArchiveLog) << "premature end of extended timestamp (#3)";
             return true;
         } /*end if*/
-        pfi.atime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+        pfi.atime = parseUi32(buffer);
         buffer += 4;
         size -= 4;
     } /*end if*/
@@ -171,7 +171,7 @@ static bool parseExtTimestamp(const char *buffer, int size, bool islocal, ParseF
             // qCDebug(KArchiveLog) << "premature end of extended timestamp (#4)";
             return true;
         } /*end if*/
-        pfi.ctime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+        pfi.ctime = parseUi32(buffer);
         buffer += 4;
     } /*end if*/
 
@@ -199,10 +199,9 @@ static bool parseInfoZipUnixOld(const char *buffer, int size, bool islocal, Pars
         return false;
     }
 
-    pfi.atime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
-    buffer += 4;
-    pfi.mtime = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
-    buffer += 4;
+    pfi.atime = parseUi32(buffer);
+    pfi.mtime = parseUi32(buffer + 4);
+    buffer += 8;
     if (islocal && size >= 12) {
         pfi.uid = (uchar)buffer[0] | (uchar)buffer[1] << 8;
         buffer += 2;
