@@ -93,6 +93,7 @@ private Q_SLOTS:
     void testZip64DataDescriptor();
     void testZip64ExtraZip64Size();
     void testZip64ExtraZip64Offset();
+    void testZipOssFuzzIssue433303801();
 
     void testRcc();
 

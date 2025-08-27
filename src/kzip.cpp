@@ -1473,6 +1473,12 @@ QByteArray KZipFileEntry::data() const
     QIODevice *dev = createDevice();
     QByteArray arr;
     if (dev) {
+        const qint64 devSize = dev->size();
+        if (devSize > kMaxQByteArraySize) {
+            qCWarning(KArchiveLog) << "KZipFileEntry::data: Failed to allocate memory for file of size" << devSize;
+            delete dev;
+            return {};
+        }
         arr = dev->readAll();
         delete dev;
     }

@@ -6,6 +6,9 @@
 */
 
 #include "karchivetest.h"
+
+#include "ossfuzz/karchive_fuzzer_common.h"
+
 #include <k7zip.h>
 #include <kar.h>
 #include <krcc.h>
@@ -1513,6 +1516,16 @@ void KArchiveTest::testZip64ExtraZip64Offset()
     QCOMPARE(data.sliced(0, 6), "<?xml ");
 
     QVERIFY(zip.close());
+}
+
+void KArchiveTest::testZipOssFuzzIssue433303801()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_433303801.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+    traverseArchive(zip.directory());
 }
 
 void KArchiveTest::testRcc()
