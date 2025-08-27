@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2025-05-08 08:00+0200\n"
+"PO-Revision-Date: 2025-08-08 11:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,40 +11,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.07.90\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2504
+#: k7zip.cpp:2507
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Impossible d'obtenir le périphérique sous-jacent"
 
-#: k7zip.cpp:2512
+#: k7zip.cpp:2515
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Échec de la lecture de l'en-tête"
 
-#: k7zip.cpp:2518
+#: k7zip.cpp:2521
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Échec de la vérification de la signature"
 
-#: k7zip.cpp:2541
+#: k7zip.cpp:2544
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Contrôle cyclique (CRC) erroné"
 
-#: k7zip.cpp:2550
+#: k7zip.cpp:2553
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "La taille de la prochaine en-tête est trop grande"
 
-#: k7zip.cpp:2555
+#: k7zip.cpp:2558
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "La taille de la prochaine en-tête est inférieure à zéro."
 
-#: k7zip.cpp:2566
+#: k7zip.cpp:2569
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -52,63 +52,65 @@ msgstr ""
 "Impossible de lire la taille de la prochaine en-tête. Doit-on lire %1 puis "
 "%2 ?"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2582
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Code de redondance cyclique (CRC) erroné pour le prochain en-tête"
 
-#: k7zip.cpp:2587
+#: k7zip.cpp:2590
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Erreur dans l'en-tête"
 
-#: k7zip.cpp:2605 k7zip.cpp:2638
+#: k7zip.cpp:2608 k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Un mot de passe est nécessaire pour cette archive."
 
-#: k7zip.cpp:2611
+#: k7zip.cpp:2614
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Mauvais type d'en-tête"
 
-#: k7zip.cpp:2621 k7zip.cpp:2627
+#: k7zip.cpp:2624 k7zip.cpp:2630
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Non implémenté"
 
-#: k7zip.cpp:2633
+#: k7zip.cpp:2636
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Erreur durant la lecture des informations principales des flux"
 
-#: k7zip.cpp:2657
+#: k7zip.cpp:2660
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Erreur lors de la lecture de l'en-tête"
 
-#: k7zip.cpp:2665 k7zip.cpp:2674
+#: k7zip.cpp:2668 k7zip.cpp:2677
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
+"L'archive contient %1 fichiers, ce qui est supérieur au montant maximal pris "
+"en charge (%2)."
 
-#: k7zip.cpp:2731
+#: k7zip.cpp:2734
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Erreur lors de la lecture de l'heure de modification"
 
-#: k7zip.cpp:2777
+#: k7zip.cpp:2780
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Erreur durant la lecture du paramètre « MTime »"
 
-#: k7zip.cpp:2784
+#: k7zip.cpp:2787
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Non valable"
 
-#: k7zip.cpp:2806
+#: k7zip.cpp:2809
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -116,34 +118,34 @@ msgstr ""
 "Échec de la lecture de la taille (Taille de vérification des "
 "enregistrements : %1, d -> pos - ppp : %2, taille : %3)"
 
-#: k7zip.cpp:2845
+#: k7zip.cpp:2848
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "sommaire"
 
-#: k7zip.cpp:3033
+#: k7zip.cpp:3036
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Erreur en écriture"
 
-#: k7zip.cpp:3063
+#: k7zip.cpp:3066
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Échec lors de l'encodage de l'en-tête"
 
-#: k7zip.cpp:3107
+#: k7zip.cpp:3110
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Aucun fichier actuellement sélectionné"
 
-#: k7zip.cpp:3131 k7zip.cpp:3181 k7zip.cpp:3221
+#: k7zip.cpp:3134 k7zip.cpp:3184 k7zip.cpp:3224
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « 7-ZIP » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: k7zip.cpp:3137 k7zip.cpp:3227
+#: k7zip.cpp:3140 k7zip.cpp:3230
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
