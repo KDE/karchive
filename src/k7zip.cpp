@@ -2868,6 +2868,10 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         if (fileInfo->hasStream) {
             fileInfo->isDir = false;
             isAnti = false;
+            if (sizeIndex >= d->unpackSizes.size()) {
+                return false;
+            }
+
             fileInfo->size = d->unpackSizes[sizeIndex];
             fileInfo->crc = d->digests[sizeIndex];
             fileInfo->crcDefined = d->digestsDefined[sizeIndex];
