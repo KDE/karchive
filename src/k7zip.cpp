@@ -2836,7 +2836,8 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         emptyFileVector.fill(false, numEmptyStreams);
     }
 
-    for (int i = 0; i < numEmptyStreams; i++) {
+    const int minNumEmptyStreamsAndAntiFile = std::min(numEmptyStreams, static_cast<int>(antiFileVector.count()));
+    for (int i = 0; i < minNumEmptyStreamsAndAntiFile; i++) {
         if (antiFileVector[i]) {
             numAntiItems++;
         }
