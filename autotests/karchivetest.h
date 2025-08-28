@@ -136,6 +136,7 @@ private Q_SLOTS:
     void test7ZipFileNameEndsInSlash();
     void test7ZipOssFuzzIssue440829292();
     void test7ZipOssFuzzTestcase5560695602348032();
+    void test7ZipOssFuzzTestcase6077171694370816();
     void test7ZipOssFuzzTestcase6096742417498112();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
