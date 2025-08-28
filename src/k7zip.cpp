@@ -948,7 +948,7 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
         return false;
     }
 
-    int numFolders = readNumber();
+    const int numFolders = readNumber();
     qDeleteAll(folders);
     folders.clear();
     int external = readByte();
@@ -974,6 +974,10 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
 
     if (!findAttribute(kCodersUnpackSize)) {
         qCDebug(KArchiveLog) << "kCodersUnpackSize not found";
+        return false;
+    }
+
+    if (numFolders != folders.count()) {
         return false;
     }
 
