@@ -14,100 +14,100 @@ msgstr ""
 "X-Generator: Lokalize 24.11.70\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2507
+#: k7zip.cpp:2508
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2516
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lesen des Vorspanns ist fehlgeschlagen"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2522
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Überprüfung der Signatur ist fehlgeschlagen"
 
-#: k7zip.cpp:2544
+#: k7zip.cpp:2545
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Fehlerhafte Prüfsumme"
 
-#: k7zip.cpp:2553
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Der nächste Vorspann ist zu groß"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2559
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Der nächste Vorspann hat eine Größe kleiner Null"
 
-#: k7zip.cpp:2569
+#: k7zip.cpp:2570
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Die Größe des nächsten Vorspanns kann nicht gelesen werden; Soll: %1, Ist: %2"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Die Prüfsumme des nächsten Vorspanns ist fehlerhaft"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Fehler in Vorspann"
 
-#: k7zip.cpp:2608 k7zip.cpp:2641
+#: k7zip.cpp:2609 k7zip.cpp:2642
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr ""
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Falscher Vorspann-Typ"
 
-#: k7zip.cpp:2624 k7zip.cpp:2630
+#: k7zip.cpp:2625 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Nicht implementiert"
 
-#: k7zip.cpp:2636
+#: k7zip.cpp:2637
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Fehler beim Lesen der Informationen des Hauptteils"
 
-#: k7zip.cpp:2660
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Fehler beim Lesen des Vorspanns"
 
-#: k7zip.cpp:2668 k7zip.cpp:2677
+#: k7zip.cpp:2669 k7zip.cpp:2678
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2734
+#: k7zip.cpp:2735
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Fehler beim Lesen der Änderungszeit"
 
-#: k7zip.cpp:2780
+#: k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Fehler beim Lesen der MTime"
 
-#: k7zip.cpp:2787
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Ungültig"
 
-#: k7zip.cpp:2809
+#: k7zip.cpp:2810
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -115,71 +115,71 @@ msgstr ""
 "Das Lesen der Größe ist fehlgeschlagen (checkRecordsSize: %1, d->pos - ppp: "
 "%2, size: %3)"
 
-#: k7zip.cpp:2848
+#: k7zip.cpp:2849
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3036
+#: k7zip.cpp:3041
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Schreibfehler"
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3071
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Der Vorspann kann nicht verschlüsselt werden"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Derzeit ist keine Datei ausgewählt"
 
-#: k7zip.cpp:3134 k7zip.cpp:3184 k7zip.cpp:3224
+#: k7zip.cpp:3139 k7zip.cpp:3189 k7zip.cpp:3229
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Anwendungsfehler: Die 7-Zip-Datei muss vor dem Hineinschreiben geöffnet sein"
 
-#: k7zip.cpp:3140 k7zip.cpp:3230
+#: k7zip.cpp:3145 k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Anwendungsfehler: In eine nicht beschreibbare 7-Zip-Datei kann nicht "
 "geschrieben werden"
 
-#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "In die AR-Datei kann nicht geschrieben werden"
 
-#: kar.cpp:90
+#: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "Nicht unterstützter Modus %1"
 
-#: kar.cpp:101
+#: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "Ungültige Hauptkennung"
 
-#: kar.cpp:118
+#: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "Ungültige Kennung"
 
-#: kar.cpp:129
+#: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "Ungültige Größe"
 
-#: kar.cpp:149
+#: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "Ungültige Referenz zum langen Dateinamen"
 
-#: kar.cpp:153
+#: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "Ungültige Referenz zur Position des langen Dateinamens"
@@ -245,7 +245,7 @@ msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "Fehler beim Schreiben: %1"
 
-#: karchive_p.h:55
+#: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
@@ -272,47 +272,47 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Die Ressource %1 kann unter dem Präfix %2 nicht registriert werden"
 
-#: ktar.cpp:348
+#: ktar.cpp:347
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Die Datei %1 existiert nicht"
 
-#: ktar.cpp:355
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Das Archiv %1 ist beschädigt"
 
-#: ktar.cpp:359
+#: ktar.cpp:358
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Medium ist voll"
 
-#: ktar.cpp:393
+#: ktar.cpp:392
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
-#: ktar.cpp:408
+#: ktar.cpp:407
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "tar-Vorspann kann nicht gelesen werden"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:591 ktar.cpp:606
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr ""
 "Die temporäre Datei kann nicht in die Orginaldatei geschrieben werden: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:652
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Die Ausrichtung kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:754 ktar.cpp:764
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -320,20 +320,20 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Die Ausrichtung kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Anwendungsfehler: Die TAR-Datei muss vor dem Hineinschreiben geöffnet sein"
 
-#: ktar.cpp:792
+#: ktar.cpp:791
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Anwendungsfehler: In eine nicht beschreibbare 7-Zip-Datei kann nicht "
 "geschrieben werden"
 
-#: ktar.cpp:799
+#: ktar.cpp:798
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
@@ -341,13 +341,13 @@ msgstr ""
 "Anwendungsbegrenzung: Dateien größer als %1 Bytes können nicht hinzugefügt "
 "werden"
 
-#: ktar.cpp:853
+#: ktar.cpp:852
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Der Vorspann kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:874 ktar.cpp:943
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

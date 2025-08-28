@@ -15,166 +15,166 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.04.3\n"
 
-#: k7zip.cpp:2507
+#: k7zip.cpp:2508
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "לא ניתן לקבל את ההתקן שמתחת"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2516
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "קריאת הכותרת נכשלה"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2522
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "בדיקת החתימה נכשלה"
 
-#: k7zip.cpp:2544
+#: k7zip.cpp:2545
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC שגוי"
 
-#: k7zip.cpp:2553
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "גודל הכותרת הבאה גדול מדי"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2559
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "גודל הכותרת הבאה קטן מאפס"
 
-#: k7zip.cpp:2569
+#: k7zip.cpp:2570
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "קריאת גודל הכותרת הבאה נכשלה, אמור להיות %1, התקבל %2"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "ה־CRC של הכותרת הבאה שגוי"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "שגיאה בכותרת"
 
-#: k7zip.cpp:2608 k7zip.cpp:2641
+#: k7zip.cpp:2609 k7zip.cpp:2642
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "הארכיון הזה דורש סיסמה"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "סוג הכותרת שגוי"
 
-#: k7zip.cpp:2624 k7zip.cpp:2630
+#: k7zip.cpp:2625 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "לא ממומש"
 
-#: k7zip.cpp:2636
+#: k7zip.cpp:2637
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "שגיאה בקריאת פרטי התזרימים הראשיים"
 
-#: k7zip.cpp:2660
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "שגיאה בקריאת כותרת"
 
-#: k7zip.cpp:2668 k7zip.cpp:2677
+#: k7zip.cpp:2669 k7zip.cpp:2678
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "בארכיון יש %1 קבצים שזה יותר מהכמות הנתמכת (%2)"
 
-#: k7zip.cpp:2734
+#: k7zip.cpp:2735
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "שגיאה בקריאת מועד השינוי"
 
-#: k7zip.cpp:2780
+#: k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "שגיאה בקריאת מועד השינוי"
 
-#: k7zip.cpp:2787
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "שגוי"
 
-#: k7zip.cpp:2809
+#: k7zip.cpp:2810
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "קריאת הגודל נכשלה (checkRecordsSize: %1,‏ d->pos - ppp: %2, גודל: %3)"
 
-#: k7zip.cpp:2848
+#: k7zip.cpp:2849
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "תוכן"
 
-#: k7zip.cpp:3036
+#: k7zip.cpp:3041
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "שגיאת כתיבה"
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3071
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "קידוד הכותרת נכשל"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "לא נבחר קובץ"
 
-#: k7zip.cpp:3134 k7zip.cpp:3184 k7zip.cpp:3224
+#: k7zip.cpp:3139 k7zip.cpp:3189 k7zip.cpp:3229
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "שגיאת יישום: קובץ ה־‎7-Zip חייב להיות פתוח לפני הכתיבה אליו"
 
-#: k7zip.cpp:3140 k7zip.cpp:3230
+#: k7zip.cpp:3145 k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ ‎7-Zip שנעול לכתיבה"
 
-#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "לא ניתן לכתוב לקובץ AR"
 
-#: kar.cpp:90
+#: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "המצב %1 לא נתמך"
 
-#: kar.cpp:101
+#: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "קסם ראשי שגוי"
 
-#: kar.cpp:118
+#: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "קסם שגוי"
 
-#: kar.cpp:129
+#: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "גודל שגוי"
 
-#: kar.cpp:149
+#: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "הפניית שם קובץ ארוך (longfilename) שגויה"
 
-#: kar.cpp:153
+#: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "הפניית מקום שם קובץ ארוך (longfilename) שגויה"
@@ -238,7 +238,7 @@ msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "הכתיבה נכשלה: %1"
 
-#: karchive_p.h:55
+#: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "שגיאה לא ידועה"
@@ -265,74 +265,74 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "רישום המשאב %1 תחת הקידומת %2 נכשל"
 
-#: ktar.cpp:348
+#: ktar.cpp:347
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "הקובץ %1 לא קיים"
 
-#: ktar.cpp:355
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "הארכיון %1 פגום"
 
-#: ktar.cpp:359
+#: ktar.cpp:358
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "הכונן מלא"
 
-#: ktar.cpp:393
+#: ktar.cpp:392
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "לא ניתן לקבל את ההתקן שמתחת"
 
-#: ktar.cpp:408
+#: ktar.cpp:407
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "לא ניתן לקרוא את כותרת ה־tar"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:591 ktar.cpp:606
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "כתיבת קובץ זמני בחזרה נכשלה: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:652
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "לא ניתן לכתוב יישור: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:754 ktar.cpp:764
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "לא ניתן לכתוב קישור ארוך: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "שגיאת יישום: קובץ ה־TAR חייב להיות פתוח לפני הכתיבה אליו"
 
-#: ktar.cpp:792
+#: ktar.cpp:791
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ ‎7-Zip שנעול לכתיבה"
 
-#: ktar.cpp:799
+#: ktar.cpp:798
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "מגבלת יישום: אי אפשר להוסיף קובץ שגודלו מעבר ל־%1 בתים"
 
-#: ktar.cpp:853
+#: ktar.cpp:852
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "כתיבת הכותרת נכשלה: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:874 ktar.cpp:943
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "שגיאת יישום: התבצע ניסיון לכתוב לקובץ TAR שנעול לכתיבה"

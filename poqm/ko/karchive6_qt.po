@@ -13,166 +13,166 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2507
+#: k7zip.cpp:2508
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "기반 장치를 가져올 수 없음"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2516
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "헤더 읽기 실패"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2522
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "서명 검사 실패"
 
-#: k7zip.cpp:2544
+#: k7zip.cpp:2545
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "잘못된 CRC"
 
-#: k7zip.cpp:2553
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "다음 헤더 크기가 너무 큼"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2559
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "다음 헤더 크기가 0보다 작음"
 
-#: k7zip.cpp:2569
+#: k7zip.cpp:2570
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "다음 헤더 크기를 읽을 수 없음. %1을(를) 예상했지만 %2을(를) 읽음"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "잘못된 다음 헤더 CRC"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "헤더 내부 오류"
 
-#: k7zip.cpp:2608 k7zip.cpp:2641
+#: k7zip.cpp:2609 k7zip.cpp:2642
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "이 압축 파일에 암호가 필요함"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "잘못된 헤더 형식"
 
-#: k7zip.cpp:2624 k7zip.cpp:2630
+#: k7zip.cpp:2625 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "구현되지 않음"
 
-#: k7zip.cpp:2636
+#: k7zip.cpp:2637
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "주 스트림 정보를 읽는 중 오류 발생"
 
-#: k7zip.cpp:2660
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "헤더를 읽는 중 오류 발생"
 
-#: k7zip.cpp:2668 k7zip.cpp:2677
+#: k7zip.cpp:2669 k7zip.cpp:2678
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2734
+#: k7zip.cpp:2735
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "수정한 시간을 읽는 중 오류 발생"
 
-#: k7zip.cpp:2780
+#: k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "MTime을 읽는 중 오류 발생"
 
-#: k7zip.cpp:2787
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "잘못됨"
 
-#: k7zip.cpp:2809
+#: k7zip.cpp:2810
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "읽기 크기 실패(checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 
-#: k7zip.cpp:2848
+#: k7zip.cpp:2849
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "내용"
 
-#: k7zip.cpp:3036
+#: k7zip.cpp:3041
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "쓰기 오류"
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3071
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "헤더를 인코드하는 중 오류 발생"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "선택한 파일 없음"
 
-#: k7zip.cpp:3134 k7zip.cpp:3184 k7zip.cpp:3224
+#: k7zip.cpp:3139 k7zip.cpp:3189 k7zip.cpp:3229
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "앱 오류: 7-Zip 파일에 기록하기 전에 먼저 열어야 함"
 
-#: k7zip.cpp:3140 k7zip.cpp:3230
+#: k7zip.cpp:3145 k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "AR 파일에 쓸 수 없음"
 
-#: kar.cpp:90
+#: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "지원하지 않는 모드 %1"
 
-#: kar.cpp:101
+#: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "잘못된 메인 매직"
 
-#: kar.cpp:118
+#: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "잘못된 매직"
 
-#: kar.cpp:129
+#: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "잘못된 크기"
 
-#: kar.cpp:149
+#: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "잘못된 긴 파일 이름 참조"
 
-#: kar.cpp:153
+#: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "잘못된 긴 파일 이름 위치 참조"
@@ -236,7 +236,7 @@ msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "쓰기 실패: %1"
 
-#: karchive_p.h:55
+#: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "알 수 없는 오류"
@@ -263,74 +263,74 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "%1 리소스를 %2 접두사 아래에 등록할 수 없음"
 
-#: ktar.cpp:348
+#: ktar.cpp:347
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "%1 파일이 없음"
 
-#: ktar.cpp:355
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "%1 압축 파일이 손상됨"
 
-#: ktar.cpp:359
+#: ktar.cpp:358
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "디스크가 가득 참"
 
-#: ktar.cpp:393
+#: ktar.cpp:392
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "기반 장치를 가져올 수 없음"
 
-#: ktar.cpp:408
+#: ktar.cpp:407
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "TAR 헤더를 읽을 수 없음"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:591 ktar.cpp:606
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "임시 파일에 기록할 수 없음: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:652
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:754 ktar.cpp:764
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "긴 링크를 기록할 수 없음: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "앱 오류: TAR 파일에 기록하기 전에 먼저 열어야 함"
 
-#: ktar.cpp:792
+#: ktar.cpp:791
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: ktar.cpp:799
+#: ktar.cpp:798
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "앱 제한: %1바이트보다 큰 파일을 추가할 수 없음"
 
-#: ktar.cpp:853
+#: ktar.cpp:852
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "헤더를 기록할 수 없음: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:874 ktar.cpp:943
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "앱 오류: 기록할 수 없는 TAR 파일에 기록을 시도함"

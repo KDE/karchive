@@ -13,166 +13,166 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.07.70\n"
 
-#: k7zip.cpp:2507
+#: k7zip.cpp:2508
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "無法取得底層裝置"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2516
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "讀取標頭失敗"
 
-#: k7zip.cpp:2521
+#: k7zip.cpp:2522
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "檢查簽章失敗"
 
-#: k7zip.cpp:2544
+#: k7zip.cpp:2545
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "不正確的 CRC"
 
-#: k7zip.cpp:2553
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "下一個標頭太大"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2559
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "下一個標頭大小小於零"
 
-#: k7zip.cpp:2569
+#: k7zip.cpp:2570
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "讀取下一個標頭大小失敗；應為 %1，讀取到了 %2"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "下一個標頭 CRC 不正確"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "標頭有錯誤"
 
-#: k7zip.cpp:2608 k7zip.cpp:2641
+#: k7zip.cpp:2609 k7zip.cpp:2642
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "這個封存檔需要密碼"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "錯誤的標頭型態"
 
-#: k7zip.cpp:2624 k7zip.cpp:2630
+#: k7zip.cpp:2625 k7zip.cpp:2631
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "尚未實作"
 
-#: k7zip.cpp:2636
+#: k7zip.cpp:2637
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "無法讀取主串流資訊"
 
-#: k7zip.cpp:2660
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "無法讀取標頭"
 
-#: k7zip.cpp:2668 k7zip.cpp:2677
+#: k7zip.cpp:2669 k7zip.cpp:2678
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "封存檔含有 %1 個檔案，這比支援的數量還要多 (%2)"
 
-#: k7zip.cpp:2734
+#: k7zip.cpp:2735
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "無法讀取變更時間"
 
-#: k7zip.cpp:2780
+#: k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "無法讀取 MTime"
 
-#: k7zip.cpp:2787
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "無效"
 
-#: k7zip.cpp:2809
+#: k7zip.cpp:2810
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "讀取大小失敗 (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 
-#: k7zip.cpp:2848
+#: k7zip.cpp:2849
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "內容"
 
-#: k7zip.cpp:3036
+#: k7zip.cpp:3041
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "寫入錯誤"
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3071
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "編碼標頭失敗"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "目前沒有選取檔案"
 
-#: k7zip.cpp:3134 k7zip.cpp:3184 k7zip.cpp:3224
+#: k7zip.cpp:3139 k7zip.cpp:3189 k7zip.cpp:3229
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "應用程式錯誤：7-Zip 檔案必須開啟才能寫入"
 
-#: k7zip.cpp:3140 k7zip.cpp:3230
+#: k7zip.cpp:3145 k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 
-#: kar.cpp:56 kar.cpp:63 kar.cpp:70 kar.cpp:77
+#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "無法寫入 AR 檔"
 
-#: kar.cpp:90
+#: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "不支援的模式 %1"
 
-#: kar.cpp:101
+#: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "無效的主 magic"
 
-#: kar.cpp:118
+#: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "無效的 magic"
 
-#: kar.cpp:129
+#: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "無效的大小"
 
-#: kar.cpp:149
+#: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "無效的長檔名參照"
 
-#: kar.cpp:153
+#: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "無效的長檔名位置參照"
@@ -236,7 +236,7 @@ msgctxt "KArchive|"
 msgid "Writing failed: %1"
 msgstr "寫入失敗：%1"
 
-#: karchive_p.h:55
+#: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
 msgstr "未知的錯誤"
@@ -263,74 +263,74 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "在前綴 %2 下登錄資源 %1 失敗"
 
-#: ktar.cpp:348
+#: ktar.cpp:347
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "檔案 %1 不存在"
 
-#: ktar.cpp:355
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "封存檔 %1 已毀損"
 
-#: ktar.cpp:359
+#: ktar.cpp:358
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "磁碟已滿"
 
-#: ktar.cpp:393
+#: ktar.cpp:392
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "無法取得底層裝置"
 
-#: ktar.cpp:408
+#: ktar.cpp:407
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "無法讀取 tar 標頭"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:591 ktar.cpp:606
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "寫回暫存檔失敗：%1"
 
-#: ktar.cpp:653
+#: ktar.cpp:652
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "無法寫入對齊：%1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:754 ktar.cpp:764
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "無法寫入長連結：%1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "應用程式錯誤：TAR 檔案必須開啟才能寫入"
 
-#: ktar.cpp:792
+#: ktar.cpp:791
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 7-Zip 檔案"
 
-#: ktar.cpp:799
+#: ktar.cpp:798
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "應用程式限制：無法新增大於 %1 個位元組的檔案"
 
-#: ktar.cpp:853
+#: ktar.cpp:852
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "寫入標頭失敗：%1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:874 ktar.cpp:943
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 TAR 檔案"
