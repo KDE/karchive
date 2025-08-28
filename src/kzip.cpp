@@ -31,6 +31,23 @@
 
 static const int max_path_len = 4095; // maximum number of character a path may contain
 
+static quint16 parseUi16(const char *buffer)
+{
+    return quint16((uchar)buffer[0] | (uchar)buffer[1] << 8);
+}
+
+static uint parseUi32(const char *buffer)
+{
+    return uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+}
+
+static quint64 parseUi64(const char *buffer)
+{
+    const uint a = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
+    const uint b = uint((uchar)buffer[4] | (uchar)buffer[5] << 8 | (uchar)buffer[6] << 16 | (uchar)buffer[7] << 24);
+    return (a | (quint64)b << 32);
+}
+
 static void transformToMsDos(const QDateTime &_dt, char *buffer)
 {
     const QDateTime dt = _dt.isValid() ? _dt : QDateTime::currentDateTime();
@@ -55,13 +72,13 @@ static void transformToMsDos(const QDateTime &_dt, char *buffer)
 
 static uint transformFromMsDos(const char *buffer)
 {
-    quint16 time = (uchar)buffer[0] | ((uchar)buffer[1] << 8);
+    const quint16 time = parseUi16(buffer);
     int h = time >> 11;
     int m = (time & 0x7ff) >> 5;
     int s = (time & 0x1f) * 2;
     QTime qt(h, m, s);
 
-    quint16 date = (uchar)buffer[2] | ((uchar)buffer[3] << 8);
+    const quint16 date = parseUi16(buffer + 2);
     int y = (date >> 9) + 1980;
     int o = (date & 0x1ff) >> 5;
     int d = (date & 0x1f);
@@ -69,18 +86,6 @@ static uint transformFromMsDos(const char *buffer)
 
     QDateTime dt(qd, qt);
     return dt.toSecsSinceEpoch();
-}
-
-static uint parseUi32(const char *buffer)
-{
-    return uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
-}
-
-static quint64 parseUi64(const char *buffer)
-{
-    const uint a = uint((uchar)buffer[0] | (uchar)buffer[1] << 8 | (uchar)buffer[2] << 16 | (uchar)buffer[3] << 24);
-    const uint b = uint((uchar)buffer[4] | (uchar)buffer[5] << 8 | (uchar)buffer[6] << 16 | (uchar)buffer[7] << 24);
-    return (a | (quint64)b << 32);
 }
 
 // == parsing routines for zip headers
@@ -201,12 +206,9 @@ static bool parseInfoZipUnixOld(const char *buffer, int size, bool islocal, Pars
 
     pfi.atime = parseUi32(buffer);
     pfi.mtime = parseUi32(buffer + 4);
-    buffer += 8;
     if (islocal && size >= 12) {
-        pfi.uid = (uchar)buffer[0] | (uchar)buffer[1] << 8;
-        buffer += 2;
-        pfi.gid = (uchar)buffer[0] | (uchar)buffer[1] << 8;
-        buffer += 2;
+        pfi.uid = parseUi16(buffer + 8);
+        pfi.gid = parseUi16(buffer + 10);
     } /*end if*/
     return true;
 }
@@ -253,10 +255,9 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
 static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
 {
     while (size >= 4) { // as long as a potential extra field can be read
-        int magic = (uchar)buffer[0] | (uchar)buffer[1] << 8;
-        buffer += 2;
-        int fieldsize = (uchar)buffer[0] | (uchar)buffer[1] << 8;
-        buffer += 2;
+        int magic = parseUi16(buffer);
+        int fieldsize = parseUi16(buffer + 2);
+        buffer += 4;
         size -= 4;
 
         if (fieldsize > size) {
@@ -508,17 +509,17 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 setErrorString(tr("Invalid ZIP file. Unexpected end of file. (Error code: %1)").arg(4));
                 return false;
             }
-            int neededVersion = (uchar)buffer[0] | (uchar)buffer[1] << 8;
+            int neededVersion = parseUi16(buffer);
             bool isZip64 = neededVersion >= 45;
 
             int gpf = (uchar)buffer[2]; // "general purpose flag" not "general protection fault" ;-)
-            int compression_mode = (uchar)buffer[4] | (uchar)buffer[5] << 8;
+            int compression_mode = parseUi16(buffer + 4);
             uint mtime = transformFromMsDos(buffer + 6);
 
             const qint64 compr_size = parseUi32(buffer + 14);
             const qint64 uncomp_size = parseUi32(buffer + 18);
-            const int namelen = uint(uchar(buffer[22])) | uint(uchar(buffer[23])) << 8;
-            const int extralen = uint(uchar(buffer[24])) | uint(uchar(buffer[25])) << 8;
+            const int namelen = parseUi16(buffer + 22);
+            const int extralen = parseUi16(buffer + 24);
 
             /*
               qCDebug(KArchiveLog) << "general purpose bit flag: " << gpf;
@@ -657,15 +658,15 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             }
 
             // length of extra attributes
-            int extralen = (uchar)buffer[31] << 8 | (uchar)buffer[30];
+            const int extralen = parseUi16(buffer + 30);
             // length of comment for this file
-            int commlen = (uchar)buffer[33] << 8 | (uchar)buffer[32];
+            const int commlen = parseUi16(buffer + 32);
             // compression method of this file
-            int cmethod = (uchar)buffer[11] << 8 | (uchar)buffer[10];
-            // int gpf = (uchar)buffer[9] << 8 | (uchar)buffer[10];
+            const int cmethod = parseUi16(buffer + 10);
+            // int gpf =  parseUi16(buffer + 8);
             // qCDebug(KArchiveLog) << "general purpose flag=" << gpf;
             // length of the fileName (well, pathname indeed)
-            int namelen = (uchar)buffer[29] << 8 | (uchar)buffer[28];
+            const int namelen = parseUi16(buffer + 28);
             if (namelen <= 0) {
                 setErrorString(tr("Invalid ZIP file, file path name length is zero"));
                 return false;
@@ -736,7 +737,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             int access = 0100644;
 
             if (os_madeby == 3) { // good ole unix
-                access = (uchar)buffer[40] | (uchar)buffer[41] << 8;
+                access = parseUi16(buffer + 40);
             }
 
             QString entryName;
