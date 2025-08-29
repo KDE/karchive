@@ -135,6 +135,7 @@ private Q_SLOTS:
     void test7ZipReadNumber();
     void test7ZipFileNameEndsInSlash();
     void test7ZipOssFuzzIssue440829292();
+    void test7ZipOssFuzzIssue441906077();
     void test7ZipOssFuzzTestcase4566647131406336();
     void test7ZipOssFuzzTestcase5560695602348032();
     void test7ZipOssFuzzTestcase6077171694370816();

@@ -1007,6 +1007,9 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
             readHashDigests(numFolders, crcsDefined, crcs);
             for (int i = 0; i < numFolders; i++) {
                 Folder *folder = folders.at(i);
+                if (!folder) {
+                    continue;
+                }
                 folder->unpackCRCDefined = crcsDefined[i];
                 folder->unpackCRC = crcs[i];
             }

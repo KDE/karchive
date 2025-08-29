@@ -1869,6 +1869,15 @@ void KArchiveTest::test7ZipOssFuzzIssue440829292()
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
 }
 
+void KArchiveTest::test7ZipOssFuzzIssue441906077()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_441906077.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+}
+
 void KArchiveTest::test7ZipOssFuzzTestcase4566647131406336()
 {
     const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_4566647131406336.7z");
