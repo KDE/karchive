@@ -19,37 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.3\n"
 
-#: k7zip.cpp:2512
+#: k7zip.cpp:2515
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Ezin izan da azpian dagoen gailua lortu"
 
-#: k7zip.cpp:2520
+#: k7zip.cpp:2523
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Goiburua irakurtzea huts egin du"
 
-#: k7zip.cpp:2526
+#: k7zip.cpp:2529
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Sinadura egiaztatzea huts egin du"
 
-#: k7zip.cpp:2549
+#: k7zip.cpp:2552
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC okerra"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2561
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Hurrengo goiburuaren neurria handiegia da"
 
-#: k7zip.cpp:2563
+#: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Hurrengo goiburuaren neurria zero baino txikiagoa da"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -57,63 +57,63 @@ msgstr ""
 "Hurrengo goiburuaren neurria irakurtzea huts egin du; %1 irakurri ordez %2 "
 "irakurri du"
 
-#: k7zip.cpp:2587
+#: k7zip.cpp:2590
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Hurrengo goiburuaren CRC okerra"
 
-#: k7zip.cpp:2595
+#: k7zip.cpp:2598
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Errorea goiburuan"
 
-#: k7zip.cpp:2613 k7zip.cpp:2646
+#: k7zip.cpp:2616 k7zip.cpp:2649
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Artxibo honetarako pasahitza behar da"
 
-#: k7zip.cpp:2619
+#: k7zip.cpp:2622
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Goiburu-mota okerra"
 
-#: k7zip.cpp:2629 k7zip.cpp:2635
+#: k7zip.cpp:2632 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Inplementatu gabe"
 
-#: k7zip.cpp:2641
+#: k7zip.cpp:2644
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Errorea korronte nagusien informazioa irakurtzean"
 
-#: k7zip.cpp:2665
+#: k7zip.cpp:2668
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Errorea goiburua irakurtzean"
 
-#: k7zip.cpp:2673 k7zip.cpp:2682
+#: k7zip.cpp:2676 k7zip.cpp:2685
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Artxiboak %1 fitxategi ditu, onartutako kopurua baino gehiago (%2)"
 
-#: k7zip.cpp:2739
+#: k7zip.cpp:2742
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Aldaketa ordua irakurtzeko errorea"
 
-#: k7zip.cpp:2785
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "«MTime» irakurtzeko errorea"
 
-#: k7zip.cpp:2792
+#: k7zip.cpp:2795
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Baliogabea"
 
-#: k7zip.cpp:2814
+#: k7zip.cpp:2817
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -121,34 +121,34 @@ msgstr ""
 "Neurria irakurtzea huts egin du (checkRecordsSize: %1, d->pos - ppp: %2, "
 "neurria: %3)"
 
-#: k7zip.cpp:2854
+#: k7zip.cpp:2857
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "edukia"
 
-#: k7zip.cpp:3046
+#: k7zip.cpp:3049
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Idazketa errorea"
 
-#: k7zip.cpp:3076
+#: k7zip.cpp:3079
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Goiburua kodetzean huts egin du"
 
-#: k7zip.cpp:3120
+#: k7zip.cpp:3123
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Une honetan ez dago fitxategirik hautatuta"
 
-#: k7zip.cpp:3144 k7zip.cpp:3194 k7zip.cpp:3234
+#: k7zip.cpp:3147 k7zip.cpp:3197 k7zip.cpp:3237
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Aplikazioaren errorea: 7-Zip fitxategia irekita egon behar da hartan idatzi "
 "aurretik"
 
-#: k7zip.cpp:3150 k7zip.cpp:3240
+#: k7zip.cpp:3153 k7zip.cpp:3243
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

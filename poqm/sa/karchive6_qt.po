@@ -13,130 +13,130 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: k7zip.cpp:2512
+#: k7zip.cpp:2515
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "अन्तर्निहितं यन्त्रं प्राप्तुं न शक्तवान्"
 
-#: k7zip.cpp:2520
+#: k7zip.cpp:2523
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "पठनशीर्षकं विफलम्"
 
-#: k7zip.cpp:2526
+#: k7zip.cpp:2529
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "चेक हस्ताक्षरं विफलम्"
 
-#: k7zip.cpp:2549
+#: k7zip.cpp:2552
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "दुष्ट सीआरसी"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2561
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "अग्रिमः शीर्षकस्य आकारः अतीव विशालः अस्ति"
 
-#: k7zip.cpp:2563
+#: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "अग्रिमशीर्षकस्य आकारः शून्यात् न्यूनः अस्ति"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2577
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "अग्रिमः शीर्षकस्य आकारः पठितुं असफलः; %1 पठितव्यं, %2 पठितव्यम्"
 
-#: k7zip.cpp:2587
+#: k7zip.cpp:2590
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "दुष्टः अग्रिमः शीर्षकः CRC"
 
-#: k7zip.cpp:2595
+#: k7zip.cpp:2598
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "शीर्षके त्रुटिः"
 
-#: k7zip.cpp:2613 k7zip.cpp:2646
+#: k7zip.cpp:2616 k7zip.cpp:2649
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr ""
 
-#: k7zip.cpp:2619
+#: k7zip.cpp:2622
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "गलत् शीर्षकप्रकारः"
 
-#: k7zip.cpp:2629 k7zip.cpp:2635
+#: k7zip.cpp:2632 k7zip.cpp:2638
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "न कार्यान्वितम्"
 
-#: k7zip.cpp:2641
+#: k7zip.cpp:2644
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "मुख्यधारासूचनाः पठन् त्रुटिः"
 
-#: k7zip.cpp:2665
+#: k7zip.cpp:2668
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "शीर्षकं पठन् त्रुटिः"
 
-#: k7zip.cpp:2673 k7zip.cpp:2682
+#: k7zip.cpp:2676 k7zip.cpp:2685
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2739
+#: k7zip.cpp:2742
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "परिवर्तनसमये पठने त्रुटिः"
 
-#: k7zip.cpp:2785
+#: k7zip.cpp:2788
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "MTime पठने त्रुटिः"
 
-#: k7zip.cpp:2792
+#: k7zip.cpp:2795
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "अप्रतिषेध"
 
-#: k7zip.cpp:2814
+#: k7zip.cpp:2817
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr "पठनस्य आकारः विफलः (checkRecordsSize: %1, d->pos - ppp: %2, आकारः: %3)"
 
-#: k7zip.cpp:2854
+#: k7zip.cpp:2857
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3046
+#: k7zip.cpp:3049
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "लेखनदोषः"
 
-#: k7zip.cpp:3076
+#: k7zip.cpp:3079
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "शीर्षकं एन्कोडिंग् कुर्वन् विफलम्"
 
-#: k7zip.cpp:3120
+#: k7zip.cpp:3123
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "सम्प्रति कोऽपि सञ्चिका न चयनिता"
 
-#: k7zip.cpp:3144 k7zip.cpp:3194 k7zip.cpp:3234
+#: k7zip.cpp:3147 k7zip.cpp:3197 k7zip.cpp:3237
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "अनुप्रयोगदोषः : 7-Zip सञ्चिकायां लेखनात् पूर्वं उद्घाटिता भवितुमर्हति"
 
-#: k7zip.cpp:3150 k7zip.cpp:3240
+#: k7zip.cpp:3153 k7zip.cpp:3243
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "अनुप्रयोगदोषः: अलेखनीय 7-Zip सञ्चिकायां लेखनस्य प्रयासः कृतः"
