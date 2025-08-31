@@ -2876,7 +2876,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         if (fileInfo->hasStream) {
             fileInfo->isDir = false;
             isAnti = false;
-            if (sizeIndex >= d->unpackSizes.size()) {
+            if (sizeIndex >= d->unpackSizes.size() || sizeIndex >= d->digests.size()) {
                 return false;
             }
 
