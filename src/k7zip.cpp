@@ -19,6 +19,7 @@
 #include "kcompressiondevice.h"
 #include "klimitediodevice_p.h"
 #include <kfilterbase.h>
+#include <kgzipfilter.h>
 #include <kxzfilter.h>
 
 #include "zlib.h"
@@ -126,7 +127,7 @@ enum HeaderType {
 };
 
 // Method ID
-// static const quint64 k_Copy = 0x00;
+static const quint64 k_Copy = 0x00;
 // static const quint64 k_Delta = 0x03;
 // static const quint64 k_x86 = 0x04; //BCJ
 // static const quint64 k_PPC = 0x05; // BIG Endian
@@ -151,7 +152,7 @@ static const quint64 k_PPMD = 0x030401;
 // static const quint64 k_Experimental = 0x037F01;
 // static const quint64 k_Shrink = 0x040101;
 // static const quint64 k_Implode = 0x040106;
-// static const quint64 k_Deflate = 0x040108;
+static const quint64 k_Deflate = 0x040108;
 // static const quint64 k_Deflate64 = 0x040109;
 // static const quint64 k_Imploding = 0x040110;
 // static const quint64 k_Jpeg = 0x040160;
@@ -170,6 +171,8 @@ static const quint64 k_BZip2 = 0x040202;
 // static const quint64 k_DeflateNSIS = 0x040901;
 // static const quint64 k_Bzip2NSIS = 0x040902;
 static const quint64 k_AES = 0x06F10701;
+static const quint64 k_ZSTD = 0x4F71101;
+// static const quint64 k_BROTLI = 0x4F71102;
 
 /*!
  * A K7ZipFileEntry represents a file in a 7zip archive.
@@ -1659,6 +1662,14 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
     KFilterBase *filter = nullptr;
 
     switch (coder->methodID) {
+    case k_Copy:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::None);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        filter->init(QIODevice::ReadOnly);
+        break;
     case k_LZMA:
         filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Xz);
         if (!filter) {
@@ -1674,6 +1685,14 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
             return nullptr;
         }
         static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::LZMA2, coder->properties);
+        break;
+    case k_Deflate:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::GZip);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        static_cast<KGzipFilter *>(filter)->init(QIODevice::ReadOnly, KGzipFilter::RawDeflate);
         break;
     case k_PPMD: {
         /*if (coder->properties.size() == 5) {
@@ -1726,6 +1745,14 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
     }
     case k_BZip2:
         filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::BZip2);
+        if (!filter) {
+            qCDebug(KArchiveLog) << "filter not found";
+            return nullptr;
+        }
+        filter->init(QIODevice::ReadOnly);
+        break;
+    case k_ZSTD:
+        filter = KCompressionDevice::filterForCompressionType(KCompressionDevice::Zstd);
         if (!filter) {
             qCDebug(KArchiveLog) << "filter not found";
             return nullptr;

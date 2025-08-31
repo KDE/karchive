@@ -1957,6 +1957,52 @@ void KArchiveTest::test7ZipPasswordProtected()
 }
 #endif
 
+void KArchiveTest::test7ZipReadCoder_data()
+{
+    QTest::addColumn<QString>("fileName");
+
+    QTest::newRow("copy") << "data/7z_coder_test_copy.7z";
+    QTest::newRow("lzma") << "data/7z_coder_test_lzma.7z";
+    QTest::newRow("lzma2") << "data/7z_coder_test_lzma2.7z";
+    QTest::newRow("deflate") << "data/7z_coder_test_deflate.7z";
+    QTest::newRow("bcj") << "data/7z_coder_test_bcj.7z";
+    QTest::newRow("bcj2") << "data/7z_coder_test_bcj2.7z";
+    QTest::newRow("bzip2") << "data/7z_coder_test_bzip2.7z";
+    QTest::newRow("zstd") << "data/7z_coder_test_zstd.7z";
+}
+
+/*!
+ * @dataProvider test7ZipReadCoder_data
+ */
+void KArchiveTest::test7ZipReadCoder()
+{
+    QFETCH(QString, fileName);
+
+    const QString filePath = QFINDTESTDATA(fileName);
+    QVERIFY(!filePath.isEmpty());
+
+    K7Zip k7zip(filePath);
+    QVERIFY(k7zip.open(QIODevice::ReadOnly));
+
+    const KArchiveDirectory *dir = k7zip.directory();
+    QVERIFY(dir != nullptr);
+
+    const KArchiveEntry *entry = dir->entry("hello.txt");
+    QVERIFY(entry != nullptr);
+    QVERIFY(entry->isFile());
+
+    const QByteArray fileData = QByteArray("Hello, World!\n");
+
+    const KArchiveFile *file = static_cast<const KArchiveFile *>(entry);
+
+    if (fileName.contains("bcj2")) {
+        QEXPECT_FAIL("", "bcj2 decoding fails, see https://bugs.kde.org/show_bug.cgi?id=509201", Continue);
+    }
+    QCOMPARE(file->data(), fileData);
+
+    QVERIFY(k7zip.close());
+}
+
 #endif
 
 #include "moc_karchivetest.cpp"

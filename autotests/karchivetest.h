@@ -140,6 +140,8 @@ private Q_SLOTS:
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
 #endif
+    void test7ZipReadCoder_data();
+    void test7ZipReadCoder();
 #endif
 
     void cleanupTestCase();
