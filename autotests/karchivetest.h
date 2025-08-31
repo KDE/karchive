@@ -142,6 +142,7 @@ private Q_SLOTS:
     void test7ZipOssFuzzTestcase5581009572921344();
     void test7ZipOssFuzzTestcase6077171694370816();
     void test7ZipOssFuzzTestcase6096742417498112();
+    void test7ZipOssFuzzTestcase6593198198947840();
     void test7ZipOssFuzzTestcase6653406484955136();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();

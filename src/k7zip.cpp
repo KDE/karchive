@@ -1805,6 +1805,9 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
         QList<QByteArray> datas;
         for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
+            if (j+i >= packSizes.size()) {
+                return QByteArray();
+            }
             quint64 size = packSizes[j + i];
             std::unique_ptr<char[]> encodedBuffer(new char[size]);
             QIODevice *dev = q->device();
