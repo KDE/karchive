@@ -811,14 +811,30 @@ QByteArray KArchiveFile::data() const
     }
 
     // Read content
-    QByteArray arr;
-    if (d->size) {
-        arr = archive()->device()->read(d->size);
-        if (arr.size() != d->size) {
-            qCWarning(KArchiveLog) << "KArchiveFile::data: Different size" << arr.size() << "than expected" << d->size << "in" << name();
-        }
+    if (!d->size) {
+        return {};
     }
-    return arr;
+
+    // defensive coding against malformed files, instead of reading the whole size, we read in chunks
+    // This way if the file says there's 2G of data but they aren't really there we only allocate chunkSize
+    static const qint64 chunkSize = 1024 * 1024 * 100;
+    QByteArray result;
+    qint64 remainingSize = d->size;
+    QByteArray array;
+    array.resize(int(qMin(chunkSize, remainingSize)));
+
+    while (remainingSize > 0) {
+        const qint64 currentChunkSize = qMin(chunkSize, remainingSize);
+        const qint64 n = archive()->device()->read(array.data(), currentChunkSize);
+        result.append(array.data(), n);
+        if (n != currentChunkSize) {
+            qCWarning(KArchiveLog) << "KArchiveFile::data: reading from device returned less data" << n << "than expected:" << currentChunkSize;
+            return result;
+        }
+        remainingSize -= currentChunkSize;
+    }
+
+    return result;
 }
 
 QIODevice *KArchiveFile::createDevice() const

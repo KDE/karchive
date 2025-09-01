@@ -67,6 +67,7 @@ private Q_SLOTS:
     void testTarIgnoreRelativePathOutsideArchive();
     void testTarLongNonASCIINames();
     void testTarShortNonASCIINames();
+    void testTarOssFuzzIssue5390784545488896();
 
     void testCreateZip();
     void testCreateZipError();

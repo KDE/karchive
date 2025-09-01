@@ -878,6 +878,23 @@ void KArchiveTest::testTarShortNonASCIINames() // bug 266141
     QVERIFY(tar.close());
 }
 
+void KArchiveTest::testTarOssFuzzIssue5390784545488896()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_5390784545488896.tar.xz");
+    QVERIFY(!fileName.isEmpty());
+
+    QFile f(fileName);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+
+    QBuffer b;
+    b.setData(f.readAll());
+
+    KCompressionDevice kd(&b, false, KCompressionDevice::Xz);
+    KTar ktar(&kd);
+    QVERIFY(ktar.open(QIODevice::ReadOnly));
+    traverseArchive(ktar.directory());
+}
+
 void KArchiveTest::testTarDirectoryTwice() // bug 206994
 {
     const QString fileName = QFINDTESTDATA("data/tar_directory_twice.tar.gz");
