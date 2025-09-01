@@ -15,37 +15,37 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "基礎となるデバイスを取得できませんでした"
 
-#: k7zip.cpp:2523
+#: k7zip.cpp:2526
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "ヘッダの読み取りに失敗しました"
 
-#: k7zip.cpp:2529
+#: k7zip.cpp:2532
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "署名の確認に失敗しました"
 
-#: k7zip.cpp:2552
+#: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC が違います"
 
-#: k7zip.cpp:2561
+#: k7zip.cpp:2564
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "後続ヘッダのサイズが大きすぎます"
 
-#: k7zip.cpp:2566
+#: k7zip.cpp:2569
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "後続ヘッダのサイズがゼロ未満です"
 
-#: k7zip.cpp:2577
+#: k7zip.cpp:2580
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -53,63 +53,63 @@ msgstr ""
 "後続ヘッダのサイズの読み取りに失敗しました; %1 読み取るべきを、%2 読み取りま"
 "した"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2593
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "後続ヘッダの CRC が違います"
 
-#: k7zip.cpp:2598
+#: k7zip.cpp:2601
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "ヘッダにエラーがあります"
 
-#: k7zip.cpp:2616 k7zip.cpp:2649
+#: k7zip.cpp:2619 k7zip.cpp:2652
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr ""
 
-#: k7zip.cpp:2622
+#: k7zip.cpp:2625
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "ヘッダの型が違います"
 
-#: k7zip.cpp:2632 k7zip.cpp:2638
+#: k7zip.cpp:2635 k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "実装されていません"
 
-#: k7zip.cpp:2644
+#: k7zip.cpp:2647
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "メインストリーム情報の読み取り中にエラーが発生しました"
 
-#: k7zip.cpp:2668
+#: k7zip.cpp:2671
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "ヘッダの読み取り中にエラーが発生しました"
 
-#: k7zip.cpp:2676 k7zip.cpp:2685
+#: k7zip.cpp:2679 k7zip.cpp:2688
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2742
+#: k7zip.cpp:2745
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "更新時間読み取りエラー"
 
-#: k7zip.cpp:2788
+#: k7zip.cpp:2791
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "MTime 読み取りエラー"
 
-#: k7zip.cpp:2795
+#: k7zip.cpp:2798
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "無効です"
 
-#: k7zip.cpp:2817
+#: k7zip.cpp:2820
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -117,33 +117,33 @@ msgstr ""
 "サイズの読み取りに失敗しました (checkRecordsSize: %1, d->pos - ppp: %2, "
 "size: %3)"
 
-#: k7zip.cpp:2857
+#: k7zip.cpp:2860
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3049
+#: k7zip.cpp:3052
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "書き込みエラー"
 
-#: k7zip.cpp:3079
+#: k7zip.cpp:3082
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "ヘッダのエンコード中に失敗しました"
 
-#: k7zip.cpp:3123
+#: k7zip.cpp:3126
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "現在選択されているファイルがありません"
 
-#: k7zip.cpp:3147 k7zip.cpp:3197 k7zip.cpp:3237
+#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "アプリケーションエラー: 書き込む前に 7-Zip ファイルが開いている必要があります"
 
-#: k7zip.cpp:3153 k7zip.cpp:3243
+#: k7zip.cpp:3156 k7zip.cpp:3246
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

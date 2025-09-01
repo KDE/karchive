@@ -13,37 +13,37 @@ msgstr ""
 "X-Generator: Lokalize 25.11.70\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2515
+#: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Impossibile ottenere il dispositivo sottostante"
 
-#: k7zip.cpp:2523
+#: k7zip.cpp:2526
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lettura dell'intestazione non riuscita"
 
-#: k7zip.cpp:2529
+#: k7zip.cpp:2532
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Verifica della firma non riuscita"
 
-#: k7zip.cpp:2552
+#: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC errato"
 
-#: k7zip.cpp:2561
+#: k7zip.cpp:2564
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "La dimensione dell'intestazione successiva è troppo grande"
 
-#: k7zip.cpp:2566
+#: k7zip.cpp:2569
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "La dimensione dell'intestazione successiva è inferiore a zero"
 
-#: k7zip.cpp:2577
+#: k7zip.cpp:2580
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -51,42 +51,42 @@ msgstr ""
 "Impossibile leggere la dimensione dell'intestazione successiva; dovrebbe "
 "leggere %1, letto %2"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2593
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "CRC dell'intestazione successiva non valido"
 
-#: k7zip.cpp:2598
+#: k7zip.cpp:2601
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Errore nell'intestazione"
 
-#: k7zip.cpp:2616 k7zip.cpp:2649
+#: k7zip.cpp:2619 k7zip.cpp:2652
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Password richiesta per questo archivio"
 
-#: k7zip.cpp:2622
+#: k7zip.cpp:2625
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Tipo di intestazione errato"
 
-#: k7zip.cpp:2632 k7zip.cpp:2638
+#: k7zip.cpp:2635 k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Non implementato"
 
-#: k7zip.cpp:2644
+#: k7zip.cpp:2647
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Errore durante la lettura delle informazioni sui flussi principali"
 
-#: k7zip.cpp:2668
+#: k7zip.cpp:2671
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Errore durante la lettura dell'intestazione"
 
-#: k7zip.cpp:2676 k7zip.cpp:2685
+#: k7zip.cpp:2679 k7zip.cpp:2688
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
@@ -94,22 +94,22 @@ msgstr ""
 "L'archivio contiene %1 file, ovvero una quantità superiore a quella "
 "supportata (%2)"
 
-#: k7zip.cpp:2742
+#: k7zip.cpp:2745
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Errore durante la lettura dell'ora di modifica"
 
-#: k7zip.cpp:2788
+#: k7zip.cpp:2791
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Errore di lettura MTime"
 
-#: k7zip.cpp:2795
+#: k7zip.cpp:2798
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Non valido"
 
-#: k7zip.cpp:2817
+#: k7zip.cpp:2820
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -117,34 +117,34 @@ msgstr ""
 "Dimensione di lettura non riuscita (checkRecordsSize: %1, d->pos - ppp: %2, "
 "dimensione: %3)"
 
-#: k7zip.cpp:2857
+#: k7zip.cpp:2860
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contenuti"
 
-#: k7zip.cpp:3049
+#: k7zip.cpp:3052
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Errore di scrittura"
 
-#: k7zip.cpp:3079
+#: k7zip.cpp:3082
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Errore durante la codifica dell'intestazione"
 
-#: k7zip.cpp:3123
+#: k7zip.cpp:3126
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nessun file attualmente selezionato"
 
-#: k7zip.cpp:3147 k7zip.cpp:3197 k7zip.cpp:3237
+#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Errore dell'applicazione: il file 7-Zip deve essere aperto prima di essere "
 "scritto"
 
-#: k7zip.cpp:3153 k7zip.cpp:3243
+#: k7zip.cpp:3156 k7zip.cpp:3246
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
