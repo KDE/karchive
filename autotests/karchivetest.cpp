@@ -1940,6 +1940,15 @@ void KArchiveTest::test7ZipOssFuzzTestcase5581009572921344()
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
 }
 
+void KArchiveTest::test7ZipOssFuzzTestcase5821682553257984()
+{
+    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_5821682553257984.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(k7zip.open(QIODevice::ReadOnly));
+}
+
 void KArchiveTest::test7ZipOssFuzzTestcase6077171694370816()
 {
     const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6077171694370816.7z");

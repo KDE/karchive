@@ -1788,8 +1788,8 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         seqInStreams.reserve(mainCoder->numInStreams);
         coderIndexes.reserve(mainCoder->numInStreams);
         for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
-            int seqInStream;
-            quint32 coderIndex;
+            int seqInStream = 0;
+            quint32 coderIndex = 0;
             getInStream(folder, startInIndex + j, seqInStream, coderIndex);
             seqInStreams.append(seqInStream);
             coderIndexes.append(coderIndex);

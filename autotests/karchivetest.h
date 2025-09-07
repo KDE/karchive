@@ -140,6 +140,7 @@ private Q_SLOTS:
     void test7ZipOssFuzzTestcase4566647131406336();
     void test7ZipOssFuzzTestcase5560695602348032();
     void test7ZipOssFuzzTestcase5581009572921344();
+    void test7ZipOssFuzzTestcase5821682553257984();
     void test7ZipOssFuzzTestcase6077171694370816();
     void test7ZipOssFuzzTestcase6096742417498112();
     void test7ZipOssFuzzTestcase6593198198947840();
