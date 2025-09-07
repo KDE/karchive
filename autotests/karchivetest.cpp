@@ -1895,94 +1895,32 @@ void KArchiveTest::test7ZipFileNameEndsInSlash()
     QVERIFY(!k7zip.open(QIODevice::ReadOnly));
 }
 
-void KArchiveTest::test7ZipOssFuzzIssue440829292()
+void KArchiveTest::test7ZipOssFuzzIssues_data()
 {
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_440829292.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+    QTest::addColumn<QString>("fileName");
+    QTest::newRow("issue_440829292") << "data/ossfuzz_issue_440829292.7z";
+    QTest::newRow("issue_441906077") << "data/ossfuzz_issue_441906077.7z";
+    QTest::newRow("testcase_4566647131406336") << "data/ossfuzz_testcase_4566647131406336.7z";
+    QTest::newRow("testcase_5560695602348032") << "data/ossfuzz_testcase_5560695602348032.7z";
+    QTest::newRow("testcase_5581009572921344") << "data/ossfuzz_testcase_5581009572921344.7z";
+    QTest::newRow("testcase_5821682553257984") << "data/ossfuzz_testcase_5821682553257984.7z";
+    QTest::newRow("testcase_6077171694370816") << "data/ossfuzz_testcase_6077171694370816.7z";
+    QTest::newRow("testcase_6096742417498112") << "data/ossfuzz_testcase_6096742417498112.7z";
+    QTest::newRow("testcase_6593198198947840") << "data/ossfuzz_testcase_6593198198947840.7z";
+    QTest::newRow("testcase_6653406484955136") << "data/ossfuzz_testcase_6653406484955136.7z";
 }
 
-void KArchiveTest::test7ZipOssFuzzIssue441906077()
+void KArchiveTest::test7ZipOssFuzzIssues()
 {
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_441906077.7z");
-    QVERIFY(!fileName.isEmpty());
+    QFETCH(QString, fileName);
 
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
-}
+    const QString filePath = QFINDTESTDATA(fileName);
+    QVERIFY(!filePath.isEmpty());
 
-void KArchiveTest::test7ZipOssFuzzTestcase4566647131406336()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_4566647131406336.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase5560695602348032()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_5560695602348032.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase5581009572921344()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_5581009572921344.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase5821682553257984()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_5821682553257984.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase6077171694370816()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6077171694370816.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase6096742417498112()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6096742417498112.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase6593198198947840()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6593198198947840.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
-}
-
-void KArchiveTest::test7ZipOssFuzzTestcase6653406484955136()
-{
-    const QString fileName = QFINDTESTDATA("data/ossfuzz_testcase_6653406484955136.7z");
-    QVERIFY(!fileName.isEmpty());
-
-    K7Zip k7zip(fileName);
-    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+    K7Zip k7zip(filePath);
+    if (k7zip.open(QIODevice::ReadOnly)) {
+        k7zip.close();
+    }
 }
 
 #if HAVE_OPENSSL_SUPPORT

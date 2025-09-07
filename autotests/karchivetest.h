@@ -135,16 +135,8 @@ private Q_SLOTS:
     void test7ZipMultipleNamelessFiles();
     void test7ZipReadNumber();
     void test7ZipFileNameEndsInSlash();
-    void test7ZipOssFuzzIssue440829292();
-    void test7ZipOssFuzzIssue441906077();
-    void test7ZipOssFuzzTestcase4566647131406336();
-    void test7ZipOssFuzzTestcase5560695602348032();
-    void test7ZipOssFuzzTestcase5581009572921344();
-    void test7ZipOssFuzzTestcase5821682553257984();
-    void test7ZipOssFuzzTestcase6077171694370816();
-    void test7ZipOssFuzzTestcase6096742417498112();
-    void test7ZipOssFuzzTestcase6593198198947840();
-    void test7ZipOssFuzzTestcase6653406484955136();
+    void test7ZipOssFuzzIssues_data();
+    void test7ZipOssFuzzIssues();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
 #endif
