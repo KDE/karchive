@@ -2972,7 +2972,9 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
             } else {
                 QString path = QDir::cleanPath(fileInfo->path.left(index));
                 KArchiveDirectory *d = findOrCreate(path);
-                (void)d->addEntryV2(e);
+                if (d) {
+                    (void)d->addEntryV2(e);
+                }
             }
         }
     }
