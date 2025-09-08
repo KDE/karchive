@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-10 19:10+0530\n"
+"PO-Revision-Date: 2025-09-07 18:07+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: k7zip.cpp:2518
 #, fuzzy
@@ -170,7 +170,7 @@ msgstr ""
 #: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "செல்லுபடியாகாத அளவு"
 
 #: kar.cpp:146
 msgctxt "KAr|"
@@ -185,13 +185,13 @@ msgstr ""
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "கோப்புப்பெயரோ சாதனமோ குறிப்பிடப்படவில்லை"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "%1 முறையில் சாதனத்தைத் திறக்க முடியவில்லை"
 
 #: karchive.cpp:189
 #, qt-format
