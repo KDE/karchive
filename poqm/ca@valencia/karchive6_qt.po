@@ -125,29 +125,29 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contingut"
 
-#: k7zip.cpp:3052
+#: k7zip.cpp:3054
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "S'ha produït un error mentre s'escrivia"
 
-#: k7zip.cpp:3082
+#: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Ha fallat mentre s'estava codificant la capçalera"
 
-#: k7zip.cpp:3126
+#: k7zip.cpp:3128
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "No hi ha cap fitxer seleccionat actualment"
 
-#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
+#: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "S'ha produït un error de l'aplicació: el fitxer 7-Zip cal que estiga obert "
 "abans que s'hi puga escriure"
 
-#: k7zip.cpp:3156 k7zip.cpp:3246
+#: k7zip.cpp:3158 k7zip.cpp:3248
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

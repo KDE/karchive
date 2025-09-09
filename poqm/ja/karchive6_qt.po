@@ -122,28 +122,28 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3052
+#: k7zip.cpp:3054
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "書き込みエラー"
 
-#: k7zip.cpp:3082
+#: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "ヘッダのエンコード中に失敗しました"
 
-#: k7zip.cpp:3126
+#: k7zip.cpp:3128
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "現在選択されているファイルがありません"
 
-#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
+#: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "アプリケーションエラー: 書き込む前に 7-Zip ファイルが開いている必要があります"
 
-#: k7zip.cpp:3156 k7zip.cpp:3246
+#: k7zip.cpp:3158 k7zip.cpp:3248
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

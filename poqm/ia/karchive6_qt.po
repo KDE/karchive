@@ -117,28 +117,28 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contentos"
 
-#: k7zip.cpp:3052
+#: k7zip.cpp:3054
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Error de scriptura"
 
-#: k7zip.cpp:3082
+#: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Falleva durante que codificava capite"
 
-#: k7zip.cpp:3126
+#: k7zip.cpp:3128
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nulle file currentemente seligite"
 
-#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
+#: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Error de application: file7-Zip debe esser aperite ante que on scribe in illo"
 
-#: k7zip.cpp:3156 k7zip.cpp:3246
+#: k7zip.cpp:3158 k7zip.cpp:3248
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

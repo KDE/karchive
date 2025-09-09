@@ -122,29 +122,29 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "вміст"
 
-#: k7zip.cpp:3052
+#: k7zip.cpp:3054
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Помилка запису"
 
-#: k7zip.cpp:3082
+#: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Помилка під час кодування заголовка"
 
-#: k7zip.cpp:3126
+#: k7zip.cpp:3128
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Зараз не вибрано жодного файла"
 
-#: k7zip.cpp:3150 k7zip.cpp:3200 k7zip.cpp:3240
+#: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Помилка програми: файл 7-Zip має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: k7zip.cpp:3156 k7zip.cpp:3246
+#: k7zip.cpp:3158 k7zip.cpp:3248
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"
