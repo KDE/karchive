@@ -1,213 +1,219 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.6\n"
 
 #: k7zip.cpp:2518
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Nepavyko gauti pagrindinio įrenginio"
 
 #: k7zip.cpp:2526
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr ""
+msgstr "Antraštės skaitymo nesėkmė"
 
 #: k7zip.cpp:2532
 msgctxt "K7Zip|"
 msgid "Check signature failed"
-msgstr ""
+msgstr "Parašo tikrinimo nesėkmė"
 
 #: k7zip.cpp:2555
 msgctxt "K7Zip|"
 msgid "Bad CRC"
-msgstr ""
+msgstr "Bloga ciklinė perteklinė kontrolė (CRC)"
 
 #: k7zip.cpp:2564
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr ""
+msgstr "Kitos antraštės dydis yra per didelis"
 
 #: k7zip.cpp:2569
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr ""
+msgstr "Kitos antraštės dydis yra mažesnis nei nulis"
 
 #: k7zip.cpp:2580
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr ""
+msgstr "Nepavyko perskaityti kitos antraštės dydžio; turėjo būti %1, o buvo %2"
 
 #: k7zip.cpp:2593
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "Bloga kitos antraštės ciklinė perteklinė kontrolė (CRC)"
 
 #: k7zip.cpp:2601
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr ""
+msgstr "Klaida antraštėje"
 
 #: k7zip.cpp:2619 k7zip.cpp:2652
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Šiam archyvui reikalingas slaptažodis"
 
 #: k7zip.cpp:2625
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr ""
+msgstr "Neteisingas antraštės tipas"
 
 #: k7zip.cpp:2635 k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Not implemented"
-msgstr ""
+msgstr "Neįgyvendinta"
 
 #: k7zip.cpp:2647
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr ""
+msgstr "Klaida skaitant pagrindinio srauto informaciją"
 
 #: k7zip.cpp:2671
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr ""
+msgstr "Klaida skaitant antraštę"
 
 #: k7zip.cpp:2679 k7zip.cpp:2688
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Archyve yra %1 failų, o tai yra daugiau nei palaikomas kiekis (%2)"
 
 #: k7zip.cpp:2745
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr ""
+msgstr "Klaida skaitant modifikavimo laiką"
 
 #: k7zip.cpp:2791
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr ""
+msgstr "Klaida skaitant MTime"
 
 #: k7zip.cpp:2798
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr ""
+msgstr "Neteisingas"
 
 #: k7zip.cpp:2820
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Dydžio skaitymo nesėkmė (checkRecordsSize: %1, d->pos - ppp: %2, dydis: %3)"
 
 #: k7zip.cpp:2860
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "turinys"
 
 #: k7zip.cpp:3054
 msgctxt "K7Zip|"
 msgid "Write error"
-msgstr ""
+msgstr "Rašymo klaida"
 
 #: k7zip.cpp:3084
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr ""
+msgstr "Nesėkmė koduojant antraštę"
 
 #: k7zip.cpp:3128
 msgctxt "K7Zip|"
 msgid "No file currently selected"
-msgstr ""
+msgstr "Šiuo metu nepasirinktas joks failas"
 
 #: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
+"Programos klaida: 7-Zip failas privalo būti atvertas prieš tai, kai į jį bus "
+"rašoma"
 
 #: k7zip.cpp:3158 k7zip.cpp:3248
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
 
 #: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "Nepavyksta rašyti į AR failą"
 
 #: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nepalaikoma veiksena %1"
 
 #: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Neteisingi pagrindiniai burtai"
 
 #: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Neteisingi burtai"
 
 #: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "Neteisingas dydis"
 
 #: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Neteisinga ilgo failo pavadinimo nuoroda"
 
 #: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Neteisinga ilgo failo pavadinimo pozicijos nuoroda"
 
 #: karchive.cpp:157
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "Nebuvo nurodytas joks failo pavadinimas ar įrenginys"
 
 #: karchive.cpp:162
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "Nepavyko atverti įrenginio %1 veiksenoje"
 
 #: karchive.cpp:189
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "QSaveFile sukūrimas, skirtas %1, patyrė nesėkmę: %2"
 
 #: karchive.cpp:208
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nepalaikoma veiksena %1"
 
 #: karchive.cpp:217
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "Archyvas jau užvertas"
 
 #: karchive.cpp:266
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 nėra arba tai nėra įprastas failas."
 
 #: karchive.cpp:272
 #, qt-format
@@ -215,175 +221,181 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Nepavyko gauti prieigos prie failo %1, kad jis būtų pridėtas į archyvą. "
+"Klaida buvo: %2"
 
 #: karchive.cpp:318
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "Nepavyko atverti failo %1: %2"
 
 #: karchive.cpp:352
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "Katalogo %1 nėra"
 
 #: karchive.cpp:426
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "Rašymo nesėkmė: %1"
 
 #: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Nežinoma klaida"
 
 #: kcompressiondevice.cpp:514
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "Nepavyko rašyti. Pilnas skaidinys?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "Nepavyksta rašyti į RCC failą"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Nepalaikoma veiksena %1"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "Nepavyko registruoti ištekliaus %1 naudojant priešdėlį %2"
 
 #: ktar.cpp:347
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "Failo %1 nėra"
 
 #: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "Archyvas %1 yra pažeistas"
 
 #: ktar.cpp:358
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "Diskas pilnas"
 
 #: ktar.cpp:392
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Nepavyko gauti pagrindinio įrenginio"
 
 #: ktar.cpp:407
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "Nepavyko perskaityti tar antraštės"
 
 #: ktar.cpp:591 ktar.cpp:606
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "Nepavyko atgal rašyti laikinojo failo: %1"
 
 #: ktar.cpp:652
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "Nepavyko rašyti išsirikiavimo: %1"
 
 #: ktar.cpp:754 ktar.cpp:764
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr ""
+msgstr "Nepavyko rašyti ilgo saito: %1"
 
 #: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
+"Programos klaida: TAR failas privalo būti atvertas prieš tai, kai į jį bus "
+"rašoma"
 
 #: ktar.cpp:791
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
 
 #: ktar.cpp:798
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
-msgstr ""
+msgstr "Programos apribojimas: Negalima pridėti failo, didesnio nei %1 baitų"
 
 #: ktar.cpp:852
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "Nepavyko rašyti antraštės: %1"
 
 #: ktar.cpp:874 ktar.cpp:943
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą TAR failą"
 
 #: kzip.cpp:484 kzip.cpp:509
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Netikėta failo pabaiga. (Klaidos kodas: %1)"
 
 #: kzip.cpp:535
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Neigiamas pavadinimo ilgis"
 
 #: kzip.cpp:540
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Pavadinimas nevisiškai perskaitytas (#2)"
 
 #: kzip.cpp:558
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Neteisingas ZIP failas. Sugadintas ExtraField."
 
 #: kzip.cpp:572 kzip.cpp:595
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Nepavyko kreiptis į kitos antraštės prieigos raktą"
 
 #: kzip.cpp:587
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Netikėta failo pabaiga. (#5)"
 
 #: kzip.cpp:603
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Nepavyko kreiptis į suglaudintą failo dydį"
 
 #: kzip.cpp:619
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Netikėta failo pabaiga. (#1)"
 
 #: kzip.cpp:656
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"Neteisingas ZIP failas, centrinis įrašas pernelyg trumpas (nepakankamai "
+"ilgas tinkamam įrašui)"
 
 #: kzip.cpp:671
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
+msgstr "Neteisingas ZIP failas, failo kelio pavadinimo ilgis yra nulis"
 
 #: kzip.cpp:677
 #, qt-format
@@ -392,6 +404,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Neteisingas ZIP failas, nepavyko perskaityti %1 + %2 baitų, skirtų failo "
+"pavadinimui ir papildomiems duomenims ties poslinkiu %3"
 
 #: kzip.cpp:727
 #, qt-format
@@ -399,90 +413,94 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Neteisingas ZIP failas, prieštaringas vietinis antraštės poslinkis, esantis "
+"centriniame kataloge ties %1"
 
 #: kzip.cpp:762
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Neteisingas ZIP failas, rastas tuščias įrašo pavadinimas"
 
 #: kzip.cpp:804
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "Failas %1 yra aplanke %2, bet %3 iš tikrųjų yra failas."
 
 #: kzip.cpp:815
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Nepavyko kreiptis į kitą įrašą"
 
 #: kzip.cpp:844
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Nėra ZIP failas, nerasta jokios vietinės failo antraštės."
 
 #: kzip.cpp:848
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "Neteisingas ZIP failas. Neatpažįstama antraštė ties poslinkiu %1"
 
 #: kzip.cpp:876
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Nepavyko kreiptis į kitą failo antraštę: %1"
 
 #: kzip.cpp:902 kzip.cpp:996
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "Nepavyko rašyti failo antraštės: %1"
 
 #: kzip.cpp:1043
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "Nepavyko rašyti centrinio katalogo įrašo: %1"
 
 #: kzip.cpp:1079
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
+"Programos klaida: ZIP failas privalo būti atvertas prieš tai, kai į jį bus "
+"rašoma"
 
 #: kzip.cpp:1085
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
-msgstr ""
+msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą ZIP failą"
 
 #: kzip.cpp:1091
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "Nepavyksta sukurti įrenginio. Pilnas diskas?"
 
 #: kzip.cpp:1097
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "Nepavyksta kreiptis ZIP faile. Pilnas diskas?"
 
 #: kzip.cpp:1241
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "Nepavyko rašyti į archyvą. Pilnas diskas?"
 
 #: kzip.cpp:1260
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "Nepavyko atverti glaudinimo įrenginio: %1"
 
 #: kzip.cpp:1347
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Nėra failo ar įrenginio"
 
 #: kzip.cpp:1360
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "Klaida rašant duomenis: %1"
