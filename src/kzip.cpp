@@ -322,7 +322,7 @@ static bool seekAnyHeader(QIODevice *dev, QByteArray &header, qsizetype minSize)
 
     while (n >= minSize) {
         if (auto i = QByteArrayView(header.data(), n).indexOf("PK"); i >= 0) {
-            dev->seek(dev->pos() + i);
+            dev->skip(i);
             if ((i + minSize) < n) {
                 header.remove(0, i);
                 header.resize(minSize);
@@ -333,7 +333,7 @@ static bool seekAnyHeader(QIODevice *dev, QByteArray &header, qsizetype minSize)
                 return n >= minSize;
             }
         }
-        dev->seek(dev->pos() + (n - 1));
+        dev->skip(n - 1);
         n = dev->peek(header.data(), header.size());
     }
     header.resize(n);
@@ -365,12 +365,12 @@ static bool seekPostDataDescriptor(QIODevice *dev, bool isZip64)
             // Do not move compressedSize to the left side of the check
             // we have on the left on purpose to prevent addition overflows
             if ((compressedSize > 0) && (oldPos == dev->pos() - compressedSize)) {
-                dev->seek(dev->pos() + descriptorSize);
+                dev->skip(descriptorSize);
                 return true;
             }
-            dev->seek(dev->pos() + 4); // Skip found 'PK\7\8'
+            dev->skip(4); // Skip found 'PK\7\8'
         } else {
-            dev->seek(dev->pos() + 2); // Skip found 'PK'
+            dev->skip(2); // Skip found 'PK'
         }
     }
     return false;
@@ -392,7 +392,7 @@ static bool seekToNextHeaderToken(QIODevice *dev)
         if (header.startsWith("PK\x03\x04") || header.startsWith("PK\x01\x02")) {
             return true;
         } else {
-            dev->seek(dev->pos() + 2); // Skip found 'PK'
+            dev->skip(2); // Skip found 'PK'
         }
     }
     return false;
@@ -598,8 +598,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                         foundSignature = true;
                     } else {
                         //          qCDebug(KArchiveLog) << "before interesting dev->pos(): " << dev->pos();
-                        const bool success = dev->seek(dev->pos() + compr_size);
-                        if (!success) {
+                        if (dev->skip(compr_size) != compr_size) {
                             setErrorString(tr("Could not seek to file compressed size"));
                             return false;
                         }
@@ -623,10 +622,10 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     QByteArrayView currentHead(buffer, 4);
                     // qCDebug(KArchiveLog) << "Testing for optional data descriptor @ " << dev->pos() << currentHead;
                     if (currentHead.startsWith("PK\x07\x08")) {
-                        dev->seek(dev->pos() + 16); // skip rest of the 'data_descriptor'
+                        dev->skip(16); // skip rest of the 'data_descriptor'
                     } else if (!(currentHead.startsWith("PK\x03\x04") || currentHead.startsWith("PK\x01\x02"))) {
                         // assume data descriptor without signature
-                        dev->seek(dev->pos() + 12); // skip rest of the 'data_descriptor'
+                        dev->skip(12); // skip rest of the 'data_descriptor'
                     }
                 }
 
@@ -837,7 +836,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 if (dev->pos() > 4 * 1024 * 1024) {
                     break;
                 }
-                dev->seek(dev->pos() + 2); // Skip found 'PK'
+                dev->skip(2); // Skip found 'PK'
             }
 
             if (!foundSignature) {
