@@ -68,9 +68,12 @@ public:
     void setSize(qint64 s);
 
     /*!
-     * Returns the data of the file.
-     * Call data() with care (only once per file), this data isn't cached.
      * Returns the content of this file.
+     *
+     * \note The data returned by this call is not cached.
+     *
+     * \warning This method loads the entire file content into memory at once. For large files or untrusted archives, this could cause excessive memory
+     * allocation. Consider reading in chunks using createDevice() instead when dealing with archives from untrusted sources.
      */
     virtual QByteArray data() const;
 
