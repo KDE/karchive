@@ -1752,6 +1752,11 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
     quint64 startPos = 32 + packPos;
     for (int i = 0; i < folders.size(); i++) {
         const Folder *folder = folders.at(i);
+        if (!folder) {
+            qCDebug(KArchiveLog) << "no folder" << i;
+            return inflatedData;
+        }
+
         quint64 unpackSize64 = folder->getUnpackSize();
         size_t unpackSize = (size_t)unpackSize64;
         if (unpackSize != unpackSize64) {
