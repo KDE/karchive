@@ -29,20 +29,22 @@ inline void traverseArchive(const KArchiveDirectory *dir, const QString &path = 
         if (entry->isFile()) {
             auto file = static_cast<const KArchiveFile *>(entry);
             QIODevice *device = file->createDevice();
-            static const qint64 chunkSize = 1024 * 1024 * 100;
-            qint64 remainingSize = device->size();
-            QByteArray array;
-            array.resize(int(qMin(chunkSize, remainingSize)));
-            while (remainingSize > 0) {
-                const qint64 currentChunkSize = qMin(chunkSize, remainingSize);
-                const qint64 n = device->read(array.data(), currentChunkSize);
-                if (n != currentChunkSize) {
-                    delete device;
-                    return;
+            if (device) {
+                static const qint64 chunkSize = 1024 * 1024 * 100;
+                qint64 remainingSize = device->size();
+                QByteArray array;
+                array.resize(int(qMin(chunkSize, remainingSize)));
+                while (remainingSize > 0) {
+                    const qint64 currentChunkSize = qMin(chunkSize, remainingSize);
+                    const qint64 n = device->read(array.data(), currentChunkSize);
+                    if (n != currentChunkSize) {
+                        delete device;
+                        return;
+                    }
+                    remainingSize -= currentChunkSize;
                 }
-                remainingSize -= currentChunkSize;
+                delete device;
             }
-            delete device;
         } else if (entry->isDirectory()) {
             auto subDir = static_cast<const KArchiveDirectory *>(entry);
             traverseArchive(subDir, path + QString::fromUtf8("/") + entryName);

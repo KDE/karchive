@@ -95,6 +95,8 @@ public:
      * who will have to delete it.
      *
      * The returned device auto-opens (in readonly mode), no need to open it.
+     *
+     * \note It can return nullptr
      */
     QIODevice *createDevice() const override;
 
