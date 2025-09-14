@@ -3006,6 +3006,8 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                 KArchiveDirectory *d = findOrCreate(path);
                 if (d) {
                     (void)d->addEntryV2(e);
+                } else {
+                    delete e;
                 }
             }
         }
