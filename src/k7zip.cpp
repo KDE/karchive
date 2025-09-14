@@ -2565,7 +2565,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         return true;
     }
 
-    if (nextHeaderSize > (quint64)0xFFFFFFFF) {
+    if (nextHeaderSize > kMaxQByteArraySize) {
         setErrorString(tr("Next header size is too big"));
         return false;
     }
