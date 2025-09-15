@@ -14,131 +14,131 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2518
+#: k7zip.cpp:2550
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "تعذر الحصول على الجهاز الأساسي"
 
-#: k7zip.cpp:2526
+#: k7zip.cpp:2558
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "فشل قراءة العنوان"
 
-#: k7zip.cpp:2532
+#: k7zip.cpp:2564
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "فشل التحقق من التوقيع"
 
-#: k7zip.cpp:2555
+#: k7zip.cpp:2587
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC تالف"
 
-#: k7zip.cpp:2564
+#: k7zip.cpp:2596
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "حجم العنوان التالي كبير جدًا"
 
-#: k7zip.cpp:2569
+#: k7zip.cpp:2601
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "حجم العنوان التالي أقل من الصفر"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2612
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "فشل قراءة حجم العنوان التالي؛ يجب قراءة %1، لكنه قرأ %2"
 
-#: k7zip.cpp:2593
+#: k7zip.cpp:2625
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "عنوان تال تالف CRC"
 
-#: k7zip.cpp:2601
+#: k7zip.cpp:2633
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "خطأ في العنوان"
 
-#: k7zip.cpp:2619 k7zip.cpp:2652
+#: k7zip.cpp:2651 k7zip.cpp:2684
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "بحاجة إلى كلمة السر لهذا الأرشيف"
 
-#: k7zip.cpp:2625
+#: k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "نوع عنوان خاطئ"
 
-#: k7zip.cpp:2635 k7zip.cpp:2641
+#: k7zip.cpp:2667 k7zip.cpp:2673
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "لم تُنجز"
 
-#: k7zip.cpp:2647
+#: k7zip.cpp:2679
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "خطأ في أثناء قراءة معلومات التدفقات الرئيسة"
 
-#: k7zip.cpp:2671
+#: k7zip.cpp:2703
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "خطأ أثناء قراءة العنوان"
 
-#: k7zip.cpp:2679 k7zip.cpp:2688
+#: k7zip.cpp:2711 k7zip.cpp:2720
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "يحتوي الأرشيف على %1 ملفًا، وهو عدد أكبر من العدد المسموح به (%2)"
 
-#: k7zip.cpp:2745
+#: k7zip.cpp:2777
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "خطأ في قراءة وقت التعديل"
 
-#: k7zip.cpp:2791
+#: k7zip.cpp:2823
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "خطأ في قراءة MTime"
 
-#: k7zip.cpp:2798
+#: k7zip.cpp:2830
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "غير صالح"
 
-#: k7zip.cpp:2820
+#: k7zip.cpp:2852
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "فشل في قراءة الحجم (حجم المستند المعطى: %1، d->pos - ppp: %2، الحجم: %3)"
 
-#: k7zip.cpp:2860
+#: k7zip.cpp:2892
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "المحتويات"
 
-#: k7zip.cpp:3054
+#: k7zip.cpp:3088
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "خطأ كتابة"
 
-#: k7zip.cpp:3084
+#: k7zip.cpp:3118
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "فشل أثناء ترميز العنوان"
 
-#: k7zip.cpp:3128
+#: k7zip.cpp:3162
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "لا يوجد ملف محدد حاليا"
 
-#: k7zip.cpp:3152 k7zip.cpp:3202 k7zip.cpp:3242
+#: k7zip.cpp:3186 k7zip.cpp:3236 k7zip.cpp:3276
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "خطأ في التطبيق: يجب فتح ملف 7-Zip قبل الكتابة فيه"
 
-#: k7zip.cpp:3158 k7zip.cpp:3248
+#: k7zip.cpp:3192 k7zip.cpp:3282
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "خطأ في التطبيق: جرت محاولة الكتابة في ملف 7-Zip غير قابل للكتابة"
