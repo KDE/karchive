@@ -701,13 +701,14 @@ bool K7Zip::K7ZipPrivate::findAttribute(int attribute)
     }
 
     for (;;) {
-        int type = readByte();
+        const int type = readByte();
         if (type == attribute) {
             return true;
         }
-        if (type == kEnd) {
+        if (type == kEnd || type == -1) {
             return false;
         }
+
         skipData(readNumber());
     }
 }
