@@ -602,7 +602,7 @@ bool K7Zip::passwordNeeded() const
 int K7Zip::K7ZipPrivate::readByte()
 {
     if (!buffer || pos + 1 > end) {
-        return -1;
+        return 0;
     }
     return buffer[pos++];
 }
