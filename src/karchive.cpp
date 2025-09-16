@@ -531,7 +531,7 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
     return d->findOrCreate(path, 0 /*recursionCounter*/);
 }
 
-KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recursionCounter)
+KArchiveDirectory *KArchivePrivate::findOrCreate(const QStringView path, int recursionCounter)
 {
     // Check we're not in a path that is ultra deep, this is most probably fine since PATH_MAX on Linux
     // is defined as 4096, so even on /a/a/a/a/a/a 2500 recursions puts us over that limit
@@ -554,7 +554,7 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
 
     // Already created ? => found
     KArchiveDirectory *existingEntryParentDirectory;
-    const KArchiveEntry *existingEntry = KArchiveDirectoryPrivate::get(q->rootDir())->entry(path, &existingEntryParentDirectory);
+    const KArchiveEntry *existingEntry = KArchiveDirectoryPrivate::get(q->rootDir())->entry(path.toString(), &existingEntryParentDirectory);
     if (existingEntry) {
         if (existingEntry->isDirectory())
         // qCDebug(KArchiveLog) << "found it";
@@ -582,12 +582,12 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
     // Otherwise go up and try again
     int pos = path.lastIndexOf(QLatin1Char('/'));
     KArchiveDirectory *parent;
-    QString dirname;
+    QStringView dirname;
     if (pos == -1) { // no more slash => create in root dir
         parent = q->rootDir();
         dirname = path;
     } else {
-        QString left = path.left(pos);
+        QStringView left = path.left(pos);
         dirname = path.mid(pos + 1);
         parent = findOrCreate(left, recursionCounter + 1); // recursive call... until we find an existing dir.
     }
@@ -598,7 +598,7 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QString &path, int recurs
 
     // qCDebug(KArchiveLog) << "found parent " << parent->name() << " adding " << dirname << " to ensure " << path;
     // Found -> add the missing piece
-    KArchiveDirectory *e = new KArchiveDirectory(q, dirname, rootDir->permissions(), rootDir->date(), rootDir->user(), rootDir->group(), QString());
+    KArchiveDirectory *e = new KArchiveDirectory(q, dirname.toString(), rootDir->permissions(), rootDir->date(), rootDir->user(), rootDir->group(), QString());
     if (parent->addEntryV2(e)) {
         return e; // now a directory to <path> exists
     } else {

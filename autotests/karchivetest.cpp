@@ -901,6 +901,15 @@ void KArchiveTest::testTarDirectoryTwice() // bug 206994
     QCOMPARE(listing.count(), 3);
 }
 
+void KArchiveTest::testTarGzHugeMemoryUsage()
+{
+    const QString filePath = QFINDTESTDATA("data/ossfuzz_testcase_6581632288227328.tar.gz");
+    QVERIFY(!filePath.isEmpty());
+
+    KTar tar(filePath);
+    tar.open(QIODevice::ReadOnly);
+}
+
 void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
 {
 #if HAVE_BZIP2_SUPPORT
