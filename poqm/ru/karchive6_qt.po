@@ -377,17 +377,17 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "Некорректный файл ZIP. Неожиданный конец файла. (#5)"
 
-#: kzip.cpp:603
+#: kzip.cpp:602
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Не удалось перейти к сжатому размеру файла"
 
-#: kzip.cpp:619
+#: kzip.cpp:618
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "Некорректный файл ZIP. Неожиданный конец файла. (#1)"
 
-#: kzip.cpp:656
+#: kzip.cpp:655
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -395,12 +395,12 @@ msgstr ""
 "Некорректный файл ZIP, слишком короткая центральная запись (недостаточно "
 "длинная для корректной записи)"
 
-#: kzip.cpp:671
+#: kzip.cpp:670
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "Некорректный файл ZIP, длина имени пути к файлу равна нулю"
 
-#: kzip.cpp:677
+#: kzip.cpp:676
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -410,7 +410,7 @@ msgstr ""
 "Некорректный файл ZIP. Невозможно прочитать %1 + %2 байт имени файла, а "
 "также имеются дополнительные данные со смещением %3"
 
-#: kzip.cpp:727
+#: kzip.cpp:726
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -419,94 +419,94 @@ msgstr ""
 "Некорректный файл ZIP. Непоследовательное смещение локального заголовка в "
 "центральном каталоге (%1)"
 
-#: kzip.cpp:762
+#: kzip.cpp:761
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "Некорректный файл ZIP, обнаружено пустое имя записи"
 
-#: kzip.cpp:804
+#: kzip.cpp:803
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "Файл %1 находится в папке %2, но %3 на самом деле является файлом."
 
-#: kzip.cpp:815
+#: kzip.cpp:814
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Не удалось перейти к следующей записи"
 
-#: kzip.cpp:844
+#: kzip.cpp:843
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "Не является файлом ZIP. Не найден локальный заголовок файла."
 
-#: kzip.cpp:848
+#: kzip.cpp:847
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "Некорректный файл ZIP. Нераспознанный заголовок со смещением %1"
 
-#: kzip.cpp:876
+#: kzip.cpp:875
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Не удалось перейти к следующему заголовку файла: %1"
 
-#: kzip.cpp:902 kzip.cpp:996
+#: kzip.cpp:901 kzip.cpp:995
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Не удалось записать заголовок файла: %1"
 
-#: kzip.cpp:1043
+#: kzip.cpp:1042
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Не удалось записать запись центрального каталога: %1"
 
-#: kzip.cpp:1079
+#: kzip.cpp:1078
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "Ошибка приложения: перед записью необходимо открыть файл ZIP"
 
-#: kzip.cpp:1085
+#: kzip.cpp:1084
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "Ошибка приложения: попытка записи в недоступный для записи файл ZIP"
 
-#: kzip.cpp:1091
+#: kzip.cpp:1090
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr ""
 "Не удалось создать устройство. Возможно, на диске не осталось свободного "
 "места."
 
-#: kzip.cpp:1097
+#: kzip.cpp:1096
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 "Не удалось выполнить перемещение по файлу ZIP. Возможно, на диске не "
 "осталось свободного места."
 
-#: kzip.cpp:1241
+#: kzip.cpp:1240
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr ""
 "Не удалось выполнить запись в архив. Возможно, на диске не осталось "
 "свободного места."
 
-#: kzip.cpp:1260
+#: kzip.cpp:1259
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Не удалось открыть устройство сжатия: %1"
 
-#: kzip.cpp:1347
+#: kzip.cpp:1346
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Нет файла или устройства"
 
-#: kzip.cpp:1360
+#: kzip.cpp:1359
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

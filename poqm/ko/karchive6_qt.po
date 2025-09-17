@@ -366,29 +366,29 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "잘못된 ZIP 파일입니다. 예상하지 못한 곳에서 끝났습니다.(#5)"
 
-#: kzip.cpp:603
+#: kzip.cpp:602
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "파일의 압축된 크기로 이동할 수 없음"
 
-#: kzip.cpp:619
+#: kzip.cpp:618
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "잘못된 ZIP 파일입니다. 예상하지 못한 곳에서 끝났습니다.(#1)"
 
-#: kzip.cpp:656
+#: kzip.cpp:655
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "잘못된 ZIP 파일입니다. 중심 항목이 너무 짧음(올바른 항목 길이보다 짧음)"
 
-#: kzip.cpp:671
+#: kzip.cpp:670
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "잘못된 ZIP 파일입니다. 파일 경로 이름이 0임"
 
-#: kzip.cpp:677
+#: kzip.cpp:676
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -398,7 +398,7 @@ msgstr ""
 "잘못된 ZIP 파일입니다. %3 위치에서 파일 이름의 %1 + %2바이트와 추가 데이터를 "
 "읽을 수 없음"
 
-#: kzip.cpp:727
+#: kzip.cpp:726
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -407,88 +407,88 @@ msgstr ""
 "잘못된 ZIP 파일입니다. %1에 있는 중앙 디렉터리의 로컬 헤더 오프셋이 일정하지 "
 "않음"
 
-#: kzip.cpp:762
+#: kzip.cpp:761
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "잘못된 ZIP 파일입니다. 빈 항목 이름을 발견함"
 
-#: kzip.cpp:804
+#: kzip.cpp:803
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "%1 파일은 %2 폴더에 있지만, %3은(는) 실제로 파일입니다."
 
-#: kzip.cpp:815
+#: kzip.cpp:814
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "다음 항목으로 이동할 수 없음"
 
-#: kzip.cpp:844
+#: kzip.cpp:843
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "ZIP 파일이 아닙니다. 로컬 파일 헤더를 찾을 수 없습니다."
 
-#: kzip.cpp:848
+#: kzip.cpp:847
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "잘못된 ZIP 파일입니다. 위치 %1에 인식할 수 없는 헤더가 있음"
 
-#: kzip.cpp:876
+#: kzip.cpp:875
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "다음 파일 헤더로 이동할 수 없음: %1"
 
-#: kzip.cpp:902 kzip.cpp:996
+#: kzip.cpp:901 kzip.cpp:995
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "파일 헤더를 기록할 수 없음: %1"
 
-#: kzip.cpp:1043
+#: kzip.cpp:1042
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "중심 디렉터리 레코드를 기록할 수 없음: %1"
 
-#: kzip.cpp:1079
+#: kzip.cpp:1078
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "앱 오류: ZIP 파일에 기록하기 전에 먼저 열어야 함"
 
-#: kzip.cpp:1085
+#: kzip.cpp:1084
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "앱 오류: 기록할 수 없는 ZIP 파일에 기록을 시도함"
 
-#: kzip.cpp:1091
+#: kzip.cpp:1090
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "장치를 만들 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1097
+#: kzip.cpp:1096
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ZIP 파일에서 이동할 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1241
+#: kzip.cpp:1240
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "압축 파일에 쓸 수 없습니다. 디스크가 가득 찼습니까?"
 
-#: kzip.cpp:1260
+#: kzip.cpp:1259
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "압축 장치를 열 수 없음: %1"
 
-#: kzip.cpp:1347
+#: kzip.cpp:1346
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "파일이나 장치 없음"
 
-#: kzip.cpp:1360
+#: kzip.cpp:1359
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
