@@ -70,38 +70,63 @@ public:
     // Returns in containingDirectory the directory that actually contains the returned entry
     const KArchiveEntry *entry(const QString &_name, KArchiveDirectory **containingDirectory) const
     {
-        *containingDirectory = q;
-
         QString name = QDir::cleanPath(_name);
-        int pos = name.indexOf(QLatin1Char('/'));
-        if (pos == 0) { // absolute path (see also KArchive::findOrCreate)
-            if (name.length() > 1) {
-                name = name.mid(1); // remove leading slash
-                pos = name.indexOf(QLatin1Char('/')); // look again
-            } else { // "/"
-                return q;
-            }
-        }
-        // trailing slash ? -> remove
-        if (pos != -1 && pos == name.length() - 1) {
-            name = name.left(pos);
-            pos = name.indexOf(QLatin1Char('/')); // look again
-        }
-        if (pos != -1) {
-            const QString left = name.left(pos);
-            const QString right = name.mid(pos + 1);
 
-            // qCDebug(KArchiveLog) << "left=" << left << "right=" << right;
+        if (name.isEmpty()) {
+            *containingDirectory = q;
+            return entries.value(name);
+        } else if (name == QLatin1String("/")) {
+            *containingDirectory = q;
+            return q;
+        }
 
-            KArchiveEntry *e = entries.value(left);
-            if (!e || !e->isDirectory()) {
+        auto r = lookupPath(name);
+        *containingDirectory = r.parent;
+        return r.entry;
+    }
+
+    struct LookupResult {
+        KArchiveDirectory *parent = nullptr;
+        KArchiveEntry *entry = nullptr;
+    };
+
+    // \c path preconditions:
+    // - path is not empty
+    // - is cleaned (no "..", no double slash) - \sa QDir::cleanPath
+    // - does not end with a slash
+    const LookupResult lookupPath(QStringView path) const
+    {
+        auto findChild = [](KArchiveDirectory *dir, QStringView name) -> KArchiveEntry * {
+            if (dir->d->entries.empty()) {
                 return nullptr;
+            } else if (dir->d->entries.size() == 1) {
+                auto it = dir->d->entries.cbegin();
+                return (it.key() == name) ? it.value() : nullptr;
             }
-            *containingDirectory = static_cast<KArchiveDirectory *>(e);
-            return (*containingDirectory)->d->entry(right, containingDirectory);
+            return dir->d->entries.value(name);
+        };
+
+        qsizetype startPos = 0;
+        if (path[0] == QLatin1Char('/')) {
+            startPos = 1;
         }
 
-        return entries.value(name);
+        auto endPos = path.indexOf(QLatin1Char('/'), startPos);
+        auto parent = static_cast<KArchiveDirectory *>(q);
+
+        while (endPos > 0) {
+            auto match = findChild(parent, path.sliced(startPos, endPos - startPos));
+            if (match == nullptr) {
+                return {parent, nullptr};
+            } else if (!match->isDirectory()) {
+                return {parent, nullptr};
+            }
+            parent = static_cast<KArchiveDirectory *>(match);
+            startPos = endPos + 1;
+            endPos = path.indexOf(QLatin1Char('/'), startPos);
+        }
+        auto match = findChild(parent, path.sliced(startPos));
+        return {parent, match};
     }
 
     KArchiveDirectory *q;
