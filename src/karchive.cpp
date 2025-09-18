@@ -1007,9 +1007,7 @@ bool KArchiveDirectory::copyTo(const QString &dest, bool recursiveCopy) const
             return false;
         }
 
-        const QStringList dirEntries = curDir->entries();
-        for (QStringList::const_iterator it = dirEntries.begin(); it != dirEntries.end(); ++it) {
-            const KArchiveEntry *curEntry = curDir->entry(*it);
+        for (const KArchiveEntry *curEntry : std::as_const(curDir->d->entries)) {
             if (!curEntry->symLinkTarget().isEmpty()) {
                 QString linkName = curDirName + QLatin1Char('/') + curEntry->name();
                 // To create a valid link on Windows, linkName must have a .lnk file extension.
