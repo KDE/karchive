@@ -45,7 +45,7 @@ public:
 
     void abortWriting();
 
-    static QDateTime time_tToDateTime(uint time_t);
+    static QDateTime time_tToDateTime(uint seconds);
 
     KArchiveDirectory *findOrCreate(const QString &path, int recursionCounter);
 

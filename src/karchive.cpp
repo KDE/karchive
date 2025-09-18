@@ -652,12 +652,12 @@ void KArchivePrivate::abortWriting()
 }
 
 // this is a hacky wrapper to check if time_t value is invalid
-QDateTime KArchivePrivate::time_tToDateTime(uint time_t)
+QDateTime KArchivePrivate::time_tToDateTime(uint seconds)
 {
-    if (time_t == uint(-1)) {
+    if (seconds == uint(-1)) {
         return QDateTime();
     }
-    return QDateTime::fromSecsSinceEpoch(time_t);
+    return QDateTime::fromSecsSinceEpoch(seconds);
 }
 
 ////////////////////////////////////////////////////////////////////////
