@@ -791,17 +791,18 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
             qCDebug(KArchiveLog) << "unsupported codec id size";
             return nullptr;
         }
-        std::unique_ptr<unsigned char[]> codecID(new unsigned char[codecIdSize]);
-        for (int i = 0; i < codecIdSize; ++i) {
-            codecID[i] = readByte();
+        if (pos + codecIdSize > end) {
+            return nullptr;
         }
-
-        int id = 0;
+        quint64 methodId = 0;
         for (int j = 0; j < codecIdSize; j++) {
-            id |= codecID[codecIdSize - 1 - j] << (8 * j);
+            quint64 id = std::bit_cast<quint8>(buffer[pos + j]);
+            methodId |= id << (8 * (codecIdSize - j - 1));
         }
+        skipData(codecIdSize);
+
         Folder::FolderInfo info;
-        info.methodID = id;
+        info.methodID = methodId;
 
         // if (Is Complex Coder)
         if ((coderInfo & 0x10) != 0) {
