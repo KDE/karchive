@@ -622,13 +622,15 @@ void KArchiveTest::testTarReadWrite()
     QFETCH(QString, fileName);
 
     // testCreateTar must have been run first.
-    KTar tar(fileName);
-    QVERIFY(tar.open(QIODevice::ReadWrite));
+    {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::ReadWrite));
 
-    testReadWrite(&tar);
-    testFileData(&tar);
+        testReadWrite(&tar);
+        testFileData(&tar);
 
-    QVERIFY(tar.close());
+        QVERIFY(tar.close());
+    }
 
     // Reopen it and check it
     {
@@ -1753,13 +1755,15 @@ void KArchiveTest::test7ZipReadWrite()
     QFETCH(QString, fileName);
 
     // testCreate7zip must have been run first.
-    K7Zip k7zip(fileName);
-    QVERIFY(k7zip.open(QIODevice::ReadWrite));
+    {
+        K7Zip k7zip(fileName);
+        QVERIFY(k7zip.open(QIODevice::ReadWrite));
 
-    testReadWrite(&k7zip);
-    testFileData(&k7zip);
+        testReadWrite(&k7zip);
+        testFileData(&k7zip);
 
-    QVERIFY(k7zip.close());
+        QVERIFY(k7zip.close());
+    }
 
     // Reopen it and check it
     {
