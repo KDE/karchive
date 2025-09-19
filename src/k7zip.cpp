@@ -769,7 +769,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         return nullptr;
     }
 
-    Folder *folder = new Folder;
+    auto folder = std::make_unique<Folder>();
     int numCoders = readNumber();
     folder->folderInfos.reserve(numCoders);
 
@@ -789,7 +789,6 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         int codecIdSize = (coderInfo & 0xF);
         if (codecIdSize > 8) {
             qCDebug(KArchiveLog) << "unsupported codec id size";
-            delete folder;
             return nullptr;
         }
         std::unique_ptr<unsigned char[]> codecID(new unsigned char[codecIdSize]);
@@ -823,7 +822,6 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
         if ((coderInfo & 0x80) != 0) {
             qCDebug(KArchiveLog) << "unsupported";
-            delete folder;
             return nullptr;
         }
 
@@ -852,12 +850,11 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
                 }
             }
             if (folder->packedStreams.size() != 1) {
-                delete folder;
                 return nullptr;
             }
         }
     }
-    return folder;
+    return folder.release();
 }
 
 bool K7Zip::K7ZipPrivate::readUInt64DefVector(int numFiles, QList<quint64> &values, QList<bool> &defined)
