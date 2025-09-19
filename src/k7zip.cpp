@@ -279,22 +279,17 @@ public:
     class FolderInfo
     {
     public:
-        FolderInfo()
-            : numInStreams(0)
-            , numOutStreams(0)
-            , methodID(0)
-        {
-        }
+        FolderInfo() = default;
 
         bool isSimpleCoder() const
         {
             return (numInStreams == 1) && (numOutStreams == 1);
         }
 
-        int numInStreams;
-        int numOutStreams;
+        int numInStreams = 0;
+        int numOutStreams = 0;
         QList<unsigned char> properties;
-        quint64 methodID;
+        quint64 methodID = 0;
     };
 
     Folder()
