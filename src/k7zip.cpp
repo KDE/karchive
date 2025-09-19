@@ -298,10 +298,7 @@ public:
     {
     }
 
-    ~Folder()
-    {
-        qDeleteAll(folderInfos);
-    }
+    ~Folder() = default;
 
     Q_DISABLE_COPY(Folder)
 
@@ -322,7 +319,7 @@ public:
     {
         int result = 0;
         for (int i = 0; i < folderInfos.size(); i++) {
-            result += folderInfos.at(i)->numOutStreams;
+            result += folderInfos.at(i).numOutStreams;
         }
         return result;
     }
@@ -331,7 +328,7 @@ public:
     {
         quint32 streamIndex = 0;
         for (quint32 i = 0; i < coderIndex; i++) {
-            streamIndex += folderInfos.at(i)->numInStreams;
+            streamIndex += folderInfos.at(i).numInStreams;
         }
         return streamIndex;
     }
@@ -340,7 +337,7 @@ public:
     {
         quint32 streamIndex = 0;
         for (quint32 i = 0; i < coderIndex; i++) {
-            streamIndex += folderInfos.at(i)->numOutStreams;
+            streamIndex += folderInfos.at(i).numOutStreams;
         }
         return streamIndex;
     }
@@ -378,7 +375,7 @@ public:
     void findInStream(quint32 streamIndex, quint32 &coderIndex, quint32 &coderStreamIndex) const
     {
         for (coderIndex = 0; coderIndex < (quint32)folderInfos.size(); coderIndex++) {
-            quint32 curSize = folderInfos[coderIndex]->numInStreams;
+            quint32 curSize = folderInfos[coderIndex].numInStreams;
             if (streamIndex < curSize) {
                 coderStreamIndex = streamIndex;
                 return;
@@ -390,7 +387,7 @@ public:
     void findOutStream(quint32 streamIndex, quint32 &coderIndex, quint32 &coderStreamIndex) const
     {
         for (coderIndex = 0; coderIndex < (quint32)folderInfos.size(); coderIndex++) {
-            quint32 curSize = folderInfos[coderIndex]->numOutStreams;
+            quint32 curSize = folderInfos[coderIndex].numOutStreams;
             if (streamIndex < curSize) {
                 coderStreamIndex = streamIndex;
                 return;
@@ -402,7 +399,7 @@ public:
     bool isEncrypted() const
     {
         for (int i = folderInfos.size() - 1; i >= 0; i--) {
-            if (folderInfos.at(i)->methodID == k_AES) {
+            if (folderInfos.at(i).methodID == k_AES) {
                 return true;
             }
         }
@@ -413,7 +410,7 @@ public:
 
     bool unpackCRCDefined;
     quint32 unpackCRC;
-    QList<FolderInfo *> folderInfos;
+    QList<FolderInfo> folderInfos;
     QList<quint64> inIndexes;
     QList<quint64> outIndexes;
     QList<quint64> packedStreams;
@@ -774,6 +771,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
     Folder *folder = new Folder;
     int numCoders = readNumber();
+    folder->folderInfos.reserve(numCoders);
 
     quint64 numInStreamsTotal = 0;
     quint64 numOutStreamsTotal = 0;
@@ -794,7 +792,6 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
             delete folder;
             return nullptr;
         }
-        Folder::FolderInfo *info = new Folder::FolderInfo();
         std::unique_ptr<unsigned char[]> codecID(new unsigned char[codecIdSize]);
         for (int i = 0; i < codecIdSize; ++i) {
             codecID[i] = readByte();
@@ -804,35 +801,35 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         for (int j = 0; j < codecIdSize; j++) {
             id |= codecID[codecIdSize - 1 - j] << (8 * j);
         }
-        info->methodID = id;
+        Folder::FolderInfo info;
+        info.methodID = id;
 
         // if (Is Complex Coder)
         if ((coderInfo & 0x10) != 0) {
-            info->numInStreams = readNumber();
-            info->numOutStreams = readNumber();
+            info.numInStreams = readNumber();
+            info.numOutStreams = readNumber();
         } else {
-            info->numInStreams = 1;
-            info->numOutStreams = 1;
+            info.numInStreams = 1;
+            info.numOutStreams = 1;
         }
 
         // if (There Are Attributes)
         if ((coderInfo & 0x20) != 0) {
             int propertiesSize = readNumber();
             for (int i = 0; i < propertiesSize; ++i) {
-                info->properties.append(readByte());
+                info.properties.append(readByte());
             }
         }
 
         if ((coderInfo & 0x80) != 0) {
             qCDebug(KArchiveLog) << "unsupported";
-            delete info;
             delete folder;
             return nullptr;
         }
 
-        numInStreamsTotal += info->numInStreams;
-        numOutStreamsTotal += info->numOutStreams;
-        folder->folderInfos.append(info);
+        numInStreamsTotal += info.numInStreams;
+        numOutStreamsTotal += info.numOutStreams;
+        folder->folderInfos.append(std::move(info));
     }
 
     int numBindPairs = numOutStreamsTotal - 1;
@@ -1250,11 +1247,11 @@ static bool getInStream(const Folder *folder, quint32 streamIndex, int &seqInStr
 
     quint32 startIndex = folder->getCoderInStreamIndex(coderIndex);
 
-    if (folder->folderInfos[coderIndex]->numInStreams > 1) {
+    if (folder->folderInfos[coderIndex].numInStreams > 1) {
         return false;
     }
 
-    for (int i = 0; i < (int)folder->folderInfos[coderIndex]->numInStreams; i++) {
+    for (int i = 0; i < (int)folder->folderInfos[coderIndex].numInStreams; i++) {
         getInStream(folder, startIndex + i, seqInStream, coderIndex);
     }
 
@@ -1266,9 +1263,9 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
     QList<quint32> outStreams;
     quint32 outStreamIndex = 0;
     for (int i = 0; i < folder->folderInfos.size(); i++) {
-        const Folder::FolderInfo *coderInfo = folder->folderInfos.at(i);
+        const Folder::FolderInfo &coderInfo = folder->folderInfos.at(i);
 
-        for (int j = 0; j < coderInfo->numOutStreams; j++, outStreamIndex++) {
+        for (int j = 0; j < coderInfo.numOutStreams; j++, outStreamIndex++) {
             if (folder->findBindPairForOutStream(outStreamIndex) < 0) {
                 outStreams.append(outStreamIndex);
             }
@@ -1293,11 +1290,11 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
 
     quint32 startIndex = folder->getCoderOutStreamIndex(coderIndex);
 
-    if (folder->folderInfos[coderIndex]->numOutStreams > 1) {
+    if (folder->folderInfos[coderIndex].numOutStreams > 1) {
         return false;
     }
 
-    for (int i = 0; i < (int)folder->folderInfos[coderIndex]->numOutStreams; i++) {
+    for (int i = 0; i < (int)folder->folderInfos[coderIndex].numOutStreams; i++) {
         getOutStream(folder, startIndex + i, seqOutStream);
     }
 
@@ -1716,7 +1713,7 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
             if (folder->folderInfos.size() > 1 && currentCoderIndex < folder->folderInfos.size()) {
                 deflatedData = decryptedData; // set the data for the filter to the decrypted data
                 int nextCoderIndex = currentCoderIndex + 1;
-                filter = getFilter(folder, folder->folderInfos[nextCoderIndex], nextCoderIndex, decryptedData, inflatedDatas);
+                filter = getFilter(folder, &folder->folderInfos[nextCoderIndex], nextCoderIndex, decryptedData, inflatedDatas);
             } else {
                 inflatedDatas.append(decryptedData);
             }
@@ -1791,8 +1788,8 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         QList<int> outStreamIndexed;
         int outStreamIndex = 0;
         for (int j = 0; j < folder->folderInfos.size(); j++) {
-            const Folder::FolderInfo *info = folder->folderInfos[j];
-            for (int k = 0; k < info->numOutStreams; k++, outStreamIndex++) {
+            const Folder::FolderInfo &info = folder->folderInfos[j];
+            for (int k = 0; k < info.numOutStreams; k++, outStreamIndex++) {
                 if (folder->findBindPairForOutStream(outStreamIndex) < 0) {
                     outStreamIndexed.append(outStreamIndex);
                     break;
@@ -1808,13 +1805,13 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         quint32 startInIndex = folder->getCoderInStreamIndex(mainCoderIndex);
         quint32 startOutIndex = folder->getCoderOutStreamIndex(mainCoderIndex);
 
-        Folder::FolderInfo *mainCoder = folder->folderInfos[mainCoderIndex];
+        const Folder::FolderInfo &mainCoder = folder->folderInfos[mainCoderIndex];
 
         QList<int> seqInStreams;
         QList<quint32> coderIndexes;
-        seqInStreams.reserve(mainCoder->numInStreams);
-        coderIndexes.reserve(mainCoder->numInStreams);
-        for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
+        seqInStreams.reserve(mainCoder.numInStreams);
+        coderIndexes.reserve(mainCoder.numInStreams);
+        for (int j = 0; j < (int)mainCoder.numInStreams; j++) {
             int seqInStream = 0;
             quint32 coderIndex = 0;
             getInStream(folder, startInIndex + j, seqInStream, coderIndex);
@@ -1823,15 +1820,15 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         }
 
         QList<int> seqOutStreams;
-        seqOutStreams.reserve(mainCoder->numOutStreams);
-        for (int j = 0; j < (int)mainCoder->numOutStreams; j++) {
+        seqOutStreams.reserve(mainCoder.numOutStreams);
+        for (int j = 0; j < (int)mainCoder.numOutStreams; j++) {
             int seqOutStream;
             getOutStream(folder, startOutIndex + j, seqOutStream);
             seqOutStreams.append(seqOutStream);
         }
 
         QList<QByteArray> datas;
-        for (int j = 0; j < (int)mainCoder->numInStreams; j++) {
+        for (int j = 0; j < (int)mainCoder.numInStreams; j++) {
             if (j+i >= packSizes.size()) {
                 return QByteArray();
             }
@@ -1862,16 +1859,16 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 coderIndex = mainCoderIndex;
             }
 
-            Folder::FolderInfo *coder = folder->folderInfos[coderIndex];
+            const Folder::FolderInfo &coder = folder->folderInfos[coderIndex];
             deflatedData = datas[seqInStreams[j]];
 
-            KFilterBase *filter = getFilter(folder, coder, coderIndex, deflatedData, inflatedDatas);
-            if (coder->methodID == k_BCJ2) {
+            KFilterBase *filter = getFilter(folder, &coder, coderIndex, deflatedData, inflatedDatas);
+            if (coder.methodID == k_BCJ2) {
                 continue;
             }
 
             if (!filter) {
-                if (coder->methodID == k_AES) {
+                if (coder.methodID == k_AES) {
                     continue;
                 }
                 return QByteArray();
@@ -2140,11 +2137,11 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
 {
     writeNumber(folder->folderInfos.size());
     for (int i = 0; i < folder->folderInfos.size(); i++) {
-        const Folder::FolderInfo *info = folder->folderInfos.at(i);
+        const Folder::FolderInfo &info = folder->folderInfos.at(i);
         {
-            size_t propsSize = info->properties.size();
+            size_t propsSize = info.properties.size();
 
-            quint64 id = info->methodID;
+            quint64 id = info.methodID;
             size_t idSize;
             for (idSize = 1; idSize < sizeof(id); idSize++) {
                 if ((id >> (8 * idSize)) == 0) {
@@ -2159,7 +2156,7 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
 
             int b;
             b = (int)(idSize & 0xF);
-            bool isComplex = !info->isSimpleCoder();
+            bool isComplex = !info.isSimpleCoder();
             b |= (isComplex ? 0x10 : 0);
             b |= ((propsSize != 0) ? 0x20 : 0);
 
@@ -2169,8 +2166,8 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
             }
 
             if (isComplex) {
-                writeNumber(info->numInStreams);
-                writeNumber(info->numOutStreams);
+                writeNumber(info.numInStreams);
+                writeNumber(info.numOutStreams);
             }
 
             if (propsSize == 0) {
@@ -2179,7 +2176,7 @@ void K7Zip::K7ZipPrivate::writeFolder(const Folder *folder)
 
             writeNumber(propsSize);
             for (size_t j = 0; j < propsSize; ++j) {
-                writeByte(info->properties[j]);
+                writeByte(info.properties[j]);
             }
         }
     }
@@ -2291,10 +2288,10 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QList<quint64> &packSizes, QList<Fo
     folder->unpackCRC = crc32(0, (Bytef *)(header.data()), header.size());
     folder->unpackSizes.append(header.size());
 
-    Folder::FolderInfo *info = new Folder::FolderInfo();
-    info->numInStreams = 1;
-    info->numOutStreams = 1;
-    info->methodID = k_LZMA2;
+    Folder::FolderInfo info;
+    info.numInStreams = 1;
+    info.numOutStreams = 1;
+    info.methodID = k_LZMA2;
 
     quint32 dictSize = header.size();
     const quint32 kMinReduceSize = (1 << 16);
@@ -2309,7 +2306,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QList<quint64> &packSizes, QList<Fo
         }
     }
 
-    info->properties.append(dict);
+    info.properties.append(dict);
     folder->folderInfos.append(info);
 
     folds.append(folder);
@@ -2325,7 +2322,7 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QList<quint64> &packSizes, QList<Fo
 
         KFilterBase *filter = flt.filterBase();
 
-        static_cast<KXzFilter *>(filter)->init(QIODevice::WriteOnly, KXzFilter::LZMA2, info->properties);
+        static_cast<KXzFilter *>(filter)->init(QIODevice::WriteOnly, KXzFilter::LZMA2, info.properties);
 
         const int ret = flt.write(header);
         if (ret != header.size()) {
@@ -3029,11 +3026,11 @@ bool K7Zip::closeArchive()
     folder->unpackSizes.clear();
     folder->unpackSizes.append(d->outData.size());
 
-    Folder::FolderInfo *info = new Folder::FolderInfo();
+    Folder::FolderInfo info;
 
-    info->numInStreams = 1;
-    info->numOutStreams = 1;
-    info->methodID = k_LZMA2;
+    info.numInStreams = 1;
+    info.numOutStreams = 1;
+    info.methodID = k_LZMA2;
 
     quint32 dictSize = d->outData.size();
 
@@ -3049,7 +3046,7 @@ bool K7Zip::closeArchive()
             break;
         }
     }
-    info->properties.append(dict);
+    info.properties.append(dict);
 
     folder->folderInfos.append(info);
     d->folders.append(folder);
@@ -3075,7 +3072,7 @@ bool K7Zip::closeArchive()
 
         KFilterBase *filter = flt.filterBase();
 
-        static_cast<KXzFilter *>(filter)->init(QIODevice::WriteOnly, KXzFilter::LZMA2, info->properties);
+        static_cast<KXzFilter *>(filter)->init(QIODevice::WriteOnly, KXzFilter::LZMA2, info.properties);
 
         const int ret = flt.write(d->outData);
         if (ret != d->outData.size()) {
