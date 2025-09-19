@@ -539,9 +539,8 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 // In some tar files we can find dir/./file => call cleanPath
                 QString path = QDir::cleanPath(name.left(pos));
                 // Ensure container directory exists, create otherwise
-                KArchiveDirectory *d = findOrCreate(path);
-                if (d) {
-                    (void)d->addEntryV2(e);
+                if (KArchiveDirectory *dir = findOrCreate(path); dir != nullptr) {
+                    (void)dir->addEntryV2(e);
                 } else {
                     delete e;
                     return false;
