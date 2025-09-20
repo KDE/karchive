@@ -116,27 +116,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "내용"
 
-#: k7zip.cpp:3088
+#: k7zip.cpp:3087
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "쓰기 오류"
 
-#: k7zip.cpp:3118
+#: k7zip.cpp:3117
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "헤더를 인코드하는 중 오류 발생"
 
-#: k7zip.cpp:3162
+#: k7zip.cpp:3161
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "선택한 파일 없음"
 
-#: k7zip.cpp:3186 k7zip.cpp:3236 k7zip.cpp:3276
+#: k7zip.cpp:3185 k7zip.cpp:3235 k7zip.cpp:3275
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "앱 오류: 7-Zip 파일에 기록하기 전에 먼저 열어야 함"
 
-#: k7zip.cpp:3192 k7zip.cpp:3282
+#: k7zip.cpp:3191 k7zip.cpp:3281
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
@@ -290,47 +290,47 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "TAR 헤더를 읽을 수 없음"
 
-#: ktar.cpp:591 ktar.cpp:606
+#: ktar.cpp:590 ktar.cpp:605
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "임시 파일에 기록할 수 없음: %1"
 
-#: ktar.cpp:652
+#: ktar.cpp:651
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
-#: ktar.cpp:754 ktar.cpp:764
+#: ktar.cpp:753 ktar.cpp:763
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "긴 링크를 기록할 수 없음: %1"
 
-#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
+#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "앱 오류: TAR 파일에 기록하기 전에 먼저 열어야 함"
 
-#: ktar.cpp:791
+#: ktar.cpp:790
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: ktar.cpp:798
+#: ktar.cpp:797
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "앱 제한: %1바이트보다 큰 파일을 추가할 수 없음"
 
-#: ktar.cpp:852
+#: ktar.cpp:851
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "헤더를 기록할 수 없음: %1"
 
-#: ktar.cpp:874 ktar.cpp:943
+#: ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "앱 오류: 기록할 수 없는 TAR 파일에 기록을 시도함"

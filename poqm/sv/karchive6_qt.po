@@ -117,27 +117,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr "innehåll"
 
-#: k7zip.cpp:3088
+#: k7zip.cpp:3087
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skrivfel"
 
-#: k7zip.cpp:3118
+#: k7zip.cpp:3117
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Misslyckades vid kodning av huvud"
 
-#: k7zip.cpp:3162
+#: k7zip.cpp:3161
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Ingen fil är för närvarande vald"
 
-#: k7zip.cpp:3186 k7zip.cpp:3236 k7zip.cpp:3276
+#: k7zip.cpp:3185 k7zip.cpp:3235 k7zip.cpp:3275
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Programfel: 7-Zip fil måste vara öppnad innan den skrivs"
 
-#: k7zip.cpp:3192 k7zip.cpp:3282
+#: k7zip.cpp:3191 k7zip.cpp:3281
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programfel: försökte skriva till en skrivskyddad 7-Zip fil"
@@ -291,47 +291,47 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Kunde inte läsa tar-huvud"
 
-#: ktar.cpp:591 ktar.cpp:606
+#: ktar.cpp:590 ktar.cpp:605
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Misslyckades skriva tillbaka tillfällig fil: %1"
 
-#: ktar.cpp:652
+#: ktar.cpp:651
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Kunde inte skriva justering: %1"
 
-#: ktar.cpp:754 ktar.cpp:764
+#: ktar.cpp:753 ktar.cpp:763
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Kunde inte skriva lång länk: %1"
 
-#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
+#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "Programfel: TAR fil måste vara öppnad innan den skrivs"
 
-#: ktar.cpp:791
+#: ktar.cpp:790
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programfel: försökte skriva till en skrivskyddad 7-Zip fil"
 
-#: ktar.cpp:798
+#: ktar.cpp:797
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Programbegränsning: kan inte lägga till en fil större än %1 byte"
 
-#: ktar.cpp:852
+#: ktar.cpp:851
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Misslyckades skriva huvud: %1"
 
-#: ktar.cpp:874 ktar.cpp:943
+#: ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Programfel: försökte skriva till en skrivskyddad TAR-fil"

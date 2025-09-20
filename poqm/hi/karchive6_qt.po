@@ -114,27 +114,27 @@ msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3088
+#: k7zip.cpp:3087
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "लिखने त्रुटि"
 
-#: k7zip.cpp:3118
+#: k7zip.cpp:3117
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "हेडर एनकोड करते समय विफल"
 
-#: k7zip.cpp:3162
+#: k7zip.cpp:3161
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "वर्तमान में कोई फ़ाइल चयनित नहीं है"
 
-#: k7zip.cpp:3186 k7zip.cpp:3236 k7zip.cpp:3276
+#: k7zip.cpp:3185 k7zip.cpp:3235 k7zip.cpp:3275
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "अनुप्रयोग त्रुटि: 7-ज़िप फ़ाइल को लिखे जाने से पहले उसे खोलना आवश्यक है"
 
-#: k7zip.cpp:3192 k7zip.cpp:3282
+#: k7zip.cpp:3191 k7zip.cpp:3281
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "अनुप्रयोग त्रुटि: गैर-लेखन योग्य 7-ज़िप फ़ाइल में लिखने का प्रयास किया गया"
@@ -288,19 +288,19 @@ msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "टार हेडर पढ़ा नहीं जा सका"
 
-#: ktar.cpp:591 ktar.cpp:606
+#: ktar.cpp:590 ktar.cpp:605
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "अस्थायी फ़ाइल वापस लिखने में विफल: %1"
 
-#: ktar.cpp:652
+#: ktar.cpp:651
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "संरेखण नहीं लिखा जा सका: %1"
 
-#: ktar.cpp:754 ktar.cpp:764
+#: ktar.cpp:753 ktar.cpp:763
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -308,29 +308,29 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "संरेखण नहीं लिखा जा सका: %1"
 
-#: ktar.cpp:785 ktar.cpp:868 ktar.cpp:937
+#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "अनुप्रयोग त्रुटि: TAR फ़ाइल को लिखे जाने से पहले खोलना आवश्यक है"
 
-#: ktar.cpp:791
+#: ktar.cpp:790
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "अनुप्रयोग त्रुटि: गैर-लेखन योग्य 7-ज़िप फ़ाइल में लिखने का प्रयास किया गया"
 
-#: ktar.cpp:798
+#: ktar.cpp:797
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "अनुप्रयोग सीमा: %1 बाइट्स से बड़ी फ़ाइल नहीं जोड़ी जा सकती"
 
-#: ktar.cpp:852
+#: ktar.cpp:851
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "शीर्षलेख लिखने में विफल: %1"
 
-#: ktar.cpp:874 ktar.cpp:943
+#: ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "अनुप्रयोग त्रुटि: गैर-लेखन योग्य TAR फ़ाइल में लिखने का प्रयास किया गया"
