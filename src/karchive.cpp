@@ -67,21 +67,17 @@ public:
         return directory->d;
     }
 
-    // Returns in containingDirectory the directory that actually contains the returned entry
-    const KArchiveEntry *entry(const QString &_name, KArchiveDirectory **containingDirectory) const
+    const KArchiveEntry *entry(const QString &_name) const
     {
         QString name = QDir::cleanPath(_name);
 
         if (name.isEmpty()) {
-            *containingDirectory = q;
             return entries.value(name);
         } else if (name == QLatin1String("/")) {
-            *containingDirectory = q;
             return q;
         }
 
         auto r = lookupPath(name);
-        *containingDirectory = r.parent;
         return r.entry;
     }
 
@@ -940,13 +936,12 @@ QStringList KArchiveDirectory::entries() const
 
 const KArchiveEntry *KArchiveDirectory::entry(const QString &_name) const
 {
-    KArchiveDirectory *dummy;
-    return d->entry(_name, &dummy);
+    return d->entry(_name);
 }
 
 const KArchiveFile *KArchiveDirectory::file(const QString &name) const
 {
-    const KArchiveEntry *e = entry(name);
+    const KArchiveEntry *e = d->entry(name);
     if (e && e->isFile()) {
         return static_cast<const KArchiveFile *>(e);
     }
