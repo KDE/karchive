@@ -567,42 +567,42 @@ KArchiveDirectory *KArchive::findOrCreate(const QString &path)
         return nullptr;
     }
 
-    return d->findOrCreateDirectory(cleanPath);
-}
-
-KArchiveDirectory *KArchivePrivate::findOrCreateDirectory(const QStringView path)
-{
-    // qCDebug(KArchiveLog) << path;
-    if (path.isEmpty() || path == QLatin1String("/") || path == QLatin1String(".")) { // root dir => found
+    if (cleanPath.isEmpty() || cleanPath == QLatin1String("/") || cleanPath == QLatin1String(".")) { // root dir => found
         // qCDebug(KArchiveLog) << "returning rootdir";
-        return q->rootDir();
+        return rootDir();
     }
     // Important note : for tar files containing absolute paths
     // (i.e. beginning with "/"), this means the leading "/" will
     // be removed (no KDirectory for it), which is exactly the way
     // the "tar" program works (though it displays a warning about it)
     // See also KArchiveDirectory::entry().
+    // qCWarning(KArchiveLog) << path << cleanPath;
+    if (cleanPath.startsWith(QLatin1Char('/'))) {
+        return d->findOrCreateDirectory(cleanPath.mid(1));
+    }
 
+    return d->findOrCreateDirectory(cleanPath);
+}
+
+KArchiveDirectory *KArchivePrivate::findOrCreateDirectory(const QStringView path)
+{
+    // qCDebug(KArchiveLog) << path;
     // Already created ? => found
-    KArchiveDirectory *existingEntryParentDirectory;
-    const KArchiveEntry *existingEntry = KArchiveDirectoryPrivate::get(q->rootDir())->entry(path.toString(), &existingEntryParentDirectory);
-    if (existingEntry) {
-        if (existingEntry->isDirectory())
-        // qCDebug(KArchiveLog) << "found it";
-        {
-            const KArchiveDirectory *dir = static_cast<const KArchiveDirectory *>(existingEntry);
-            return const_cast<KArchiveDirectory *>(dir);
+    auto rc = KArchiveDirectoryPrivate::get(q->rootDir())->lookupPath(path);
+    if (rc.entry) {
+        if (rc.entry->isDirectory()) {
+            // qCDebug(KArchiveLog) << "found it";
+            return static_cast<KArchiveDirectory *>(rc.entry);
         } else {
-            const KArchiveFile *file = static_cast<const KArchiveFile *>(existingEntry);
+            KArchiveFile *file = static_cast<KArchiveFile *>(rc.entry);
             if (file->size() > 0) {
                 qCWarning(KArchiveLog) << path << "is normal file, but there are file paths in the archive assuming it is a directory, bailing out";
                 return nullptr;
             }
 
             qCDebug(KArchiveLog) << path << " is an empty file, assuming it is actually a directory and replacing";
-            KArchiveEntry *myEntry = const_cast<KArchiveEntry *>(existingEntry);
-            if (existingEntryParentDirectory->removeEntryV2(myEntry)) {
-                delete myEntry;
+            if (rc.parent->removeEntryV2(rc.entry)) {
+                delete rc.entry;
             } else {
                 qCDebug(KArchiveLog) << path << " is an empty file, but failed to remove it";
                 return nullptr;
