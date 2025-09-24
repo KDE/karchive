@@ -15,37 +15,37 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: k7zip.cpp:2550
+#: k7zip.cpp:2540
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Не удалось получить базовое устройство"
 
-#: k7zip.cpp:2558
+#: k7zip.cpp:2548
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Не удалось выполнить чтение заголовка"
 
-#: k7zip.cpp:2564
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Не удалось выполнить проверку подписи"
 
-#: k7zip.cpp:2587
+#: k7zip.cpp:2577
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Неправильная контрольная циклическая сумма"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2586
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Размер следующего заголовка слишком велик"
 
-#: k7zip.cpp:2601
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Размер следующего заголовка меньше нуля"
 
-#: k7zip.cpp:2612
+#: k7zip.cpp:2602
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -53,63 +53,63 @@ msgstr ""
 "Не удалось выполнить чтение размера следующего заголовка; должно быть "
 "прочитано %1, а фактически прочитано %2"
 
-#: k7zip.cpp:2625
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Неправильная контрольная циклическая сумма следующего заголовка"
 
-#: k7zip.cpp:2633
+#: k7zip.cpp:2623
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Ошибка в заголовке"
 
-#: k7zip.cpp:2651 k7zip.cpp:2684
+#: k7zip.cpp:2641 k7zip.cpp:2674
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Для этого архива требуется пароль"
 
-#: k7zip.cpp:2657
+#: k7zip.cpp:2647
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Неверный тип заголовка"
 
-#: k7zip.cpp:2667 k7zip.cpp:2673
+#: k7zip.cpp:2657 k7zip.cpp:2663
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Не реализовано"
 
-#: k7zip.cpp:2679
+#: k7zip.cpp:2669
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Ошибка при чтении данных основных потоков"
 
-#: k7zip.cpp:2703
+#: k7zip.cpp:2693
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Ошибка при чтении заголовка"
 
-#: k7zip.cpp:2711 k7zip.cpp:2720
+#: k7zip.cpp:2701 k7zip.cpp:2710
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2777
+#: k7zip.cpp:2767
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Ошибка чтения времени изменения"
 
-#: k7zip.cpp:2823
+#: k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Ошибка чтения MTime"
 
-#: k7zip.cpp:2830
+#: k7zip.cpp:2820
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Некорректный"
 
-#: k7zip.cpp:2852
+#: k7zip.cpp:2842
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -117,32 +117,32 @@ msgstr ""
 "Не удалось выполнить чтение размера (checkRecordsSize: %1, d->pos - ppp: %2, "
 "size: %3)"
 
-#: k7zip.cpp:2892
+#: k7zip.cpp:2882
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "содержимое"
 
-#: k7zip.cpp:3087
+#: k7zip.cpp:3077
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Ошибка записи"
 
-#: k7zip.cpp:3117
+#: k7zip.cpp:3107
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Не удалось закодировать заголовок"
 
-#: k7zip.cpp:3161
+#: k7zip.cpp:3151
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Файл не выбран"
 
-#: k7zip.cpp:3185 k7zip.cpp:3235 k7zip.cpp:3275
+#: k7zip.cpp:3175 k7zip.cpp:3225 k7zip.cpp:3265
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Ошибка приложения: перед записью необходимо открыть файл 7-Zip"
 
-#: k7zip.cpp:3191 k7zip.cpp:3281
+#: k7zip.cpp:3181 k7zip.cpp:3271
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Ошибка приложения: попытка записи в недоступный для записи файл 7-Zip"
