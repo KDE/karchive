@@ -68,6 +68,8 @@ private Q_SLOTS:
     void testTarLongNonASCIINames();
     void testTarShortNonASCIINames();
     void testTarGzHugeMemoryUsage();
+    void testTarDeepDirHierarchy();
+    void benchmarkTarDeepDirHierarchy();
 
     void testCreateZip();
     void testCreateZipError();
@@ -96,6 +98,8 @@ private Q_SLOTS:
     void testZip64ExtraZip64SizeFirst();
     void testZip64ExtraZip64Offset();
     void testZipOssFuzzIssue433303801();
+    void testZipDeepDirHierarchy();
+    void benchmarkZipDeepDirHierarchy();
 
     void testRcc();
 

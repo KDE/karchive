@@ -935,6 +935,36 @@ void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
     QSKIP("Test data is in bz2 format and karchive is built without bzip2 format");
 #endif
 }
+
+void KArchiveTest::testTarDeepDirHierarchy()
+{
+#if HAVE_XZ_SUPPORT
+    const QString fileName = QFINDTESTDATA("data/tar_deep_hierarchy.tar.xz");
+    QVERIFY(!fileName.isEmpty());
+
+    KTar tar(fileName);
+    QVERIFY(tar.open(QIODevice::ReadOnly));
+    traverseArchive(tar.directory());
+#else
+    QSKIP("Test data is in xz format and karchive is built without xz format");
+#endif
+}
+
+void KArchiveTest::benchmarkTarDeepDirHierarchy()
+{
+#if HAVE_XZ_SUPPORT
+    const QString fileName = QFINDTESTDATA("data/tar_deep_hierarchy.tar.xz");
+    QVERIFY(!fileName.isEmpty());
+
+    QBENCHMARK {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::ReadOnly));
+    }
+#else
+    QSKIP("Test data is in xz format and karchive is built without xz format");
+#endif
+}
+
 ///
 
 static const char s_zipFileName[] = "karchivetest.zip";
@@ -1572,6 +1602,27 @@ void KArchiveTest::testZipOssFuzzIssue433303801()
     KZip zip(fileName);
     QVERIFY(zip.open(QIODevice::ReadOnly));
     traverseArchive(zip.directory());
+}
+
+void KArchiveTest::testZipDeepDirHierarchy()
+{
+    const QString fileName = QFINDTESTDATA("data/zip_deep_hierarchy.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    KZip zip(fileName);
+    QVERIFY(zip.open(QIODevice::ReadOnly));
+    traverseArchive(zip.directory());
+}
+
+void KArchiveTest::benchmarkZipDeepDirHierarchy()
+{
+    const QString fileName = QFINDTESTDATA("data/zip_deep_hierarchy.zip");
+    QVERIFY(!fileName.isEmpty());
+
+    QBENCHMARK {
+        KZip zip(fileName);
+        QVERIFY(zip.open(QIODevice::ReadOnly));
+    }
 }
 
 void KArchiveTest::testRcc()
