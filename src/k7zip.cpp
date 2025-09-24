@@ -1775,11 +1775,15 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             return inflatedData;
         }
 
-        quint64 unpackSize64 = folder->getUnpackSize();
-        size_t unpackSize = (size_t)unpackSize64;
+        const quint64 unpackSize64 = folder->getUnpackSize();
+        const size_t unpackSize = (size_t)unpackSize64;
         if (unpackSize != unpackSize64) {
             qCDebug(KArchiveLog) << "unsupported";
             return inflatedData;
+        }
+
+        if (unpackSize == 0) {
+            continue;
         }
 
         // Find main coder
