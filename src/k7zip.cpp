@@ -2729,8 +2729,8 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
     int numEmptyStreams = 0;
 
     for (;;) {
-        quint64 type = d->readByte();
-        if (type == kEnd) {
+        const int type = d->readByte();
+        if (type == kEnd || type == -1) {
             break;
         }
 
@@ -2741,7 +2741,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         bool addPropIdToList = true;
         bool isKnownType = true;
 
-        if (type > ((quint32)1 << 30)) {
+        if (type > (1 << 30)) {
             isKnownType = false;
         } else {
             switch (type) {
