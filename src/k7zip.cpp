@@ -1863,7 +1863,11 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             }
 
             const Folder::FolderInfo &coder = folder->folderInfos[coderIndex];
-            deflatedData = datas[seqInStreams[j]];
+            const int seqInStream = seqInStreams[j];
+            if (seqInStream >= datas.size()) {
+                return {};
+            }
+            deflatedData = datas[seqInStream];
 
             KFilterBase *filter = getFilter(folder, &coder, coderIndex, deflatedData, inflatedDatas);
             if (coder.methodID == k_BCJ2) {

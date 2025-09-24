@@ -1923,6 +1923,7 @@ void KArchiveTest::test7ZipOssFuzzIssues_data()
     QTest::newRow("testcase_6077171694370816") << "data/ossfuzz_testcase_6077171694370816.7z";
     QTest::newRow("testcase_6096742417498112") << "data/ossfuzz_testcase_6096742417498112.7z";
     QTest::newRow("testcase_6213340184772608") << "data/ossfuzz_testcase_6213340184772608.7z";
+    QTest::newRow("testcase_6248361801089024") << "data/ossfuzz_testcase_6248361801089024.7z";
     QTest::newRow("testcase_6366650283917312") << "data/ossfuzz_testcase_6366650283917312.7z";
     QTest::newRow("testcase_6593198198947840") << "data/ossfuzz_testcase_6593198198947840.7z";
     QTest::newRow("testcase_6653406484955136") << "data/ossfuzz_testcase_6653406484955136.7z";
