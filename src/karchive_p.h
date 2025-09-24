@@ -47,7 +47,7 @@ public:
 
     static QDateTime time_tToDateTime(uint seconds);
 
-    KArchiveDirectory *findOrCreate(const QStringView path, int recursionCounter);
+    KArchiveDirectory *findOrCreateDirectory(const QStringView path);
 
     KArchive *q = nullptr;
     KArchiveDirectory *rootDir = nullptr;

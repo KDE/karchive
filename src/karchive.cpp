@@ -528,19 +528,25 @@ KArchiveDirectory *KArchive::rootDir()
 
 KArchiveDirectory *KArchive::findOrCreate(const QString &path)
 {
-    return d->findOrCreate(path, 0 /*recursionCounter*/);
-}
-
-KArchiveDirectory *KArchivePrivate::findOrCreate(const QStringView path, int recursionCounter)
-{
-    // Check we're not in a path that is ultra deep, this is most probably fine since PATH_MAX on Linux
-    // is defined as 4096, so even on /a/a/a/a/a/a 2500 recursions puts us over that limit
-    // an ultra deep recursion will make us crash due to not enough stack. Tests show that 1MB stack
+    auto cleanPath = QDir::cleanPath(path);
+    // There is hardly any practical path length limit on Linux, as PATH_MAX only limits the
+    // *relative* path name.
+    // An ultra deep recursion will make us crash due to not enough stack. Tests show that 1MB stack
     // (default on Linux seems to be 8MB) gives us up to around 4000 recursions
-    if (recursionCounter > 2500) {
+    if (auto len = cleanPath.size(); len > 2500 * 255) {
+        qCWarning(KArchiveLog) << "path length limit exceeded, bailing out";
+        return nullptr;
+    }
+    if (auto count = cleanPath.count(QLatin1Char('/')); count > 2500) {
         qCWarning(KArchiveLog) << "path recursion limit exceeded, bailing out";
         return nullptr;
     }
+
+    return d->findOrCreateDirectory(cleanPath);
+}
+
+KArchiveDirectory *KArchivePrivate::findOrCreateDirectory(const QStringView path)
+{
     // qCDebug(KArchiveLog) << path;
     if (path.isEmpty() || path == QLatin1String("/") || path == QLatin1String(".")) { // root dir => found
         // qCDebug(KArchiveLog) << "returning rootdir";
@@ -589,7 +595,7 @@ KArchiveDirectory *KArchivePrivate::findOrCreate(const QStringView path, int rec
     } else {
         QStringView left = path.left(pos);
         dirname = path.mid(pos + 1);
-        parent = findOrCreate(left, recursionCounter + 1); // recursive call... until we find an existing dir.
+        parent = findOrCreateDirectory(left); // recursive call... until we find an existing dir.
     }
 
     if (!parent) {
