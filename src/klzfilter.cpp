@@ -26,7 +26,7 @@ static const uint32_t minDictSize = 1 << 12; // 4 KiB
 static const uint32_t maxDictSize = 1 << 29; // 512 MiB
 #endif
 
-// Defaut dictionary size (8 MiB)
+// Default dictionary size (8 MiB)
 static const uint8_t defaultEncodedDictSize = 23;
 static const uint32_t defaultDecodedDictSize = 1 << 23;
 

@@ -12,7 +12,7 @@
 
 #include <QSaveFile>
 
-// Documentation says that QByteArray should be able to hold up to 2^63 on 64 bit platfoms
+// Documentation says that QByteArray should be able to hold up to 2^63 on 64 bit platforms
 // but practice says it aborts with something like 2314885530818453536, so go with MAX_INT for now
 static constexpr int kMaxQByteArraySize = std::numeric_limits<int>::max() - 32;
 

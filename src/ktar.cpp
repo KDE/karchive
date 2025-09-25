@@ -124,7 +124,7 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
             // lzma compressed tar file (with possibly invalid file name), ask for xz filter
             d->mimetype = QString::fromLatin1(application_lzma);
         } else if (mime.inherits(QStringLiteral("application/x-lzip-compressed-tar")) || mime.inherits(QString::fromLatin1(application_lzip))) {
-            // lzip compresssed tar file (with possibly invalid file name), ask for lzip filter
+            // lzip compressed tar file (with possibly invalid file name), ask for lzip filter
             d->mimetype = QString::fromLatin1(application_lzip);
         } else if (mime.inherits(QStringLiteral("application/x-xz-compressed-tar")) || mime.inherits(QString::fromLatin1(application_xz))) {
             // xz compressed tar file (with possibly invalid name), ask for xz filter
