@@ -841,6 +841,9 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
     int numPackedStreams = numInStreamsTotal - numBindPairs;
     if (numPackedStreams > 1) {
         for (int i = 0; i < numPackedStreams; ++i) {
+            if (pos >= end) {
+                return nullptr;
+            }
             folder->packedStreams.append(readNumber());
         }
     } else {
@@ -907,6 +910,9 @@ bool K7Zip::K7ZipPrivate::readPackInfo()
     }
 
     for (quint64 i = 0; i < numPackStreams; ++i) {
+        if (pos >= end) {
+            return false;
+        }
         packSizes.append(readNumber());
     }
 
