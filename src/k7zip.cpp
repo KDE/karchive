@@ -923,10 +923,9 @@ bool K7Zip::K7ZipPrivate::readPackInfo()
     }
 
     if (packCRCs.isEmpty()) {
-        for (quint64 i = 0; i < numPackStreams; ++i) {
-            packCRCsDefined.append(false);
-            packCRCs.append(0);
-        }
+        Q_ASSERT(packCRCsDefined.isEmpty());
+        packCRCsDefined.resize(numPackStreams, false);
+        packCRCs.resize(numPackStreams, 0);
     }
     return true;
 }
