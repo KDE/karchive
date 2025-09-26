@@ -911,8 +911,8 @@ bool K7Zip::K7ZipPrivate::readPackInfo()
     }
 
     for (;;) {
-        int type = readByte();
-        if (type == kEnd) {
+        const int type = readByte();
+        if (type == kEnd || type == -1) {
             break;
         }
         if (type == kCRC) {
