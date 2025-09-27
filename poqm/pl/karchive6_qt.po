@@ -14,37 +14,37 @@ msgstr ""
 "X-Generator: Lokalize 25.08.0\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2549
+#: k7zip.cpp:2554
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Nie udało się pobrać podległego urządzenia"
 
-#: k7zip.cpp:2557
+#: k7zip.cpp:2562
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Nie udało się odczytać nagłówka"
 
-#: k7zip.cpp:2563
+#: k7zip.cpp:2568
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Nie udało sprawdzić podpisów"
 
-#: k7zip.cpp:2586
+#: k7zip.cpp:2591
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Zły CRC"
 
-#: k7zip.cpp:2595
+#: k7zip.cpp:2600
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Rozmiar następnego nagłówka jest za duży"
 
-#: k7zip.cpp:2600
+#: k7zip.cpp:2605
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Rozmiar następnego nagłówka jest mniejszy od zera"
 
-#: k7zip.cpp:2611
+#: k7zip.cpp:2616
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -52,63 +52,63 @@ msgstr ""
 "Nie udało się odczytać rozmiaru następnego nagłówka; powinno się odczytać "
 "%1, odczytano %2 "
 
-#: k7zip.cpp:2624
+#: k7zip.cpp:2629
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Zły CRC następnego nagłówka"
 
-#: k7zip.cpp:2632
+#: k7zip.cpp:2637
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Błąd w nagłówku"
 
-#: k7zip.cpp:2650 k7zip.cpp:2683
+#: k7zip.cpp:2655 k7zip.cpp:2688
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "To archiwum wymaga hasła"
 
-#: k7zip.cpp:2656
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Zły rodzaj nagłówka"
 
-#: k7zip.cpp:2666 k7zip.cpp:2672
+#: k7zip.cpp:2671 k7zip.cpp:2677
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Niezaimplementowane"
 
-#: k7zip.cpp:2678
+#: k7zip.cpp:2683
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Błąd podczas odczytywania danych o głównych strumieniach"
 
-#: k7zip.cpp:2702
+#: k7zip.cpp:2707
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Błąd podczas odczytywania nagłówka"
 
-#: k7zip.cpp:2710 k7zip.cpp:2719
+#: k7zip.cpp:2715 k7zip.cpp:2724
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Archiwum zawiera %1 plików i jest to więcej niż może obsłużyć (%2)"
 
-#: k7zip.cpp:2776
+#: k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Błąd przy odczycie czasu zmiany"
 
-#: k7zip.cpp:2822
+#: k7zip.cpp:2827
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Błąd odczytu MTime"
 
-#: k7zip.cpp:2829
+#: k7zip.cpp:2834
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Nieprawidłowy"
 
-#: k7zip.cpp:2851
+#: k7zip.cpp:2856
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -116,34 +116,34 @@ msgstr ""
 "Nie udało się odczytać rozmiaru (checkRecordsSize: %1, d->pos - ppp: %2, "
 "rozmiar: %3)"
 
-#: k7zip.cpp:2891
+#: k7zip.cpp:2896
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "treść"
 
-#: k7zip.cpp:3086
+#: k7zip.cpp:3091
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Błąd zapisu"
 
-#: k7zip.cpp:3116
+#: k7zip.cpp:3121
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Nie udało się zakodować nagłówka"
 
-#: k7zip.cpp:3160
+#: k7zip.cpp:3165
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Obecnie nie zaznaczono żadnego pliku"
 
-#: k7zip.cpp:3184 k7zip.cpp:3234 k7zip.cpp:3274
+#: k7zip.cpp:3189 k7zip.cpp:3239 k7zip.cpp:3279
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Błąd aplikacji: Plik 7-Zip musi być otwarty zanim będzie można do niego "
 "zapisywać"
 
-#: k7zip.cpp:3190 k7zip.cpp:3280
+#: k7zip.cpp:3195 k7zip.cpp:3285
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
@@ -185,41 +185,41 @@ msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "Nieprawidłowe odniesienie do położenia długich nazw plików"
 
-#: karchive.cpp:157
+#: karchive.cpp:178
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
 msgstr "Nie podano nazwy pliku lub urządzenia"
 
-#: karchive.cpp:162
+#: karchive.cpp:183
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
 msgstr "Nie udało się otworzyć urządzenia w trybie %1"
 
-#: karchive.cpp:189
+#: karchive.cpp:210
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
 msgstr "Nie udało się utworzyć QSaveFile dla %1: %2"
 
-#: karchive.cpp:208
+#: karchive.cpp:229
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
 msgstr "Nieobsługiwany tryb %1"
 
-#: karchive.cpp:217
+#: karchive.cpp:238
 msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "Archiwum zostało już zamknięte"
 
-#: karchive.cpp:266
+#: karchive.cpp:287
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 nie istnieje lub nie jest zwykłym plikiem."
 
-#: karchive.cpp:272
+#: karchive.cpp:293
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
@@ -228,19 +228,19 @@ msgstr ""
 "Nie udało się uzyskać dostępu do pliku %1, aby dodać go do archiwum. Błąd "
 "to: %2"
 
-#: karchive.cpp:318
+#: karchive.cpp:339
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "Nie udało się otworzyć pliku %1: %2"
 
-#: karchive.cpp:352
+#: karchive.cpp:373
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Katalog %1 nie istnieje"
 
-#: karchive.cpp:426
+#: karchive.cpp:447
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
