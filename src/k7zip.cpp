@@ -1039,7 +1039,7 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
         if (type == kCRC || type == kSize) {
             break;
         }
-        if (type == kEnd) {
+        if (type == kEnd || type == -1) {
             break;
         }
         skipData(readNumber());
@@ -1103,7 +1103,7 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
                     }
                 }
             }
-        } else if (type == kEnd) {
+        } else if (type == kEnd || type == -1) {
             if (digestsDefined.isEmpty()) {
                 for (int i = 0; i < numDigestsTotal; i++) {
                     digestsDefined.append(false);
