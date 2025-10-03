@@ -93,7 +93,10 @@ bool KXzFilter::init(int mode, Flag flag, const QList<unsigned char> &properties
             filters[1].id = LZMA_VLI_UNKNOWN;
             filters[1].options = nullptr;
 
-            Q_ASSERT(properties.size() == 5);
+            if (properties.size() != 5) {
+                qCWarning(KArchiveLog) << "KXzFilter::init: LZMA unexpected number of properties" << properties.size();
+                return false;
+            }
             unsigned char props[5];
             for (int i = 0; i < properties.size(); ++i) {
                 props[i] = properties[i];
