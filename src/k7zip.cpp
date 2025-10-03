@@ -1894,7 +1894,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
             QByteArray outBuffer;
             // reserve memory
-            outBuffer.resize(unpackSize);
+            outBuffer.resize(std::min(unpackSize, static_cast<size_t>(kMaxQByteArraySize)));
 
             KFilterBase::Result result = KFilterBase::Ok;
             QByteArray inflatedDataTmp;
