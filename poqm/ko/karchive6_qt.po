@@ -263,74 +263,74 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "%1 리소스를 %2 접두사 아래에 등록할 수 없음"
 
-#: ktar.cpp:347
+#: ktar.cpp:349
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "%1 파일이 없음"
 
-#: ktar.cpp:354
+#: ktar.cpp:356
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "%1 압축 파일이 손상됨"
 
-#: ktar.cpp:358
+#: ktar.cpp:360
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "디스크가 가득 참"
 
-#: ktar.cpp:392
+#: ktar.cpp:394
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "기반 장치를 가져올 수 없음"
 
-#: ktar.cpp:407
+#: ktar.cpp:409
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "TAR 헤더를 읽을 수 없음"
 
-#: ktar.cpp:590 ktar.cpp:605
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "임시 파일에 기록할 수 없음: %1"
 
-#: ktar.cpp:651
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "정렬을 기록할 수 없음: %1"
 
-#: ktar.cpp:753 ktar.cpp:763
+#: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "긴 링크를 기록할 수 없음: %1"
 
-#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "앱 오류: TAR 파일에 기록하기 전에 먼저 열어야 함"
 
-#: ktar.cpp:790
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: ktar.cpp:797
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "앱 제한: %1바이트보다 큰 파일을 추가할 수 없음"
 
-#: ktar.cpp:851
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "헤더를 기록할 수 없음: %1"
 
-#: ktar.cpp:873 ktar.cpp:942
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "앱 오류: 기록할 수 없는 TAR 파일에 기록을 시도함"

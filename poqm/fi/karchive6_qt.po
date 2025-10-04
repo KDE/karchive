@@ -268,75 +268,75 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Resurssin %1 rekisteröinti etuliitteelle %2 epäonnistui"
 
-#: ktar.cpp:347
+#: ktar.cpp:349
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Tiedostoa %1 ei ole olemassa"
 
-#: ktar.cpp:354
+#: ktar.cpp:356
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Arkisto %1 on vioittunut"
 
-#: ktar.cpp:358
+#: ktar.cpp:360
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Levy täynnä"
 
-#: ktar.cpp:392
+#: ktar.cpp:394
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Alla olevaa laitetta ei saatu"
 
-#: ktar.cpp:407
+#: ktar.cpp:409
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "tar-otsaketta ei voitu lukea"
 
-#: ktar.cpp:590 ktar.cpp:605
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Väliaikaistiedoston kirjoittaminen takaisin epäonnistui: %1"
 
-#: ktar.cpp:651
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Tasausta ei voitu kirjoittaa: %1"
 
-#: ktar.cpp:753 ktar.cpp:763
+#: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Ei voitu kirjoittaa pitkää linkkiä: %1"
 
-#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Sovellusvirhe: tar-tiedoston tulee olla auki, ennen kuin siihen kirjoitetaan"
 
-#: ktar.cpp:790
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Sovellusvirhe: yritettiin kirjoittaa ei-kirjoitettavaa 7-Zip-tiedostoa"
 
-#: ktar.cpp:797
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Sovellusrajoitus: yli %1 tavun tiedostoa ei voi lisätä"
 
-#: ktar.cpp:851
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Otsakkeen kirjoittaminen epäonnistui: %1"
 
-#: ktar.cpp:873 ktar.cpp:942
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Sovellusvirhe: yritettiin kirjoittaa ei-kirjoitettavaa tar-tiedostoa"

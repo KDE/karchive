@@ -272,47 +272,47 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Die Ressource %1 kann unter dem Präfix %2 nicht registriert werden"
 
-#: ktar.cpp:347
+#: ktar.cpp:349
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Die Datei %1 existiert nicht"
 
-#: ktar.cpp:354
+#: ktar.cpp:356
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Das Archiv %1 ist beschädigt"
 
-#: ktar.cpp:358
+#: ktar.cpp:360
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Medium ist voll"
 
-#: ktar.cpp:392
+#: ktar.cpp:394
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
-#: ktar.cpp:407
+#: ktar.cpp:409
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "tar-Vorspann kann nicht gelesen werden"
 
-#: ktar.cpp:590 ktar.cpp:605
+#: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr ""
 "Die temporäre Datei kann nicht in die Orginaldatei geschrieben werden: %1"
 
-#: ktar.cpp:651
+#: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Die Ausrichtung kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:753 ktar.cpp:763
+#: ktar.cpp:755 ktar.cpp:765
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -320,20 +320,20 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Die Ausrichtung kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:784 ktar.cpp:867 ktar.cpp:936
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Anwendungsfehler: Die TAR-Datei muss vor dem Hineinschreiben geöffnet sein"
 
-#: ktar.cpp:790
+#: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Anwendungsfehler: In eine nicht beschreibbare 7-Zip-Datei kann nicht "
 "geschrieben werden"
 
-#: ktar.cpp:797
+#: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
@@ -341,13 +341,13 @@ msgstr ""
 "Anwendungsbegrenzung: Dateien größer als %1 Bytes können nicht hinzugefügt "
 "werden"
 
-#: ktar.cpp:851
+#: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Der Vorspann kann nicht geschrieben werden: %1"
 
-#: ktar.cpp:873 ktar.cpp:942
+#: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""
