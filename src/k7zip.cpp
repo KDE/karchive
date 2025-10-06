@@ -816,9 +816,13 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
         // if (There Are Attributes)
         if ((coderInfo & 0x20) != 0) {
-            int propertiesSize = readNumber();
+            const int propertiesSize = readNumber();
             for (int i = 0; i < propertiesSize; ++i) {
-                info.properties.append(readByte());
+                const int property = readByte();
+                if (property == -1) {
+                    return nullptr;
+                }
+                info.properties.append(property);
             }
         }
 
