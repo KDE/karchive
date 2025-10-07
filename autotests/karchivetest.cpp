@@ -1554,7 +1554,6 @@ void KArchiveTest::testZip64ExtraZip64SizeFirst()
 
     QBuffer zipBuffer(&zipData);
     KZip zip(&zipBuffer);
-    QEXPECT_FAIL("", "Zip64 extra at front incorrectly parsed", Abort);
     QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
 
     QCOMPARE(zip.directory()->entries().size(), 2);
