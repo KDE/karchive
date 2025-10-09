@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-10 23:54+0200\n"
+"PO-Revision-Date: 2025-10-09 00:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -88,7 +88,7 @@ msgstr "헤더를 읽는 중 오류 발생"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "압축 파일에서 지원하는 것(%2)보다 더 많은 파일이 포함되어 있음(%1개)"
 
 #: k7zip.cpp:2785
 msgctxt "K7Zip|"
