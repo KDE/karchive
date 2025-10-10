@@ -404,7 +404,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
         QString symlink;
 
         // Read header
-        qint64 n = d->readHeader(buffer, name, symlink);
+        const qint64 n = d->readHeader(buffer, name, symlink);
         if (n < 0) {
             setErrorString(tr("Could not read tar header"));
             return false;
@@ -420,13 +420,13 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 name.truncate(name.length() - 1);
             }
 
-            QByteArray prefix = QByteArray(buffer + 0x159, 155);
+            const QByteArray prefix = QByteArray(buffer + 0x159, 155);
             if (prefix[0] != '\0') {
                 name = (QString::fromLatin1(prefix.constData()) + QLatin1Char('/') + name);
             }
 
-            int pos = name.lastIndexOf(QLatin1Char('/'));
-            QString nm = (pos == -1) ? name : name.mid(pos + 1);
+            const int pos = name.lastIndexOf(QLatin1Char('/'));
+            const QString nm = (pos == -1) ? name : name.mid(pos + 1);
 
             // read access
             buffer[0x6b] = 0;
@@ -452,10 +452,10 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             while (*p == ' ') {
                 ++p;
             }
-            uint time = strtol(p, &dummy, 8);
+            const uint time = strtol(p, &dummy, 8);
 
             // read type flag
-            char typeflag = buffer[0x9c];
+            const char typeflag = buffer[0x9c];
             // '0' for files, '1' hard link, '2' symlink, '5' for directory
             // (and 'L' for longlink fileNames, 'K' for longlink symlink targets)
             // 'D' for GNU tar extension DUMPDIR, 'x' for Extended header referring
@@ -489,7 +489,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 e = new KArchiveDirectory(this, nm, access, KArchivePrivate::time_tToDateTime(time), user, group, symlink);
             } else {
                 // read size
-                QByteArray sizeBuffer(buffer + 0x7c, 12);
+                const QByteArray sizeBuffer(buffer + 0x7c, 12);
                 qint64 size = sizeBuffer.trimmed().toLongLong(nullptr, 8 /*octal*/);
                 if (size < 0) {
                     qWarning() << "Tar file has negative size, resetting to 0";
@@ -513,8 +513,8 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 }
 
                 // Skip contents + align bytes
-                qint64 rest = size % 0x200;
-                qint64 skip = size + (rest ? 0x200 - rest : 0);
+                const qint64 rest = size % 0x200;
+                const qint64 skip = size + (rest ? 0x200 - rest : 0);
                 // qCDebug(KArchiveLog) << "pos()=" << dev->pos() << "rest=" << rest << "skipping" << skip;
                 if (!dev->seek(dev->pos() + skip)) {
                     // qCWarning(KArchiveLog) << "skipping" << skip << "failed";
@@ -539,7 +539,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 }
             } else {
                 // In some tar files we can find dir/./file => call cleanPath
-                QString path = QDir::cleanPath(name.left(pos));
+                const QString path = QDir::cleanPath(name.left(pos));
                 // Ensure container directory exists, create otherwise
                 if (KArchiveDirectory *dir = findOrCreate(path); dir != nullptr) {
                     (void)dir->addEntryV2(e);
