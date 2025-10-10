@@ -516,7 +516,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 const qint64 rest = size % 0x200;
                 const qint64 skip = size + (rest ? 0x200 - rest : 0);
                 // qCDebug(KArchiveLog) << "pos()=" << dev->pos() << "rest=" << rest << "skipping" << skip;
-                if (!dev->seek(dev->pos() + skip)) {
+                if (!dev->skip(skip)) {
                     // qCWarning(KArchiveLog) << "skipping" << skip << "failed";
                 }
             }
