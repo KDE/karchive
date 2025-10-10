@@ -246,7 +246,7 @@ bool KTar::KTarPrivate::readLonglink(char *buffer, QByteArray &longlink)
     QIODevice *dev = q->device();
     // read size of longlink from size field in header
     // size is in bytes including the trailing null (which we ignore)
-    qint64 size = QByteArray(buffer + 0x7c, 12).trimmed().toLongLong(nullptr, 8 /*octal*/);
+    qint64 size = QByteArrayView(buffer + 0x7c, 12).trimmed().toLongLong(nullptr, 8 /*octal*/);
 
     size--; // ignore trailing null
     if (size > kMaxQByteArraySize) {
@@ -313,11 +313,11 @@ qint64 KTar::KTarPrivate::readHeader(char *buffer, QString &name, QString &symli
     // there are names that are exactly 100 bytes long
     // and neither longlink nor \0 terminated (bug:101472)
     {
-        name = QFile::decodeName(QByteArray(buffer, qstrnlen(buffer, 100)));
+        name = QFile::decodeName(QByteArray::fromRawData(buffer, qstrnlen(buffer, 100)));
     }
     if (symlink.isEmpty()) {
         char *symlinkBuffer = buffer + 0x9d /*?*/;
-        symlink = QFile::decodeName(QByteArray(symlinkBuffer, qstrnlen(symlinkBuffer, 100)));
+        symlink = QFile::decodeName(QByteArray::fromRawData(symlinkBuffer, qstrnlen(symlinkBuffer, 100)));
     }
 
     return 0x200;
@@ -489,7 +489,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 e = new KArchiveDirectory(this, nm, access, KArchivePrivate::time_tToDateTime(time), user, group, symlink);
             } else {
                 // read size
-                const QByteArray sizeBuffer(buffer + 0x7c, 12);
+                const QByteArrayView sizeBuffer(buffer + 0x7c, 12);
                 qint64 size = sizeBuffer.trimmed().toLongLong(nullptr, 8 /*octal*/);
                 if (size < 0) {
                     qWarning() << "Tar file has negative size, resetting to 0";
