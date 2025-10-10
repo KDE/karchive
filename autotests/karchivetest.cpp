@@ -620,6 +620,7 @@ void KArchiveTest::testTarCopyTo()
 void KArchiveTest::testTarReadWrite()
 {
     QFETCH(QString, fileName);
+    QFETCH(QString, mimeType);
 
     // testCreateTar must have been run first.
     {
@@ -627,6 +628,17 @@ void KArchiveTest::testTarReadWrite()
         QVERIFY(tar.open(QIODevice::ReadWrite));
 
         testReadWrite(&tar);
+        testFileData(&tar);
+
+        QVERIFY(tar.close());
+    }
+
+    {
+        // Now test with KCompressionDevice
+        KCompressionDevice kd(std::make_unique<QFile>(fileName), KCompressionDevice::compressionTypeForMimeType(mimeType));
+        KTar tar(&kd);
+        QVERIFY(tar.open(QIODevice::ReadOnly));
+
         testFileData(&tar);
 
         QVERIFY(tar.close());
