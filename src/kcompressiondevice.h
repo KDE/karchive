@@ -106,7 +106,7 @@ public:
      */
     CompressionType compressionType() const;
 
-    bool open(QIODevice::OpenMode mode) override;
+    [[nodiscard]] bool open(QIODevice::OpenMode mode) override;
 
     void close() override;
 

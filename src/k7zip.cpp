@@ -2334,7 +2334,10 @@ QByteArray K7Zip::K7ZipPrivate::encodeStream(QList<quint64> &packSizes, QList<Fo
         QBuffer inBuffer(&enc);
 
         KCompressionDevice flt(&inBuffer, false, KCompressionDevice::Xz);
-        flt.open(QIODevice::WriteOnly);
+        if (!flt.open(QIODevice::WriteOnly)) {
+            qCDebug(KArchiveLog) << "failed to open compression device for writing";
+            return encodedData;
+        }
 
         KFilterBase *filter = flt.filterBase();
 

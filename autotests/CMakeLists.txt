@@ -1,5 +1,4 @@
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-
 include(ECMAddTests)
 
 find_package(Qt6Test ${REQUIRED_QT_VERSION} CONFIG QUIET)
@@ -22,12 +21,15 @@ target_link_libraries(kfiltertest ZLIB::ZLIB)
 
 ecm_add_test(
     klimitediodevicetest.cpp
-    ../src/klimitediodevice.cpp
+	../src/klimitediodevice.cpp
     TEST_NAME klimitediodevicetest
-    LINK_LIBRARIES Qt6::Test
+	LINK_LIBRARIES Qt6::Test
 )
+
 target_include_directories(klimitediodevicetest
-    PRIVATE $<TARGET_PROPERTY:KF6Archive,INTERFACE_INCLUDE_DIRECTORIES>)
+	PRIVATE $<TARGET_PROPERTY:KF6Archive,INTERFACE_INCLUDE_DIRECTORIES>)
+
+target_compile_definitions(klimitediodevicetest PRIVATE TEST_MODE)
 
 ########## kcompressiondevicetest ##############
 function(check_and_create_tar help_option program_name compression_option extension)

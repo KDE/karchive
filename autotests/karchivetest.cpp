@@ -919,7 +919,7 @@ void KArchiveTest::testTarGzHugeMemoryUsage()
     QVERIFY(!filePath.isEmpty());
 
     KTar tar(filePath);
-    tar.open(QIODevice::ReadOnly);
+    QVERIFY(!tar.open(QIODevice::ReadOnly));
 }
 
 void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()

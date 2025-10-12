@@ -34,7 +34,7 @@ public:
 
     bool isSequential() const override;
 
-    bool open(QIODevice::OpenMode m) override;
+    [[nodiscard]] bool open(QIODevice::OpenMode m) override;
     void close() override;
 
     qint64 size() const override;

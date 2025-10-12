@@ -72,7 +72,7 @@ public:
      * \a mode may be QIODevice::ReadOnly or QIODevice::WriteOnly
      * \sa close
      */
-    virtual bool open(QIODevice::OpenMode mode);
+    [[nodiscard]] virtual bool open(QIODevice::OpenMode mode);
 
     /*!
      * Closes the archive.
