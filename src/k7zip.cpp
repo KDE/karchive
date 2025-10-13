@@ -521,7 +521,7 @@ public:
     void readHashDigests(int numItems, QList<bool> &digestsDefined, QList<quint32> &digests);
     void readBoolVector(int numItems, QList<bool> &v);
     void readBoolVector2(int numItems, QList<bool> &v);
-    void skipData(int size);
+    bool skipData(int size);
     bool findAttribute(int attribute);
     bool readUInt64DefVector(int numFiles, QList<quint64> &values, QList<bool> &defined);
 
@@ -686,12 +686,14 @@ QString K7Zip::K7ZipPrivate::readString()
     return p;
 }
 
-void K7Zip::K7ZipPrivate::skipData(int size)
+bool K7Zip::K7ZipPrivate::skipData(int size)
 {
     if (!buffer || pos + size > end) {
-        return;
+        return false;
     }
     pos += size;
+
+    return true;
 }
 
 bool K7Zip::K7ZipPrivate::findAttribute(int attribute)
@@ -2855,7 +2857,9 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                 d->fileInfoPopIDs.append(type);
             }
         } else {
-            d->skipData(d->readNumber());
+            if (!d->skipData(d->readNumber())) {
+                return false;
+            }
         }
 
         bool checkRecordsSize = (major > 0 || minor > 2);
