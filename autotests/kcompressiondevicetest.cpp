@@ -165,7 +165,7 @@ void KCompressionDeviceTest::testZstdBufferedDevice()
 void KCompressionDeviceTest::testWriteErrorOnOpen()
 {
     // GIVEN
-    QString fileName("/I/dont/exist/kcompressiondevicetest-write.gz");
+    QString fileName("/I/do/not/exist/kcompressiondevicetest-write.gz");
     KCompressionDevice dev(fileName, KCompressionDevice::GZip);
     // WHEN
     QVERIFY(!dev.open(QIODevice::WriteOnly));
