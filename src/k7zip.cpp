@@ -1063,8 +1063,8 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
             continue;
         }
         quint64 sum = 0;
-        for (quint64 j = 1; j < numSubstreams; j++) {
-            if (type == kSize) {
+        if (type == kSize) {
+            for (quint64 j = 1; j < numSubstreams; j++) {
                 int size = readNumber();
                 unpackSizes.append(size);
                 sum += size;
