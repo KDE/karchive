@@ -9,7 +9,7 @@
 
 #include <QDebug>
 #include <QIODevice>
-#include <qloggingcategory.h>
+#include <QLoggingCategory>
 
 #if HAVE_XZ_SUPPORT
 
