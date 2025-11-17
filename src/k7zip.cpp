@@ -1003,7 +1003,7 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
         }
 
         int type = readByte();
-        if (type == kEnd) {
+        if (type == kEnd || type == -1) {
             break;
         }
         if (type == kCRC) {
