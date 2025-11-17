@@ -1020,7 +1020,9 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
             }
             continue;
         }
-        skipData(readNumber());
+        if (!skipData(readNumber())) {
+            return false;
+        }
     }
     return true;
 }
