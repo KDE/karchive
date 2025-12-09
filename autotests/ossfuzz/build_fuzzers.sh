@@ -89,7 +89,7 @@ ninja install -j$(nproc)
 cd $SRC/qtbase
 ./configure -no-glib -qt-libpng -qt-pcre -opensource -confirm-license -static -no-opengl \
     -no-icu -platform linux-clang-libc++ -debug -prefix $WORK -no-feature-gui -no-feature-sql \
-    -no-feature-network  -no-feature-xml -no-feature-dbus -no-feature-printsupport -no-intelcet
+    -no-feature-network  -no-feature-xml -no-feature-dbus -no-feature-printsupport
 ninja install -j$(nproc)
 
 # Build karchive
