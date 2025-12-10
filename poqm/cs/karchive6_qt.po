@@ -1,8 +1,8 @@
-# Vit Pelcak <vit@pelcak.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Vit Pelcak <vit@pelcak.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-09 14:56+0100\n"
+"PO-Revision-Date: 2025-12-01 14:21+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2563
@@ -62,7 +62,7 @@ msgstr "Chyba v hlavičce"
 #: k7zip.cpp:2664 k7zip.cpp:2697
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Pro tento archiv je potřeba heslo"
 
 #: k7zip.cpp:2670
 msgctxt "K7Zip|"
@@ -114,7 +114,7 @@ msgstr ""
 #: k7zip.cpp:2907
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "obsah"
 
 #: k7zip.cpp:3102
 msgctxt "K7Zip|"
@@ -306,7 +306,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr ""
+msgstr "Nelze zapsat dlouhý odkaz odkaz: %1"
 
 #: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
@@ -385,7 +385,7 @@ msgstr ""
 #: kzip.cpp:670
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
+msgstr "Neplatný soubor ZIP. Název cesty souboru je nula."
 
 #: kzip.cpp:676
 #, qt-format
