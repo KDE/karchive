@@ -19,37 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.3\n"
 
-#: k7zip.cpp:2563
+#: k7zip.cpp:2565
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "No se ha podido obtener el dispositivo subyacente"
 
-#: k7zip.cpp:2571
+#: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "La lectura de la cabecera ha fallado"
 
-#: k7zip.cpp:2577
+#: k7zip.cpp:2579
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "La comprobación de la firma ha fallado"
 
-#: k7zip.cpp:2600
+#: k7zip.cpp:2602
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "CRC incorrecto"
 
-#: k7zip.cpp:2609
+#: k7zip.cpp:2611
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "El tamaño de la siguiente cabecera es demasiado grande"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2616
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "El tamaño de la siguiente cabecera es menor que cero"
 
-#: k7zip.cpp:2625
+#: k7zip.cpp:2627
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -57,64 +57,64 @@ msgstr ""
 "Ha fallado la lectura del tamaño de la siguiente cabecera: tendría que ser "
 "%1 y se la leído %2"
 
-#: k7zip.cpp:2638
+#: k7zip.cpp:2640
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "CRC de la siguiente cabecera incorrecto"
 
-#: k7zip.cpp:2646
+#: k7zip.cpp:2648
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Error en cabecera"
 
-#: k7zip.cpp:2664 k7zip.cpp:2697
+#: k7zip.cpp:2666 k7zip.cpp:2699
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Se necesita contraseña para este archivador"
 
-#: k7zip.cpp:2670
+#: k7zip.cpp:2672
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Tipo de cabecera incorrecto"
 
-#: k7zip.cpp:2680 k7zip.cpp:2686
+#: k7zip.cpp:2682 k7zip.cpp:2688
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "No implementado"
 
-#: k7zip.cpp:2692
+#: k7zip.cpp:2694
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Error de lectura de información de los canales principales"
 
-#: k7zip.cpp:2716
+#: k7zip.cpp:2718
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Error de lectura de cabecera"
 
-#: k7zip.cpp:2724 k7zip.cpp:2733
+#: k7zip.cpp:2726 k7zip.cpp:2735
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 "El archivador tiene %1 archivos, que son más de la cantidad permitida (%2)"
 
-#: k7zip.cpp:2790
+#: k7zip.cpp:2792
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Error de lectura de la hora de modificación"
 
-#: k7zip.cpp:2836
+#: k7zip.cpp:2838
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Error de lectura de MTime"
 
-#: k7zip.cpp:2843
+#: k7zip.cpp:2845
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "No válido"
 
-#: k7zip.cpp:2867
+#: k7zip.cpp:2869
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -122,34 +122,34 @@ msgstr ""
 "Ha fallado el tamaño de la lectura (checkRecordsSize: %1, d->pos - ppp: %2, "
 "tamaño: %3)"
 
-#: k7zip.cpp:2907
+#: k7zip.cpp:2909
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contenido"
 
-#: k7zip.cpp:3102
+#: k7zip.cpp:3104
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Error de escritura"
 
-#: k7zip.cpp:3132
+#: k7zip.cpp:3134
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Ha fallado la codificación de la cabecera"
 
-#: k7zip.cpp:3176
+#: k7zip.cpp:3178
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "No se ha seleccionado ningún archivo"
 
-#: k7zip.cpp:3200 k7zip.cpp:3250 k7zip.cpp:3290
+#: k7zip.cpp:3202 k7zip.cpp:3252 k7zip.cpp:3292
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Error de la aplicación: el archivo 7-Zip debe estar abierto antes de "
 "escribir en él."
 
-#: k7zip.cpp:3206 k7zip.cpp:3296
+#: k7zip.cpp:3208 k7zip.cpp:3298
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
