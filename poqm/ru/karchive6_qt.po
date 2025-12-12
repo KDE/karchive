@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: 2022, 2023, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
-# SPDX-FileCopyrightText: 2024 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-06 16:44+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2025-11-27 19:30+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.11.80\n"
 
 #: k7zip.cpp:2565
 msgctxt "K7Zip|"
@@ -92,7 +92,7 @@ msgstr "Ошибка при чтении заголовка"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Архив содержит %1 файлов, что превышает поддерживаемый предел (%2)"
 
 #: k7zip.cpp:2792
 msgctxt "K7Zip|"
