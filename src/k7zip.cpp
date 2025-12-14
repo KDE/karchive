@@ -959,7 +959,7 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
     int external = readByte();
     switch (external) {
     case 0: {
-        for (int i = 0; i < numFolders; ++i) {
+        for (int i = 0; i < numFolders && pos < end; ++i) {
             folders.append(folderItem());
         }
         break;
