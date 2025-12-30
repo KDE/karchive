@@ -1,0 +1,482 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+
+#: k7zip.cpp:2565
+msgctxt "K7Zip|"
+msgid "Could not get underlying device"
+msgstr ""
+
+#: k7zip.cpp:2573
+msgctxt "K7Zip|"
+msgid "Read header failed"
+msgstr ""
+
+#: k7zip.cpp:2579
+msgctxt "K7Zip|"
+msgid "Check signature failed"
+msgstr ""
+
+#: k7zip.cpp:2602
+msgctxt "K7Zip|"
+msgid "Bad CRC"
+msgstr ""
+
+#: k7zip.cpp:2611
+msgctxt "K7Zip|"
+msgid "Next header size is too big"
+msgstr ""
+
+#: k7zip.cpp:2616
+msgctxt "K7Zip|"
+msgid "Next header size is less than zero"
+msgstr ""
+
+#: k7zip.cpp:2627
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Failed read next header size; should read %1, read %2"
+msgstr ""
+
+#: k7zip.cpp:2640
+msgctxt "K7Zip|"
+msgid "Bad next header CRC"
+msgstr ""
+
+#: k7zip.cpp:2648
+msgctxt "K7Zip|"
+msgid "Error in header"
+msgstr ""
+
+#: k7zip.cpp:2666 k7zip.cpp:2699
+msgctxt "K7Zip|"
+msgid "Password needed for this archive"
+msgstr ""
+
+#: k7zip.cpp:2672
+msgctxt "K7Zip|"
+msgid "Wrong header type"
+msgstr ""
+
+#: k7zip.cpp:2682 k7zip.cpp:2688
+msgctxt "K7Zip|"
+msgid "Not implemented"
+msgstr ""
+
+#: k7zip.cpp:2694
+msgctxt "K7Zip|"
+msgid "Error while reading main streams information"
+msgstr ""
+
+#: k7zip.cpp:2718
+msgctxt "K7Zip|"
+msgid "Error while reading header"
+msgstr ""
+
+#: k7zip.cpp:2726 k7zip.cpp:2735
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Archive has %1 files which is more than the supported amount (%2)"
+msgstr ""
+
+#: k7zip.cpp:2792
+msgctxt "K7Zip|"
+msgid "Error reading modification time"
+msgstr ""
+
+#: k7zip.cpp:2838
+msgctxt "K7Zip|"
+msgid "Error reading MTime"
+msgstr ""
+
+#: k7zip.cpp:2845
+msgctxt "K7Zip|"
+msgid "Invalid"
+msgstr ""
+
+#: k7zip.cpp:2869
+#, qt-format
+msgctxt "K7Zip|"
+msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
+msgstr ""
+
+#: k7zip.cpp:2909
+msgctxt "K7Zip|"
+msgid "contents"
+msgstr ""
+
+#: k7zip.cpp:3104
+msgctxt "K7Zip|"
+msgid "Write error"
+msgstr ""
+
+#: k7zip.cpp:3134
+msgctxt "K7Zip|"
+msgid "Failed while encoding header"
+msgstr ""
+
+#: k7zip.cpp:3178
+msgctxt "K7Zip|"
+msgid "No file currently selected"
+msgstr ""
+
+#: k7zip.cpp:3202 k7zip.cpp:3252 k7zip.cpp:3292
+msgctxt "K7Zip|"
+msgid "Application error: 7-Zip file must be open before being written into"
+msgstr ""
+
+#: k7zip.cpp:3208 k7zip.cpp:3298
+msgctxt "K7Zip|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr ""
+
+#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+msgctxt "KAr|"
+msgid "Cannot write to AR file"
+msgstr ""
+
+#: kar.cpp:87
+#, qt-format
+msgctxt "KAr|"
+msgid "Unsupported mode %1"
+msgstr ""
+
+#: kar.cpp:98
+msgctxt "KAr|"
+msgid "Invalid main magic"
+msgstr ""
+
+#: kar.cpp:115
+msgctxt "KAr|"
+msgid "Invalid magic"
+msgstr ""
+
+#: kar.cpp:126
+msgctxt "KAr|"
+msgid "Invalid size"
+msgstr ""
+
+#: kar.cpp:146
+msgctxt "KAr|"
+msgid "Invalid longfilename reference"
+msgstr ""
+
+#: kar.cpp:150
+msgctxt "KAr|"
+msgid "Invalid longfilename position reference"
+msgstr ""
+
+#: karchive.cpp:178
+msgctxt "KArchive|"
+msgid "No filename or device was specified"
+msgstr ""
+
+#: karchive.cpp:183
+#, qt-format
+msgctxt "KArchive|"
+msgid "Could not open device in mode %1"
+msgstr ""
+
+#: karchive.cpp:210
+#, qt-format
+msgctxt "KArchive|"
+msgid "QSaveFile creation for %1 failed: %2"
+msgstr ""
+
+#: karchive.cpp:229
+#, qt-format
+msgctxt "KArchive|"
+msgid "Unsupported mode %1"
+msgstr ""
+
+#: karchive.cpp:238
+msgctxt "KArchive|"
+msgid "Archive already closed"
+msgstr ""
+
+#: karchive.cpp:287
+#, qt-format
+msgctxt "KArchive|"
+msgid "%1 doesn't exist or is not a regular file."
+msgstr ""
+
+#: karchive.cpp:293
+#, qt-format
+msgctxt "KArchive|"
+msgid ""
+"Failed accessing the file %1 for adding to the archive. The error was: %2"
+msgstr ""
+
+#: karchive.cpp:339
+#, qt-format
+msgctxt "KArchive|"
+msgid "Couldn't open file %1: %2"
+msgstr ""
+
+#: karchive.cpp:373
+#, qt-format
+msgctxt "KArchive|"
+msgid "Directory %1 does not exist"
+msgstr ""
+
+#: karchive.cpp:447
+#, qt-format
+msgctxt "KArchive|"
+msgid "Writing failed: %1"
+msgstr ""
+
+#: karchive_p.h:59
+msgctxt "QIODevice|"
+msgid "Unknown error"
+msgstr ""
+
+#: kcompressiondevice.cpp:514
+msgctxt "KCompressionDevice|"
+msgid "Could not write. Partition full?"
+msgstr ""
+
+#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+msgctxt "KRcc|"
+msgid "Cannot write to RCC file"
+msgstr ""
+
+#: krcc.cpp:117
+#, qt-format
+msgctxt "KRcc|"
+msgid "Unsupported mode %1"
+msgstr ""
+
+#: krcc.cpp:124
+#, qt-format
+msgctxt "KRcc|"
+msgid "Failed to register resource %1 under prefix %2"
+msgstr ""
+
+#: ktar.cpp:349
+#, qt-format
+msgctxt "KTar|"
+msgid "File %1 does not exist"
+msgstr ""
+
+#: ktar.cpp:356
+#, qt-format
+msgctxt "KTar|"
+msgid "Archive %1 is corrupt"
+msgstr ""
+
+#: ktar.cpp:360
+msgctxt "KTar|"
+msgid "Disk full"
+msgstr ""
+
+#: ktar.cpp:394
+msgctxt "KTar|"
+msgid "Could not get underlying device"
+msgstr ""
+
+#: ktar.cpp:409
+msgctxt "KTar|"
+msgid "Could not read tar header"
+msgstr ""
+
+#: ktar.cpp:592 ktar.cpp:607
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write back temp file: %1"
+msgstr ""
+
+#: ktar.cpp:653
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write alignment: %1"
+msgstr ""
+
+#: ktar.cpp:755 ktar.cpp:765
+#, qt-format
+msgctxt "KTar|"
+msgid "Couldn't write long link: %1"
+msgstr ""
+
+#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+msgctxt "KTar|"
+msgid "Application error: TAR file must be open before being written into"
+msgstr ""
+
+#: ktar.cpp:792
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable 7-Zip file"
+msgstr ""
+
+#: ktar.cpp:799
+#, qt-format
+msgctxt "KTar|"
+msgid "Application limitation: Can not add file larger than %1 bytes"
+msgstr ""
+
+#: ktar.cpp:853
+#, qt-format
+msgctxt "KTar|"
+msgid "Failed to write header: %1"
+msgstr ""
+
+#: ktar.cpp:875 ktar.cpp:944
+msgctxt "KTar|"
+msgid "Application error: attempted to write into non-writable TAR file"
+msgstr ""
+
+#: kzip.cpp:484 kzip.cpp:509
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
+msgstr ""
+
+#: kzip.cpp:535
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Negative name length"
+msgstr ""
+
+#: kzip.cpp:540
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Name not completely read (#2)"
+msgstr ""
+
+#: kzip.cpp:558
+msgctxt "KZip|"
+msgid "Invalid ZIP File. Broken ExtraField."
+msgstr ""
+
+#: kzip.cpp:572 kzip.cpp:595
+msgctxt "KZip|"
+msgid "Could not seek to next header token"
+msgstr ""
+
+#: kzip.cpp:587
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#5)"
+msgstr ""
+
+#: kzip.cpp:602
+msgctxt "KZip|"
+msgid "Could not seek to file compressed size"
+msgstr ""
+
+#: kzip.cpp:618
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unexpected end of file. (#1)"
+msgstr ""
+
+#: kzip.cpp:655
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, central entry too short (not long enough for valid entry)"
+msgstr ""
+
+#: kzip.cpp:670
+msgctxt "KZip|"
+msgid "Invalid ZIP file, file path name length is zero"
+msgstr ""
+
+#: kzip.cpp:676
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
+"at offset %3"
+msgstr ""
+
+#: kzip.cpp:726
+#, qt-format
+msgctxt "KZip|"
+msgid ""
+"Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
+msgstr ""
+
+#: kzip.cpp:761
+msgctxt "KZip|"
+msgid "Invalid ZIP file, found empty entry name"
+msgstr ""
+
+#: kzip.cpp:803
+#, qt-format
+msgctxt "KZip|"
+msgid "File %1 is in folder %2, but %3 is actually a file."
+msgstr ""
+
+#: kzip.cpp:814
+msgctxt "KZip|"
+msgid "Could not seek to next entry"
+msgstr ""
+
+#: kzip.cpp:843
+msgctxt "KZip|"
+msgid "Not a ZIP file, no Local File Header found."
+msgstr ""
+
+#: kzip.cpp:847
+#, qt-format
+msgctxt "KZip|"
+msgid "Invalid ZIP file. Unrecognized header at offset %1"
+msgstr ""
+
+#: kzip.cpp:875
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not seek to next file header: %1"
+msgstr ""
+
+#: kzip.cpp:901 kzip.cpp:995
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write file header: %1"
+msgstr ""
+
+#: kzip.cpp:1042
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write central dir record: %1"
+msgstr ""
+
+#: kzip.cpp:1078
+msgctxt "KZip|"
+msgid "Application error: ZIP file must be open before being written into"
+msgstr ""
+
+#: kzip.cpp:1084
+msgctxt "KZip|"
+msgid "Application error: attempted to write into non-writable ZIP file"
+msgstr ""
+
+#: kzip.cpp:1090
+msgctxt "KZip|"
+msgid "Cannot create a device. Disk full?"
+msgstr ""
+
+#: kzip.cpp:1096
+msgctxt "KZip|"
+msgid "Cannot seek in ZIP file. Disk full?"
+msgstr ""
+
+#: kzip.cpp:1240
+msgctxt "KZip|"
+msgid "Could not write to the archive. Disk full?"
+msgstr ""
+
+#: kzip.cpp:1259
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not open compression device: %1"
+msgstr ""
+
+#: kzip.cpp:1346
+msgctxt "KZip|"
+msgid "No file or device"
+msgstr ""
+
+#: kzip.cpp:1359
+#, qt-format
+msgctxt "KZip|"
+msgid "Error writing data: %1"
+msgstr ""
