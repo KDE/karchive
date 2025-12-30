@@ -521,7 +521,7 @@ public:
     void readHashDigests(int numItems, QList<bool> &digestsDefined, QList<quint32> &digests);
     void readBoolVector(int numItems, QList<bool> &v);
     void readBoolVector2(int numItems, QList<bool> &v);
-    bool skipData(int size);
+    bool skipData(quint64 size);
     bool findAttribute(int attribute);
     bool readUInt64DefVector(int numFiles, QList<quint64> &values, QList<bool> &defined);
 
@@ -686,9 +686,9 @@ QString K7Zip::K7ZipPrivate::readString()
     return p;
 }
 
-bool K7Zip::K7ZipPrivate::skipData(int size)
+bool K7Zip::K7ZipPrivate::skipData(quint64 size)
 {
-    if (!buffer || pos + size > end) {
+    if (!buffer || pos > std::numeric_limits<quint64>::max() - size || pos + size > end) {
         return false;
     }
     pos += size;
@@ -789,8 +789,8 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         //      anymore, must be 0).
         //    }
         unsigned char coderInfo = readByte();
-        int codecIdSize = (coderInfo & 0xF);
-        if (codecIdSize > 8) {
+        const int codecIdSize = (coderInfo & 0xF);
+        if (codecIdSize > 8 || codecIdSize < 0) {
             qCDebug(KArchiveLog) << "unsupported codec id size";
             return nullptr;
         }
