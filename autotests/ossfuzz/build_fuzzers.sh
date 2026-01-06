@@ -25,6 +25,9 @@ rm -rf $WORK/*
 
 export PATH="$WORK/bin:$PATH"
 export PKG_CONFIG_PATH="$WORK/lib/pkgconfig:$WORK/lib/x86_64-linux-gnu/pkgconfig"
+if [[ $FUZZING_ENGINE == "afl" ]]; then
+    export LDFLAGS="-fuse-ld=lld"
+fi
 
 # build zstd
 cd $SRC/zstd
