@@ -26,7 +26,7 @@ msgstr "No s'ha pogut obtindre el dispositiu subjacent"
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr "No s'ha pogut llegir la capçalera"
+msgstr "Ha fallat mentre es llegia la capçalera"
 
 #: k7zip.cpp:2579
 msgctxt "K7Zip|"
@@ -53,8 +53,8 @@ msgstr "La mida de la capçalera següent és inferior a zero"
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
-"No s'ha pogut llegir la mida de la capçalera següent; s'hauria de llegir %1, "
-"s'ha llegit %2"
+"Ha fallat mentre es llegia la mida de la capçalera següent; s'hauria de "
+"llegir %1, s'ha llegit %2"
 
 #: k7zip.cpp:2640
 msgctxt "K7Zip|"
@@ -84,12 +84,13 @@ msgstr "Sense implementar"
 #: k7zip.cpp:2694
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr "S'ha produït un error en llegir la informació dels fluxos principals"
+msgstr ""
+"S'ha produït un error mentre es llegia la informació dels fluxos principals"
 
 #: k7zip.cpp:2718
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr "S'ha produït un error en llegir la capçalera"
+msgstr "S'ha produït un error mentre es llegia la capçalera"
 
 #: k7zip.cpp:2726 k7zip.cpp:2735
 #, qt-format
@@ -100,12 +101,12 @@ msgstr "L'arxiu té %1 fitxers, que és més que la quantitat permesa (%2)"
 #: k7zip.cpp:2792
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr "S'ha produït un error en llegir l'hora de modificació"
+msgstr "S'ha produït un error mentre es llegia l'hora de modificació"
 
 #: k7zip.cpp:2838
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr "S'ha produït un error en llegir MTime"
+msgstr "S'ha produït un error mentre es llegia MTime"
 
 #: k7zip.cpp:2845
 msgctxt "K7Zip|"
@@ -230,8 +231,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"No s'ha pogut accedir al fitxer %1 per a afegir-lo a l'arxiu. L'error ha "
-"sigut: %2"
+"Ha fallat mentre s'accedia al fitxer %1 per a afegir-lo a l'arxiu. L'error "
+"ha sigut: %2"
 
 #: karchive.cpp:339
 #, qt-format
@@ -309,7 +310,7 @@ msgstr "No s'ha pogut llegir la capçalera de «tar»"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr "No s'ha pogut escriure en el fitxer temporal: %1"
+msgstr "Ha fallat mentre s'escrivia al fitxer temporal: %1"
 
 #: ktar.cpp:653
 #, qt-format
@@ -348,7 +349,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr "No s'ha pogut escriure la capçalera: %1"
+msgstr "Ha fallat mentre s'escrivia la capçalera: %1"
 
 #: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
@@ -519,4 +520,4 @@ msgstr "No hi ha cap fitxer ni dispositiu"
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr "S'ha produït un error en escriure les dades: %1"
+msgstr "S'ha produït un error mentre s'escrivien les dades: %1"
