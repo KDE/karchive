@@ -26,7 +26,7 @@ msgstr "No s'ha pogut obtindre el dispositiu subjacent"
 #: k7zip.cpp:2327
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr "No s'ha pogut llegir la capçalera"
+msgstr "Ha fallat mentre es llegia la capçalera"
 
 #: k7zip.cpp:2333
 msgctxt "K7Zip|"
@@ -53,8 +53,8 @@ msgstr "La mida de la capçalera següent és inferior a zero"
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
-"No s'ha pogut llegir la mida de la capçalera següent; s'hauria de llegir %1, "
-"s'ha llegit %2"
+"Ha fallat mentre es llegia la mida de la capçalera següent; s'hauria de "
+"llegir %1, s'ha llegit %2"
 
 #: k7zip.cpp:2393
 msgctxt "K7Zip|"
@@ -79,22 +79,23 @@ msgstr "Sense implementar"
 #: k7zip.cpp:2442
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
-msgstr "S'ha produït un error en llegir la informació dels fluxos principals"
+msgstr ""
+"S'ha produït un error mentre es llegia la informació dels fluxos principals"
 
 #: k7zip.cpp:2460
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr "S'ha produït un error en llegir la capçalera"
+msgstr "S'ha produït un error mentre es llegia la capçalera"
 
 #: k7zip.cpp:2520
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
-msgstr "S'ha produït un error en llegir l'hora de modificació"
+msgstr "S'ha produït un error mentre es llegia l'hora de modificació"
 
 #: k7zip.cpp:2566
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
-msgstr "S'ha produït un error en llegir MTime"
+msgstr "S'ha produït un error mentre es llegia MTime"
 
 #: k7zip.cpp:2573
 msgctxt "K7Zip|"
@@ -214,8 +215,8 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
-"No s'ha pogut accedir al fitxer %1 per a afegir-lo a l'arxiu. L'error ha "
-"sigut: %2"
+"Ha fallat mentre s'accedia al fitxer %1 per a afegir-lo a l'arxiu. L'error "
+"ha sigut: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -293,7 +294,7 @@ msgstr "No s'ha pogut llegir la capçalera de «tar»"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr "No s'ha pogut escriure en el fitxer temporal: %1"
+msgstr "Ha fallat mentre s'escrivia al fitxer temporal: %1"
 
 #: ktar.cpp:638
 #, qt-format
@@ -326,7 +327,7 @@ msgstr ""
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr "No s'ha pogut escriure la capçalera: %1"
+msgstr "Ha fallat mentre s'escrivia la capçalera: %1"
 
 #: ktar.cpp:850 ktar.cpp:919
 msgctxt "KTar|"
@@ -480,4 +481,4 @@ msgstr "No hi ha cap fitxer ni dispositiu"
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr "S'ha produït un error en escriure les dades: %1"
+msgstr "S'ha produït un error mentre s'escrivien les dades: %1"
