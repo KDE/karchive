@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2023, 2025 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2023, 2025, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-09 16:41+0200\n"
+"PO-Revision-Date: 2026-01-14 12:17+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -88,7 +88,7 @@ msgstr "Error durante que lege capite"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Archive ha %1 files le qual es plus que le amonta supportate (%2)"
 
 #: k7zip.cpp:2792
 msgctxt "K7Zip|"
