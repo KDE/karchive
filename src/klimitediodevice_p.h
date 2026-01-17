@@ -51,8 +51,8 @@ public:
 
 private:
     QIODevice *m_dev;
-    qint64 m_start;
-    qint64 m_length;
+    const qint64 m_start;
+    const qint64 m_length;
 };
 
 #endif
