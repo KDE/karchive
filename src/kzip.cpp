@@ -1486,6 +1486,10 @@ QByteArray KZipFileEntry::data() const
 
 QIODevice *KZipFileEntry::createDevice() const
 {
+    if (compressedSize() < 0) {
+        qCWarning(KArchiveLog) << "KZipFileEntry::createDevice: Entry with negative size" << path() << compressedSize();
+        return nullptr;
+    }
     // qCDebug(KArchiveLog) << "creating iodevice limited to pos=" << position() << ", csize=" << compressedSize();
     // Limit the reading to the appropriate part of the underlying device (e.g. file)
     std::unique_ptr limitedDev = std::make_unique<KLimitedIODevice>(archive()->device(), position(), compressedSize());
