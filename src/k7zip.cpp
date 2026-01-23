@@ -195,7 +195,7 @@ public:
      * Returns the content of this file.
      * Call data() with care (only once per file), this data isn't cached.
      */
-    QByteArray data() const override;
+    [[nodiscard]] QByteArray data() const override;
 
     /*!
      * This method returns QIODevice (internal class: KLimitedIODevice)
@@ -207,7 +207,7 @@ public:
      * The returned device auto-opens (in readonly mode), no need to open it.
      * Returns the QIODevice of the file
      */
-    QIODevice *createDevice() const override;
+    [[nodiscard]] QIODevice *createDevice() const override;
 
 private:
     const QByteArray m_data;
@@ -270,7 +270,7 @@ public:
     public:
         FolderInfo() = default;
 
-        bool isSimpleCoder() const
+        [[nodiscard]] bool isSimpleCoder() const
         {
             return (numInStreams == 1) && (numOutStreams == 1);
         }
@@ -287,7 +287,7 @@ public:
 
     Q_DISABLE_COPY(Folder)
 
-    quint64 getUnpackSize() const
+    [[nodiscard]] quint64 getUnpackSize() const
     {
         if (unpackSizes.isEmpty()) {
             return 0;
@@ -300,7 +300,7 @@ public:
         return 0;
     }
 
-    int getNumOutStreams() const
+    [[nodiscard]] int getNumOutStreams() const
     {
         int result = 0;
         for (int i = 0; i < folderInfos.size(); i++) {
@@ -309,7 +309,7 @@ public:
         return result;
     }
 
-    quint32 getCoderInStreamIndex(quint32 coderIndex) const
+    [[nodiscard]] quint32 getCoderInStreamIndex(quint32 coderIndex) const
     {
         quint32 streamIndex = 0;
         for (quint32 i = 0; i < coderIndex; i++) {
@@ -318,7 +318,7 @@ public:
         return streamIndex;
     }
 
-    quint32 getCoderOutStreamIndex(quint32 coderIndex) const
+    [[nodiscard]] quint32 getCoderOutStreamIndex(quint32 coderIndex) const
     {
         quint32 streamIndex = 0;
         for (quint32 i = 0; i < coderIndex; i++) {
@@ -327,7 +327,7 @@ public:
         return streamIndex;
     }
 
-    int findBindPairForInStream(size_t inStreamIndex) const
+    [[nodiscard]] int findBindPairForInStream(size_t inStreamIndex) const
     {
         for (int i = 0; i < inIndexes.size(); i++) {
             if (inIndexes[i] == inStreamIndex) {
@@ -337,7 +337,7 @@ public:
         return -1;
     }
 
-    int findBindPairForOutStream(size_t outStreamIndex) const
+    [[nodiscard]] int findBindPairForOutStream(size_t outStreamIndex) const
     {
         for (int i = 0; i < outIndexes.size(); i++) {
             if (outIndexes[i] == outStreamIndex) {
@@ -347,7 +347,7 @@ public:
         return -1;
     }
 
-    int findPackStreamArrayIndex(size_t inStreamIndex) const
+    [[nodiscard]] int findPackStreamArrayIndex(size_t inStreamIndex) const
     {
         for (int i = 0; i < packedStreams.size(); i++) {
             if (packedStreams[i] == inStreamIndex) {
@@ -381,7 +381,7 @@ public:
         }
     }
 
-    bool isEncrypted() const
+    [[nodiscard]] bool isEncrypted() const
     {
         for (int i = folderInfos.size() - 1; i >= 0; i--) {
             if (folderInfos.at(i).methodID == k_AES) {
