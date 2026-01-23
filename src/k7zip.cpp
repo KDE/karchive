@@ -511,7 +511,7 @@ public:
     QByteArray readAndDecodePackedStreams(bool readMainStreamInfo = true);
 
     // Write
-    void createItemsFromEntities(const KArchiveDirectory *, const QString &, QByteArray &);
+    void createItemsFromEntities(const KArchiveDirectory *dir, const QString &path, QByteArray &data);
     void writeByte(unsigned char b);
     void writeNumber(quint64 value);
     void writeBoolVector(const QList<bool> &boolVector);
