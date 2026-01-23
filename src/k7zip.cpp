@@ -252,25 +252,16 @@ QIODevice *K7ZipFileEntry::createDevice() const
 class FileInfo
 {
 public:
-    FileInfo()
-        : size(0)
-        , attributes(0)
-        , crc(0)
-        , attribDefined(false)
-        , crcDefined(false)
-        , hasStream(false)
-        , isDir(false)
-    {
-    }
+    FileInfo() = default;
 
     QString path;
-    quint64 size;
-    quint32 attributes;
-    quint32 crc;
-    bool attribDefined;
-    bool crcDefined;
-    bool hasStream;
-    bool isDir;
+    quint64 size = 0;
+    quint32 attributes = 0;
+    quint32 crc = 0;
+    bool attribDefined = false;
+    bool crcDefined = false;
+    bool hasStream = false;
+    bool isDir = false;
 };
 
 class Folder
@@ -292,11 +283,7 @@ public:
         quint64 methodID = 0;
     };
 
-    Folder()
-        : unpackCRCDefined(false)
-        , unpackCRC(0)
-    {
-    }
+    Folder() = default;
 
     ~Folder() = default;
 
@@ -408,8 +395,8 @@ public:
 
     // bool CheckStructure() const;
 
-    bool unpackCRCDefined;
-    quint32 unpackCRC;
+    bool unpackCRCDefined = false;
+    quint32 unpackCRC = 0;
     QList<FolderInfo> folderInfos;
     QList<quint64> inIndexes;
     QList<quint64> outIndexes;
@@ -422,14 +409,6 @@ class Q_DECL_HIDDEN K7Zip::K7ZipPrivate
 public:
     K7ZipPrivate(K7Zip *parent)
         : q(parent)
-        , packPos(0)
-        , numPackStreams(0)
-        , buffer(nullptr)
-        , pos(0)
-        , end(0)
-        , headerSize(0)
-        , countSize(0)
-        , m_currentFile(nullptr)
     {
     }
 
@@ -458,8 +437,8 @@ public:
     QList<quint64> startPositions;
     QList<int> fileInfoPopIDs;
 
-    quint64 packPos;
-    quint64 numPackStreams;
+    quint64 packPos = 0;
+    quint64 numPackStreams = 0;
     QList<quint64> packSizes;
     QList<quint64> unpackSizes;
     QList<bool> digestsDefined;
@@ -469,16 +448,16 @@ public:
 
     QString password;
 
-    const char *buffer;
-    quint64 pos;
-    quint64 end;
-    quint64 headerSize;
-    quint64 countSize;
+    const char *buffer = nullptr;
+    quint64 pos = 0;
+    quint64 end = 0;
+    quint64 headerSize = 0;
+    quint64 countSize = 0;
 
     // Write
     QByteArray header;
     QByteArray outData; // Store data in this buffer before compress and write in archive.
-    K7ZipFileEntry *m_currentFile;
+    K7ZipFileEntry *m_currentFile = nullptr;
     QList<KArchiveEntry *> m_entryList;
 
     void clear()
@@ -1434,18 +1413,14 @@ const quint32 kTopValue = (1 << kNumTopBits);
 
 class RangeDecoder
 {
-    int pos;
+    int pos = 0;
 
 public:
     QByteArray stream;
-    quint32 range;
-    quint32 code;
+    quint32 range = 0xFFFFFFFF;
+    quint32 code = 0;
 
-    RangeDecoder(const QByteArray &s)
-        : pos(0)
-        , stream(s)
-        , range(0xFFFFFFFF)
-        , code(0)
+    RangeDecoder(const QByteArray &s) : stream(s)
     {
         for (int i = 0; i < 5; i++) {
             code = (code << 8) | readByte();
