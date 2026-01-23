@@ -521,7 +521,7 @@ public:
     void writeAlignedBoolHeader(const QList<bool> &v, int numDefined, int type, unsigned itemSize);
     void writeUInt64DefVector(const QList<quint64> &v, const QList<bool> &defined, int type);
     void writeFolder(const Folder *folder);
-    void writePackInfo(quint64 dataOffset, QList<quint64> &packedSizes, QList<bool> &packedCRCsDefined, QList<quint32> &packedCRCs);
+    void writePackInfo(quint64 dataOffset, const QList<quint64> &packedSizes, const QList<bool> &packedCRCsDefined, const QList<quint32> &packedCRCs);
     void writeUnpackInfo(const QList<Folder *> &folderItems);
     void writeSubStreamsInfo(const QList<quint64> &unpackSizes, const QList<bool> &digestsDefined, const QList<quint32> &digests);
     void writeHeader(quint64 &headerOffset);
@@ -2107,7 +2107,7 @@ void K7Zip::K7ZipPrivate::writeHashDigests(const QList<bool> &digestsDefined, co
     }
 }
 
-void K7Zip::K7ZipPrivate::writePackInfo(quint64 dataOffset, QList<quint64> &packedSizes, QList<bool> &packedCRCsDefined, QList<quint32> &packedCRCs)
+void K7Zip::K7ZipPrivate::writePackInfo(quint64 dataOffset, const QList<quint64> &packedSizes, const QList<bool> &packedCRCsDefined, const QList<quint32> &packedCRCs)
 {
     if (packedSizes.isEmpty()) {
         return;
