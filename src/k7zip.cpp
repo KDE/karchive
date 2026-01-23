@@ -2691,12 +2691,12 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
     // TODO Explore a way to be able to support more files.
     // Right now we limit to 1000 million files
-    static const qsizetype MAX_FILE_NUMBER = 1000 * 1000 * 1000;
-    const qsizetype numFiles = fileNumFiles;
-    if (numFiles > MAX_FILE_NUMBER) {
-        setErrorString(tr("Archive has %1 files which is more than the supported amount (%2)").arg(numFiles).arg(MAX_FILE_NUMBER));
+    static const int MAX_FILE_NUMBER = 1000 * 1000 * 1000;
+    if (fileNumFiles > MAX_FILE_NUMBER) {
+        setErrorString(tr("Archive has %1 files which is more than the supported amount (%2)").arg(fileNumFiles).arg(MAX_FILE_NUMBER));
         return false;
     }
+    const int numFiles = static_cast<int>(fileNumFiles);
     for (int i = 0; i < numFiles; ++i) {
         d->fileInfos.append(new FileInfo);
     }
