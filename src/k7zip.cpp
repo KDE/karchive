@@ -558,13 +558,10 @@ void K7Zip::setPassword(const QString &password) {
 
 bool K7Zip::passwordNeeded() const
 {
-    for (const Folder *folder : std::as_const(d->folders)) {
-        if (folder && folder->isEncrypted()) {
-            return true;
-        }
-    }
-
-    return false;
+    return std::ranges::any_of(std::as_const(d->folders),
+        [](const Folder *folder) {
+            return folder && folder->isEncrypted();
+        });
 }
 
 int K7Zip::K7ZipPrivate::readByte()
