@@ -49,6 +49,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMGenerateQDoc)
+set(CMAKE_VERIFY_INTERFACE_HEADER_SETS ON)
 
 include(ECMGenerateExportHeader)
 
