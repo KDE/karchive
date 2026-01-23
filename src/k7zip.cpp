@@ -292,7 +292,7 @@ public:
         if (unpackSizes.isEmpty()) {
             return 0;
         }
-        for (int i = unpackSizes.size() - 1; i >= 0; i--) {
+        for (qsizetype i = unpackSizes.size() - 1; i >= 0; i--) {
             if (findBindPairForOutStream(i) < 0) {
                 return unpackSizes.at(i);
             }
@@ -383,7 +383,7 @@ public:
 
     [[nodiscard]] bool isEncrypted() const
     {
-        for (int i = folderInfos.size() - 1; i >= 0; i--) {
+        for (qsizetype i = folderInfos.size() - 1; i >= 0; i--) {
             if (folderInfos.at(i).methodID == k_AES) {
                 return true;
             }
@@ -1877,7 +1877,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                     delete filter;
                     return QByteArray();
                 }
-                int uncompressedBytes = outBuffer.size() - filter->outBufferAvailable();
+                const qsizetype uncompressedBytes = outBuffer.size() - filter->outBufferAvailable();
 
                 // append the uncompressed data to inflate buffer
                 inflatedDataTmp.append(outBuffer.data(), uncompressedBytes);
@@ -2932,7 +2932,7 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
 
         KArchiveEntry *e;
         QString entryName;
-        int index = fileInfo->path.lastIndexOf(QLatin1Char('/'));
+        const qsizetype index = fileInfo->path.lastIndexOf(QLatin1Char('/'));
         if (index == -1) {
             entryName = fileInfo->path;
         } else {
@@ -3177,7 +3177,7 @@ bool K7Zip::doPrepareWriting(const QString &name,
     // QString fileName( name );
     // In some files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
-    int i = name.lastIndexOf(QLatin1Char('/'));
+    const qsizetype i = name.lastIndexOf(QLatin1Char('/'));
     if (i != -1) {
         QString dir = name.left(i);
         fileName = name.mid(i + 1);
@@ -3230,7 +3230,7 @@ bool K7Zip::doWriteDir(const QString &name,
     }
 
     KArchiveDirectory *parentDir = rootDir();
-    int i = dirName.lastIndexOf(QLatin1Char('/'));
+    const qsizetype i = dirName.lastIndexOf(QLatin1Char('/'));
     if (i != -1) {
         QString dir = name.left(i);
         dirName = name.mid(i + 1);
@@ -3266,7 +3266,7 @@ bool K7Zip::doWriteSymLink(const QString &name,
     KArchiveDirectory *parentDir = rootDir();
     // In some files we can find dir/./file => call cleanPath
     QString fileName(QDir::cleanPath(name));
-    int i = name.lastIndexOf(QLatin1Char('/'));
+    const qsizetype i = name.lastIndexOf(QLatin1Char('/'));
     if (i != -1) {
         QString dir = name.left(i);
         fileName = name.mid(i + 1);
