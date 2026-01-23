@@ -23,8 +23,8 @@
 #include <kxzfilter.h>
 
 #include "zlib.h"
+#include <ctime> // time()
 #include <memory>
-#include <time.h> // time()
 
 #if HAVE_OPENSSL_SUPPORT
 #include <openssl/evp.h>
