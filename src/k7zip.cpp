@@ -405,7 +405,7 @@ public:
 class Q_DECL_HIDDEN K7Zip::K7ZipPrivate
 {
 public:
-    K7ZipPrivate(K7Zip *parent)
+    explicit K7ZipPrivate(K7Zip *parent)
         : q(parent)
     {
     }
@@ -1418,7 +1418,7 @@ public:
     quint32 range = 0xFFFFFFFF;
     quint32 code = 0;
 
-    RangeDecoder(const QByteArray &s) : stream(s)
+    explicit RangeDecoder(const QByteArray &s) : stream(s)
     {
         for (int i = 0; i < 5; i++) {
             code = (code << 8) | readByte();
