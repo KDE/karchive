@@ -13,101 +13,101 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: k7zip.cpp:2565
+#: k7zip.cpp:2528
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Nem sikerült elérni a mögöttes eszközt"
 
-#: k7zip.cpp:2573
+#: k7zip.cpp:2536
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Nem sikerült olvasni a fejlécet"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2542
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Nem sikerült ellenőrizni az aláírást"
 
-#: k7zip.cpp:2602
+#: k7zip.cpp:2565
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Hibás CRC"
 
-#: k7zip.cpp:2611
+#: k7zip.cpp:2574
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "A következő fejléc mérete túl nagy"
 
-#: k7zip.cpp:2616
+#: k7zip.cpp:2579
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "A következő fejléc mérete kisebb, mint nulla"
 
-#: k7zip.cpp:2627
+#: k7zip.cpp:2590
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Nem sikerült olvasni a következő fejléc méretét; %1 olvasandó, %2 olvasva"
 
-#: k7zip.cpp:2640
+#: k7zip.cpp:2603
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "A következő fejléc CRC-je hibás"
 
-#: k7zip.cpp:2648
+#: k7zip.cpp:2611
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Hiba a fejlécben"
 
-#: k7zip.cpp:2666 k7zip.cpp:2699
+#: k7zip.cpp:2629 k7zip.cpp:2662
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Jelszó szükséges ehhez az archívumhoz"
 
-#: k7zip.cpp:2672
+#: k7zip.cpp:2635
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Rossz fejléctípus"
 
-#: k7zip.cpp:2682 k7zip.cpp:2688
+#: k7zip.cpp:2645 k7zip.cpp:2651
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Nincs megvalósítva"
 
-#: k7zip.cpp:2694
+#: k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Hiba a fő adatfolyamok információinak olvasásakor"
 
-#: k7zip.cpp:2718
+#: k7zip.cpp:2680
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Hiba a fejléc olvasásakor"
 
-#: k7zip.cpp:2726 k7zip.cpp:2735
+#: k7zip.cpp:2688 k7zip.cpp:2696
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 "Az archívum %1 fájlt tartalmaz, amely több, mint a támogatott mennyiség (%2)"
 
-#: k7zip.cpp:2792
+#: k7zip.cpp:2754
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Hiba a módosítás idejének olvasásakor"
 
-#: k7zip.cpp:2838
+#: k7zip.cpp:2800
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Hiba az MTime olvasásakor"
 
-#: k7zip.cpp:2845
+#: k7zip.cpp:2807
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Érvénytelen"
 
-#: k7zip.cpp:2869
+#: k7zip.cpp:2831
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -115,32 +115,32 @@ msgstr ""
 "A méret olvasása nem sikerült (checkRecordsSize: %1, s->pos - ppp: %2, "
 "méret: %3)"
 
-#: k7zip.cpp:2909
+#: k7zip.cpp:2871
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "tartalom"
 
-#: k7zip.cpp:3104
+#: k7zip.cpp:3066
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Írási hiba"
 
-#: k7zip.cpp:3134
+#: k7zip.cpp:3096
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Sikertelen a fejléc kódolása közben"
 
-#: k7zip.cpp:3178
+#: k7zip.cpp:3140
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nincs kiválasztva fájl"
 
-#: k7zip.cpp:3202 k7zip.cpp:3252 k7zip.cpp:3292
+#: k7zip.cpp:3164 k7zip.cpp:3214 k7zip.cpp:3254
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Alkalmazáshiba: a 7-Zip fájlt meg kell nyitni írás előtt"
 
-#: k7zip.cpp:3208 k7zip.cpp:3298
+#: k7zip.cpp:3170 k7zip.cpp:3260
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Alkalmazáshiba: írási kísérlet egy nem írható 7-Zip fájlba"
