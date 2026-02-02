@@ -739,6 +739,8 @@ void K7Zip::K7ZipPrivate::readHashDigests(int numItems, QList<bool> &digestsDefi
     }
 }
 
+constexpr auto kMaxCoders = std::numeric_limits<int>::max() / sizeof(Folder::FolderInfo);
+
 Folder *K7Zip::K7ZipPrivate::folderItem()
 {
     if (!buffer) {
@@ -746,12 +748,16 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
     }
 
     auto folder = std::make_unique<Folder>();
-    int numCoders = readNumber();
+    const quint64 numCoders = readNumber();
+    if (numCoders > kMaxCoders) {
+        // Limit the amount of folderInfos to a "reasonable" amount
+        return nullptr;
+    }
     folder->folderInfos.reserve(numCoders);
 
     quint64 numInStreamsTotal = 0;
     quint64 numOutStreamsTotal = 0;
-    for (int i = 0; i < numCoders; ++i) {
+    for (quint64 coderI = 0; coderI < numCoders; ++coderI) {
         // BYTE
         //    {
         //      0:3 CodecIdSize
@@ -792,7 +798,7 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
         // if (There Are Attributes)
         if ((coderInfo & 0x20) != 0) {
             const int propertiesSize = readNumber();
-            for (int i = 0; i < propertiesSize; ++i) {
+            for (int propertyI = 0; propertyI < propertiesSize; ++propertyI) {
                 const int property = readByte();
                 if (property == -1) {
                     return nullptr;
