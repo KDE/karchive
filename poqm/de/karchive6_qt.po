@@ -14,100 +14,100 @@ msgstr ""
 "X-Generator: Lokalize 24.11.70\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2528
+#: k7zip.cpp:2534
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Das zugrunde liegende Gerät kann nicht geöffnet werden"
 
-#: k7zip.cpp:2536
+#: k7zip.cpp:2542
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lesen des Vorspanns ist fehlgeschlagen"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2548
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Überprüfung der Signatur ist fehlgeschlagen"
 
-#: k7zip.cpp:2565
+#: k7zip.cpp:2571
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Fehlerhafte Prüfsumme"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2580
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Der nächste Vorspann ist zu groß"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2585
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Der nächste Vorspann hat eine Größe kleiner Null"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2596
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Die Größe des nächsten Vorspanns kann nicht gelesen werden; Soll: %1, Ist: %2"
 
-#: k7zip.cpp:2603
+#: k7zip.cpp:2609
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Die Prüfsumme des nächsten Vorspanns ist fehlerhaft"
 
-#: k7zip.cpp:2611
+#: k7zip.cpp:2617
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Fehler in Vorspann"
 
-#: k7zip.cpp:2629 k7zip.cpp:2662
+#: k7zip.cpp:2635 k7zip.cpp:2668
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr ""
 
-#: k7zip.cpp:2635
+#: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Falscher Vorspann-Typ"
 
-#: k7zip.cpp:2645 k7zip.cpp:2651
+#: k7zip.cpp:2651 k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Nicht implementiert"
 
-#: k7zip.cpp:2657
+#: k7zip.cpp:2663
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Fehler beim Lesen der Informationen des Hauptteils"
 
-#: k7zip.cpp:2680
+#: k7zip.cpp:2686
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Fehler beim Lesen des Vorspanns"
 
-#: k7zip.cpp:2688 k7zip.cpp:2696
+#: k7zip.cpp:2694 k7zip.cpp:2702
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2754
+#: k7zip.cpp:2760
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Fehler beim Lesen der Änderungszeit"
 
-#: k7zip.cpp:2800
+#: k7zip.cpp:2806
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Fehler beim Lesen der MTime"
 
-#: k7zip.cpp:2807
+#: k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Ungültig"
 
-#: k7zip.cpp:2831
+#: k7zip.cpp:2837
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -115,33 +115,33 @@ msgstr ""
 "Das Lesen der Größe ist fehlgeschlagen (checkRecordsSize: %1, d->pos - ppp: "
 "%2, size: %3)"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2877
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3072
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Schreibfehler"
 
-#: k7zip.cpp:3096
+#: k7zip.cpp:3102
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Der Vorspann kann nicht verschlüsselt werden"
 
-#: k7zip.cpp:3140
+#: k7zip.cpp:3146
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Derzeit ist keine Datei ausgewählt"
 
-#: k7zip.cpp:3164 k7zip.cpp:3214 k7zip.cpp:3254
+#: k7zip.cpp:3170 k7zip.cpp:3220 k7zip.cpp:3260
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Anwendungsfehler: Die 7-Zip-Datei muss vor dem Hineinschreiben geöffnet sein"
 
-#: k7zip.cpp:3170 k7zip.cpp:3260
+#: k7zip.cpp:3176 k7zip.cpp:3266
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

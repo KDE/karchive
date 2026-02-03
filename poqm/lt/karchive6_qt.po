@@ -14,133 +14,133 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.6\n"
 
-#: k7zip.cpp:2528
+#: k7zip.cpp:2534
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Nepavyko gauti pagrindinio įrenginio"
 
-#: k7zip.cpp:2536
+#: k7zip.cpp:2542
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Antraštės skaitymo nesėkmė"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2548
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Parašo tikrinimo nesėkmė"
 
-#: k7zip.cpp:2565
+#: k7zip.cpp:2571
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Bloga ciklinė perteklinė kontrolė (CRC)"
 
-#: k7zip.cpp:2574
+#: k7zip.cpp:2580
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Kitos antraštės dydis yra per didelis"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2585
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Kitos antraštės dydis yra mažesnis nei nulis"
 
-#: k7zip.cpp:2590
+#: k7zip.cpp:2596
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Nepavyko perskaityti kitos antraštės dydžio; turėjo būti %1, o buvo %2"
 
-#: k7zip.cpp:2603
+#: k7zip.cpp:2609
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Bloga kitos antraštės ciklinė perteklinė kontrolė (CRC)"
 
-#: k7zip.cpp:2611
+#: k7zip.cpp:2617
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Klaida antraštėje"
 
-#: k7zip.cpp:2629 k7zip.cpp:2662
+#: k7zip.cpp:2635 k7zip.cpp:2668
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Šiam archyvui reikalingas slaptažodis"
 
-#: k7zip.cpp:2635
+#: k7zip.cpp:2641
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Neteisingas antraštės tipas"
 
-#: k7zip.cpp:2645 k7zip.cpp:2651
+#: k7zip.cpp:2651 k7zip.cpp:2657
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Neįgyvendinta"
 
-#: k7zip.cpp:2657
+#: k7zip.cpp:2663
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Klaida skaitant pagrindinio srauto informaciją"
 
-#: k7zip.cpp:2680
+#: k7zip.cpp:2686
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Klaida skaitant antraštę"
 
-#: k7zip.cpp:2688 k7zip.cpp:2696
+#: k7zip.cpp:2694 k7zip.cpp:2702
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Archyve yra %1 failų, o tai yra daugiau nei palaikomas kiekis (%2)"
 
-#: k7zip.cpp:2754
+#: k7zip.cpp:2760
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Klaida skaitant modifikavimo laiką"
 
-#: k7zip.cpp:2800
+#: k7zip.cpp:2806
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Klaida skaitant MTime"
 
-#: k7zip.cpp:2807
+#: k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Neteisingas"
 
-#: k7zip.cpp:2831
+#: k7zip.cpp:2837
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Dydžio skaitymo nesėkmė (checkRecordsSize: %1, d->pos - ppp: %2, dydis: %3)"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2877
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "turinys"
 
-#: k7zip.cpp:3066
+#: k7zip.cpp:3072
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Rašymo klaida"
 
-#: k7zip.cpp:3096
+#: k7zip.cpp:3102
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Nesėkmė koduojant antraštę"
 
-#: k7zip.cpp:3140
+#: k7zip.cpp:3146
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Šiuo metu nepasirinktas joks failas"
 
-#: k7zip.cpp:3164 k7zip.cpp:3214 k7zip.cpp:3254
+#: k7zip.cpp:3170 k7zip.cpp:3220 k7zip.cpp:3260
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Programos klaida: 7-Zip failas privalo būti atvertas prieš tai, kai į jį bus "
 "rašoma"
 
-#: k7zip.cpp:3170 k7zip.cpp:3260
+#: k7zip.cpp:3176 k7zip.cpp:3266
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
