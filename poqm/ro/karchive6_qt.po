@@ -1,8 +1,8 @@
-# Sergiu Bivol <sergiu@cip.md>, 2024.
+# SPDX-FileCopyrightText: 2024, 2026 Sergiu Bivol <sergiu@cip.md>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-03-02 15:51+0000\n"
+"PO-Revision-Date: 2026-02-05 10:48+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -11,13 +11,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2534
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Dispozitivul subiacent nu a putut fi obținut"
 
 #: k7zip.cpp:2542
 msgctxt "K7Zip|"
@@ -49,11 +49,12 @@ msgstr "Dimensiunea antetului următor e mai mică de zero"
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
+"Citirea dimensiunii antetului următor a eșuat; trebuia citit %1, s-a citit %2"
 
 #: k7zip.cpp:2609
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr ""
+msgstr "CRC rău pentru antetul următor"
 
 #: k7zip.cpp:2617
 msgctxt "K7Zip|"
@@ -63,7 +64,7 @@ msgstr "Eroare în antet"
 #: k7zip.cpp:2635 k7zip.cpp:2668
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "E nevoie de parolă pentru această arhivă"
 
 #: k7zip.cpp:2641
 msgctxt "K7Zip|"
@@ -89,7 +90,7 @@ msgstr "Eroare la citirea antetului"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Arhiva conține %1 de fișiere, ceea ce e peste limita susținută (%2)"
 
 #: k7zip.cpp:2760
 msgctxt "K7Zip|"
@@ -104,18 +105,20 @@ msgstr "Eroare la citirea MTime"
 #: k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Invalid"
-msgstr "Nevalid"
+msgstr "Eronat"
 
 #: k7zip.cpp:2837
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
+"Citirea dimensiunii a eșuat (checkRecordsSize: %1, d->pos - ppp: %2, "
+"dimensiune: %3)"
 
 #: k7zip.cpp:2877
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "conținut"
 
 #: k7zip.cpp:3072
 msgctxt "K7Zip|"
@@ -141,77 +144,77 @@ msgstr ""
 #: k7zip.cpp:3176 k7zip.cpp:3266
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Eroare în aplicație: s-a încercat scrierea în fișier 7-Zip nescriibil"
 
 #: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
-msgstr ""
+msgstr "Nu se poate scrie în fișierul AR"
 
 #: kar.cpp:87
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Regim nesusținut %1"
 
 #: kar.cpp:98
 msgctxt "KAr|"
 msgid "Invalid main magic"
-msgstr ""
+msgstr "Număr magic principal eronat"
 
 #: kar.cpp:115
 msgctxt "KAr|"
 msgid "Invalid magic"
-msgstr ""
+msgstr "Număr magic eronat"
 
 #: kar.cpp:126
 msgctxt "KAr|"
 msgid "Invalid size"
-msgstr ""
+msgstr "Dimensiune eronată"
 
 #: kar.cpp:146
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
-msgstr ""
+msgstr "Referință „longfilename” eronată"
 
 #: kar.cpp:150
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
-msgstr ""
+msgstr "Referință de poziție „longfilename” eronată"
 
 #: karchive.cpp:178
 msgctxt "KArchive|"
 msgid "No filename or device was specified"
-msgstr ""
+msgstr "Nicio denumire de fișier și niciun dispozitiv nu au fost specificate"
 
 #: karchive.cpp:183
 #, qt-format
 msgctxt "KArchive|"
 msgid "Could not open device in mode %1"
-msgstr ""
+msgstr "Dispozitivul nu a putut fi deschis în regim %1"
 
 #: karchive.cpp:210
 #, qt-format
 msgctxt "KArchive|"
 msgid "QSaveFile creation for %1 failed: %2"
-msgstr ""
+msgstr "Crearea QSaveFile pentru %1 a eșuat: %2"
 
 #: karchive.cpp:229
 #, qt-format
 msgctxt "KArchive|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Regim nesusținut %1"
 
 #: karchive.cpp:238
 msgctxt "KArchive|"
 msgid "Archive already closed"
-msgstr ""
+msgstr "Arhiva era închisă deja"
 
 #: karchive.cpp:287
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
-msgstr ""
+msgstr "%1 nu există sau nu e un fișier obișnuit."
 
 #: karchive.cpp:293
 #, qt-format
@@ -219,175 +222,181 @@ msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr ""
+"Fișierul %1 nu a putut fi accesat pentru adăugare la arhivă. Eroarea a fost: "
+"%2"
 
 #: karchive.cpp:339
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
-msgstr ""
+msgstr "Fișierul %1 nu a putut fi deschis: %2"
 
 #: karchive.cpp:373
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr ""
+msgstr "Directorul %1 nu există"
 
 #: karchive.cpp:447
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
-msgstr ""
+msgstr "Scrierea a eșuat: %1"
 
 #: karchive_p.h:59
 msgctxt "QIODevice|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Eroare necunoscută"
 
 #: kcompressiondevice.cpp:514
 msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
-msgstr ""
+msgstr "Nu s-a putut scrie. Partiție plină?"
 
 #: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
-msgstr ""
+msgstr "Nu se poate scrie în fișierul RCC"
 
 #: krcc.cpp:117
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
-msgstr ""
+msgstr "Regim nesusținut %1"
 
 #: krcc.cpp:124
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
-msgstr ""
+msgstr "Înregistrarea resursei %1 sub prefixul %2 a eșuat"
 
 #: ktar.cpp:349
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
-msgstr ""
+msgstr "Fișierul %1 nu există"
 
 #: ktar.cpp:356
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
-msgstr ""
+msgstr "Arhiva %1 e coruptă"
 
 #: ktar.cpp:360
 msgctxt "KTar|"
 msgid "Disk full"
-msgstr ""
+msgstr "Disc plin"
 
 #: ktar.cpp:394
 msgctxt "KTar|"
 msgid "Could not get underlying device"
-msgstr ""
+msgstr "Dispozitivul subiacent nu a putut fi obținut"
 
 #: ktar.cpp:409
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr ""
+msgstr "Antetul TAR nu a putut fi citit"
 
 #: ktar.cpp:592 ktar.cpp:607
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr ""
+msgstr "Fișierul temporar nu a putut fi scris pe suport: %1"
 
 #: ktar.cpp:653
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
-msgstr ""
+msgstr "Alinierea nu a putut fi scrisă: %1"
 
 #: ktar.cpp:755 ktar.cpp:765
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr ""
+msgstr "Legătura lungă nu a putut fi scrisă: %1"
 
 #: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
+"Eroare în aplicație: fișierul TAR trebuie deschis înainte de a se scrie în el"
 
 #: ktar.cpp:792
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
-msgstr ""
+msgstr "Eroare în aplicație: s-a încercat scrierea în fișier 7-Zip nescriibil"
 
 #: ktar.cpp:799
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
+"Limită a aplicației: Nu se poate adăuga un fișier mai mare de %1 octeți"
 
 #: ktar.cpp:853
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr ""
+msgstr "Scrierea antetului a eșuat: %1"
 
 #: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
-msgstr ""
+msgstr "Eroare în aplicație: s-a încercat scrierea în fișier TAR nescriibil"
 
 #: kzip.cpp:484 kzip.cpp:509
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
-msgstr ""
+msgstr "Fișier ZIP eronat. Sfârșit de fișier neașteptat. (Codul erorii: %1)"
 
 #: kzip.cpp:535
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
-msgstr ""
+msgstr "Fișier ZIP eronat. Lungime de denumire negativă"
 
 #: kzip.cpp:540
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
-msgstr ""
+msgstr "Fișier ZIP eronat. Denumire citită incomplet (#2)"
 
 #: kzip.cpp:558
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
-msgstr ""
+msgstr "Fișier ZIP eronat. ExtraField deteriorat."
 
 #: kzip.cpp:572 kzip.cpp:595
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr ""
+msgstr "Nu s-a putut derula până la următorul jeton de antet de fișier"
 
 #: kzip.cpp:587
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
-msgstr ""
+msgstr "Fișier ZIP eronat. Sfârșit de fișier neașteptat. (#5)"
 
 #: kzip.cpp:602
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
-msgstr ""
+msgstr "Nu s-a putut derula până la dimensiunea comprimată a fișierului"
 
 #: kzip.cpp:618
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
-msgstr ""
+msgstr "Fișier ZIP eronat. Sfârșit de fișier neașteptat. (#1)"
 
 #: kzip.cpp:655
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
+"Fișier ZIP eronat, înregistrarea centrală e prea scurtă (nu e suficient de "
+"lungă pentru a fi înregistrare validă)"
 
 #: kzip.cpp:670
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr ""
+msgstr "Fișier ZIP eronat, lungimea căii fișierului e zero"
 
 #: kzip.cpp:676
 #, qt-format
@@ -396,6 +405,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Fișier ZIP eronat, nu s-au putut citi %1 + %2 octeți pentru denumirea "
+"fișierului și datele suplimentare la decalajul %3"
 
 #: kzip.cpp:726
 #, qt-format
@@ -403,90 +414,93 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Fișier ZIP eronat, decalaj de antet local inconsistent în directorul central "
+"la %1"
 
 #: kzip.cpp:761
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
-msgstr ""
+msgstr "Fișier ZIP eronat, a fost găsită o denumire goală de înregistrare"
 
 #: kzip.cpp:803
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
-msgstr ""
+msgstr "Fișierul %1 e în dosarul %2, dar %3 e, de fapt, un fișier."
 
 #: kzip.cpp:814
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
-msgstr ""
+msgstr "Nu s-a putut derula până la următoarea înregistrare"
 
 #: kzip.cpp:843
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Nu e un fișier ZIP, nu a fost găsit antetul local de fișier."
 
 #: kzip.cpp:847
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr ""
+msgstr "Fișier ZIP eronat. Antet nerecunoscut la decalajul %1"
 
 #: kzip.cpp:875
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr ""
+msgstr "Nu s-a putut derula până la următorul antet de fișier: %1"
 
 #: kzip.cpp:901 kzip.cpp:995
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr ""
+msgstr "Nu s-a putut scrie antetul fișierului: %1"
 
 #: kzip.cpp:1042
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
-msgstr ""
+msgstr "Nu am putut scrie înregistrarea centrală de directoare: %1"
 
 #: kzip.cpp:1078
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
+"Eroare în aplicație: fișierul ZIP trebuie deschis înainte de a se scrie în el"
 
 #: kzip.cpp:1084
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
-msgstr ""
+msgstr "Eroare în aplicație: s-a încercat scrierea în fișier ZIP nescriibil"
 
 #: kzip.cpp:1090
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
-msgstr ""
+msgstr "Nu se poate crea un dispozitiv. Disc plin?"
 
 #: kzip.cpp:1096
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
-msgstr ""
+msgstr "Nu se poate derula în fișierul ZIP. Disc plin?"
 
 #: kzip.cpp:1240
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
-msgstr ""
+msgstr "Nu s-a putut scrie în arhivă. Disc plin?"
 
 #: kzip.cpp:1259
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
-msgstr ""
+msgstr "Nu poate fi deschis dispozitivul de compresie: %1"
 
 #: kzip.cpp:1346
 msgctxt "KZip|"
 msgid "No file or device"
-msgstr ""
+msgstr "Niciun fișier sau dispozitiv"
 
 #: kzip.cpp:1359
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
-msgstr ""
+msgstr "Eroare la scrierea datelor: %1"
