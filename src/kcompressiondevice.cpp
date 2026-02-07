@@ -274,7 +274,7 @@ bool KCompressionDevice::open(QIODevice::OpenMode mode)
     }
     d->bNeedHeader = !d->bSkipHeaders;
     d->filter->setFilterFlags(d->bSkipHeaders ? KFilterBase::NoHeaders : KFilterBase::WithHeaders);
-    if (!d->filter->init(mode & ~QIODevice::Truncate)) {
+    if (!d->filter->init(mode & ~(QIODevice::Truncate | QIODevice::Unbuffered))) {
         return false;
     }
     d->result = KFilterBase::Ok;
