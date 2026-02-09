@@ -1092,10 +1092,8 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
             }
         } else if (type == kEnd || type == -1) {
             if (digestsDefined.isEmpty()) {
-                for (int i = 0; i < numDigestsTotal; i++) {
-                    digestsDefined.append(false);
-                    digests.append(0);
-                }
+                digestsDefined.resize(numDigestsTotal, false);
+                digests.resize(numDigestsTotal, 0);
             }
 
             break;
