@@ -13,134 +13,134 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2534
+#: k7zip.cpp:2532
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Alla olevaa laitetta ei saatu"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2540
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Otsakkeen lukeminen epäonnistui"
 
-#: k7zip.cpp:2548
+#: k7zip.cpp:2546
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Allekirjoituksen tarkistaminen epäonnistui"
 
-#: k7zip.cpp:2571
+#: k7zip.cpp:2569
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Virheellinen tarkistussumma"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2578
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Seuraava otsake on kooltaan liian suuri"
 
-#: k7zip.cpp:2585
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Seuraava otsake on kooltaan alle nolla"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2594
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr ""
 "Seuraavan otsakkeen koon lukeminen epäonnistui: tulisi lukea %1, luettiin %2"
 
-#: k7zip.cpp:2609
+#: k7zip.cpp:2607
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Seuraavan otsakkeen tarkistussumma on virheellinen"
 
-#: k7zip.cpp:2617
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Virhe otsakkeessa"
 
-#: k7zip.cpp:2635 k7zip.cpp:2668
+#: k7zip.cpp:2633 k7zip.cpp:2666
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Tämä arkisto vaatii salasanan"
 
-#: k7zip.cpp:2641
+#: k7zip.cpp:2639
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Väärä otsakkeen tyyppi"
 
-#: k7zip.cpp:2651 k7zip.cpp:2657
+#: k7zip.cpp:2649 k7zip.cpp:2655
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Ei toteutettu"
 
-#: k7zip.cpp:2663
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Virhe luettaessa päävirran tietoa"
 
-#: k7zip.cpp:2686
+#: k7zip.cpp:2684
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Virhe luettaessa otsaketta"
 
-#: k7zip.cpp:2694 k7zip.cpp:2702
+#: k7zip.cpp:2692 k7zip.cpp:2700
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Arkistossa on %1 tiedostoa, mikä on enemmän kuin tuettu määrä (%2)"
 
-#: k7zip.cpp:2760
+#: k7zip.cpp:2758
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Virhe luettaessa muutosaikaa"
 
-#: k7zip.cpp:2806
+#: k7zip.cpp:2804
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Virhe luettaessa MTimea"
 
-#: k7zip.cpp:2813
+#: k7zip.cpp:2811
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Virheellinen"
 
-#: k7zip.cpp:2837
+#: k7zip.cpp:2835
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Koon lukeminen epäonnistui (checkRecordsSize: %1, d->pos – ppp: %2, koko: %3)"
 
-#: k7zip.cpp:2877
+#: k7zip.cpp:2875
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "sisältö"
 
-#: k7zip.cpp:3072
+#: k7zip.cpp:3070
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Kirjoitusvirhe"
 
-#: k7zip.cpp:3102
+#: k7zip.cpp:3100
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Virhe otsaketta koodattaessa"
 
-#: k7zip.cpp:3146
+#: k7zip.cpp:3144
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Tiedostoa ei ole valittu"
 
-#: k7zip.cpp:3170 k7zip.cpp:3220 k7zip.cpp:3260
+#: k7zip.cpp:3168 k7zip.cpp:3218 k7zip.cpp:3258
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Sovellusvirhe: 7-Zip-tiedoston tulee olla auki, ennen kuin siihen "
 "kirjoitetaan"
 
-#: k7zip.cpp:3176 k7zip.cpp:3266
+#: k7zip.cpp:3174 k7zip.cpp:3264
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Sovellusvirhe: yritettiin kirjoittaa ei-kirjoitettavaa 7-Zip-tiedostoa"

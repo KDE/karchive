@@ -19,99 +19,99 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: k7zip.cpp:2534
+#: k7zip.cpp:2532
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Ne eblis akiri subestan aparaton"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2540
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Legita kaplinio malsukcesis"
 
-#: k7zip.cpp:2548
+#: k7zip.cpp:2546
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Kontrolsignaturo malsukcesis"
 
-#: k7zip.cpp:2571
+#: k7zip.cpp:2569
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Malbona CRC"
 
-#: k7zip.cpp:2580
+#: k7zip.cpp:2578
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Sekva kaplinio estas tro granda"
 
-#: k7zip.cpp:2585
+#: k7zip.cpp:2583
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "La sekva kapa grandeco estas malpli ol nulo"
 
-#: k7zip.cpp:2596
+#: k7zip.cpp:2594
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Malsukcesis legi la sekvan kaplokon; devus legi %1, legi %2"
 
-#: k7zip.cpp:2609
+#: k7zip.cpp:2607
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Malbona sekva kaplinio CRC"
 
-#: k7zip.cpp:2617
+#: k7zip.cpp:2615
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Eraro en kaplinio"
 
-#: k7zip.cpp:2635 k7zip.cpp:2668
+#: k7zip.cpp:2633 k7zip.cpp:2666
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr ""
 
-#: k7zip.cpp:2641
+#: k7zip.cpp:2639
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Malĝusta kaptipo"
 
-#: k7zip.cpp:2651 k7zip.cpp:2657
+#: k7zip.cpp:2649 k7zip.cpp:2655
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Ne efektivigita"
 
-#: k7zip.cpp:2663
+#: k7zip.cpp:2661
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Eraro dum legado de informoj pri ĉefaj fluoj"
 
-#: k7zip.cpp:2686
+#: k7zip.cpp:2684
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Eraro dum legado de kaplinio"
 
-#: k7zip.cpp:2694 k7zip.cpp:2702
+#: k7zip.cpp:2692 k7zip.cpp:2700
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 
-#: k7zip.cpp:2760
+#: k7zip.cpp:2758
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Eraro legante modiftempon"
 
-#: k7zip.cpp:2806
+#: k7zip.cpp:2804
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Eraro legante MTime"
 
-#: k7zip.cpp:2813
+#: k7zip.cpp:2811
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Nevalida"
 
-#: k7zip.cpp:2837
+#: k7zip.cpp:2835
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -119,33 +119,33 @@ msgstr ""
 "Legograndeco malsukcesis (checkRecordsSize: %1, d->pos - ppp: %2, grandeco: "
 "%3)"
 
-#: k7zip.cpp:2877
+#: k7zip.cpp:2875
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "enhavo"
 
-#: k7zip.cpp:3072
+#: k7zip.cpp:3070
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skriberaro"
 
-#: k7zip.cpp:3102
+#: k7zip.cpp:3100
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Malsukcesis dum kodado de kaplinio"
 
-#: k7zip.cpp:3146
+#: k7zip.cpp:3144
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Neniu dosiero nuntempe elektita"
 
-#: k7zip.cpp:3170 k7zip.cpp:3220 k7zip.cpp:3260
+#: k7zip.cpp:3168 k7zip.cpp:3218 k7zip.cpp:3258
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Aplika eraro: 7-Zip-dosiero devas esti malfermita antaŭ ol esti skribita enen"
 
-#: k7zip.cpp:3176 k7zip.cpp:3266
+#: k7zip.cpp:3174 k7zip.cpp:3264
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Aplika eraro: provis skribi en neskribiblan 7-Zip-dosieron"
