@@ -51,6 +51,7 @@ include(KDEGitCommitHooks)
 include(ECMGenerateQDoc)
 
 include(ECMGenerateExportHeader)
+include(ECMGeneratePkgConfigFile)
 
 set(REQUIRED_QT_VERSION 6.8.0)
 find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
@@ -153,6 +154,12 @@ install(EXPORT KF6ArchiveTargets
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         FILE KF6ArchiveTargets.cmake
         NAMESPACE KF6::)
+
+ecm_generate_pkgconfig_file(BASE_NAME KF6Archive
+    INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KF6/KArchive/
+    DEPS Qt6Core
+    INSTALL
+)
 
 include(ECMFeatureSummary)
 ecm_feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
