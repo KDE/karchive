@@ -53,7 +53,7 @@ include(ECMGenerateQDoc)
 include(ECMGenerateExportHeader)
 include(ECMGeneratePkgConfigFile)
 
-set(REQUIRED_QT_VERSION 6.8.0)
+set(REQUIRED_QT_VERSION 6.9.0)
 find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 find_package(ZLIB)
