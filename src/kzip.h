@@ -15,24 +15,32 @@ class KZipFileEntry;
  * \class KZip
  * \inmodule KArchive
  *
- * \brief A class for reading / writing zip archives.
+ * \brief A class for reading/writing zip archives.
  *
- * You can use it in QIODevice::ReadOnly or in QIODevice::WriteOnly mode, and it
- * behaves just as expected.
- * It can also be used in QIODevice::ReadWrite mode, in this case one can
- * append files to an existing zip archive. When you append new files, which
- * are not yet in the zip, it works as expected, i.e. the files are appended at the end.
- * When you append a file, which is already in the file, the reference to the
+ * The entrypoint for modifying a zip archive should be \l writeFile or \l writeDir:
+ *
+ * \code
+ * KZip archive(QStringLiteral("some.zip"));
+ * if (archive.open(QIODevice::WriteOnly)) {
+ *     archive.writeFile("filename", "Data inside new file");
+ *     // ...
+ * }
+ * \endcode
+ *
+ * If the older method of manipulating archives using
+ * prepareWriting, writeData and finishWriting is used,
+ * when appending to a file that is already in the archive, the reference to the
  * old file is dropped and the new one is added to the zip - but the
- * old data from the file itself is not deleted, it is still in the
- * zipfile. So when you want to have a small and garbage-free zipfile,
- * just read the contents of the appended zip file and write it to a new one
- * in QIODevice::WriteOnly mode. This is especially important when you don't want
+ * old data from the dropped file itself is not deleted, it is still in the
+ * zipfile.
+ *
+ * To have a small and garbage-free zipfile,
+ * read the contents of the appended zip file and write it to a new one
+ * in QIODevice::WriteOnly mode.
+ *
+ * This is especially important when you don't want
  * to leak information of how intermediate versions of files in the zip
  * were looking.
- *
- * For more information on the zip fileformat go to
- * http://www.pkware.com/products/enterprise/white_papers/appnote.html
  */
 class KARCHIVE_EXPORT KZip : public KArchive
 {
@@ -40,20 +48,14 @@ class KARCHIVE_EXPORT KZip : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given filename.
-     * using the compression filter associated to given mimetype.
-     *
-     * \a filename is a local path (e.g. "/home/holger/myfile.zip")
+     * Creates an instance that operates on the given \a filename.
      */
     explicit KZip(const QString &filename);
 
     /*!
-     * Creates an instance that operates on the given device.
+     * Creates an instance that operates on the given device \a dev.
      *
-     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
-     *
-     * \a dev the device to access
-     *
+     * The device may be compressed (KCompressionDevice) or not (QFile, etc.).
      * \warning Do not assume that giving a QFile here will decompress the file,
      * in case it's compressed!
      */
@@ -66,7 +68,10 @@ public:
     ~KZip() override;
 
     /*!
-     * Describes the contents of the "extra field" for a given file in the Zip archive.
+     * Describes the contents of the extra field for a given file in the Zip archive.
+     *
+     * An extra field stores extra data not defined by existing Zip specifications
+     * into the file header and will be skipped if unrecognized.
      *
      * \value NoExtraField No extra field
      * \value ModificationTime Modification time ("extended timestamp" header)
@@ -79,18 +84,14 @@ public:
     };
 
     /*!
-     * Call this before writeFile or prepareWriting, to define what the next
-     * file to be written should have in its extra field.
-     *
-     * \a ef the type of "extra field"
+     * Call this before writeFile or prepareWriting to define what the next
+     * file to be written should have in its extra field \a ef.
      * \sa extraField()
      */
     void setExtraField(ExtraField ef);
 
     /*!
-     * The current type of "extra field" that will be used for new files.
-     *
-     * Returns the current type of "extra field"
+     * Returns the current type of extra field that will be used for new files.
      * \sa setExtraField()
      */
     ExtraField extraField() const;
@@ -107,18 +108,15 @@ public:
     };
 
     /*!
-     * Call this before writeFile or prepareWriting, to define whether the next
-     * files to be written should be compressed or not.
-     *
-     * \a c the new compression mode
+     * Call this before writeFile or prepareWriting to define whether the next
+     * files to be written should be compressed or not
+     * and with which compression mode \a c.
      * \sa compression()
      */
     void setCompression(Compression c);
 
     /*!
      * The current compression mode that will be used for new files.
-     *
-     * Returns the current compression mode
      * \sa setCompression()
      */
     Compression compression() const;
