@@ -28,6 +28,7 @@ class KArchiveFile;
  *
  * \sa KArchive
  * \sa KArchiveFile
+ * \sa KArchiveEntry
  */
 class KARCHIVE_EXPORT KArchiveDirectory : public KArchiveEntry
 {
@@ -35,19 +36,26 @@ public:
     /*!
      * Creates a new directory entry.
      *
-     * \a archive the entries archive
+     * This is commonly used to retrieve directories
+     * from other functions that return a KArchiveDirectory.
      *
-     * \a name the name of the entry
+     * \code
+     * const KArchiveDirectory *dir = archive.directory();
+     * \endcode
      *
-     * \a access the permissions in unix format
-     *
-     * \a date the date (in seconds since 1970)
-     *
-     * \a user the user that owns the entry
-     *
-     * \a group the group that owns the entry
-     *
-     * \a symlink the symlink, or QString()
+     * Parameters:
+     * \list
+     * \li \a archive: the entry's archive
+     * \li \a name: the name of the entry
+     * \li \a access: the permissions in unix format
+     * \li \a date: the date (in seconds since 1970)
+     * \li \a user: the user that owns the entry
+     * \li \a group: the group that owns the entry
+     * \li \a symlink: the symlink, or QString()
+     * \endlist
+     * \sa KArchive::directory
+     * \sa KArchive::rootDir
+     * \sa KArchive::findOrCreate
      */
     KArchiveDirectory(KArchive *archive,
                       const QString &name,
@@ -60,39 +68,42 @@ public:
     ~KArchiveDirectory() override;
 
     /*!
-     * Returns a list of sub-entries.
+     * Returns a list of sub-entry filenames in this directory.
      *
-     * Note that the list is not sorted, it's even in random order (due to using a hashtable).
+     * The list is not recursive or sorted, it's even in random order (due to using a hashtable).
      * Use sort() on the result to sort the list by filename.
-     *
-     * Returns the names of all entries in this directory (filenames, no path).
+     * \code
+     * QStringList subEntries = dir->entries();
+     * subEntries.sort();
+     * \endcode
      */
     QStringList entries() const;
 
     /*!
-     * Returns the entry in the archive with the given name.
+     * Returns the entry in the archive with the given \a name
+     * or nullptr if the entry doesn't exist.
      *
      * The entry could be a file or a directory, use isFile() to find out which one it is.
      *
-     * \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
-     *
-     * Returns a pointer to the entry in the directory, or a null pointer if there is no such entry.
+     * The \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
      */
     const KArchiveEntry *entry(const QString &name) const;
 
     /*!
-     * Returns the file entry in the archive with the given name.
-     *
-     * If the entry exists and is a file, a KArchiveFile is returned.
-     *
-     * Otherwise, a null pointer is returned.
+     * Returns the file entry in the archive with the given \a name
+     * or nullptr if the entry doesn't exist.
      *
      * This is a convenience method for entry(), when we know the entry is expected to be a file.
      *
+     * The \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
      *
-     * \a name may be "test1", "mydir/test3", "mydir/mysubdir/test3", etc.
-     *
-     * Returns a pointer to the file entry in the directory, or a null pointer if there is no such file entry.
+     * \code
+     * if (archive.open(QIODevice::ReadOnly)) {
+     *     const KArchiveDirectory *dir = archive.directory();
+     *     const KArchiveFile *file = dir->file("somedir/subdir/somefile");
+     *     // ...
+     * }
+     * \endcode
      * \since 5.3
      */
     const KArchiveFile *file(const QString &name) const;
@@ -138,8 +149,6 @@ public:
 
     /*!
      * Removes an entry from the directory.
-     *
-     * Returns whether the entry was removed or not.
      * \since 6.13
      */
     [[nodiscard]] bool removeEntryV2(KArchiveEntry *); // KF7 TODO: rename to removeEntry
@@ -150,15 +159,11 @@ public:
     bool isDirectory() const override;
 
     /*!
-     * Extracts all entries in this archive directory to the directory
+     * Extracts all entries in this archive directory to a filesystem directory \a dest.
      *
-     * \a dest.
+     * If \a recursive is set to true, subdirectories are extracted as well.
      *
-     * \a dest the directory to extract to
-     *
-     * \a recursive if set to true, subdirectories are extracted as well
-     *
-     * Returns true on success, false if the directory (dest + '/' + name()) couldn't be created
+     * Returns false if the directory (dest + '/' + name()) couldn't be created.
      */
     bool copyTo(const QString &dest, bool recursive = true) const;
 
