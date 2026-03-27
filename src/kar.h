@@ -24,18 +24,14 @@ class KARCHIVE_EXPORT KAr : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given filename.
-     *
-     * \a filename is a local path (e.g. "/home/holger/myfile.ar")
+     * Creates an instance that operates on the given \a filename.
      */
     explicit KAr(const QString &filename);
 
     /*!
-     * Creates an instance that operates on the given device.
+     * Creates an instance that operates on the given device \a dev.
      *
-     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
-     *
-     * \a dev the device to read from
+     * The device may be compressed (KCompressionDevice) or not (QFile, etc.).
      */
     explicit KAr(QIODevice *dev);
 
@@ -48,7 +44,6 @@ public:
 protected:
     /*
      * Writing is not supported by this class, will always fail.
-     * Returns always false
      */
     bool doPrepareWriting(const QString &name,
                           const QString &user,
@@ -61,13 +56,11 @@ protected:
 
     /*
      * Writing is not supported by this class, will always fail.
-     * Returns always false
      */
     bool doFinishWriting(qint64 size) override;
 
     /*
      * Writing is not supported by this class, will always fail.
-     * Returns always false
      */
     bool doWriteDir(const QString &name,
                     const QString &user,
@@ -90,7 +83,6 @@ protected:
      * Opens the archive for reading.
      * Parses the directory listing of the archive
      * and creates the KArchiveDirectory/KArchiveFile entries.
-     *
      */
     bool openArchive(QIODevice::OpenMode mode) override;
     bool closeArchive() override;
