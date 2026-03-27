@@ -12,7 +12,18 @@
  * \class K7Zip
  * \inmodule KArchive
  *
- * \brief A class for reading / writing p7zip archives.
+ * \brief A class for reading/writing p7zip archives.
+ *
+ * The entrypoint for modifying an ar archive should be \l writeFile or \l writeDir:
+ *
+ * \code
+ * K7Zip archive(QStringLiteral("some.7z"));
+ * if (archive.open(QIODevice::WriteOnly)) {
+ *     archive.writeFile("filename", "Data inside new file");
+ *     // ...
+ * }
+ * \endcode
+ *
  */
 class KARCHIVE_EXPORT K7Zip : public KArchive
 {
@@ -20,23 +31,20 @@ class KARCHIVE_EXPORT K7Zip : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given filename
-     * using the compression filter associated to given mimetype.
-     *
-     * \a filename is a local path (e.g. "/home/user/myfile.7z")
+     * Creates an instance that operates on the given \a filename
+     * using the compression filter associated to the given mimetype.
      */
     explicit K7Zip(const QString &filename);
 
     /*!
-     * Creates an instance that operates on the given device.
+     * Creates an instance that operates on the given device \a dev.
      *
-     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
+     * The device may be compressed (KCompressionDevice) or not (QFile, etc.).
      *
      * \warning Do not assume that giving a QFile here will decompress the file,
      * in case it's compressed!
      *
-     * \a dev the device to read from. If the source is compressed, the
-     * QIODevice must take care of decompression
+     * If the source is compressed, the QIODevice must take care of decompression.
      */
     explicit K7Zip(QIODevice *dev);
 
@@ -47,13 +55,11 @@ public:
     ~K7Zip() override;
 
     /*!
-     * Sets the password to use for encrypted archives.
+     * Sets the \a password to use for encrypted archives.
      *
      * This method must be called before opening the archive.
      *
      * \note Currently only AES decryption is supported.
-     *
-     * \a password the password to use for encrypted archive
      * \since 6.13
      */
     void setPassword(const QString &password);
@@ -62,8 +68,6 @@ public:
      * Whether the archive needs a password to be opened.
      *
      * \note This can only be called after open() has been called once.
-     *
-     * Returns \c true if the archive requires a password to be opened
      * \since 6.13
      */
     bool passwordNeeded() const;
