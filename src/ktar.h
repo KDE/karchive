@@ -17,6 +17,17 @@
  *
  * KTar allows you to read and write tar archives, including those
  * that are compressed using gzip, bzip2, xz or lzip.
+ *
+ * The entrypoint for modifying a tar archive should be \l writeFile or \l writeDir:
+ *
+ * \code
+ * KTar archive(QStringLiteral("some.tar"));
+ * if (archive.open(QIODevice::WriteOnly)) {
+ *     archive.writeFile("filename", "Data inside new file");
+ *     // ...
+ * }
+ * \endcode
+ *
  */
 class KARCHIVE_EXPORT KTar : public KArchive
 {
@@ -24,45 +35,49 @@ class KARCHIVE_EXPORT KTar : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given filename
-     * using the compression filter associated to given mimetype.
+     * Creates an instance that operates on the given \a filename
+     * using the compression filter associated to the given \a mimeType.
      *
-     * \a filename is a local path (e.g. "/home/weis/myfile.tgz")
+     * The supported mimetypes are:
      *
-     * \a mimetype "application/gzip" (before 5.85: "application/x-gzip"), "application/x-bzip",
-     * "application/x-xz", "application/zstd" (since 5.82)
-     * "application/x-lzip" (since 6.15)
-     * Do not use application/x-compressed-tar or similar - you only need to
-     * specify the compression layer !  If the mimetype is omitted, it
-     * will be determined from the filename.
+     * \list
+     * \li "application/gzip" (before 5.85: "application/x-gzip")
+     * \li "application/x-bzip"
+     * \li "application/x-xz"
+     * \li "application/zstd" (since 5.82)
+     * \li "application/x-lzip" (since 6.15)
+     * \endlist
+     *
+     * Do not use \c application/x-compressed-tar or similar - you only need to
+     * specify the compression layer.
+     *
+     * If the mimetype is omitted, it will be determined from the filename.
      */
     explicit KTar(const QString &filename, const QString &mimetype = QString());
 
     /*!
-     * Creates an instance that operates on the given device.
+     * Creates an instance that operates on the given device \a dev.
      *
-     * The device can be compressed (KCompressionDevice) or not (QFile, etc.).
+     * The device may be compressed (KCompressionDevice) or not (QFile, etc.).
      *
      * \warning Do not assume that giving a QFile here will decompress the file,
      * in case it's compressed!
      *
-     * \a dev the device to read from. If the source is compressed, the
-     * QIODevice must take care of decompression
+     * If the source is compressed, the QIODevice must take care of decompression.
      */
     explicit KTar(QIODevice *dev);
 
     /*!
-     * If the tar ball is still opened, then it will be
+     * If the tarball is still opened, then it will be
      * closed automatically by the destructor.
      */
     ~KTar() override;
 
     /*!
-     * Special function for setting the "original file name" in the gzip header,
-     * when writing a tar.gz file. It appears when using in the "file" command,
-     * for instance. Should only be called if the underlying device is a KCompressionDevice!
+     * Sets the original \a fileName in the gzip header when writing a tar.gz file.
      *
-     * \a fileName the original file name
+     * It appears when using the \c file command, for instance.
+     * \warning Should only be called if the underlying device is a KCompressionDevice.
      */
     void setOrigFileName(const QByteArray &fileName);
 
