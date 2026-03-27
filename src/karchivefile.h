@@ -20,21 +20,26 @@ class KArchiveFilePrivate;
  *
  * \sa KArchive
  * \sa KArchiveDirectory
+ * \sa KArchiveEntry
  */
 class KARCHIVE_EXPORT KArchiveFile : public KArchiveEntry
 {
 public:
     /*!
-     * Creates a new file entry. Do not call this, KArchive takes care of it.
-     * \a archive the entries archive
-     * \a name the name of the entry
-     * \a access the permissions in unix format
-     * \a date the date (in seconds since 1970)
-     * \a user the user that owns the entry
-     * \a group the group that owns the entry
-     * \a symlink the symlink, or QString()
-     * \a pos the position of the file in the directory
-     * \a size the size of the file
+     * Creates a new file entry.
+     *
+     * Parameters:
+     * \list
+     * \li \a archive: the entries archive
+     * \li \a name: the name of the entry
+     * \li \a access: the permissions in unix format
+     * \li \a date: the date (in seconds since 1970)
+     * \li \a user: the user that owns the entry
+     * \li \a group: the group that owns the entry
+     * \li \a symlink: the symlink, or QString()
+     * \li \a pos: the position of the file in the directory
+     * \li \a size: the size of the file
+     * \endlist
      */
     KArchiveFile(KArchive *archive,
                  const QString &name,
@@ -52,23 +57,20 @@ public:
     ~KArchiveFile() override;
 
     /*!
-     * Position of the data in the [uncompressed] archive.
-     * Returns the position of the file
+     * Returns the position of the data in the \b uncompressed archive.
      */
     qint64 position() const;
     /*!
-     * Size of the data.
-     * Returns the size of the file
+     * Returns the size of the data.
      */
     qint64 size() const;
     /*!
-     * Set size of data, usually after writing the file.
-     * \a s the new size of the file
+     * Sets the size \a s of data, usually after writing the file.
      */
     void setSize(qint64 s);
 
     /*!
-     * Returns the content of this file.
+     * Returns the contents of this file.
      *
      * \note The data returned by this call is not cached.
      *
@@ -81,24 +83,31 @@ public:
      * This method returns QIODevice (internal class: KLimitedIODevice)
      * on top of the underlying QIODevice. This is obviously for reading only.
      *
-     * WARNING: Note that the ownership of the device is being transferred to the caller,
+     * The returned device auto-opens (in readonly mode), no need to open it.
+     *
+     * \warning The ownership of the device is being transferred to the caller,
      * who will have to delete it.
      *
-     * The returned device auto-opens (in readonly mode), no need to open it.
-     * Returns the QIODevice of the file
+     * \code
+     * std::unique_ptr<QIODevice> device(file->createDevice());
+     * while (!device.get()->atEnd()) {
+     *     qInfo() << device->readLine();
+     * }
+     * \endcode
      */
     virtual QIODevice *createDevice() const;
 
     /*!
-     * Checks whether this entry is a file.
-     * Returns true, since this entry is a file
+     * Returns whether this entry is a file.
      */
     bool isFile() const override;
 
     /*!
-     * Extracts the file to the directory \a dest
-     * \a dest the directory to extract to
-     * Returns true on success, false if the file (dest + '/' + name()) couldn't be created
+     * Extracts the file to a filesystem directory \a dest.
+     *
+     * Requires the filesystem directory to exist before copying to.
+     *
+     * Returns false if the file (dest + '/' + name()) couldn't be created.
      */
     bool copyTo(const QString &dest) const;
 
