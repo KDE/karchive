@@ -32,6 +32,17 @@ class KArchiveEntryPrivate;
  *
  * \brief Base class for the archive-file's directory structure.
  *
+ * An entry may be a file or directory.
+ * In practice, this allows to specify behavior in case the kind of entry is unknown,
+ * and static_cast to the children classes:
+ *
+ * \code
+ * if (entry->isFile()) {
+ *     const KArchiveFile *file = static_cast<const KArchiveFile *>(entry);
+ *     // ...
+ * }
+ * \endcode
+ *
  * \sa KArchiveFile
  * \sa KArchiveDirectory
  */
@@ -41,75 +52,56 @@ public:
     /*!
      * Creates a new entry.
      *
-     * \a archive the entries archive
-     *
-     * \a name the name of the entry
-     *
-     * \a access the permissions in unix format
-     *
-     * \a date the date (in seconds since 1970)
-     *
-     * \a user the user that owns the entry
-     *
-     * \a group the group that owns the entry
-     *
-     * \a symlink the symlink, or QString()
+     * Parameters:
+     * \list
+     * \li \a archive: the entry's archive
+     * \li \a name: the name of the entry
+     * \li \a access: the permissions in unix format
+     * \li \a date: the date (in seconds since 1970)
+     * \li \a user: the user that owns the entry
+     * \li \a group: the group that owns the entry
+     * \li \a symlink: the symlink, or QString()
+     * \endlist
      */
     KArchiveEntry(KArchive *archive, const QString &name, int access, const QDateTime &date, const QString &user, const QString &group, const QString &symlink);
 
     virtual ~KArchiveEntry();
 
     /*!
-     * Creation date of the file.
-     *
-     * Returns the creation date
+     * Returns the creation date of the file.
      */
     QDateTime date() const;
 
     /*!
-     * Name of the file without path.
-     *
-     * Returns the file name without path
+     * Returns the file name without path.
      */
     QString name() const;
     /*!
-     * The permissions and mode flags as returned by the stat() function
+     * Returns the permissions and mode flags as returned by the stat() function
      * in st_mode.
-     *
-     * Returns the permissions
      */
     mode_t permissions() const;
     /*!
-     * User who created the file.
-     *
-     * Returns the owner of the file
+     * Returns the user who created the file.
      */
     QString user() const;
     /*!
-     * Group of the user who created the file.
-     *
-     * Returns the group of the file
+     * Returns the group of the user who created the file.
      */
     QString group() const;
 
     /*!
-     * Symlink if there is one.
-     *
-     * Returns the symlink, or QString()
+     * Returns the symlink if there is one.
      */
     QString symLinkTarget() const;
 
     /*!
-     * Checks whether the entry is a file.
-     *
-     * Returns true if this entry is a file
+     * Returns whether the entry is a file.
      */
     virtual bool isFile() const;
 
     /*!
-     * Checks whether the entry is a directory.
-     *
-     * Returns true if this entry is a directory
+     * Returns whether the entry is a directory.
      */
     virtual bool isDirectory() const;
 
