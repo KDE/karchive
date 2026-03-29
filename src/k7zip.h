@@ -14,7 +14,7 @@
  *
  * \brief A class for reading/writing p7zip archives.
  *
- * The entrypoint for modifying an ar archive should be \l writeFile or \l writeDir:
+ * The entrypoint for modifying a 7z archive should be \l writeFile or \l writeDir:
  *
  * \code
  * K7Zip archive(QStringLiteral("some.7z"));
