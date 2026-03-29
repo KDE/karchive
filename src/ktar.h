@@ -35,7 +35,7 @@ class KARCHIVE_EXPORT KTar : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given \a filename
+     * Creates an instance that operates on the given archive \a filename
      * using the compression filter associated to the given \a mimeType.
      *
      * The supported mimetypes are:

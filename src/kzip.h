@@ -48,7 +48,7 @@ class KARCHIVE_EXPORT KZip : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given \a filename.
+     * Creates an instance that operates on the given archive \a filename.
      */
     explicit KZip(const QString &filename);
 

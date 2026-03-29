@@ -24,7 +24,7 @@ class KARCHIVE_EXPORT KAr : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given \a filename.
+     * Creates an instance that operates on the given archive \a filename.
      */
     explicit KAr(const QString &filename);
 

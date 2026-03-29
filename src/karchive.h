@@ -42,7 +42,7 @@ class KARCHIVE_EXPORT KArchive
 
 protected:
     /*!
-     * Constructs a new KArchive instance from \a fileName.
+     * Creates an instance that operates on the given archive \a fileName.
      *
      * The \a fileName from which the archive will be read from,
      * or into which the archive will be written,
@@ -51,7 +51,7 @@ protected:
     explicit KArchive(const QString &fileName);
 
     /*!
-     * Constructs a new KArchive instance from a QIODevice \a dev.
+     * Creates an instance that operates on the given QIODevice \a dev.
      *
      * This can be a file, but also a data buffer, a compression filter, etc.
      *

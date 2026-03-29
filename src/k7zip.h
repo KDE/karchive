@@ -31,7 +31,7 @@ class KARCHIVE_EXPORT K7Zip : public KArchive
 
 public:
     /*!
-     * Creates an instance that operates on the given \a filename
+     * Creates an instance that operates on the given archive \a filename
      * using the compression filter associated to the given mimetype.
      */
     explicit K7Zip(const QString &filename);
