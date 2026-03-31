@@ -1374,7 +1374,7 @@ void KArchiveTest::testZipUnusualButValid()
 
 void KArchiveTest::testZipDuplicateNames()
 {
-    const QString fileName = QFINDTESTDATA("data/out.epub");
+    const QString fileName = QFINDTESTDATA("data/zip_duplicate_names.zip");
     QVERIFY(!fileName.isEmpty());
 
     KZip zip(fileName);
