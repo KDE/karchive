@@ -1062,13 +1062,22 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
     }
 
     int numDigests = 0;
-    int numDigestsTotal = 0;
+    quint64 numDigestsTotal = 0;
     for (int i = 0; i < folders.size(); i++) {
-        quint64 numSubstreams = numUnpackStreamsInFolders.at(i);
+        const quint64 numSubstreams = numUnpackStreamsInFolders.at(i);
         if (numSubstreams != 1 || !folders.at(i)->unpackCRCDefined) {
             numDigests += numSubstreams;
         }
+        if (numDigestsTotal > std::numeric_limits<quint64>::max() - numSubstreams) {
+            qCWarning(KArchiveLog) << "numDigestsTotal was about to overflow";
+            return false;
+        }
         numDigestsTotal += numSubstreams;
+    }
+
+    if (numDigestsTotal > kMaxQByteArraySize) {
+        qCWarning(KArchiveLog) << "numDigestsTotal bigger than supported size:" << numDigestsTotal << ">" << kMaxQByteArraySize;
+        return false;
     }
 
     for (;;) {
