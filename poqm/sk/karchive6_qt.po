@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2541
@@ -122,7 +122,7 @@ msgstr ""
 #: k7zip.cpp:2884
 msgctxt "K7Zip|"
 msgid "contents"
-msgstr ""
+msgstr "contents"
 
 #: k7zip.cpp:3079
 msgctxt "K7Zip|"
@@ -314,9 +314,7 @@ msgid "Couldn't write alignment: %1"
 msgstr "Nepodarilo sa zapísať zarovnanie: %1"
 
 #: ktar.cpp:755 ktar.cpp:765
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Nepodarilo sa zapísať zarovnanie: %1"
@@ -399,9 +397,6 @@ msgstr ""
 "dlhý na platný záznam)"
 
 #: kzip.cpp:670
-#, fuzzy
-#| msgctxt "KZip|"
-#| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "Neplatný súbor ZIP, dĺžka názvu cesty k súboru menšia alebo rovná nule"
