@@ -399,16 +399,51 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
     // read dir information
     char buffer[0x200];
     bool ende = false;
+
+    // This variable indicates whether this function has already processed
+    // the first header of the tar archive
+    bool hasProcessedFirst = false;
+
     do {
         QString name;
         QString symlink;
 
         // Read header
         const qint64 n = d->readHeader(buffer, name, symlink);
+
+        // Perform some checks about the header
+        bool validHeader = true;
         if (n < 0) {
+            // An error has been found
+            validHeader = false;
+        } else if (!hasProcessedFirst) {
+            if (n != 0x200) {
+                // In this attempt to process the
+                // first header of the tar archive,
+                // 512 (0x200) bytes should have been read
+                // and that has not been the case
+                // (because the file is an empty one
+                // or it has only one byte, etc.).
+                // About the tar file format:
+                //     - "Each file object includes any file data, and is preceded by
+                //     a 512-byte header record. The file data is written unaltered
+                //     except that its length is rounded up to a multiple of 512 bytes".
+                //             -- https://www.loc.gov/preservation/digital/formats/fdd/fdd000531.shtml
+                //     - "A tar archive [...] consists of one or more blocks, which represents member files.
+                //     Each block is 512 bytes long. [...] Each member file consists of a header block,
+                //     followed by zero or more blocks containing the file contents".
+                //             -- https://www.ibm.com/docs/en/zvm/7.4.0?topic=tar-format
+                //     - "The ustar header block has a length of 512 bytes".
+                //             -- https://www.nongnu.org/lzip/manual/tarlz_manual.html
+                validHeader = false;
+            }
+            hasProcessedFirst = true;
+        }
+        if (!validHeader) {
             setErrorString(tr("Could not read tar header"));
             return false;
         }
+
         if (n == 0x200) {
             bool isdir = false;
 
