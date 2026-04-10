@@ -231,8 +231,8 @@ qint64 KTar::KTarPrivate::readRawHeader(char *buffer)
             }
         } /*end if*/
     } else {
-        // reset to 0 if 0x200 because logical end of archive has been reached
         if (n == 0x200) {
+            // reset to 0 because the logical end of the archive has been reached
             n = 0;
         }
     } /*end if*/
