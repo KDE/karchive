@@ -68,7 +68,7 @@ msgstr "Chyba v hlavičke"
 #: k7zip.cpp:2642 k7zip.cpp:2675
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
-msgstr ""
+msgstr "Pre tento archív je potrebné heslo"
 
 #: k7zip.cpp:2648
 msgctxt "K7Zip|"
@@ -94,7 +94,7 @@ msgstr "Chyba pri čítaní hlavičky"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Archive has %1 files which is more than the supported amount (%2)"
 
 #: k7zip.cpp:2767
 msgctxt "K7Zip|"
@@ -408,6 +408,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
+"at offset %3"
 
 #: kzip.cpp:726
 #, qt-format
@@ -415,6 +417,7 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 
 #: kzip.cpp:761
 msgctxt "KZip|"
@@ -435,7 +438,7 @@ msgstr "Nepodarilo sa presunúť na ďalšiu položku"
 #: kzip.cpp:843
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Not a ZIP file, no Local File Header found."
 
 #: kzip.cpp:847
 #, qt-format
