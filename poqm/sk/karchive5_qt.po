@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: karchive5_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-03 00:56+0000\n"
-"PO-Revision-Date: 2023-03-12 09:21+0100\n"
+"PO-Revision-Date: 2026-04-10 12:00+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -376,7 +376,7 @@ msgstr ""
 #: kzip.cpp:640
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length smaller or equal to zero"
-msgstr ""
+msgstr "Neplatný súbor ZIP, dĺžka cesty súboru je menšia alebo rovná nule"
 
 #: kzip.cpp:722
 msgctxt "KZip|"
@@ -397,7 +397,7 @@ msgstr "Nepodarilo sa presunúť na ďalšiu položku"
 #: kzip.cpp:787 kzip.cpp:797
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file."
-msgstr ""
+msgstr "Neplatný súbor ZIP. Neočakávaný koniec súboru."
 
 #: kzip.cpp:820
 #, qt-format
