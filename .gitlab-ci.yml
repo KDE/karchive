@@ -3,6 +3,7 @@
 
 include:
   - project: sysadmin/ci-utilities
+    ref: work/bshah/gcovr-html
     file:
       - /gitlab-templates/linux-qt6.yml
       - /gitlab-templates/linux-qt6-next.yml
