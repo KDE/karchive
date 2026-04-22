@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-01 15:07+0200\n"
+"PO-Revision-Date: 2026-04-21 19:02+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: qtrich\n"
@@ -92,7 +92,7 @@ msgstr "Feil ved lesing av filhovud"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
-msgstr ""
+msgstr "Arkivet inneheld %1 filer, som er meir enn det som er støtta (%2)"
 
 #: k7zip.cpp:2767
 msgctxt "K7Zip|"
@@ -310,10 +310,10 @@ msgid "Couldn't write alignment: %1"
 msgstr "Klarte ikkje skriva justering: %1"
 
 #: ktar.cpp:755 ktar.cpp:765
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
-msgstr "Klarte ikkje skriva justering: %1"
+msgstr "Klarte ikkje skriva lang lenkje: %1"
 
 #: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
 msgctxt "KTar|"
@@ -392,10 +392,9 @@ msgstr ""
 "oppføring)"
 
 #: kzip.cpp:670
-#, fuzzy
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
-msgstr "Ugyldig zip-fil: Lengda på filadressa var mindre enn eller lik 0"
+msgstr "Ugyldig zip-fil: Filadressa har lengd 0"
 
 #: kzip.cpp:676
 #, qt-format
@@ -404,6 +403,8 @@ msgid ""
 "Invalid ZIP file, unable to read %1 + %2 bytes for filename and extra data "
 "at offset %3"
 msgstr ""
+"Ugyldig zip-fil: Klarte ikkje lesa %1 + %2 byte for filnamn og ekstra data "
+"ved forskyving %3"
 
 #: kzip.cpp:726
 #, qt-format
@@ -411,6 +412,7 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
+"Ugyldig zip-fil: inkonsistent lokal filhovud-forskyving i sentralmappe ved %1"
 
 #: kzip.cpp:761
 msgctxt "KZip|"
@@ -431,7 +433,7 @@ msgstr "Klarte ikkje søkja til neste oppføring"
 #: kzip.cpp:843
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr ""
+msgstr "Ikkje ei zip-fil: Fann ikkje lokalt filhovud."
 
 #: kzip.cpp:847
 #, qt-format
