@@ -247,12 +247,19 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
 
 /**
  * parses the extra field
+ *
+ * the 64-bit values for uncompressed size, compressed size and local header offset
+ * are retrieved only if the 32-bit values are 0xFFFFFFFF
+ *
  * @param buffer start of buffer where the extra field is to be found
  * @param size size of the extra field
  * @param pfi ParseFileInfo object which to write the results into
+ * @param uncompressedSize32 quint32 32-bit value for uncompressed size
+ * @param compressedSize32 quint32 32-bit value for compressed size
+ * @param localHeaderOffset32 quint32 32-bit value for local header offset
  * @return true if parsing was successful
  */
-static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
+static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi, quint32 uncompressedSize32, quint32 compressedSize32, quint32 localHeaderOffset32)
 {
     while (size >= 4) { // as long as a potential extra field can be read
         int magic = parseUi16(buffer);
@@ -267,17 +274,23 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
         }
 
         switch (magic) {
-        case 0x0001: // ZIP64 extended file information
-            if (size >= 8) {
-                pfi.uncompressedSize = parseUi64(buffer);
+        case 0x0001: {
+            // ZIP64 extended file information
+            int offset = 0;
+            if (uncompressedSize32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
+                pfi.uncompressedSize = parseUi64(buffer + offset);
+                offset += 8;
             }
-            if (size >= 16) {
-                pfi.compressedSize = parseUi64(buffer + 8);
+            if (compressedSize32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
+                pfi.compressedSize = parseUi64(buffer + offset);
+                offset += 8;
             }
-            if (size >= 24) {
-                pfi.localheaderoffset = parseUi64(buffer + 16);
+            if (localHeaderOffset32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
+                pfi.localheaderoffset = parseUi64(buffer + offset);
+                offset += 8;
             }
             break;
+        }
         case 0x5455: // extended timestamp
             if (!parseExtTimestamp(buffer, fieldsize, true, pfi)) {
                 return false;
@@ -516,8 +529,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             int compression_mode = parseUi16(buffer + 4);
             uint mtime = transformFromMsDos(buffer + 6);
 
-            const qint64 compr_size = parseUi32(buffer + 14);
-            const qint64 uncomp_size = parseUi32(buffer + 18);
+            qint64 compr_size = parseUi32(buffer + 14);
+            qint64 uncomp_size = parseUi32(buffer + 18);
             const int namelen = parseUi16(buffer + 22);
             const int extralen = parseUi16(buffer + 24);
 
@@ -546,7 +559,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             // read and parse the beginning of the extra field,
             // skip rest of extra field in case it is too long
-            unsigned int extraFieldEnd = dev->pos() + extralen;
+            quint64 extraFieldEnd = dev->pos() + extralen;
             int handledextralen = qMin(extralen, (int)sizeof buffer);
 
             // if (handledextralen)
@@ -554,9 +567,16 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             n = dev->read(buffer, handledextralen);
             // no error msg necessary as we deliberately truncate the extra field
-            if (!parseExtraField(buffer, n, pfi)) {
+            if (!parseExtraField(buffer, n, pfi, uncomp_size, compr_size, 0)) {
                 setErrorString(tr("Invalid ZIP File. Broken ExtraField."));
                 return false;
+            }
+
+            if (compr_size == 0xFFFFFFFF) {
+                compr_size = pfi.compressedSize;
+            }
+            if (uncomp_size == 0xFFFFFFFF) {
+                uncomp_size = pfi.uncompressedSize;
             }
 
             // jump to end of extra field
@@ -678,10 +698,26 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                 return false;
             }
 
+            // crc32 of the file
+            uint crc32 = parseUi32(buffer + 16);
+            // 32 bit uncompressed file size
+            quint32 ucsize32 = parseUi32(buffer + 24);
+            // 32 bit compressed file size
+            quint32 csize32 = parseUi32(buffer + 20);
+            // 32 bit offset of local header
+            quint32 localheaderoffset_32 = parseUi32(buffer + 42);
+
             ParseFileInfo extrafi;
             if (extralen) {
-                parseExtraField(varData.constData() + namelen, extralen, extrafi);
+                parseExtraField(varData.constData() + namelen, extralen, extrafi, ucsize32, csize32, localheaderoffset_32);
             }
+
+            // uncompressed file size
+            quint64 ucsize = (ucsize32 == 0xFFFFFFFF) ? extrafi.uncompressedSize : ucsize32;
+            // compressed file size
+            quint64 csize = (csize32 == 0xFFFFFFFF) ? extrafi.compressedSize : csize32;
+            // offset of local header
+            quint64 localheaderoffset = (localheaderoffset_32 == 0xFFFFFFFF) ? extrafi.localheaderoffset : localheaderoffset_32;
 
             QByteArray bufferName(varData.constData(), namelen);
 
@@ -690,30 +726,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             QString name(QFile::decodeName(bufferName));
 
             // qCDebug(KArchiveLog) << "name: " << name;
-
             // qCDebug(KArchiveLog) << "cmethod: " << cmethod;
             // qCDebug(KArchiveLog) << "extralen: " << extralen;
-
-            // crc32 of the file
-            uint crc32 = parseUi32(buffer + 16);
-
-            // uncompressed file size
-            quint64 ucsize = parseUi32(buffer + 24);
-            if (ucsize == 0xFFFFFFFF) {
-                ucsize = extrafi.uncompressedSize;
-            }
-            // compressed file size
-            quint64 csize = parseUi32(buffer + 20);
-            if (csize == 0xFFFFFFFF) {
-                csize = extrafi.compressedSize;
-            }
-
-            // offset of local header
-            quint64 localheaderoffset = parseUi32(buffer + 42);
-            if (localheaderoffset == 0xFFFFFFFF) {
-                localheaderoffset = extrafi.localheaderoffset;
-            }
-
             // qCDebug(KArchiveLog) << "localheader dataoffset: " << pfi.dataoffset;
 
             // offset, where the real data for uncompression starts
