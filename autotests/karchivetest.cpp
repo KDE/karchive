@@ -1566,15 +1566,15 @@ void KArchiveTest::testZip64ExtraZip64SizeFirst()
 
     QBuffer zipBuffer(&zipData);
     KZip zip(&zipBuffer);
-    QEXPECT_FAIL("", "Zip64 extra at front incorrectly parsed", Abort);
     QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
-
     QCOMPARE(zip.directory()->entries().size(), 2);
-    QCOMPARE(zip.directory()->entries(), (QList{QStringLiteral("4200M.bin"), QStringLiteral("4.bin")}));
 
     auto entry = zip.directory()->file(QStringLiteral("4200M.bin"));
     QVERIFY(entry);
     QCOMPARE(entry->size(), 4404019208);
+
+    auto entry2 = zip.directory()->file(QStringLiteral("4.bin"));
+    QVERIFY(entry2);
 
     auto readDev = std::unique_ptr<QIODevice>(entry->createDevice());
     auto head = readDev->read(8);
