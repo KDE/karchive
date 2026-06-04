@@ -361,7 +361,7 @@ msgstr "无效的 ZIP 文件。损坏的 ExtraField。"
 #: kzip.cpp:572 kzip.cpp:595
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr "无法定位到下一个头标记"
+msgstr "无法定位到下一个头部令牌"
 
 #: kzip.cpp:587
 msgctxt "KZip|"
