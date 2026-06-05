@@ -899,13 +899,13 @@ bool KZip::closeArchive()
         buffer[2] = char(mycrc >> 16);
         buffer[3] = char(mycrc >> 24);
 
-        int mysize1 = entry->compressedSize();
+        qint64 mysize1 = entry->compressedSize();
         buffer[4] = char(mysize1); // compressed file size, at headerStart+18
         buffer[5] = char(mysize1 >> 8);
         buffer[6] = char(mysize1 >> 16);
         buffer[7] = char(mysize1 >> 24);
 
-        int myusize = entry->size();
+        qint64 myusize = entry->size();
         buffer[8] = char(myusize); // uncompressed file size, at headerStart+22
         buffer[9] = char(myusize >> 8);
         buffer[10] = char(myusize >> 16);
@@ -953,13 +953,13 @@ bool KZip::closeArchive()
         buffer[18] = char(mycrc >> 16);
         buffer[19] = char(mycrc >> 24);
 
-        int mysize1 = entry->compressedSize();
+        qint64 mysize1 = entry->compressedSize();
         buffer[20] = char(mysize1); // compressed file size
         buffer[21] = char(mysize1 >> 8);
         buffer[22] = char(mysize1 >> 16);
         buffer[23] = char(mysize1 >> 24);
 
-        int mysize = entry->size();
+        qint64 mysize = entry->size();
         buffer[24] = char(mysize); // uncompressed file size
         buffer[25] = char(mysize >> 8);
         buffer[26] = char(mysize >> 16);
@@ -974,7 +974,7 @@ bool KZip::closeArchive()
         buffer[40] = char(entry->permissions());
         buffer[41] = char(entry->permissions() >> 8);
 
-        int myhst = entry->headerStart();
+        qint64 myhst = entry->headerStart();
         buffer[42] = char(myhst); // relative offset of local header
         buffer[43] = char(myhst >> 8);
         buffer[44] = char(myhst >> 16);
@@ -1296,7 +1296,7 @@ bool KZip::doFinishWriting(qint64 size)
     }
 
     const QByteArray encodedName = QFile::encodeName(d->m_currentFile->path());
-    int csize = device()->pos() - d->m_currentFile->headerStart() - 30 - encodedName.length() - extra_field_len;
+    qint64 csize = device()->pos() - d->m_currentFile->headerStart() - 30 - encodedName.length() - extra_field_len;
     d->m_currentFile->setCompressedSize(csize);
     // qCDebug(KArchiveLog) << "usize: " << d->m_currentFile->size();
     // qCDebug(KArchiveLog) << "csize: " << d->m_currentFile->compressedSize();
