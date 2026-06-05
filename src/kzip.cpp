@@ -894,22 +894,16 @@ bool KZip::closeArchive()
         //    << "encoding:" << entry->encoding();
 
         uLong mycrc = entry->crc32();
-        buffer[0] = char(mycrc); // crc checksum, at headerStart+14
-        buffer[1] = char(mycrc >> 8);
-        buffer[2] = char(mycrc >> 16);
-        buffer[3] = char(mycrc >> 24);
+        // crc checksum, at headerStart+14
+        qToLittleEndian<quint32>(mycrc, buffer);
 
         qint64 mysize1 = entry->compressedSize();
-        buffer[4] = char(mysize1); // compressed file size, at headerStart+18
-        buffer[5] = char(mysize1 >> 8);
-        buffer[6] = char(mysize1 >> 16);
-        buffer[7] = char(mysize1 >> 24);
+        // compressed file size, at headerStart+18
+        qToLittleEndian<quint32>(mysize1, buffer + 4);
 
         qint64 myusize = entry->size();
-        buffer[8] = char(myusize); // uncompressed file size, at headerStart+22
-        buffer[9] = char(myusize >> 8);
-        buffer[10] = char(myusize >> 16);
-        buffer[11] = char(myusize >> 24);
+        // uncompressed file size, at headerStart+22
+        qToLittleEndian<quint32>(myusize, buffer + 8);
 
         if (device()->write(buffer, 12) != 12) {
             setErrorString(tr("Could not write file header: %1").arg(device()->errorString()));
@@ -942,43 +936,34 @@ bool KZip::closeArchive()
         // memcpy(buffer, head, sizeof(head));
         memmove(buffer, head, sizeof(head));
 
-        buffer[10] = char(entry->encoding()); // compression method
-        buffer[11] = char(entry->encoding() >> 8);
+        // compression method
+        qToLittleEndian<quint16>(char(entry->encoding()), buffer + 10);
 
         transformToMsDos(entry->date(), &buffer[12]);
 
         uLong mycrc = entry->crc32();
-        buffer[16] = char(mycrc); // crc checksum
-        buffer[17] = char(mycrc >> 8);
-        buffer[18] = char(mycrc >> 16);
-        buffer[19] = char(mycrc >> 24);
+        // crc checksum
+        qToLittleEndian<quint32>(mycrc, buffer + 16);
 
+        // compressed file size
         qint64 mysize1 = entry->compressedSize();
-        buffer[20] = char(mysize1); // compressed file size
-        buffer[21] = char(mysize1 >> 8);
-        buffer[22] = char(mysize1 >> 16);
-        buffer[23] = char(mysize1 >> 24);
+        qToLittleEndian<quint32>(mysize1, buffer + 20);
 
+        // uncompressed file size
         qint64 mysize = entry->size();
-        buffer[24] = char(mysize); // uncompressed file size
-        buffer[25] = char(mysize >> 8);
-        buffer[26] = char(mysize >> 16);
-        buffer[27] = char(mysize >> 24);
+        qToLittleEndian<quint32>(mysize, buffer + 24);
 
-        buffer[28] = char(path.length()); // fileName length
-        buffer[29] = char(path.length() >> 8);
+        // fileName length
+        qToLittleEndian<quint16>(path.length(), buffer + 28);
 
-        buffer[30] = char(extra_field_len);
-        buffer[31] = char(extra_field_len >> 8);
+        // extra field length
+        qToLittleEndian<quint16>(extra_field_len, buffer + 30);
 
-        buffer[40] = char(entry->permissions());
-        buffer[41] = char(entry->permissions() >> 8);
+        qToLittleEndian<quint16>(entry->permissions(), buffer + 40);
 
+        // relative offset of local header
         qint64 myhst = entry->headerStart();
-        buffer[42] = char(myhst); // relative offset of local header
-        buffer[43] = char(myhst >> 8);
-        buffer[44] = char(myhst >> 16);
-        buffer[45] = char(myhst >> 24);
+        qToLittleEndian<quint32>(myhst, buffer + 42);
 
         // file name
         strncpy(buffer + 46, path.constData(), path.length());
@@ -996,10 +981,7 @@ bool KZip::closeArchive()
             // (unless I misread the spec)
             // provide only modification time
             unsigned long time = (unsigned long)entry->date().toSecsSinceEpoch();
-            extfield[5] = char(time);
-            extfield[6] = char(time >> 8);
-            extfield[7] = char(time >> 16);
-            extfield[8] = char(time >> 24);
+            qToLittleEndian<quint32>(time, extfield + 5);
         }
 
         crc = crc32(crc, (Bytef *)buffer, bufferSize);
@@ -1020,37 +1002,32 @@ bool KZip::closeArchive()
     buffer[2] = 5;
     buffer[3] = 6;
 
-    buffer[4] = 0; // number of this disk
-    buffer[5] = 0;
+    qToLittleEndian<quint16>(0, buffer + 4);
 
-    buffer[6] = 0; // number of disk with start of central dir
-    buffer[7] = 0;
+    // number of disk with start of central dir
+    qToLittleEndian<quint16>(0, buffer + 6);
 
+    // total number of entries in central dir
     int count = d->m_fileList.count();
     // qCDebug(KArchiveLog) << "number of files (count): " << count;
 
-    buffer[8] = char(count); // total number of entries in central dir of
-    buffer[9] = char(count >> 8); // this disk
+    // count for this disk
+    qToLittleEndian<quint16>(count, buffer + 8);
+    // count for total number of entries in the central dir
+    qToLittleEndian<quint16>(count, buffer + 10);
 
-    buffer[10] = buffer[8]; // total number of entries in the central dir
-    buffer[11] = buffer[9];
-
+    // size of the central dir
     int cdsize = centraldirendoffset - centraldiroffset;
-    buffer[12] = char(cdsize); // size of the central dir
-    buffer[13] = char(cdsize >> 8);
-    buffer[14] = char(cdsize >> 16);
-    buffer[15] = char(cdsize >> 24);
+    qToLittleEndian<quint32>(cdsize, buffer + 12);
 
     // qCDebug(KArchiveLog) << "end : centraldiroffset: " << centraldiroffset;
     // qCDebug(KArchiveLog) << "end : centraldirsize: " << cdsize;
 
-    buffer[16] = char(centraldiroffset); // central dir offset
-    buffer[17] = char(centraldiroffset >> 8);
-    buffer[18] = char(centraldiroffset >> 16);
-    buffer[19] = char(centraldiroffset >> 24);
+    // central dir offset
+    qToLittleEndian<quint32>(centraldiroffset, buffer + 16);
 
-    buffer[20] = 0; // zipfile comment length
-    buffer[21] = 0;
+    // zipfile comment length
+    qToLittleEndian<quint16>(0, buffer + 20);
 
     if (device()->write(buffer, 22) != 22) {
         setErrorString(tr("Could not write central dir record: %1").arg(device()->errorString()));
@@ -1184,14 +1161,14 @@ bool KZip::doPrepareWriting(const QString &name,
     buffer[2] = 3;
     buffer[3] = 4;
 
-    buffer[4] = 0x14; // version needed to extract
-    buffer[5] = 0;
+    // version needed to extract
+    qToLittleEndian<quint16>(0x14, buffer + 4);
 
-    buffer[6] = 0; // general purpose bit flag
-    buffer[7] = 0;
+    // general purpose bit flag
+    qToLittleEndian<quint16>(0, buffer + 6);
 
-    buffer[8] = char(e->encoding()); // compression method
-    buffer[9] = char(e->encoding() >> 8);
+    // compression method
+    qToLittleEndian<quint16>(char(e->encoding()), buffer + 8);
 
     transformToMsDos(e->date(), &buffer[10]);
 
@@ -1210,11 +1187,11 @@ bool KZip::doPrepareWriting(const QString &name,
     buffer[24] = 'I';
     buffer[25] = 'Z';
 
-    buffer[26] = (uchar)(encodedName.length()); // fileName length
-    buffer[27] = (uchar)(encodedName.length() >> 8);
+    // fileName length
+    qToLittleEndian<quint16>(encodedName.length(), buffer + 26);
 
-    buffer[28] = (uchar)(extra_field_len); // extra field length
-    buffer[29] = (uchar)(extra_field_len >> 8);
+    // extra field length
+    qToLittleEndian<quint16>((uchar)(extra_field_len), buffer + 28);
 
     // file name
     strncpy(buffer + 30, encodedName.constData(), encodedName.length());
@@ -1229,20 +1206,9 @@ bool KZip::doPrepareWriting(const QString &name,
         extfield[3] = 0;
         extfield[4] = 1 | 2 | 4; // contains mtime, atime, ctime
 
-        extfield[5] = char(mtime);
-        extfield[6] = char(mtime >> 8);
-        extfield[7] = char(mtime >> 16);
-        extfield[8] = char(mtime >> 24);
-
-        extfield[9] = char(atime);
-        extfield[10] = char(atime >> 8);
-        extfield[11] = char(atime >> 16);
-        extfield[12] = char(atime >> 24);
-
-        extfield[13] = char(ctime);
-        extfield[14] = char(ctime >> 8);
-        extfield[15] = char(ctime >> 16);
-        extfield[16] = char(ctime >> 24);
+        qToLittleEndian<quint16>(mtime, extfield + 5);
+        qToLittleEndian<quint16>(atime, extfield + 9);
+        qToLittleEndian<quint16>(ctime, extfield + 13);
     }
 
     // Write header
