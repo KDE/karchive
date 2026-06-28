@@ -118,7 +118,7 @@ msgstr "No vàlid"
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
-"Ha fallat la lectura de la mida (checkRecordsSize: %1, d->pos - ppp: %2, "
+"Ha fallat la lectura de la mida (checkRecordsSize: %1, d->pos – ppp: %2, "
 "mida: %3)"
 
 #: k7zip.cpp:2884
@@ -244,7 +244,7 @@ msgstr "No s'ha pogut obrir el fitxer %1: %2"
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
-msgstr "El directori %1 no existix"
+msgstr "La carpeta %1 no existix"
 
 #: karchive.cpp:447
 #, qt-format
@@ -310,7 +310,7 @@ msgstr "No s'ha pogut llegir la capçalera de «tar»"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
-msgstr "Ha fallat mentre s'escrivia al fitxer temporal: %1"
+msgstr "Ha fallat mentre s'escrivia en el fitxer temporal: %1"
 
 #: ktar.cpp:653
 #, qt-format
