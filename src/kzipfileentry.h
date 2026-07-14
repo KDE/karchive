@@ -35,12 +35,54 @@ public:
                   int encoding,
                   qint64 compressedSize);
 
+    KZipFileEntry(KZip *zip,
+                  const QString &name,
+                  int access,
+                  const QDateTime &date,
+                  const QString &user,
+                  const QString &group,
+                  const QString &symlink,
+                  const QString &path,
+                  qint64 start,
+                  qint64 uncompressedSize,
+                  int encoding,
+                  const QByteArray &aesPayload,
+                  qint64 compressedSize);
+
     ~KZipFileEntry() override;
 
     /*!
      *
      */
     int encoding() const;
+
+    /**
+     * Whether the file is AES-encrypted
+     *
+     * You need to provide a password before you can read this file.
+     *
+     * \since 6.29
+     */
+    bool isAesEncrypted() const;
+
+    /**
+     * Provide the necessary password when it is AES-encrypted.
+     *
+     * \since 6.29
+     */
+    void setPassword(const QString &password);
+
+    /**
+     * Checks whether the given password is correct
+     *
+     * This is a quick check that whether the password provided
+     * maybe correct. There can be false positives.
+     *
+     * Returns true when the file is not AES-encrypted.
+     *
+     * \since 6.29
+     */
+    bool passwordCorrect() const;
 
     /*!
      * Only used when writing
@@ -95,6 +137,9 @@ public:
      * who will have to delete it.
      *
      * The returned device auto-opens (in readonly mode), no need to open it.
+     *
+     * When the file is AES-encrypted, this will return nullptr when no or
+     * an incorrect password were provided.
      *
      * \note It can return nullptr
      */

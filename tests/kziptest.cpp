@@ -77,7 +77,7 @@ static int doList(const QString &fileName)
     return 0;
 }
 
-static int doPrintAll(const QString &fileName)
+static int doPrintAll(const QString &fileName, const QString &password)
 {
     KZip zip(fileName);
     qDebug() << "Opening zip file";
@@ -93,7 +93,11 @@ static int doPrintAll(const QString &fileName)
         qDebug() << "Printing" << it;
         if (e->isFile()) {
             Q_ASSERT(e && e->isFile());
-            const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
+            const auto *f = static_cast<const KZipFileEntry *>(e);
+            if (!password.isEmpty()) {
+                // TODO const_cast?
+                const_cast<KZipFileEntry *>(f)->setPassword(password);
+            }
             const QByteArray data(f->data());
             printf("SIZE=%lli\n", data.size());
             QString str = QString::fromUtf8(data);
@@ -147,7 +151,7 @@ static int doLoad(const QString &fileName)
     return 0;
 }
 
-static int doPrint(const QString &fileName, const QString &entryName)
+static int doPrint(const QString &fileName, const QString &entryName, const QString &password)
 {
     KZip zip(fileName);
     if (!zip.open(QIODevice::ReadOnly)) {
@@ -157,7 +161,11 @@ static int doPrint(const QString &fileName, const QString &entryName)
     const KArchiveDirectory *dir = zip.directory();
     const KArchiveEntry *e = dir->entry(entryName);
     Q_ASSERT(e && e->isFile());
-    const KArchiveFile *f = static_cast<const KArchiveFile *>(e);
+    const auto *f = static_cast<const KZipFileEntry *>(e);
+    if (!password.isEmpty()) {
+        // TODO const_cast?
+        const_cast<KZipFileEntry *>(f)->setPassword(password);
+    }
 
     const QByteArray arr(f->data());
     printf("SIZE=%lli\n", arr.size());
@@ -273,8 +281,8 @@ int main(int argc, char **argv)
             "\n"
             " Usage :\n"
             " ./kziptest list /path/to/existing_file.zip       tests listing an existing zip\n"
-            " ./kziptest print-all file.zip                    prints contents of all files.\n"
-            " ./kziptest print file.zip filename               prints contents of one file.\n"
+            " ./kziptest print-all file.zip [password]         prints contents of all files.\n"
+            " ./kziptest print file.zip filename [password]    prints contents of one file.\n"
             " ./kziptest create file.zip filenames             create a new zip file with these files.\n"
             " ./kziptest update file.zip filename              update filename in file.zip.\n"
             " ./kziptest save file.zip                         save file.\n"
@@ -288,13 +296,13 @@ int main(int argc, char **argv)
     if (command == QLatin1String("list")) {
         return doList(QFile::decodeName(argv[2]));
     } else if (command == QLatin1String("print-all")) {
-        return doPrintAll(QFile::decodeName(argv[2]));
+        return doPrintAll(QFile::decodeName(argv[2]), argv[3]);
     } else if (command == QLatin1String("print")) {
-        if (argc != 4) {
+        if (argc != 4 && argc != 5) {
             printf("usage: kziptest print archivename filename");
             return 1;
         }
-        return doPrint(QFile::decodeName(argv[2]), argv[3]);
+        return doPrint(QFile::decodeName(argv[2]), argv[3], argv[4]);
     } else if (command == QLatin1String("save")) {
         return doSave(QFile::decodeName(argv[2]));
     } else if (command == QLatin1String("load")) {

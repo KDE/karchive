@@ -5,6 +5,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "config-compression.h"
+
 #include "kzip.h"
 #include "karchive_p.h"
 #include "kcompressiondevice.h"
@@ -24,6 +26,12 @@
 #include <string.h>
 #include <time.h>
 #include <zlib.h>
+
+#if HAVE_OPENSSL_SUPPORT
+#include "kzipaesiodevice_p.h"
+
+#include <openssl/evp.h>
+#endif
 
 #ifndef QT_STAT_LNK
 #define QT_STAT_LNK 0120000
@@ -108,6 +116,7 @@ struct ParseFileInfo {
     // has been parsed
     bool newinfounix_seen; // true if Info-ZIP Unix New extra field has
     // been parsed
+    bool aesinfo_seen; // true if WinZIP AES extra field has been parsed
 
     // file sizes from a ZIP64 extra field
     quint64 uncompressedSize = 0;
@@ -116,12 +125,19 @@ struct ParseFileInfo {
     // ZIP64 extra field in the Central Directory
     quint64 localheaderoffset = 0;
 
+    // AES information
+    quint8 aesEncryptionStrength = 0;
+    quint8 aesActualMethod = 0;
+    QByteArray aesSalt;
+    QByteArray aesPasswordVerification;
+
     ParseFileInfo()
         : perm(0100644)
         , uid(-1)
         , gid(-1)
         , exttimestamp_seen(false)
         , newinfounix_seen(false)
+        , aesinfo_seen(false)
     {
         ctime = mtime = atime = time(nullptr);
     }
@@ -245,6 +261,46 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
 }
 #endif
 
+static bool parseAes(const char *buffer, int size, bool isLocal, ParseFileInfo &pfi)
+{
+    if (!isLocal) {
+        return false;
+    }
+
+    if (size < 7) {
+        qCDebug(KArchiveLog) << "premature end of AES extra field";
+        return false;
+    }
+
+    const auto version = parseUi16(buffer);
+    if (version != 1 && version != 2) {
+        qCDebug(KArchiveLog) << "unsupported AES version" << version;
+        return false;
+    }
+    buffer += 2;
+
+    if (buffer[0] != 'A' || buffer[1] != 'E') {
+        qCDebug(KArchiveLog).nospace() << "unrecognized AES vendor " << buffer[0] << buffer[1];
+        return false;
+    }
+    buffer += 2;
+
+    const quint8 strength = *buffer;
+    if (strength != 1 && strength != 2 && strength != 3) {
+        qCDebug(KArchiveLog) << "unrecognized AES encryption strength" << strength;
+        return false;
+    }
+    pfi.aesEncryptionStrength = strength;
+    buffer += 1;
+
+    const auto method = parseUi16(buffer);
+    pfi.aesActualMethod = method;
+    buffer += 2;
+
+    pfi.aesinfo_seen = true;
+    return true;
+}
+
 /**
  * parses the extra field
  * @param buffer start of buffer where the extra field is to be found
@@ -295,6 +351,11 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi)
             }
             break;
 #endif
+        case 0x9901:
+            if (!parseAes(buffer, fieldsize, true, pfi)) {
+                return false;
+            }
+            break;
         default:
             /* ignore everything else */
             ;
@@ -562,6 +623,24 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // jump to end of extra field
             dev->seek(extraFieldEnd);
 
+            if (pfi.aesinfo_seen) {
+                switch (pfi.aesEncryptionStrength) {
+                case 1:
+                    pfi.aesSalt = dev->read(8);
+                    break;
+                case 2:
+                    pfi.aesSalt = dev->read(12);
+                    break;
+                case 3:
+                    pfi.aesSalt = dev->read(16);
+                    break;
+                }
+                pfi.aesPasswordVerification = dev->read(2);
+            }
+
+            // TODO
+            dev->seek(extraFieldEnd);
+
             // we have to take care of the 'general purpose bit flag'.
             // if bit 3 is set, the header doesn't contain the length of
             // the file and we look for the signature 'PK\7\8'.
@@ -661,7 +740,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             // length of comment for this file
             const int commlen = parseUi16(buffer + 32);
             // compression method of this file
-            const int cmethod = parseUi16(buffer + 10);
+            int cmethod = parseUi16(buffer + 10);
             // int gpf =  parseUi16(buffer + 8);
             // qCDebug(KArchiveLog) << "general purpose flag=" << gpf;
             // length of the fileName (well, pathname indeed)
@@ -780,8 +859,23 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
                     symlink = QFile::decodeName(pfi.guessed_symlink);
                 }
                 QDateTime mtime = KArchivePrivate::time_tToDateTime(pfi.mtime);
-                entry =
-                    new KZipFileEntry(this, entryName, access, mtime, rootDir()->user(), rootDir()->group(), symlink, name, dataoffset, ucsize, cmethod, csize);
+
+                if (extrafi.aesinfo_seen) {
+                    cmethod = extrafi.aesActualMethod;
+                }
+                entry = new KZipFileEntry(this,
+                                          entryName,
+                                          access,
+                                          mtime,
+                                          rootDir()->user(),
+                                          rootDir()->group(),
+                                          symlink,
+                                          name,
+                                          dataoffset,
+                                          ucsize,
+                                          cmethod,
+                                          pfi.aesSalt + pfi.aesPasswordVerification,
+                                          csize);
                 static_cast<KZipFileEntry *>(entry)->setHeaderStart(localheaderoffset);
                 static_cast<KZipFileEntry *>(entry)->setCRC32(crc32);
                 // qCDebug(KArchiveLog) << "KZipFileEntry created, entryName= " << entryName << ", name=" << name;
@@ -1399,8 +1493,35 @@ public:
     qint64 compressedSize;
     qint64 headerStart;
     int encoding;
+    QByteArray aesPayload;
     QString path;
+    QString password;
 };
+
+#if HAVE_OPENSSL_SUPPORT
+struct PkcsPbkdfHmac {
+    QByteArray aesKey;
+    // hmacKey is unused here.
+    QByteArray passwordCheck;
+
+    static PkcsPbkdfHmac fromPasswordAndSalt(const QByteArray &password, const QByteArray &salt)
+    {
+        const int aesStrength = salt.size() * 2;
+        // aes + hmac + password.
+        QByteArray derived(aesStrength * 2 + 2, Qt::Uninitialized);
+
+        PKCS5_PBKDF2_HMAC_SHA1(password.constData(),
+                               password.size(),
+                               reinterpret_cast<const unsigned char *>(salt.constData()),
+                               salt.size(),
+                               1000,
+                               derived.size(),
+                               reinterpret_cast<unsigned char *>(derived.data()));
+
+        return PkcsPbkdfHmac{derived.left(aesStrength), derived.right(2)};
+    }
+};
+#endif
 
 KZipFileEntry::KZipFileEntry(KZip *zip,
                              const QString &name,
@@ -1414,11 +1535,29 @@ KZipFileEntry::KZipFileEntry(KZip *zip,
                              qint64 uncompressedSize,
                              int encoding,
                              qint64 compressedSize)
+    : KZipFileEntry(zip, name, access, date, user, group, symlink, path, start, uncompressedSize, encoding, {}, compressedSize)
+{
+}
+
+KZipFileEntry::KZipFileEntry(KZip *zip,
+                             const QString &name,
+                             int access,
+                             const QDateTime &date,
+                             const QString &user,
+                             const QString &group,
+                             const QString &symlink,
+                             const QString &path,
+                             qint64 start,
+                             qint64 uncompressedSize,
+                             int encoding,
+                             const QByteArray &aesPayload,
+                             qint64 compressedSize)
     : KArchiveFile(zip, name, access, date, user, group, symlink, start, uncompressedSize)
     , d(new KZipFileEntryPrivate)
 {
     d->path = path;
     d->encoding = encoding;
+    d->aesPayload = aesPayload;
     d->compressedSize = compressedSize;
 }
 
@@ -1430,6 +1569,40 @@ KZipFileEntry::~KZipFileEntry()
 int KZipFileEntry::encoding() const
 {
     return d->encoding;
+}
+
+bool KZipFileEntry::isAesEncrypted() const
+{
+    // Salt is 8, 12, 16 bytes + 2 bytes for password check.
+    return d->aesPayload.size() >= 10 && d->aesPayload.size() <= 18;
+}
+
+void KZipFileEntry::setPassword(const QString &password)
+{
+    if (!isAesEncrypted()) {
+        return;
+    }
+    d->password = password;
+}
+
+bool KZipFileEntry::passwordCorrect() const
+{
+    if (!isAesEncrypted()) {
+        return true;
+    }
+
+#if HAVE_OPENSSL_SUPPORT
+    QByteArray salt = d->aesPayload;
+    // QByteArray::chopped does not chop it off the original...
+    const QByteArray passwordCheck = salt.right(2);
+    salt.chop(2);
+
+    const auto result = PkcsPbkdfHmac::fromPasswordAndSalt(d->password.toUtf8(), salt);
+
+    return result.passwordCheck == passwordCheck;
+#else
+    return false;
+#endif
 }
 
 qint64 KZipFileEntry::compressedSize() const
@@ -1492,14 +1665,49 @@ QIODevice *KZipFileEntry::createDevice() const
     }
     // qCDebug(KArchiveLog) << "creating iodevice limited to pos=" << position() << ", csize=" << compressedSize();
     // Limit the reading to the appropriate part of the underlying device (e.g. file)
-    std::unique_ptr limitedDev = std::make_unique<KLimitedIODevice>(archive()->device(), position(), compressedSize());
+    std::unique_ptr<QIODevice> sourceDevice;
+
+    if (isAesEncrypted()) {
+#if HAVE_OPENSSL_SUPPORT
+        if (d->password.isEmpty()) {
+            qCWarning(KArchiveLog) << "KZipFileEntry::createDevice: No password provided for AES-encrypted file" << path();
+            return nullptr;
+        }
+
+        QByteArray salt = d->aesPayload;
+        // QByteArray::chopped does not chop it off the original...
+        const QByteArray passwordCheck = salt.right(2);
+        salt.chop(2);
+
+        const auto hmacResult = PkcsPbkdfHmac::fromPasswordAndSalt(d->password.toUtf8(), salt);
+
+        if (passwordCheck != hmacResult.passwordCheck) {
+            qCWarning(KArchiveLog) << "KZipFileEntry::createDevice: Incorrect password provided for" << path();
+            return nullptr;
+        }
+
+        qint64 offset = d->aesPayload.size();
+        auto limitedDev = std::make_unique<KLimitedIODevice>(archive()->device(), position() + offset, compressedSize() - offset - 10);
+
+        auto aesDevice = std::make_unique<KZipAesIODevice>(std::move(limitedDev), hmacResult.aesKey);
+        aesDevice->open(QIODevice::ReadOnly);
+
+        sourceDevice = std::move(aesDevice);
+#else
+        qCWarning(KArchiveLog) << "Cannot process AES-encrypted ZIP file, KArchive was built without OpenSSL support.";
+        return nullptr;
+#endif
+    } else {
+        sourceDevice = std::make_unique<KLimitedIODevice>(archive()->device(), position(), compressedSize());
+    }
+
     if (encoding() == 0 || compressedSize() == 0) { // no compression (or even no data)
-        return limitedDev.release();
+        return sourceDevice.release();
     }
 
     if (encoding() == 8) {
         // On top of that, create a device that uncompresses the zlib data
-        KCompressionDevice *filterDev = new KCompressionDevice(std::move(limitedDev), KCompressionDevice::GZip, size());
+        KCompressionDevice *filterDev = new KCompressionDevice(std::move(sourceDevice), KCompressionDevice::GZip, size());
 
         if (!filterDev) {
             return nullptr; // ouch

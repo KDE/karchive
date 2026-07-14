@@ -31,6 +31,7 @@ if(LIBLZMA_FOUND)
 endif()
 
 if (OpenSSL_FOUND)
+    target_sources(KF6Archive PRIVATE kzipaesiodevice.cpp)
     target_link_libraries(KF6Archive PRIVATE OpenSSL::Crypto)
 endif()
 
