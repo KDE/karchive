@@ -337,55 +337,55 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "अनुप्रयोगदोषः: अलेखनीय TAR सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
-#: kzip.cpp:484 kzip.cpp:509
+#: kzip.cpp:497 kzip.cpp:522
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (त्रुटिसङ्केतः : %1)"
 
-#: kzip.cpp:535
+#: kzip.cpp:548
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "अमान्य ZIP सञ्चिका । नकारात्मक नाम लम्बाई"
 
-#: kzip.cpp:540
+#: kzip.cpp:553
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "अमान्य ZIP सञ्चिका । नाम सम्पूर्णतया न पठितम् (#2)"
 
-#: kzip.cpp:558
+#: kzip.cpp:571
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "अमान्य ZIP सञ्चिका । भग्न अतिरिक्तक्षेत्र।"
 
-#: kzip.cpp:572 kzip.cpp:595
+#: kzip.cpp:592 kzip.cpp:615
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "अग्रिमशीर्षकटोकनं अन्वेष्टुं न शक्तवान्"
 
-#: kzip.cpp:587
+#: kzip.cpp:607
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#5)"
 
-#: kzip.cpp:602
+#: kzip.cpp:622
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "संपीडितं आकारं सञ्चिकां कर्तुं न शक्तवान्"
 
-#: kzip.cpp:618
+#: kzip.cpp:638
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "अमान्य ZIP सञ्चिका । सञ्चिकायाः अप्रत्याशितः अन्तः । (#1)"
 
-#: kzip.cpp:655
+#: kzip.cpp:675
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr ""
 "अमान्य ZIP सञ्चिका, केन्द्रीयप्रविष्टिः अतीव लघु (वैधप्रविष्ट्यर्थं पर्याप्तं दीर्घः नास्ति)"
 
-#: kzip.cpp:670
+#: kzip.cpp:690
 #, fuzzy
 #| msgctxt "KZip|"
 #| msgid "Invalid ZIP file, file path name length smaller or equal to zero"
@@ -393,7 +393,7 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "अमान्य ZIP सञ्चिका, सञ्चिकामार्गनामदीर्घता शून्यस्य वा समाना वा"
 
-#: kzip.cpp:676
+#: kzip.cpp:696
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -401,95 +401,95 @@ msgid ""
 "at offset %3"
 msgstr ""
 
-#: kzip.cpp:726
+#: kzip.cpp:740
 #, qt-format
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
 
-#: kzip.cpp:761
+#: kzip.cpp:775
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "अमान्य ZIP सञ्चिका, रिक्तं प्रविष्टिनाम प्राप्तम्"
 
-#: kzip.cpp:803
+#: kzip.cpp:817
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "%1 सञ्चिका %2 पुटे अस्ति, परन्तु %3 वस्तुतः सञ्चिका अस्ति ।"
 
-#: kzip.cpp:814
+#: kzip.cpp:828
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "अग्रिमप्रवेशं अन्वेष्टुं न शक्तवान्"
 
-#: kzip.cpp:843
+#: kzip.cpp:857
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr ""
 
-#: kzip.cpp:847
+#: kzip.cpp:861
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "अमान्य ZIP सञ्चिका । ऑफसेट् %1 इत्यत्र अज्ञातशीर्षकं"
 
-#: kzip.cpp:875
+#: kzip.cpp:889
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "अग्रिमसञ्चिकाशीर्षकं अन्वेष्टुं न शक्तम्: %1"
 
-#: kzip.cpp:901 kzip.cpp:995
+#: kzip.cpp:915 kzip.cpp:1009
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "सञ्चिकाशीर्षकं लिखितुं न शक्तम्: %1"
 
-#: kzip.cpp:1042
+#: kzip.cpp:1056
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "केन्द्रीय dir अभिलेखं लिखितुं न शक्तम्: %1"
 
-#: kzip.cpp:1078
+#: kzip.cpp:1092
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "अनुप्रयोगदोषः : ZIP सञ्चिकां लिखितुं पूर्वं उद्घाटिता भवितुमर्हति"
 
-#: kzip.cpp:1084
+#: kzip.cpp:1098
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "अनुप्रयोगदोषः: अलेखनीय ZIP सञ्चिकायां लेखनस्य प्रयासः कृतः"
 
-#: kzip.cpp:1090
+#: kzip.cpp:1104
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "यन्त्रं निर्मातुं न शक्यते। डिस्क पूर्णा?"
 
-#: kzip.cpp:1096
+#: kzip.cpp:1110
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "ZIP सञ्चिकायां अन्वेष्टुं न शक्यते । डिस्क पूर्णा?"
 
-#: kzip.cpp:1240
+#: kzip.cpp:1254
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "अभिलेखागारं प्रति लिखितुं न शक्तवान्। डिस्क पूर्णा?"
 
-#: kzip.cpp:1259
+#: kzip.cpp:1273
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "संपीडनयन्त्रं उद्घाटयितुं न शक्तम्: %1"
 
-#: kzip.cpp:1346
+#: kzip.cpp:1360
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "न सञ्चिका वा यन्त्रं वा"
 
-#: kzip.cpp:1359
+#: kzip.cpp:1373
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
