@@ -473,67 +473,99 @@ msgstr ""
 "Fichier au format « zip » non valable. En-tête non reconnu avec le décalage "
 "%1"
 
-#: kzip.cpp:889
+#: kzip.cpp:888
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Impossible de trouver la prochaine en-tête de fichier : %1"
 
-#: kzip.cpp:915 kzip.cpp:1009
+#: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Impossible d'écrire l'en-tête du fichier : %1"
 
-#: kzip.cpp:1056
+#: kzip.cpp:936
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not seek to next file header: %1"
+msgctxt "KZip|"
+msgid "Could not seek to Zip64 extra field: %1"
+msgstr "Impossible de trouver la prochaine en-tête de fichier : %1"
+
+#: kzip.cpp:944
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not seek to file compressed size"
+msgctxt "KZip|"
+msgid "Could not write Zip64 compressed size: %1"
+msgstr "Impossible de trouver la taille du fichier compressé"
+
+#: kzip.cpp:1131
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not write central dir record: %1"
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD record: %1"
+msgstr "Impossible d'écrire l'enregistrement principal du dossier : %1"
+
+#: kzip.cpp:1150
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not write file header: %1"
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD locator: %1"
+msgstr "Impossible d'écrire l'en-tête du fichier : %1"
+
+#: kzip.cpp:1212
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Impossible d'écrire l'enregistrement principal du dossier : %1"
 
-#: kzip.cpp:1092
+#: kzip.cpp:1248
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Erreur de l'application : le fichier au format « ZIP » doit être ouvert "
 "avant d'y écrire dedans."
 
-#: kzip.cpp:1098
+#: kzip.cpp:1254
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « ZIP »"
 
-#: kzip.cpp:1104
+#: kzip.cpp:1260
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr ""
 "Impossible de créer un périphérique. Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1110
+#: kzip.cpp:1266
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 "Impossible de rechercher dans un fichier « ZIP ». Le disque serait-il plein ?"
 
-#: kzip.cpp:1254
+#: kzip.cpp:1421
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Impossible d'écrire dans l'archive Le disque pourrait-il être plein ?"
 
-#: kzip.cpp:1273
+#: kzip.cpp:1440
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Impossible d'ouvrir le périphérique de compression : %1"
 
-#: kzip.cpp:1360
+#: kzip.cpp:1523
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Aucun fichier ou périphérique"
 
-#: kzip.cpp:1373
+#: kzip.cpp:1536
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

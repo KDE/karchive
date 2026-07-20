@@ -436,61 +436,89 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr ""
 
-#: kzip.cpp:889
+#: kzip.cpp:888
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr ""
 
-#: kzip.cpp:915 kzip.cpp:1009
+#: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr ""
 
-#: kzip.cpp:1056
+#: kzip.cpp:936
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not seek to Zip64 extra field: %1"
+msgstr ""
+
+#: kzip.cpp:944
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not open compression device: %1"
+msgctxt "KZip|"
+msgid "Could not write Zip64 compressed size: %1"
+msgstr "சுருக்க சாதனத்தை திறக்க முடியவில்லை: %1"
+
+#: kzip.cpp:1131
+#, qt-format
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD record: %1"
+msgstr ""
+
+#: kzip.cpp:1150
+#, fuzzy, qt-format
+#| msgctxt "KArchive|"
+#| msgid "Couldn't open file %1: %2"
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD locator: %1"
+msgstr "%1 கோப்பை திறக்க முடியவில்லை: %2"
+
+#: kzip.cpp:1212
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr ""
 
-#: kzip.cpp:1092
+#: kzip.cpp:1248
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 
-#: kzip.cpp:1098
+#: kzip.cpp:1254
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 
-#: kzip.cpp:1104
+#: kzip.cpp:1260
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr ""
 
-#: kzip.cpp:1110
+#: kzip.cpp:1266
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr ""
 
-#: kzip.cpp:1254
+#: kzip.cpp:1421
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "காப்பகத்திற்கு எழுத முடியவில்லை. வட்டில் இடமுள்ளதா?"
 
-#: kzip.cpp:1273
+#: kzip.cpp:1440
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "சுருக்க சாதனத்தை திறக்க முடியவில்லை: %1"
 
-#: kzip.cpp:1360
+#: kzip.cpp:1523
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "கோப்போ சாதனமோ இல்லை"
 
-#: kzip.cpp:1373
+#: kzip.cpp:1536
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

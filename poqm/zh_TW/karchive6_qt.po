@@ -430,61 +430,93 @@ msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "無效的 ZIP 檔。在位移 %1 有無法辨識的標頭"
 
-#: kzip.cpp:889
+#: kzip.cpp:888
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "無法跳至下一個檔案標頭：%1"
 
-#: kzip.cpp:915 kzip.cpp:1009
+#: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "無法寫入檔案標頭：%1"
 
-#: kzip.cpp:1056
+#: kzip.cpp:936
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not seek to next file header: %1"
+msgctxt "KZip|"
+msgid "Could not seek to Zip64 extra field: %1"
+msgstr "無法跳至下一個檔案標頭：%1"
+
+#: kzip.cpp:944
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not seek to file compressed size"
+msgctxt "KZip|"
+msgid "Could not write Zip64 compressed size: %1"
+msgstr "無法跳至檔案壓縮後大小"
+
+#: kzip.cpp:1131
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not write central dir record: %1"
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD record: %1"
+msgstr "無法寫入中央目錄紀錄：%1"
+
+#: kzip.cpp:1150
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Could not write file header: %1"
+msgctxt "KZip|"
+msgid "Could not write Zip64 EOCD locator: %1"
+msgstr "無法寫入檔案標頭：%1"
+
+#: kzip.cpp:1212
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "無法寫入中央目錄紀錄：%1"
 
-#: kzip.cpp:1092
+#: kzip.cpp:1248
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "應用程式錯誤：ZIP 檔案必須開啟才能寫入"
 
-#: kzip.cpp:1098
+#: kzip.cpp:1254
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "應用程式錯誤：嘗試寫入不可寫入的 ZIP 檔案"
 
-#: kzip.cpp:1104
+#: kzip.cpp:1260
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "無法建立裝置。磁碟滿了嗎？"
 
-#: kzip.cpp:1110
+#: kzip.cpp:1266
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "無法在 ZIP 檔中搜尋。磁碟滿了嗎？"
 
-#: kzip.cpp:1254
+#: kzip.cpp:1421
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "無法寫入封存檔。磁碟滿了嗎？"
 
-#: kzip.cpp:1273
+#: kzip.cpp:1440
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "無法開啟壓縮裝置：%1"
 
-#: kzip.cpp:1360
+#: kzip.cpp:1523
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "沒有檔案或裝置"
 
-#: kzip.cpp:1373
+#: kzip.cpp:1536
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
