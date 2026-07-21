@@ -10,7 +10,7 @@
 
 /*!
  * \class KAr
- * \module KArchive
+ * \inmodule KArchive
  *
  * KAr is a class for reading archives in ar format. Writing
  * is not supported. Reading archives that contain files bigger than
