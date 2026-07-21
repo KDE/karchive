@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #: k7zip.cpp:2541
 msgctxt "K7Zip|"
@@ -447,36 +447,28 @@ msgid "Could not write file header: %1"
 msgstr "ფაილის თავსართის ჩაწერის შეცდომა: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "შემდეგი თავსართის კოდამდე გადახვევის შეცდომა: %1"
+msgstr "Zip64-ის დამატებით ველზე გადახვევა შეუძლებელია: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "ფაილის შეკუმშულ ზომამდე გადახვევის შეცდომა"
+msgstr "Zip64-ის შეკუმშული ზომის ჩაწერა შეუძლებელია: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "ცენტრალური საქაღალდის ჩანაწერის ჩაწერის შეცდომა: %1"
+msgstr "Zip64 EOCD-ის ჩანაწერის ჩაწერა შეუძლებელია: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "ფაილის თავსართის ჩაწერის შეცდომა: %1"
+msgstr "Zip64 EOCD-ის მპოვნელის ჩაწერა შეუძლებელია: %1"
 
 #: kzip.cpp:1212
 #, qt-format
