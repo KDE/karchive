@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2023, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2025-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-08 01:44+0900\n"
+"PO-Revision-Date: 2026-07-22 01:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #: k7zip.cpp:2541
 msgctxt "K7Zip|"
@@ -443,36 +443,28 @@ msgid "Could not write file header: %1"
 msgstr "無法寫入檔案標頭：%1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "無法跳至下一個檔案標頭：%1"
+msgstr "無法跳至 Zip64 額外標頭：%1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "無法跳至檔案壓縮後大小"
+msgstr "無法寫入 Zip64 壓縮後大小：%1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "無法寫入中央目錄紀錄：%1"
+msgstr "無法寫入 Zip64 EOCD 紀錄：%1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "無法寫入檔案標頭：%1"
+msgstr "無法寫入 Zip64 EOCD 定位子：%1"
 
 #: kzip.cpp:1212
 #, qt-format

@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #: k7zip.cpp:2541
 msgctxt "K7Zip|"
@@ -456,36 +456,28 @@ msgid "Could not write file header: %1"
 msgstr "Nepavyko rašyti failo antraštės: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "Nepavyko kreiptis į kitą failo antraštę: %1"
+msgstr "Nepavyko kreiptis į Zip64 papildomą lauką: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "Nepavyko kreiptis į suglaudintą failo dydį"
+msgstr "Nepavyko rašyti Zip64 suglaudinto dydžio: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "Nepavyko rašyti centrinio katalogo įrašo: %1"
+msgstr "Nepavyko rašyti Zip64 EOCD įrašo: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "Nepavyko rašyti failo antraštės: %1"
+msgstr "Nepavyko rašyti Zip64 EOCD ieškiklio: %1"
 
 #: kzip.cpp:1212
 #, qt-format
