@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2025 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2022-2023, 2025-2026 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-07 14:23+0200\n"
+"PO-Revision-Date: 2026-07-20 14:22+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2541
@@ -470,36 +470,28 @@ msgid "Could not write file header: %1"
 msgstr "Impossibile scrivere l'intestazione del file: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "Impossibile cercare l'intestazione del file successiva: %1"
+msgstr "Impossibile accedere al campo aggiuntivo Zip64: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "Impossibile cercare la dimensione del file compresso"
+msgstr "Impossibile scrivere la dimensione compressa Zip64: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "Impossibile scrivere il record della directory centrale: %1"
+msgstr "Impossibile scrivere il record EOCD Zip64: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "Impossibile scrivere l'intestazione del file: %1"
+msgstr "Impossibile scrivere il localizzatore EOCD Zip64: %1"
 
 #: kzip.cpp:1212
 #, qt-format
