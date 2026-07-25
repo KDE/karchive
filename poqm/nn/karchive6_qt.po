@@ -455,32 +455,24 @@ msgstr "Klarte ikkje skriva filhovud: %1"
 
 #: kzip.cpp:936
 #, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
 msgstr "Klarte ikkje søkja til neste filhovud: %1"
 
 #: kzip.cpp:944
 #, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
 msgstr "Klarte ikkje søkja til filas komprimerte storleik"
 
 #: kzip.cpp:1131
 #, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
 msgstr "Klarte ikkje skriva sentraloppføring: %1"
 
 #: kzip.cpp:1150
 #, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
 msgstr "Klarte ikkje skriva filhovud: %1"
