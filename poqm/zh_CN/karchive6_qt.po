@@ -447,25 +447,25 @@ msgstr "无法写入文件头：%1"
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr ""
+msgstr "无法寻址到 Zip64 额外字段：%1"
 
 #: kzip.cpp:944
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr ""
+msgstr "无法写入 Zip64 压缩后体积：%1"
 
 #: kzip.cpp:1131
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr ""
+msgstr "无法写入 Zip64 EOCD 记录：%1"
 
 #: kzip.cpp:1150
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr ""
+msgstr "无法写入 Zip64 EOCD 定位器：%1"
 
 #: kzip.cpp:1212
 #, qt-format
