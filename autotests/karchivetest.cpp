@@ -1057,6 +1057,48 @@ void KArchiveTest::testReadZipError()
     QVERIFY(brokenZip.remove());
 }
 
+void KArchiveTest::testZipUnboundedDataDescriptorScan()
+{
+    // Craft a ZIP with bit 3 (data-descriptor flag) set, then fill the
+    // "compressed data" area with innocuous bytes. seekPostDataDescriptor
+    // will scan through ALL of them looking for PK\x07\x08 without any
+    // limit on the search space.
+    // Use a modest data size.
+    constexpr qint64 dataSize = 5 * 1024 * 1024; // 5 MB
+
+    QByteArray zipData;
+
+    zipData.append("PK\x03\x04", 4);
+    zipData.append(QByteArray(2, '\x00')); // version needed
+    QByteArray gpf(2, '\x00');
+    gpf[0] = '\x08'; // bit 3 set -> scan trigger
+    zipData.append(gpf);
+    zipData.append(QByteArray(2, '\x00')); // compression method
+    zipData.append(QByteArray(4, '\x00')); // time/date
+    zipData.append(QByteArray(4, '\x00')); // CRC (in descriptor)
+    zipData.append(QByteArray(4, '\x00')); // compressed size (in descriptor)
+    zipData.append(QByteArray(4, '\x00')); // uncompressed size (in descriptor)
+    QByteArray namelen(2, '\x00');
+    namelen[0] = '\x04';
+    zipData.append(namelen); // file name length = 4
+    zipData.append(QByteArray(2, '\x00')); // extra field length = 0
+    zipData.append("test", 4); // file name
+
+    // Filler — no valid PK\x07\x08 anywhere, scan must be capped
+    zipData.append(QByteArray(dataSize, '\x00'));
+
+    // End of Central Directory Record
+    zipData.append("PK\x05\x06", 4);
+    zipData.append(QByteArray(18, '\x00'));
+
+    QBuffer buffer(&zipData);
+    buffer.open(QIODevice::ReadOnly);
+
+    KZip zip(&buffer);
+    QVERIFY(!zip.open(QIODevice::ReadOnly));
+    QCOMPARE(zip.errorString(), QStringLiteral("Could not seek to next header token"));
+}
+
 void KArchiveTest::testReadZip()
 {
     // testCreateZip must have been run first.
