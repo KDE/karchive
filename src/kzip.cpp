@@ -1528,9 +1528,22 @@ bool KZip::doWriteData(const char *data, qint64 size)
     // and they didn't mention it in their docs...
     d->m_crc = crc32(d->m_crc, (const Bytef *)data, size);
 
-    qint64 written = d->m_currentDev->write(data, size);
+    constexpr qint64 chunkSize = 2 * 1024 * 1024;
+    qint64 totalWritten = 0;
+    while (totalWritten < size) {
+        qint64 chunk = std::min(chunkSize, size - totalWritten);
+
+        qint64 currentWritten = d->m_currentDev->write(data + totalWritten, chunk);
+        if (currentWritten != chunk) {
+            setErrorString(tr("Error writing data chunk: %1").arg(d->m_currentDev->errorString()));
+            return false;
+        }
+
+        totalWritten += currentWritten;
+    }
+
     // qCDebug(KArchiveLog) << "wrote" << size << "bytes.";
-    const bool ok = written == size;
+    const bool ok = totalWritten == size;
 
     if (!ok) {
         setErrorString(tr("Error writing data: %1").arg(d->m_currentDev->errorString()));
