@@ -30,6 +30,7 @@
 #endif // QT_STAT_LNK
 
 static const int max_path_len = 4095; // maximum number of character a path may contain
+constexpr qint64 header_seek_max_scan_budget = 4 * 1024 * 1024; // Cap the scan for headers.
 
 static quint16 parseUi16(const char *buffer)
 {
@@ -385,6 +386,11 @@ static bool seekPostDataDescriptor(QIODevice *dev, bool isZip64)
         } else {
             dev->skip(2); // Skip found 'PK'
         }
+
+        // Enforce cumulative scan budget.
+        if (dev->pos() - oldPos > header_seek_max_scan_budget) {
+            return false;
+        }
     }
     return false;
 }
@@ -397,6 +403,7 @@ static bool seekPostDataDescriptor(QIODevice *dev, bool isZip64)
 static bool seekToNextHeaderToken(QIODevice *dev)
 {
     QByteArray header;
+    const qint64 startPos = dev->pos();
 
     while (seekAnyHeader(dev, header, 4)) {
         // qCDebug(KArchiveLog) << "Possible header at" << dev->pos() << header;
@@ -406,6 +413,11 @@ static bool seekToNextHeaderToken(QIODevice *dev)
             return true;
         } else {
             dev->skip(2); // Skip found 'PK'
+        }
+
+        // Enforce cumulative scan budget.
+        if (dev->pos() - startPos > header_seek_max_scan_budget) {
+            return false;
         }
     }
     return false;
