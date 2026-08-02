@@ -521,7 +521,15 @@ msgctxt "KZip|"
 msgid "No file or device"
 msgstr "न सञ्चिका वा यन्त्रं वा"
 
-#: kzip.cpp:1536
+#: kzip.cpp:1540
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Error writing data: %1"
+msgctxt "KZip|"
+msgid "Error writing data chunk: %1"
+msgstr "दत्तांशलेखनदोषः: %1"
+
+#: kzip.cpp:1553
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

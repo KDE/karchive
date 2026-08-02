@@ -1,5 +1,6 @@
 # Translation of karchive6_qt to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -519,7 +520,15 @@ msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Inga fil eller eining"
 
-#: kzip.cpp:1536
+#: kzip.cpp:1540
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Error writing data: %1"
+msgctxt "KZip|"
+msgid "Error writing data chunk: %1"
+msgstr "Feil ved skriving av data: %1"
+
+#: kzip.cpp:1553
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

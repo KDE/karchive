@@ -507,7 +507,13 @@ msgctxt "KZip|"
 msgid "No file or device"
 msgstr ""
 
-#: kzip.cpp:1536
+#: kzip.cpp:1540
+#, qt-format
+msgctxt "KZip|"
+msgid "Error writing data chunk: %1"
+msgstr ""
+
+#: kzip.cpp:1553
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

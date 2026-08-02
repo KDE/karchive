@@ -546,7 +546,15 @@ msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Nenhum ficheiro ou dispositivo"
 
-#: kzip.cpp:1536
+#: kzip.cpp:1540
+#, fuzzy, qt-format
+#| msgctxt "KZip|"
+#| msgid "Error writing data: %1"
+msgctxt "KZip|"
+msgid "Error writing data chunk: %1"
+msgstr "Erro ao gravar os dados: %1"
+
+#: kzip.cpp:1553
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
