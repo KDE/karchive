@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-20 07:30+0200\n"
+"PO-Revision-Date: 2026-08-02 07:14+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -512,12 +512,10 @@ msgid "No file or device"
 msgstr "Ingen fil eller enhet"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Fel vid skrivning av data: %1"
+msgstr "Fel vid skrivning av datablock: %1"
 
 #: kzip.cpp:1553
 #, qt-format

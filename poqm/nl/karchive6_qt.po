@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-20 10:21+0200\n"
+"PO-Revision-Date: 2026-08-02 14:57+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -524,12 +524,10 @@ msgid "No file or device"
 msgstr "Geen bestand of apparaat"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Fout bij gegevens schrijven: %1"
+msgstr "Fout bij schrijven van gegevensgedeelte: %1"
 
 #: kzip.cpp:1553
 #, qt-format

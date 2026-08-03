@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-26 12:43+0200\n"
+"PO-Revision-Date: 2026-08-02 19:05+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -521,12 +521,10 @@ msgid "No file or device"
 msgstr "Inga fil eller eining"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Feil ved skriving av data: %1"
+msgstr "Feil ved skriving av datablokk: %1"
 
 #: kzip.cpp:1553
 #, qt-format

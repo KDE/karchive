@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-20 19:34+0300\n"
+"PO-Revision-Date: 2026-08-02 20:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -515,12 +515,10 @@ msgid "No file or device"
 msgstr "Dosya veya aygıt yok"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Veri yazılırken hata: %1"
+msgstr "Veri parçası yazılırken hata: %1"
 
 #: kzip.cpp:1553
 #, qt-format

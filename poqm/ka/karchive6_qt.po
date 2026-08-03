@@ -513,12 +513,10 @@ msgid "No file or device"
 msgstr "ფალი ან მოწყობილობა არ არსებობს"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "მონაცემების ჩაწერის შეცდომა: %1"
+msgstr "მონაცემების ფრაგმენტის ჩაწერის შეცდომა: %1"
 
 #: kzip.cpp:1553
 #, qt-format

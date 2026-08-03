@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-20 13:10+0300\n"
+"PO-Revision-Date: 2026-08-02 10:09+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -529,12 +529,10 @@ msgid "No file or device"
 msgstr "Немає файла або пристрою"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Помилка під час спроби запису даних: %1"
+msgstr "Помилка під час спроби запису фрагмента даних: %1"
 
 #: kzip.cpp:1553
 #, qt-format
