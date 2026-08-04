@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-22 01:15+0900\n"
+"PO-Revision-Date: 2026-08-04 06:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -509,12 +509,10 @@ msgid "No file or device"
 msgstr "沒有檔案或裝置"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "寫入資料時發生錯誤：%1"
+msgstr "寫入資料區塊時發生錯誤：%1"
 
 #: kzip.cpp:1553
 #, qt-format
