@@ -524,12 +524,10 @@ msgid "No file or device"
 msgstr "Nėra failo ar įrenginio"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Klaida rašant duomenis: %1"
+msgstr "Klaida rašant duomenų dalį: %1"
 
 #: kzip.cpp:1553
 #, qt-format
