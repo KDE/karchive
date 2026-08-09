@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2022-2023, 2025-2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-16 07:44+0200\n"
+"PO-Revision-Date: 2026-08-08 12:44+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2541
@@ -463,36 +463,28 @@ msgid "Could not write file header: %1"
 msgstr "Nie udało się zapisać nagłówka pliku: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "Nie można przewinąć do następnego nagłówka w pliku: %1"
+msgstr "Nie można przewinąć do dodatkowego pola Zip64: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "Nie można przewijać w rozmiarze pliku spakowanego"
+msgstr "Nie można zapisać rozmiaru po spakowaniu w Zip64: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "Nie można zapisać wpisu głównego katalogu: %1"
+msgstr "Nie można zapisać wpisu EOCD w Zip64: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "Nie udało się zapisać nagłówka pliku: %1"
+msgstr "Nie można zapisać namierzania EOCD w Zip64: %1"
 
 #: kzip.cpp:1212
 #, qt-format
@@ -540,12 +532,10 @@ msgid "No file or device"
 msgstr "Brak pliku lub urządzenia"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Nie udało się zapisać danych: %1"
+msgstr "Nie udało się zapisać kawałka danych: %1"
 
 #: kzip.cpp:1553
 #, qt-format
