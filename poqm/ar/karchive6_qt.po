@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2023, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-10 22:05+0400\n"
+"PO-Revision-Date: 2026-08-10 14:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2541
@@ -447,36 +447,28 @@ msgid "Could not write file header: %1"
 msgstr "تعذر كتابة عنوان الملف: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "تعذر السعي إلى عنوان الملف التالي: %1"
+msgstr "تعذر السعي إلى الحقل الإضافي Zip64: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "لا يمكن السعي إلى حجم الضغط للملف"
+msgstr "تعذر كتابة الحجم المضغوط بتنسيق Zip64: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "تعذر كتابة السجل المجلد المركزي: %1"
+msgstr "تعذر كتابة سجل Zip64 EOCD: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "تعذر كتابة عنوان الملف: %1"
+msgstr "تعذر كتابة محدد موقع Zip64 EOCD: %1"
 
 #: kzip.cpp:1212
 #, qt-format
@@ -521,12 +513,10 @@ msgid "No file or device"
 msgstr "لا يوجد ملف أو جهاز"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "حدث خطأ أثناء الكتابة: %1"
+msgstr "حدث خطأ في كتابة كتلة البيانات: %1"
 
 #: kzip.cpp:1553
 #, qt-format
