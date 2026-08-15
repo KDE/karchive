@@ -459,36 +459,28 @@ msgid "Could not write file header: %1"
 msgstr "Nepodarilo sa zapísať hlavičku súboru: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "Nepodarilo sa presunúť na ďalšiu hlavičku súboru: %1"
+msgstr "Nepodarilo sa presunúť na extra pole Zip64: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "Nepodarilo sa vyhľadať komprimovanú veľkosť súboru"
+msgstr "Nepodarilo sa zapísať komprimovanú veľkosť Zip64: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "Nepodarilo sa zapísať záznam centrálneho adresára: %1"
+msgstr "Nepodarilo sa zapísať záznam Zip64 EOCD: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "Nepodarilo sa zapísať hlavičku súboru: %1"
+msgstr "Nepodarilo sa zapísať lokátor Zip64 EOCD: %1"
 
 #: kzip.cpp:1212
 #, qt-format
@@ -534,12 +526,10 @@ msgid "No file or device"
 msgstr "Žiadny súbor alebo zariadenie"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Chyba pri zápise dát: %1"
+msgstr "Chyba pri zápise bloku dát: %1"
 
 #: kzip.cpp:1553
 #, qt-format
