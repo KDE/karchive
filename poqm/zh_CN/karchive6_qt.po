@@ -513,7 +513,7 @@ msgstr "没有文件或者设备"
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr ""
+msgstr "写入数据块时出错：%1"
 
 #: kzip.cpp:1553
 #, qt-format
