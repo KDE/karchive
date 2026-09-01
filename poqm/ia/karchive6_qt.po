@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-20 11:34+0200\n"
+"PO-Revision-Date: 2026-08-31 16:07+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -524,12 +524,10 @@ msgid "No file or device"
 msgstr "Nulle file o dispositivo"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Error a scriber datos: %1"
+msgstr "Error a scriber pecia de datos: %1"
 
 #: kzip.cpp:1553
 #, qt-format
