@@ -262,8 +262,7 @@ bool KArchive::close()
         delete d->dev; // we created it ourselves in open()
     }
 
-    delete d->rootDir;
-    d->rootDir = nullptr;
+    d->rootDir.reset();
     d->mode = QIODevice::NotOpen;
     d->dev = nullptr;
     return closeSucceeded;
@@ -542,9 +541,9 @@ KArchiveDirectory *KArchive::rootDir()
         QString username = ::getCurrentUserName();
         QString groupname = ::getCurrentGroupName();
 
-        d->rootDir = new KArchiveDirectory(this, QStringLiteral("/"), int(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
+        d->rootDir = std::make_unique<KArchiveDirectory>(this, QStringLiteral("/"), int(0777 + S_IFDIR), QDateTime(), username, groupname, QString());
     }
-    return d->rootDir;
+    return d->rootDir.get();
 }
 
 KArchiveDirectory *KArchive::findOrCreate(const QString &path)
@@ -645,8 +644,7 @@ void KArchive::setDevice(QIODevice *dev)
 void KArchive::setRootDir(KArchiveDirectory *rootDir)
 {
     Q_ASSERT(!d->rootDir); // Call setRootDir only once during parsing please ;)
-    delete d->rootDir; // but if it happens, don't leak
-    d->rootDir = rootDir;
+    d->rootDir.reset(rootDir);
 }
 
 QIODevice::OpenMode KArchive::mode() const

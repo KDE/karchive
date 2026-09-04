@@ -12,6 +12,8 @@
 
 #include <QSaveFile>
 
+#include <memory>
+
 // Documentation says that QByteArray should be able to hold up to 2^63 on 64 bit platforms
 // but practice says it aborts with something like 2314885530818453536, so go with MAX_INT for now
 static constexpr int kMaxQByteArraySize = std::numeric_limits<int>::max() - 32;
@@ -31,8 +33,6 @@ public:
             delete dev; // we created it ourselves in open()
             dev = nullptr;
         }
-
-        delete rootDir;
     }
 
     KArchivePrivate(const KArchivePrivate &) = delete;
@@ -40,7 +40,7 @@ public:
 
     static bool hasRootDir(KArchive *archive)
     {
-        return archive->d->rootDir;
+        return archive->d->rootDir.get();
     }
 
     void abortWriting();
@@ -50,7 +50,7 @@ public:
     KArchiveDirectory *findOrCreateDirectory(const QStringView path);
 
     KArchive *q = nullptr;
-    KArchiveDirectory *rootDir = nullptr;
+    std::unique_ptr<KArchiveDirectory> rootDir;
     std::unique_ptr<QSaveFile> saveFile;
     QIODevice *dev = nullptr;
     QString fileName;
