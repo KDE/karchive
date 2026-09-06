@@ -401,6 +401,66 @@ void KArchiveTest::testNonExistentFile()
     QCOMPARE(tar.errorString(), tr("File %1 does not exist").arg("nonexistent.tar.gz"));
 }
 
+void KArchiveTest::testCreateTarNoMimetype_data()
+{
+    QTest::addColumn<QString>("fileName");
+
+    /* clang-format off */
+    QTest::addRow("bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.bz2");
+    QTest::addRow("gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.gz");
+    QTest::addRow("lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.lz");
+    QTest::addRow("lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.lzma");
+    QTest::addRow("xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.xz");
+    QTest::addRow("zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.zst");
+    
+    //Renamed archives
+    QTest::addRow("bz2_to_gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_gz.tar.gz");
+    QTest::addRow("bz2_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lz.tar.lz");
+    QTest::addRow("bz2_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lzma.tar.lzma");
+    QTest::addRow("bz2_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_xz.tar.xz");
+    QTest::addRow("bz2_to_zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_zst.tar.zst");
+
+    QTest::addRow("gz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_bz2.tar.bz2");
+    QTest::addRow("gz_to_lz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_lz.tar.lz");
+    QTest::addRow("gz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_lzma.tar.lzma");
+    QTest::addRow("gz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_xz.tar.xz");
+    QTest::addRow("gz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_zst.tar.zst");
+
+    QTest::addRow("lz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_bz2.tar.bz2");
+    QTest::addRow("lz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_gz.tar.gz");
+    QTest::addRow("lz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_lzma.tar.lzma");
+    QTest::addRow("lz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_xz.tar.xz");
+    QTest::addRow("lz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_zst.tar.zst");
+
+    QTest::addRow("lzma_to_bz2") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_bz2.tar.bz2");
+    QTest::addRow("lzma_to_gz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_gz.tar.gz");
+    QTest::addRow("lzma_to_lz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_lz.tar.lz");
+    QTest::addRow("lzma_to_xz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_xz.tar.xz");
+    QTest::addRow("lzma_to_zst") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_zst.tar.zst");
+
+    QTest::addRow("xz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_bz2.tar.bz2");
+    QTest::addRow("xz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_gz.tar.gz");
+    QTest::addRow("xz_to_lz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lz.tar.lz");
+    QTest::addRow("xz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lzma.tar.lzma");
+    QTest::addRow("xz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_zst.tar.zst");
+
+    QTest::addRow("zst_to_bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_bz2.tar.bz2");
+    QTest::addRow("zst_to_gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_gz.tar.gz");
+    QTest::addRow("zst_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lz.tar.lz");
+    QTest::addRow("zst_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lzma.tar.lzma");
+    QTest::addRow("zst_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_xz.tar.xz");
+}
+
+void KArchiveTest::testCreateTarNoMimetype()
+{
+    QFETCH(QString, fileName);
+
+    KTar tar(fileName);
+
+    QVERIFY(tar.open(QIODevice::ReadOnly));
+    QVERIFY2(tar.directory()->entries().size() > 0, "Tar has no entries. Mimetype was determined wrongly");
+}
+
 void KArchiveTest::testCreateTar_data()
 {
     QTest::addColumn<QString>("fileName");

@@ -24,6 +24,8 @@ private Q_SLOTS:
     void testEmptyFilename();
     void testNullDevice();
     void testNonExistentFile();
+    void testCreateTarNoMimetype_data();
+    void testCreateTarNoMimetype();
     void testCreateTar_data();
     void testCreateTar();
     void testCreateTarXXX_data()
