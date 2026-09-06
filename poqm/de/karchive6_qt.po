@@ -215,13 +215,13 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "Archiv bereits geschlossen"
 
-#: karchive.cpp:287
+#: karchive.cpp:286
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 existiert nicht oder ist keine reguläre Datei."
 
-#: karchive.cpp:293
+#: karchive.cpp:292
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
@@ -230,19 +230,19 @@ msgstr ""
 "Die Datei %1 kann für das Hinzufügen zum Archiv nicht geöffnet werden. Der "
 "Fehler ist: %2"
 
-#: karchive.cpp:339
+#: karchive.cpp:338
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "Die Datei %1 kann nicht geöffnet werden: %2"
 
-#: karchive.cpp:373
+#: karchive.cpp:372
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Der Ordner %1 existiert nicht"
 
-#: karchive.cpp:447
+#: karchive.cpp:446
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"

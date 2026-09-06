@@ -203,32 +203,32 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "संग्रह पहले ही बंद हो चुका है"
 
-#: karchive.cpp:287
+#: karchive.cpp:286
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 मौजूद नहीं है या एक नियमित फ़ाइल नहीं है."
 
-#: karchive.cpp:293
+#: karchive.cpp:292
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
 "Failed accessing the file %1 for adding to the archive. The error was: %2"
 msgstr "संग्रह में जोड़ने के लिए फ़ाइल %1 तक पहुँचने में विफल। त्रुटि थी: %2"
 
-#: karchive.cpp:339
+#: karchive.cpp:338
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "फ़ाइल %1: %2 नहीं खोली जा सकी"
 
-#: karchive.cpp:373
+#: karchive.cpp:372
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "निर्देशिका %1 मौजूद नहीं है"
 
-#: karchive.cpp:447
+#: karchive.cpp:446
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"

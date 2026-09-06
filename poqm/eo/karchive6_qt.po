@@ -214,13 +214,13 @@ msgctxt "KArchive|"
 msgid "Archive already closed"
 msgstr "Arkivo jam fermita"
 
-#: karchive.cpp:287
+#: karchive.cpp:286
 #, qt-format
 msgctxt "KArchive|"
 msgid "%1 doesn't exist or is not a regular file."
 msgstr "%1 ne ekzistas aŭ ne estas regula dosiero."
 
-#: karchive.cpp:293
+#: karchive.cpp:292
 #, qt-format
 msgctxt "KArchive|"
 msgid ""
@@ -228,19 +228,19 @@ msgid ""
 msgstr ""
 "Malsukcesis aliri la dosieron %1 por aldoni al la arkivo. La eraro estis: %2"
 
-#: karchive.cpp:339
+#: karchive.cpp:338
 #, qt-format
 msgctxt "KArchive|"
 msgid "Couldn't open file %1: %2"
 msgstr "Ne eblis malfermi la dosieron %1: %2"
 
-#: karchive.cpp:373
+#: karchive.cpp:372
 #, qt-format
 msgctxt "KArchive|"
 msgid "Directory %1 does not exist"
 msgstr "Dosierujo %1 ne ekzistas"
 
-#: karchive.cpp:447
+#: karchive.cpp:446
 #, qt-format
 msgctxt "KArchive|"
 msgid "Writing failed: %1"
