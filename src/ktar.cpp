@@ -36,6 +36,20 @@ namespace MimeType
 {
 QString application_gzip()     { return QStringLiteral("application/gzip"); }
 QString application_gzip_old() { return QStringLiteral("application/x-gzip"); }
+
+bool isSupported(const QMimeType &mime) 
+{
+    return mime.inherits(MimeType::application_gzip())
+        || mime.inherits(MimeType::application_gzip_old())
+        || mime.inherits(QStringLiteral("application/x-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-bzip-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-bzip2-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-bzip2"))
+        || mime.inherits(QStringLiteral("application/x-lzma-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-lzip-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-xz-compressed-tar"))
+        || mime.inherits(QStringLiteral("application/x-zstd-compressed-tar"));
+}    
 }
 /* clang-format on */
 
@@ -101,7 +115,11 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
             // we can still do the right thing here.
             QFile f(fileName());
             if (f.open(QIODevice::ReadOnly)) {
-                mime = db.mimeTypeForData(&f);
+                const QMimeType newMime = db.mimeTypeForData(&f);
+                // Can sometimes return garbage, so filter it out
+                if (MimeType::isSupported(newMime)) {
+                    mime = newMime;
+                }
             }
             if (!mime.isValid()) {
                 // Unable to determine mimetype from contents, get it from file name
