@@ -277,13 +277,13 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi, qu
         case 0x0001: {
             // ZIP64 extended file information
             int offset = 0;
-            if (uncompressedSize32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
-                pfi.uncompressedSize = parseUi64(buffer + offset);
-                offset += 8;
-            }
-            if (compressedSize32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
-                pfi.compressedSize = parseUi64(buffer + offset);
-                offset += 8;
+            bool sizeExceeds32Bit = uncompressedSize32 == 0xFFFFFFFF || compressedSize32 == 0xFFFFFFFF;
+            if (sizeExceeds32Bit && offset + 16 <= fieldsize) {
+                // according to the ZIP specification, if either 32-bit size is
+                // 0xFFFFFFFF, both sizes must be present in the ZIP64 field
+                pfi.uncompressedSize = parseUi64(buffer);
+                pfi.compressedSize = parseUi64(buffer + 8);
+                offset += 16;
             }
             if (localHeaderOffset32 == 0xFFFFFFFF && offset + 8 <= fieldsize) {
                 pfi.localheaderoffset = parseUi64(buffer + offset);
