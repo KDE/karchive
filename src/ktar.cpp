@@ -124,6 +124,9 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
                 // Can sometimes return garbage, so filter it out
                 if (MimeType::isSupported(newMime)) {
                     mime = newMime;
+                } else if (newMime.name() == QStringLiteral("application/octet-stream")) {
+                    // HACK: If a file gets this far and is an octet-stream, we can assume it's an lzma archive
+                    mime = db.mimeTypeForName(QStringLiteral("application/x-lzma-compressed-tar"));
                 }
             }
             if (!mime.isValid()) {
