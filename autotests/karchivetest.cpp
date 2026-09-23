@@ -406,49 +406,94 @@ void KArchiveTest::testCreateTarNoMimetype_data()
     QTest::addColumn<QString>("fileName");
 
     /* clang-format off */
-    QTest::addRow("bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.bz2");
     QTest::addRow("gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.gz");
+
+#if HAVE_BZIP2_SUPPORT
+    QTest::addRow("bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.bz2");
+
+    //renamed archives
+    QTest::addRow("gz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_bz2.tar.bz2");
+    QTest::addRow("bz2_to_gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_gz.tar.gz");
+
+    #if HAVE_XZ_SUPPORT
+        QTest::addRow("bz2_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_xz.tar.xz");
+        QTest::addRow("bz2_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lz.tar.lz");
+        QTest::addRow("bz2_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lzma.tar.lzma");
+    #else
+        qDebug() << "Skipped testing BZip to XZ/LZ/LZMA renamed archives: Built without XZ support";
+    #endif
+
+    #if HAVE_ZSTD_SUPPORT
+        QTest::addRow("bz2_to_zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_zst.tar.zst");
+    #else
+        qDebug() << "Skipped testing BZip to ZST renamed archive: Built without ZSTD support";
+    #endif
+#else
+    qDebug() << "Skipped testing BZip: Built without BZip support";
+#endif
+
+#if HAVE_XZ_SUPPORT
+    QTest::addRow("xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.xz");
     QTest::addRow("lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.lz");
     QTest::addRow("lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.lzma");
-    QTest::addRow("xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.xz");
-    QTest::addRow("zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.zst");
-    
-    //Renamed archives
-    QTest::addRow("bz2_to_gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_gz.tar.gz");
-    QTest::addRow("bz2_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lz.tar.lz");
-    QTest::addRow("bz2_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_lzma.tar.lzma");
-    QTest::addRow("bz2_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_xz.tar.xz");
-    QTest::addRow("bz2_to_zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test_bz2_to_zst.tar.zst");
 
-    QTest::addRow("gz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_bz2.tar.bz2");
+    //renamed archives
+    QTest::addRow("gz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_xz.tar.xz");
     QTest::addRow("gz_to_lz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_lz.tar.lz");
     QTest::addRow("gz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_lzma.tar.lzma");
-    QTest::addRow("gz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_xz.tar.xz");
-    QTest::addRow("gz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_zst.tar.zst");
-
-    QTest::addRow("lz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_bz2.tar.bz2");
-    QTest::addRow("lz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_gz.tar.gz");
-    QTest::addRow("lz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_lzma.tar.lzma");
-    QTest::addRow("lz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_xz.tar.xz");
-    QTest::addRow("lz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_zst.tar.zst");
-
-    QTest::addRow("lzma_to_bz2") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_bz2.tar.bz2");
-    QTest::addRow("lzma_to_gz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_gz.tar.gz");
-    QTest::addRow("lzma_to_lz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_lz.tar.lz");
-    QTest::addRow("lzma_to_xz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_xz.tar.xz");
-    QTest::addRow("lzma_to_zst") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_zst.tar.zst");
-
-    QTest::addRow("xz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_bz2.tar.bz2");
     QTest::addRow("xz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_gz.tar.gz");
+    QTest::addRow("lz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_gz.tar.gz");
+    QTest::addRow("lzma_to_gz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_gz.tar.gz");
     QTest::addRow("xz_to_lz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lz.tar.lz");
     QTest::addRow("xz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lzma.tar.lzma");
-    QTest::addRow("xz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_zst.tar.zst");
+    QTest::addRow("lz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_xz.tar.xz");
+    QTest::addRow("lz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_lzma.tar.lzma");
+    QTest::addRow("lzma_to_lz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_lz.tar.lz");
+    QTest::addRow("lzma_to_xz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_xz.tar.xz");
 
-    QTest::addRow("zst_to_bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_bz2.tar.bz2");
+    #if HAVE_BZIP2_SUPPORT
+        QTest::addRow("xz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_bz2.tar.bz2");
+        QTest::addRow("lz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_bz2.tar.bz2");
+        QTest::addRow("lzma_to_bz2") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_bz2.tar.bz2");
+    #else
+        qDebug() << "Skipped testing XZ/LZ/LZMA to BZip renamed archives: Built without BZip support";
+    #endif
+    
+    #if HAVE_ZSTD_SUPPORT
+        QTest::addRow("xz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_zst.tar.zst");
+        QTest::addRow("lz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_zst.tar.zst");
+        QTest::addRow("lzma_to_zst") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_zst.tar.zst");
+    #else
+        qDebug() << "Skipped testing XZ/LZ/LZMA to ZST renamed archives: Built without ZSTD support";
+    #endif
+
+#else
+    qDebug() << "Skipped testing XZ/LZ/LZMA archives: Built without XZ support";
+#endif
+
+#if HAVE_ZSTD_SUPPORT
+    QTest::addRow("zst")  << QFINDTESTDATA("data/tar_mimetype_determination/test.tar.zst");
+
+    //renamed archives
+    QTest::addRow("gz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_zst.tar.zst");
     QTest::addRow("zst_to_gz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_gz.tar.gz");
-    QTest::addRow("zst_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lz.tar.lz");
-    QTest::addRow("zst_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lzma.tar.lzma");
-    QTest::addRow("zst_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_xz.tar.xz");
+    
+    #if HAVE_BZIP2_SUPPORT
+        QTest::addRow("zst_to_bz2")  << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_bz2.tar.bz2");
+    #else
+        qDebug() << "Skipped testing ZST to BZip renamed archive: Built without BZip support";
+    #endif
+    
+    #if HAVE_XZ_SUPPORT
+        QTest::addRow("zst_to_xz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_xz.tar.xz");
+        QTest::addRow("zst_to_lz")   << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lz.tar.lz");
+        QTest::addRow("zst_to_lzma") << QFINDTESTDATA("data/tar_mimetype_determination/test_zst_to_lzma.tar.lzma");
+    #else
+        qDebug() << "Skipped testing ZST to XZ/LZ/LZMA archives: Built without XZ support";
+    #endif
+#else
+    qDebug() << "Skipped testing ZST archives: Built without ZSTD support";
+#endif
 }
 
 void KArchiveTest::testCreateTarNoMimetype()
