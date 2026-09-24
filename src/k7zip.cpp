@@ -616,7 +616,8 @@ quint64 K7Zip::K7ZipPrivate::readNumber()
             return 0;
         }
 
-        value |= ((unsigned char)buffer[pos++] << (8 * i));
+        const quint64 byte = static_cast<unsigned char>(buffer[pos++]);
+        value |= byte << (8 * i);
         mask >>= 1;
     }
     return value;

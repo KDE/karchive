@@ -1963,6 +1963,31 @@ void KArchiveTest::test7ZipReadNumber()
     QVERIFY(k7zip.close());
 }
 
+// This test was added to verify that K7ZipPrivate::readNumber() decodes values
+// which do not fit in 32 bits. The archive holds 2 GiB of zeros, so the unpack
+// size stored in its header is 0x80000000. Before the fix the byte carrying bit
+// 31 was promoted to int before being shifted left by 24, which made the int
+// negative and sign-extended it to 0xffffffff80000000, reported here as -2147483648.
+// See: https://invent.kde.org/frameworks/karchive/-/merge_requests/213
+void KArchiveTest::test7ZipLargeUnpackSize()
+{
+    const QString fileName = QFINDTESTDATA("data/7z_large_unpack_size.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY2(k7zip.open(QIODevice::ReadOnly), "data/7z_large_unpack_size.7z");
+
+    const KArchiveDirectory *dir = k7zip.directory();
+    QVERIFY(dir != nullptr);
+
+    const KArchiveEntry *entry = dir->entry(QStringLiteral("2gib-zeros.bin"));
+    QVERIFY(entry != nullptr);
+    QVERIFY(entry->isFile());
+    QCOMPARE(static_cast<const KArchiveFile *>(entry)->size(), Q_INT64_C(2147483648));
+
+    QVERIFY(k7zip.close());
+}
+
 void KArchiveTest::test7ZipFileNameEndsInSlash()
 {
     const QString fileName = QFINDTESTDATA("data/filename_ends_in_slash.7z");
