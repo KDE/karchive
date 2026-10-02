@@ -14,6 +14,8 @@
 #include <QDir>
 #include <QFile>
 #include <QTimeZone>
+#include <functional>
+#include <optional>
 #include <qplatformdefs.h>
 
 #include "kcompressiondevice.h"
@@ -187,7 +189,7 @@ public:
                    const QString &symlink,
                    qint64 pos,
                    qint64 size,
-                   const QByteArray &data);
+                   std::function<QByteArray()> archiveDataProvider);
 
     ~K7ZipFileEntry() override;
 
@@ -210,8 +212,12 @@ public:
     [[nodiscard]] QIODevice *createDevice() const override;
 
 private:
-    const QByteArray m_data;
-    QBuffer *m_buffer;
+    // The decoded content of the archive, which K7Zip only decodes when a file is read.
+    const QByteArray &archiveData() const;
+
+    std::function<QByteArray()> m_archiveDataProvider;
+    mutable std::optional<QByteArray> m_archiveData;
+    mutable std::unique_ptr<QBuffer> m_buffer;
 };
 
 K7ZipFileEntry::K7ZipFileEntry(K7Zip *zip,
@@ -223,28 +229,35 @@ K7ZipFileEntry::K7ZipFileEntry(K7Zip *zip,
                                const QString &symlink,
                                qint64 pos,
                                qint64 size,
-                               const QByteArray &data)
+                               std::function<QByteArray()> archiveDataProvider)
     : KArchiveFile(zip, name, access, date, user, group, symlink, pos, size)
-    , m_data(data)
-    , m_buffer(new QBuffer)
+    , m_archiveDataProvider(std::move(archiveDataProvider))
 {
-    m_buffer->setData(m_data);
-    m_buffer->open(QIODevice::ReadOnly);
 }
 
-K7ZipFileEntry::~K7ZipFileEntry()
+K7ZipFileEntry::~K7ZipFileEntry() = default;
+
+const QByteArray &K7ZipFileEntry::archiveData() const
 {
-    delete m_buffer;
+    if (!m_archiveData) {
+        m_archiveData = m_archiveDataProvider ? m_archiveDataProvider() : QByteArray();
+    }
+    return *m_archiveData;
 }
 
 QByteArray K7ZipFileEntry::data() const
 {
-    return m_data.mid(position(), size());
+    return archiveData().mid(position(), size());
 }
 
 QIODevice *K7ZipFileEntry::createDevice() const
 {
-    return new KLimitedIODevice(m_buffer, position(), size());
+    if (!m_buffer) {
+        m_buffer = std::make_unique<QBuffer>();
+        m_buffer->setData(archiveData());
+        m_buffer->open(QIODevice::ReadOnly);
+    }
+    return new KLimitedIODevice(m_buffer.get(), position(), size());
 }
 
 class FileInfo
@@ -454,7 +467,19 @@ public:
 
     // Write
     QByteArray header;
-    QByteArray outData; // Store data in this buffer before compress and write in archive.
+    // The content of the files: those to compress and write, or those decoded from a read archive.
+    QByteArray outData;
+    // Whether the files of a read archive remain to be decoded into outData, see decodedOutData().
+    bool outDataNeedsDecoding = false;
+
+    const QByteArray &decodedOutData()
+    {
+        if (outDataNeedsDecoding) {
+            outDataNeedsDecoding = false;
+            outData = readAndDecodePackedStreams(false);
+        }
+        return outData;
+    }
     K7ZipFileEntry *m_currentFile = nullptr;
     QList<KArchiveEntry *> m_entryList;
 
@@ -1750,7 +1775,8 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
 
 QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamInfo)
 {
-    if (!buffer) {
+    // The header buffer is only read for the stream info, and it does not outlive openArchive().
+    if (readMainStreamInfo && !buffer) {
         return QByteArray();
     }
 
@@ -2874,7 +2900,13 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
         }
     }
 
-    d->outData = d->readAndDecodePackedStreams(false);
+    // decodedOutData() decodes the files the first time one of them is read. An archive opened for
+    // writing too is written back from outData, so it needs them all now.
+    d->outData.clear();
+    d->outDataNeedsDecoding = true;
+    if (mode & QIODevice::WriteOnly) {
+        d->decodedOutData();
+    }
 
     int oldPos = 0;
     int filesWithoutNames = 0;
@@ -2983,10 +3015,13 @@ bool K7Zip::openArchive(QIODevice::OpenMode mode)
                                        QString() /*symlink*/,
                                        pos,
                                        fileInfo->size,
-                                       d->outData);
+                                       [this]() {
+                                           return d->decodedOutData();
+                                       });
             } else {
-                QString target = QFile::decodeName(d->outData.mid(pos, fileInfo->size));
-                e = new K7ZipFileEntry(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), target, 0, 0, nullptr);
+                // The target of a link is stored as its data.
+                QString target = QFile::decodeName(d->decodedOutData().mid(pos, fileInfo->size));
+                e = new K7ZipFileEntry(this, entryName, access, mTime, rootDir()->user(), rootDir()->group(), target, 0, 0, {});
             }
         }
 
@@ -3202,7 +3237,9 @@ bool K7Zip::doPrepareWriting(const QString &name,
     const KArchiveEntry *entry = parentDir->entry(fileName);
     if (!entry) {
         K7ZipFileEntry *e =
-            new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString() /*symlink*/, d->outData.size(), 0 /*unknown yet*/, d->outData);
+            new K7ZipFileEntry(this, fileName, perm, mtime, user, group, QString() /*symlink*/, d->outData.size(), 0 /*unknown yet*/, [this]() {
+                return d->outData;
+            });
         if (!parentDir->addEntryV2(e)) {
             return false;
         }
@@ -3288,7 +3325,7 @@ bool K7Zip::doWriteSymLink(const QString &name,
     }
     QByteArray encodedTarget = QFile::encodeName(target);
 
-    K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, target, 0, 0, nullptr);
+    K7ZipFileEntry *e = new K7ZipFileEntry(this, fileName, perm, mtime, user, group, target, 0, 0, {});
     d->outData.append(encodedTarget);
 
     if (!parentDir->addEntryV2(e)) {
