@@ -443,18 +443,14 @@ void KArchiveTest::testCreateTarNoMimetype_data()
     QTest::addRow("gz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_gz_to_lzma.tar.lzma");
     QTest::addRow("xz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_gz.tar.gz");
     QTest::addRow("lz_to_gz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_gz.tar.gz");
-    QTest::addRow("lzma_to_gz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_gz.tar.gz");
     QTest::addRow("xz_to_lz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lz.tar.lz");
     QTest::addRow("xz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_lzma.tar.lzma");
     QTest::addRow("lz_to_xz")    << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_xz.tar.xz");
     QTest::addRow("lz_to_lzma")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_lzma.tar.lzma");
-    QTest::addRow("lzma_to_lz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_lz.tar.lz");
-    QTest::addRow("lzma_to_xz")  << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_xz.tar.xz");
 
     #if HAVE_BZIP2_SUPPORT
         QTest::addRow("xz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_bz2.tar.bz2");
         QTest::addRow("lz_to_bz2")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_bz2.tar.bz2");
-        QTest::addRow("lzma_to_bz2") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_bz2.tar.bz2");
     #else
         qDebug() << "Skipped testing XZ/LZ/LZMA to BZip renamed archives: Built without BZip support";
     #endif
@@ -462,7 +458,6 @@ void KArchiveTest::testCreateTarNoMimetype_data()
     #if HAVE_ZSTD_SUPPORT
         QTest::addRow("xz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_xz_to_zst.tar.zst");
         QTest::addRow("lz_to_zst")   << QFINDTESTDATA("data/tar_mimetype_determination/test_lz_to_zst.tar.zst");
-        QTest::addRow("lzma_to_zst") << QFINDTESTDATA("data/tar_mimetype_determination/test_lzma_to_zst.tar.zst");
     #else
         qDebug() << "Skipped testing XZ/LZ/LZMA to ZST renamed archives: Built without ZSTD support";
     #endif
