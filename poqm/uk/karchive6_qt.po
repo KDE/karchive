@@ -14,37 +14,37 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 25.12.1\n"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2568
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Не вдалося отримати базовий пристрій"
 
-#: k7zip.cpp:2550
+#: k7zip.cpp:2576
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Не вдалося прочитати заголовок"
 
-#: k7zip.cpp:2556
+#: k7zip.cpp:2582
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Перевірку підпису не пройдено"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2605
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Помилкова CRC"
 
-#: k7zip.cpp:2588
+#: k7zip.cpp:2614
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Розмір наступного заголовка є надто великим"
 
-#: k7zip.cpp:2593
+#: k7zip.cpp:2619
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Розмір наступного заголовка є від'ємним"
 
-#: k7zip.cpp:2604
+#: k7zip.cpp:2630
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -52,64 +52,64 @@ msgstr ""
 "Не вдалося прочитати розмір наступного заголовка: мало бути прочитано %1, а "
 "фактично прочитано %2"
 
-#: k7zip.cpp:2617
+#: k7zip.cpp:2643
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Помилкова сума CRC наступного заголовка"
 
-#: k7zip.cpp:2625
+#: k7zip.cpp:2651
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Помилка у заголовку"
 
-#: k7zip.cpp:2643 k7zip.cpp:2676
+#: k7zip.cpp:2669 k7zip.cpp:2702
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Для роботи з цим архівом потрібен пароль"
 
-#: k7zip.cpp:2649
+#: k7zip.cpp:2675
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Помилковий тип заголовка"
 
-#: k7zip.cpp:2659 k7zip.cpp:2665
+#: k7zip.cpp:2685 k7zip.cpp:2691
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Не реалізовано"
 
-#: k7zip.cpp:2671
+#: k7zip.cpp:2697
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Помилка під час читання даних основних потоків"
 
-#: k7zip.cpp:2694
+#: k7zip.cpp:2720
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Помилка під час читання заголовка"
 
-#: k7zip.cpp:2702 k7zip.cpp:2710
+#: k7zip.cpp:2728 k7zip.cpp:2736
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 "В архіві %1 файлів, що перевищує максимальну підтримувану кількість (%2)"
 
-#: k7zip.cpp:2768
+#: k7zip.cpp:2794
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Помилка під час читання часу внесення змін"
 
-#: k7zip.cpp:2814
+#: k7zip.cpp:2840
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Помилка під час читання MTime"
 
-#: k7zip.cpp:2821
+#: k7zip.cpp:2847
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Некоректний"
 
-#: k7zip.cpp:2845
+#: k7zip.cpp:2871
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -117,34 +117,34 @@ msgstr ""
 "Не вдалося прочитати розмір (checkRecordsSize: %1, d->pos - ppp: %2, розмір: "
 "%3)"
 
-#: k7zip.cpp:2885
+#: k7zip.cpp:2917
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "вміст"
 
-#: k7zip.cpp:3080
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Помилка запису"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3145
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Помилка під час кодування заголовка"
 
-#: k7zip.cpp:3154
+#: k7zip.cpp:3189
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Зараз не вибрано жодного файла"
 
-#: k7zip.cpp:3178 k7zip.cpp:3228 k7zip.cpp:3268
+#: k7zip.cpp:3213 k7zip.cpp:3265 k7zip.cpp:3305
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Помилка програми: файл 7-Zip має бути відкрито до того, як до нього буде "
 "записано дані"
 
-#: k7zip.cpp:3184 k7zip.cpp:3274
+#: k7zip.cpp:3219 k7zip.cpp:3311
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Помилка програми: спроба запису до непридатного до запису файла 7-Zip"

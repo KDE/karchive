@@ -15,37 +15,37 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: k7zip.cpp:2542
+#: k7zip.cpp:2568
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Не удалось получить базовое устройство"
 
-#: k7zip.cpp:2550
+#: k7zip.cpp:2576
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Не удалось выполнить чтение заголовка"
 
-#: k7zip.cpp:2556
+#: k7zip.cpp:2582
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Не удалось выполнить проверку подписи"
 
-#: k7zip.cpp:2579
+#: k7zip.cpp:2605
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Неправильная контрольная циклическая сумма"
 
-#: k7zip.cpp:2588
+#: k7zip.cpp:2614
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Размер следующего заголовка слишком велик"
 
-#: k7zip.cpp:2593
+#: k7zip.cpp:2619
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Размер следующего заголовка меньше нуля"
 
-#: k7zip.cpp:2604
+#: k7zip.cpp:2630
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -53,63 +53,63 @@ msgstr ""
 "Не удалось выполнить чтение размера следующего заголовка; должно быть "
 "прочитано %1, а фактически прочитано %2"
 
-#: k7zip.cpp:2617
+#: k7zip.cpp:2643
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Неправильная контрольная циклическая сумма следующего заголовка"
 
-#: k7zip.cpp:2625
+#: k7zip.cpp:2651
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Ошибка в заголовке"
 
-#: k7zip.cpp:2643 k7zip.cpp:2676
+#: k7zip.cpp:2669 k7zip.cpp:2702
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Для этого архива требуется пароль"
 
-#: k7zip.cpp:2649
+#: k7zip.cpp:2675
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Неверный тип заголовка"
 
-#: k7zip.cpp:2659 k7zip.cpp:2665
+#: k7zip.cpp:2685 k7zip.cpp:2691
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Не реализовано"
 
-#: k7zip.cpp:2671
+#: k7zip.cpp:2697
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Ошибка при чтении данных основных потоков"
 
-#: k7zip.cpp:2694
+#: k7zip.cpp:2720
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Ошибка при чтении заголовка"
 
-#: k7zip.cpp:2702 k7zip.cpp:2710
+#: k7zip.cpp:2728 k7zip.cpp:2736
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Архив содержит %1 файлов, что превышает поддерживаемый предел (%2)"
 
-#: k7zip.cpp:2768
+#: k7zip.cpp:2794
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Ошибка чтения времени изменения"
 
-#: k7zip.cpp:2814
+#: k7zip.cpp:2840
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Ошибка чтения MTime"
 
-#: k7zip.cpp:2821
+#: k7zip.cpp:2847
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Некорректный"
 
-#: k7zip.cpp:2845
+#: k7zip.cpp:2871
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -117,32 +117,32 @@ msgstr ""
 "Не удалось выполнить чтение размера (checkRecordsSize: %1, d->pos - ppp: %2, "
 "size: %3)"
 
-#: k7zip.cpp:2885
+#: k7zip.cpp:2917
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "содержимое"
 
-#: k7zip.cpp:3080
+#: k7zip.cpp:3115
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Ошибка записи"
 
-#: k7zip.cpp:3110
+#: k7zip.cpp:3145
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Не удалось закодировать заголовок"
 
-#: k7zip.cpp:3154
+#: k7zip.cpp:3189
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Файл не выбран"
 
-#: k7zip.cpp:3178 k7zip.cpp:3228 k7zip.cpp:3268
+#: k7zip.cpp:3213 k7zip.cpp:3265 k7zip.cpp:3305
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Ошибка приложения: перед записью необходимо открыть файл 7-Zip"
 
-#: k7zip.cpp:3184 k7zip.cpp:3274
+#: k7zip.cpp:3219 k7zip.cpp:3311
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Ошибка приложения: попытка записи в недоступный для записи файл 7-Zip"
