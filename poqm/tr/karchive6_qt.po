@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-02 20:36+0300\n"
+"PO-Revision-Date: 2026-10-12 11:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: k7zip.cpp:2568
 msgctxt "K7Zip|"
@@ -21,7 +21,7 @@ msgstr "Altındaki aygıt alınamadı"
 #: k7zip.cpp:2576
 msgctxt "K7Zip|"
 msgid "Read header failed"
-msgstr "Üstbilgiyi okuma başarısız"
+msgstr "Üst bilgi okunamadı"
 
 #: k7zip.cpp:2582
 msgctxt "K7Zip|"
@@ -36,28 +36,28 @@ msgstr "Hatalı CRC"
 #: k7zip.cpp:2614
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
-msgstr "Sonraki üstbilgi boyutu pek büyük"
+msgstr "Sonraki üst bilgi boyutu pek büyük"
 
 #: k7zip.cpp:2619
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
-msgstr "Sonraki üstbilgi boyutu sıfırdan küçük"
+msgstr "Sonraki üst bilgi boyutu sıfırdan küçük"
 
 #: k7zip.cpp:2630
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
-msgstr "Sonraki üstbilgi boyutunu okuma başarısız; %1 okumalıydı, %2 okudu"
+msgstr "Sonraki üst bilgi boyutunu okuma başarısız; %1 okumalıydı, %2 okudu"
 
 #: k7zip.cpp:2643
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
-msgstr "Sonraki CRC üstbilgisi hatalı"
+msgstr "Sonraki CRC üst bilgisi hatalı"
 
 #: k7zip.cpp:2651
 msgctxt "K7Zip|"
 msgid "Error in header"
-msgstr "Üstbilgide hata"
+msgstr "Üst bilgide hata"
 
 #: k7zip.cpp:2669 k7zip.cpp:2702
 msgctxt "K7Zip|"
@@ -67,7 +67,7 @@ msgstr "Bu arşiv için parola gerekiyor"
 #: k7zip.cpp:2675
 msgctxt "K7Zip|"
 msgid "Wrong header type"
-msgstr "Yanlış üstbilgi türü"
+msgstr "Yanlış üst bilgi türü"
 
 #: k7zip.cpp:2685 k7zip.cpp:2691
 msgctxt "K7Zip|"
@@ -82,7 +82,7 @@ msgstr "Ana akış bilgisi okunurken hata"
 #: k7zip.cpp:2720
 msgctxt "K7Zip|"
 msgid "Error while reading header"
-msgstr "Üstbilgi okunurken hata"
+msgstr "Üst bilgi okunurken hata"
 
 #: k7zip.cpp:2728 k7zip.cpp:2736
 #, qt-format
@@ -125,7 +125,7 @@ msgstr "Yazma hatası"
 #: k7zip.cpp:3145
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
-msgstr "Üstbilgiyi kodlama başarısız"
+msgstr "Üst bilgiyi kodlama başarısız"
 
 #: k7zip.cpp:3189
 msgctxt "K7Zip|"
@@ -289,7 +289,7 @@ msgstr "Altındaki aygıt alınamadı"
 #: ktar.cpp:409
 msgctxt "KTar|"
 msgid "Could not read tar header"
-msgstr "TAR üstbilgisi okunamadı"
+msgstr "TAR üst bilgisi okunamadı"
 
 #: ktar.cpp:592 ktar.cpp:607
 #, qt-format
@@ -329,7 +329,7 @@ msgstr "Uygulama sınırlaması: %1 bayttan büyük dosyalar eklenemez"
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
-msgstr "Üstbilgi yazılamadı: %1"
+msgstr "Üst bilgi yazılamadı: %1"
 
 #: ktar.cpp:875 ktar.cpp:944
 msgctxt "KTar|"
@@ -360,7 +360,7 @@ msgstr "Geçersiz ZIP dosyası. Bozuk ExtraField."
 #: kzip.cpp:592 kzip.cpp:615
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
-msgstr "Sonraki üstbilgi jetonuna gidilemedi"
+msgstr "Sonraki üst bilgi jetonuna gidilemedi"
 
 #: kzip.cpp:607
 msgctxt "KZip|"
@@ -406,8 +406,8 @@ msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr ""
-"Geçersiz ZIP dosyası, %1 konumundaki merkezi dizinde tutarsız yerel üstbilgi "
-"ofseti"
+"Geçersiz ZIP dosyası, %1 konumundaki merkezi dizinde tutarsız yerel üst "
+"bilgi ofseti"
 
 #: kzip.cpp:775
 msgctxt "KZip|"
@@ -428,25 +428,25 @@ msgstr "Sonraki girdiye gidilemedi"
 #: kzip.cpp:857
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
-msgstr "Bir ZIP dosyası değil, bulunan bir yerel dosya üstbilgisi yok."
+msgstr "Bir ZIP dosyası değil, bulunan bir yerel dosya üst bilgisi yok."
 
 #: kzip.cpp:861
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
-msgstr "Geçersiz ZIP dosyası. %1 ofsetinde tanımlanamayan üstbilgi"
+msgstr "Geçersiz ZIP dosyası. %1 ofsetinde tanımlanamayan üst bilgi"
 
 #: kzip.cpp:888
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
-msgstr "Sonraki dosya üstbilgisine gidilemedi: %1"
+msgstr "Sonraki dosya üst bilgisine gidilemedi: %1"
 
 #: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
-msgstr "Dosya üstbilgisi yazılamadı: %1"
+msgstr "Dosya üst bilgisi yazılamadı: %1"
 
 #: kzip.cpp:936
 #, qt-format
