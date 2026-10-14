@@ -35,7 +35,7 @@ static const char application_zstd[] = "application/zstd";
 namespace MimeType
 {
 QString application_gzip()     { return QStringLiteral("application/gzip"); }
-QString application_gzip_old() { return QStringLiteral("application/x-gzip"); }
+QString application_gzip_old() { return QStringLiteral("application/x-gzip"); }  
 }
 /* clang-format on */
 
@@ -101,7 +101,11 @@ bool KTar::createDevice(QIODevice::OpenMode mode)
             // we can still do the right thing here.
             QFile f(fileName());
             if (f.open(QIODevice::ReadOnly)) {
-                mime = db.mimeTypeForData(&f);
+                const QMimeType newMime = db.mimeTypeForData(&f);
+                // If the mimetype cannot be determined by file contents, ignore it
+                if (newMime.name() != QStringLiteral("application/octet-stream")) {
+                    mime = newMime;
+                }
             }
             if (!mime.isValid()) {
                 // Unable to determine mimetype from contents, get it from file name
