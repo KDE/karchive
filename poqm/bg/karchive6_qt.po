@@ -269,77 +269,77 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Не успя да се регистрира ресурс %1 под префикс %2"
 
-#: ktar.cpp:349
+#: ktar.cpp:353
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Файлът %1 не съществува"
 
-#: ktar.cpp:356
+#: ktar.cpp:360
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Архивът %1 е повреден"
 
-#: ktar.cpp:360
+#: ktar.cpp:364
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Дискът е пълен"
 
-#: ktar.cpp:394
+#: ktar.cpp:398
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Не може да се получи основното устройство"
 
-#: ktar.cpp:409
+#: ktar.cpp:413
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Не можа да прочете заглавието на tar"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:596 ktar.cpp:611
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Не успя да запише обратно временен файл: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:657
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Не можа да запише подравняване: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:759 ktar.cpp:769
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Не можа да запише пълната връзка: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:790 ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Грешка на приложението: Файлът TAR трябва да бъде отворен, преди да се "
 "извърши запис в него"
 
-#: ktar.cpp:792
+#: ktar.cpp:796
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Грешка на приложението: опит за запис в незаписваем 7-Zip файл"
 
-#: ktar.cpp:799
+#: ktar.cpp:803
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Ограничение на приложението: Не може да се добави файл, по-голям от %1 байта"
 
-#: ktar.cpp:853
+#: ktar.cpp:857
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Не успя да запише заглавието: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:879 ktar.cpp:948
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Грешка на приложението: опит за запис в незаписваем TAR файл"

@@ -269,76 +269,76 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Nepavyko registruoti ištekliaus %1 naudojant priešdėlį %2"
 
-#: ktar.cpp:349
+#: ktar.cpp:353
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Failo %1 nėra"
 
-#: ktar.cpp:356
+#: ktar.cpp:360
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archyvas %1 yra pažeistas"
 
-#: ktar.cpp:360
+#: ktar.cpp:364
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Diskas pilnas"
 
-#: ktar.cpp:394
+#: ktar.cpp:398
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Nepavyko gauti pagrindinio įrenginio"
 
-#: ktar.cpp:409
+#: ktar.cpp:413
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Nepavyko perskaityti tar antraštės"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:596 ktar.cpp:611
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Nepavyko atgal rašyti laikinojo failo: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:657
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Nepavyko rašyti išsirikiavimo: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:759 ktar.cpp:769
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Nepavyko rašyti ilgo saito: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:790 ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Programos klaida: TAR failas privalo būti atvertas prieš tai, kai į jį bus "
 "rašoma"
 
-#: ktar.cpp:792
+#: ktar.cpp:796
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
 
-#: ktar.cpp:799
+#: ktar.cpp:803
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Programos apribojimas: Negalima pridėti failo, didesnio nei %1 baitų"
 
-#: ktar.cpp:853
+#: ktar.cpp:857
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Nepavyko rašyti antraštės: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:879 ktar.cpp:948
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą TAR failą"

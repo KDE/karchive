@@ -264,46 +264,46 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Failed to register resource %1 under prefix %2"
 
-#: ktar.cpp:349
+#: ktar.cpp:353
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "File %1 does not exist"
 
-#: ktar.cpp:356
+#: ktar.cpp:360
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archive %1 is corrupt"
 
-#: ktar.cpp:360
+#: ktar.cpp:364
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disk full"
 
-#: ktar.cpp:394
+#: ktar.cpp:398
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Could not get underlying device"
 
-#: ktar.cpp:409
+#: ktar.cpp:413
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Could not read tar header"
 
-#: ktar.cpp:592 ktar.cpp:607
+#: ktar.cpp:596 ktar.cpp:611
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Failed to write back temp file: %1"
 
-#: ktar.cpp:653
+#: ktar.cpp:657
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Could not write alignment: %1"
 
-#: ktar.cpp:755 ktar.cpp:765
+#: ktar.cpp:759 ktar.cpp:769
 #, fuzzy, qt-format
 #| msgctxt "KTar|"
 #| msgid "Couldn't write alignment: %1"
@@ -311,29 +311,29 @@ msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Could not write alignment: %1"
 
-#: ktar.cpp:786 ktar.cpp:869 ktar.cpp:938
+#: ktar.cpp:790 ktar.cpp:873 ktar.cpp:942
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr "Application error: TAR file must be open before being written into"
 
-#: ktar.cpp:792
+#: ktar.cpp:796
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Application error: attempted to write into non-writable 7-Zip file"
 
-#: ktar.cpp:799
+#: ktar.cpp:803
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Application limitation: Cannot add file larger than %1 bytes"
 
-#: ktar.cpp:853
+#: ktar.cpp:857
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Failed to write header: %1"
 
-#: ktar.cpp:875 ktar.cpp:944
+#: ktar.cpp:879 ktar.cpp:948
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Application error: attempted to write into non-writable TAR file"
