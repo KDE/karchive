@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024-2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-19 15:08+0300\n"
+"PO-Revision-Date: 2026-10-15 12:18+0300\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: k7zip.cpp:2568
 msgctxt "K7Zip|"
@@ -453,36 +453,28 @@ msgid "Could not write file header: %1"
 msgstr "Neizdevās ierakstīt datnes galveni: %1"
 
 #: kzip.cpp:936
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to next file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
-msgstr "Neizdevās atrast nākamās datnes galveni: %1"
+msgstr "Neizdevās atrast ZIP64 papildu lauku: %1"
 
 #: kzip.cpp:944
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not seek to file compressed size"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
-msgstr "Neizdevās atrast saspiesto datnes izmēru"
+msgstr "Neizdevās ierakstīt ZIP64 saspiesto izmēru: %1"
 
 #: kzip.cpp:1131
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write central dir record: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
-msgstr "Neizdevās rakstīt centrālo „dir“ ierakstu: %1"
+msgstr "Neizdevās ierakstīt ZIP64 EOCD ierakstu: %1"
 
 #: kzip.cpp:1150
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Could not write file header: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
-msgstr "Neizdevās ierakstīt datnes galveni: %1"
+msgstr "Neizdevās ierakstīt ZIP64 EOCD lokatoru: %1"
 
 #: kzip.cpp:1212
 #, qt-format
@@ -528,12 +520,10 @@ msgid "No file or device"
 msgstr "Nav datnes vai ierīces"
 
 #: kzip.cpp:1540
-#, fuzzy, qt-format
-#| msgctxt "KZip|"
-#| msgid "Error writing data: %1"
+#, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
-msgstr "Kļūda ierakstot datus: %1"
+msgstr "Kļūda, ierakstot datgrupu: %1"
 
 #: kzip.cpp:1553
 #, qt-format
