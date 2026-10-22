@@ -1406,10 +1406,18 @@ static bool getOutStream(const Folder *folder, quint32 streamIndex, int &seqOutS
 }
 
 static const int catCycle = 6;
+static const quint32 maxNumCyclesPower = 24;
 
 static QByteArray calculateKey(const QByteArray &password, quint32 numCyclesPower, const QByteArray &salt)
 {
     quint32 rounds, stages;
+
+    // 7-Zip supports at most 2^24 rounds; more would take hours, and from 38
+    // on the shifts below overflow
+    if (numCyclesPower > maxNumCyclesPower) {
+        qCDebug(KArchiveLog) << "Unsupported number of key derivation cycles" << numCyclesPower;
+        return QByteArray();
+    }
 
     if (numCyclesPower > catCycle) {
         rounds = 1 << catCycle;
@@ -1461,6 +1469,14 @@ static QByteArray decryptAES(const QList<quint8> &coderProperties, const QString
 
     int saltSize = ((firstByte >> 7) & 1) + (coderProperties[1] >> 4);
     int ivSize = ((firstByte >> 6) & 1) + (coderProperties[1] & 0x0F);
+
+    // The two header bytes are followed by the salt and the IV they announce,
+    // so the properties must be long enough to hold them (7-Zip's 7zAes
+    // decoder rejects such properties too).
+    if (coderProperties.size() < 2 + saltSize + ivSize) {
+        qCDebug(KArchiveLog) << "AES properties too short for salt and IV";
+        return QByteArray();
+    }
 
     QByteArray salt((const char *)coderProperties.data() + 2, saltSize);
     QByteArray iv((const char *)coderProperties.data() + 2 + saltSize, ivSize);
@@ -1810,7 +1826,7 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
                 return nullptr;
             }
 
-            if (folder->folderInfos.size() > 1 && currentCoderIndex < folder->folderInfos.size()) {
+            if (currentCoderIndex + 1 < folder->folderInfos.size()) {
                 deflatedData = decryptedData; // set the data for the filter to the decrypted data
                 int nextCoderIndex = currentCoderIndex + 1;
                 filter = getFilter(folder, &folder->folderInfos[nextCoderIndex], nextCoderIndex, decryptedData, inflatedDatas);
