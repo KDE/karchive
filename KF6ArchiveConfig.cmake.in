@@ -29,7 +29,7 @@ if (NOT @BUILD_SHARED_LIBS@)
 
     if (@LibZstd_FOUND@)
         find_package(PkgConfig)
-        pkg_check_modules(LibZstd IMPORTED_TARGET "libzstd")
+        pkg_check_modules(LibZstd REQUIRED IMPORTED_TARGET "libzstd")
     endif()
 endif()
 
