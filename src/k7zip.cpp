@@ -404,7 +404,71 @@ public:
         return false;
     }
 
-    // bool CheckStructure() const;
+    // Checks that the coders and bind pairs form a graph the decoder can follow, as 7-Zip checks
+    // a folder when it reads one: each coder has the streams its method takes, every bind pair and
+    // packed stream refers to an existing stream, no stream is bound or packed twice, and every
+    // coder is reached from the folder's output.
+    [[nodiscard]] bool checkStructure() const
+    {
+        quint64 numInStreams = 0;
+        quint64 numOutStreams = 0;
+        for (const FolderInfo &info : folderInfos) {
+            // BCJ2 takes the main, call and jump streams and a range coder stream, the other methods one stream
+            const int methodInStreams = (info.methodID == k_BCJ2) ? 4 : 1;
+            if (info.numInStreams != methodInStreams || info.numOutStreams != 1) {
+                return false;
+            }
+            numInStreams += info.numInStreams;
+            numOutStreams += info.numOutStreams;
+        }
+
+        QList<bool> inStreamUsed(numInStreams, false);
+        QList<bool> outStreamUsed(numOutStreams, false);
+        for (qsizetype i = 0; i < inIndexes.size(); ++i) {
+            const quint64 inIndex = inIndexes.at(i);
+            const quint64 outIndex = outIndexes.at(i);
+            if (inIndex >= numInStreams || inStreamUsed.at(inIndex) || outIndex >= numOutStreams || outStreamUsed.at(outIndex)) {
+                return false;
+            }
+            inStreamUsed[inIndex] = true;
+            outStreamUsed[outIndex] = true;
+        }
+        for (const quint64 packedStream : packedStreams) {
+            if (packedStream >= numInStreams || inStreamUsed.at(packedStream)) {
+                return false;
+            }
+            inStreamUsed[packedStream] = true;
+        }
+
+        // The folder's output is the out stream no bind pair takes
+        const qsizetype mainOutStream = outStreamUsed.indexOf(false);
+        if (mainOutStream < 0) {
+            return false;
+        }
+
+        // Every coder must be reached once from the output; one that is not is in a loop or unused.
+        // None is reached twice, as each coder has one out stream, which at most one bind pair takes.
+        QList<bool> coderReached(folderInfos.size(), false);
+        QList<quint32> codersToVisit;
+        quint32 coderIndex;
+        quint32 coderStreamIndex;
+        findOutStream(mainOutStream, coderIndex, coderStreamIndex);
+        codersToVisit.append(coderIndex);
+        while (!codersToVisit.isEmpty()) {
+            const quint32 coder = codersToVisit.takeLast();
+            coderReached[coder] = true;
+
+            const quint32 startIndex = getCoderInStreamIndex(coder);
+            for (int i = 0; i < folderInfos.at(coder).numInStreams; ++i) {
+                const int bindPair = findBindPairForInStream(startIndex + i);
+                if (bindPair >= 0) {
+                    findOutStream(outIndexes.at(bindPair), coderIndex, coderStreamIndex);
+                    codersToVisit.append(coderIndex);
+                }
+            }
+        }
+        return !coderReached.contains(false);
+    }
 
     bool unpackCRCDefined = false;
     quint32 unpackCRC = 0;
@@ -765,7 +829,9 @@ void K7Zip::K7ZipPrivate::readHashDigests(int numItems, QList<bool> &digestsDefi
     }
 }
 
-constexpr auto kMaxCoders = std::numeric_limits<int>::max() / sizeof(Folder::FolderInfo);
+// 7-Zip reads at most 64 coders in a folder, and 64 streams in a coder or in a folder
+constexpr quint64 kMaxCoders = 64;
+constexpr quint64 kMaxCoderStreams = 64;
 
 Folder *K7Zip::K7ZipPrivate::folderItem()
 {
@@ -814,8 +880,14 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
         // if (Is Complex Coder)
         if ((coderInfo & 0x10) != 0) {
-            info.numInStreams = readNumber();
-            info.numOutStreams = readNumber();
+            const quint64 numInStreams = readNumber();
+            const quint64 numOutStreams = readNumber();
+            if (numInStreams > kMaxCoderStreams || numOutStreams > kMaxCoderStreams) {
+                qCDebug(KArchiveLog) << "too many coder streams";
+                return nullptr;
+            }
+            info.numInStreams = numInStreams;
+            info.numOutStreams = numOutStreams;
         } else {
             info.numInStreams = 1;
             info.numOutStreams = 1;
@@ -840,11 +912,18 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
 
         numInStreamsTotal += info.numInStreams;
         numOutStreamsTotal += info.numOutStreams;
+        if (numInStreamsTotal > kMaxCoderStreams || numOutStreamsTotal > kMaxCoderStreams) {
+            qCDebug(KArchiveLog) << "too many streams in folder";
+            return nullptr;
+        }
         folder->folderInfos.append(std::move(info));
     }
 
     int numBindPairs = numOutStreamsTotal - 1;
     for (int i = 0; i < numBindPairs; i++) {
+        if (pos >= end) {
+            return nullptr;
+        }
         folder->inIndexes.append(readNumber());
         folder->outIndexes.append(readNumber());
     }
@@ -869,6 +948,11 @@ Folder *K7Zip::K7ZipPrivate::folderItem()
                 return nullptr;
             }
         }
+    }
+
+    if (!folder->checkStructure()) {
+        qCDebug(KArchiveLog) << "invalid coder graph";
+        return nullptr;
     }
     return folder.release();
 }
@@ -965,7 +1049,12 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
     switch (external) {
     case 0: {
         for (int i = 0; i < numFolders && pos < end; ++i) {
-            folders.append(folderItem());
+            Folder *folder = folderItem();
+            if (!folder) {
+                qCDebug(KArchiveLog) << "invalid folder" << i;
+                return false;
+            }
+            folders.append(folder);
         }
         break;
     }
@@ -993,9 +1082,6 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
 
     for (int i = 0; i < numFolders; ++i) {
         Folder *folder = folders.at(i);
-        if (!folder) {
-            continue;
-        }
         int numOutStreams = folder->getNumOutStreams();
         for (int j = 0; j < numOutStreams; ++j) {
             folder->unpackSizes.append(readNumber());
@@ -1017,9 +1103,6 @@ bool K7Zip::K7ZipPrivate::readUnpackInfo()
             readHashDigests(numFolders, crcsDefined, crcs);
             for (int i = 0; i < numFolders; i++) {
                 Folder *folder = folders.at(i);
-                if (!folder) {
-                    continue;
-                }
                 folder->unpackCRCDefined = crcsDefined[i];
                 folder->unpackCRC = crcs[i];
             }
@@ -1077,7 +1160,7 @@ bool K7Zip::K7ZipPrivate::readSubStreamsInfo()
                 sum += size;
             }
         }
-        if (i >= folders.size() || !folders.at(i)) {
+        if (i >= folders.size()) {
             return false;
         }
         unpackSizes.append(folders.at(i)->getUnpackSize() - sum);
@@ -1747,6 +1830,13 @@ KFilterBase *K7Zip::K7ZipPrivate::getFilter(const Folder *folder,
         static_cast<KXzFilter *>(filter)->init(QIODevice::ReadOnly, KXzFilter::BCJ, coder->properties);
         break;
     case k_BCJ2: {
+        // BCJ2 takes the main, call and jump streams decoded before it; the coders are not decoded
+        // in the order of the folder's bind pairs, so they may not be there
+        if (inflatedDatas.size() < 3) {
+            qCDebug(KArchiveLog) << "BCJ2 input streams not decoded";
+            inflatedDatas.clear();
+            break;
+        }
         QByteArray bcj2 = decodeBCJ2(inflatedDatas[0], inflatedDatas[1], inflatedDatas[2], deflatedData);
         inflatedDatas.clear();
         inflatedDatas.append(bcj2);
@@ -1780,8 +1870,8 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         return QByteArray();
     }
 
-    if (readMainStreamInfo) {
-        readMainStreamsInfo();
+    if (readMainStreamInfo && !readMainStreamsInfo()) {
+        return QByteArray();
     }
 
     QByteArray inflatedData;
@@ -1789,10 +1879,6 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
     quint64 startPos = 32 + packPos;
     for (int i = 0; i < folders.size(); i++) {
         const Folder *folder = folders.at(i);
-        if (!folder) {
-            qCDebug(KArchiveLog) << "no folder" << i;
-            return inflatedData;
-        }
 
         const quint64 unpackSize64 = folder->getUnpackSize();
         const size_t unpackSize = (size_t)unpackSize64;
@@ -1890,6 +1976,10 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
 
             KFilterBase *filter = getFilter(folder, &coder, coderIndex, deflatedData, inflatedDatas);
             if (coder.methodID == k_BCJ2) {
+                // getFilter() decodes BCJ2 itself, into inflatedDatas, which it leaves empty on failure
+                if (inflatedDatas.isEmpty()) {
+                    return QByteArray();
+                }
                 continue;
             }
 

@@ -2290,6 +2290,54 @@ void KArchiveTest::test7ZipOssFuzzIssues()
     }
 }
 
+// Each archive is valid but for the coder description of its folder, which does not
+// form a coder graph the decoder can follow
+void KArchiveTest::test7ZipFolderItemRejectsInvalidCoderGraph_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::newRow("too_many_coders") << "data/7z_folder_too_many_coders.7z";
+    QTest::newRow("too_many_coder_streams") << "data/7z_folder_too_many_coder_streams.7z";
+    QTest::newRow("too_many_folder_streams") << "data/7z_folder_too_many_folder_streams.7z";
+    QTest::newRow("bcj2_stream_counts") << "data/7z_folder_bcj2_stream_counts.7z";
+    QTest::newRow("bind_pair_in_index") << "data/7z_folder_bind_pair_in_index.7z";
+    QTest::newRow("bind_pair_out_index") << "data/7z_folder_bind_pair_out_index.7z";
+    QTest::newRow("in_stream_bound_twice") << "data/7z_folder_in_stream_bound_twice.7z";
+    QTest::newRow("out_stream_bound_twice") << "data/7z_folder_out_stream_bound_twice.7z";
+    QTest::newRow("packed_stream_index") << "data/7z_folder_packed_stream_index.7z";
+    QTest::newRow("packed_stream_bound") << "data/7z_folder_packed_stream_bound.7z";
+    QTest::newRow("bind_pair_loop") << "data/7z_folder_bind_pair_loop.7z";
+}
+
+void KArchiveTest::test7ZipFolderItemRejectsInvalidCoderGraph()
+{
+    QFETCH(QString, fileName);
+
+    const QString filePath = QFINDTESTDATA(fileName);
+    QVERIFY(!filePath.isEmpty());
+
+    K7Zip k7zip(filePath);
+    QVERIFY(!k7zip.open(QIODevice::ReadOnly));
+}
+
+// The folder is well formed, but K7Zip decodes its BCJ2 coder before the main, call and
+// jump streams it takes, see https://bugs.kde.org/show_bug.cgi?id=509201
+void KArchiveTest::test7ZipBcj2InputsNotDecoded()
+{
+    const QString fileName = QFINDTESTDATA("data/7z_folder_bcj2_inputs_not_decoded.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    QVERIFY(k7zip.open(QIODevice::ReadOnly));
+
+    const KArchiveFile *file = k7zip.directory()->file(QStringLiteral("hello.txt"));
+    QVERIFY(file);
+    // Decoding BCJ2 must not read past the streams decoded so far: it fails, or gives the content
+    const QByteArray data = file->data();
+    QVERIFY(data.isEmpty() || data == QByteArray("Hello, World!\n"));
+
+    QVERIFY(k7zip.close());
+}
+
 #if HAVE_OPENSSL_SUPPORT
 void KArchiveTest::test7ZipPasswordProtected()
 {

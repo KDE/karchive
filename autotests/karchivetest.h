@@ -148,6 +148,9 @@ private Q_SLOTS:
     void test7ZipFileNameEndsInSlash();
     void test7ZipOssFuzzIssues_data();
     void test7ZipOssFuzzIssues();
+    void test7ZipFolderItemRejectsInvalidCoderGraph_data();
+    void test7ZipFolderItemRejectsInvalidCoderGraph();
+    void test7ZipBcj2InputsNotDecoded();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
 #endif
