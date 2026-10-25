@@ -2617,6 +2617,26 @@ void KArchiveTest::test7ZipPasswordProtected()
 
     QVERIFY(k7zip.close());
 }
+
+void KArchiveTest::test7ZipShortAesProperties()
+{
+    const QString fileName = QFINDTESTDATA("data/7z_aes_short_properties.7z");
+    QVERIFY(!fileName.isEmpty());
+
+    K7Zip k7zip(fileName);
+    k7zip.setPassword("youshallnotpass");
+    QVERIFY(k7zip.open(QIODevice::ReadOnly));
+
+    const KArchiveFile *file = k7zip.directory()->file(QStringLiteral("file.txt"));
+    QVERIFY(file != nullptr);
+
+    // The AES coder's properties are too short for the salt and IV they
+    // announce, so decrypting the data fails cleanly instead of reading past
+    // them.
+    QVERIFY(file->data().isEmpty());
+
+    QVERIFY(k7zip.close());
+}
 #endif
 
 void KArchiveTest::test7ZipReadCoder_data()

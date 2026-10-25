@@ -159,6 +159,7 @@ private Q_SLOTS:
     void test7ZipBcj2InputsNotDecoded();
 #if HAVE_OPENSSL_SUPPORT
     void test7ZipPasswordProtected();
+    void test7ZipShortAesProperties();
 #endif
     void test7ZipReadCoder_data();
     void test7ZipReadCoder();
