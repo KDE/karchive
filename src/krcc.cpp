@@ -5,7 +5,6 @@
 */
 
 #include "krcc.h"
-#include "karchive_p.h"
 #include "loggingcategory.h"
 
 #include <QDateTime>

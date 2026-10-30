@@ -11,9 +11,6 @@
 #include <QDebug>
 #include <QFile>
 
-#include <limits>
-
-#include "kcompressiondevice.h"
 //#include "klimitediodevice_p.h"
 
 ////////////////////////////////////////////////////////////////////////
