@@ -147,40 +147,40 @@ msgstr ""
 "Erro da aplicación: intentou escribir nun ficheiro 7-Zip que non permite "
 "escritura."
 
-#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+#: kar.cpp:50 kar.cpp:57 kar.cpp:64 kar.cpp:71
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "Non é posíbel escribir no ficheiro AR."
 
-#: kar.cpp:87
+#: kar.cpp:84
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "Non se permite o modo «%1»"
 
-#: kar.cpp:98
+#: kar.cpp:95
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "Os primeiros bits principais son incorrectos."
 
-#: kar.cpp:115
+#: kar.cpp:112
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "Os primeiros bits son incorrectos."
 
-#: kar.cpp:126
+#: kar.cpp:123
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "O tamaño é incorrecto."
 
 # skip-rule: trasno-file_reverse
-#: kar.cpp:146
+#: kar.cpp:143
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "A referencia a un nome de ficheiro longo é incorrecta."
 
 # skip-rule: trasno-file_reverse
-#: kar.cpp:150
+#: kar.cpp:147
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "A referencia á posición dun nome de ficheiro longo é incorrecta."
@@ -256,18 +256,18 @@ msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Non foi posíbel escribir. Está a partición chea?"
 
-#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+#: krcc.cpp:82 krcc.cpp:89 krcc.cpp:96 krcc.cpp:103
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
 msgstr "Non é posíbel escribir no ficheiro RCC."
 
-#: krcc.cpp:117
+#: krcc.cpp:116
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
 msgstr "Non se permite o modo «%1»."
 
-#: krcc.cpp:124
+#: krcc.cpp:123
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"

@@ -146,38 +146,38 @@ msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Eroare în aplicație: s-a încercat scrierea în fișier 7-Zip nescriibil"
 
-#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+#: kar.cpp:50 kar.cpp:57 kar.cpp:64 kar.cpp:71
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "Nu se poate scrie în fișierul AR"
 
-#: kar.cpp:87
+#: kar.cpp:84
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "Regim nesusținut %1"
 
-#: kar.cpp:98
+#: kar.cpp:95
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "Număr magic principal eronat"
 
-#: kar.cpp:115
+#: kar.cpp:112
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "Număr magic eronat"
 
-#: kar.cpp:126
+#: kar.cpp:123
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "Dimensiune eronată"
 
-#: kar.cpp:146
+#: kar.cpp:143
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "Referință „longfilename” eronată"
 
-#: kar.cpp:150
+#: kar.cpp:147
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "Referință de poziție „longfilename” eronată"
@@ -253,18 +253,18 @@ msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "Nu s-a putut scrie. Partiție plină?"
 
-#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+#: krcc.cpp:82 krcc.cpp:89 krcc.cpp:96 krcc.cpp:103
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
 msgstr "Nu se poate scrie în fișierul RCC"
 
-#: krcc.cpp:117
+#: krcc.cpp:116
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
 msgstr "Regim nesusținut %1"
 
-#: krcc.cpp:124
+#: krcc.cpp:123
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"

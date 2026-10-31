@@ -152,38 +152,38 @@ msgstr ""
 "Erreur de l'application : tentative d'écriture dans un fichier en lecture "
 "seule de format « 7-ZIP »"
 
-#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+#: kar.cpp:50 kar.cpp:57 kar.cpp:64 kar.cpp:71
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "Impossible d'écrire vers un fichier « AR »"
 
-#: kar.cpp:87
+#: kar.cpp:84
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "Mode %1 non pris en charge"
 
-#: kar.cpp:98
+#: kar.cpp:95
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "Numéro magique principal non valable"
 
-#: kar.cpp:115
+#: kar.cpp:112
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "Numéro magique non valable"
 
-#: kar.cpp:126
+#: kar.cpp:123
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "Taille non valable"
 
-#: kar.cpp:146
+#: kar.cpp:143
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "Référence non valable à un nom long de fichier"
 
-#: kar.cpp:150
+#: kar.cpp:147
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "Référence non valable de position d'un nom long de fichier"
@@ -259,18 +259,18 @@ msgid "Could not write. Partition full?"
 msgstr ""
 "Impossible de réaliser une écriture. La partition pourrait-elle être pleine ?"
 
-#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+#: krcc.cpp:82 krcc.cpp:89 krcc.cpp:96 krcc.cpp:103
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
 msgstr "Impossible d'écrire vers un fichier « RCC »"
 
-#: krcc.cpp:117
+#: krcc.cpp:116
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
 msgstr "Mode %1 non pris en charge"
 
-#: krcc.cpp:124
+#: krcc.cpp:123
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"

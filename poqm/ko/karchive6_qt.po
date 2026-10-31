@@ -141,38 +141,38 @@ msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "앱 오류: 기록할 수 없는 7-Zip 파일에 기록을 시도함"
 
-#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+#: kar.cpp:50 kar.cpp:57 kar.cpp:64 kar.cpp:71
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "AR 파일에 쓸 수 없음"
 
-#: kar.cpp:87
+#: kar.cpp:84
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "지원하지 않는 모드 %1"
 
-#: kar.cpp:98
+#: kar.cpp:95
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "잘못된 메인 매직"
 
-#: kar.cpp:115
+#: kar.cpp:112
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "잘못된 매직"
 
-#: kar.cpp:126
+#: kar.cpp:123
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "잘못된 크기"
 
-#: kar.cpp:146
+#: kar.cpp:143
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "잘못된 긴 파일 이름 참조"
 
-#: kar.cpp:150
+#: kar.cpp:147
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "잘못된 긴 파일 이름 위치 참조"
@@ -246,18 +246,18 @@ msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "기록할 수 없습니다. 파티션이 가득 찼습니까?"
 
-#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+#: krcc.cpp:82 krcc.cpp:89 krcc.cpp:96 krcc.cpp:103
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
 msgstr "RCC 파일에 쓸 수 없음"
 
-#: krcc.cpp:117
+#: krcc.cpp:116
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
 msgstr "지원하지 않는 모드 %1"
 
-#: krcc.cpp:124
+#: krcc.cpp:123
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"

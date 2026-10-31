@@ -153,38 +153,38 @@ msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error d'aplicació: s'ha intentat escriure en un fitxer 7-Zip no escrivible"
 
-#: kar.cpp:53 kar.cpp:60 kar.cpp:67 kar.cpp:74
+#: kar.cpp:50 kar.cpp:57 kar.cpp:64 kar.cpp:71
 msgctxt "KAr|"
 msgid "Cannot write to AR file"
 msgstr "No es pot escriure el fitxer AR"
 
-#: kar.cpp:87
+#: kar.cpp:84
 #, qt-format
 msgctxt "KAr|"
 msgid "Unsupported mode %1"
 msgstr "Mode %1 no implementat"
 
-#: kar.cpp:98
+#: kar.cpp:95
 msgctxt "KAr|"
 msgid "Invalid main magic"
 msgstr "Número màgic principal no vàlid"
 
-#: kar.cpp:115
+#: kar.cpp:112
 msgctxt "KAr|"
 msgid "Invalid magic"
 msgstr "Número màgic no vàlid"
 
-#: kar.cpp:126
+#: kar.cpp:123
 msgctxt "KAr|"
 msgid "Invalid size"
 msgstr "Mida no vàlida"
 
-#: kar.cpp:146
+#: kar.cpp:143
 msgctxt "KAr|"
 msgid "Invalid longfilename reference"
 msgstr "La referència del nom llarg de fitxer no és vàlida"
 
-#: kar.cpp:150
+#: kar.cpp:147
 msgctxt "KAr|"
 msgid "Invalid longfilename position reference"
 msgstr "La referència de la posició del nom llarg de fitxer no és vàlida"
@@ -260,18 +260,18 @@ msgctxt "KCompressionDevice|"
 msgid "Could not write. Partition full?"
 msgstr "No s'ha pogut escriure. La partició és plena?"
 
-#: krcc.cpp:83 krcc.cpp:90 krcc.cpp:97 krcc.cpp:104
+#: krcc.cpp:82 krcc.cpp:89 krcc.cpp:96 krcc.cpp:103
 msgctxt "KRcc|"
 msgid "Cannot write to RCC file"
 msgstr "No es pot escriure al fitxer RCC"
 
-#: krcc.cpp:117
+#: krcc.cpp:116
 #, qt-format
 msgctxt "KRcc|"
 msgid "Unsupported mode %1"
 msgstr "Mode %1 no implementat"
 
-#: krcc.cpp:124
+#: krcc.cpp:123
 #, qt-format
 msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
