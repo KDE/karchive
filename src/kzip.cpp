@@ -18,6 +18,7 @@
 #include <QFile>
 #include <QHash>
 #include <QList>
+#include <QStringDecoder>
 #include <QtEndian>
 #include <qplatformdefs.h>
 
@@ -86,6 +87,51 @@ static uint transformFromMsDos(const char *buffer)
 
     QDateTime dt(qd, qt);
     return dt.toSecsSinceEpoch();
+}
+
+// Code page 437 from 0x80 to 0xFF, the encoding of names without the UTF-8 flag in the zip specification
+/* clang-format off */
+static const char16_t s_cp437HighHalf[128] = {
+    0x00C7, 0x00FC, 0x00E9, 0x00E2, 0x00E4, 0x00E0, 0x00E5, 0x00E7, 0x00EA, 0x00EB, 0x00E8, 0x00EF, 0x00EE, 0x00EC, 0x00C4, 0x00C5,
+    0x00C9, 0x00E6, 0x00C6, 0x00F4, 0x00F6, 0x00F2, 0x00FB, 0x00F9, 0x00FF, 0x00D6, 0x00DC, 0x00A2, 0x00A3, 0x00A5, 0x20A7, 0x0192,
+    0x00E1, 0x00ED, 0x00F3, 0x00FA, 0x00F1, 0x00D1, 0x00AA, 0x00BA, 0x00BF, 0x2310, 0x00AC, 0x00BD, 0x00BC, 0x00A1, 0x00AB, 0x00BB,
+    0x2591, 0x2592, 0x2593, 0x2502, 0x2524, 0x2561, 0x2562, 0x2556, 0x2555, 0x2563, 0x2551, 0x2557, 0x255D, 0x255C, 0x255B, 0x2510,
+    0x2514, 0x2534, 0x252C, 0x251C, 0x2500, 0x253C, 0x255E, 0x255F, 0x255A, 0x2554, 0x2569, 0x2566, 0x2560, 0x2550, 0x256C, 0x2567,
+    0x2568, 0x2564, 0x2565, 0x2559, 0x2558, 0x2552, 0x2553, 0x256B, 0x256A, 0x2518, 0x250C, 0x2588, 0x2584, 0x258C, 0x2590, 0x2580,
+    0x03B1, 0x00DF, 0x0393, 0x03C0, 0x03A3, 0x03C3, 0x00B5, 0x03C4, 0x03A6, 0x0398, 0x03A9, 0x03B4, 0x221E, 0x03C6, 0x03B5, 0x2229,
+    0x2261, 0x00B1, 0x2265, 0x2264, 0x2320, 0x2321, 0x00F7, 0x2248, 0x00B0, 0x2219, 0x00B7, 0x221A, 0x207F, 0x00B2, 0x25A0, 0x00A0,
+};
+/* clang-format on */
+
+static QString decodeCp437(QByteArrayView name)
+{
+    QString decoded;
+    decoded.reserve(name.size());
+    for (const char c : name) {
+        const uchar byte = uchar(c);
+        decoded.append(QChar(byte < 0x80 ? char16_t(byte) : s_cp437HighHalf[byte - 0x80]));
+    }
+    return decoded;
+}
+
+/**
+ * Decodes the name of an entry.
+ *
+ * Bit 11 of the general purpose flag marks a name in UTF-8. Other names are read as UTF-8 when they
+ * are valid UTF-8, which is what KZip writes, and as code page 437 otherwise.
+ */
+static QString decodeEntryName(QByteArrayView name, quint16 generalPurposeFlag)
+{
+    if (generalPurposeFlag & 0x0800) {
+        return QString::fromUtf8(name);
+    }
+
+    QStringDecoder fromUtf8(QStringDecoder::Utf8, QStringDecoder::Flag::Stateless);
+    const QString decoded = fromUtf8(name);
+    if (!fromUtf8.hasError()) {
+        return decoded;
+    }
+    return decodeCp437(name);
 }
 
 // == parsing routines for zip headers
@@ -682,8 +728,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             const int commlen = parseUi16(buffer + 32);
             // compression method of this file
             const int cmethod = parseUi16(buffer + 10);
-            // int gpf =  parseUi16(buffer + 8);
-            // qCDebug(KArchiveLog) << "general purpose flag=" << gpf;
+            const quint16 gpf = parseUi16(buffer + 8);
             // length of the fileName (well, pathname indeed)
             const int namelen = parseUi16(buffer + 28);
             if (namelen <= 0) {
@@ -723,7 +768,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             ParseFileInfo pfi = pfi_map.value(bufferName, ParseFileInfo());
 
-            QString name(QFile::decodeName(bufferName));
+            QString name = decodeEntryName(bufferName, gpf);
 
             // qCDebug(KArchiveLog) << "name: " << name;
             // qCDebug(KArchiveLog) << "cmethod: " << cmethod;

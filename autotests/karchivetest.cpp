@@ -1767,6 +1767,88 @@ void KArchiveTest::testZip64ExtraZip64Offset()
     QVERIFY(zip.close());
 }
 
+// Returns a zip archive that holds one empty file, with the given name bytes, flag and extra field
+static QByteArray zipWithOneEntry(const QByteArray &name, quint16 generalPurposeFlag, const QByteArray &extraField = QByteArray())
+{
+    const auto appendUi16 = [](QByteArray &data, quint16 value) {
+        data.append(char(value & 0xff)).append(char(value >> 8));
+    };
+    const auto appendUi32 = [&appendUi16](QByteArray &data, quint32 value) {
+        appendUi16(data, value & 0xffff);
+        appendUi16(data, value >> 16);
+    };
+    const auto appendCommonFields = [&](QByteArray &data) {
+        appendUi16(data, 20); // version needed to extract
+        appendUi16(data, generalPurposeFlag);
+        appendUi16(data, 0); // stored
+        appendUi16(data, 0); // time
+        appendUi16(data, 0x0021); // date, 1980-01-01
+        appendUi32(data, 0); // crc32
+        appendUi32(data, 0); // compressed size
+        appendUi32(data, 0); // uncompressed size
+        appendUi16(data, name.size());
+        appendUi16(data, extraField.size());
+    };
+
+    QByteArray zip("PK\x03\x04");
+    appendCommonFields(zip);
+    zip += name + extraField;
+
+    const qsizetype centralDirectoryOffset = zip.size();
+    zip += "PK\x01\x02";
+    appendUi16(zip, 20); // version made by, MS-DOS
+    appendCommonFields(zip);
+    appendUi16(zip, 0); // comment length
+    appendUi16(zip, 0); // disk number
+    appendUi16(zip, 0); // internal attributes
+    appendUi32(zip, 0); // external attributes
+    appendUi32(zip, 0); // offset of the local header
+    zip += name + extraField;
+    const qsizetype centralDirectorySize = zip.size() - centralDirectoryOffset;
+
+    zip += "PK\x05\x06";
+    appendUi16(zip, 0); // disk number
+    appendUi16(zip, 0); // disk of the central directory
+    appendUi16(zip, 1); // entries on this disk
+    appendUi16(zip, 1); // entries
+    appendUi32(zip, centralDirectorySize);
+    appendUi32(zip, centralDirectoryOffset);
+    appendUi16(zip, 0); // comment length
+    return zip;
+}
+
+void KArchiveTest::testZipEntryNameEncoding_data()
+{
+    QTest::addColumn<QByteArray>("name");
+    QTest::addColumn<quint16>("generalPurposeFlag");
+    QTest::addColumn<QByteArray>("extraField");
+    QTest::addColumn<QString>("expectedName");
+
+    const QString russianName = QStringLiteral("Ответы.txt");
+    const QByteArray cp866Name("\x8e\xe2\xa2\xa5\xe2\xeb.txt");
+
+    QTest::addRow("utf-8 flag") << russianName.toUtf8() << quint16(0x0800) << QByteArray() << russianName;
+    QTest::addRow("utf-8 without flag") << russianName.toUtf8() << quint16(0) << QByteArray() << russianName;
+    QTest::addRow("cp437") << QByteArray("caf\x82.txt") << quint16(0) << QByteArray() << QStringLiteral("café.txt");
+    QTest::addRow("cp866 read as cp437") << cp866Name << quint16(0) << QByteArray() << QStringLiteral("ÄΓóÑΓδ.txt");
+}
+
+void KArchiveTest::testZipEntryNameEncoding()
+{
+    QFETCH(QByteArray, name);
+    QFETCH(quint16, generalPurposeFlag);
+    QFETCH(QByteArray, extraField);
+    QFETCH(QString, expectedName);
+
+    QByteArray zipData = zipWithOneEntry(name, generalPurposeFlag, extraField);
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+
+    QCOMPARE(zip.directory()->entries(), QStringList{expectedName});
+    QVERIFY(zip.directory()->file(expectedName));
+}
+
 void KArchiveTest::testZipOssFuzzIssue433303801()
 {
     const QString fileName = QFINDTESTDATA("data/ossfuzz_issue_433303801.zip");
