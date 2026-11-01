@@ -1085,6 +1085,47 @@ void KArchiveTest::testTarEndOfArchive()
     QVERIFY(hasEndOfArchive(readAll(KCompressionDevice(gzFileName, KCompressionDevice::GZip)), 1));
 }
 
+void KArchiveTest::testTarTruncated_data()
+{
+    QTest::addColumn<int>("size");
+    QTest::addColumn<bool>("opens");
+
+    // Records: header, data, header, data, two zero-filled records
+    QTest::newRow("in first header") << 0x100 << false;
+    QTest::newRow("in second header") << 0x500 << false;
+    QTest::newRow("in second data") << 0x603 << false;
+    QTest::newRow("in second padding") << 0x606 << true;
+    QTest::newRow("no end of archive") << 0x800 << true;
+}
+
+void KArchiveTest::testTarTruncated()
+{
+    QFETCH(int, size);
+    QFETCH(bool, opens);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString fileName = dir.filePath(QStringLiteral("truncated.tar"));
+    {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::WriteOnly));
+        QVERIFY(tar.writeFile(QStringLiteral("first.txt"), QByteArray("first")));
+        QVERIFY(tar.writeFile(QStringLiteral("second.txt"), QByteArray("second")));
+        QVERIFY(tar.close());
+    }
+    QVERIFY(QFile::resize(fileName, size));
+
+    KTar tar(fileName);
+    QCOMPARE(tar.open(QIODevice::ReadOnly), opens);
+    if (opens) {
+        const KArchiveFile *second = tar.directory()->file(QStringLiteral("second.txt"));
+        QVERIFY(second);
+        QCOMPARE(second->data(), QByteArray("second"));
+    } else {
+        QCOMPARE(tar.errorString(), QStringLiteral("Archive is truncated"));
+    }
+}
+
 void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
 {
 #if HAVE_BZIP2_SUPPORT

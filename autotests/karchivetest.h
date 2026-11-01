@@ -71,6 +71,8 @@ private Q_SLOTS:
     void testTarShortNonASCIINames();
     void testTarGzHugeMemoryUsage();
     void testTarEndOfArchive();
+    void testTarTruncated_data();
+    void testTarTruncated();
     void testTarDeepDirHierarchy();
     void benchmarkTarDeepDirHierarchy();
 

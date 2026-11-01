@@ -415,6 +415,10 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             setErrorString(tr("Could not read tar header"));
             return false;
         }
+        if (n > 0 && n < 0x200) {
+            setErrorString(tr("Archive is truncated"));
+            return false;
+        }
         if (n == 0x200) {
             bool isdir = false;
 
@@ -522,8 +526,11 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
                 const qint64 rest = size % 0x200;
                 const qint64 skip = size + (rest ? 0x200 - rest : 0);
                 // qCDebug(KArchiveLog) << "pos()=" << dev->pos() << "rest=" << rest << "skipping" << skip;
-                if (dev->skip(skip) != skip) {
-                    // qCWarning(KArchiveLog) << "skipping" << skip << "failed";
+                // Missing padding after the data is tolerated
+                if (dev->skip(skip) < size) {
+                    delete e;
+                    setErrorString(tr("Archive is truncated"));
+                    return false;
                 }
             }
 
