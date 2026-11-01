@@ -162,6 +162,11 @@ struct ParseFileInfo {
     // ZIP64 extra field in the Central Directory
     quint64 localheaderoffset = 0;
 
+    // Info-ZIP Unicode Path extra field: the CRC-32 of the stored name it replaces, and the name in UTF-8
+    bool unicodePathSeen = false;
+    uint unicodePathCrc = 0;
+    QByteArray unicodePath;
+
     ParseFileInfo()
         : perm(0100644)
         , uid(-1)
@@ -303,9 +308,16 @@ static bool parseInfoZipUnixNew(const char *buffer, int size, bool islocal,
  * @param uncompressedSize32 quint32 32-bit value for uncompressed size
  * @param compressedSize32 quint32 32-bit value for compressed size
  * @param localHeaderOffset32 quint32 32-bit value for local header offset
+ * @param isLocal true for the extra field of a local header, false for the central directory
  * @return true if parsing was successful
  */
-static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi, quint32 uncompressedSize32, quint32 compressedSize32, quint32 localHeaderOffset32)
+static bool parseExtraField(const char *buffer,
+                            int size,
+                            ParseFileInfo &pfi,
+                            quint32 uncompressedSize32,
+                            quint32 compressedSize32,
+                            quint32 localHeaderOffset32,
+                            bool isLocal)
 {
     while (size >= 4) { // as long as a potential extra field can be read
         int magic = parseUi16(buffer);
@@ -345,6 +357,13 @@ static bool parseExtraField(const char *buffer, int size, ParseFileInfo &pfi, qu
         case 0x5855: // old Info-ZIP unix extra field
             if (!parseInfoZipUnixOld(buffer, fieldsize, true, pfi)) {
                 return false;
+            }
+            break;
+        case 0x7075: // Info-ZIP Unicode Path, version 1, only read from the central directory
+            if (!isLocal && fieldsize > 5 && buffer[0] == 1 && QByteArrayView(buffer + 5, fieldsize - 5).isValidUtf8()) {
+                pfi.unicodePathSeen = true;
+                pfi.unicodePathCrc = parseUi32(buffer + 1);
+                pfi.unicodePath = QByteArray(buffer + 5, fieldsize - 5);
             }
             break;
 #if 0 // not needed yet
@@ -613,7 +632,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             n = dev->read(buffer, handledextralen);
             // no error msg necessary as we deliberately truncate the extra field
-            if (!parseExtraField(buffer, n, pfi, uncomp_size, compr_size, 0)) {
+            if (!parseExtraField(buffer, n, pfi, uncomp_size, compr_size, 0, true)) {
                 setErrorString(tr("Invalid ZIP File. Broken ExtraField."));
                 return false;
             }
@@ -754,7 +773,11 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             ParseFileInfo extrafi;
             if (extralen) {
-                parseExtraField(varData.constData() + namelen, extralen, extrafi, ucsize32, csize32, localheaderoffset_32);
+                parseExtraField(varData.constData() + namelen, extralen, extrafi, ucsize32, csize32, localheaderoffset_32, false);
+            }
+            // A Unicode Path that would turn a folder into a file, or a file into a folder, is ignored
+            if (extrafi.unicodePathSeen && extrafi.unicodePath.endsWith('/') != (varData.at(namelen - 1) == '/')) {
+                extrafi.unicodePathSeen = false;
             }
 
             // uncompressed file size
@@ -768,7 +791,13 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
             ParseFileInfo pfi = pfi_map.value(bufferName, ParseFileInfo());
 
-            QString name = decodeEntryName(bufferName, gpf);
+            // The Unicode Path field is ignored when the name changed after it was written
+            QString name;
+            if (extrafi.unicodePathSeen && extrafi.unicodePathCrc == ::crc32(0, reinterpret_cast<const Bytef *>(bufferName.constData()), bufferName.size())) {
+                name = QString::fromUtf8(extrafi.unicodePath);
+            } else {
+                name = decodeEntryName(bufferName, gpf);
+            }
 
             // qCDebug(KArchiveLog) << "name: " << name;
             // qCDebug(KArchiveLog) << "cmethod: " << cmethod;

@@ -1817,6 +1817,49 @@ static QByteArray zipWithOneEntry(const QByteArray &name, quint16 generalPurpose
     return zip;
 }
 
+// Returns an Info-ZIP Unicode Path extra field that gives path for the stored name with the given CRC-32
+static QByteArray unicodePathField(const QByteArray &path, quint32 crc)
+{
+    QByteArray field("\x75\x70");
+    const quint16 size = 5 + path.size();
+    field.append(char(size & 0xff)).append(char(size >> 8));
+    field.append(char(1)); // version
+    for (int shift = 0; shift < 32; shift += 8) {
+        field.append(char((crc >> shift) & 0xff));
+    }
+    return field + path;
+}
+
+void KArchiveTest::testZipUnicodePathChecks_data()
+{
+    QTest::addColumn<QByteArray>("name");
+    QTest::addColumn<QByteArray>("extraField");
+    QTest::addColumn<QString>("expectedName");
+
+    const QByteArray cp866Name("\x8e\xe2\xa2\xa5\xe2\xeb.txt");
+    const quint32 cp866NameCrc = 0x556ef68c; // CRC-32 of cp866Name
+    const QString cp437Name = QStringLiteral("ÄΓóÑΓδ.txt");
+    QTest::addRow("empty path") << cp866Name << unicodePathField(QByteArray(), cp866NameCrc) << cp437Name;
+    QTest::addRow("invalid utf-8") << cp866Name << unicodePathField(QByteArray("\xff.txt"), cp866NameCrc) << cp437Name;
+
+    const QByteArray cp866Folder("\xaf\xa0\xaf\xaa\xa0/");
+    const quint32 cp866FolderCrc = 0xed9ecd5b; // CRC-32 of cp866Folder
+    QTest::addRow("folder without a slash") << cp866Folder << unicodePathField(QStringLiteral("папка").toUtf8(), cp866FolderCrc) << QStringLiteral("»á»¬á");
+}
+
+void KArchiveTest::testZipUnicodePathChecks()
+{
+    QFETCH(QByteArray, name);
+    QFETCH(QByteArray, extraField);
+    QFETCH(QString, expectedName);
+
+    QByteArray zipData = zipWithOneEntry(name, 0, extraField);
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+    QCOMPARE(zip.directory()->entries(), QStringList{expectedName});
+}
+
 void KArchiveTest::testZipEntryNameEncoding_data()
 {
     QTest::addColumn<QByteArray>("name");
@@ -1831,6 +1874,21 @@ void KArchiveTest::testZipEntryNameEncoding_data()
     QTest::addRow("utf-8 without flag") << russianName.toUtf8() << quint16(0) << QByteArray() << russianName;
     QTest::addRow("cp437") << QByteArray("caf\x82.txt") << quint16(0) << QByteArray() << QStringLiteral("café.txt");
     QTest::addRow("cp866 read as cp437") << cp866Name << quint16(0) << QByteArray() << QStringLiteral("ÄΓóÑΓδ.txt");
+
+    const auto unicodePathField = [&russianName](quint32 crc) -> QByteArray {
+        const QByteArray path = russianName.toUtf8();
+        QByteArray field("\x75\x70");
+        const quint16 size = 5 + path.size();
+        field.append(char(size & 0xff)).append(char(size >> 8));
+        field.append(char(1)); // version
+        for (int shift = 0; shift < 32; shift += 8) {
+            field.append(char((crc >> shift) & 0xff));
+        }
+        return field + path;
+    };
+    const quint32 cp866NameCrc = 0x556ef68c; // CRC-32 of cp866Name
+    QTest::addRow("unicode path field") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc) << russianName;
+    QTest::addRow("unicode path field for another name") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc + 1) << QStringLiteral("ÄΓóÑΓδ.txt");
 }
 
 void KArchiveTest::testZipEntryNameEncoding()

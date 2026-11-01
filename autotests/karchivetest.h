@@ -98,6 +98,8 @@ private Q_SLOTS:
     void testZip64EndOfCentralDirectory();
     void testZip64DataDescriptor();
     void testZip64ExtraZip64Size();
+    void testZipUnicodePathChecks_data();
+    void testZipUnicodePathChecks();
     void testZip64ExtraZip64SizeFirst();
     void testZip64ExtraZip64Offset();
     void testZipEntryNameEncoding_data();
