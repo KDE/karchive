@@ -26,6 +26,7 @@
 #include <QStringDecoder>
 #include <QTemporaryDir>
 #include <QTest>
+#include <QtEndian>
 #include <kcompressiondevice.h>
 
 #ifndef Q_OS_WIN
@@ -1333,7 +1334,6 @@ void KArchiveTest::testZipWithNonLatinFileNames()
 
     const QByteArray fileData("Test of data with a russian file name");
     const QString fileName = QString::fromUtf8("Архитектура.okular");
-    const QString recodedFileName = QFile::decodeName(QFile::encodeName(fileName));
     QVERIFY(zip.writeFile(fileName, fileData));
 
     QVERIFY(zip.close());
@@ -1345,7 +1345,7 @@ void KArchiveTest::testZipWithNonLatinFileNames()
     const QStringList listing = recursiveListEntries(dir, QLatin1String(""), 0);
 
     QCOMPARE(listing.count(), 1);
-    QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=%1 type=file size=%2").arg(recodedFileName).arg(fileData.size()));
+    QCOMPARE(listing[0], QString::fromUtf8("mode=100644 path=%1 type=file size=%2").arg(fileName).arg(fileData.size()));
 
     const KArchiveFile *fileEntry = static_cast<const KArchiveFile *>(dir->entry(dir->entries()[0]));
     QCOMPARE(fileEntry->data(), fileData);
@@ -1904,20 +1904,9 @@ void KArchiveTest::testZipEntryNameEncoding_data()
     QTest::addRow("cp932 in a Japanese locale") << QByteArray("\x83\x65\x83\x58\x83\x67.txt") << quint16(0) << QByteArray() << QStringLiteral("テスト.txt")
                                                 << QStringLiteral("ja_JP");
 
-    const auto unicodePathField = [&russianName](quint32 crc) -> QByteArray {
-        const QByteArray path = russianName.toUtf8();
-        QByteArray field("\x75\x70");
-        const quint16 size = 5 + path.size();
-        field.append(char(size & 0xff)).append(char(size >> 8));
-        field.append(char(1)); // version
-        for (int shift = 0; shift < 32; shift += 8) {
-            field.append(char((crc >> shift) & 0xff));
-        }
-        return field + path;
-    };
     const quint32 cp866NameCrc = 0x556ef68c; // CRC-32 of cp866Name
-    QTest::addRow("unicode path field") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc) << russianName << QStringLiteral("en_US");
-    QTest::addRow("unicode path field for another name") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc + 1) << QStringLiteral("ÄΓóÑΓδ.txt") << QStringLiteral("en_US");
+    QTest::addRow("unicode path field") << cp866Name << quint16(0) << unicodePathField(russianName.toUtf8(), cp866NameCrc) << russianName << QStringLiteral("en_US");
+    QTest::addRow("unicode path field for another name") << cp866Name << quint16(0) << unicodePathField(russianName.toUtf8(), cp866NameCrc + 1) << QStringLiteral("ÄΓóÑΓδ.txt") << QStringLiteral("en_US");
 }
 
 void KArchiveTest::testZipEntryNameEncoding()
@@ -1951,6 +1940,80 @@ void KArchiveTest::testZipEntryNameEncoding()
 
     QCOMPARE(zip.directory()->entries(), QStringList{expectedName});
     QVERIFY(zip.directory()->file(expectedName));
+}
+
+void KArchiveTest::testZipWritesUtf8Flag()
+{
+    const QString russianName = QStringLiteral("Ответы.txt");
+    const QString asciiName = QStringLiteral("plain.txt");
+
+    QByteArray zipData;
+    {
+        QBuffer zipBuffer(&zipData);
+        KZip zip(&zipBuffer);
+        QVERIFY(zip.open(QIODevice::WriteOnly));
+        QVERIFY(zip.writeFile(russianName, "data"));
+        QVERIFY(zip.writeFile(asciiName, "data"));
+        QVERIFY(zip.close());
+    }
+
+    // The general purpose flag is at offset 6 of a local header and at offset 8 of a central directory header
+    QHash<QByteArray, quint16> localFlags;
+    QHash<QByteArray, quint16> centralFlags;
+    for (const auto &[signature, flagOffset, nameLengthOffset, nameOffset, flags] :
+         {std::tuple{QByteArrayView("PK\x03\x04"), 6, 26, 30, &localFlags}, std::tuple{QByteArrayView("PK\x01\x02"), 8, 28, 46, &centralFlags}}) {
+        for (qsizetype pos = zipData.indexOf(signature); pos != -1; pos = zipData.indexOf(signature, pos + 1)) {
+            const quint16 nameLength = qFromLittleEndian<quint16>(zipData.constData() + pos + nameLengthOffset);
+            flags->insert(zipData.mid(pos + nameOffset, nameLength), qFromLittleEndian<quint16>(zipData.constData() + pos + flagOffset));
+        }
+    }
+    QCOMPARE(localFlags.value(russianName.toUtf8()), 0x0800);
+    QCOMPARE(centralFlags.value(russianName.toUtf8()), 0x0800);
+    QCOMPARE(localFlags.value(asciiName.toUtf8(), 0xffff), 0);
+    QCOMPARE(centralFlags.value(asciiName.toUtf8(), 0xffff), 0);
+
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+    QCOMPARE(zip.directory()->file(russianName)->data(), "data");
+    QCOMPARE(zip.directory()->file(asciiName)->data(), "data");
+}
+
+void KArchiveTest::testZipAppendKeepsStoredNames()
+{
+    const QString russianName = QStringLiteral("Ответы.txt");
+    const QByteArray cp866Name("\x8e\xe2\xa2\xa5\xe2\xeb.txt");
+    const quint32 cp866NameCrc = 0x556ef68c; // CRC-32 of cp866Name
+    QByteArray zipData = zipWithOneEntry(cp866Name, 0, unicodePathField(russianName.toUtf8(), cp866NameCrc));
+    {
+        QBuffer zipBuffer(&zipData);
+        KZip zip(&zipBuffer);
+        QVERIFY2(zip.open(QIODevice::ReadWrite), qPrintable(zip.errorString()));
+        QVERIFY(zip.writeFile(QStringLiteral("added.txt"), "data"));
+        QVERIFY(zip.close());
+    }
+
+    // The central directory keeps the name of the local header, with its flag
+    const qsizetype central = zipData.indexOf("PK\x01\x02");
+    QVERIFY(central != -1);
+    QCOMPARE(qFromLittleEndian<quint16>(zipData.constData() + central + 8), 0);
+    const quint16 nameLength = qFromLittleEndian<quint16>(zipData.constData() + central + 28);
+    QCOMPARE(zipData.mid(central + 46, nameLength), cp866Name);
+
+    // and its Unicode Path field, so the name does not depend on the locale
+    const QLocale defaultLocale;
+    QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
+    const auto restoreLocale = qScopeGuard([&defaultLocale] {
+        QLocale::setDefault(defaultLocale);
+    });
+
+    QBuffer zipBuffer(&zipData);
+    KZip zip(&zipBuffer);
+    QVERIFY2(zip.open(QIODevice::ReadOnly), qPrintable(zip.errorString()));
+    QStringList entries = zip.directory()->entries();
+    entries.sort();
+    QCOMPARE(entries, (QStringList{QStringLiteral("added.txt"), russianName}));
+    QCOMPARE(zip.directory()->file(QStringLiteral("added.txt"))->data(), "data");
 }
 
 void KArchiveTest::testZipOssFuzzIssue433303801()

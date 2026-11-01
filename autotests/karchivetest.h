@@ -104,6 +104,8 @@ private Q_SLOTS:
     void testZip64ExtraZip64Offset();
     void testZipEntryNameEncoding_data();
     void testZipEntryNameEncoding();
+    void testZipWritesUtf8Flag();
+    void testZipAppendKeepsStoredNames();
     void testZipOssFuzzIssue433303801();
     void testZipDeepDirHierarchy();
     void benchmarkZipDeepDirHierarchy();
