@@ -18,6 +18,7 @@
 #include <QFile>
 #include <QHash>
 #include <QList>
+#include <QLocale>
 #include <QStringDecoder>
 #include <QtEndian>
 #include <qplatformdefs.h>
@@ -25,6 +26,10 @@
 #include <string.h>
 #include <time.h>
 #include <zlib.h>
+
+#ifdef Q_OS_WIN
+#include <windows.h> // MultiByteToWideChar
+#endif
 
 #ifndef QT_STAT_LNK
 #define QT_STAT_LNK 0120000
@@ -114,25 +119,131 @@ static QString decodeCp437(QByteArrayView name)
     return decoded;
 }
 
+#ifdef Q_OS_WIN
+// Decodes the name in the OEM code page of the system, as Windows Explorer does
+static bool decodeWindowsOem(QByteArrayView name, QString *decoded)
+{
+    const int length = MultiByteToWideChar(CP_OEMCP, MB_ERR_INVALID_CHARS, name.data(), int(name.size()), nullptr, 0);
+    if (length <= 0) {
+        return false;
+    }
+    decoded->resize(length);
+    return MultiByteToWideChar(CP_OEMCP, MB_ERR_INVALID_CHARS, name.data(), int(name.size()), reinterpret_cast<wchar_t *>(decoded->data()), length) == length;
+}
+#else
+/**
+ * Returns the OEM code page of Windows for the locale. Windows reads a name without the UTF-8 flag
+ * in this code page, and zip archivers on Windows write such names in it.
+ *
+ * The values come from the Windows culture data that .NET carries:
+ * https://github.com/dotnet/runtime/blob/6e51f762bc4c98ea90ae6ca21c4e220b4b2e7a5c/src/libraries/System.Private.CoreLib/src/System/Globalization/IcuLocaleData.cs#L2822
+ * Languages that are not listed use 850, as most Windows locales do.
+ */
+static int windowsOemCodePage(const QLocale &locale)
+{
+    // The C locale gets the default of the zip specification
+    if (locale.language() == QLocale::C) {
+        return 437;
+    }
+    if (locale.language() == QLocale::English) {
+        switch (locale.territory()) {
+        case QLocale::India:
+        case QLocale::Malaysia:
+        case QLocale::Philippines:
+        case QLocale::Singapore:
+        case QLocale::SouthAfrica:
+        case QLocale::UnitedStates:
+        case QLocale::Zimbabwe:
+            return 437;
+        default:
+            return 850;
+        }
+    }
+
+    struct LanguageCodePage {
+        const char *language; // ISO 639 code
+        const char *script; // ISO 15924 code, nullptr for any script
+        int codePage;
+    };
+    // A row with a script comes before the row for the whole language
+    /* clang-format off */
+    static const LanguageCodePage codePages[] = {
+        {"az", "Cyrl", 866}, {"bs", "Cyrl", 855}, {"pa", "Arab", 720}, {"sr", "Cyrl", 855}, {"tzm", "Arab", 720}, {"uz", "Cyrl", 866}, {"zh", "Hant", 950},
+        {"ar", nullptr, 720}, {"az", nullptr, 857}, {"ba", nullptr, 866}, {"be", nullptr, 866}, {"bg", nullptr, 866}, {"bs", nullptr, 852},
+        {"ckb", nullptr, 720}, {"cs", nullptr, 852}, {"el", nullptr, 737}, {"et", nullptr, 775}, {"fa", nullptr, 720}, {"fil", nullptr, 437},
+        {"ha", nullptr, 437}, {"haw", nullptr, 437}, {"he", nullptr, 862}, {"hr", nullptr, 852}, {"hu", nullptr, 852}, {"ig", nullptr, 437},
+        {"iu", nullptr, 437}, {"ja", nullptr, 932}, {"ko", nullptr, 949}, {"ky", nullptr, 866}, {"la", nullptr, 437}, {"lt", nullptr, 775},
+        {"lv", nullptr, 775}, {"mk", nullptr, 866}, {"mn", nullptr, 866}, {"pl", nullptr, 852}, {"ro", nullptr, 852}, {"ru", nullptr, 866},
+        {"rw", nullptr, 437}, {"sah", nullptr, 866}, {"sd", nullptr, 720}, {"sk", nullptr, 852}, {"sl", nullptr, 852}, {"sq", nullptr, 852},
+        {"sr", nullptr, 852}, {"sw", nullptr, 437}, {"tg", nullptr, 866}, {"th", nullptr, 874}, {"tk", nullptr, 852}, {"tr", nullptr, 857},
+        {"tt", nullptr, 866}, {"ug", nullptr, 720}, {"uk", nullptr, 866}, {"ur", nullptr, 720}, {"uz", nullptr, 857}, {"vi", nullptr, 1258},
+        {"yo", nullptr, 437}, {"zh", nullptr, 936},
+    };
+    /* clang-format on */
+
+    const QString language = QLocale::languageToCode(locale.language());
+    const QString script = QLocale::scriptToCode(locale.script());
+    for (const LanguageCodePage &entry : codePages) {
+        if (language == QLatin1StringView(entry.language) && (!entry.script || script == QLatin1StringView(entry.script))) {
+            return entry.codePage;
+        }
+    }
+    return 850;
+}
+#endif
+
 /**
  * Decodes the name of an entry.
  *
  * Bit 11 of the general purpose flag marks a name in UTF-8. Other names are read as UTF-8 when they
- * are valid UTF-8, which is what KZip writes, and as code page 437 otherwise.
+ * are valid UTF-8, which is what KZip writes, and otherwise in the Windows OEM code page: the one
+ * of the system on Windows, the one of the locale elsewhere. Code page 437, the default of the zip
+ * specification, is the fallback when no decoder can read the name.
  */
-static QString decodeEntryName(QByteArrayView name, quint16 generalPurposeFlag)
+class EntryNameDecoder
 {
-    if (generalPurposeFlag & 0x0800) {
-        return QString::fromUtf8(name);
+public:
+    QString decode(QByteArrayView name, quint16 generalPurposeFlag)
+    {
+        if (generalPurposeFlag & 0x0800) {
+            return QString::fromUtf8(name);
+        }
+
+        if (name.isValidUtf8()) {
+            return QString::fromUtf8(name);
+        }
+
+#ifdef Q_OS_WIN
+        QString oemDecoded;
+        if (decodeWindowsOem(name, &oemDecoded)) {
+            return oemDecoded;
+        }
+#else
+        if (!m_oemDecoderCreated) {
+            m_oemDecoderCreated = true;
+            const int codePage = windowsOemCodePage(QLocale());
+            if (codePage != 437) {
+                const QByteArray codePageName = "windows-" + QByteArray::number(codePage);
+                m_oemDecoder = QStringDecoder(codePageName.constData(), QStringDecoder::Flag::Stateless);
+            }
+        }
+        if (m_oemDecoder.isValid()) {
+            const QString oemDecoded = m_oemDecoder(name);
+            if (!m_oemDecoder.hasError()) {
+                return oemDecoded;
+            }
+            m_oemDecoder.resetState();
+        }
+#endif
+        return decodeCp437(name);
     }
 
-    QStringDecoder fromUtf8(QStringDecoder::Utf8, QStringDecoder::Flag::Stateless);
-    const QString decoded = fromUtf8(name);
-    if (!fromUtf8.hasError()) {
-        return decoded;
-    }
-    return decodeCp437(name);
-}
+#ifndef Q_OS_WIN
+private:
+    bool m_oemDecoderCreated = false;
+    QStringDecoder m_oemDecoder;
+#endif
+};
 
 // == parsing routines for zip headers
 
@@ -553,6 +664,8 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
 
     qint64 expectedStartPos = 0;
 
+    EntryNameDecoder entryNameDecoder;
+
     for (;;) { // repeat until 'end of entries' signature is reached
         // qCDebug(KArchiveLog) << "loop starts";
         // qCDebug(KArchiveLog) << "dev->pos() now : " << dev->pos();
@@ -796,7 +909,7 @@ bool KZip::openArchive(QIODevice::OpenMode mode)
             if (extrafi.unicodePathSeen && extrafi.unicodePathCrc == ::crc32(0, reinterpret_cast<const Bytef *>(bufferName.constData()), bufferName.size())) {
                 name = QString::fromUtf8(extrafi.unicodePath);
             } else {
-                name = decodeEntryName(bufferName, gpf);
+                name = entryNameDecoder.decode(bufferName, gpf);
             }
 
             // qCDebug(KArchiveLog) << "name: " << name;

@@ -21,7 +21,9 @@
 #include <QRandomGenerator>
 #include <QRegularExpression>
 #include <QSaveFile>
+#include <QScopeGuard>
 #include <QStandardPaths>
+#include <QStringDecoder>
 #include <QTemporaryDir>
 #include <QTest>
 #include <kcompressiondevice.h>
@@ -1853,6 +1855,18 @@ void KArchiveTest::testZipUnicodePathChecks()
     QFETCH(QByteArray, extraField);
     QFETCH(QString, expectedName);
 
+    // The stored names are then read as code page 437
+    const QLocale defaultLocale;
+    QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
+    const auto restoreLocale = qScopeGuard([&defaultLocale] {
+        QLocale::setDefault(defaultLocale);
+    });
+#ifdef Q_OS_WIN
+    if (GetOEMCP() != 437) {
+        QSKIP("Windows reads these names in the OEM code page of the system");
+    }
+#endif
+
     QByteArray zipData = zipWithOneEntry(name, 0, extraField);
     QBuffer zipBuffer(&zipData);
     KZip zip(&zipBuffer);
@@ -1866,14 +1880,29 @@ void KArchiveTest::testZipEntryNameEncoding_data()
     QTest::addColumn<quint16>("generalPurposeFlag");
     QTest::addColumn<QByteArray>("extraField");
     QTest::addColumn<QString>("expectedName");
+    QTest::addColumn<QString>("locale");
 
     const QString russianName = QStringLiteral("Ответы.txt");
     const QByteArray cp866Name("\x8e\xe2\xa2\xa5\xe2\xeb.txt");
 
-    QTest::addRow("utf-8 flag") << russianName.toUtf8() << quint16(0x0800) << QByteArray() << russianName;
-    QTest::addRow("utf-8 without flag") << russianName.toUtf8() << quint16(0) << QByteArray() << russianName;
-    QTest::addRow("cp437") << QByteArray("caf\x82.txt") << quint16(0) << QByteArray() << QStringLiteral("café.txt");
-    QTest::addRow("cp866 read as cp437") << cp866Name << quint16(0) << QByteArray() << QStringLiteral("ÄΓóÑΓδ.txt");
+    QTest::addRow("utf-8 flag") << russianName.toUtf8() << quint16(0x0800) << QByteArray() << russianName << QStringLiteral("en_US");
+    QTest::addRow("utf-8 without flag") << russianName.toUtf8() << quint16(0) << QByteArray() << russianName << QStringLiteral("en_US");
+    QTest::addRow("cp437") << QByteArray("caf\x82.txt") << quint16(0) << QByteArray() << QStringLiteral("café.txt") << QStringLiteral("en_US");
+    QTest::addRow("cp866 read as cp437") << cp866Name << quint16(0) << QByteArray() << QStringLiteral("ÄΓóÑΓδ.txt") << QStringLiteral("en_US");
+
+    QTest::addRow("cp866 in a Russian locale") << cp866Name << quint16(0) << QByteArray() << russianName << QStringLiteral("ru_RU");
+    QTest::addRow("cp866 in an Azerbaijani Cyrillic locale") << cp866Name << quint16(0) << QByteArray() << russianName << QStringLiteral("az_Cyrl_AZ");
+    QTest::addRow("cp866 read as cp857 in an Azerbaijani Latin locale")
+        << cp866Name << quint16(0) << QByteArray() << QStringLiteral("ÄÔóÑÔÙ.txt") << QStringLiteral("az_Latn_AZ");
+    const QByteArray cp850Name("sm\x9b" "rbr\x9b" "d.txt");
+    QTest::addRow("cp850 in a British English locale") << cp850Name << quint16(0) << QByteArray() << QStringLiteral("smørbrød.txt") << QStringLiteral("en_GB");
+    QTest::addRow("cp850 read as cp437 in a US English locale")
+        << cp850Name << quint16(0) << QByteArray() << QStringLiteral("sm¢rbr¢d.txt") << QStringLiteral("en_US");
+    QTest::addRow("cp850 read as cp437 in an Indian English locale")
+        << cp850Name << quint16(0) << QByteArray() << QStringLiteral("sm¢rbr¢d.txt") << QStringLiteral("en_IN");
+    QTest::addRow("cp850 read as cp437 in the C locale") << cp850Name << quint16(0) << QByteArray() << QStringLiteral("sm¢rbr¢d.txt") << QStringLiteral("C");
+    QTest::addRow("cp932 in a Japanese locale") << QByteArray("\x83\x65\x83\x58\x83\x67.txt") << quint16(0) << QByteArray() << QStringLiteral("テスト.txt")
+                                                << QStringLiteral("ja_JP");
 
     const auto unicodePathField = [&russianName](quint32 crc) -> QByteArray {
         const QByteArray path = russianName.toUtf8();
@@ -1887,8 +1916,8 @@ void KArchiveTest::testZipEntryNameEncoding_data()
         return field + path;
     };
     const quint32 cp866NameCrc = 0x556ef68c; // CRC-32 of cp866Name
-    QTest::addRow("unicode path field") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc) << russianName;
-    QTest::addRow("unicode path field for another name") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc + 1) << QStringLiteral("ÄΓóÑΓδ.txt");
+    QTest::addRow("unicode path field") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc) << russianName << QStringLiteral("en_US");
+    QTest::addRow("unicode path field for another name") << cp866Name << quint16(0) << unicodePathField(cp866NameCrc + 1) << QStringLiteral("ÄΓóÑΓδ.txt") << QStringLiteral("en_US");
 }
 
 void KArchiveTest::testZipEntryNameEncoding()
@@ -1897,6 +1926,23 @@ void KArchiveTest::testZipEntryNameEncoding()
     QFETCH(quint16, generalPurposeFlag);
     QFETCH(QByteArray, extraField);
     QFETCH(QString, expectedName);
+    QFETCH(QString, locale);
+
+    const QLocale defaultLocale;
+    QLocale::setDefault(QLocale(locale));
+    const auto restoreLocale = qScopeGuard([&defaultLocale] {
+        QLocale::setDefault(defaultLocale);
+    });
+    const bool codePage437Locale = locale == u"en_US" || locale == u"en_IN" || locale == u"C";
+#ifdef Q_OS_WIN
+    if (!name.isValidUtf8() && (!codePage437Locale || GetOEMCP() != 437)) {
+        QSKIP("Windows reads these names in the OEM code page of the system");
+    }
+#else
+    if (!codePage437Locale && !QStringDecoder("windows-866").isValid()) {
+        QSKIP("Qt has no decoder for the Windows OEM code pages");
+    }
+#endif
 
     QByteArray zipData = zipWithOneEntry(name, generalPurposeFlag, extraField);
     QBuffer zipBuffer(&zipData);
