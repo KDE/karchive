@@ -60,6 +60,7 @@ public:
 
     bool fillTempFile(const QString &fileName);
     bool writeBackTempFile(const QString &fileName);
+    bool writeEndOfArchive();
     void fillBuffer(char *buffer, const char *mode, qint64 size, const QDateTime &mtime, char typeflag, const char *uname, const char *gname);
     [[nodiscard]] bool writeLonglink(char *buffer, const QByteArray &name, char typeflag, const char *uname, const char *gname);
     qint64 readRawHeader(char *buffer);
@@ -408,6 +409,7 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
         QString symlink;
 
         // Read header
+        const qint64 headerPos = dev->pos();
         const qint64 n = d->readHeader(buffer, name, symlink);
         if (n < 0) {
             setErrorString(tr("Could not read tar header"));
@@ -554,7 +556,10 @@ bool KTar::openArchive(QIODevice::OpenMode mode)
             }
         } else {
             // qCDebug(KArchiveLog) << "Terminating. Read " << n << " bytes, first one is " << buffer[0];
-            d->tarEnd = dev->pos() - n; // Remember end of archive
+            // Remember end of archive. It is where the last header started, also
+            // if that was the zero-filled record marking the end of the archive,
+            // for which readHeader() returns 0.
+            d->tarEnd = headerPos;
             ende = true;
         }
     } while (!ende);
@@ -619,17 +624,39 @@ bool KTar::KTarPrivate::writeBackTempFile(const QString &fileName)
     return true;
 }
 
+// See https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pax.html#tag_20_94_13_06
+bool KTar::KTarPrivate::writeEndOfArchive()
+{
+    QIODevice *dev = q->device();
+    if ((q->mode() & QIODevice::ReadWrite) == QIODevice::ReadWrite && !dev->seek(tarEnd)) {
+        q->setErrorString(tr("Couldn't write end of archive: %1").arg(dev->errorString()));
+        return false;
+    }
+    const char zeros[2 * 0x200] = {};
+    if (dev->write(zeros, sizeof(zeros)) != sizeof(zeros)) {
+        q->setErrorString(tr("Couldn't write end of archive: %1").arg(dev->errorString()));
+        return false;
+    }
+    return true;
+}
+
 bool KTar::closeArchive()
 {
     d->dirList.clear();
 
     bool ok = true;
 
+    if (mode() & QIODevice::WriteOnly) {
+        ok = d->writeEndOfArchive();
+    }
+
     // If we are in readwrite mode and had created
     // a temporary tar file, we have to write
     // back the changes to the original file
     if (d->tmpFile && (mode() & QIODevice::WriteOnly)) {
-        ok = d->writeBackTempFile(fileName());
+        if (ok) {
+            ok = d->writeBackTempFile(fileName());
+        }
         delete d->tmpFile;
         d->tmpFile = nullptr;
         setDevice(nullptr);

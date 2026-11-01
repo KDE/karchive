@@ -70,6 +70,7 @@ private Q_SLOTS:
     void testTarLongNonASCIINames();
     void testTarShortNonASCIINames();
     void testTarGzHugeMemoryUsage();
+    void testTarEndOfArchive();
     void testTarDeepDirHierarchy();
     void benchmarkTarDeepDirHierarchy();
 

@@ -1023,6 +1023,65 @@ void KArchiveTest::testTarGzHugeMemoryUsage()
     QVERIFY(!tar.open(QIODevice::ReadOnly));
 }
 
+// Each small file takes a header and a data record, plus two zero-filled
+// records at the end of the archive
+static bool hasEndOfArchive(const QByteArray &data, int files)
+{
+    return data.size() == (2 * files + 2) * 0x200 && data.endsWith(QByteArray(2 * 0x200, '\0'));
+}
+
+static QByteArray readAll(QIODevice &&dev)
+{
+    if (!dev.open(QIODevice::ReadOnly)) {
+        return QByteArray();
+    }
+    return dev.readAll();
+}
+
+void KArchiveTest::testTarEndOfArchive()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    const QString fileName = dir.filePath(QStringLiteral("endofarchive.tar"));
+    {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::WriteOnly));
+        QVERIFY(tar.writeFile(QStringLiteral("first.txt"), QByteArray("first")));
+        QVERIFY(tar.close());
+    }
+    QVERIFY(hasEndOfArchive(readAll(QFile(fileName)), 1));
+
+    // Appending must replace the end of archive marker, not write behind it
+    {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::ReadWrite));
+        QVERIFY(tar.writeFile(QStringLiteral("second.txt"), QByteArray("second")));
+        QVERIFY(tar.close());
+    }
+    QVERIFY(hasEndOfArchive(readAll(QFile(fileName)), 2));
+    {
+        KTar tar(fileName);
+        QVERIFY(tar.open(QIODevice::ReadOnly));
+        const KArchiveFile *first = tar.directory()->file(QStringLiteral("first.txt"));
+        const KArchiveFile *second = tar.directory()->file(QStringLiteral("second.txt"));
+        QVERIFY(first);
+        QVERIFY(second);
+        QCOMPARE(first->data(), QByteArray("first"));
+        QCOMPARE(second->data(), QByteArray("second"));
+    }
+
+    // Compressed archives are written to a temporary file first
+    const QString gzFileName = dir.filePath(QStringLiteral("endofarchive.tar.gz"));
+    {
+        KTar tar(gzFileName);
+        QVERIFY(tar.open(QIODevice::WriteOnly));
+        QVERIFY(tar.writeFile(QStringLiteral("first.txt"), QByteArray("first")));
+        QVERIFY(tar.close());
+    }
+    QVERIFY(hasEndOfArchive(readAll(KCompressionDevice(gzFileName, KCompressionDevice::GZip)), 1));
+}
+
 void KArchiveTest::testTarIgnoreRelativePathOutsideArchive()
 {
 #if HAVE_BZIP2_SUPPORT
