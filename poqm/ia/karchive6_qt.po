@@ -13,132 +13,132 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: k7zip.cpp:2568
+#: k7zip.cpp:2658
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Non poteva obtener dispositivo subjacente"
 
-#: k7zip.cpp:2576
+#: k7zip.cpp:2666
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Lectura de capite falleva"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2672
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Verifica de signatura falleva"
 
-#: k7zip.cpp:2605
+#: k7zip.cpp:2695
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Mal CRC"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2704
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Grandor de proxime capite es troppo grande"
 
-#: k7zip.cpp:2619
+#: k7zip.cpp:2709
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Grandor de proxime capite es minus que zero"
 
-#: k7zip.cpp:2630
+#: k7zip.cpp:2720
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Falleva a leger grandor de proxime capite: deberea leger %1, legite %2"
 
-#: k7zip.cpp:2643
+#: k7zip.cpp:2733
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Mal CRC de proxime capite"
 
-#: k7zip.cpp:2651
+#: k7zip.cpp:2741
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Error in capite"
 
-#: k7zip.cpp:2669 k7zip.cpp:2702
+#: k7zip.cpp:2759 k7zip.cpp:2792
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Il necessita un contrasigno per iste archivo"
 
-#: k7zip.cpp:2675
+#: k7zip.cpp:2765
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Typo de capite errate"
 
-#: k7zip.cpp:2685 k7zip.cpp:2691
+#: k7zip.cpp:2775 k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Non actuate"
 
-#: k7zip.cpp:2697
+#: k7zip.cpp:2787
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Error durante que lege information de fluxos (streams) principal"
 
-#: k7zip.cpp:2720
+#: k7zip.cpp:2810
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Error durante que lege capite"
 
-#: k7zip.cpp:2728 k7zip.cpp:2736
+#: k7zip.cpp:2818 k7zip.cpp:2826
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Archive ha %1 files le qual es plus que le amonta supportate (%2)"
 
-#: k7zip.cpp:2794
+#: k7zip.cpp:2884
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Error a leger tempore de modification"
 
-#: k7zip.cpp:2840
+#: k7zip.cpp:2930
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Error a leger MTime"
 
-#: k7zip.cpp:2847
+#: k7zip.cpp:2937
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Invalide"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2961
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Falleva a leger grandor (checkRecordsSize: %1, d->pos - ppp: %2, grandor: %3)"
 
-#: k7zip.cpp:2917
+#: k7zip.cpp:3007
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "contentos"
 
-#: k7zip.cpp:3115
+#: k7zip.cpp:3205
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Error de scriptura"
 
-#: k7zip.cpp:3145
+#: k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Falleva durante que codificava capite"
 
-#: k7zip.cpp:3189
+#: k7zip.cpp:3279
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Nulle file currentemente seligite"
 
-#: k7zip.cpp:3213 k7zip.cpp:3265 k7zip.cpp:3305
+#: k7zip.cpp:3303 k7zip.cpp:3355 k7zip.cpp:3395
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Error de application: file7-Zip debe esser aperite ante que on scribe in illo"
 
-#: k7zip.cpp:3219 k7zip.cpp:3311
+#: k7zip.cpp:3309 k7zip.cpp:3401
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
@@ -266,77 +266,85 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Falleva a registrar ressource %1 sub prefixo %2"
 
-#: ktar.cpp:353
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Le file %1 non existe"
 
-#: ktar.cpp:360
+#: ktar.cpp:361
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archivo %1 es corrupte"
 
-#: ktar.cpp:364
+#: ktar.cpp:365
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Disco Plen"
 
-#: ktar.cpp:398
+#: ktar.cpp:399
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Non poteva obtener dispositivo subjacente"
 
-#: ktar.cpp:413
+#: ktar.cpp:415
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Non poteva leger capite de tar"
 
-#: ktar.cpp:596 ktar.cpp:611
+#: ktar.cpp:601 ktar.cpp:616
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Falleva a scriber retro file temp: %1"
 
-#: ktar.cpp:657
+#: ktar.cpp:632 ktar.cpp:637
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write end of archive: %1"
+msgstr "Non poteva scriber alineamento: %1"
+
+#: ktar.cpp:684
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Non poteva scriber alineamento: %1"
 
-#: ktar.cpp:759 ktar.cpp:769
+#: ktar.cpp:786 ktar.cpp:796
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Non poteva scriber ligamine longe: %1"
 
-#: ktar.cpp:790 ktar.cpp:873 ktar.cpp:942
+#: ktar.cpp:817 ktar.cpp:900 ktar.cpp:969
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Error de application: file TAR debe esser aperite ante que on scribe in illo"
 
-#: ktar.cpp:796
+#: ktar.cpp:823
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""
 "Error de application: tantativa a scriber in un file 7-Zip non scribibile"
 
-#: ktar.cpp:803
+#: ktar.cpp:830
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr ""
 "Limitation de application: Non pote adder file plus grande que %1 bytes"
 
-#: ktar.cpp:857
+#: ktar.cpp:884
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Falleva a scriber capite: %1"
 
-#: ktar.cpp:879 ktar.cpp:948
+#: ktar.cpp:906 ktar.cpp:975
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr ""

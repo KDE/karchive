@@ -14,133 +14,133 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.9\n"
 
-#: k7zip.cpp:2568
+#: k7zip.cpp:2658
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Nepavyko gauti pagrindinio įrenginio"
 
-#: k7zip.cpp:2576
+#: k7zip.cpp:2666
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Antraštės skaitymo nesėkmė"
 
-#: k7zip.cpp:2582
+#: k7zip.cpp:2672
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Parašo tikrinimo nesėkmė"
 
-#: k7zip.cpp:2605
+#: k7zip.cpp:2695
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Bloga ciklinė perteklinė kontrolė (CRC)"
 
-#: k7zip.cpp:2614
+#: k7zip.cpp:2704
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Kitos antraštės dydis yra per didelis"
 
-#: k7zip.cpp:2619
+#: k7zip.cpp:2709
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Kitos antraštės dydis yra mažesnis nei nulis"
 
-#: k7zip.cpp:2630
+#: k7zip.cpp:2720
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Nepavyko perskaityti kitos antraštės dydžio; turėjo būti %1, o buvo %2"
 
-#: k7zip.cpp:2643
+#: k7zip.cpp:2733
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Bloga kitos antraštės ciklinė perteklinė kontrolė (CRC)"
 
-#: k7zip.cpp:2651
+#: k7zip.cpp:2741
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Klaida antraštėje"
 
-#: k7zip.cpp:2669 k7zip.cpp:2702
+#: k7zip.cpp:2759 k7zip.cpp:2792
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Šiam archyvui reikalingas slaptažodis"
 
-#: k7zip.cpp:2675
+#: k7zip.cpp:2765
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Neteisingas antraštės tipas"
 
-#: k7zip.cpp:2685 k7zip.cpp:2691
+#: k7zip.cpp:2775 k7zip.cpp:2781
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Neįgyvendinta"
 
-#: k7zip.cpp:2697
+#: k7zip.cpp:2787
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Klaida skaitant pagrindinio srauto informaciją"
 
-#: k7zip.cpp:2720
+#: k7zip.cpp:2810
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Klaida skaitant antraštę"
 
-#: k7zip.cpp:2728 k7zip.cpp:2736
+#: k7zip.cpp:2818 k7zip.cpp:2826
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Archyve yra %1 failų, o tai yra daugiau nei palaikomas kiekis (%2)"
 
-#: k7zip.cpp:2794
+#: k7zip.cpp:2884
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Klaida skaitant modifikavimo laiką"
 
-#: k7zip.cpp:2840
+#: k7zip.cpp:2930
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Klaida skaitant MTime"
 
-#: k7zip.cpp:2847
+#: k7zip.cpp:2937
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Neteisingas"
 
-#: k7zip.cpp:2871
+#: k7zip.cpp:2961
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 "Dydžio skaitymo nesėkmė (checkRecordsSize: %1, d->pos - ppp: %2, dydis: %3)"
 
-#: k7zip.cpp:2917
+#: k7zip.cpp:3007
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "turinys"
 
-#: k7zip.cpp:3115
+#: k7zip.cpp:3205
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Rašymo klaida"
 
-#: k7zip.cpp:3145
+#: k7zip.cpp:3235
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Nesėkmė koduojant antraštę"
 
-#: k7zip.cpp:3189
+#: k7zip.cpp:3279
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Šiuo metu nepasirinktas joks failas"
 
-#: k7zip.cpp:3213 k7zip.cpp:3265 k7zip.cpp:3305
+#: k7zip.cpp:3303 k7zip.cpp:3355 k7zip.cpp:3395
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 "Programos klaida: 7-Zip failas privalo būti atvertas prieš tai, kai į jį bus "
 "rašoma"
 
-#: k7zip.cpp:3219 k7zip.cpp:3311
+#: k7zip.cpp:3309 k7zip.cpp:3401
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
@@ -269,76 +269,84 @@ msgctxt "KRcc|"
 msgid "Failed to register resource %1 under prefix %2"
 msgstr "Nepavyko registruoti ištekliaus %1 naudojant priešdėlį %2"
 
-#: ktar.cpp:353
+#: ktar.cpp:354
 #, qt-format
 msgctxt "KTar|"
 msgid "File %1 does not exist"
 msgstr "Failo %1 nėra"
 
-#: ktar.cpp:360
+#: ktar.cpp:361
 #, qt-format
 msgctxt "KTar|"
 msgid "Archive %1 is corrupt"
 msgstr "Archyvas %1 yra pažeistas"
 
-#: ktar.cpp:364
+#: ktar.cpp:365
 msgctxt "KTar|"
 msgid "Disk full"
 msgstr "Diskas pilnas"
 
-#: ktar.cpp:398
+#: ktar.cpp:399
 msgctxt "KTar|"
 msgid "Could not get underlying device"
 msgstr "Nepavyko gauti pagrindinio įrenginio"
 
-#: ktar.cpp:413
+#: ktar.cpp:415
 msgctxt "KTar|"
 msgid "Could not read tar header"
 msgstr "Nepavyko perskaityti tar antraštės"
 
-#: ktar.cpp:596 ktar.cpp:611
+#: ktar.cpp:601 ktar.cpp:616
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write back temp file: %1"
 msgstr "Nepavyko atgal rašyti laikinojo failo: %1"
 
-#: ktar.cpp:657
+#: ktar.cpp:632 ktar.cpp:637
+#, fuzzy, qt-format
+#| msgctxt "KTar|"
+#| msgid "Couldn't write alignment: %1"
+msgctxt "KTar|"
+msgid "Couldn't write end of archive: %1"
+msgstr "Nepavyko rašyti išsirikiavimo: %1"
+
+#: ktar.cpp:684
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write alignment: %1"
 msgstr "Nepavyko rašyti išsirikiavimo: %1"
 
-#: ktar.cpp:759 ktar.cpp:769
+#: ktar.cpp:786 ktar.cpp:796
 #, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write long link: %1"
 msgstr "Nepavyko rašyti ilgo saito: %1"
 
-#: ktar.cpp:790 ktar.cpp:873 ktar.cpp:942
+#: ktar.cpp:817 ktar.cpp:900 ktar.cpp:969
 msgctxt "KTar|"
 msgid "Application error: TAR file must be open before being written into"
 msgstr ""
 "Programos klaida: TAR failas privalo būti atvertas prieš tai, kai į jį bus "
 "rašoma"
 
-#: ktar.cpp:796
+#: ktar.cpp:823
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą 7-Zip failą"
 
-#: ktar.cpp:803
+#: ktar.cpp:830
 #, qt-format
 msgctxt "KTar|"
 msgid "Application limitation: Can not add file larger than %1 bytes"
 msgstr "Programos apribojimas: Negalima pridėti failo, didesnio nei %1 baitų"
 
-#: ktar.cpp:857
+#: ktar.cpp:884
 #, qt-format
 msgctxt "KTar|"
 msgid "Failed to write header: %1"
 msgstr "Nepavyko rašyti antraštės: %1"
 
-#: ktar.cpp:879 ktar.cpp:948
+#: ktar.cpp:906 ktar.cpp:975
 msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "Programos klaida: bandyta rašyti į ne rašymui skirtą TAR failą"
