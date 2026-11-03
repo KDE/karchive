@@ -306,8 +306,6 @@ msgstr "Klarte ikkje skriva tilbake mellombels fil: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
 #, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
 msgstr "Klarte ikkje skriva justering: %1"

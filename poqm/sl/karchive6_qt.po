@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-02 07:32+0200\n"
+"PO-Revision-Date: 2026-11-02 10:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: k7zip.cpp:2658
 msgctxt "K7Zip|"
@@ -303,12 +303,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Ni mogoče zapisati nazaj začasne datoteke: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Ni mogoče zapisati poravnave: %1"
+msgstr "Ni bilo mogoče zapisati konca arhiva: %1"
 
 #: ktar.cpp:684
 #, qt-format

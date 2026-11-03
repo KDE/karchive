@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: k7zip.cpp:2658
 msgctxt "K7Zip|"
@@ -298,12 +298,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "დროებითი ფაილის ჩაწერის შეცდომა: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "სწორების ჩაწერის შეცდომა: %1"
+msgstr "არქივის დასასრულის ჩაწერა შეუძლებელია: %1"
 
 #: ktar.cpp:684
 #, qt-format

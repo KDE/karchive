@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-04 14:54+0300\n"
-"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"PO-Revision-Date: 2026-11-02 07:45+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -306,12 +306,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Не удалось выполнить обратную запись временного файла: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Не удалось выполнить запись выравнивания: %1"
+msgstr "Не удалось записать конец архива: %1"
 
 #: ktar.cpp:684
 #, qt-format

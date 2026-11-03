@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karchive6_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:41+0000\n"
-"PO-Revision-Date: 2026-08-02 17:38+0100\n"
+"PO-Revision-Date: 2026-11-03 00:12+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: k7zip.cpp:2658
 msgctxt "K7Zip|"
@@ -314,12 +314,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "No se ha podido reescribir el archivo temporal: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "No se ha podido escribir la alineación: %1"
+msgstr "No se ha podido escribir el final del archivo: %1"
 
 #: ktar.cpp:684
 #, qt-format

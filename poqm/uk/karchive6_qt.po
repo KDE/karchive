@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-02 10:09+0300\n"
+"PO-Revision-Date: 2026-11-02 09:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -307,12 +307,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Не вдалося записати тимчасовий файл: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Не вдалося записати вирівнювання: %1"
+msgstr "Не вдалося записати кінець архіву: %1"
 
 #: ktar.cpp:684
 #, qt-format
