@@ -345,59 +345,59 @@ msgctxt "KTar|"
 msgid "Application error: attempted to write into non-writable TAR file"
 msgstr "应用程序错误：尝试写入不可写入的 TAR 文件"
 
-#: kzip.cpp:497 kzip.cpp:522
+#: kzip.cpp:698 kzip.cpp:723
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr "无效的 ZIP 文件。意外的文件结尾。（错误代码：%1 ）"
 
-#: kzip.cpp:548
+#: kzip.cpp:749
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "无效的 ZIP 文件。名称长度为负值。"
 
-#: kzip.cpp:553
+#: kzip.cpp:754
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "无效的 ZIP 文件。名称无法完全读取 (#2)"
 
-#: kzip.cpp:571
+#: kzip.cpp:772
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "无效的 ZIP 文件。损坏的 ExtraField。"
 
-#: kzip.cpp:592 kzip.cpp:615
+#: kzip.cpp:793 kzip.cpp:816
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "无法定位到下一个头部令牌"
 
-#: kzip.cpp:607
+#: kzip.cpp:808
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "无效的 ZIP 文件。意外的文件结尾。(#5)"
 
-#: kzip.cpp:622
+#: kzip.cpp:823
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "无法定位文件压缩后大小信息"
 
-#: kzip.cpp:638
+#: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "无效的 ZIP 文件。意外的文件结尾。(#1)"
 
-#: kzip.cpp:675
+#: kzip.cpp:876
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
 msgstr "无效的 ZIP 文件，中心条目太短 (短于有效条目的长度要求)"
 
-#: kzip.cpp:690
+#: kzip.cpp:890
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "无效的 ZIP 文件，文件路径名称长度为 0"
 
-#: kzip.cpp:696
+#: kzip.cpp:896
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -405,125 +405,125 @@ msgid ""
 "at offset %3"
 msgstr "无效的 ZIP 文件，无法在偏移量 %3 处读取 %1 + %2 字节的文件名和额外数据"
 
-#: kzip.cpp:740
+#: kzip.cpp:952
 #, qt-format
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, inconsistent Local Header Offset in Central Directory at %1"
 msgstr "无效的 ZIP 文件，本地文件头偏移量不一致，位于 %1"
 
-#: kzip.cpp:775
+#: kzip.cpp:987
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "无效的 ZIP 文件，发现空条目名称"
 
-#: kzip.cpp:817
+#: kzip.cpp:1034
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "文件 %1 位于文件夹 %2 之中，但 %3 实际上是一个文件。"
 
-#: kzip.cpp:828
+#: kzip.cpp:1045
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "无法定位到下一个条目"
 
-#: kzip.cpp:857
+#: kzip.cpp:1074
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "这不是 ZIP 文件，没有找到本地文件头。"
 
-#: kzip.cpp:861
+#: kzip.cpp:1078
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "无效的 ZIP 文件。无法识别的文件头偏移量 %1"
 
-#: kzip.cpp:888
+#: kzip.cpp:1105
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "无法定位到下一个头标记：%1"
 
-#: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
+#: kzip.cpp:1132 kzip.cpp:1142 kzip.cpp:1324
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "无法写入文件头：%1"
 
-#: kzip.cpp:936
+#: kzip.cpp:1154
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
 msgstr "无法寻址到 Zip64 额外字段：%1"
 
-#: kzip.cpp:944
+#: kzip.cpp:1162
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
 msgstr "无法写入 Zip64 压缩后体积：%1"
 
-#: kzip.cpp:1131
+#: kzip.cpp:1367
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
 msgstr "无法写入 Zip64 EOCD 记录：%1"
 
-#: kzip.cpp:1150
+#: kzip.cpp:1386
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
 msgstr "无法写入 Zip64 EOCD 定位器：%1"
 
-#: kzip.cpp:1212
+#: kzip.cpp:1448
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "无法写入中央目录记录：%1"
 
-#: kzip.cpp:1248
+#: kzip.cpp:1484
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr "应用程序错误：ZIP 文件必须先打开才能写入"
 
-#: kzip.cpp:1254
+#: kzip.cpp:1490
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr "应用程序错误：尝试写入不可写入的 ZIP 文件"
 
-#: kzip.cpp:1260
+#: kzip.cpp:1496
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "无法创建设备。请检查磁盘是否已满。"
 
-#: kzip.cpp:1266
+#: kzip.cpp:1502
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "无法在 ZIP 文件中寻址。请检查磁盘是否已满。"
 
-#: kzip.cpp:1421
+#: kzip.cpp:1658
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "无法写入该压缩文件。请检查磁盘是否已满。"
 
-#: kzip.cpp:1440
+#: kzip.cpp:1677
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "无法打开压缩设备：%1"
 
-#: kzip.cpp:1523
+#: kzip.cpp:1760
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "没有文件或者设备"
 
-#: kzip.cpp:1540
+#: kzip.cpp:1777
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
 msgstr "写入数据块时出错：%1"
 
-#: kzip.cpp:1553
+#: kzip.cpp:1790
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"

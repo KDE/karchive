@@ -365,49 +365,49 @@ msgstr ""
 "Aplikazioaren errorea: idazgarria ez den TAR fitxategi batean idazteko "
 "saiakera"
 
-#: kzip.cpp:497 kzip.cpp:522
+#: kzip.cpp:698 kzip.cpp:723
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (Error code: %1)"
 msgstr ""
 "ZIP fitxategi baliogabea. Ustekabeko fitxategi amaiera. (Errore kodea: %1)"
 
-#: kzip.cpp:548
+#: kzip.cpp:749
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Negative name length"
 msgstr "ZIP fitxategi baliogabea. Izenaren luzera negatiboa"
 
-#: kzip.cpp:553
+#: kzip.cpp:754
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Name not completely read (#2)"
 msgstr "ZIP fitxategi baliogabea. Izenaren osotasuna ez da irakurri (2 zk.)"
 
-#: kzip.cpp:571
+#: kzip.cpp:772
 msgctxt "KZip|"
 msgid "Invalid ZIP File. Broken ExtraField."
 msgstr "ZIP fitxategi baliogabea. «ExtraField» hautsia."
 
-#: kzip.cpp:592 kzip.cpp:615
+#: kzip.cpp:793 kzip.cpp:816
 msgctxt "KZip|"
 msgid "Could not seek to next header token"
 msgstr "Ezin izan du goiburuko hurrengo tokena bilatu"
 
-#: kzip.cpp:607
+#: kzip.cpp:808
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#5)"
 msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera. (5 zk.)"
 
-#: kzip.cpp:622
+#: kzip.cpp:823
 msgctxt "KZip|"
 msgid "Could not seek to file compressed size"
 msgstr "Ezin izan du fitxategiaren neurri konprimatua bilatu"
 
-#: kzip.cpp:638
+#: kzip.cpp:839
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unexpected end of file. (#1)"
 msgstr "ZIP fitxategi baliogabea. Ezusteko fitxategi amaiera. (1 zk.)"
 
-#: kzip.cpp:675
+#: kzip.cpp:876
 msgctxt "KZip|"
 msgid ""
 "Invalid ZIP file, central entry too short (not long enough for valid entry)"
@@ -415,12 +415,12 @@ msgstr ""
 "ZIP fitxategi baliogabea, sarrera nagusia laburregia (ez da baliozkoa "
 "izateko behar bezain luzea)"
 
-#: kzip.cpp:690
+#: kzip.cpp:890
 msgctxt "KZip|"
 msgid "Invalid ZIP file, file path name length is zero"
 msgstr "ZIP fitxategi baliogabea, fitxategi bide-izenaren luzera zero da"
 
-#: kzip.cpp:696
+#: kzip.cpp:896
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -430,7 +430,7 @@ msgstr ""
 "ZIP fitxategi baliogabea, ezin ditu irakurri %1 + %2 byte, fitxategi-"
 "izenerako eta datu gehigarrietarako, %3 posizioan"
 
-#: kzip.cpp:740
+#: kzip.cpp:952
 #, qt-format
 msgctxt "KZip|"
 msgid ""
@@ -439,122 +439,122 @@ msgstr ""
 "ZIP fitxategi baliogabea, direktorio nagusian %1(e)an goiburu lokaleko "
 "jatorri aldaketa inkoherentea"
 
-#: kzip.cpp:775
+#: kzip.cpp:987
 msgctxt "KZip|"
 msgid "Invalid ZIP file, found empty entry name"
 msgstr "ZIP fitxategi baliogabea, sarrera-izen hutsa aurkitu da"
 
-#: kzip.cpp:817
+#: kzip.cpp:1034
 #, qt-format
 msgctxt "KZip|"
 msgid "File %1 is in folder %2, but %3 is actually a file."
 msgstr "%1 fitxategia %2 karpetan dago, baina %3 fitxategi bat da."
 
-#: kzip.cpp:828
+#: kzip.cpp:1045
 msgctxt "KZip|"
 msgid "Could not seek to next entry"
 msgstr "Ezin du hurrengo sarrera bilatu"
 
-#: kzip.cpp:857
+#: kzip.cpp:1074
 msgctxt "KZip|"
 msgid "Not a ZIP file, no Local File Header found."
 msgstr "Ez da ZIP fitxategi bat, ez da fitxategi lokalaren goibururik aurkitu."
 
-#: kzip.cpp:861
+#: kzip.cpp:1078
 #, qt-format
 msgctxt "KZip|"
 msgid "Invalid ZIP file. Unrecognized header at offset %1"
 msgstr "ZIP fitxategi baliogabea. Goiburu ezezaguna %1 jatorri-aldaketan"
 
-#: kzip.cpp:888
+#: kzip.cpp:1105
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to next file header: %1"
 msgstr "Ezin izan du hurrengo fitxategiaren goiburua bilatu: %1"
 
-#: kzip.cpp:914 kzip.cpp:924 kzip.cpp:1088
+#: kzip.cpp:1132 kzip.cpp:1142 kzip.cpp:1324
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write file header: %1"
 msgstr "Ezin izan du fitxategiaren goiburua idatzi: %1"
 
-#: kzip.cpp:936
+#: kzip.cpp:1154
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not seek to Zip64 extra field: %1"
 msgstr "Ezin izan da Zip64 eremu gehigarrian kokatu: %1"
 
-#: kzip.cpp:944
+#: kzip.cpp:1162
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 compressed size: %1"
 msgstr "Ezin izan da Zip64 neurri konprimatua idatzi: %1"
 
-#: kzip.cpp:1131
+#: kzip.cpp:1367
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD record: %1"
 msgstr "Ezin izan da Zip64 EOCD erregistroa idatzi: %1"
 
-#: kzip.cpp:1150
+#: kzip.cpp:1386
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write Zip64 EOCD locator: %1"
 msgstr "Ezin izan da Zip64 EOCD kokatzailea idatzi: %1"
 
-#: kzip.cpp:1212
+#: kzip.cpp:1448
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not write central dir record: %1"
 msgstr "Ezin izan du direktorio nagusiaren erregistroa idatzi: %1"
 
-#: kzip.cpp:1248
+#: kzip.cpp:1484
 msgctxt "KZip|"
 msgid "Application error: ZIP file must be open before being written into"
 msgstr ""
 "Aplikazioaren errorea: ZIP fitxategia irekita egon behar da hartan idatzi "
 "aurretik"
 
-#: kzip.cpp:1254
+#: kzip.cpp:1490
 msgctxt "KZip|"
 msgid "Application error: attempted to write into non-writable ZIP file"
 msgstr ""
 "Aplikazioaren errorea: idazgarria ez den ZIP fitxategi batean idazteko "
 "saiakera"
 
-#: kzip.cpp:1260
+#: kzip.cpp:1496
 msgctxt "KZip|"
 msgid "Cannot create a device. Disk full?"
 msgstr "Ezin du gailu bat sortu. Diskoa beteta?"
 
-#: kzip.cpp:1266
+#: kzip.cpp:1502
 msgctxt "KZip|"
 msgid "Cannot seek in ZIP file. Disk full?"
 msgstr "Ezin du ZIP fitxategi batean bilatu. Diskoa beteta?"
 
-#: kzip.cpp:1421
+#: kzip.cpp:1658
 msgctxt "KZip|"
 msgid "Could not write to the archive. Disk full?"
 msgstr "Ezin du artxiboan idatzi. Diskoa beteta?"
 
-#: kzip.cpp:1440
+#: kzip.cpp:1677
 #, qt-format
 msgctxt "KZip|"
 msgid "Could not open compression device: %1"
 msgstr "Ezin izan du konpresio gailua ireki: %1"
 
-#: kzip.cpp:1523
+#: kzip.cpp:1760
 msgctxt "KZip|"
 msgid "No file or device"
 msgstr "Fitxategirik edo gailurik ez"
 
-#: kzip.cpp:1540
+#: kzip.cpp:1777
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data chunk: %1"
 msgstr "Errorea datu zatia idaztean: %1"
 
-#: kzip.cpp:1553
+#: kzip.cpp:1790
 #, qt-format
 msgctxt "KZip|"
 msgid "Error writing data: %1"
