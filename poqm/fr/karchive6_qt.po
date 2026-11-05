@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: karchive5_qt\n"
-"PO-Revision-Date: 2026-08-29 19:34+0200\n"
+"PO-Revision-Date: 2026-11-03 07:25+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: k7zip.cpp:2658
@@ -310,12 +310,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Échec de l'écriture du fichier temporaire : %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Impossible d'écrire l'alignement : %1"
+msgstr "Impossible d'écrire la fin de l'archive : %1"
 
 #: ktar.cpp:684
 #, qt-format
