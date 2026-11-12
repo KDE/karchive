@@ -1962,7 +1962,10 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 return QByteArray();
             }
             QIODevice *dev = q->device();
-            dev->seek(startPos);
+            if (!dev->seek(startPos)) {
+                qCWarning(KArchiveLog) << "Failed to seek to packed stream at" << startPos;
+                return QByteArray();
+            }
             QByteArray deflatedData = dev->read(size);
             if (static_cast<quint64>(deflatedData.size()) != size) {
                 qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << deflatedData.size();
