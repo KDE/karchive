@@ -1957,20 +1957,17 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 return QByteArray();
             }
             const quint64 size = packSizes[j + i];
-            // Not really allocating a QByteArray but is a good enough big size
             if (size > kMaxQByteArraySize) {
                 qCWarning(KArchiveLog) << "packSizes bigger than supported. Open a bug if this is a genuine file." << size;
                 return QByteArray();
             }
-            std::unique_ptr<char[]> encodedBuffer(new char[size]);
             QIODevice *dev = q->device();
             dev->seek(startPos);
-            quint64 n = dev->read(encodedBuffer.get(), size);
-            if (n != size) {
-                qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << n;
+            QByteArray deflatedData = dev->read(size);
+            if (static_cast<quint64>(deflatedData.size()) != size) {
+                qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << deflatedData.size();
                 return inflatedData;
             }
-            QByteArray deflatedData(encodedBuffer.get(), size);
             datas.append(deflatedData);
             startPos += size;
             pos += size;
