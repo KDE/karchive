@@ -1957,13 +1957,21 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 return QByteArray();
             }
             const quint64 size = packSizes[j + i];
-            if (size > kMaxQByteArraySize) {
-                qCWarning(KArchiveLog) << "packSizes bigger than supported. Open a bug if this is a genuine file." << size;
-                return QByteArray();
-            }
             QIODevice *dev = q->device();
             if (!dev->seek(startPos)) {
                 qCWarning(KArchiveLog) << "Failed to seek to packed stream at" << startPos;
+                return QByteArray();
+            }
+            const qint64 deviceSize = dev->size();
+            if (deviceSize > 0) {
+                const quint64 totalSize = static_cast<quint64>(deviceSize);
+                if (startPos > totalSize || size > totalSize - startPos) {
+                    qCWarning(KArchiveLog) << "Packed stream exceeds device size:" << startPos << size << deviceSize;
+                    return QByteArray();
+                }
+            }
+            if (size > kMaxQByteArraySize) {
+                qCWarning(KArchiveLog) << "packSizes bigger than supported. Open a bug if this is a genuine file." << size;
                 return QByteArray();
             }
             QByteArray deflatedData = dev->read(size);
