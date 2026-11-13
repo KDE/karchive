@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.11.70\n"
+"X-Generator: Lokalize 26.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: qtrich\n"
@@ -103,9 +103,7 @@ msgstr "Ugyldig"
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
-msgstr ""
-"Feil ved lesing av storleik (checkRecordsSize: %1, d->pos – ppp: %2, "
-"storleik: %3)"
+msgstr "Feil ved lesing av storleik (checkRecordsSize: %1, d->pos – ppp: %2, storleik: %3)"
 
 #: k7zip.cpp:2796
 msgctxt "K7Zip|"
@@ -205,10 +203,8 @@ msgstr "%1 finst ikkje eller er ikkje ei vanleg fil."
 #: karchive.cpp:274
 #, qt-format
 msgctxt "KArchive|"
-msgid ""
-"Failed accessing the file %1 for adding to the archive. The error was: %2"
-msgstr ""
-"Fekk ikkje tilgang til fila %1 for tilføying til arkivet. Feilen var: %2"
+msgid "Failed accessing the file %1 for adding to the archive. The error was: %2"
+msgstr "Fekk ikkje tilgang til fila %1 for tilføying til arkivet. Feilen var: %2"
 
 #: karchive.cpp:320
 #, qt-format
@@ -364,11 +360,8 @@ msgstr "Ugyldig zip-fil: Kom til slutten av fila for tidleg (#1)"
 
 #: kzip.cpp:631
 msgctxt "KZip|"
-msgid ""
-"Invalid ZIP file, central entry too short (not long enough for valid entry)"
-msgstr ""
-"Ugyldig zip-fil: Sentraloppføring er for kort (ikkje lang nok for ei gyldig "
-"oppføring)"
+msgid "Invalid ZIP file, central entry too short (not long enough for valid entry)"
+msgstr "Ugyldig zip-fil: Sentraloppføring er for kort (ikkje lang nok for ei gyldig oppføring)"
 
 #: kzip.cpp:640
 msgctxt "KZip|"
