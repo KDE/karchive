@@ -13,38 +13,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: k7zip.cpp:2674
+#: k7zip.cpp:2679
 #, fuzzy
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "சாதனத்தை அணுக முடியவில்லை"
 
-#: k7zip.cpp:2682
+#: k7zip.cpp:2687
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "தலைப்புப்புலத்தைப் படிப்பது தோல்வியடைந்தது"
 
-#: k7zip.cpp:2688
+#: k7zip.cpp:2693
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "கையொப்ப சரிபார்ப்பு தோல்வியடைந்தது"
 
-#: k7zip.cpp:2711
+#: k7zip.cpp:2716
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "தவறான CRC"
 
-#: k7zip.cpp:2720
+#: k7zip.cpp:2725
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "அடுத்த தலைப்புப்புலத்தின் அளவு சரியானதைவிட பெரிதாக உள்ளது"
 
-#: k7zip.cpp:2725
+#: k7zip.cpp:2730
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "அடுத்த தலைப்புப்புலத்தின் அளவு சுழியத்தைவிட சிறியதாக உள்ளது"
 
-#: k7zip.cpp:2736
+#: k7zip.cpp:2741
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
@@ -52,96 +52,96 @@ msgstr ""
 "அடுத்த தலைப்புப்புலத்தின் அளவைப் படிப்பதில் சிக்கல்; %1 எதிர்பார்க்கப்பட்டது, ஆனால் %2 "
 "பெறப்பட்டது"
 
-#: k7zip.cpp:2749
+#: k7zip.cpp:2754
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr ""
 
-#: k7zip.cpp:2757
+#: k7zip.cpp:2762
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "தலைப்புப்புலத்தில் பிழை"
 
-#: k7zip.cpp:2775 k7zip.cpp:2808
+#: k7zip.cpp:2780 k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "இக்காப்பகத்திற்கு கடவுச்சொல் தேவை"
 
-#: k7zip.cpp:2781
+#: k7zip.cpp:2786
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "தவறான தலைப்புப்புல வகை"
 
-#: k7zip.cpp:2791 k7zip.cpp:2797
+#: k7zip.cpp:2796 k7zip.cpp:2802
 #, fuzzy
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "இதற்கான ஆதரவு நிரலாளர்களால் எழுதப்படவில்லை"
 
-#: k7zip.cpp:2803
+#: k7zip.cpp:2808
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr ""
 
-#: k7zip.cpp:2826
+#: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr ""
 
-#: k7zip.cpp:2834 k7zip.cpp:2842
+#: k7zip.cpp:2839 k7zip.cpp:2847
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr ""
 "காப்பகத்தில் %1 கோப்புகள் உள்ளன. இது ஆதரிக்கப்படும் எண்ணிக்கையைவிட அதிகமானது (%2)."
 
-#: k7zip.cpp:2900
+#: k7zip.cpp:2905
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "மாற்றப்பட்ட நேரத்தைப் படிப்பதில் சிக்கல்"
 
-#: k7zip.cpp:2946
+#: k7zip.cpp:2951
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr ""
 
-#: k7zip.cpp:2953
+#: k7zip.cpp:2958
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "முறையற்றது"
 
-#: k7zip.cpp:2977
+#: k7zip.cpp:2982
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
 msgstr ""
 
-#: k7zip.cpp:3023
+#: k7zip.cpp:3028
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr ""
 
-#: k7zip.cpp:3221
+#: k7zip.cpp:3226
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "எழுதுவதில் சிக்கல்"
 
-#: k7zip.cpp:3251
+#: k7zip.cpp:3256
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr ""
 
-#: k7zip.cpp:3295
+#: k7zip.cpp:3300
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "எக்கோப்பும் தேர்ந்தெடுக்கப்படவில்லை"
 
-#: k7zip.cpp:3319 k7zip.cpp:3371 k7zip.cpp:3411
+#: k7zip.cpp:3324 k7zip.cpp:3376 k7zip.cpp:3416
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr ""
 
-#: k7zip.cpp:3325 k7zip.cpp:3417
+#: k7zip.cpp:3330 k7zip.cpp:3422
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr ""

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-02 19:05+0200\n"
+"PO-Revision-Date: 2026-11-12 21:41+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -12,105 +12,105 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.11.70\n"
+"X-Generator: Lokalize 26.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: qtrich\n"
 "X-Qt-Contexts: true\n"
 
-#: k7zip.cpp:2674
+#: k7zip.cpp:2679
 msgctxt "K7Zip|"
 msgid "Could not get underlying device"
 msgstr "Fekk ikkje tilgang til underliggjande eining"
 
-#: k7zip.cpp:2682
+#: k7zip.cpp:2687
 msgctxt "K7Zip|"
 msgid "Read header failed"
 msgstr "Feil ved lesing av filhovud"
 
-#: k7zip.cpp:2688
+#: k7zip.cpp:2693
 msgctxt "K7Zip|"
 msgid "Check signature failed"
 msgstr "Feil ved signaturkontroll"
 
-#: k7zip.cpp:2711
+#: k7zip.cpp:2716
 msgctxt "K7Zip|"
 msgid "Bad CRC"
 msgstr "Ugyldig CRC"
 
-#: k7zip.cpp:2720
+#: k7zip.cpp:2725
 msgctxt "K7Zip|"
 msgid "Next header size is too big"
 msgstr "Neste filhovud-storleik er for stor"
 
-#: k7zip.cpp:2725
+#: k7zip.cpp:2730
 msgctxt "K7Zip|"
 msgid "Next header size is less than zero"
 msgstr "Neste filhovud-storleik er mindre enn null"
 
-#: k7zip.cpp:2736
+#: k7zip.cpp:2741
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Failed read next header size; should read %1, read %2"
 msgstr "Klarte ikkje lesa ned filhovud-storleik – skulle lesa %1, men las %2"
 
-#: k7zip.cpp:2749
+#: k7zip.cpp:2754
 msgctxt "K7Zip|"
 msgid "Bad next header CRC"
 msgstr "Ugyldig CRC for neste filhovud"
 
-#: k7zip.cpp:2757
+#: k7zip.cpp:2762
 msgctxt "K7Zip|"
 msgid "Error in header"
 msgstr "Feil i filhovud"
 
-#: k7zip.cpp:2775 k7zip.cpp:2808
+#: k7zip.cpp:2780 k7zip.cpp:2813
 msgctxt "K7Zip|"
 msgid "Password needed for this archive"
 msgstr "Treng passord for å lesa denne arkivfila"
 
-#: k7zip.cpp:2781
+#: k7zip.cpp:2786
 msgctxt "K7Zip|"
 msgid "Wrong header type"
 msgstr "Ugyldig filhovudtype"
 
-#: k7zip.cpp:2791 k7zip.cpp:2797
+#: k7zip.cpp:2796 k7zip.cpp:2802
 msgctxt "K7Zip|"
 msgid "Not implemented"
 msgstr "Ikkje implementert"
 
-#: k7zip.cpp:2803
+#: k7zip.cpp:2808
 msgctxt "K7Zip|"
 msgid "Error while reading main streams information"
 msgstr "Feil ved lesing hovudstraum-informasjon"
 
-#: k7zip.cpp:2826
+#: k7zip.cpp:2831
 msgctxt "K7Zip|"
 msgid "Error while reading header"
 msgstr "Feil ved lesing av filhovud"
 
-#: k7zip.cpp:2834 k7zip.cpp:2842
+#: k7zip.cpp:2839 k7zip.cpp:2847
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Archive has %1 files which is more than the supported amount (%2)"
 msgstr "Arkivet inneheld %1 filer, som er meir enn det som er støtta (%2)"
 
-#: k7zip.cpp:2900
+#: k7zip.cpp:2905
 msgctxt "K7Zip|"
 msgid "Error reading modification time"
 msgstr "Feil ved lesing av siste endringstidspunkt"
 
-#: k7zip.cpp:2946
+#: k7zip.cpp:2951
 msgctxt "K7Zip|"
 msgid "Error reading MTime"
 msgstr "Feil ved lesing av MTime"
 
-#: k7zip.cpp:2953
+#: k7zip.cpp:2958
 msgctxt "K7Zip|"
 msgid "Invalid"
 msgstr "Ugyldig"
 
-#: k7zip.cpp:2977
+#: k7zip.cpp:2982
 #, qt-format
 msgctxt "K7Zip|"
 msgid "Read size failed (checkRecordsSize: %1, d->pos - ppp: %2, size: %3)"
@@ -118,32 +118,32 @@ msgstr ""
 "Feil ved lesing av storleik (checkRecordsSize: %1, d->pos – ppp: %2, "
 "storleik: %3)"
 
-#: k7zip.cpp:3023
+#: k7zip.cpp:3028
 msgctxt "K7Zip|"
 msgid "contents"
 msgstr "innhald"
 
-#: k7zip.cpp:3221
+#: k7zip.cpp:3226
 msgctxt "K7Zip|"
 msgid "Write error"
 msgstr "Skrivefeil"
 
-#: k7zip.cpp:3251
+#: k7zip.cpp:3256
 msgctxt "K7Zip|"
 msgid "Failed while encoding header"
 msgstr "Feil ved koding av filhovud"
 
-#: k7zip.cpp:3295
+#: k7zip.cpp:3300
 msgctxt "K7Zip|"
 msgid "No file currently selected"
 msgstr "Inga fil er vald"
 
-#: k7zip.cpp:3319 k7zip.cpp:3371 k7zip.cpp:3411
+#: k7zip.cpp:3324 k7zip.cpp:3376 k7zip.cpp:3416
 msgctxt "K7Zip|"
 msgid "Application error: 7-Zip file must be open before being written into"
 msgstr "Programfeil: 7-Zip-fila må vera open før ho vert skriven til"
 
-#: k7zip.cpp:3325 k7zip.cpp:3417
+#: k7zip.cpp:3330 k7zip.cpp:3422
 msgctxt "K7Zip|"
 msgid "Application error: attempted to write into non-writable 7-Zip file"
 msgstr "Programfeil: Prøvde å skriva til ikkje-skrivbar 7-Zip-fil"
@@ -305,10 +305,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Klarte ikkje skriva tilbake mellombels fil: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Klarte ikkje skriva justering: %1"
+msgstr "Klarte ikkje lagra slutten på arkivet: %1"
 
 #: ktar.cpp:684
 #, qt-format
