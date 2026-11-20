@@ -308,12 +308,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "Nepodarilo sa zapísať späť dočasný súbor: %1"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "Nepodarilo sa zapísať zarovnanie: %1"
+msgstr "Nepodarilo sa zapísať koniec archívu: %1"
 
 #: ktar.cpp:684
 #, qt-format
