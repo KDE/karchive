@@ -1962,16 +1962,15 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
                 qCWarning(KArchiveLog) << "packSizes bigger than supported. Open a bug if this is a genuine file." << size;
                 return QByteArray();
             }
-            std::unique_ptr<char[]> encodedBuffer(new char[size]);
+            QByteArray encodedBuffer(size, Qt::Uninitialized);
             QIODevice *dev = q->device();
             dev->seek(startPos);
-            quint64 n = dev->read(encodedBuffer.get(), size);
+            quint64 n = dev->read(encodedBuffer.data(), encodedBuffer.size());
             if (n != size) {
                 qCDebug(KArchiveLog) << "Failed read next size, should read " << size << ", read " << n;
                 return inflatedData;
             }
-            QByteArray deflatedData(encodedBuffer.get(), size);
-            datas.append(deflatedData);
+            datas.append(std::move(encodedBuffer));
             startPos += size;
             pos += size;
             headerSize += size;
