@@ -1977,7 +1977,6 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
         }
 
         QList<QByteArray> inflatedDatas;
-        QByteArray deflatedData;
         for (int j = 0; j < seqInStreams.size(); ++j) {
             int coderIndex = 0;
 
@@ -1992,7 +1991,7 @@ QByteArray K7Zip::K7ZipPrivate::readAndDecodePackedStreams(bool readMainStreamIn
             if (seqInStream >= datas.size()) {
                 return {};
             }
-            deflatedData = datas[seqInStream];
+            QByteArray &deflatedData = datas[seqInStream];
 
             KFilterBase *filter = getFilter(folder, &coder, coderIndex, deflatedData, inflatedDatas);
             if (coder.methodID == k_BCJ2) {
