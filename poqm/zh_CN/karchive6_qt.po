@@ -299,12 +299,10 @@ msgid "Failed to write back temp file: %1"
 msgstr "写入临时文件：%1 失败"
 
 #: ktar.cpp:632 ktar.cpp:637
-#, fuzzy, qt-format
-#| msgctxt "KTar|"
-#| msgid "Couldn't write alignment: %1"
+#, qt-format
 msgctxt "KTar|"
 msgid "Couldn't write end of archive: %1"
-msgstr "写入对齐信息：%1 失败"
+msgstr "无法写入压缩文件结尾：%1"
 
 #: ktar.cpp:684
 #, qt-format
